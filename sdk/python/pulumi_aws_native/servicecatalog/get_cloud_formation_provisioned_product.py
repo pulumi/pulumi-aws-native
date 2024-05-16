@@ -68,6 +68,12 @@ class GetCloudFormationProvisionedProductResult:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional['CloudFormationProvisionedProductAcceptLanguage']:
+        """
+        The language code.
+
+        - `jp` - Japanese
+        - `zh` - Chinese
+        """
         return pulumi.get(self, "accept_language")
 
     @property
@@ -86,56 +92,111 @@ class GetCloudFormationProvisionedProductResult:
     @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[str]:
+        """
+        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+
+        > You must provide the name or ID, but not both.
+        """
         return pulumi.get(self, "path_id")
 
     @property
     @pulumi.getter(name="pathName")
     def path_name(self) -> Optional[str]:
+        """
+        The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+
+        > You must provide the name or ID, but not both.
+        """
         return pulumi.get(self, "path_name")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[str]:
+        """
+        The product identifier.
+
+        > You must specify either the ID or the name of the product, but not both.
+        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[str]:
+        """
+        The name of the Service Catalog product.
+
+        Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+
+        > You must specify either the name or the ID of the product, but not both.
+        """
         return pulumi.get(self, "product_name")
 
     @property
     @pulumi.getter(name="provisionedProductId")
     def provisioned_product_id(self) -> Optional[str]:
+        """
+        The ID of the provisioned product.
+        """
         return pulumi.get(self, "provisioned_product_id")
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> Optional[str]:
+        """
+        The identifier of the provisioning artifact (also known as a version).
+
+        > You must specify either the ID or the name of the provisioning artifact, but not both.
+        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> Optional[str]:
+        """
+        The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+
+        > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[Sequence['outputs.CloudFormationProvisionedProductProvisioningParameter']]:
+        """
+        Information about a parameter used to provision a product.
+        """
         return pulumi.get(self, "provisioning_parameters")
 
     @property
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> Optional['outputs.CloudFormationProvisionedProductProvisioningPreferences']:
+        """
+        The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+
+        One or more AWS accounts that will have access to the provisioned product.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+
+        If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        """
         return pulumi.get(self, "provisioning_preferences")
 
     @property
     @pulumi.getter(name="recordId")
     def record_id(self) -> Optional[str]:
+        """
+        The ID of the record, such as `rec-rjeatvy434trk` .
+        """
         return pulumi.get(self, "record_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -165,6 +226,9 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[str
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudFormationProvisionedProductResult:
     """
     Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+
+
+    :param str provisioned_product_id: The ID of the provisioned product.
     """
     __args__ = dict()
     __args__['provisionedProductId'] = provisioned_product_id
@@ -193,5 +257,8 @@ def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optio
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
     """
     Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+
+
+    :param str provisioned_product_id: The ID of the provisioned product.
     """
     ...

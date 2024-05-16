@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("authType")]
         public Output<Pulumi.AwsNative.Lambda.UrlAuthType> AuthType { get; private set; } = null!;
 
+        /// <summary>
+        /// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+        /// </summary>
         [Output("cors")]
         public Output<Outputs.UrlCors?> Cors { get; private set; } = null!;
 
@@ -110,6 +113,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("authType", required: true)]
         public Input<Pulumi.AwsNative.Lambda.UrlAuthType> AuthType { get; set; } = null!;
 
+        /// <summary>
+        /// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+        /// </summary>
         [Input("cors")]
         public Input<Inputs.UrlCorsArgs>? Cors { get; set; }
 

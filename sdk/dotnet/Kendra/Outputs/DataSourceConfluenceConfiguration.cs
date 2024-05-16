@@ -13,15 +13,47 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfluenceConfiguration
     {
+        /// <summary>
+        /// Configuration of attachment settings for the Confluence data source. Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
+        /// </summary>
         public readonly Outputs.DataSourceConfluenceAttachmentConfiguration? AttachmentConfiguration;
+        /// <summary>
+        /// Configuration of blog settings for the Confluence data source. Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
+        /// </summary>
         public readonly Outputs.DataSourceConfluenceBlogConfiguration? BlogConfiguration;
+        /// <summary>
+        /// A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+        /// </summary>
         public readonly ImmutableArray<string> ExclusionPatterns;
+        /// <summary>
+        /// A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+        /// </summary>
         public readonly ImmutableArray<string> InclusionPatterns;
+        /// <summary>
+        /// Configuration of the page settings for the Confluence data source.
+        /// </summary>
         public readonly Outputs.DataSourceConfluencePageConfiguration? PageConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+        /// 
+        /// You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
+        /// </summary>
         public readonly string SecretArn;
+        /// <summary>
+        /// The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
+        /// </summary>
         public readonly string ServerUrl;
+        /// <summary>
+        /// Configuration information for indexing Confluence spaces.
+        /// </summary>
         public readonly Outputs.DataSourceConfluenceSpaceConfiguration? SpaceConfiguration;
+        /// <summary>
+        /// The version or the type of Confluence installation to connect to.
+        /// </summary>
         public readonly Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion Version;
+        /// <summary>
+        /// Provides the configuration information to connect to an Amazon VPC.
+        /// </summary>
         public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

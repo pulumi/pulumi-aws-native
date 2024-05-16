@@ -30,6 +30,9 @@ class GetNetworkAclResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the network ACL.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -55,6 +58,9 @@ def get_network_acl(id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkAclResult:
     """
     Specifies a network ACL for your VPC.
+
+
+    :param str id: The ID of the network ACL.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -71,5 +77,8 @@ def get_network_acl_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAclResult]:
     """
     Specifies a network ACL for your VPC.
+
+
+    :param str id: The ID of the network ACL.
     """
     ...

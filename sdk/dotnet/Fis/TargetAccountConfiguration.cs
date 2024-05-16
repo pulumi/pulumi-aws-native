@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Fis
     [AwsNativeResourceType("aws-native:fis:TargetAccountConfiguration")]
     public partial class TargetAccountConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID of the target account.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the target account.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Output("experimentTemplateId")]
         public Output<string> ExperimentTemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role for the target account.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -77,15 +89,27 @@ namespace Pulumi.AwsNative.Fis
 
     public sealed class TargetAccountConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID of the target account.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the target account.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Input("experimentTemplateId", required: true)]
         public Input<string> ExperimentTemplateId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role for the target account.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

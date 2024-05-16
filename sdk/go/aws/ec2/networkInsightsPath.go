@@ -17,20 +17,34 @@ import (
 type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
-	CreatedDate            pulumi.StringOutput                    `pulumi:"createdDate"`
-	Destination            pulumi.StringPtrOutput                 `pulumi:"destination"`
-	DestinationArn         pulumi.StringOutput                    `pulumi:"destinationArn"`
-	DestinationIp          pulumi.StringPtrOutput                 `pulumi:"destinationIp"`
-	DestinationPort        pulumi.IntPtrOutput                    `pulumi:"destinationPort"`
-	FilterAtDestination    NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtDestination"`
-	FilterAtSource         NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtSource"`
-	NetworkInsightsPathArn pulumi.StringOutput                    `pulumi:"networkInsightsPathArn"`
-	NetworkInsightsPathId  pulumi.StringOutput                    `pulumi:"networkInsightsPathId"`
-	Protocol               NetworkInsightsPathProtocolOutput      `pulumi:"protocol"`
-	Source                 pulumi.StringOutput                    `pulumi:"source"`
-	SourceArn              pulumi.StringOutput                    `pulumi:"sourceArn"`
-	SourceIp               pulumi.StringPtrOutput                 `pulumi:"sourceIp"`
-	Tags                   aws.TagArrayOutput                     `pulumi:"tags"`
+	// The time stamp when the path was created.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+	Destination pulumi.StringPtrOutput `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the destination.
+	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
+	// The IP address of the destination.
+	DestinationIp pulumi.StringPtrOutput `pulumi:"destinationIp"`
+	// The destination port.
+	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
+	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	FilterAtDestination NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtDestination"`
+	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	FilterAtSource NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtSource"`
+	// The Amazon Resource Name (ARN) of the path.
+	NetworkInsightsPathArn pulumi.StringOutput `pulumi:"networkInsightsPathArn"`
+	// The ID of the path.
+	NetworkInsightsPathId pulumi.StringOutput `pulumi:"networkInsightsPathId"`
+	// The protocol.
+	Protocol NetworkInsightsPathProtocolOutput `pulumi:"protocol"`
+	// The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+	Source pulumi.StringOutput `pulumi:"source"`
+	// The Amazon Resource Name (ARN) of the source.
+	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
+	// The IP address of the source.
+	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewNetworkInsightsPath registers a new resource with the given unique name, arguments, and options.
@@ -90,28 +104,46 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	Destination         *string                        `pulumi:"destination"`
-	DestinationIp       *string                        `pulumi:"destinationIp"`
-	DestinationPort     *int                           `pulumi:"destinationPort"`
+	// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+	Destination *string `pulumi:"destination"`
+	// The IP address of the destination.
+	DestinationIp *string `pulumi:"destinationIp"`
+	// The destination port.
+	DestinationPort *int `pulumi:"destinationPort"`
+	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
 	FilterAtDestination *NetworkInsightsPathPathFilter `pulumi:"filterAtDestination"`
-	FilterAtSource      *NetworkInsightsPathPathFilter `pulumi:"filterAtSource"`
-	Protocol            NetworkInsightsPathProtocol    `pulumi:"protocol"`
-	Source              string                         `pulumi:"source"`
-	SourceIp            *string                        `pulumi:"sourceIp"`
-	Tags                []aws.Tag                      `pulumi:"tags"`
+	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	FilterAtSource *NetworkInsightsPathPathFilter `pulumi:"filterAtSource"`
+	// The protocol.
+	Protocol NetworkInsightsPathProtocol `pulumi:"protocol"`
+	// The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+	Source string `pulumi:"source"`
+	// The IP address of the source.
+	SourceIp *string `pulumi:"sourceIp"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
-	Destination         pulumi.StringPtrInput
-	DestinationIp       pulumi.StringPtrInput
-	DestinationPort     pulumi.IntPtrInput
+	// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+	Destination pulumi.StringPtrInput
+	// The IP address of the destination.
+	DestinationIp pulumi.StringPtrInput
+	// The destination port.
+	DestinationPort pulumi.IntPtrInput
+	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
 	FilterAtDestination NetworkInsightsPathPathFilterPtrInput
-	FilterAtSource      NetworkInsightsPathPathFilterPtrInput
-	Protocol            NetworkInsightsPathProtocolInput
-	Source              pulumi.StringInput
-	SourceIp            pulumi.StringPtrInput
-	Tags                aws.TagArrayInput
+	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	FilterAtSource NetworkInsightsPathPathFilterPtrInput
+	// The protocol.
+	Protocol NetworkInsightsPathProtocolInput
+	// The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+	Source pulumi.StringInput
+	// The IP address of the source.
+	SourceIp pulumi.StringPtrInput
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayInput
 }
 
 func (NetworkInsightsPathArgs) ElementType() reflect.Type {
@@ -151,58 +183,72 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx co
 	return o
 }
 
+// The time stamp when the path was created.
 func (o NetworkInsightsPathOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
 func (o NetworkInsightsPathOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the destination.
 func (o NetworkInsightsPathOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+// The IP address of the destination.
 func (o NetworkInsightsPathOutput) DestinationIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.DestinationIp }).(pulumi.StringPtrOutput)
 }
 
+// The destination port.
 func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
+// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
 func (o NetworkInsightsPathOutput) FilterAtDestination() NetworkInsightsPathPathFilterPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathPathFilterPtrOutput { return v.FilterAtDestination }).(NetworkInsightsPathPathFilterPtrOutput)
 }
 
+// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
 func (o NetworkInsightsPathOutput) FilterAtSource() NetworkInsightsPathPathFilterPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathPathFilterPtrOutput { return v.FilterAtSource }).(NetworkInsightsPathPathFilterPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the path.
 func (o NetworkInsightsPathOutput) NetworkInsightsPathArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.NetworkInsightsPathArn }).(pulumi.StringOutput)
 }
 
+// The ID of the path.
 func (o NetworkInsightsPathOutput) NetworkInsightsPathId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
 }
 
+// The protocol.
 func (o NetworkInsightsPathOutput) Protocol() NetworkInsightsPathProtocolOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathProtocolOutput { return v.Protocol }).(NetworkInsightsPathProtocolOutput)
 }
 
+// The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
 func (o NetworkInsightsPathOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the source.
 func (o NetworkInsightsPathOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
 
+// The IP address of the source.
 func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o NetworkInsightsPathOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

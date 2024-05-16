@@ -39,11 +39,17 @@ class GetAliasResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the alias.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> Optional[str]:
+        """
+        The function version that the alias invokes.
+        """
         return pulumi.get(self, "function_version")
 
     @property
@@ -54,11 +60,17 @@ class GetAliasResult:
     @property
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> Optional['outputs.AliasProvisionedConcurrencyConfiguration']:
+        """
+        A provisioned concurrency configuration for a function's alias.
+        """
         return pulumi.get(self, "provisioned_concurrency_config")
 
     @property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> Optional['outputs.AliasRoutingConfiguration']:
+        """
+        The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        """
         return pulumi.get(self, "routing_config")
 
 

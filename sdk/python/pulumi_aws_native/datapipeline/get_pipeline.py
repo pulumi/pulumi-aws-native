@@ -67,6 +67,9 @@ class GetPipelineResult:
     @property
     @pulumi.getter(name="pipelineId")
     def pipeline_id(self) -> Optional[str]:
+        """
+        The ID of the pipeline.
+        """
         return pulumi.get(self, "pipeline_id")
 
     @property
@@ -104,6 +107,9 @@ def get_pipeline(pipeline_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
+
+
+    :param str pipeline_id: The ID of the pipeline.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
@@ -124,5 +130,8 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
+
+
+    :param str pipeline_id: The ID of the pipeline.
     """
     ...

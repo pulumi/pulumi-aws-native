@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetFormatOptions
     {
+        /// <summary>
+        /// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+        /// </summary>
         public readonly Outputs.DatasetCsvOptions? Csv;
+        /// <summary>
+        /// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+        /// </summary>
         public readonly Outputs.DatasetExcelOptions? Excel;
+        /// <summary>
+        /// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+        /// </summary>
         public readonly Outputs.DatasetJsonOptions? Json;
 
         [OutputConstructor]

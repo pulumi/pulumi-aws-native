@@ -61,6 +61,15 @@ namespace Pulumi.AwsNative.Personalize
         /// The ARN of the dataset
         /// </summary>
         public readonly string? DatasetArn;
+        /// <summary>
+        /// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+        /// 
+        /// A dataset import job can be in one of the following states:
+        /// 
+        /// - CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+        /// 
+        /// If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        /// </summary>
         public readonly Outputs.DatasetImportJob? DatasetImportJob;
 
         [OutputConstructor]

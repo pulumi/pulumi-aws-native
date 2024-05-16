@@ -24,8 +24,10 @@ func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.
 }
 
 type LookupDataSetArgs struct {
+	// The AWS account ID.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	DataSetId    string `pulumi:"dataSetId"`
+	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+	DataSetId string `pulumi:"dataSetId"`
 }
 
 type LookupDataSetResult struct {
@@ -41,14 +43,18 @@ type LookupDataSetResult struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes *float64 `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime               *string                    `pulumi:"createdTime"`
-	DataSetRefreshProperties  *DataSetRefreshProperties  `pulumi:"dataSetRefreshProperties"`
+	CreatedTime *string `pulumi:"createdTime"`
+	// The refresh properties of a dataset.
+	DataSetRefreshProperties *DataSetRefreshProperties `pulumi:"dataSetRefreshProperties"`
+	// The usage configuration to apply to child datasets that reference this dataset as a source.
 	DataSetUsageConfiguration *DataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
 	// <p>The parameter declarations of the dataset.</p>
 	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
-	ImportMode        *DataSetImportMode        `pulumi:"importMode"`
+	// Indicates whether you want to import the data into SPICE.
+	ImportMode *DataSetImportMode `pulumi:"importMode"`
 	// <p>The last time that this dataset was updated.</p>
-	LastUpdatedTime *string                        `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
 	Name *string `pulumi:"name"`
@@ -56,9 +62,14 @@ type LookupDataSetResult struct {
 	//             analyses, and dashboards.</p>
 	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions                        []DataSetResourcePermission                `pulumi:"permissions"`
-	PhysicalTableMap                   map[string]DataSetPhysicalTable            `pulumi:"physicalTableMap"`
-	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
+	Permissions []DataSetResourcePermission `pulumi:"permissions"`
+	// Declares the physical tables that are available in the underlying data sources.
+	PhysicalTableMap map[string]DataSetPhysicalTable `pulumi:"physicalTableMap"`
+	// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+	//
+	// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
+	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
@@ -78,8 +89,10 @@ func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts
 }
 
 type LookupDataSetOutputArgs struct {
+	// The AWS account ID.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
-	DataSetId    pulumi.StringInput `pulumi:"dataSetId"`
+	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
 }
 
 func (LookupDataSetOutputArgs) ElementType() reflect.Type {
@@ -130,10 +143,12 @@ func (o LookupDataSetResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The refresh properties of a dataset.
 func (o LookupDataSetResultOutput) DataSetRefreshProperties() DataSetRefreshPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRefreshProperties { return v.DataSetRefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
 }
 
+// The usage configuration to apply to child datasets that reference this dataset as a source.
 func (o LookupDataSetResultOutput) DataSetUsageConfiguration() DataSetUsageConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetUsageConfiguration { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
 }
@@ -143,6 +158,7 @@ func (o LookupDataSetResultOutput) DatasetParameters() DataSetDatasetParameterAr
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetDatasetParameter { return v.DatasetParameters }).(DataSetDatasetParameterArrayOutput)
 }
 
+// Indicates whether you want to import the data into SPICE.
 func (o LookupDataSetResultOutput) ImportMode() DataSetImportModePtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetImportMode { return v.ImportMode }).(DataSetImportModePtrOutput)
 }
@@ -152,6 +168,7 @@ func (o LookupDataSetResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// Configures the combination and transformation of the data from the physical tables.
 func (o LookupDataSetResultOutput) LogicalTableMap() DataSetLogicalTableMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]DataSetLogicalTable { return v.LogicalTableMap }).(DataSetLogicalTableMapOutput)
 }
@@ -173,14 +190,19 @@ func (o LookupDataSetResultOutput) Permissions() DataSetResourcePermissionArrayO
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetResourcePermission { return v.Permissions }).(DataSetResourcePermissionArrayOutput)
 }
 
+// Declares the physical tables that are available in the underlying data sources.
 func (o LookupDataSetResultOutput) PhysicalTableMap() DataSetPhysicalTableMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]DataSetPhysicalTable { return v.PhysicalTableMap }).(DataSetPhysicalTableMapOutput)
 }
 
+// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+//
+// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
 func (o LookupDataSetResultOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRowLevelPermissionDataSet { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
 }
 
+// The element you can use to define tags for row-level security.
 func (o LookupDataSetResultOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermissionTagConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRowLevelPermissionTagConfiguration {
 		return v.RowLevelPermissionTagConfiguration

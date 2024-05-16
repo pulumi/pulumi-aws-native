@@ -28,9 +28,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("format")]
         public Input<string>? Format { get; set; }
 
+        /// <summary>
+        /// New column data type.
+        /// </summary>
         [Input("newColumnType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetColumnDataType> NewColumnType { get; set; } = null!;
 
+        /// <summary>
+        /// The sub data type of the new column. Sub types are only available for decimal columns that are part of a SPICE dataset.
+        /// </summary>
         [Input("subType")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType>? SubType { get; set; }
 

@@ -22,9 +22,15 @@ namespace Pulumi.AwsNative.Ec2
         [Output("bgpAsn")]
         public Output<int?> BgpAsn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the customer gateway.
+        /// </summary>
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
@@ -112,6 +118,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("bgpAsn")]
         public Input<int>? BgpAsn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 

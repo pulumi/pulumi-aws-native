@@ -26,6 +26,12 @@ class PrivacyBudgetTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PrivacyBudgetTemplate resource.
+        :param pulumi.Input['PrivacyBudgetTemplateAutoRefresh'] auto_refresh: How often the privacy budget refreshes.
+               
+               > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+        :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
+        :param pulumi.Input['ParametersPropertiesArgs'] parameters: Specifies the epislon and noise parameters for the privacy budget template.
+        :param pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType'] privacy_budget_type: Specifies the type of the privacy budget template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
         """
         pulumi.set(__self__, "auto_refresh", auto_refresh)
@@ -38,6 +44,11 @@ class PrivacyBudgetTemplateArgs:
     @property
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> pulumi.Input['PrivacyBudgetTemplateAutoRefresh']:
+        """
+        How often the privacy budget refreshes.
+
+        > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+        """
         return pulumi.get(self, "auto_refresh")
 
     @auto_refresh.setter
@@ -47,6 +58,9 @@ class PrivacyBudgetTemplateArgs:
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier for a membership resource.
+        """
         return pulumi.get(self, "membership_identifier")
 
     @membership_identifier.setter
@@ -56,6 +70,9 @@ class PrivacyBudgetTemplateArgs:
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Input['ParametersPropertiesArgs']:
+        """
+        Specifies the epislon and noise parameters for the privacy budget template.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -65,6 +82,9 @@ class PrivacyBudgetTemplateArgs:
     @property
     @pulumi.getter(name="privacyBudgetType")
     def privacy_budget_type(self) -> pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType']:
+        """
+        Specifies the type of the privacy budget template.
+        """
         return pulumi.get(self, "privacy_budget_type")
 
     @privacy_budget_type.setter
@@ -100,6 +120,12 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['PrivacyBudgetTemplateAutoRefresh'] auto_refresh: How often the privacy budget refreshes.
+               
+               > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+        :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
+        :param pulumi.Input[pulumi.InputType['ParametersPropertiesArgs']] parameters: Specifies the epislon and noise parameters for the privacy budget template.
+        :param pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType'] privacy_budget_type: Specifies the type of the privacy budget template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
         """
         ...
@@ -197,46 +223,75 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the privacy budget template.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> pulumi.Output['PrivacyBudgetTemplateAutoRefresh']:
+        """
+        How often the privacy budget refreshes.
+
+        > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+        """
         return pulumi.get(self, "auto_refresh")
 
     @property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the collaboration that contains this privacy budget template.
+        """
         return pulumi.get(self, "collaboration_arn")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the collaboration that contains this privacy budget template.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter(name="membershipArn")
     def membership_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+        """
         return pulumi.get(self, "membership_arn")
 
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Output[str]:
+        """
+        The identifier for a membership resource.
+        """
         return pulumi.get(self, "membership_identifier")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output['outputs.ParametersProperties']:
+        """
+        Specifies the epislon and noise parameters for the privacy budget template.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="privacyBudgetTemplateIdentifier")
     def privacy_budget_template_identifier(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+        """
         return pulumi.get(self, "privacy_budget_template_identifier")
 
     @property
     @pulumi.getter(name="privacyBudgetType")
     def privacy_budget_type(self) -> pulumi.Output['PrivacyBudgetTemplatePrivacyBudgetType']:
+        """
+        Specifies the type of the privacy budget template.
+        """
         return pulumi.get(self, "privacy_budget_type")
 
     @property

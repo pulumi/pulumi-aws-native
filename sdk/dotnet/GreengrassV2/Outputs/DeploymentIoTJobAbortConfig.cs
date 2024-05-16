@@ -13,6 +13,14 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class DeploymentIoTJobAbortConfig
     {
+        /// <summary>
+        /// Contains criteria that define when and how to cancel a job.
+        /// 
+        /// The deployment stops if the following conditions are true:
+        /// 
+        /// - The number of things that receive the deployment exceeds the `minNumberOfExecutedThings` .
+        /// - The percentage of failures with type `failureType` exceeds the `thresholdPercentage` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentIoTJobAbortCriteria> CriteriaList;
 
         [OutputConstructor]

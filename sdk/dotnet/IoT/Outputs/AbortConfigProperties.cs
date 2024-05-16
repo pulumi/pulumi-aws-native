@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class AbortConfigProperties
     {
+        /// <summary>
+        /// The criteria that determine when and how a job abort takes place.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateAbortCriteria> CriteriaList;
 
         [OutputConstructor]

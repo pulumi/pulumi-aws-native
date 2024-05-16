@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardProgressBarOptions
     {
+        /// <summary>
+        /// The visibility of the progress bar.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

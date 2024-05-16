@@ -49,6 +49,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
      */
     public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig | undefined>;
+    /**
+     * The event source mapping's ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).

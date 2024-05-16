@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleCloudwatchLogsActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+        /// </summary>
         [Input("batchMode")]
         public Input<bool>? BatchMode { get; set; }
 
+        /// <summary>
+        /// The CloudWatch log name.
+        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The IAM role that allows access to the CloudWatch log.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelCardTrainingDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The function that is optimized during model training.
+        /// </summary>
         [Input("objectiveFunction")]
         public Input<Inputs.ModelCardObjectiveFunctionArgs>? ObjectiveFunction { get; set; }
 
+        /// <summary>
+        /// Details about any associated training jobs.
+        /// </summary>
         [Input("trainingJobDetails")]
         public Input<Inputs.ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs>? TrainingJobDetails { get; set; }
 
+        /// <summary>
+        /// Any observations about training.
+        /// </summary>
         [Input("trainingObservations")]
         public Input<string>? TrainingObservations { get; set; }
 

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     [OutputType]
     public sealed class BudgetsActionDefinition
     {
+        /// <summary>
+        /// The AWS Identity and Access Management ( IAM ) action definition details.
+        /// </summary>
         public readonly Outputs.BudgetsActionIamActionDefinition? IamActionDefinition;
+        /// <summary>
+        /// The service control policies (SCP) action definition details.
+        /// </summary>
         public readonly Outputs.BudgetsActionScpActionDefinition? ScpActionDefinition;
+        /// <summary>
+        /// The Amazon EC2 Systems Manager ( SSM ) action definition details.
+        /// </summary>
         public readonly Outputs.BudgetsActionSsmActionDefinition? SsmActionDefinition;
 
         [OutputConstructor]

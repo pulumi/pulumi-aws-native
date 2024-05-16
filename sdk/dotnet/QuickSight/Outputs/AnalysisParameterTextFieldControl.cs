@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisParameterTextFieldControl
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.AnalysisTextFieldControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `ParameterTextFieldControl` .
+        /// </summary>
         public readonly string ParameterControlId;
+        /// <summary>
+        /// The source parameter name of the `ParameterTextFieldControl` .
+        /// </summary>
         public readonly string SourceParameterName;
+        /// <summary>
+        /// The title of the `ParameterTextFieldControl` .
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

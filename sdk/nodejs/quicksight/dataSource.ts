@@ -53,25 +53,63 @@ export class DataSource extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) of the data source.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The AWS account ID.
+     */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * <p>The time that this data source was created.</p>
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     */
     public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
+    /**
+     * An ID for the data source. This ID is unique per AWS Region for each AWS account.
+     */
     public readonly dataSourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     */
     public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceParameters | undefined>;
+    /**
+     * Error information for the data source creation or update.
+     */
     public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceErrorInfo | undefined>;
     /**
      * <p>The last time that this data source was updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * A display name for the data source.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Permission for the resource.
+     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
+    /**
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+     */
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
+    /**
+     * The HTTP status of the request.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.DataSourceResourceStatus>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of the data source. To return a list of all data sources, use `ListDataSources` .
+     *
+     * Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+     */
     public readonly type!: pulumi.Output<enums.quicksight.DataSourceType>;
+    /**
+     * VPC connection properties.
+     */
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
@@ -145,15 +183,50 @@ export interface DataSourceArgs {
      *             are automatically allowed.</p>
      */
     alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceParametersArgs>[]>;
+    /**
+     * The AWS account ID.
+     */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentialsArgs>;
+    /**
+     * An ID for the data source. This ID is unique per AWS Region for each AWS account.
+     */
     dataSourceId?: pulumi.Input<string>;
+    /**
+     * The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     */
     dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceParametersArgs>;
+    /**
+     * Error information for the data source creation or update.
+     */
     errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs>;
+    /**
+     * A display name for the data source.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Permission for the resource.
+     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[]>;
+    /**
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+     */
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The type of the data source. To return a list of all data sources, use `ListDataSources` .
+     *
+     * Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+     */
     type: pulumi.Input<enums.quicksight.DataSourceType>;
+    /**
+     * VPC connection properties.
+     */
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

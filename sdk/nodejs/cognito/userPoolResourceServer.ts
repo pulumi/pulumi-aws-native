@@ -37,10 +37,25 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolResourceServer.__pulumiType;
     }
 
+    /**
+     * The resource ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+     */
     public readonly identifier!: pulumi.Output<string>;
+    /**
+     * A friendly name for the resource server.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A resource server scope.
+     */
     public readonly scopes!: pulumi.Output<outputs.cognito.UserPoolResourceServerResourceServerScopeType[] | undefined>;
+    /**
+     * The user pool ID for the user pool.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -83,8 +98,20 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolResourceServer resource.
  */
 export interface UserPoolResourceServerArgs {
+    /**
+     * A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+     */
     identifier: pulumi.Input<string>;
+    /**
+     * A friendly name for the resource server.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A resource server scope.
+     */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolResourceServerResourceServerScopeTypeArgs>[]>;
+    /**
+     * The user pool ID for the user pool.
+     */
     userPoolId: pulumi.Input<string>;
 }

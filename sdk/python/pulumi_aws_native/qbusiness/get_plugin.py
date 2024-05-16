@@ -59,56 +59,89 @@ class GetPluginResult:
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> Optional[Any]:
+        """
+        Authentication configuration information for an Amazon Q Business plugin.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @property
     @pulumi.getter(name="buildStatus")
     def build_status(self) -> Optional['PluginBuildStatus']:
+        """
+        The current status of a plugin. A plugin is modified asynchronously.
+        """
         return pulumi.get(self, "build_status")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The timestamp for when the plugin was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="customPluginConfiguration")
     def custom_plugin_configuration(self) -> Optional['outputs.PluginCustomPluginConfiguration']:
+        """
+        Configuration information required to create a custom plugin.
+        """
         return pulumi.get(self, "custom_plugin_configuration")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the plugin.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="pluginArn")
     def plugin_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of a plugin.
+        """
         return pulumi.get(self, "plugin_arn")
 
     @property
     @pulumi.getter(name="pluginId")
     def plugin_id(self) -> Optional[str]:
+        """
+        The identifier of the plugin.
+        """
         return pulumi.get(self, "plugin_id")
 
     @property
     @pulumi.getter(name="serverUrl")
     def server_url(self) -> Optional[str]:
+        """
+        The plugin server URL used for configuration.
+        """
         return pulumi.get(self, "server_url")
 
     @property
     @pulumi.getter
     def state(self) -> Optional['PluginState']:
+        """
+        The current status of the plugin.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The timestamp for when the plugin was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -136,6 +169,10 @@ def get_plugin(application_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPluginResult:
     """
     Definition of AWS::QBusiness::Plugin Resource Type
+
+
+    :param str application_id: The identifier of the application that will contain the plugin.
+    :param str plugin_id: The identifier of the plugin.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -163,5 +200,9 @@ def get_plugin_output(application_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPluginResult]:
     """
     Definition of AWS::QBusiness::Plugin Resource Type
+
+
+    :param str application_id: The identifier of the application that will contain the plugin.
+    :param str plugin_id: The identifier of the plugin.
     """
     ...

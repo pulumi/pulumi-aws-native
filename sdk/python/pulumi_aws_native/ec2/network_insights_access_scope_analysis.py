@@ -21,6 +21,8 @@ class NetworkInsightsAccessScopeAnalysisArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAccessScopeAnalysis resource.
+        :param pulumi.Input[str] network_insights_access_scope_id: The ID of the Network Access Scope.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
         """
         pulumi.set(__self__, "network_insights_access_scope_id", network_insights_access_scope_id)
         if tags is not None:
@@ -29,6 +31,9 @@ class NetworkInsightsAccessScopeAnalysisArgs:
     @property
     @pulumi.getter(name="networkInsightsAccessScopeId")
     def network_insights_access_scope_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network Access Scope.
+        """
         return pulumi.get(self, "network_insights_access_scope_id")
 
     @network_insights_access_scope_id.setter
@@ -38,6 +43,9 @@ class NetworkInsightsAccessScopeAnalysisArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -58,6 +66,8 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] network_insights_access_scope_id: The ID of the Network Access Scope.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
         """
         ...
     @overload
@@ -145,50 +155,80 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="analyzedEniCount")
     def analyzed_eni_count(self) -> pulumi.Output[int]:
+        """
+        The number of network interfaces analyzed.
+        """
         return pulumi.get(self, "analyzed_eni_count")
 
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[str]:
+        """
+        The end date of the analysis.
+        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="findingsFound")
     def findings_found(self) -> pulumi.Output['NetworkInsightsAccessScopeAnalysisFindingsFound']:
+        """
+        Indicates whether there are findings (true | false | unknown).
+        """
         return pulumi.get(self, "findings_found")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeAnalysisArn")
     def network_insights_access_scope_analysis_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Network Access Scope analysis.
+        """
         return pulumi.get(self, "network_insights_access_scope_analysis_arn")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeAnalysisId")
     def network_insights_access_scope_analysis_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Network Access Scope analysis.
+        """
         return pulumi.get(self, "network_insights_access_scope_analysis_id")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeId")
     def network_insights_access_scope_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Network Access Scope.
+        """
         return pulumi.get(self, "network_insights_access_scope_id")
 
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[str]:
+        """
+        The start date of the analysis.
+        """
         return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['NetworkInsightsAccessScopeAnalysisStatus']:
+        """
+        The status of the analysis (running | succeeded | failed).
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        The status message.
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 

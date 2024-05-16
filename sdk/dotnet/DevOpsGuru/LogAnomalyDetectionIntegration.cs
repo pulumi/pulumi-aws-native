@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
     [AwsNativeResourceType("aws-native:devopsguru:LogAnomalyDetectionIntegration")]
     public partial class LogAnomalyDetectionIntegration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 

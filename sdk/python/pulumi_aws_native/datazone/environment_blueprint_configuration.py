@@ -24,6 +24,14 @@ class EnvironmentBlueprintConfigurationArgs:
                  regional_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentBlueprintConfiguration resource.
+        :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_regions: The enabled AWS Regions specified in a blueprint configuration.
+        :param pulumi.Input[str] environment_blueprint_identifier: The identifier of the environment blueprint.
+               
+               In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        :param pulumi.Input[str] manage_access_role_arn: The ARN of the manage access role.
+        :param pulumi.Input[str] provisioning_role_arn: The ARN of the provisioning role.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]] regional_parameters: The regional parameters in the environment blueprint.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "enabled_regions", enabled_regions)
@@ -38,6 +46,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -47,6 +58,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="enabledRegions")
     def enabled_regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The enabled AWS Regions specified in a blueprint configuration.
+        """
         return pulumi.get(self, "enabled_regions")
 
     @enabled_regions.setter
@@ -56,6 +70,11 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="environmentBlueprintIdentifier")
     def environment_blueprint_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the environment blueprint.
+
+        In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        """
         return pulumi.get(self, "environment_blueprint_identifier")
 
     @environment_blueprint_identifier.setter
@@ -65,6 +84,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="manageAccessRoleArn")
     def manage_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the manage access role.
+        """
         return pulumi.get(self, "manage_access_role_arn")
 
     @manage_access_role_arn.setter
@@ -74,6 +96,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the provisioning role.
+        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @provisioning_role_arn.setter
@@ -83,6 +108,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="regionalParameters")
     def regional_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]]:
+        """
+        The regional parameters in the environment blueprint.
+        """
         return pulumi.get(self, "regional_parameters")
 
     @regional_parameters.setter
@@ -107,6 +135,14 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_regions: The enabled AWS Regions specified in a blueprint configuration.
+        :param pulumi.Input[str] environment_blueprint_identifier: The identifier of the environment blueprint.
+               
+               In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        :param pulumi.Input[str] manage_access_role_arn: The ARN of the manage access role.
+        :param pulumi.Input[str] provisioning_role_arn: The ARN of the provisioning role.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]] regional_parameters: The regional parameters in the environment blueprint.
         """
         ...
     @overload
@@ -202,50 +238,82 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp of when an environment blueprint was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        """
         return pulumi.get(self, "domain_id")
 
     @property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        """
         return pulumi.get(self, "domain_identifier")
 
     @property
     @pulumi.getter(name="enabledRegions")
     def enabled_regions(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The enabled AWS Regions specified in a blueprint configuration.
+        """
         return pulumi.get(self, "enabled_regions")
 
     @property
     @pulumi.getter(name="environmentBlueprintId")
     def environment_blueprint_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+        """
         return pulumi.get(self, "environment_blueprint_id")
 
     @property
     @pulumi.getter(name="environmentBlueprintIdentifier")
     def environment_blueprint_identifier(self) -> pulumi.Output[str]:
+        """
+        The identifier of the environment blueprint.
+
+        In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        """
         return pulumi.get(self, "environment_blueprint_identifier")
 
     @property
     @pulumi.getter(name="manageAccessRoleArn")
     def manage_access_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the manage access role.
+        """
         return pulumi.get(self, "manage_access_role_arn")
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the provisioning role.
+        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @property
     @pulumi.getter(name="regionalParameters")
     def regional_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentBlueprintConfigurationRegionalParameter']]]:
+        """
+        The regional parameters in the environment blueprint.
+        """
         return pulumi.get(self, "regional_parameters")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp of when the environment blueprint was updated.
+        """
         return pulumi.get(self, "updated_at")
 

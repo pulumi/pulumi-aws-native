@@ -23,12 +23,14 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 }
 
 type LookupResourceArgs struct {
+	// The ID for the resource. For example: `abc123` .
 	ResourceId string `pulumi:"resourceId"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupResourceResult struct {
+	// The ID for the resource. For example: `abc123` .
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -46,6 +48,7 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 }
 
 type LookupResourceOutputArgs struct {
+	// The ID for the resource. For example: `abc123` .
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
@@ -69,6 +72,7 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx 
 	return o
 }
 
+// The ID for the resource. For example: `abc123` .
 func (o LookupResourceResultOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }

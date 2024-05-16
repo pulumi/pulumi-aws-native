@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialCoordinateBounds
     {
+        /// <summary>
+        /// The longitude of the east bound of the geospatial coordinate bounds.
+        /// </summary>
         public readonly double East;
+        /// <summary>
+        /// The latitude of the north bound of the geospatial coordinate bounds.
+        /// </summary>
         public readonly double North;
+        /// <summary>
+        /// The latitude of the south bound of the geospatial coordinate bounds.
+        /// </summary>
         public readonly double South;
+        /// <summary>
+        /// The longitude of the west bound of the geospatial coordinate bounds.
+        /// </summary>
         public readonly double West;
 
         [OutputConstructor]

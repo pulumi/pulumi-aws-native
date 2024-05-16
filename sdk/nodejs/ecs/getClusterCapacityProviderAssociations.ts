@@ -19,11 +19,20 @@ export function getClusterCapacityProviderAssociations(args: GetClusterCapacityP
 }
 
 export interface GetClusterCapacityProviderAssociationsArgs {
+    /**
+     * The cluster the capacity provider association is the target of.
+     */
     cluster: string;
 }
 
 export interface GetClusterCapacityProviderAssociationsResult {
+    /**
+     * The capacity providers to associate with the cluster.
+     */
     readonly capacityProviders?: (enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[];
+    /**
+     * The default capacity provider strategy to associate with the cluster.
+     */
     readonly defaultCapacityProviderStrategy?: outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[];
 }
 /**
@@ -34,5 +43,8 @@ export function getClusterCapacityProviderAssociationsOutput(args: GetClusterCap
 }
 
 export interface GetClusterCapacityProviderAssociationsOutputArgs {
+    /**
+     * The cluster the capacity provider association is the target of.
+     */
     cluster: pulumi.Input<string>;
 }

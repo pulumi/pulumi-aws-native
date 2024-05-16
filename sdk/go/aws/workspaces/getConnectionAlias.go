@@ -23,13 +23,17 @@ func LookupConnectionAlias(ctx *pulumi.Context, args *LookupConnectionAliasArgs,
 }
 
 type LookupConnectionAliasArgs struct {
+	// The identifier of the connection alias, returned as a string.
 	AliasId string `pulumi:"aliasId"`
 }
 
 type LookupConnectionAliasResult struct {
-	AliasId              *string                      `pulumi:"aliasId"`
-	Associations         []ConnectionAliasAssociation `pulumi:"associations"`
-	ConnectionAliasState *ConnectionAliasStateEnum    `pulumi:"connectionAliasState"`
+	// The identifier of the connection alias, returned as a string.
+	AliasId *string `pulumi:"aliasId"`
+	// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+	Associations []ConnectionAliasAssociation `pulumi:"associations"`
+	// The current state of the connection alias, returned as a string.
+	ConnectionAliasState *ConnectionAliasStateEnum `pulumi:"connectionAliasState"`
 }
 
 func LookupConnectionAliasOutput(ctx *pulumi.Context, args LookupConnectionAliasOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionAliasResultOutput {
@@ -46,6 +50,7 @@ func LookupConnectionAliasOutput(ctx *pulumi.Context, args LookupConnectionAlias
 }
 
 type LookupConnectionAliasOutputArgs struct {
+	// The identifier of the connection alias, returned as a string.
 	AliasId pulumi.StringInput `pulumi:"aliasId"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupConnectionAliasResultOutput) ToLookupConnectionAliasResultOutputWi
 	return o
 }
 
+// The identifier of the connection alias, returned as a string.
 func (o LookupConnectionAliasResultOutput) AliasId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionAliasResult) *string { return v.AliasId }).(pulumi.StringPtrOutput)
 }
 
+// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
 func (o LookupConnectionAliasResultOutput) Associations() ConnectionAliasAssociationArrayOutput {
 	return o.ApplyT(func(v LookupConnectionAliasResult) []ConnectionAliasAssociation { return v.Associations }).(ConnectionAliasAssociationArrayOutput)
 }
 
+// The current state of the connection alias, returned as a string.
 func (o LookupConnectionAliasResultOutput) ConnectionAliasState() ConnectionAliasStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupConnectionAliasResult) *ConnectionAliasStateEnum { return v.ConnectionAliasState }).(ConnectionAliasStateEnumPtrOutput)
 }

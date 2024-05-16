@@ -58,11 +58,17 @@ class GetCostCategoryResult:
     @property
     @pulumi.getter(name="effectiveStart")
     def effective_start(self) -> Optional[str]:
+        """
+        The Cost Category's effective start date.
+        """
         return pulumi.get(self, "effective_start")
 
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> Optional['CostCategoryRuleVersion']:
+        """
+        The rule schema version in this particular Cost Category.
+        """
         return pulumi.get(self, "rule_version")
 
     @property

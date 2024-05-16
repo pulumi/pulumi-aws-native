@@ -19,11 +19,17 @@ __all__ = [
 class ViewIncludedPropertyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the property that is included in this view.
+        """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the property that is included in this view.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -35,11 +41,25 @@ class ViewIncludedPropertyArgs:
 class ViewSearchFilterArgs:
     def __init__(__self__, *,
                  filter_string: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] filter_string: The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+               
+               For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+               
+               > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+        """
         pulumi.set(__self__, "filter_string", filter_string)
 
     @property
     @pulumi.getter(name="filterString")
     def filter_string(self) -> pulumi.Input[str]:
+        """
+        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+
+        For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+
+        > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+        """
         return pulumi.get(self, "filter_string")
 
     @filter_string.setter

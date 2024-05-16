@@ -82,6 +82,9 @@ class GetCollectionResult:
     @property
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> Optional['CollectionStandbyReplicas']:
+        """
+        Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        """
         return pulumi.get(self, "standby_replicas")
 
 

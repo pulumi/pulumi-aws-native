@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Analysis")]
     public partial class Analysis : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        /// </summary>
         [Output("analysisId")]
         public Output<string> AnalysisId { get; private set; } = null!;
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account where you are creating an analysis.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -39,6 +45,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("dataSetArns")]
         public Output<ImmutableArray<string>> DataSetArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition of an analysis.
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.AnalysisDefinition?> Definition { get; private set; } = null!;
 
@@ -60,9 +69,15 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of Amazon QuickSight parameters and the list's override values.
+        /// </summary>
         [Output("parameters")]
         public Output<Outputs.AnalysisParameters?> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.AnalysisResourcePermission>> Permissions { get; private set; } = null!;
 
@@ -72,12 +87,21 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("sheets")]
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
+        /// <summary>
+        /// The source entity of an analysis.
+        /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
 
+        /// <summary>
+        /// Status associated with the analysis.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -87,6 +111,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Output("validationStrategy")]
         public Output<Outputs.AnalysisValidationStrategy?> ValidationStrategy { get; private set; } = null!;
 
@@ -140,12 +167,21 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class AnalysisArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        /// </summary>
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account where you are creating an analysis.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The definition of an analysis.
+        /// </summary>
         [Input("definition")]
         public Input<Inputs.AnalysisDefinitionArgs>? Definition { get; set; }
 
@@ -167,11 +203,18 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A list of Amazon QuickSight parameters and the list's override values.
+        /// </summary>
         [Input("parameters")]
         public Input<Inputs.AnalysisParametersArgs>? Parameters { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.AnalysisResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         public InputList<Inputs.AnalysisResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.AnalysisResourcePermissionArgs>());
@@ -190,14 +233,24 @@ namespace Pulumi.AwsNative.QuickSight
             set => _sheets = value;
         }
 
+        /// <summary>
+        /// The source entity of an analysis.
+        /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
 
+        /// <summary>
+        /// Status associated with the analysis.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -210,6 +263,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Input("validationStrategy")]
         public Input<Inputs.AnalysisValidationStrategyArgs>? ValidationStrategy { get; set; }
 

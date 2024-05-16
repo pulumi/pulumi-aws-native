@@ -16,12 +16,24 @@ export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDomainNameArgs {
+    /**
+     * The domain name.
+     */
     domainName: string;
 }
 
 export interface GetDomainNameResult {
+    /**
+     * The domain name provided by AWS AppSync .
+     */
     readonly appSyncDomainName?: string;
+    /**
+     * The decription for your domain name.
+     */
     readonly description?: string;
+    /**
+     * The ID of your Amazon Route 53 hosted zone.
+     */
     readonly hostedZoneId?: string;
 }
 /**
@@ -32,5 +44,8 @@ export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi
 }
 
 export interface GetDomainNameOutputArgs {
+    /**
+     * The domain name.
+     */
     domainName: pulumi.Input<string>;
 }

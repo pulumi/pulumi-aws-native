@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataLabelType
     {
+        /// <summary>
+        /// The option that specifies individual data values for labels.
+        /// </summary>
         public readonly Outputs.DashboardDataPathLabelType? DataPathLabelType;
+        /// <summary>
+        /// The field label type.
+        /// </summary>
         public readonly Outputs.DashboardFieldLabelType? FieldLabelType;
+        /// <summary>
+        /// The maximum label of a data path label.
+        /// </summary>
         public readonly Outputs.DashboardMaximumLabelType? MaximumLabelType;
+        /// <summary>
+        /// The minimum label of a data path label.
+        /// </summary>
         public readonly Outputs.DashboardMinimumLabelType? MinimumLabelType;
+        /// <summary>
+        /// The range ends label type of a data path label.
+        /// </summary>
         public readonly Outputs.DashboardRangeEndsLabelType? RangeEndsLabelType;
 
         [OutputConstructor]

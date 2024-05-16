@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateArcAxisConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The arc axis range of a `GaugeChartVisual` .
+        /// </summary>
         [Input("range")]
         public Input<Inputs.TemplateArcAxisDisplayRangeArgs>? Range { get; set; }
 
+        /// <summary>
+        /// The reserved range of the arc axis.
+        /// </summary>
         [Input("reserveRange")]
         public Input<double>? ReserveRange { get; set; }
 

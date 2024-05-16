@@ -12,61 +12,116 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisBarChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.
+        /// </summary>
         [Input("barsArrangement")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisBarsArrangement>? BarsArrangement { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
         [Input("contributionAnalysisDefaults")]
         private InputList<Inputs.AnalysisContributionAnalysisDefaultArgs>? _contributionAnalysisDefaults;
+
+        /// <summary>
+        /// The contribution analysis visual display for a line, pie, or bar chart.
+        /// </summary>
         public InputList<Inputs.AnalysisContributionAnalysisDefaultArgs> ContributionAnalysisDefaults
         {
             get => _contributionAnalysisDefaults ?? (_contributionAnalysisDefaults = new InputList<Inputs.AnalysisContributionAnalysisDefaultArgs>());
             set => _contributionAnalysisDefaults = value;
         }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field wells of a `BarChartVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisBarChartFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The orientation of the bars in a bar chart visual. There are two valid values in this structure:
+        /// 
+        /// - `HORIZONTAL` : Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.
+        /// - `VERTICAL` : Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.
+        /// </summary>
         [Input("orientation")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisBarChartOrientation>? Orientation { get; set; }
 
         [Input("referenceLines")]
         private InputList<Inputs.AnalysisReferenceLineArgs>? _referenceLines;
+
+        /// <summary>
+        /// The reference line visual display options.
+        /// </summary>
         public InputList<Inputs.AnalysisReferenceLineArgs> ReferenceLines
         {
             get => _referenceLines ?? (_referenceLines = new InputList<Inputs.AnalysisReferenceLineArgs>());
             set => _referenceLines = value;
         }
 
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         [Input("smallMultiplesOptions")]
         public Input<Inputs.AnalysisSmallMultiplesOptionsArgs>? SmallMultiplesOptions { get; set; }
 
+        /// <summary>
+        /// sort-configuration-description
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisBarChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("valueAxis")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? ValueAxis { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("valueLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? ValueLabelOptions { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 

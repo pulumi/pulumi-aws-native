@@ -89,6 +89,13 @@ export class InstanceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceProfile.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) for the instance profile. For example:
+     *
+     * `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
+     *
+     * This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the instance profile to create.

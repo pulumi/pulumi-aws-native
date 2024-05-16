@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationTaskPropertiesMap
     {
+        /// <summary>
+        /// The task property key.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationOperatorPropertiesKeys OperatorPropertyKey;
+        /// <summary>
+        /// The task property value.
+        /// </summary>
         public readonly string Property;
 
         [OutputConstructor]

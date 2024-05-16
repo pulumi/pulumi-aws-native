@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
     [OutputType]
     public sealed class ResourceSetTargetResource
     {
+        /// <summary>
+        /// The Network Load Balancer resource that a DNS target resource points to.
+        /// </summary>
         public readonly Outputs.ResourceSetNlbResource? NlbResource;
+        /// <summary>
+        /// The Amazon Route 53 resource that a DNS target resource record points to.
+        /// </summary>
         public readonly Outputs.ResourceSetR53ResourceRecord? R53Resource;
 
         [OutputConstructor]

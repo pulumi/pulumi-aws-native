@@ -25,6 +25,10 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
+        :param pulumi.Input['ProjectAppConfigResourceObjectArgs'] app_config_resource: This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        :param pulumi.Input['ProjectDataDeliveryObjectArgs'] data_delivery: A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        :param pulumi.Input[str] description: An optional description of the project.
+        :param pulumi.Input[str] name: The name for the project. It can include up to 127 characters.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if app_config_resource is not None:
@@ -41,6 +45,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="appConfigResource")
     def app_config_resource(self) -> Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']]:
+        """
+        This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        """
         return pulumi.get(self, "app_config_resource")
 
     @app_config_resource.setter
@@ -50,6 +57,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryObjectArgs']]:
+        """
+        A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
@@ -59,6 +69,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the project.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -68,6 +81,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the project. It can include up to 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -103,6 +119,10 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ProjectAppConfigResourceObjectArgs']] app_config_resource: This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryObjectArgs']] data_delivery: A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        :param pulumi.Input[str] description: An optional description of the project.
+        :param pulumi.Input[str] name: The name for the project. It can include up to 127 characters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -184,26 +204,41 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appConfigResource")
     def app_config_resource(self) -> pulumi.Output[Optional['outputs.ProjectAppConfigResourceObject']]:
+        """
+        This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        """
         return pulumi.get(self, "app_config_resource")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> pulumi.Output[Optional['outputs.ProjectDataDeliveryObject']]:
+        """
+        A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        """
         return pulumi.get(self, "data_delivery")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description of the project.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the project. It can include up to 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @property

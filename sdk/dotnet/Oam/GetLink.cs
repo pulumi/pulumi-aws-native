@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Oam
 
     public sealed class GetLinkArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Oam
 
     public sealed class GetLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Oam
     [OutputType]
     public sealed class GetLinkResult
     {
+        /// <summary>
+        /// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        /// </summary>
         public readonly Outputs.LinkConfiguration? LinkConfiguration;
+        /// <summary>
+        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Oam.LinkResourceType> ResourceTypes;
         /// <summary>
         /// Tags to apply to the link

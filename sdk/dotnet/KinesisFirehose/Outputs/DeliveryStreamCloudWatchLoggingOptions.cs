@@ -13,8 +13,21 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamCloudWatchLoggingOptions
     {
+        /// <summary>
+        /// Indicates whether CloudWatch Logs logging is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The name of the CloudWatch Logs log group that contains the log stream that Kinesis Data Firehose will use.
+        /// 
+        /// Conditional. If you enable logging, you must specify this property.
+        /// </summary>
         public readonly string? LogGroupName;
+        /// <summary>
+        /// The name of the CloudWatch Logs log stream that Kinesis Data Firehose uses to send logs about data delivery.
+        /// 
+        /// Conditional. If you enable logging, you must specify this property.
+        /// </summary>
         public readonly string? LogStreamName;
 
         [OutputConstructor]

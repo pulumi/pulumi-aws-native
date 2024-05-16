@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNumericalMeasureField
     {
+        /// <summary>
+        /// Aggregation for numerical values.
+        /// </summary>
         public readonly Outputs.AnalysisNumericalAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         public readonly Outputs.AnalysisNumberFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Fms.Inputs
     {
         [Input("account")]
         private InputList<string>? _account;
+
+        /// <summary>
+        /// The account list for the map.
+        /// </summary>
         public InputList<string> Account
         {
             get => _account ?? (_account = new InputList<string>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.Fms.Inputs
 
         [Input("orgunit")]
         private InputList<string>? _orgunit;
+
+        /// <summary>
+        /// The organizational unit list for the map.
+        /// </summary>
         public InputList<string> Orgunit
         {
             get => _orgunit ?? (_orgunit = new InputList<string>());

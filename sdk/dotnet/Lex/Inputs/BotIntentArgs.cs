@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+        /// </summary>
         [Input("dialogCodeHook")]
         public Input<Inputs.BotDialogCodeHookSettingArgs>? DialogCodeHook { get; set; }
 
+        /// <summary>
+        /// Determines if a Lambda function should be invoked for a specific intent.
+        /// </summary>
         [Input("fulfillmentCodeHook")]
         public Input<Inputs.BotFulfillmentCodeHookSettingArgs>? FulfillmentCodeHook { get; set; }
 
@@ -35,18 +41,31 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("inputContexts")]
         private InputList<Inputs.BotInputContextArgs>? _inputContexts;
+
+        /// <summary>
+        /// A list of contexts that must be active for this intent to be considered by Amazon Lex .
+        /// </summary>
         public InputList<Inputs.BotInputContextArgs> InputContexts
         {
             get => _inputContexts ?? (_inputContexts = new InputList<Inputs.BotInputContextArgs>());
             set => _inputContexts = value;
         }
 
+        /// <summary>
+        /// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+        /// </summary>
         [Input("intentClosingSetting")]
         public Input<Inputs.BotIntentClosingSettingArgs>? IntentClosingSetting { get; set; }
 
+        /// <summary>
+        /// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
+        /// </summary>
         [Input("intentConfirmationSetting")]
         public Input<Inputs.BotIntentConfirmationSettingArgs>? IntentConfirmationSetting { get; set; }
 
+        /// <summary>
+        /// Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
+        /// </summary>
         [Input("kendraConfiguration")]
         public Input<Inputs.BotKendraConfigurationArgs>? KendraConfiguration { get; set; }
 
@@ -58,12 +77,19 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("outputContexts")]
         private InputList<Inputs.BotOutputContextArgs>? _outputContexts;
+
+        /// <summary>
+        /// A list of contexts that the intent activates when it is fulfilled.
+        /// </summary>
         public InputList<Inputs.BotOutputContextArgs> OutputContexts
         {
             get => _outputContexts ?? (_outputContexts = new InputList<Inputs.BotOutputContextArgs>());
             set => _outputContexts = value;
         }
 
+        /// <summary>
+        /// A unique identifier for the built-in intent to base this intent on.
+        /// </summary>
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
 
@@ -81,6 +107,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("slotPriorities")]
         private InputList<Inputs.BotSlotPriorityArgs>? _slotPriorities;
+
+        /// <summary>
+        /// Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
+        /// </summary>
         public InputList<Inputs.BotSlotPriorityArgs> SlotPriorities
         {
             get => _slotPriorities ?? (_slotPriorities = new InputList<Inputs.BotSlotPriorityArgs>());

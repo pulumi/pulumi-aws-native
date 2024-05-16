@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Aps
         /// Workspace arn.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Contains information about the logging configuration for the workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceLoggingConfiguration? LoggingConfiguration;
         /// <summary>
         /// AMP Workspace prometheus endpoint

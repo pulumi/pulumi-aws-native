@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateMinimumLabelType
     {
+        /// <summary>
+        /// The visibility of the minimum label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

@@ -14,7 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GlobalTableAttributeDefinition struct {
+	// A name for the attribute.
 	AttributeName string `pulumi:"attributeName"`
+	// The data type for the attribute, where:
+	//
+	// - `S` - the attribute is of type String
+	// - `N` - the attribute is of type Number
+	// - `B` - the attribute is of type Binary
 	AttributeType string `pulumi:"attributeType"`
 }
 
@@ -30,7 +36,13 @@ type GlobalTableAttributeDefinitionInput interface {
 }
 
 type GlobalTableAttributeDefinitionArgs struct {
+	// A name for the attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// The data type for the attribute, where:
+	//
+	// - `S` - the attribute is of type String
+	// - `N` - the attribute is of type Number
+	// - `B` - the attribute is of type Binary
 	AttributeType pulumi.StringInput `pulumi:"attributeType"`
 }
 
@@ -85,10 +97,16 @@ func (o GlobalTableAttributeDefinitionOutput) ToGlobalTableAttributeDefinitionOu
 	return o
 }
 
+// A name for the attribute.
 func (o GlobalTableAttributeDefinitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableAttributeDefinition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The data type for the attribute, where:
+//
+// - `S` - the attribute is of type String
+// - `N` - the attribute is of type Number
+// - `B` - the attribute is of type Binary
 func (o GlobalTableAttributeDefinitionOutput) AttributeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableAttributeDefinition) string { return v.AttributeType }).(pulumi.StringOutput)
 }
@@ -114,9 +132,17 @@ func (o GlobalTableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) Glob
 }
 
 type GlobalTableCapacityAutoScalingSettings struct {
-	MaxCapacity                              int                                                 `pulumi:"maxCapacity"`
-	MinCapacity                              int                                                 `pulumi:"minCapacity"`
-	SeedCapacity                             *int                                                `pulumi:"seedCapacity"`
+	// The maximum provisioned capacity units for the global table.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// The minimum provisioned capacity units for the global table.
+	MinCapacity int `pulumi:"minCapacity"`
+	// When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+	//
+	// If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+	//
+	// You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
+	SeedCapacity *int `pulumi:"seedCapacity"`
+	// Defines a target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration GlobalTableTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -132,9 +158,17 @@ type GlobalTableCapacityAutoScalingSettingsInput interface {
 }
 
 type GlobalTableCapacityAutoScalingSettingsArgs struct {
-	MaxCapacity                              pulumi.IntInput                                          `pulumi:"maxCapacity"`
-	MinCapacity                              pulumi.IntInput                                          `pulumi:"minCapacity"`
-	SeedCapacity                             pulumi.IntPtrInput                                       `pulumi:"seedCapacity"`
+	// The maximum provisioned capacity units for the global table.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// The minimum provisioned capacity units for the global table.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+	// When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+	//
+	// If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+	//
+	// You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
+	SeedCapacity pulumi.IntPtrInput `pulumi:"seedCapacity"`
+	// Defines a target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration GlobalTableTargetTrackingScalingPolicyConfigurationInput `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -215,18 +249,26 @@ func (o GlobalTableCapacityAutoScalingSettingsOutput) ToGlobalTableCapacityAutoS
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
+// The maximum provisioned capacity units for the global table.
 func (o GlobalTableCapacityAutoScalingSettingsOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) int { return v.MaxCapacity }).(pulumi.IntOutput)
 }
 
+// The minimum provisioned capacity units for the global table.
 func (o GlobalTableCapacityAutoScalingSettingsOutput) MinCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) int { return v.MinCapacity }).(pulumi.IntOutput)
 }
 
+// When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+//
+// If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+//
+// You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
 func (o GlobalTableCapacityAutoScalingSettingsOutput) SeedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) *int { return v.SeedCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Defines a target tracking scaling policy.
 func (o GlobalTableCapacityAutoScalingSettingsOutput) TargetTrackingScalingPolicyConfiguration() GlobalTableTargetTrackingScalingPolicyConfigurationOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) GlobalTableTargetTrackingScalingPolicyConfiguration {
 		return v.TargetTrackingScalingPolicyConfiguration
@@ -257,6 +299,7 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) Elem() GlobalTableCapac
 	}).(GlobalTableCapacityAutoScalingSettingsOutput)
 }
 
+// The maximum provisioned capacity units for the global table.
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *int {
 		if v == nil {
@@ -266,6 +309,7 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MaxCapacity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum provisioned capacity units for the global table.
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *int {
 		if v == nil {
@@ -275,6 +319,11 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MinCapacity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+//
+// If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+//
+// You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) SeedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *int {
 		if v == nil {
@@ -284,6 +333,7 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) SeedCapacity() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines a target tracking scaling policy.
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) TargetTrackingScalingPolicyConfiguration() GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *GlobalTableTargetTrackingScalingPolicyConfiguration {
 		if v == nil {
@@ -294,6 +344,7 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) TargetTrackingScalingPo
 }
 
 type GlobalTableContributorInsightsSpecification struct {
+	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -309,6 +360,7 @@ type GlobalTableContributorInsightsSpecificationInput interface {
 }
 
 type GlobalTableContributorInsightsSpecificationArgs struct {
+	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -389,6 +441,7 @@ func (o GlobalTableContributorInsightsSpecificationOutput) ToGlobalTableContribu
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
+// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 func (o GlobalTableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -417,6 +470,7 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Elem() GlobalTable
 	}).(GlobalTableContributorInsightsSpecificationOutput)
 }
 
+// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 func (o GlobalTableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableContributorInsightsSpecification) *bool {
 		if v == nil {
@@ -427,10 +481,19 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.B
 }
 
 type GlobalTableGlobalSecondaryIndex struct {
-	IndexName                          string                                         `pulumi:"indexName"`
-	KeySchema                          []GlobalTableKeySchema                         `pulumi:"keySchema"`
-	Projection                         GlobalTableProjection                          `pulumi:"projection"`
-	WriteOnDemandThroughputSettings    *GlobalTableWriteOnDemandThroughputSettings    `pulumi:"writeOnDemandThroughputSettings"`
+	// The name of the global secondary index. The name must be unique among all other indexes on this table.
+	IndexName string `pulumi:"indexName"`
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection GlobalTableProjection `pulumi:"projection"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
+	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -446,10 +509,19 @@ type GlobalTableGlobalSecondaryIndexInput interface {
 }
 
 type GlobalTableGlobalSecondaryIndexArgs struct {
-	IndexName                          pulumi.StringInput                                    `pulumi:"indexName"`
-	KeySchema                          GlobalTableKeySchemaArrayInput                        `pulumi:"keySchema"`
-	Projection                         GlobalTableProjectionInput                            `pulumi:"projection"`
-	WriteOnDemandThroughputSettings    GlobalTableWriteOnDemandThroughputSettingsPtrInput    `pulumi:"writeOnDemandThroughputSettings"`
+	// The name of the global secondary index. The name must be unique among all other indexes on this table.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection GlobalTableProjectionInput `pulumi:"projection"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput `pulumi:"writeOnDemandThroughputSettings"`
+	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -504,24 +576,33 @@ func (o GlobalTableGlobalSecondaryIndexOutput) ToGlobalTableGlobalSecondaryIndex
 	return o
 }
 
+// The name of the global secondary index. The name must be unique among all other indexes on this table.
 func (o GlobalTableGlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+//
+// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 func (o GlobalTableGlobalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
+// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o GlobalTableGlobalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
 
+// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableGlobalSecondaryIndexOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWriteOnDemandThroughputSettings {
 		return v.WriteOnDemandThroughputSettings
 	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
+// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 func (o GlobalTableGlobalSecondaryIndexOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWriteProvisionedThroughputSettings {
 		return v.WriteProvisionedThroughputSettings
@@ -549,8 +630,17 @@ func (o GlobalTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) Glo
 }
 
 type GlobalTableKeySchema struct {
+	// The name of a key attribute.
 	AttributeName string `pulumi:"attributeName"`
-	KeyType       string `pulumi:"keyType"`
+	// The role that this key attribute will assume:
+	//
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
+	//
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeyType string `pulumi:"keyType"`
 }
 
 // GlobalTableKeySchemaInput is an input type that accepts GlobalTableKeySchemaArgs and GlobalTableKeySchemaOutput values.
@@ -565,8 +655,17 @@ type GlobalTableKeySchemaInput interface {
 }
 
 type GlobalTableKeySchemaArgs struct {
+	// The name of a key attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	KeyType       pulumi.StringInput `pulumi:"keyType"`
+	// The role that this key attribute will assume:
+	//
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
+	//
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
 }
 
 func (GlobalTableKeySchemaArgs) ElementType() reflect.Type {
@@ -620,10 +719,19 @@ func (o GlobalTableKeySchemaOutput) ToGlobalTableKeySchemaOutputWithContext(ctx 
 	return o
 }
 
+// The name of a key attribute.
 func (o GlobalTableKeySchemaOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The role that this key attribute will assume:
+//
+// - `HASH` - partition key
+// - `RANGE` - sort key
+//
+// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+// >
+// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 func (o GlobalTableKeySchemaOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -649,8 +757,10 @@ func (o GlobalTableKeySchemaArrayOutput) Index(i pulumi.IntInput) GlobalTableKey
 }
 
 type GlobalTableKinesisStreamSpecification struct {
+	// The precision for the time and date that the stream was created.
 	ApproximateCreationDateTimePrecision *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision `pulumi:"approximateCreationDateTimePrecision"`
-	StreamArn                            string                                                                     `pulumi:"streamArn"`
+	// The ARN for a specific Kinesis data stream.
+	StreamArn string `pulumi:"streamArn"`
 }
 
 // GlobalTableKinesisStreamSpecificationInput is an input type that accepts GlobalTableKinesisStreamSpecificationArgs and GlobalTableKinesisStreamSpecificationOutput values.
@@ -665,8 +775,10 @@ type GlobalTableKinesisStreamSpecificationInput interface {
 }
 
 type GlobalTableKinesisStreamSpecificationArgs struct {
+	// The precision for the time and date that the stream was created.
 	ApproximateCreationDateTimePrecision GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput `pulumi:"approximateCreationDateTimePrecision"`
-	StreamArn                            pulumi.StringInput                                                                `pulumi:"streamArn"`
+	// The ARN for a specific Kinesis data stream.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
 func (GlobalTableKinesisStreamSpecificationArgs) ElementType() reflect.Type {
@@ -746,12 +858,14 @@ func (o GlobalTableKinesisStreamSpecificationOutput) ToGlobalTableKinesisStreamS
 	}).(GlobalTableKinesisStreamSpecificationPtrOutput)
 }
 
+// The precision for the time and date that the stream was created.
 func (o GlobalTableKinesisStreamSpecificationOutput) ApproximateCreationDateTimePrecision() GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return o.ApplyT(func(v GlobalTableKinesisStreamSpecification) *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		return v.ApproximateCreationDateTimePrecision
 	}).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
+// The ARN for a specific Kinesis data stream.
 func (o GlobalTableKinesisStreamSpecificationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableKinesisStreamSpecification) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -780,6 +894,7 @@ func (o GlobalTableKinesisStreamSpecificationPtrOutput) Elem() GlobalTableKinesi
 	}).(GlobalTableKinesisStreamSpecificationOutput)
 }
 
+// The precision for the time and date that the stream was created.
 func (o GlobalTableKinesisStreamSpecificationPtrOutput) ApproximateCreationDateTimePrecision() GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return o.ApplyT(func(v *GlobalTableKinesisStreamSpecification) *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		if v == nil {
@@ -789,6 +904,7 @@ func (o GlobalTableKinesisStreamSpecificationPtrOutput) ApproximateCreationDateT
 	}).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
+// The ARN for a specific Kinesis data stream.
 func (o GlobalTableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableKinesisStreamSpecification) *string {
 		if v == nil {
@@ -799,9 +915,16 @@ func (o GlobalTableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.Strin
 }
 
 type GlobalTableLocalSecondaryIndex struct {
-	IndexName  string                 `pulumi:"indexName"`
-	KeySchema  []GlobalTableKeySchema `pulumi:"keySchema"`
-	Projection GlobalTableProjection  `pulumi:"projection"`
+	// The name of the local secondary index. The name must be unique among all other indexes on this table.
+	IndexName string `pulumi:"indexName"`
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection GlobalTableProjection `pulumi:"projection"`
 }
 
 // GlobalTableLocalSecondaryIndexInput is an input type that accepts GlobalTableLocalSecondaryIndexArgs and GlobalTableLocalSecondaryIndexOutput values.
@@ -816,9 +939,16 @@ type GlobalTableLocalSecondaryIndexInput interface {
 }
 
 type GlobalTableLocalSecondaryIndexArgs struct {
-	IndexName  pulumi.StringInput             `pulumi:"indexName"`
-	KeySchema  GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
-	Projection GlobalTableProjectionInput     `pulumi:"projection"`
+	// The name of the local secondary index. The name must be unique among all other indexes on this table.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection GlobalTableProjectionInput `pulumi:"projection"`
 }
 
 func (GlobalTableLocalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -872,14 +1002,21 @@ func (o GlobalTableLocalSecondaryIndexOutput) ToGlobalTableLocalSecondaryIndexOu
 	return o
 }
 
+// The name of the local secondary index. The name must be unique among all other indexes on this table.
 func (o GlobalTableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+//
+// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 func (o GlobalTableLocalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
+// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o GlobalTableLocalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
@@ -905,6 +1042,7 @@ func (o GlobalTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) Glob
 }
 
 type GlobalTablePointInTimeRecoverySpecification struct {
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
 }
 
@@ -920,6 +1058,7 @@ type GlobalTablePointInTimeRecoverySpecificationInput interface {
 }
 
 type GlobalTablePointInTimeRecoverySpecificationArgs struct {
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
 }
 
@@ -1000,6 +1139,7 @@ func (o GlobalTablePointInTimeRecoverySpecificationOutput) ToGlobalTablePointInT
 	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
+// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 func (o GlobalTablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1028,6 +1168,7 @@ func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) Elem() GlobalTable
 	}).(GlobalTablePointInTimeRecoverySpecificationOutput)
 }
 
+// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTablePointInTimeRecoverySpecification) *bool {
 		if v == nil {
@@ -1038,8 +1179,18 @@ func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecover
 }
 
 type GlobalTableProjection struct {
+	// Represents the non-key attribute names which will be projected into the index.
+	//
+	// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	ProjectionType   *string  `pulumi:"projectionType"`
+	// The set of attributes that are projected into the index:
+	//
+	// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+	// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+	// - `ALL` - All of the table attributes are projected into the index.
+	//
+	// When using the DynamoDB console, `ALL` is selected by default.
+	ProjectionType *string `pulumi:"projectionType"`
 }
 
 // GlobalTableProjectionInput is an input type that accepts GlobalTableProjectionArgs and GlobalTableProjectionOutput values.
@@ -1054,8 +1205,18 @@ type GlobalTableProjectionInput interface {
 }
 
 type GlobalTableProjectionArgs struct {
+	// Represents the non-key attribute names which will be projected into the index.
+	//
+	// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	ProjectionType   pulumi.StringPtrInput   `pulumi:"projectionType"`
+	// The set of attributes that are projected into the index:
+	//
+	// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+	// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+	// - `ALL` - All of the table attributes are projected into the index.
+	//
+	// When using the DynamoDB console, `ALL` is selected by default.
+	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
 }
 
 func (GlobalTableProjectionArgs) ElementType() reflect.Type {
@@ -1084,15 +1245,26 @@ func (o GlobalTableProjectionOutput) ToGlobalTableProjectionOutputWithContext(ct
 	return o
 }
 
+// Represents the non-key attribute names which will be projected into the index.
+//
+// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 func (o GlobalTableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlobalTableProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
+// The set of attributes that are projected into the index:
+//
+// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+// - `ALL` - All of the table attributes are projected into the index.
+//
+// When using the DynamoDB console, `ALL` is selected by default.
 func (o GlobalTableProjectionOutput) ProjectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableProjection) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }
 
 type GlobalTableReadOnDemandThroughputSettings struct {
+	// Maximum number of read request units for the specified replica of a global table.
 	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
 }
 
@@ -1108,6 +1280,7 @@ type GlobalTableReadOnDemandThroughputSettingsInput interface {
 }
 
 type GlobalTableReadOnDemandThroughputSettingsArgs struct {
+	// Maximum number of read request units for the specified replica of a global table.
 	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
 }
 
@@ -1188,6 +1361,7 @@ func (o GlobalTableReadOnDemandThroughputSettingsOutput) ToGlobalTableReadOnDema
 	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
 }
 
+// Maximum number of read request units for the specified replica of a global table.
 func (o GlobalTableReadOnDemandThroughputSettingsOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadOnDemandThroughputSettings) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
 }
@@ -1216,6 +1390,7 @@ func (o GlobalTableReadOnDemandThroughputSettingsPtrOutput) Elem() GlobalTableRe
 	}).(GlobalTableReadOnDemandThroughputSettingsOutput)
 }
 
+// Maximum number of read request units for the specified replica of a global table.
 func (o GlobalTableReadOnDemandThroughputSettingsPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReadOnDemandThroughputSettings) *int {
 		if v == nil {
@@ -1226,8 +1401,10 @@ func (o GlobalTableReadOnDemandThroughputSettingsPtrOutput) MaxReadRequestUnits(
 }
 
 type GlobalTableReadProvisionedThroughputSettings struct {
+	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 	ReadCapacityAutoScalingSettings *GlobalTableCapacityAutoScalingSettings `pulumi:"readCapacityAutoScalingSettings"`
-	ReadCapacityUnits               *int                                    `pulumi:"readCapacityUnits"`
+	// Specifies a fixed read capacity for the replica table or global secondary index.
+	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
 }
 
 // GlobalTableReadProvisionedThroughputSettingsInput is an input type that accepts GlobalTableReadProvisionedThroughputSettingsArgs and GlobalTableReadProvisionedThroughputSettingsOutput values.
@@ -1242,8 +1419,10 @@ type GlobalTableReadProvisionedThroughputSettingsInput interface {
 }
 
 type GlobalTableReadProvisionedThroughputSettingsArgs struct {
+	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 	ReadCapacityAutoScalingSettings GlobalTableCapacityAutoScalingSettingsPtrInput `pulumi:"readCapacityAutoScalingSettings"`
-	ReadCapacityUnits               pulumi.IntPtrInput                             `pulumi:"readCapacityUnits"`
+	// Specifies a fixed read capacity for the replica table or global secondary index.
+	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
 }
 
 func (GlobalTableReadProvisionedThroughputSettingsArgs) ElementType() reflect.Type {
@@ -1323,12 +1502,14 @@ func (o GlobalTableReadProvisionedThroughputSettingsOutput) ToGlobalTableReadPro
 	}).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
+// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 func (o GlobalTableReadProvisionedThroughputSettingsOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.ReadCapacityAutoScalingSettings
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
+// Specifies a fixed read capacity for the replica table or global secondary index.
 func (o GlobalTableReadProvisionedThroughputSettingsOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadProvisionedThroughputSettings) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
 }
@@ -1357,6 +1538,7 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) Elem() GlobalTabl
 	}).(GlobalTableReadProvisionedThroughputSettingsOutput)
 }
 
+// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		if v == nil {
@@ -1366,6 +1548,7 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityAutoS
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
+// Specifies a fixed read capacity for the replica table or global secondary index.
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReadProvisionedThroughputSettings) *int {
 		if v == nil {
@@ -1376,9 +1559,13 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits
 }
 
 type GlobalTableReplicaGlobalSecondaryIndexSpecification struct {
-	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification  `pulumi:"contributorInsightsSpecification"`
-	IndexName                         string                                        `pulumi:"indexName"`
-	ReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings    `pulumi:"readOnDemandThroughputSettings"`
+	// Configures contributor insights settings for a replica or one of its indexes.
+	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
+	// The name of the global secondary index. The name must be unique among all other indexes on this table.
+	IndexName string `pulumi:"indexName"`
+	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	ReadOnDemandThroughputSettings *GlobalTableReadOnDemandThroughputSettings `pulumi:"readOnDemandThroughputSettings"`
+	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 }
 
@@ -1394,9 +1581,13 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecificationInput interface {
 }
 
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs struct {
-	ContributorInsightsSpecification  GlobalTableContributorInsightsSpecificationPtrInput  `pulumi:"contributorInsightsSpecification"`
-	IndexName                         pulumi.StringInput                                   `pulumi:"indexName"`
-	ReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrInput    `pulumi:"readOnDemandThroughputSettings"`
+	// Configures contributor insights settings for a replica or one of its indexes.
+	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
+	// The name of the global secondary index. The name must be unique among all other indexes on this table.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	ReadOnDemandThroughputSettings GlobalTableReadOnDemandThroughputSettingsPtrInput `pulumi:"readOnDemandThroughputSettings"`
+	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
 }
 
@@ -1451,22 +1642,26 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ToGlobalTable
 	return o
 }
 
+// Configures contributor insights settings for a replica or one of its indexes.
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
+// The name of the global secondary index. The name must be unique among all other indexes on this table.
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadOnDemandThroughputSettings {
 		return v.ReadOnDemandThroughputSettings
 	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
 }
 
+// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadProvisionedThroughputSettings() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadProvisionedThroughputSettings {
 		return v.ReadProvisionedThroughputSettings
@@ -1494,19 +1689,52 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) Index(i 
 }
 
 type GlobalTableReplicaSpecification struct {
-	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification          `pulumi:"contributorInsightsSpecification"`
-	DeletionProtectionEnabled         *bool                                                 `pulumi:"deletionProtectionEnabled"`
-	GlobalSecondaryIndexes            []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
-	KinesisStreamSpecification        *GlobalTableKinesisStreamSpecification                `pulumi:"kinesisStreamSpecification"`
-	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
-	ReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings            `pulumi:"readOnDemandThroughputSettings"`
-	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
-	Region                            string                                                `pulumi:"region"`
-	ReplicaStreamSpecification        *GlobalTableReplicaStreamSpecification                `pulumi:"replicaStreamSpecification"`
-	ResourcePolicy                    *GlobalTableResourcePolicy                            `pulumi:"resourcePolicy"`
-	SseSpecification                  *GlobalTableReplicaSseSpecification                   `pulumi:"sseSpecification"`
-	TableClass                        *string                                               `pulumi:"tableClass"`
-	Tags                              []GlobalTableTag                                      `pulumi:"tags"`
+	// Configures contributor insights settings for a replica or one of its indexes.
+	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
+	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	// Represents the properties of a global secondary index that can be set on a per-replica basis.
+	GlobalSecondaryIndexes []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
+	// The Kinesis Data Streams configuration for the specified global table replica.
+	KinesisStreamSpecification *GlobalTableKinesisStreamSpecification `pulumi:"kinesisStreamSpecification"`
+	// Represents the settings used to enable point in time recovery.
+	PointInTimeRecoverySpecification *GlobalTablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
+	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	ReadOnDemandThroughputSettings *GlobalTableReadOnDemandThroughputSettings `pulumi:"readOnDemandThroughputSettings"`
+	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
+	// The region in which this replica exists.
+	Region string `pulumi:"region"`
+	// Represents the DynamoDB Streams configuration for a global table replica.
+	ReplicaStreamSpecification *GlobalTableReplicaStreamSpecification `pulumi:"replicaStreamSpecification"`
+	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//
+	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+	//
+	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+	//
+	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+	//
+	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+	//
+	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+	//
+	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+	ResourcePolicy *GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
+	// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+	SseSpecification *GlobalTableReplicaSseSpecification `pulumi:"sseSpecification"`
+	// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
+	TableClass *string `pulumi:"tableClass"`
+	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+	//
+	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
+	//
+	// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+	Tags []GlobalTableTag `pulumi:"tags"`
 }
 
 // GlobalTableReplicaSpecificationInput is an input type that accepts GlobalTableReplicaSpecificationArgs and GlobalTableReplicaSpecificationOutput values.
@@ -1521,19 +1749,52 @@ type GlobalTableReplicaSpecificationInput interface {
 }
 
 type GlobalTableReplicaSpecificationArgs struct {
-	ContributorInsightsSpecification  GlobalTableContributorInsightsSpecificationPtrInput           `pulumi:"contributorInsightsSpecification"`
-	DeletionProtectionEnabled         pulumi.BoolPtrInput                                           `pulumi:"deletionProtectionEnabled"`
-	GlobalSecondaryIndexes            GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
-	KinesisStreamSpecification        GlobalTableKinesisStreamSpecificationPtrInput                 `pulumi:"kinesisStreamSpecification"`
-	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
-	ReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrInput             `pulumi:"readOnDemandThroughputSettings"`
-	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
-	Region                            pulumi.StringInput                                            `pulumi:"region"`
-	ReplicaStreamSpecification        GlobalTableReplicaStreamSpecificationPtrInput                 `pulumi:"replicaStreamSpecification"`
-	ResourcePolicy                    GlobalTableResourcePolicyPtrInput                             `pulumi:"resourcePolicy"`
-	SseSpecification                  GlobalTableReplicaSseSpecificationPtrInput                    `pulumi:"sseSpecification"`
-	TableClass                        pulumi.StringPtrInput                                         `pulumi:"tableClass"`
-	Tags                              GlobalTableTagArrayInput                                      `pulumi:"tags"`
+	// Configures contributor insights settings for a replica or one of its indexes.
+	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
+	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
+	DeletionProtectionEnabled pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
+	// Represents the properties of a global secondary index that can be set on a per-replica basis.
+	GlobalSecondaryIndexes GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
+	// The Kinesis Data Streams configuration for the specified global table replica.
+	KinesisStreamSpecification GlobalTableKinesisStreamSpecificationPtrInput `pulumi:"kinesisStreamSpecification"`
+	// Represents the settings used to enable point in time recovery.
+	PointInTimeRecoverySpecification GlobalTablePointInTimeRecoverySpecificationPtrInput `pulumi:"pointInTimeRecoverySpecification"`
+	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	ReadOnDemandThroughputSettings GlobalTableReadOnDemandThroughputSettingsPtrInput `pulumi:"readOnDemandThroughputSettings"`
+	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
+	// The region in which this replica exists.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Represents the DynamoDB Streams configuration for a global table replica.
+	ReplicaStreamSpecification GlobalTableReplicaStreamSpecificationPtrInput `pulumi:"replicaStreamSpecification"`
+	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//
+	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+	//
+	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+	//
+	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+	//
+	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+	//
+	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+	//
+	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+	ResourcePolicy GlobalTableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
+	// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+	SseSpecification GlobalTableReplicaSseSpecificationPtrInput `pulumi:"sseSpecification"`
+	// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
+	TableClass pulumi.StringPtrInput `pulumi:"tableClass"`
+	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+	//
+	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
+	//
+	// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+	Tags GlobalTableTagArrayInput `pulumi:"tags"`
 }
 
 func (GlobalTableReplicaSpecificationArgs) ElementType() reflect.Type {
@@ -1587,68 +1848,101 @@ func (o GlobalTableReplicaSpecificationOutput) ToGlobalTableReplicaSpecification
 	return o
 }
 
+// Configures contributor insights settings for a replica or one of its indexes.
 func (o GlobalTableReplicaSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
+// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 func (o GlobalTableReplicaSpecificationOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Represents the properties of a global secondary index that can be set on a per-replica basis.
 func (o GlobalTableReplicaSpecificationOutput) GlobalSecondaryIndexes() GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableReplicaGlobalSecondaryIndexSpecification {
 		return v.GlobalSecondaryIndexes
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
 }
 
+// The Kinesis Data Streams configuration for the specified global table replica.
 func (o GlobalTableReplicaSpecificationOutput) KinesisStreamSpecification() GlobalTableKinesisStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableKinesisStreamSpecification {
 		return v.KinesisStreamSpecification
 	}).(GlobalTableKinesisStreamSpecificationPtrOutput)
 }
 
+// Represents the settings used to enable point in time recovery.
 func (o GlobalTableReplicaSpecificationOutput) PointInTimeRecoverySpecification() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTablePointInTimeRecoverySpecification {
 		return v.PointInTimeRecoverySpecification
 	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
+// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableReplicaSpecificationOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReadOnDemandThroughputSettings {
 		return v.ReadOnDemandThroughputSettings
 	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
 }
 
+// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
 func (o GlobalTableReplicaSpecificationOutput) ReadProvisionedThroughputSettings() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReadProvisionedThroughputSettings {
 		return v.ReadProvisionedThroughputSettings
 	}).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
+// The region in which this replica exists.
 func (o GlobalTableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// Represents the DynamoDB Streams configuration for a global table replica.
 func (o GlobalTableReplicaSpecificationOutput) ReplicaStreamSpecification() GlobalTableReplicaStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaStreamSpecification {
 		return v.ReplicaStreamSpecification
 	}).(GlobalTableReplicaStreamSpecificationPtrOutput)
 }
 
+// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+//
+// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+//
+// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+//
+// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+//
+// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+//
+// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 func (o GlobalTableReplicaSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyPtrOutput)
 }
 
+// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
 func (o GlobalTableReplicaSpecificationOutput) SseSpecification() GlobalTableReplicaSseSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSseSpecification { return v.SseSpecification }).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
+// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
 func (o GlobalTableReplicaSpecificationOutput) TableClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *string { return v.TableClass }).(pulumi.StringPtrOutput)
 }
 
+// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+//
+// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
+//
+// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
 func (o GlobalTableReplicaSpecificationOutput) Tags() GlobalTableTagArrayOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableTag { return v.Tags }).(GlobalTableTagArrayOutput)
 }
@@ -1674,6 +1968,7 @@ func (o GlobalTableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) Glo
 }
 
 type GlobalTableReplicaSseSpecification struct {
+	// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 	KmsMasterKeyId string `pulumi:"kmsMasterKeyId"`
 }
 
@@ -1689,6 +1984,7 @@ type GlobalTableReplicaSseSpecificationInput interface {
 }
 
 type GlobalTableReplicaSseSpecificationArgs struct {
+	// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 	KmsMasterKeyId pulumi.StringInput `pulumi:"kmsMasterKeyId"`
 }
 
@@ -1769,6 +2065,7 @@ func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecifi
 	}).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
+// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 func (o GlobalTableReplicaSseSpecificationOutput) KmsMasterKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSseSpecification) string { return v.KmsMasterKeyId }).(pulumi.StringOutput)
 }
@@ -1797,6 +2094,7 @@ func (o GlobalTableReplicaSseSpecificationPtrOutput) Elem() GlobalTableReplicaSs
 	}).(GlobalTableReplicaSseSpecificationOutput)
 }
 
+// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 func (o GlobalTableReplicaSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReplicaSseSpecification) *string {
 		if v == nil {
@@ -1807,6 +2105,23 @@ func (o GlobalTableReplicaSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.Str
 }
 
 type GlobalTableReplicaStreamSpecification struct {
+	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//
+	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+	//
+	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+	//
+	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+	//
+	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+	//
+	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+	//
+	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 	ResourcePolicy GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
 }
 
@@ -1822,6 +2137,23 @@ type GlobalTableReplicaStreamSpecificationInput interface {
 }
 
 type GlobalTableReplicaStreamSpecificationArgs struct {
+	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//
+	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+	//
+	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+	//
+	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+	//
+	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+	//
+	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+	//
+	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 	ResourcePolicy GlobalTableResourcePolicyInput `pulumi:"resourcePolicy"`
 }
 
@@ -1902,6 +2234,23 @@ func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamS
 	}).(GlobalTableReplicaStreamSpecificationPtrOutput)
 }
 
+// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+//
+// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+//
+// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+//
+// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+//
+// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+//
+// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyOutput {
 	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyOutput)
 }
@@ -1930,6 +2279,23 @@ func (o GlobalTableReplicaStreamSpecificationPtrOutput) Elem() GlobalTableReplic
 	}).(GlobalTableReplicaStreamSpecificationOutput)
 }
 
+// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+//
+// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+//
+// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+//
+// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+//
+// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+//
+// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReplicaStreamSpecification) *GlobalTableResourcePolicy {
 		if v == nil {
@@ -1940,6 +2306,7 @@ func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalT
 }
 
 type GlobalTableResourcePolicy struct {
+	// A resource-based policy document that contains permissions to add to the specified DynamoDB table, its indexes, and stream. In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -1955,6 +2322,7 @@ type GlobalTableResourcePolicyInput interface {
 }
 
 type GlobalTableResourcePolicyArgs struct {
+	// A resource-based policy document that contains permissions to add to the specified DynamoDB table, its indexes, and stream. In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
 }
 
@@ -2035,6 +2403,7 @@ func (o GlobalTableResourcePolicyOutput) ToGlobalTableResourcePolicyPtrOutputWit
 	}).(GlobalTableResourcePolicyPtrOutput)
 }
 
+// A resource-based policy document that contains permissions to add to the specified DynamoDB table, its indexes, and stream. In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 func (o GlobalTableResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v GlobalTableResourcePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
@@ -2063,6 +2432,7 @@ func (o GlobalTableResourcePolicyPtrOutput) Elem() GlobalTableResourcePolicyOutp
 	}).(GlobalTableResourcePolicyOutput)
 }
 
+// A resource-based policy document that contains permissions to add to the specified DynamoDB table, its indexes, and stream. In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 func (o GlobalTableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *GlobalTableResourcePolicy) interface{} {
 		if v == nil {
@@ -2073,8 +2443,12 @@ func (o GlobalTableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
 }
 
 type GlobalTableSseSpecification struct {
-	SseEnabled bool    `pulumi:"sseEnabled"`
-	SseType    *string `pulumi:"sseType"`
+	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+	SseEnabled bool `pulumi:"sseEnabled"`
+	// Server-side encryption type. The only supported value is:
+	//
+	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+	SseType *string `pulumi:"sseType"`
 }
 
 // GlobalTableSseSpecificationInput is an input type that accepts GlobalTableSseSpecificationArgs and GlobalTableSseSpecificationOutput values.
@@ -2089,8 +2463,12 @@ type GlobalTableSseSpecificationInput interface {
 }
 
 type GlobalTableSseSpecificationArgs struct {
-	SseEnabled pulumi.BoolInput      `pulumi:"sseEnabled"`
-	SseType    pulumi.StringPtrInput `pulumi:"sseType"`
+	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+	SseEnabled pulumi.BoolInput `pulumi:"sseEnabled"`
+	// Server-side encryption type. The only supported value is:
+	//
+	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+	SseType pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
 func (GlobalTableSseSpecificationArgs) ElementType() reflect.Type {
@@ -2170,10 +2548,14 @@ func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationPtrOutpu
 	}).(GlobalTableSseSpecificationPtrOutput)
 }
 
+// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 func (o GlobalTableSseSpecificationOutput) SseEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableSseSpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
 
+// Server-side encryption type. The only supported value is:
+//
+// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
 func (o GlobalTableSseSpecificationOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableSseSpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
 }
@@ -2202,6 +2584,7 @@ func (o GlobalTableSseSpecificationPtrOutput) Elem() GlobalTableSseSpecification
 	}).(GlobalTableSseSpecificationOutput)
 }
 
+// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 func (o GlobalTableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSseSpecification) *bool {
 		if v == nil {
@@ -2211,6 +2594,9 @@ func (o GlobalTableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Server-side encryption type. The only supported value is:
+//
+// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
 func (o GlobalTableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSseSpecification) *string {
 		if v == nil {
@@ -2221,6 +2607,12 @@ func (o GlobalTableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 }
 
 type GlobalTableStreamSpecification struct {
+	// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table. Valid values for `StreamViewType` are:
+	//
+	// - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType string `pulumi:"streamViewType"`
 }
 
@@ -2236,6 +2628,12 @@ type GlobalTableStreamSpecificationInput interface {
 }
 
 type GlobalTableStreamSpecificationArgs struct {
+	// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table. Valid values for `StreamViewType` are:
+	//
+	// - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
 }
 
@@ -2316,6 +2714,12 @@ func (o GlobalTableStreamSpecificationOutput) ToGlobalTableStreamSpecificationPt
 	}).(GlobalTableStreamSpecificationPtrOutput)
 }
 
+// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table. Valid values for `StreamViewType` are:
+//
+// - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
 func (o GlobalTableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
@@ -2344,6 +2748,12 @@ func (o GlobalTableStreamSpecificationPtrOutput) Elem() GlobalTableStreamSpecifi
 	}).(GlobalTableStreamSpecificationOutput)
 }
 
+// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table. Valid values for `StreamViewType` are:
+//
+// - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
 func (o GlobalTableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableStreamSpecification) *string {
 		if v == nil {
@@ -2354,7 +2764,9 @@ func (o GlobalTableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringP
 }
 
 type GlobalTableTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key string `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value string `pulumi:"value"`
 }
 
@@ -2370,7 +2782,9 @@ type GlobalTableTagInput interface {
 }
 
 type GlobalTableTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2425,10 +2839,12 @@ func (o GlobalTableTagOutput) ToGlobalTableTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
 func (o GlobalTableTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the tag. Tag values are case-sensitive and can be null.
 func (o GlobalTableTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2454,10 +2870,14 @@ func (o GlobalTableTagArrayOutput) Index(i pulumi.IntInput) GlobalTableTagOutput
 }
 
 type GlobalTableTargetTrackingScalingPolicyConfiguration struct {
-	DisableScaleIn   *bool   `pulumi:"disableScaleIn"`
-	ScaleInCooldown  *int    `pulumi:"scaleInCooldown"`
-	ScaleOutCooldown *int    `pulumi:"scaleOutCooldown"`
-	TargetValue      float64 `pulumi:"targetValue"`
+	// Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
+	DisableScaleIn *bool `pulumi:"disableScaleIn"`
+	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+	ScaleInCooldown *int `pulumi:"scaleInCooldown"`
+	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+	ScaleOutCooldown *int `pulumi:"scaleOutCooldown"`
+	// Defines a target value for the scaling policy.
+	TargetValue float64 `pulumi:"targetValue"`
 }
 
 // GlobalTableTargetTrackingScalingPolicyConfigurationInput is an input type that accepts GlobalTableTargetTrackingScalingPolicyConfigurationArgs and GlobalTableTargetTrackingScalingPolicyConfigurationOutput values.
@@ -2472,10 +2892,14 @@ type GlobalTableTargetTrackingScalingPolicyConfigurationInput interface {
 }
 
 type GlobalTableTargetTrackingScalingPolicyConfigurationArgs struct {
-	DisableScaleIn   pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
-	ScaleInCooldown  pulumi.IntPtrInput  `pulumi:"scaleInCooldown"`
-	ScaleOutCooldown pulumi.IntPtrInput  `pulumi:"scaleOutCooldown"`
-	TargetValue      pulumi.Float64Input `pulumi:"targetValue"`
+	// Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
+	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
+	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+	ScaleInCooldown pulumi.IntPtrInput `pulumi:"scaleInCooldown"`
+	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+	ScaleOutCooldown pulumi.IntPtrInput `pulumi:"scaleOutCooldown"`
+	// Defines a target value for the scaling policy.
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
 func (GlobalTableTargetTrackingScalingPolicyConfigurationArgs) ElementType() reflect.Type {
@@ -2555,18 +2979,22 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ToGlobalTable
 	}).(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
+// Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
+// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
 }
 
+// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
 }
 
+// Defines a target value for the scaling policy.
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -2595,6 +3023,7 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() Glo
 	}).(GlobalTableTargetTrackingScalingPolicyConfigurationOutput)
 }
 
+// Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *bool {
 		if v == nil {
@@ -2604,6 +3033,7 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableSca
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -2613,6 +3043,7 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCoo
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -2622,6 +3053,7 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCo
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines a target value for the scaling policy.
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *float64 {
 		if v == nil {
@@ -2632,8 +3064,12 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValu
 }
 
 type GlobalTableTimeToLiveSpecification struct {
+	// The name of the attribute used to store the expiration time for items in the table.
+	//
+	// Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
 	AttributeName *string `pulumi:"attributeName"`
-	Enabled       bool    `pulumi:"enabled"`
+	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+	Enabled bool `pulumi:"enabled"`
 }
 
 // GlobalTableTimeToLiveSpecificationInput is an input type that accepts GlobalTableTimeToLiveSpecificationArgs and GlobalTableTimeToLiveSpecificationOutput values.
@@ -2648,8 +3084,12 @@ type GlobalTableTimeToLiveSpecificationInput interface {
 }
 
 type GlobalTableTimeToLiveSpecificationArgs struct {
+	// The name of the attribute used to store the expiration time for items in the table.
+	//
+	// Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
 	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
-	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
+	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
 func (GlobalTableTimeToLiveSpecificationArgs) ElementType() reflect.Type {
@@ -2729,10 +3169,14 @@ func (o GlobalTableTimeToLiveSpecificationOutput) ToGlobalTableTimeToLiveSpecifi
 	}).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
+// The name of the attribute used to store the expiration time for items in the table.
+//
+// Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
 func (o GlobalTableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableTimeToLiveSpecification) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
 func (o GlobalTableTimeToLiveSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableTimeToLiveSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2761,6 +3205,9 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) Elem() GlobalTableTimeToLiv
 	}).(GlobalTableTimeToLiveSpecificationOutput)
 }
 
+// The name of the attribute used to store the expiration time for items in the table.
+//
+// Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
 func (o GlobalTableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTimeToLiveSpecification) *string {
 		if v == nil {
@@ -2770,6 +3217,7 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
 func (o GlobalTableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTimeToLiveSpecification) *bool {
 		if v == nil {
@@ -2780,6 +3228,7 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOut
 }
 
 type GlobalTableWriteOnDemandThroughputSettings struct {
+	// Maximum number of write request settings for the specified replica of a global table.
 	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -2795,6 +3244,7 @@ type GlobalTableWriteOnDemandThroughputSettingsInput interface {
 }
 
 type GlobalTableWriteOnDemandThroughputSettingsArgs struct {
+	// Maximum number of write request settings for the specified replica of a global table.
 	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -2875,6 +3325,7 @@ func (o GlobalTableWriteOnDemandThroughputSettingsOutput) ToGlobalTableWriteOnDe
 	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
+// Maximum number of write request settings for the specified replica of a global table.
 func (o GlobalTableWriteOnDemandThroughputSettingsOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableWriteOnDemandThroughputSettings) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
 }
@@ -2903,6 +3354,7 @@ func (o GlobalTableWriteOnDemandThroughputSettingsPtrOutput) Elem() GlobalTableW
 	}).(GlobalTableWriteOnDemandThroughputSettingsOutput)
 }
 
+// Maximum number of write request settings for the specified replica of a global table.
 func (o GlobalTableWriteOnDemandThroughputSettingsPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableWriteOnDemandThroughputSettings) *int {
 		if v == nil {
@@ -2913,6 +3365,7 @@ func (o GlobalTableWriteOnDemandThroughputSettingsPtrOutput) MaxWriteRequestUnit
 }
 
 type GlobalTableWriteProvisionedThroughputSettings struct {
+	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 	WriteCapacityAutoScalingSettings *GlobalTableCapacityAutoScalingSettings `pulumi:"writeCapacityAutoScalingSettings"`
 }
 
@@ -2928,6 +3381,7 @@ type GlobalTableWriteProvisionedThroughputSettingsInput interface {
 }
 
 type GlobalTableWriteProvisionedThroughputSettingsArgs struct {
+	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 	WriteCapacityAutoScalingSettings GlobalTableCapacityAutoScalingSettingsPtrInput `pulumi:"writeCapacityAutoScalingSettings"`
 }
 
@@ -3008,6 +3462,7 @@ func (o GlobalTableWriteProvisionedThroughputSettingsOutput) ToGlobalTableWriteP
 	}).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
 }
 
+// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 func (o GlobalTableWriteProvisionedThroughputSettingsOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.WriteCapacityAutoScalingSettings
@@ -3038,6 +3493,7 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) Elem() GlobalTab
 	}).(GlobalTableWriteProvisionedThroughputSettingsOutput)
 }
 
+// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
 func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		if v == nil {

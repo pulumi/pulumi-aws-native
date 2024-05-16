@@ -49,6 +49,9 @@ export class Schedule extends pulumi.CustomResource {
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
      */
     public readonly endDate!: pulumi.Output<string | undefined>;
+    /**
+     * Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+     */
     public readonly flexibleTimeWindow!: pulumi.Output<outputs.scheduler.ScheduleFlexibleTimeWindow>;
     /**
      * The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
@@ -58,6 +61,9 @@ export class Schedule extends pulumi.CustomResource {
      * The ARN for a KMS Key that will be used to encrypt customer data.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the schedule.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The scheduling expression.
@@ -71,7 +77,15 @@ export class Schedule extends pulumi.CustomResource {
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
      */
     public readonly startDate!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the schedule is enabled or disabled.
+     *
+     * *Allowed Values* : `ENABLED` | `DISABLED`
+     */
     public readonly state!: pulumi.Output<enums.scheduler.ScheduleState | undefined>;
+    /**
+     * The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+     */
     public readonly target!: pulumi.Output<outputs.scheduler.ScheduleTarget>;
 
     /**
@@ -139,6 +153,9 @@ export interface ScheduleArgs {
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
      */
     endDate?: pulumi.Input<string>;
+    /**
+     * Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+     */
     flexibleTimeWindow: pulumi.Input<inputs.scheduler.ScheduleFlexibleTimeWindowArgs>;
     /**
      * The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
@@ -148,6 +165,9 @@ export interface ScheduleArgs {
      * The ARN for a KMS Key that will be used to encrypt customer data.
      */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
     name?: pulumi.Input<string>;
     /**
      * The scheduling expression.
@@ -161,6 +181,14 @@ export interface ScheduleArgs {
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
      */
     startDate?: pulumi.Input<string>;
+    /**
+     * Specifies whether the schedule is enabled or disabled.
+     *
+     * *Allowed Values* : `ENABLED` | `DISABLED`
+     */
     state?: pulumi.Input<enums.scheduler.ScheduleState>;
+    /**
+     * The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+     */
     target: pulumi.Input<inputs.scheduler.ScheduleTargetArgs>;
 }

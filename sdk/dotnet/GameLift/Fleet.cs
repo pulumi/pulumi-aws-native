@@ -45,6 +45,13 @@ namespace Pulumi.AwsNative.GameLift
         [Output("computeType")]
         public Output<Pulumi.AwsNative.GameLift.FleetComputeType?> ComputeType { get; private set; } = null!;
 
+        /// <summary>
+        /// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+        /// 
+        /// *Used with:* `CreateFleet`
+        /// </summary>
         [Output("containerGroupsConfiguration")]
         public Output<Outputs.FleetContainerGroupsConfiguration?> ContainerGroupsConfiguration { get; private set; } = null!;
 
@@ -96,6 +103,11 @@ namespace Pulumi.AwsNative.GameLift
         [Output("instanceRoleCredentialsProvider")]
         public Output<Pulumi.AwsNative.GameLift.FleetInstanceRoleCredentialsProvider?> InstanceRoleCredentialsProvider { get; private set; } = null!;
 
+        /// <summary>
+        /// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// A remote location where a multi-location fleet can deploy game servers for game hosting.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<Outputs.FleetLocationConfiguration>> Locations { get; private set; } = null!;
 
@@ -280,6 +292,13 @@ namespace Pulumi.AwsNative.GameLift
         [Input("computeType")]
         public Input<Pulumi.AwsNative.GameLift.FleetComputeType>? ComputeType { get; set; }
 
+        /// <summary>
+        /// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+        /// 
+        /// *Used with:* `CreateFleet`
+        /// </summary>
         [Input("containerGroupsConfiguration")]
         public Input<Inputs.FleetContainerGroupsConfigurationArgs>? ContainerGroupsConfiguration { get; set; }
 
@@ -333,6 +352,12 @@ namespace Pulumi.AwsNative.GameLift
 
         [Input("locations")]
         private InputList<Inputs.FleetLocationConfigurationArgs>? _locations;
+
+        /// <summary>
+        /// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// A remote location where a multi-location fleet can deploy game servers for game hosting.
+        /// </summary>
         public InputList<Inputs.FleetLocationConfigurationArgs> Locations
         {
             get => _locations ?? (_locations = new InputList<Inputs.FleetLocationConfigurationArgs>());

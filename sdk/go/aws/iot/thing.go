@@ -64,10 +64,16 @@ import (
 type Thing struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput            `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
 	AttributePayload ThingAttributePayloadPtrOutput `pulumi:"attributePayload"`
-	AwsId            pulumi.StringOutput            `pulumi:"awsId"`
-	ThingName        pulumi.StringPtrOutput         `pulumi:"thingName"`
+	// The Id of this thing.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The name of the thing to update.
+	//
+	// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+	ThingName pulumi.StringPtrOutput `pulumi:"thingName"`
 }
 
 // NewThing registers a new resource with the given unique name, arguments, and options.
@@ -114,14 +120,22 @@ func (ThingState) ElementType() reflect.Type {
 }
 
 type thingArgs struct {
+	// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
 	AttributePayload *ThingAttributePayload `pulumi:"attributePayload"`
-	ThingName        *string                `pulumi:"thingName"`
+	// The name of the thing to update.
+	//
+	// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+	ThingName *string `pulumi:"thingName"`
 }
 
 // The set of arguments for constructing a Thing resource.
 type ThingArgs struct {
+	// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
 	AttributePayload ThingAttributePayloadPtrInput
-	ThingName        pulumi.StringPtrInput
+	// The name of the thing to update.
+	//
+	// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+	ThingName pulumi.StringPtrInput
 }
 
 func (ThingArgs) ElementType() reflect.Type {
@@ -161,18 +175,24 @@ func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
 func (o ThingOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
 func (o ThingOutput) AttributePayload() ThingAttributePayloadPtrOutput {
 	return o.ApplyT(func(v *Thing) ThingAttributePayloadPtrOutput { return v.AttributePayload }).(ThingAttributePayloadPtrOutput)
 }
 
+// The Id of this thing.
 func (o ThingOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The name of the thing to update.
+//
+// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
 func (o ThingOutput) ThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringPtrOutput { return v.ThingName }).(pulumi.StringPtrOutput)
 }

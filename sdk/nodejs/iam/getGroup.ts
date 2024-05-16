@@ -31,6 +31,9 @@ export interface GetGroupArgs {
 }
 
 export interface GetGroupResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::Group` resource. For example: `arn:aws:iam::123456789012:group/mystack-mygroup-1DZETITOWEKVO` .
+     */
     readonly arn?: string;
     /**
      * The Amazon Resource Name (ARN) of the IAM policy you want to attach.

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ControlTower
 
     public sealed class GetEnabledBaselineArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the `EnabledBaseline` resource.
+        /// </summary>
         [Input("enabledBaselineIdentifier", required: true)]
         public string EnabledBaselineIdentifier { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ControlTower
 
     public sealed class GetEnabledBaselineInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the `EnabledBaseline` resource.
+        /// </summary>
         [Input("enabledBaselineIdentifier", required: true)]
         public Input<string> EnabledBaselineIdentifier { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.ControlTower
     [OutputType]
     public sealed class GetEnabledBaselineResult
     {
+        /// <summary>
+        /// The enabled version of the `Baseline` .
+        /// </summary>
         public readonly string? BaselineVersion;
+        /// <summary>
+        /// The ARN of the `EnabledBaseline` resource.
+        /// </summary>
         public readonly string? EnabledBaselineIdentifier;
+        /// <summary>
+        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EnabledBaselineParameter> Parameters;
+        /// <summary>
+        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

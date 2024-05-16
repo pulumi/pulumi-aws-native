@@ -77,6 +77,11 @@ namespace Pulumi.AwsNative.GameLift
         /// Unique fleet ID
         /// </summary>
         public readonly string? FleetId;
+        /// <summary>
+        /// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// A remote location where a multi-location fleet can deploy game servers for game hosting.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FleetLocationConfiguration> Locations;
         /// <summary>
         /// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.

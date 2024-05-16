@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowErrorHandlingConfig
     {
+        /// <summary>
+        /// Specifies the name of the Amazon S3 bucket.
+        /// </summary>
         public readonly string? BucketName;
+        /// <summary>
+        /// Specifies the Amazon S3 bucket prefix.
+        /// </summary>
         public readonly string? BucketPrefix;
+        /// <summary>
+        /// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+        /// </summary>
         public readonly bool? FailOnFirstError;
 
         [OutputConstructor]

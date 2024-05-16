@@ -15,33 +15,69 @@ namespace Pulumi.AwsNative.CleanRooms
     [AwsNativeResourceType("aws-native:cleanrooms:Collaboration")]
     public partial class Collaboration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique identifier of the specified collaboration.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A display name of the collaboration creator.
+        /// </summary>
         [Output("creatorDisplayName")]
         public Output<string> CreatorDisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The abilities granted to the collaboration creator.
+        /// 
+        /// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        /// </summary>
         [Output("creatorMemberAbilities")]
         public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>> CreatorMemberAbilities { get; private set; } = null!;
 
+        /// <summary>
+        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        /// </summary>
         [Output("creatorPaymentConfiguration")]
         public Output<Outputs.CollaborationPaymentConfiguration?> CreatorPaymentConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The settings for client-side encryption for cryptographic computing.
+        /// </summary>
         [Output("dataEncryptionMetadata")]
         public Output<Outputs.CollaborationDataEncryptionMetadata?> DataEncryptionMetadata { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the collaboration provided by the collaboration owner.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Basic metadata used to construct a new member.
+        /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.CollaborationMemberSpecification>> Members { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+        /// </summary>
         [Output("queryLogStatus")]
         public Output<Pulumi.AwsNative.CleanRooms.CollaborationQueryLogStatus> QueryLogStatus { get; private set; } = null!;
 
@@ -105,37 +141,65 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class CollaborationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A display name of the collaboration creator.
+        /// </summary>
         [Input("creatorDisplayName", required: true)]
         public Input<string> CreatorDisplayName { get; set; } = null!;
 
         [Input("creatorMemberAbilities", required: true)]
         private InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>? _creatorMemberAbilities;
+
+        /// <summary>
+        /// The abilities granted to the collaboration creator.
+        /// 
+        /// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        /// </summary>
         public InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> CreatorMemberAbilities
         {
             get => _creatorMemberAbilities ?? (_creatorMemberAbilities = new InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>());
             set => _creatorMemberAbilities = value;
         }
 
+        /// <summary>
+        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        /// </summary>
         [Input("creatorPaymentConfiguration")]
         public Input<Inputs.CollaborationPaymentConfigurationArgs>? CreatorPaymentConfiguration { get; set; }
 
+        /// <summary>
+        /// The settings for client-side encryption for cryptographic computing.
+        /// </summary>
         [Input("dataEncryptionMetadata")]
         public Input<Inputs.CollaborationDataEncryptionMetadataArgs>? DataEncryptionMetadata { get; set; }
 
+        /// <summary>
+        /// A description of the collaboration provided by the collaboration owner.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         [Input("members", required: true)]
         private InputList<Inputs.CollaborationMemberSpecificationArgs>? _members;
+
+        /// <summary>
+        /// Basic metadata used to construct a new member.
+        /// </summary>
         public InputList<Inputs.CollaborationMemberSpecificationArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.CollaborationMemberSpecificationArgs>());
             set => _members = value;
         }
 
+        /// <summary>
+        /// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+        /// </summary>
         [Input("queryLogStatus", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.CollaborationQueryLogStatus> QueryLogStatus { get; set; } = null!;
 

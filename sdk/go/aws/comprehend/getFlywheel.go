@@ -24,15 +24,21 @@ func LookupFlywheel(ctx *pulumi.Context, args *LookupFlywheelArgs, opts ...pulum
 }
 
 type LookupFlywheelArgs struct {
+	// The Amazon Resource Name (ARN) of the flywheel.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupFlywheelResult struct {
-	ActiveModelArn     *string                     `pulumi:"activeModelArn"`
-	Arn                *string                     `pulumi:"arn"`
-	DataAccessRoleArn  *string                     `pulumi:"dataAccessRoleArn"`
+	// The Amazon Resource Number (ARN) of the active model version.
+	ActiveModelArn *string `pulumi:"activeModelArn"`
+	// The Amazon Resource Name (ARN) of the flywheel.
+	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+	DataAccessRoleArn *string `pulumi:"dataAccessRoleArn"`
+	// Data security configuration.
 	DataSecurityConfig *FlywheelDataSecurityConfig `pulumi:"dataSecurityConfig"`
-	Tags               []aws.Tag                   `pulumi:"tags"`
+	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFlywheelOutput(ctx *pulumi.Context, args LookupFlywheelOutputArgs, opts ...pulumi.InvokeOption) LookupFlywheelResultOutput {
@@ -49,6 +55,7 @@ func LookupFlywheelOutput(ctx *pulumi.Context, args LookupFlywheelOutputArgs, op
 }
 
 type LookupFlywheelOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the flywheel.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -70,22 +77,27 @@ func (o LookupFlywheelResultOutput) ToLookupFlywheelResultOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Number (ARN) of the active model version.
 func (o LookupFlywheelResultOutput) ActiveModelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlywheelResult) *string { return v.ActiveModelArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the flywheel.
 func (o LookupFlywheelResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlywheelResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
 func (o LookupFlywheelResultOutput) DataAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlywheelResult) *string { return v.DataAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Data security configuration.
 func (o LookupFlywheelResultOutput) DataSecurityConfig() FlywheelDataSecurityConfigPtrOutput {
 	return o.ApplyT(func(v LookupFlywheelResult) *FlywheelDataSecurityConfig { return v.DataSecurityConfig }).(FlywheelDataSecurityConfigPtrOutput)
 }
 
+// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
 func (o LookupFlywheelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFlywheelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

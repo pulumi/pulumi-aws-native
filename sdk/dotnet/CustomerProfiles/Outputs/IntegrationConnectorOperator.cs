@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationConnectorOperator
     {
+        /// <summary>
+        /// The operation to be performed on the provided Marketo source fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationMarketoConnectorOperator? Marketo;
+        /// <summary>
+        /// The operation to be performed on the provided Amazon S3 source fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationS3ConnectorOperator? S3;
+        /// <summary>
+        /// The operation to be performed on the provided Salesforce source fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationSalesforceConnectorOperator? Salesforce;
+        /// <summary>
+        /// The operation to be performed on the provided ServiceNow source fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationServiceNowConnectorOperator? ServiceNow;
+        /// <summary>
+        /// The operation to be performed on the provided Zendesk source fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationZendeskConnectorOperator? Zendesk;
 
         [OutputConstructor]

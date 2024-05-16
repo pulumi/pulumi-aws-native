@@ -41,6 +41,9 @@ export class Schema extends pulumi.CustomResource {
      * Amazon Resource Name for the Schema.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Specifies the version of a schema.
+     */
     public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaVersion | undefined>;
     /**
      * Compatibility setting for the schema.
@@ -62,6 +65,9 @@ export class Schema extends pulumi.CustomResource {
      * Name of the schema.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies a registry in the AWS Glue Schema Registry.
+     */
     public readonly registry!: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
     /**
      * Definition for the initial schema version in plain-text.
@@ -125,6 +131,9 @@ export class Schema extends pulumi.CustomResource {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
+    /**
+     * Specifies the version of a schema.
+     */
     checkpointVersion?: pulumi.Input<inputs.glue.SchemaVersionArgs>;
     /**
      * Compatibility setting for the schema.
@@ -142,6 +151,9 @@ export interface SchemaArgs {
      * Name of the schema.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies a registry in the AWS Glue Schema Registry.
+     */
     registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
     /**
      * Definition for the initial schema version in plain-text.

@@ -37,24 +37,61 @@ export class Experiment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Experiment.__pulumiType;
     }
 
+    /**
+     * The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An optional description of the experiment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+     */
     public readonly metricGoals!: pulumi.Output<outputs.evidently.ExperimentMetricGoalObject[]>;
+    /**
+     * A name for the new experiment.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+     */
     public readonly onlineAbConfig!: pulumi.Output<outputs.evidently.ExperimentOnlineAbConfigObject>;
+    /**
+     * The name or the ARN of the project where this experiment is to be created.
+     */
     public readonly project!: pulumi.Output<string>;
+    /**
+     * When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+     */
     public readonly randomizationSalt!: pulumi.Output<string | undefined>;
+    /**
+     * Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+     */
     public readonly removeSegment!: pulumi.Output<boolean | undefined>;
     /**
      * Start Experiment. Default is False
      */
     public readonly runningStatus!: pulumi.Output<outputs.evidently.ExperimentRunningStatusObject | undefined>;
+    /**
+     * The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+     *
+     * This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+     */
     public readonly samplingRate!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+     *
+     * For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+     */
     public readonly segment!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+     */
     public readonly treatments!: pulumi.Output<outputs.evidently.ExperimentTreatmentObject[]>;
 
     /**
@@ -119,22 +156,56 @@ export class Experiment extends pulumi.CustomResource {
  * The set of arguments for constructing a Experiment resource.
  */
 export interface ExperimentArgs {
+    /**
+     * An optional description of the experiment.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+     */
     metricGoals: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentMetricGoalObjectArgs>[]>;
+    /**
+     * A name for the new experiment.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+     */
     onlineAbConfig: pulumi.Input<inputs.evidently.ExperimentOnlineAbConfigObjectArgs>;
+    /**
+     * The name or the ARN of the project where this experiment is to be created.
+     */
     project: pulumi.Input<string>;
+    /**
+     * When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+     */
     randomizationSalt?: pulumi.Input<string>;
+    /**
+     * Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+     */
     removeSegment?: pulumi.Input<boolean>;
     /**
      * Start Experiment. Default is False
      */
     runningStatus?: pulumi.Input<inputs.evidently.ExperimentRunningStatusObjectArgs>;
+    /**
+     * The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+     *
+     * This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+     */
     samplingRate?: pulumi.Input<number>;
+    /**
+     * Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+     *
+     * For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+     */
     segment?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+     */
     treatments: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentTreatmentObjectArgs>[]>;
 }

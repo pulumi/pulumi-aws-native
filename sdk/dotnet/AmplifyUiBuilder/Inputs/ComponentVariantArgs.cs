@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     {
         [Input("overrides")]
         private InputMap<object>? _overrides;
+
+        /// <summary>
+        /// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        /// </summary>
         public InputMap<object> Overrides
         {
             get => _overrides ?? (_overrides = new InputMap<object>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
         [Input("variantValues")]
         private InputMap<string>? _variantValues;
+
+        /// <summary>
+        /// The combination of variants that comprise this variant.
+        /// </summary>
         public InputMap<string> VariantValues
         {
             get => _variantValues ?? (_variantValues = new InputMap<string>());

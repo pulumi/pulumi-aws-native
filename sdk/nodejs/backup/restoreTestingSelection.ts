@@ -37,13 +37,43 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestoreTestingSelection.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+     */
     public readonly iamRoleArn!: pulumi.Output<string>;
+    /**
+     * You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+     */
     public readonly protectedResourceArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The conditions that you define for resources in your restore testing plan using tags.
+     *
+     * For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+     */
     public readonly protectedResourceConditions!: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
+    /**
+     * The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+     */
     public readonly protectedResourceType!: pulumi.Output<string>;
+    /**
+     * You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+     *
+     * See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+     */
     public readonly restoreMetadataOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Unique string that is the name of the restore testing plan.
+     *
+     * The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+     */
     public readonly restoreTestingPlanName!: pulumi.Output<string>;
+    /**
+     * The unique name of the restore testing selection that belongs to the related restore testing plan.
+     */
     public readonly restoreTestingSelectionName!: pulumi.Output<string>;
+    /**
+     * This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+     */
     public readonly validationWindowHours!: pulumi.Output<number | undefined>;
 
     /**
@@ -95,12 +125,42 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
  * The set of arguments for constructing a RestoreTestingSelection resource.
  */
 export interface RestoreTestingSelectionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+     */
     iamRoleArn: pulumi.Input<string>;
+    /**
+     * You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+     */
     protectedResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The conditions that you define for resources in your restore testing plan using tags.
+     *
+     * For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+     */
     protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsArgs>;
+    /**
+     * The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+     */
     protectedResourceType: pulumi.Input<string>;
+    /**
+     * You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+     *
+     * See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+     */
     restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Unique string that is the name of the restore testing plan.
+     *
+     * The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+     */
     restoreTestingPlanName: pulumi.Input<string>;
+    /**
+     * The unique name of the restore testing selection that belongs to the related restore testing plan.
+     */
     restoreTestingSelectionName?: pulumi.Input<string>;
+    /**
+     * This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+     */
     validationWindowHours?: pulumi.Input<number>;
 }

@@ -16,6 +16,7 @@ import (
 type Alarm struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the alarm.
 	AlarmArn pulumi.StringOutput `pulumi:"alarmArn"`
 	// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
 	AlarmName pulumi.StringOutput `pulumi:"alarmName"`
@@ -191,6 +192,7 @@ func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the alarm.
 func (o AlarmOutput) AlarmArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.AlarmArn }).(pulumi.StringOutput)
 }

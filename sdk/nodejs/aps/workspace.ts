@@ -106,6 +106,9 @@ export class Workspace extends pulumi.CustomResource {
      * KMS Key ARN used to encrypt and decrypt AMP workspace data.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * Contains information about the logging configuration for the workspace.
+     */
     public readonly loggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceLoggingConfiguration | undefined>;
     /**
      * AMP Workspace prometheus endpoint
@@ -172,6 +175,9 @@ export interface WorkspaceArgs {
      * KMS Key ARN used to encrypt and decrypt AMP workspace data.
      */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * Contains information about the logging configuration for the workspace.
+     */
     loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

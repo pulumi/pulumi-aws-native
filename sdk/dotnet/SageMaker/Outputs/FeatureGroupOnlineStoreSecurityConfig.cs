@@ -13,6 +13,27 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class FeatureGroupOnlineStoreSecurityConfig
     {
+        /// <summary>
+        /// The AWS Key Management Service (KMS) key ARN that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        /// 
+        /// The caller (either user or IAM role) of `CreateFeatureGroup` must have below permissions to the `OnlineStore` `KmsKeyId` :
+        /// 
+        /// - `"kms:Encrypt"`
+        /// - `"kms:Decrypt"`
+        /// - `"kms:DescribeKey"`
+        /// - `"kms:CreateGrant"`
+        /// - `"kms:RetireGrant"`
+        /// - `"kms:ReEncryptFrom"`
+        /// - `"kms:ReEncryptTo"`
+        /// - `"kms:GenerateDataKey"`
+        /// - `"kms:ListAliases"`
+        /// - `"kms:ListGrants"`
+        /// - `"kms:RevokeGrant"`
+        /// 
+        /// The caller (either user or IAM role) to all DataPlane operations ( `PutRecord` , `GetRecord` , `DeleteRecord` ) must have the following permissions to the `KmsKeyId` :
+        /// 
+        /// - `"kms:Decrypt"`
+        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

@@ -19,16 +19,30 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPolicyArgs {
+    /**
+     * The name of this policy.
+     */
     id: string;
 }
 
 export interface GetPolicyResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+     */
     readonly arn?: string;
+    /**
+     * The name of this policy.
+     */
     readonly id?: string;
     /**
+     * The JSON document that describes the policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
      */
     readonly policyDocument?: any;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -39,5 +53,8 @@ export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetPolicyOutputArgs {
+    /**
+     * The name of this policy.
+     */
     id: pulumi.Input<string>;
 }

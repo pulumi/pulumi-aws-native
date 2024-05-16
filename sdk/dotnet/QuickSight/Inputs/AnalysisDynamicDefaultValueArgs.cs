@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDynamicDefaultValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("defaultValueColumn", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> DefaultValueColumn { get; set; } = null!;
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("groupNameColumn")]
         public Input<Inputs.AnalysisColumnIdentifierArgs>? GroupNameColumn { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("userNameColumn")]
         public Input<Inputs.AnalysisColumnIdentifierArgs>? UserNameColumn { get; set; }
 

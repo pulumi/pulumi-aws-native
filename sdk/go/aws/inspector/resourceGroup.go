@@ -16,7 +16,9 @@ import (
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) that specifies the resource group that is created.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 	ResourceGroupTags ResourceGroupTagArrayOutput `pulumi:"resourceGroupTags"`
 }
 
@@ -67,11 +69,13 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
+	// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 	ResourceGroupTags []ResourceGroupTag `pulumi:"resourceGroupTags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
+	// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 	ResourceGroupTags ResourceGroupTagArrayInput
 }
 
@@ -112,10 +116,12 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 func (o ResourceGroupOutput) ResourceGroupTags() ResourceGroupTagArrayOutput {
 	return o.ApplyT(func(v *ResourceGroup) ResourceGroupTagArrayOutput { return v.ResourceGroupTags }).(ResourceGroupTagArrayOutput)
 }

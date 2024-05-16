@@ -49,6 +49,9 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
      * Current status of detector.
      */
     public /*out*/ readonly anomalyDetectorStatus!: pulumi.Output<string>;
+    /**
+     * The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+     */
     public readonly anomalyVisibilityTime!: pulumi.Output<number | undefined>;
     /**
      * When detector was created.
@@ -62,6 +65,9 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
      * How often log group is evaluated
      */
     public readonly evaluationFrequency!: pulumi.Output<enums.logs.LogAnomalyDetectorEvaluationFrequency | undefined>;
+    /**
+     * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+     */
     public readonly filterPattern!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
@@ -124,6 +130,9 @@ export interface LogAnomalyDetectorArgs {
      * Account ID for owner of detector
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+     */
     anomalyVisibilityTime?: pulumi.Input<number>;
     /**
      * Name of detector
@@ -133,6 +142,9 @@ export interface LogAnomalyDetectorArgs {
      * How often log group is evaluated
      */
     evaluationFrequency?: pulumi.Input<enums.logs.LogAnomalyDetectorEvaluationFrequency>;
+    /**
+     * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+     */
     filterPattern?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.

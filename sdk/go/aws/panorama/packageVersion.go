@@ -16,18 +16,30 @@ import (
 type PackageVersion struct {
 	pulumi.CustomResourceState
 
-	IsLatestPatch             pulumi.BoolOutput          `pulumi:"isLatestPatch"`
-	MarkLatest                pulumi.BoolPtrOutput       `pulumi:"markLatest"`
-	OwnerAccount              pulumi.StringPtrOutput     `pulumi:"ownerAccount"`
-	PackageArn                pulumi.StringOutput        `pulumi:"packageArn"`
-	PackageId                 pulumi.StringOutput        `pulumi:"packageId"`
-	PackageName               pulumi.StringOutput        `pulumi:"packageName"`
-	PackageVersion            pulumi.StringOutput        `pulumi:"packageVersion"`
-	PatchVersion              pulumi.StringOutput        `pulumi:"patchVersion"`
-	RegisteredTime            pulumi.IntOutput           `pulumi:"registeredTime"`
-	Status                    PackageVersionStatusOutput `pulumi:"status"`
-	StatusDescription         pulumi.StringOutput        `pulumi:"statusDescription"`
-	UpdatedLatestPatchVersion pulumi.StringPtrOutput     `pulumi:"updatedLatestPatchVersion"`
+	// Whether the package version is the latest version.
+	IsLatestPatch pulumi.BoolOutput `pulumi:"isLatestPatch"`
+	// Whether to mark the new version as the latest version.
+	MarkLatest pulumi.BoolPtrOutput `pulumi:"markLatest"`
+	// An owner account.
+	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
+	// The package version's ARN.
+	PackageArn pulumi.StringOutput `pulumi:"packageArn"`
+	// A package ID.
+	PackageId pulumi.StringOutput `pulumi:"packageId"`
+	// The package version's name.
+	PackageName pulumi.StringOutput `pulumi:"packageName"`
+	// A package version.
+	PackageVersion pulumi.StringOutput `pulumi:"packageVersion"`
+	// A patch version.
+	PatchVersion pulumi.StringOutput `pulumi:"patchVersion"`
+	// The package version's registered time.
+	RegisteredTime pulumi.IntOutput `pulumi:"registeredTime"`
+	// The package version's status.
+	Status PackageVersionStatusOutput `pulumi:"status"`
+	// The package version's status description.
+	StatusDescription pulumi.StringOutput `pulumi:"statusDescription"`
+	// If the version was marked latest, the new version to maker as latest.
+	UpdatedLatestPatchVersion pulumi.StringPtrOutput `pulumi:"updatedLatestPatchVersion"`
 }
 
 // NewPackageVersion registers a new resource with the given unique name, arguments, and options.
@@ -86,21 +98,33 @@ func (PackageVersionState) ElementType() reflect.Type {
 }
 
 type packageVersionArgs struct {
-	MarkLatest                *bool   `pulumi:"markLatest"`
-	OwnerAccount              *string `pulumi:"ownerAccount"`
-	PackageId                 string  `pulumi:"packageId"`
-	PackageVersion            string  `pulumi:"packageVersion"`
-	PatchVersion              string  `pulumi:"patchVersion"`
+	// Whether to mark the new version as the latest version.
+	MarkLatest *bool `pulumi:"markLatest"`
+	// An owner account.
+	OwnerAccount *string `pulumi:"ownerAccount"`
+	// A package ID.
+	PackageId string `pulumi:"packageId"`
+	// A package version.
+	PackageVersion string `pulumi:"packageVersion"`
+	// A patch version.
+	PatchVersion string `pulumi:"patchVersion"`
+	// If the version was marked latest, the new version to maker as latest.
 	UpdatedLatestPatchVersion *string `pulumi:"updatedLatestPatchVersion"`
 }
 
 // The set of arguments for constructing a PackageVersion resource.
 type PackageVersionArgs struct {
-	MarkLatest                pulumi.BoolPtrInput
-	OwnerAccount              pulumi.StringPtrInput
-	PackageId                 pulumi.StringInput
-	PackageVersion            pulumi.StringInput
-	PatchVersion              pulumi.StringInput
+	// Whether to mark the new version as the latest version.
+	MarkLatest pulumi.BoolPtrInput
+	// An owner account.
+	OwnerAccount pulumi.StringPtrInput
+	// A package ID.
+	PackageId pulumi.StringInput
+	// A package version.
+	PackageVersion pulumi.StringInput
+	// A patch version.
+	PatchVersion pulumi.StringInput
+	// If the version was marked latest, the new version to maker as latest.
 	UpdatedLatestPatchVersion pulumi.StringPtrInput
 }
 
@@ -141,50 +165,62 @@ func (o PackageVersionOutput) ToPackageVersionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Whether the package version is the latest version.
 func (o PackageVersionOutput) IsLatestPatch() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.BoolOutput { return v.IsLatestPatch }).(pulumi.BoolOutput)
 }
 
+// Whether to mark the new version as the latest version.
 func (o PackageVersionOutput) MarkLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.BoolPtrOutput { return v.MarkLatest }).(pulumi.BoolPtrOutput)
 }
 
+// An owner account.
 func (o PackageVersionOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
+// The package version's ARN.
 func (o PackageVersionOutput) PackageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageArn }).(pulumi.StringOutput)
 }
 
+// A package ID.
 func (o PackageVersionOutput) PackageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
 }
 
+// The package version's name.
 func (o PackageVersionOutput) PackageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
 }
 
+// A package version.
 func (o PackageVersionOutput) PackageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageVersion }).(pulumi.StringOutput)
 }
 
+// A patch version.
 func (o PackageVersionOutput) PatchVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PatchVersion }).(pulumi.StringOutput)
 }
 
+// The package version's registered time.
 func (o PackageVersionOutput) RegisteredTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.IntOutput { return v.RegisteredTime }).(pulumi.IntOutput)
 }
 
+// The package version's status.
 func (o PackageVersionOutput) Status() PackageVersionStatusOutput {
 	return o.ApplyT(func(v *PackageVersion) PackageVersionStatusOutput { return v.Status }).(PackageVersionStatusOutput)
 }
 
+// The package version's status description.
 func (o PackageVersionOutput) StatusDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.StatusDescription }).(pulumi.StringOutput)
 }
 
+// If the version was marked latest, the new version to maker as latest.
 func (o PackageVersionOutput) UpdatedLatestPatchVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageVersion) pulumi.StringPtrOutput { return v.UpdatedLatestPatchVersion }).(pulumi.StringPtrOutput)
 }

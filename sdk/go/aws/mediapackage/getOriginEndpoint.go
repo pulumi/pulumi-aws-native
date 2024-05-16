@@ -30,18 +30,23 @@ type LookupOriginEndpointArgs struct {
 
 type LookupOriginEndpointResult struct {
 	// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-	Arn           *string                      `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Parameters for enabling CDN authorization on the endpoint.
 	Authorization *OriginEndpointAuthorization `pulumi:"authorization"`
 	// The ID of the Channel the OriginEndpoint is associated with.
-	ChannelId   *string                    `pulumi:"channelId"`
+	ChannelId *string `pulumi:"channelId"`
+	// Parameters for Common Media Application Format (CMAF) packaging.
 	CmafPackage *OriginEndpointCmafPackage `pulumi:"cmafPackage"`
+	// Parameters for DASH packaging.
 	DashPackage *OriginEndpointDashPackage `pulumi:"dashPackage"`
 	// A short text description of the OriginEndpoint.
-	Description *string                   `pulumi:"description"`
-	HlsPackage  *OriginEndpointHlsPackage `pulumi:"hlsPackage"`
+	Description *string `pulumi:"description"`
+	// Parameters for Apple HLS packaging.
+	HlsPackage *OriginEndpointHlsPackage `pulumi:"hlsPackage"`
 	// A short string appended to the end of the OriginEndpoint URL.
-	ManifestName *string                   `pulumi:"manifestName"`
-	MssPackage   *OriginEndpointMssPackage `pulumi:"mssPackage"`
+	ManifestName *string `pulumi:"manifestName"`
+	// Parameters for Microsoft Smooth Streaming packaging.
+	MssPackage *OriginEndpointMssPackage `pulumi:"mssPackage"`
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
 	Origination *OriginEndpointOrigination `pulumi:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -97,6 +102,7 @@ func (o LookupOriginEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Parameters for enabling CDN authorization on the endpoint.
 func (o LookupOriginEndpointResultOutput) Authorization() OriginEndpointAuthorizationPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointAuthorization { return v.Authorization }).(OriginEndpointAuthorizationPtrOutput)
 }
@@ -106,10 +112,12 @@ func (o LookupOriginEndpointResultOutput) ChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.ChannelId }).(pulumi.StringPtrOutput)
 }
 
+// Parameters for Common Media Application Format (CMAF) packaging.
 func (o LookupOriginEndpointResultOutput) CmafPackage() OriginEndpointCmafPackagePtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointCmafPackage { return v.CmafPackage }).(OriginEndpointCmafPackagePtrOutput)
 }
 
+// Parameters for DASH packaging.
 func (o LookupOriginEndpointResultOutput) DashPackage() OriginEndpointDashPackagePtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointDashPackage { return v.DashPackage }).(OriginEndpointDashPackagePtrOutput)
 }
@@ -119,6 +127,7 @@ func (o LookupOriginEndpointResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Parameters for Apple HLS packaging.
 func (o LookupOriginEndpointResultOutput) HlsPackage() OriginEndpointHlsPackagePtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointHlsPackage { return v.HlsPackage }).(OriginEndpointHlsPackagePtrOutput)
 }
@@ -128,6 +137,7 @@ func (o LookupOriginEndpointResultOutput) ManifestName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
+// Parameters for Microsoft Smooth Streaming packaging.
 func (o LookupOriginEndpointResultOutput) MssPackage() OriginEndpointMssPackagePtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointMssPackage { return v.MssPackage }).(OriginEndpointMssPackagePtrOutput)
 }

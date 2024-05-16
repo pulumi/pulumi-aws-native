@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleDateRange
     {
+        /// <summary>
+        /// A date range unit for the date filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleDateRangeUnit Unit;
+        /// <summary>
+        /// A date range value for the date filter.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

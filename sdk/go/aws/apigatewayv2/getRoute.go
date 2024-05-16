@@ -24,7 +24,8 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 
 type LookupRouteArgs struct {
 	// The API identifier.
-	ApiId   string `pulumi:"apiId"`
+	ApiId string `pulumi:"apiId"`
+	// The route ID.
 	RouteId string `pulumi:"routeId"`
 }
 
@@ -43,7 +44,8 @@ type LookupRouteResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
 	RequestModels interface{} `pulumi:"requestModels"`
-	RouteId       *string     `pulumi:"routeId"`
+	// The route ID.
+	RouteId *string `pulumi:"routeId"`
 	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
 	RouteKey *string `pulumi:"routeKey"`
 	// The route response selection expression for the route. Supported only for WebSocket APIs.
@@ -67,7 +69,8 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 
 type LookupRouteOutputArgs struct {
 	// The API identifier.
-	ApiId   pulumi.StringInput `pulumi:"apiId"`
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The route ID.
 	RouteId pulumi.StringInput `pulumi:"routeId"`
 }
 
@@ -121,6 +124,7 @@ func (o LookupRouteResultOutput) RequestModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResult) interface{} { return v.RequestModels }).(pulumi.AnyOutput)
 }
 
+// The route ID.
 func (o LookupRouteResultOutput) RouteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.RouteId }).(pulumi.StringPtrOutput)
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobColumnSelector
     {
+        /// <summary>
+        /// The name of a column from a dataset.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A regular expression for selecting a column from a dataset.
+        /// </summary>
         public readonly string? Regex;
 
         [OutputConstructor]

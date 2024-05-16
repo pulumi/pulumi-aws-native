@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class DomainExportingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 location where Identity Resolution Jobs write result files.
+        /// </summary>
         [Input("s3Exporting")]
         public Input<Inputs.DomainS3ExportingConfigArgs>? S3Exporting { get; set; }
 

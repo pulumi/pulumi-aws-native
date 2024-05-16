@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The detailed definition of a template.
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.TemplateVersionDefinition?> Definition { get; private set; } = null!;
 
@@ -39,27 +45,51 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A display name for the template.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// The source entity of the template.
+        /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        /// </summary>
         [Output("templateId")]
         public Output<string> TemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Output("validationStrategy")]
         public Output<Outputs.TemplateValidationStrategy?> ValidationStrategy { get; private set; } = null!;
 
+        /// <summary>
+        /// A version of a template.
+        /// </summary>
         [Output("version")]
         public Output<Outputs.TemplateVersion> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -113,40 +143,69 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The detailed definition of a template.
+        /// </summary>
         [Input("definition")]
         public Input<Inputs.TemplateVersionDefinitionArgs>? Definition { get; set; }
 
+        /// <summary>
+        /// A display name for the template.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.TemplateResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         public InputList<Inputs.TemplateResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.TemplateResourcePermissionArgs>());
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// The source entity of the template.
+        /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        /// </summary>
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Input("validationStrategy")]
         public Input<Inputs.TemplateValidationStrategyArgs>? ValidationStrategy { get; set; }
 
+        /// <summary>
+        /// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

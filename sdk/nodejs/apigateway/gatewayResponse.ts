@@ -34,6 +34,9 @@ export class GatewayResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayResponse.__pulumiType;
     }
 
+    /**
+     * The ID for the gateway response. For example: `abc123` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.

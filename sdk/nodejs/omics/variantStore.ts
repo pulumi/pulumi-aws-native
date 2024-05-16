@@ -37,17 +37,53 @@ export class VariantStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === VariantStore.__pulumiType;
     }
 
+    /**
+     * The store's ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * When the store was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * A description for the store.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the store.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The read set's genome reference ARN.
+     */
     public readonly reference!: pulumi.Output<outputs.omics.VariantStoreReferenceItem>;
+    /**
+     * Server-side encryption (SSE) settings for a store.
+     */
     public readonly sseConfig!: pulumi.Output<outputs.omics.VariantStoreSseConfig | undefined>;
+    /**
+     * The store's status.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.omics.VariantStoreStoreStatus>;
+    /**
+     * The store's status message.
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * The store's ARN.
+     */
     public /*out*/ readonly storeArn!: pulumi.Output<string>;
+    /**
+     * The store's size in bytes.
+     */
     public /*out*/ readonly storeSizeBytes!: pulumi.Output<number>;
+    /**
+     * Tags for the store.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * When the store was updated.
+     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -101,9 +137,24 @@ export class VariantStore extends pulumi.CustomResource {
  * The set of arguments for constructing a VariantStore resource.
  */
 export interface VariantStoreArgs {
+    /**
+     * A description for the store.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A name for the store.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The read set's genome reference ARN.
+     */
     reference: pulumi.Input<inputs.omics.VariantStoreReferenceItemArgs>;
+    /**
+     * Server-side encryption (SSE) settings for a store.
+     */
     sseConfig?: pulumi.Input<inputs.omics.VariantStoreSseConfigArgs>;
+    /**
+     * Tags for the store.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

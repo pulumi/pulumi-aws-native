@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Shield
 
     public sealed class GetDrtAccessArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Shield
 
     public sealed class GetDrtAccessInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Shield
     [OutputType]
     public sealed class GetDrtAccessResult
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         public readonly string? AccountId;
         /// <summary>
         /// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.

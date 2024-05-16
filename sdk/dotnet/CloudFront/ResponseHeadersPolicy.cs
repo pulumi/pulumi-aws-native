@@ -15,12 +15,23 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:ResponseHeadersPolicy")]
     public partial class ResponseHeadersPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the response headers policy was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A response headers policy configuration.
+        /// 
+        /// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+        /// </summary>
         [Output("responseHeadersPolicyConfig")]
         public Output<Outputs.ResponseHeadersPolicyConfig> ResponseHeadersPolicyConfig { get; private set; } = null!;
 
@@ -69,6 +80,11 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class ResponseHeadersPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A response headers policy configuration.
+        /// 
+        /// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+        /// </summary>
         [Input("responseHeadersPolicyConfig", required: true)]
         public Input<Inputs.ResponseHeadersPolicyConfigArgs> ResponseHeadersPolicyConfig { get; set; } = null!;
 

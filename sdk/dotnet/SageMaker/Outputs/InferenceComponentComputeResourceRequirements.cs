@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentComputeResourceRequirements
     {
+        /// <summary>
+        /// The maximum MB of memory to allocate to run a model that you assign to an inference component.
+        /// </summary>
         public readonly int? MaxMemoryRequiredInMb;
+        /// <summary>
+        /// The minimum MB of memory to allocate to run a model that you assign to an inference component.
+        /// </summary>
         public readonly int? MinMemoryRequiredInMb;
+        /// <summary>
+        /// The number of accelerators to allocate to run a model that you assign to an inference component. Accelerators include GPUs and AWS Inferentia.
+        /// </summary>
         public readonly double? NumberOfAcceleratorDevicesRequired;
+        /// <summary>
+        /// The number of CPU cores to allocate to run a model that you assign to an inference component.
+        /// </summary>
         public readonly double? NumberOfCpuCoresRequired;
 
         [OutputConstructor]

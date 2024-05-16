@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTreeMapFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Aggregated field wells of a tree map.
+        /// </summary>
         [Input("treeMapAggregatedFieldWells")]
         public Input<Inputs.TemplateTreeMapAggregatedFieldWellsArgs>? TreeMapAggregatedFieldWells { get; set; }
 

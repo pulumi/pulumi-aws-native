@@ -333,6 +333,9 @@ class Alarm(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alarmArn")
     def alarm_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the alarm.
+        """
         return pulumi.get(self, "alarm_arn")
 
     @property

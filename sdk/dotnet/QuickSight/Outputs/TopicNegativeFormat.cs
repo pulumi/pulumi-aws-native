@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicNegativeFormat
     {
+        /// <summary>
+        /// The prefix for a negative format.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// The suffix for a negative format.
+        /// </summary>
         public readonly string? Suffix;
 
         [OutputConstructor]

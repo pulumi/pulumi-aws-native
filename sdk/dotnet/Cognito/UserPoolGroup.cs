@@ -15,18 +15,37 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolGroup")]
     public partial class UserPoolGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A string containing the description of the group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the group. Must be unique.
+        /// </summary>
         [Output("groupName")]
         public Output<string?> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+        /// 
+        /// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+        /// 
+        /// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        /// </summary>
         [Output("precedence")]
         public Output<int?> Precedence { get; private set; } = null!;
 
+        /// <summary>
+        /// The role Amazon Resource Name (ARN) for the group.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -80,18 +99,37 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string containing the description of the group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the group. Must be unique.
+        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
+        /// <summary>
+        /// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+        /// 
+        /// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+        /// 
+        /// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        /// </summary>
         [Input("precedence")]
         public Input<int>? Precedence { get; set; }
 
+        /// <summary>
+        /// The role Amazon Resource Name (ARN) for the group.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

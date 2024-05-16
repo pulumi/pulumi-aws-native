@@ -19,7 +19,8 @@ type StreamingImage struct {
 	// <p>A human-readable description of the streaming image.</p>
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-	Ec2ImageId              pulumi.StringOutput                         `pulumi:"ec2ImageId"`
+	Ec2ImageId pulumi.StringOutput `pulumi:"ec2ImageId"`
+	// Specifies how a streaming image is encrypted.
 	EncryptionConfiguration StreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
 	EulaIds pulumi.StringArrayOutput `pulumi:"eulaIds"`
@@ -28,11 +29,15 @@ type StreamingImage struct {
 	// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
-	Platform         pulumi.StringOutput `pulumi:"platform"`
+	Platform pulumi.StringOutput `pulumi:"platform"`
+	// The unique identifier for the streaming image resource.
 	StreamingImageId pulumi.StringOutput `pulumi:"streamingImageId"`
 	// <p>The studioId. </p>
-	StudioId pulumi.StringOutput    `pulumi:"studioId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	StudioId pulumi.StringOutput `pulumi:"studioId"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewStreamingImage registers a new resource with the given unique name, arguments, and options.
@@ -94,8 +99,11 @@ type streamingImageArgs struct {
 	// <p>A friendly name for a streaming image resource.</p>
 	Name *string `pulumi:"name"`
 	// <p>The studioId. </p>
-	StudioId string            `pulumi:"studioId"`
-	Tags     map[string]string `pulumi:"tags"`
+	StudioId string `pulumi:"studioId"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamingImage resource.
@@ -108,7 +116,10 @@ type StreamingImageArgs struct {
 	Name pulumi.StringPtrInput
 	// <p>The studioId. </p>
 	StudioId pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapInput
 }
 
 func (StreamingImageArgs) ElementType() reflect.Type {
@@ -158,6 +169,7 @@ func (o StreamingImageOutput) Ec2ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Ec2ImageId }).(pulumi.StringOutput)
 }
 
+// Specifies how a streaming image is encrypted.
 func (o StreamingImageOutput) EncryptionConfiguration() StreamingImageEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *StreamingImage) StreamingImageEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(StreamingImageEncryptionConfigurationOutput)
 }
@@ -182,6 +194,7 @@ func (o StreamingImageOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the streaming image resource.
 func (o StreamingImageOutput) StreamingImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StreamingImageId }).(pulumi.StringOutput)
 }
@@ -191,6 +204,9 @@ func (o StreamingImageOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o StreamingImageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

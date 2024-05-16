@@ -16,6 +16,9 @@ export function getAnomalyMonitor(args: GetAnomalyMonitorArgs, opts?: pulumi.Inv
 }
 
 export interface GetAnomalyMonitorArgs {
+    /**
+     * The Amazon Resource Name (ARN) value for the monitor.
+     */
     monitorArn: string;
 }
 
@@ -36,6 +39,9 @@ export interface GetAnomalyMonitorResult {
      * The date when the monitor was last updated.
      */
     readonly lastUpdatedDate?: string;
+    /**
+     * The Amazon Resource Name (ARN) value for the monitor.
+     */
     readonly monitorArn?: string;
     /**
      * The name of the monitor.
@@ -50,5 +56,8 @@ export function getAnomalyMonitorOutput(args: GetAnomalyMonitorOutputArgs, opts?
 }
 
 export interface GetAnomalyMonitorOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) value for the monitor.
+     */
     monitorArn: pulumi.Input<string>;
 }

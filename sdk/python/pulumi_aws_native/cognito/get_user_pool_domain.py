@@ -33,16 +33,25 @@ class GetUserPoolDomainResult:
     @property
     @pulumi.getter(name="cloudFrontDistribution")
     def cloud_front_distribution(self) -> Optional[str]:
+        """
+        The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        """
         return pulumi.get(self, "cloud_front_distribution")
 
     @property
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> Optional['outputs.UserPoolDomainCustomDomainConfigType']:
+        """
+        The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        """
         return pulumi.get(self, "custom_domain_config")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "id")
 
 
@@ -61,6 +70,9 @@ def get_user_pool_domain(id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolDomainResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain
+
+
+    :param str id: The resource ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain
+
+
+    :param str id: The resource ID.
     """
     ...

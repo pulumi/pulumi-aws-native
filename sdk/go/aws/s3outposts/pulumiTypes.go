@@ -712,7 +712,8 @@ type BucketRule struct {
 	// The container for the filter of the lifecycle rule.
 	Filter *BucketRuleFilterProperties `pulumi:"filter"`
 	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
-	Id     *string           `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 	Status *BucketRuleStatus `pulumi:"status"`
 }
 
@@ -738,7 +739,8 @@ type BucketRuleArgs struct {
 	// The container for the filter of the lifecycle rule.
 	Filter BucketRuleFilterPropertiesPtrInput `pulumi:"filter"`
 	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
-	Id     pulumi.StringPtrInput    `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 	Status BucketRuleStatusPtrInput `pulumi:"status"`
 }
 
@@ -819,6 +821,7 @@ func (o BucketRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 func (o BucketRuleOutput) Status() BucketRuleStatusPtrOutput {
 	return o.ApplyT(func(v BucketRule) *BucketRuleStatus { return v.Status }).(BucketRuleStatusPtrOutput)
 }
@@ -1184,6 +1187,7 @@ func (o EndpointFailedReasonPtrOutput) Message() pulumi.StringPtrOutput {
 
 // The container for the network interface.
 type EndpointNetworkInterface struct {
+	// The ID for the network interface.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
@@ -1202,6 +1206,7 @@ func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithCont
 	return o
 }
 
+// The ID for the network interface.
 func (o EndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }

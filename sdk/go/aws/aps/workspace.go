@@ -127,7 +127,8 @@ type Workspace struct {
 	// Workspace arn.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
-	KmsKeyArn            pulumi.StringPtrOutput                 `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
@@ -186,7 +187,8 @@ type workspaceArgs struct {
 	// AMP Workspace alias.
 	Alias *string `pulumi:"alias"`
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
-	KmsKeyArn            *string                        `pulumi:"kmsKeyArn"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -199,7 +201,8 @@ type WorkspaceArgs struct {
 	// AMP Workspace alias.
 	Alias pulumi.StringPtrInput
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
-	KmsKeyArn            pulumi.StringPtrInput
+	KmsKeyArn pulumi.StringPtrInput
+	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -262,6 +265,7 @@ func (o WorkspaceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// Contains information about the logging configuration for the workspace.
 func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }

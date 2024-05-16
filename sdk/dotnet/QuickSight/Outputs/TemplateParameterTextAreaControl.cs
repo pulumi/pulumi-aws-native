@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateParameterTextAreaControl
     {
+        /// <summary>
+        /// The delimiter that is used to separate the lines in text.
+        /// </summary>
         public readonly string? Delimiter;
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.TemplateTextAreaControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `ParameterTextAreaControl` .
+        /// </summary>
         public readonly string ParameterControlId;
+        /// <summary>
+        /// The source parameter name of the `ParameterTextAreaControl` .
+        /// </summary>
         public readonly string SourceParameterName;
+        /// <summary>
+        /// The title of the `ParameterTextAreaControl` .
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

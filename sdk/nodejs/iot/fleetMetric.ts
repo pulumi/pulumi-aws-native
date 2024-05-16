@@ -41,6 +41,9 @@ export class FleetMetric extends pulumi.CustomResource {
      * The aggregation field to perform aggregation and metric emission
      */
     public readonly aggregationField!: pulumi.Output<string | undefined>;
+    /**
+     * The type of aggregation queries.
+     */
     public readonly aggregationType!: pulumi.Output<outputs.iot.FleetMetricAggregationType | undefined>;
     /**
      * The creation date of a fleet metric
@@ -147,6 +150,9 @@ export interface FleetMetricArgs {
      * The aggregation field to perform aggregation and metric emission
      */
     aggregationField?: pulumi.Input<string>;
+    /**
+     * The type of aggregation queries.
+     */
     aggregationType?: pulumi.Input<inputs.iot.FleetMetricAggregationTypeArgs>;
     /**
      * The description of a fleet metric

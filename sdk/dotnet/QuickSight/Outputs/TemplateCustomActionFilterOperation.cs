@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCustomActionFilterOperation
     {
+        /// <summary>
+        /// The configuration of selected fields in the `CustomActionFilterOperation` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateFilterOperationSelectedFieldsConfiguration SelectedFieldsConfiguration;
+        /// <summary>
+        /// The configuration of target visuals that you want to be filtered.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateFilterOperationTargetVisualsConfiguration TargetVisualsConfiguration;
 
         [OutputConstructor]

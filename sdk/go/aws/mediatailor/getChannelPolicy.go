@@ -23,6 +23,7 @@ func LookupChannelPolicy(ctx *pulumi.Context, args *LookupChannelPolicyArgs, opt
 }
 
 type LookupChannelPolicyArgs struct {
+	// The name of the channel associated with this Channel Policy.
 	ChannelName string `pulumi:"channelName"`
 }
 
@@ -47,6 +48,7 @@ func LookupChannelPolicyOutput(ctx *pulumi.Context, args LookupChannelPolicyOutp
 }
 
 type LookupChannelPolicyOutputArgs struct {
+	// The name of the channel associated with this Channel Policy.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 }
 

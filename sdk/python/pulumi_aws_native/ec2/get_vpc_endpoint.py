@@ -50,21 +50,39 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter(name="creationTimestamp")
     def creation_timestamp(self) -> Optional[str]:
+        """
+        The date and time the VPC endpoint was created. For example: `Fri Sep 28 23:34:36 UTC 2018.`
+        """
         return pulumi.get(self, "creation_timestamp")
 
     @property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Optional[Sequence[str]]:
+        """
+        (Interface endpoints) The DNS entries for the endpoint. Each entry is a combination of the hosted zone ID and the DNS name. The entries are ordered as follows: regional public DNS, zonal public DNS, private DNS, and wildcard DNS. This order is not enforced for AWS Marketplace services.
+
+        The following is an example. In the first entry, the hosted zone ID is Z1HUB23UULQXV and the DNS name is vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com.
+
+        ["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com", "Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com", "Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
+
+        If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
+        """
         return pulumi.get(self, "dns_entries")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the VPC endpoint.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> Optional[Sequence[str]]:
+        """
+        (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
+        """
         return pulumi.get(self, "network_interface_ids")
 
     @property
@@ -137,6 +155,9 @@ def get_vpc_endpoint(id: Optional[str] = None,
     Specifies a VPC endpoint. A VPC endpoint provides a private connection between your VPC and an endpoint service. You can use an endpoint service provided by AWS, an MKT Partner, or another AWS accounts in your organization. For more information, see the [User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
      An endpoint of type ``Interface`` establishes connections between the subnets in your VPC and an AWS-service, your own service, or a service hosted by another AWS-account. With an interface VPC endpoint, you specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interfaces.
      An endpoint of type ``gateway`` serves as a target for a route in your route table for traffic destined for S3 or DDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For more information about connectivity to S3, see [W
+
+
+    :param str id: The ID of the VPC endpoint.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -162,5 +183,8 @@ def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
     Specifies a VPC endpoint. A VPC endpoint provides a private connection between your VPC and an endpoint service. You can use an endpoint service provided by AWS, an MKT Partner, or another AWS accounts in your organization. For more information, see the [User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
      An endpoint of type ``Interface`` establishes connections between the subnets in your VPC and an AWS-service, your own service, or a service hosted by another AWS-account. With an interface VPC endpoint, you specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interfaces.
      An endpoint of type ``gateway`` serves as a target for a route in your route table for traffic destined for S3 or DDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For more information about connectivity to S3, see [W
+
+
+    :param str id: The ID of the VPC endpoint.
     """
     ...

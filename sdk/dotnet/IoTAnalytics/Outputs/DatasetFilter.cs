@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetFilter
     {
+        /// <summary>
+        /// Used to limit data to that which has arrived since the last execution of the action.
+        /// </summary>
         public readonly Outputs.DatasetDeltaTime? DeltaTime;
 
         [OutputConstructor]

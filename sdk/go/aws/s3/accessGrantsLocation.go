@@ -23,8 +23,9 @@ type AccessGrantsLocation struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
-	LocationScope pulumi.StringPtrOutput       `pulumi:"locationScope"`
-	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	LocationScope pulumi.StringPtrOutput `pulumi:"locationScope"`
+	// A container of a key value name pair.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessGrantsLocation registers a new resource with the given unique name, arguments, and options.
@@ -74,8 +75,9 @@ type accessGrantsLocationArgs struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
-	LocationScope *string             `pulumi:"locationScope"`
-	Tags          []aws.CreateOnlyTag `pulumi:"tags"`
+	LocationScope *string `pulumi:"locationScope"`
+	// A container of a key value name pair.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrantsLocation resource.
@@ -84,7 +86,8 @@ type AccessGrantsLocationArgs struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Descriptor for where the location actually points
 	LocationScope pulumi.StringPtrInput
-	Tags          aws.CreateOnlyTagArrayInput
+	// A container of a key value name pair.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AccessGrantsLocationArgs) ElementType() reflect.Type {
@@ -144,6 +147,7 @@ func (o AccessGrantsLocationOutput) LocationScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringPtrOutput { return v.LocationScope }).(pulumi.StringPtrOutput)
 }
 
+// A container of a key value name pair.
 func (o AccessGrantsLocationOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

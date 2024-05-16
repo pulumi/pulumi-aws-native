@@ -71,76 +71,151 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the policy.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> Optional['outputs.PolicyIeMap']:
+        """
+        Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+
+        This is used for the policy's `IncludeMap` and `ExcludeMap` .
+
+        You can specify account IDs, OUs, or a combination:
+
+        - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        """
         return pulumi.get(self, "exclude_map")
 
     @property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> Optional[bool]:
+        """
+        Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
+        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the policy.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="includeMap")
     def include_map(self) -> Optional['outputs.PolicyIeMap']:
+        """
+        Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+
+        This is used for the policy's `IncludeMap` and `ExcludeMap` .
+
+        You can specify account IDs, OUs, or a combination:
+
+        - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        """
         return pulumi.get(self, "include_map")
 
     @property
     @pulumi.getter(name="policyDescription")
     def policy_description(self) -> Optional[str]:
+        """
+        Your description of the AWS Firewall Manager policy.
+        """
         return pulumi.get(self, "policy_description")
 
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[str]:
+        """
+        The name of the AWS Firewall Manager policy.
+        """
         return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> Optional[bool]:
+        """
+        Indicates if the policy should be automatically applied to new resources.
+        """
         return pulumi.get(self, "remediation_enabled")
 
     @property
     @pulumi.getter(name="resourceSetIds")
     def resource_set_ids(self) -> Optional[Sequence[str]]:
+        """
+        The unique identifiers of the resource sets used by the policy.
+        """
         return pulumi.get(self, "resource_set_ids")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['outputs.PolicyResourceTag']]:
+        """
+        The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[str]:
+        """
+        The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+
+        The following are valid resource types for each Firewall Manager policy type:
+
+        - AWS WAF Classic - `AWS::ApiGateway::Stage` , `AWS::CloudFront::Distribution` , and `AWS::ElasticLoadBalancingV2::LoadBalancer` .
+        - AWS WAF - `AWS::ApiGateway::Stage` , `AWS::ElasticLoadBalancingV2::LoadBalancer` , and `AWS::CloudFront::Distribution` .
+        - Shield Advanced - `AWS::ElasticLoadBalancingV2::LoadBalancer` , `AWS::ElasticLoadBalancing::LoadBalancer` , `AWS::EC2::EIP` , and `AWS::CloudFront::Distribution` .
+        - Network ACL - `AWS::EC2::Subnet` .
+        - Security group usage audit - `AWS::EC2::SecurityGroup` .
+        - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
+        - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="resourceTypeList")
     def resource_type_list(self) -> Optional[Sequence[str]]:
+        """
+        An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
+        """
         return pulumi.get(self, "resource_type_list")
 
     @property
     @pulumi.getter(name="resourcesCleanUp")
     def resources_clean_up(self) -> Optional[bool]:
+        """
+        Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+
+        By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+
+        This option is not available for Shield Advanced or AWS WAF Classic policies.
+        """
         return pulumi.get(self, "resources_clean_up")
 
     @property
     @pulumi.getter(name="securityServicePolicyData")
     def security_service_policy_data(self) -> Optional['outputs.PolicySecurityServicePolicyData']:
+        """
+        Details about the security service that is being used to protect the resources.
+        """
         return pulumi.get(self, "security_service_policy_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -171,6 +246,9 @@ def get_policy(id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Creates an AWS Firewall Manager policy.
+
+
+    :param str id: The ID of the policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -200,5 +278,8 @@ def get_policy_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Creates an AWS Firewall Manager policy.
+
+
+    :param str id: The ID of the policy.
     """
     ...

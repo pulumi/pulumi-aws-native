@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionImagePullSecretArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

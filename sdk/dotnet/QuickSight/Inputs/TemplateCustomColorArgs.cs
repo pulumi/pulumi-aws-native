@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateCustomColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color that is applied to the data value.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// The data value that the color is applied to.
+        /// </summary>
         [Input("fieldValue")]
         public Input<string>? FieldValue { get; set; }
 
+        /// <summary>
+        /// The value of a special data value.
+        /// </summary>
         [Input("specialValue")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSpecialValue>? SpecialValue { get; set; }
 

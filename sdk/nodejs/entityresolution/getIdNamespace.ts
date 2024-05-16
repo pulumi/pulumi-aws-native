@@ -19,6 +19,9 @@ export function getIdNamespace(args: GetIdNamespaceArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetIdNamespaceArgs {
+    /**
+     * The name of the ID namespace.
+     */
     idNamespaceName: string;
 }
 
@@ -27,15 +30,37 @@ export interface GetIdNamespaceResult {
      * The date and time when the IdNamespace was created
      */
     readonly createdAt?: string;
+    /**
+     * The description of the ID namespace.
+     */
     readonly description?: string;
+    /**
+     * An object containing `IdMappingType` and `ProviderProperties` .
+     */
     readonly idMappingWorkflowProperties?: outputs.entityresolution.IdNamespaceIdMappingWorkflowProperties[];
     /**
      * The arn associated with the IdNamespace
      */
     readonly idNamespaceArn?: string;
+    /**
+     * An object containing `InputSourceARN` and `SchemaName` .
+     */
     readonly inputSourceConfig?: outputs.entityresolution.IdNamespaceInputSource[];
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+     */
     readonly roleArn?: string;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+     *
+     * The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+     *
+     * The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+     */
     readonly type?: enums.entityresolution.IdNamespaceType;
     /**
      * The date and time when the IdNamespace was updated
@@ -50,5 +75,8 @@ export function getIdNamespaceOutput(args: GetIdNamespaceOutputArgs, opts?: pulu
 }
 
 export interface GetIdNamespaceOutputArgs {
+    /**
+     * The name of the ID namespace.
+     */
     idNamespaceName: pulumi.Input<string>;
 }

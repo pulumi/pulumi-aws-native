@@ -73,7 +73,21 @@ export class Detector extends pulumi.CustomResource {
      * The time when the detector was last updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * The rule execution mode for the rules included in the detector version.
+     *
+     * Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+     *
+     * You can define and edit the rule mode at the detector version level, when it is in draft status.
+     *
+     * If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+     *
+     * If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+     */
     public readonly ruleExecutionMode!: pulumi.Output<enums.frauddetector.DetectorRuleExecutionMode | undefined>;
+    /**
+     * A rule.
+     */
     public readonly rules!: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
     /**
      * Tags associated with this detector.
@@ -157,7 +171,21 @@ export interface DetectorArgs {
      * The event type to associate this detector with.
      */
     eventType: pulumi.Input<inputs.frauddetector.DetectorEventTypeArgs>;
+    /**
+     * The rule execution mode for the rules included in the detector version.
+     *
+     * Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+     *
+     * You can define and edit the rule mode at the detector version level, when it is in draft status.
+     *
+     * If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+     *
+     * If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+     */
     ruleExecutionMode?: pulumi.Input<enums.frauddetector.DetectorRuleExecutionMode>;
+    /**
+     * A rule.
+     */
     rules: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorRuleArgs>[]>;
     /**
      * Tags associated with this detector.

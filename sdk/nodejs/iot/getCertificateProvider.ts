@@ -19,12 +19,30 @@ export function getCertificateProvider(args: GetCertificateProviderArgs, opts?: 
 }
 
 export interface GetCertificateProviderArgs {
+    /**
+     * The name of the certificate provider.
+     */
     certificateProviderName: string;
 }
 
 export interface GetCertificateProviderResult {
+    /**
+     * A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+     */
     readonly accountDefaultForOperations?: enums.iot.CertificateProviderOperation[];
+    /**
+     * Returns the Amazon Resource Name (ARN) for the certificate. For example:
+     *
+     * `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+     *
+     * A value similar to the following is returned:
+     *
+     * `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+     */
     readonly arn?: string;
+    /**
+     * The ARN of the Lambda function.
+     */
     readonly lambdaFunctionArn?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -39,5 +57,8 @@ export function getCertificateProviderOutput(args: GetCertificateProviderOutputA
 }
 
 export interface GetCertificateProviderOutputArgs {
+    /**
+     * The name of the certificate provider.
+     */
     certificateProviderName: pulumi.Input<string>;
 }

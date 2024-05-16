@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Fms.Inputs
     /// </summary>
     public sealed class PolicyNetworkFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the deployment model to use for the firewall policy. To use a distributed model, set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html) to `DISTRIBUTED` .
+        /// </summary>
         [Input("firewallDeploymentModel", required: true)]
         public Input<Pulumi.AwsNative.Fms.PolicyFirewallDeploymentModel> FirewallDeploymentModel { get; set; } = null!;
 

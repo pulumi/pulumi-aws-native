@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyMetric
     {
+        /// <summary>
+        /// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyMetricDimension> Dimensions;
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// The namespace of the metric. For more information, see the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

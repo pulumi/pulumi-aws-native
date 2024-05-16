@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicDefaultFormatting
     {
+        /// <summary>
+        /// The display format. Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicDisplayFormat? DisplayFormat;
+        /// <summary>
+        /// A structure that represents additional options for display formatting.
+        /// </summary>
         public readonly Outputs.TopicDisplayFormatOptions? DisplayFormatOptions;
 
         [OutputConstructor]

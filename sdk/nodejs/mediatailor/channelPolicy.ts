@@ -34,6 +34,9 @@ export class ChannelPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelPolicy.__pulumiType;
     }
 
+    /**
+     * The name of the channel associated with this Channel Policy.
+     */
     public readonly channelName!: pulumi.Output<string>;
     /**
      * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
@@ -76,6 +79,9 @@ export class ChannelPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ChannelPolicy resource.
  */
 export interface ChannelPolicyArgs {
+    /**
+     * The name of the channel associated with this Channel Policy.
+     */
     channelName: pulumi.Input<string>;
     /**
      * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>

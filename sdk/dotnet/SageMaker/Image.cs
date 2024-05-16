@@ -15,18 +15,51 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:Image")]
     public partial class Image : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+        /// </summary>
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the image.
+        /// </summary>
         [Output("imageDescription")]
         public Output<string?> ImageDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the image.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+        /// 
+        /// *Pattern* : `^\S(.*\S)?$`
+        /// </summary>
         [Output("imageDisplayName")]
         public Output<string?> ImageDisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Image. Must be unique by region in your account.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        /// </summary>
         [Output("imageName")]
         public Output<string> ImageName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        /// 
+        /// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+        /// 
+        /// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+        /// </summary>
         [Output("imageRoleArn")]
         public Output<string> ImageRoleArn { get; private set; } = null!;
 
@@ -85,15 +118,39 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the image.
+        /// </summary>
         [Input("imageDescription")]
         public Input<string>? ImageDescription { get; set; }
 
+        /// <summary>
+        /// The display name of the image.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+        /// 
+        /// *Pattern* : `^\S(.*\S)?$`
+        /// </summary>
         [Input("imageDisplayName")]
         public Input<string>? ImageDisplayName { get; set; }
 
+        /// <summary>
+        /// The name of the Image. Must be unique by region in your account.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        /// </summary>
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        /// 
+        /// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+        /// 
+        /// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+        /// </summary>
         [Input("imageRoleArn", required: true)]
         public Input<string> ImageRoleArn { get; set; } = null!;
 

@@ -45,6 +45,9 @@ export class ResponsePlan extends pulumi.CustomResource {
      * The ARN of the response plan.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The AWS Chatbot chat channel used for collaboration during an incident.
+     */
     public readonly chatChannel!: pulumi.Output<outputs.ssmincidents.ResponsePlanChatChannel | undefined>;
     /**
      * The display name of the response plan.
@@ -54,6 +57,9 @@ export class ResponsePlan extends pulumi.CustomResource {
      * The list of engagements to use.
      */
     public readonly engagements!: pulumi.Output<string[] | undefined>;
+    /**
+     * The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+     */
     public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
     /**
      * The list of integrations.
@@ -117,6 +123,9 @@ export interface ResponsePlanArgs {
      * The list of actions.
      */
     actions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionArgs>[]>;
+    /**
+     * The AWS Chatbot chat channel used for collaboration during an incident.
+     */
     chatChannel?: pulumi.Input<inputs.ssmincidents.ResponsePlanChatChannelArgs>;
     /**
      * The display name of the response plan.
@@ -126,6 +135,9 @@ export interface ResponsePlanArgs {
      * The list of engagements to use.
      */
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+     */
     incidentTemplate: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplateArgs>;
     /**
      * The list of integrations.

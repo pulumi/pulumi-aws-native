@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUiCustomizationAttachmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUiCustomizationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolUiCustomizationAttachmentResult
     {
+        /// <summary>
+        /// The CSS values in the UI customization.
+        /// </summary>
         public readonly string? Css;
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

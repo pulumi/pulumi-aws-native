@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFunnelChartSortConfiguration
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> CategorySort;
 
         [OutputConstructor]

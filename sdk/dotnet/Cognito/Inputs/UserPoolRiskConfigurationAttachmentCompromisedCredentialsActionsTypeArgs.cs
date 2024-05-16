@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event action.
+        /// </summary>
         [Input("eventAction", required: true)]
         public Input<string> EventAction { get; set; } = null!;
 

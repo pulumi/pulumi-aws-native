@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
 type JobQueueJobStateTimeLimitActionAction string
 
 const (
@@ -173,6 +174,7 @@ func (in *jobQueueJobStateTimeLimitActionActionPtr) ToJobQueueJobStateTimeLimitA
 	return pulumi.ToOutputWithContext(ctx, in).(JobQueueJobStateTimeLimitActionActionPtrOutput)
 }
 
+// The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
 type JobQueueJobStateTimeLimitActionState string
 
 const (
@@ -336,6 +338,7 @@ func (in *jobQueueJobStateTimeLimitActionStatePtr) ToJobQueueJobStateTimeLimitAc
 	return pulumi.ToOutputWithContext(ctx, in).(JobQueueJobStateTimeLimitActionStatePtrOutput)
 }
 
+// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 type JobQueueStateEnum string
 
 const (

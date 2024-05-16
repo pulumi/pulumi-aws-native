@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorFileFormatDescriptor
     {
+        /// <summary>
+        /// Contains information about how a source CSV data file should be analyzed.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorCsvFormatDescriptor? CsvFormatDescriptor;
+        /// <summary>
+        /// Contains information about how a source JSON data file should be analyzed.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorJsonFormatDescriptor? JsonFormatDescriptor;
 
         [OutputConstructor]

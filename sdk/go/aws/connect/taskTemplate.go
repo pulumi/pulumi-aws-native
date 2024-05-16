@@ -18,13 +18,15 @@ type TaskTemplate struct {
 	pulumi.CustomResourceState
 
 	// The identifier (arn) of the task template.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// The constraints for the task template
 	Constraints ConstraintsPropertiesPtrOutput `pulumi:"constraints"`
 	// The identifier of the contact flow.
-	ContactFlowArn pulumi.StringPtrOutput                   `pulumi:"contactFlowArn"`
-	Defaults       TaskTemplateDefaultFieldValueArrayOutput `pulumi:"defaults"`
+	ContactFlowArn pulumi.StringPtrOutput `pulumi:"contactFlowArn"`
+	// Describes a default field and its corresponding value.
+	Defaults TaskTemplateDefaultFieldValueArrayOutput `pulumi:"defaults"`
 	// The description of the task template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The list of task template's fields
@@ -32,7 +34,8 @@ type TaskTemplate struct {
 	// The identifier (arn) of the instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the task template.
-	Name   pulumi.StringPtrOutput      `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The status of the task template.
 	Status TaskTemplateStatusPtrOutput `pulumi:"status"`
 	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -81,12 +84,14 @@ func (TaskTemplateState) ElementType() reflect.Type {
 }
 
 type taskTemplateArgs struct {
+	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 	ClientToken *string `pulumi:"clientToken"`
 	// The constraints for the task template
 	Constraints *ConstraintsProperties `pulumi:"constraints"`
 	// The identifier of the contact flow.
-	ContactFlowArn *string                         `pulumi:"contactFlowArn"`
-	Defaults       []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
+	ContactFlowArn *string `pulumi:"contactFlowArn"`
+	// Describes a default field and its corresponding value.
+	Defaults []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
 	// The description of the task template.
 	Description *string `pulumi:"description"`
 	// The list of task template's fields
@@ -94,7 +99,8 @@ type taskTemplateArgs struct {
 	// The identifier (arn) of the instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the task template.
-	Name   *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The status of the task template.
 	Status *TaskTemplateStatus `pulumi:"status"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -102,12 +108,14 @@ type taskTemplateArgs struct {
 
 // The set of arguments for constructing a TaskTemplate resource.
 type TaskTemplateArgs struct {
+	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 	ClientToken pulumi.StringPtrInput
 	// The constraints for the task template
 	Constraints ConstraintsPropertiesPtrInput
 	// The identifier of the contact flow.
 	ContactFlowArn pulumi.StringPtrInput
-	Defaults       TaskTemplateDefaultFieldValueArrayInput
+	// Describes a default field and its corresponding value.
+	Defaults TaskTemplateDefaultFieldValueArrayInput
 	// The description of the task template.
 	Description pulumi.StringPtrInput
 	// The list of task template's fields
@@ -115,7 +123,8 @@ type TaskTemplateArgs struct {
 	// The identifier (arn) of the instance.
 	InstanceArn pulumi.StringInput
 	// The name of the task template.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The status of the task template.
 	Status TaskTemplateStatusPtrInput
 	// One or more tags.
 	Tags aws.TagArrayInput
@@ -163,6 +172,7 @@ func (o TaskTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 func (o TaskTemplateOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
@@ -177,6 +187,7 @@ func (o TaskTemplateOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.ContactFlowArn }).(pulumi.StringPtrOutput)
 }
 
+// Describes a default field and its corresponding value.
 func (o TaskTemplateOutput) Defaults() TaskTemplateDefaultFieldValueArrayOutput {
 	return o.ApplyT(func(v *TaskTemplate) TaskTemplateDefaultFieldValueArrayOutput { return v.Defaults }).(TaskTemplateDefaultFieldValueArrayOutput)
 }
@@ -201,6 +212,7 @@ func (o TaskTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the task template.
 func (o TaskTemplateOutput) Status() TaskTemplateStatusPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) TaskTemplateStatusPtrOutput { return v.Status }).(TaskTemplateStatusPtrOutput)
 }

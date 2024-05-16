@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicyContentTypeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 

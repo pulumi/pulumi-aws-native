@@ -37,11 +37,17 @@ class VirtualClusterContainerInfo(dict):
 
     def __init__(__self__, *,
                  eks_info: 'outputs.VirtualClusterEksInfo'):
+        """
+        :param 'VirtualClusterEksInfo' eks_info: The information about the Amazon EKS cluster.
+        """
         pulumi.set(__self__, "eks_info", eks_info)
 
     @property
     @pulumi.getter(name="eksInfo")
     def eks_info(self) -> 'outputs.VirtualClusterEksInfo':
+        """
+        The information about the Amazon EKS cluster.
+        """
         return pulumi.get(self, "eks_info")
 
 
@@ -53,6 +59,7 @@ class VirtualClusterContainerProvider(dict):
                  type: str):
         """
         :param str id: The ID of the container cluster
+        :param 'VirtualClusterContainerInfo' info: The information about the container used for a job run or a managed endpoint.
         :param str type: The type of the container provider
         """
         pulumi.set(__self__, "id", id)
@@ -70,6 +77,9 @@ class VirtualClusterContainerProvider(dict):
     @property
     @pulumi.getter
     def info(self) -> 'outputs.VirtualClusterContainerInfo':
+        """
+        The information about the container used for a job run or a managed endpoint.
+        """
         return pulumi.get(self, "info")
 
     @property
@@ -85,11 +95,29 @@ class VirtualClusterContainerProvider(dict):
 class VirtualClusterEksInfo(dict):
     def __init__(__self__, *,
                  namespace: str):
+        """
+        :param str namespace: The namespaces of the EKS cluster.
+               
+               *Minimum* : 1
+               
+               *Maximum* : 63
+               
+               *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+        """
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> str:
+        """
+        The namespaces of the EKS cluster.
+
+        *Minimum* : 1
+
+        *Maximum* : 63
+
+        *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+        """
         return pulumi.get(self, "namespace")
 
 

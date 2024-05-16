@@ -36,6 +36,9 @@ class GetUserAccessLoggingSettingsResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that this user access logging settings is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
@@ -49,11 +52,17 @@ class GetUserAccessLoggingSettingsResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userAccessLoggingSettingsArn")
     def user_access_logging_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the user access logging settings.
+        """
         return pulumi.get(self, "user_access_logging_settings_arn")
 
 
@@ -73,6 +82,9 @@ def get_user_access_logging_settings(user_access_logging_settings_arn: Optional[
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserAccessLoggingSettingsResult:
     """
     Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
+
+
+    :param str user_access_logging_settings_arn: The ARN of the user access logging settings.
     """
     __args__ = dict()
     __args__['userAccessLoggingSettingsArn'] = user_access_logging_settings_arn
@@ -91,5 +103,8 @@ def get_user_access_logging_settings_output(user_access_logging_settings_arn: Op
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAccessLoggingSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
+
+
+    :param str user_access_logging_settings_arn: The ARN of the user access logging settings.
     """
     ...

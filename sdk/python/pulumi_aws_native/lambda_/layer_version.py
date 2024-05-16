@@ -264,6 +264,9 @@ class LayerVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="layerVersionArn")
     def layer_version_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the layer version.
+        """
         return pulumi.get(self, "layer_version_arn")
 
     @property

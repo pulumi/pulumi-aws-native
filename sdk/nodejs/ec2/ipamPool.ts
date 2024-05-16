@@ -69,6 +69,9 @@ export class IpamPool extends pulumi.CustomResource {
      * Limits which service in Amazon Web Services that the pool can be used in.
      */
     public readonly awsService!: pulumi.Output<enums.ec2.IpamPoolAwsService | undefined>;
+    /**
+     * The description of the IPAM pool.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
@@ -114,6 +117,9 @@ export class IpamPool extends pulumi.CustomResource {
      * The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
      */
     public readonly sourceIpamPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * The resource used to provision CIDRs to a resource planning pool.
+     */
     public readonly sourceResource!: pulumi.Output<outputs.ec2.IpamPoolSourceResource | undefined>;
     /**
      * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
@@ -234,6 +240,9 @@ export interface IpamPoolArgs {
      * Limits which service in Amazon Web Services that the pool can be used in.
      */
     awsService?: pulumi.Input<enums.ec2.IpamPoolAwsService>;
+    /**
+     * The description of the IPAM pool.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Id of the scope this pool is a part of.
@@ -259,6 +268,9 @@ export interface IpamPoolArgs {
      * The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
      */
     sourceIpamPoolId?: pulumi.Input<string>;
+    /**
+     * The resource used to provision CIDRs to a resource planning pool.
+     */
     sourceResource?: pulumi.Input<inputs.ec2.IpamPoolSourceResourceArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

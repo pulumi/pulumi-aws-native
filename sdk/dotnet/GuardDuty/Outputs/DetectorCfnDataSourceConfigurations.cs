@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfnDataSourceConfigurations
     {
+        /// <summary>
+        /// Describes which Kubernetes protection data sources are enabled for the detector.
+        /// </summary>
         public readonly Outputs.DetectorCfnKubernetesConfiguration? Kubernetes;
+        /// <summary>
+        /// Describes whether Malware Protection will be enabled as a data source.
+        /// </summary>
         public readonly Outputs.DetectorCfnMalwareProtectionConfiguration? MalwareProtection;
+        /// <summary>
+        /// Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+        /// </summary>
         public readonly Outputs.DetectorCfns3LogsConfiguration? S3Logs;
 
         [OutputConstructor]

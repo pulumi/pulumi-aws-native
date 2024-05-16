@@ -26,9 +26,21 @@ export interface GetMitigationActionArgs {
 }
 
 export interface GetMitigationActionResult {
+    /**
+     * Defines the type of action and the parameters for that action.
+     */
     readonly actionParams?: outputs.iot.MitigationActionActionParams;
+    /**
+     * The Amazon Resource Name (ARN) of the mitigation action.
+     */
     readonly mitigationActionArn?: string;
+    /**
+     * The ID of the mitigation action.
+     */
     readonly mitigationActionId?: string;
+    /**
+     * The IAM role ARN used to apply this mitigation action.
+     */
     readonly roleArn?: string;
     /**
      * An array of key-value pairs to apply to this resource.

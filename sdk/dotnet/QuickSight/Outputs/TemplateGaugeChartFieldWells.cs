@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGaugeChartFieldWells
     {
+        /// <summary>
+        /// The target value field wells of a `GaugeChartVisual` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> TargetValues;
+        /// <summary>
+        /// The value field wells of a `GaugeChartVisual` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Values;
 
         [OutputConstructor]

@@ -16,26 +16,48 @@ namespace Pulumi.AwsNative.Backup
     public partial class BackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A resource-based policy that is used to manage access permissions on the target backup vault.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         /// </summary>
         [Output("accessPolicy")]
         public Output<object?> AccessPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+        /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        /// </summary>
         [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to assign to the backup vault.
+        /// </summary>
         [Output("backupVaultTags")]
         public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
 
+        /// <summary>
+        /// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+        /// 
+        /// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+        /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        /// </summary>
         [Output("lockConfiguration")]
         public Output<Outputs.BackupVaultLockConfigurationType?> LockConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies an object containing SNS event notification properties for the target backup vault.
+        /// </summary>
         [Output("notifications")]
         public Output<Outputs.BackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
@@ -90,28 +112,48 @@ namespace Pulumi.AwsNative.Backup
     public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A resource-based policy that is used to manage access permissions on the target backup vault.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         /// </summary>
         [Input("accessPolicy")]
         public Input<object>? AccessPolicy { get; set; }
 
+        /// <summary>
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        /// </summary>
         [Input("backupVaultName")]
         public Input<string>? BackupVaultName { get; set; }
 
         [Input("backupVaultTags")]
         private InputMap<string>? _backupVaultTags;
+
+        /// <summary>
+        /// The tags to assign to the backup vault.
+        /// </summary>
         public InputMap<string> BackupVaultTags
         {
             get => _backupVaultTags ?? (_backupVaultTags = new InputMap<string>());
             set => _backupVaultTags = value;
         }
 
+        /// <summary>
+        /// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+        /// 
+        /// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+        /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
+        /// <summary>
+        /// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        /// </summary>
         [Input("lockConfiguration")]
         public Input<Inputs.BackupVaultLockConfigurationTypeArgs>? LockConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies an object containing SNS event notification properties for the target backup vault.
+        /// </summary>
         [Input("notifications")]
         public Input<Inputs.BackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }
 

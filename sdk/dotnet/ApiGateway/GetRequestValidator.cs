@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRequestValidatorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the request validator. For example: `abc123` .
+        /// </summary>
         [Input("requestValidatorId", required: true)]
         public string RequestValidatorId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRequestValidatorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the request validator. For example: `abc123` .
+        /// </summary>
         [Input("requestValidatorId", required: true)]
         public Input<string> RequestValidatorId { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetRequestValidatorResult
     {
+        /// <summary>
+        /// The ID for the request validator. For example: `abc123` .
+        /// </summary>
         public readonly string? RequestValidatorId;
         /// <summary>
         /// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.

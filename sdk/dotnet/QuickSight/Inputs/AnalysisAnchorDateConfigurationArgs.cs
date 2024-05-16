@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisAnchorDateConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options for the date configuration. Choose one of the options below:
+        /// 
+        /// - `NOW`
+        /// </summary>
         [Input("anchorOption")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisAnchorOption>? AnchorOption { get; set; }
 
+        /// <summary>
+        /// The name of the parameter that is used for the anchor date configuration.
+        /// </summary>
         [Input("parameterName")]
         public Input<string>? ParameterName { get; set; }
 

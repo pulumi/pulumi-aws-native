@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetJoinInstructionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Properties associated with the columns participating in a join.
+        /// </summary>
         [Input("leftJoinKeyProperties")]
         public Input<Inputs.DataSetJoinKeyPropertiesArgs>? LeftJoinKeyProperties { get; set; }
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("onClause", required: true)]
         public Input<string> OnClause { get; set; } = null!;
 
+        /// <summary>
+        /// Properties associated with the columns participating in a join.
+        /// </summary>
         [Input("rightJoinKeyProperties")]
         public Input<Inputs.DataSetJoinKeyPropertiesArgs>? RightJoinKeyProperties { get; set; }
 
@@ -39,6 +45,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("rightOperand", required: true)]
         public Input<string> RightOperand { get; set; } = null!;
 
+        /// <summary>
+        /// The type of join that it is.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetJoinType> Type { get; set; } = null!;
 

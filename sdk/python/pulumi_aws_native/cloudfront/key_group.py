@@ -19,12 +19,20 @@ class KeyGroupArgs:
                  key_group_config: pulumi.Input['KeyGroupConfigArgs']):
         """
         The set of arguments for constructing a KeyGroup resource.
+        :param pulumi.Input['KeyGroupConfigArgs'] key_group_config: A key group configuration.
+               
+               A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
         """
         pulumi.set(__self__, "key_group_config", key_group_config)
 
     @property
     @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> pulumi.Input['KeyGroupConfigArgs']:
+        """
+        A key group configuration.
+
+        A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+        """
         return pulumi.get(self, "key_group_config")
 
     @key_group_config.setter
@@ -44,6 +52,9 @@ class KeyGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['KeyGroupConfigArgs']] key_group_config: A key group configuration.
+               
+               A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
         """
         ...
     @overload
@@ -114,15 +125,26 @@ class KeyGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the key group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> pulumi.Output['outputs.KeyGroupConfig']:
+        """
+        A key group configuration.
+
+        A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+        """
         return pulumi.get(self, "key_group_config")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the key group was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 

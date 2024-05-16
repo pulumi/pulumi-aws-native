@@ -23,14 +23,18 @@ func LookupKeyValueStore(ctx *pulumi.Context, args *LookupKeyValueStoreArgs, opt
 }
 
 type LookupKeyValueStoreArgs struct {
+	// The name of the key value store.
 	Name string `pulumi:"name"`
 }
 
 type LookupKeyValueStoreResult struct {
-	Arn     *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the key value store.
+	Arn *string `pulumi:"arn"`
+	// A comment for the key value store.
 	Comment *string `pulumi:"comment"`
-	Id      *string `pulumi:"id"`
-	Status  *string `pulumi:"status"`
+	// The unique Id for the key value store.
+	Id     *string `pulumi:"id"`
+	Status *string `pulumi:"status"`
 }
 
 func LookupKeyValueStoreOutput(ctx *pulumi.Context, args LookupKeyValueStoreOutputArgs, opts ...pulumi.InvokeOption) LookupKeyValueStoreResultOutput {
@@ -47,6 +51,7 @@ func LookupKeyValueStoreOutput(ctx *pulumi.Context, args LookupKeyValueStoreOutp
 }
 
 type LookupKeyValueStoreOutputArgs struct {
+	// The name of the key value store.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -68,14 +73,17 @@ func (o LookupKeyValueStoreResultOutput) ToLookupKeyValueStoreResultOutputWithCo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the key value store.
 func (o LookupKeyValueStoreResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A comment for the key value store.
 func (o LookupKeyValueStoreResultOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The unique Id for the key value store.
 func (o LookupKeyValueStoreResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

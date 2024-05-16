@@ -23,15 +23,25 @@ func LookupPolicyStatement(ctx *pulumi.Context, args *LookupPolicyStatementArgs,
 }
 
 type LookupPolicyStatementArgs struct {
-	Arn         string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+	Arn string `pulumi:"arn"`
+	// A statement identifier that differentiates the statement from others in the same policy.
 	StatementId string `pulumi:"statementId"`
 }
 
 type LookupPolicyStatementResult struct {
-	Action    []string                        `pulumi:"action"`
-	Condition *string                         `pulumi:"condition"`
-	Effect    *PolicyStatementStatementEffect `pulumi:"effect"`
-	Principal []string                        `pulumi:"principal"`
+	// The action that the principal can use on the resource.
+	//
+	// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+	Action []string `pulumi:"action"`
+	// A set of condition keys that you can use in key policies.
+	Condition *string `pulumi:"condition"`
+	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+	//
+	// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+	Effect *PolicyStatementStatementEffect `pulumi:"effect"`
+	// The AWS service or AWS account that can access the resource defined as ARN.
+	Principal []string `pulumi:"principal"`
 }
 
 func LookupPolicyStatementOutput(ctx *pulumi.Context, args LookupPolicyStatementOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStatementResultOutput {
@@ -48,7 +58,9 @@ func LookupPolicyStatementOutput(ctx *pulumi.Context, args LookupPolicyStatement
 }
 
 type LookupPolicyStatementOutputArgs struct {
-	Arn         pulumi.StringInput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// A statement identifier that differentiates the statement from others in the same policy.
 	StatementId pulumi.StringInput `pulumi:"statementId"`
 }
 
@@ -70,18 +82,26 @@ func (o LookupPolicyStatementResultOutput) ToLookupPolicyStatementResultOutputWi
 	return o
 }
 
+// The action that the principal can use on the resource.
+//
+// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
 func (o LookupPolicyStatementResultOutput) Action() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyStatementResult) []string { return v.Action }).(pulumi.StringArrayOutput)
 }
 
+// A set of condition keys that you can use in key policies.
 func (o LookupPolicyStatementResultOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStatementResult) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+//
+// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
 func (o LookupPolicyStatementResultOutput) Effect() PolicyStatementStatementEffectPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStatementResult) *PolicyStatementStatementEffect { return v.Effect }).(PolicyStatementStatementEffectPtrOutput)
 }
 
+// The AWS service or AWS account that can access the resource defined as ARN.
 func (o LookupPolicyStatementResultOutput) Principal() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyStatementResult) []string { return v.Principal }).(pulumi.StringArrayOutput)
 }

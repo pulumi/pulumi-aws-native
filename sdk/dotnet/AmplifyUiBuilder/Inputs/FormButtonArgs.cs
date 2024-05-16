@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class FormButtonArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the button's properties.
+        /// </summary>
         [Input("children")]
         public Input<string>? Children { get; set; }
 
+        /// <summary>
+        /// Specifies whether the button is visible on the form.
+        /// </summary>
         [Input("excluded")]
         public Input<bool>? Excluded { get; set; }
 
+        /// <summary>
+        /// The `FieldPosition` property specifies the field position.
+        /// </summary>
         [Input("position")]
         public object? Position { get; set; }
 

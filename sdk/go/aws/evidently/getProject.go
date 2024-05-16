@@ -24,14 +24,19 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
+	// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
 	Arn string `pulumi:"arn"`
 }
 
 type LookupProjectResult struct {
+	// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
 	AppConfigResource *ProjectAppConfigResourceObject `pulumi:"appConfigResource"`
-	Arn               *string                         `pulumi:"arn"`
-	DataDelivery      *ProjectDataDeliveryObject      `pulumi:"dataDelivery"`
-	Description       *string                         `pulumi:"description"`
+	// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+	Arn *string `pulumi:"arn"`
+	// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+	DataDelivery *ProjectDataDeliveryObject `pulumi:"dataDelivery"`
+	// An optional description of the project.
+	Description *string `pulumi:"description"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -50,6 +55,7 @@ func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts
 }
 
 type LookupProjectOutputArgs struct {
+	// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,18 +77,22 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx co
 	return o
 }
 
+// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
 func (o LookupProjectResultOutput) AppConfigResource() ProjectAppConfigResourceObjectPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectAppConfigResourceObject { return v.AppConfigResource }).(ProjectAppConfigResourceObjectPtrOutput)
 }
 
+// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
 func (o LookupProjectResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
 func (o LookupProjectResultOutput) DataDelivery() ProjectDataDeliveryObjectPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectDataDeliveryObject { return v.DataDelivery }).(ProjectDataDeliveryObjectPtrOutput)
 }
 
+// An optional description of the project.
 func (o LookupProjectResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

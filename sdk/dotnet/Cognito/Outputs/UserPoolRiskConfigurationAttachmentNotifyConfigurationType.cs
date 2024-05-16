@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRiskConfigurationAttachmentNotifyConfigurationType
     {
+        /// <summary>
+        /// The notify email type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType? BlockEmail;
+        /// <summary>
+        /// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        /// </summary>
         public readonly string? From;
+        /// <summary>
+        /// The notify email type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType? MfaEmail;
+        /// <summary>
+        /// The notify email type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType? NoActionEmail;
+        /// <summary>
+        /// The destination to which the receiver of an email should reply to.
+        /// </summary>
         public readonly string? ReplyTo;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
+        /// </summary>
         public readonly string SourceArn;
 
         [OutputConstructor]

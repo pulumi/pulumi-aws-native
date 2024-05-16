@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("abortConfig")]
         public Output<Outputs.AbortConfigProperties?> AbortConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the job to use as the basis for the job template.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -30,6 +33,11 @@ namespace Pulumi.AwsNative.IoT
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+        /// 
+        /// *Note:* Up to 25 package version ARNS are allowed.
+        /// </summary>
         [Output("destinationPackageVersions")]
         public Output<ImmutableArray<string>> DestinationPackageVersions { get; private set; } = null!;
 
@@ -51,6 +59,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("jobArn")]
         public Output<string?> JobArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows you to create the criteria to retry a job.
+        /// </summary>
         [Output("jobExecutionsRetryConfig")]
         public Output<Outputs.JobExecutionsRetryConfigProperties?> JobExecutionsRetryConfig { get; private set; } = null!;
 
@@ -60,9 +71,15 @@ namespace Pulumi.AwsNative.IoT
         [Output("jobExecutionsRolloutConfig")]
         public Output<Outputs.JobExecutionsRolloutConfigProperties?> JobExecutionsRolloutConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        /// </summary>
         [Output("jobTemplateId")]
         public Output<string> JobTemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        /// </summary>
         [Output("maintenanceWindows")]
         public Output<ImmutableArray<Outputs.JobTemplateMaintenanceWindow>> MaintenanceWindows { get; private set; } = null!;
 
@@ -159,6 +176,12 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("destinationPackageVersions")]
         private InputList<string>? _destinationPackageVersions;
+
+        /// <summary>
+        /// The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+        /// 
+        /// *Note:* Up to 25 package version ARNS are allowed.
+        /// </summary>
         public InputList<string> DestinationPackageVersions
         {
             get => _destinationPackageVersions ?? (_destinationPackageVersions = new InputList<string>());
@@ -183,6 +206,9 @@ namespace Pulumi.AwsNative.IoT
         [Input("jobArn")]
         public Input<string>? JobArn { get; set; }
 
+        /// <summary>
+        /// Allows you to create the criteria to retry a job.
+        /// </summary>
         [Input("jobExecutionsRetryConfig")]
         public Input<Inputs.JobExecutionsRetryConfigPropertiesArgs>? JobExecutionsRetryConfig { get; set; }
 
@@ -192,11 +218,18 @@ namespace Pulumi.AwsNative.IoT
         [Input("jobExecutionsRolloutConfig")]
         public Input<Inputs.JobExecutionsRolloutConfigPropertiesArgs>? JobExecutionsRolloutConfig { get; set; }
 
+        /// <summary>
+        /// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        /// </summary>
         [Input("jobTemplateId", required: true)]
         public Input<string> JobTemplateId { get; set; } = null!;
 
         [Input("maintenanceWindows")]
         private InputList<Inputs.JobTemplateMaintenanceWindowArgs>? _maintenanceWindows;
+
+        /// <summary>
+        /// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        /// </summary>
         public InputList<Inputs.JobTemplateMaintenanceWindowArgs> MaintenanceWindows
         {
             get => _maintenanceWindows ?? (_maintenanceWindows = new InputList<Inputs.JobTemplateMaintenanceWindowArgs>());

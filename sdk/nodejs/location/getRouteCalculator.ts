@@ -19,19 +19,52 @@ export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.I
 }
 
 export interface GetRouteCalculatorArgs {
+    /**
+     * The name of the route calculator resource.
+     *
+     * Requirements:
+     *
+     * - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique Route calculator resource name.
+     * - No spaces allowed. For example, `ExampleRouteCalculator` .
+     */
     calculatorName: string;
 }
 
 export interface GetRouteCalculatorResult {
+    /**
+     * The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+     */
     readonly arn?: string;
+    /**
+     * Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+     */
     readonly calculatorArn?: string;
+    /**
+     * The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly createTime?: string;
+    /**
+     * The optional description for the route calculator resource.
+     */
     readonly description?: string;
+    /**
+     * No longer used. If included, the only allowed value is `RequestBasedUsage` .
+     *
+     * *Allowed Values* : `RequestBasedUsage`
+     */
     readonly pricingPlan?: enums.location.RouteCalculatorPricingPlan;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly updateTime?: string;
 }
 /**
@@ -42,5 +75,14 @@ export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opt
 }
 
 export interface GetRouteCalculatorOutputArgs {
+    /**
+     * The name of the route calculator resource.
+     *
+     * Requirements:
+     *
+     * - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique Route calculator resource name.
+     * - No spaces allowed. For example, `ExampleRouteCalculator` .
+     */
     calculatorName: pulumi.Input<string>;
 }

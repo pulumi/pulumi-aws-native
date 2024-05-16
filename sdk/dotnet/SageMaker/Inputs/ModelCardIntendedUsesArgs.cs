@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelCardIntendedUsesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An explanation of why your organization categorizes the model with its risk rating.
+        /// </summary>
         [Input("explanationsForRiskRating")]
         public Input<string>? ExplanationsForRiskRating { get; set; }
 
+        /// <summary>
+        /// Factors affecting model efficacy.
+        /// </summary>
         [Input("factorsAffectingModelEfficiency")]
         public Input<string>? FactorsAffectingModelEfficiency { get; set; }
 
@@ -33,6 +39,14 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("purposeOfModel")]
         public Input<string>? PurposeOfModel { get; set; }
 
+        /// <summary>
+        /// Your organization's risk rating. You can specify one the following values as the risk rating:
+        /// 
+        /// - High
+        /// - Medium
+        /// - Low
+        /// - Unknown
+        /// </summary>
         [Input("riskRating")]
         public Input<Pulumi.AwsNative.SageMaker.ModelCardRiskRating>? RiskRating { get; set; }
 

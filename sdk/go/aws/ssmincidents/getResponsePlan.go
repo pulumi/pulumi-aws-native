@@ -32,12 +32,14 @@ type LookupResponsePlanResult struct {
 	// The list of actions.
 	Actions []ResponsePlanAction `pulumi:"actions"`
 	// The ARN of the response plan.
-	Arn         *string                  `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The AWS Chatbot chat channel used for collaboration during an incident.
 	ChatChannel *ResponsePlanChatChannel `pulumi:"chatChannel"`
 	// The display name of the response plan.
 	DisplayName *string `pulumi:"displayName"`
 	// The list of engagements to use.
-	Engagements      []string                      `pulumi:"engagements"`
+	Engagements []string `pulumi:"engagements"`
+	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 	IncidentTemplate *ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	// The list of integrations.
 	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
@@ -91,6 +93,7 @@ func (o LookupResponsePlanResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Chatbot chat channel used for collaboration during an incident.
 func (o LookupResponsePlanResultOutput) ChatChannel() ResponsePlanChatChannelPtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *ResponsePlanChatChannel { return v.ChatChannel }).(ResponsePlanChatChannelPtrOutput)
 }
@@ -105,6 +108,7 @@ func (o LookupResponsePlanResultOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []string { return v.Engagements }).(pulumi.StringArrayOutput)
 }
 
+// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 func (o LookupResponsePlanResultOutput) IncidentTemplate() ResponsePlanIncidentTemplatePtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *ResponsePlanIncidentTemplate { return v.IncidentTemplate }).(ResponsePlanIncidentTemplatePtrOutput)
 }

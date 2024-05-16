@@ -29,7 +29,8 @@ type LookupReplicationConfigurationArgs struct {
 
 type LookupReplicationConfigurationResult struct {
 	// The RegistryId associated with the aws account.
-	RegistryId               *string                       `pulumi:"registryId"`
+	RegistryId *string `pulumi:"registryId"`
+	// The replication configuration for a registry.
 	ReplicationConfiguration *ReplicationConfigurationType `pulumi:"replicationConfiguration"`
 }
 
@@ -74,6 +75,7 @@ func (o LookupReplicationConfigurationResultOutput) RegistryId() pulumi.StringPt
 	return o.ApplyT(func(v LookupReplicationConfigurationResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
+// The replication configuration for a registry.
 func (o LookupReplicationConfigurationResultOutput) ReplicationConfiguration() ReplicationConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupReplicationConfigurationResult) *ReplicationConfigurationType {
 		return v.ReplicationConfiguration

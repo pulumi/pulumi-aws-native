@@ -20,21 +20,60 @@ export function getPlugin(args: GetPluginArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPluginArgs {
+    /**
+     * The identifier of the application that will contain the plugin.
+     */
     applicationId: string;
+    /**
+     * The identifier of the plugin.
+     */
     pluginId: string;
 }
 
 export interface GetPluginResult {
+    /**
+     * Authentication configuration information for an Amazon Q Business plugin.
+     */
     readonly authConfiguration?: outputs.qbusiness.PluginAuthConfiguration0Properties | outputs.qbusiness.PluginAuthConfiguration1Properties | outputs.qbusiness.PluginAuthConfiguration2Properties;
+    /**
+     * The current status of a plugin. A plugin is modified asynchronously.
+     */
     readonly buildStatus?: enums.qbusiness.PluginBuildStatus;
+    /**
+     * The timestamp for when the plugin was created.
+     */
     readonly createdAt?: string;
+    /**
+     * Configuration information required to create a custom plugin.
+     */
     readonly customPluginConfiguration?: outputs.qbusiness.PluginCustomPluginConfiguration;
+    /**
+     * The name of the plugin.
+     */
     readonly displayName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of a plugin.
+     */
     readonly pluginArn?: string;
+    /**
+     * The identifier of the plugin.
+     */
     readonly pluginId?: string;
+    /**
+     * The plugin server URL used for configuration.
+     */
     readonly serverUrl?: string;
+    /**
+     * The current status of the plugin.
+     */
     readonly state?: enums.qbusiness.PluginState;
+    /**
+     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The timestamp for when the plugin was last updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -45,6 +84,12 @@ export function getPluginOutput(args: GetPluginOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetPluginOutputArgs {
+    /**
+     * The identifier of the application that will contain the plugin.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The identifier of the plugin.
+     */
     pluginId: pulumi.Input<string>;
 }

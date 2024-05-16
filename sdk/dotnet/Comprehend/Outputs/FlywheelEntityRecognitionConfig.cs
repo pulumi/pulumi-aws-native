@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     [OutputType]
     public sealed class FlywheelEntityRecognitionConfig
     {
+        /// <summary>
+        /// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FlywheelEntityTypesListItem> EntityTypes;
 
         [OutputConstructor]

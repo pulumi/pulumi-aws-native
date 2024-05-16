@@ -37,6 +37,11 @@ export class ReplicaKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicaKey.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+     *
+     * The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
@@ -46,6 +51,11 @@ export class ReplicaKey extends pulumi.CustomResource {
      * Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+     *
+     * Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+     */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
      * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.

@@ -37,13 +37,37 @@ export class Datastore extends pulumi.CustomResource {
         return obj['__pulumiType'] === Datastore.__pulumiType;
     }
 
+    /**
+     * The timestamp when the data store was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the data store.
+     */
     public /*out*/ readonly datastoreArn!: pulumi.Output<string>;
+    /**
+     * The data store identifier.
+     */
     public /*out*/ readonly datastoreId!: pulumi.Output<string>;
+    /**
+     * The data store name.
+     */
     public readonly datastoreName!: pulumi.Output<string | undefined>;
+    /**
+     * The data store status.
+     */
     public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthimaging.DatastoreStatus>;
+    /**
+     * The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * The tags provided when creating a data store.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The timestamp when the data store was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -86,7 +110,16 @@ export class Datastore extends pulumi.CustomResource {
  * The set of arguments for constructing a Datastore resource.
  */
 export interface DatastoreArgs {
+    /**
+     * The data store name.
+     */
     datastoreName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+     */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The tags provided when creating a data store.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

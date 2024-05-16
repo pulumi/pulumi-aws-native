@@ -270,6 +270,13 @@ class InstanceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the instance profile. For example:
+
+        `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
+
+        This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
+        """
         return pulumi.get(self, "arn")
 
     @property

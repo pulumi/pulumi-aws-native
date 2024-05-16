@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityCsrExtensionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        /// </summary>
         [Input("keyUsage")]
         public Input<Inputs.CertificateAuthorityKeyUsageArgs>? KeyUsage { get; set; }
 
         [Input("subjectInformationAccess")]
         private InputList<Inputs.CertificateAuthorityAccessDescriptionArgs>? _subjectInformationAccess;
+
+        /// <summary>
+        /// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
+        /// </summary>
         public InputList<Inputs.CertificateAuthorityAccessDescriptionArgs> SubjectInformationAccess
         {
             get => _subjectInformationAccess ?? (_subjectInformationAccess = new InputList<Inputs.CertificateAuthorityAccessDescriptionArgs>());

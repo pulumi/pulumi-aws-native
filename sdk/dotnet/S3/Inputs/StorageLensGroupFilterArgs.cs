@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensGroupFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        /// </summary>
         [Input("and")]
         public Input<Inputs.StorageLensGroupAndArgs>? And { get; set; }
 
         [Input("matchAnyPrefix")]
         private InputList<string>? _matchAnyPrefix;
+
+        /// <summary>
+        /// This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        /// </summary>
         public InputList<string> MatchAnyPrefix
         {
             get => _matchAnyPrefix ?? (_matchAnyPrefix = new InputList<string>());
@@ -28,6 +35,10 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         [Input("matchAnySuffix")]
         private InputList<string>? _matchAnySuffix;
+
+        /// <summary>
+        /// This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        /// </summary>
         public InputList<string> MatchAnySuffix
         {
             get => _matchAnySuffix ?? (_matchAnySuffix = new InputList<string>());
@@ -36,18 +47,31 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         [Input("matchAnyTag")]
         private InputList<Inputs.StorageLensGroupTagArgs>? _matchAnyTag;
+
+        /// <summary>
+        /// This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        /// </summary>
         public InputList<Inputs.StorageLensGroupTagArgs> MatchAnyTag
         {
             get => _matchAnyTag ?? (_matchAnyTag = new InputList<Inputs.StorageLensGroupTagArgs>());
             set => _matchAnyTag = value;
         }
 
+        /// <summary>
+        /// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        /// </summary>
         [Input("matchObjectAge")]
         public Input<Inputs.StorageLensGroupMatchObjectAgeArgs>? MatchObjectAge { get; set; }
 
+        /// <summary>
+        /// This resource filters objects that match the specified object size range.
+        /// </summary>
         [Input("matchObjectSize")]
         public Input<Inputs.StorageLensGroupMatchObjectSizeArgs>? MatchObjectSize { get; set; }
 
+        /// <summary>
+        /// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+        /// </summary>
         [Input("or")]
         public Input<Inputs.StorageLensGroupOrArgs>? Or { get; set; }
 

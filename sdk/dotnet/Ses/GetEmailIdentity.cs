@@ -57,16 +57,56 @@ namespace Pulumi.AwsNative.Ses
     [OutputType]
     public sealed class GetEmailIdentityResult
     {
+        /// <summary>
+        /// Used to associate a configuration set with an email identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityConfigurationSetAttributes? ConfigurationSetAttributes;
+        /// <summary>
+        /// Used to enable or disable DKIM authentication for an email identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityDkimAttributes? DkimAttributes;
+        /// <summary>
+        /// The host name for the first token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenName1;
+        /// <summary>
+        /// The host name for the second token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenName2;
+        /// <summary>
+        /// The host name for the third token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenName3;
+        /// <summary>
+        /// The record value for the first token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenValue1;
+        /// <summary>
+        /// The record value for the second token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenValue2;
+        /// <summary>
+        /// The record value for the third token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenValue3;
+        /// <summary>
+        /// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+        /// 
+        /// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+        /// - Update the key length that should be used for Easy DKIM.
+        /// - Change from using no DKIM authentication to using Easy DKIM.
+        /// - Change from using no DKIM authentication to using BYODKIM.
+        /// - Change from using Easy DKIM to using BYODKIM.
+        /// - Change from using BYODKIM to using Easy DKIM.
+        /// </summary>
         public readonly Outputs.EmailIdentityDkimSigningAttributes? DkimSigningAttributes;
+        /// <summary>
+        /// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        /// </summary>
         public readonly Outputs.EmailIdentityFeedbackAttributes? FeedbackAttributes;
+        /// <summary>
+        /// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityMailFromAttributes? MailFromAttributes;
 
         [OutputConstructor]

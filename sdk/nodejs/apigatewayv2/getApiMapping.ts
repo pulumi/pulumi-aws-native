@@ -17,6 +17,9 @@ export function getApiMapping(args: GetApiMappingArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetApiMappingArgs {
+    /**
+     * The API mapping resource ID.
+     */
     apiMappingId: string;
     /**
      * The domain name.
@@ -29,6 +32,9 @@ export interface GetApiMappingResult {
      * The identifier of the API.
      */
     readonly apiId?: string;
+    /**
+     * The API mapping resource ID.
+     */
     readonly apiMappingId?: string;
     /**
      * The API mapping key.
@@ -47,6 +53,9 @@ export function getApiMappingOutput(args: GetApiMappingOutputArgs, opts?: pulumi
 }
 
 export interface GetApiMappingOutputArgs {
+    /**
+     * The API mapping resource ID.
+     */
     apiMappingId: pulumi.Input<string>;
     /**
      * The domain name.

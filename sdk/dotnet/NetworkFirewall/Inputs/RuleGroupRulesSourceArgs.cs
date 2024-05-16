@@ -12,20 +12,41 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRulesSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Stateful inspection criteria for a domain list rule group.
+        /// 
+        /// For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.
+        /// 
+        /// By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the `HOME_NET` rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see `RuleGroup.RuleVariables` in this guide and [Stateful domain list rule groups in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html) in the *Network Firewall Developer Guide*
+        /// </summary>
         [Input("rulesSourceList")]
         public Input<Inputs.RuleGroupRulesSourceListArgs>? RulesSourceList { get; set; }
 
+        /// <summary>
+        /// Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
+        /// 
+        /// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+        /// 
+        /// &gt; You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+        /// </summary>
         [Input("rulesString")]
         public Input<string>? RulesString { get; set; }
 
         [Input("statefulRules")]
         private InputList<Inputs.RuleGroupStatefulRuleArgs>? _statefulRules;
+
+        /// <summary>
+        /// A single Suricata rules specification, for use in a stateful rule group. Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+        /// </summary>
         public InputList<Inputs.RuleGroupStatefulRuleArgs> StatefulRules
         {
             get => _statefulRules ?? (_statefulRules = new InputList<Inputs.RuleGroupStatefulRuleArgs>());
             set => _statefulRules = value;
         }
 
+        /// <summary>
+        /// Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
+        /// </summary>
         [Input("statelessRulesAndCustomActions")]
         public Input<Inputs.RuleGroupStatelessRulesAndCustomActionsArgs>? StatelessRulesAndCustomActions { get; set; }
 

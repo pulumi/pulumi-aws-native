@@ -30,14 +30,16 @@ type LookupResiliencyPolicyArgs struct {
 type LookupResiliencyPolicyResult struct {
 	// Data Location Constraint of the Policy.
 	DataLocationConstraint *ResiliencyPolicyDataLocationConstraint `pulumi:"dataLocationConstraint"`
-	Policy                 *ResiliencyPolicyPolicyMap              `pulumi:"policy"`
+	// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+	Policy *ResiliencyPolicyPolicyMap `pulumi:"policy"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	PolicyArn *string `pulumi:"policyArn"`
 	// Description of Resiliency Policy.
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Name of Resiliency Policy.
-	PolicyName *string           `pulumi:"policyName"`
-	Tags       map[string]string `pulumi:"tags"`
+	PolicyName *string `pulumi:"policyName"`
+	// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	Tags map[string]string `pulumi:"tags"`
 	// Resiliency Policy Tier.
 	Tier *ResiliencyPolicyTier `pulumi:"tier"`
 }
@@ -85,6 +87,7 @@ func (o LookupResiliencyPolicyResultOutput) DataLocationConstraint() ResiliencyP
 	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
 }
 
+// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
 func (o LookupResiliencyPolicyResultOutput) Policy() ResiliencyPolicyPolicyMapPtrOutput {
 	return o.ApplyT(func(v LookupResiliencyPolicyResult) *ResiliencyPolicyPolicyMap { return v.Policy }).(ResiliencyPolicyPolicyMapPtrOutput)
 }
@@ -104,6 +107,7 @@ func (o LookupResiliencyPolicyResultOutput) PolicyName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupResiliencyPolicyResult) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
+// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
 func (o LookupResiliencyPolicyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupResiliencyPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

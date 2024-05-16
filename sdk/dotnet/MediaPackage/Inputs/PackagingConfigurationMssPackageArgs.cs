@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class PackagingConfigurationMssPackageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationMssEncryptionArgs>? Encryption { get; set; }
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
             set => _mssManifests = value;
         }
 
+        /// <summary>
+        /// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+        /// </summary>
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 

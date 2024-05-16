@@ -15,18 +15,35 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class RuleGroupRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// </summary>
         [Input("action")]
         public Input<Inputs.RuleGroupRuleActionArgs>? Action { get; set; }
 
+        /// <summary>
+        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations. This is available at the web ACL level and in each rule.
+        /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.RuleGroupCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
+        /// <summary>
+        /// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+        /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.RuleGroupChallengeConfigArgs>? ChallengeConfig { get; set; }
 
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
@@ -42,9 +59,15 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
             set => _ruleLabels = value;
         }
 
+        /// <summary>
+        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupStatementArgs> Statement { get; set; } = null!;
 
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.RuleGroupVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 

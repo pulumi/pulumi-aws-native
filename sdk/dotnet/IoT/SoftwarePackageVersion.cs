@@ -21,15 +21,24 @@ namespace Pulumi.AwsNative.IoT
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Error reason for a package version failure during creation or update.
+        /// </summary>
         [Output("errorReason")]
         public Output<string> ErrorReason { get; private set; } = null!;
 
         [Output("packageName")]
         public Output<string> PackageName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the package.
+        /// </summary>
         [Output("packageVersionArn")]
         public Output<string> PackageVersionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.IoT.SoftwarePackageVersionPackageVersionStatus> Status { get; private set; } = null!;
 

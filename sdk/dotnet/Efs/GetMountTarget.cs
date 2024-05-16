@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.Efs
 
     public sealed class GetMountTargetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Amazon EFS file system that the mount target provides access to.
+        /// 
+        /// Example: `fs-0123456789111222a`
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.Efs
 
     public sealed class GetMountTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Amazon EFS file system that the mount target provides access to.
+        /// 
+        /// Example: `fs-0123456789111222a`
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +61,11 @@ namespace Pulumi.AwsNative.Efs
     [OutputType]
     public sealed class GetMountTargetResult
     {
+        /// <summary>
+        /// The ID of the Amazon EFS file system that the mount target provides access to.
+        /// 
+        /// Example: `fs-0123456789111222a`
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.

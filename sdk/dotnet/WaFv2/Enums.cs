@@ -260,6 +260,16 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+    /// 
+    /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupForwardedIpConfigurationFallbackBehavior : IEquatable<RuleGroupForwardedIpConfigurationFallbackBehavior>
     {
@@ -288,6 +298,16 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+    /// 
+    /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupIpSetForwardedIpConfigurationFallbackBehavior : IEquatable<RuleGroupIpSetForwardedIpConfigurationFallbackBehavior>
     {
@@ -316,6 +336,15 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+    /// 
+    /// The options for this setting are the following:
+    /// 
+    /// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+    /// - LAST - Inspect the last IP address in the list of IP addresses in the header.
+    /// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupIpSetForwardedIpConfigurationPosition : IEquatable<RuleGroupIpSetForwardedIpConfigurationPosition>
     {
@@ -345,6 +374,14 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupJa3FingerprintFallbackBehavior : IEquatable<RuleGroupJa3FingerprintFallbackBehavior>
     {
@@ -531,6 +568,28 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Setting that indicates how to aggregate the request counts.
+    /// 
+    /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+    /// 
+    /// - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+    /// 
+    /// With this option, you must configure the `ScopeDownStatement` property.
+    /// - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+    /// 
+    /// With this option, you must specify the aggregate keys in the `CustomKeys` property.
+    /// 
+    /// To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+    /// - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+    /// 
+    /// With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+    /// 
+    /// To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    /// - `IP` - Aggregate the request counts on the IP address from the web request origin.
+    /// 
+    /// To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupRateBasedStatementAggregateKeyType : IEquatable<RuleGroupRateBasedStatementAggregateKeyType>
     {
@@ -655,6 +714,9 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The operator to use to compare the request part to the size setting.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupSizeConstraintStatementComparisonOperator : IEquatable<RuleGroupSizeConstraintStatementComparisonOperator>
     {
@@ -737,6 +799,9 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
+    /// </summary>
     [EnumType]
     public readonly struct WebAclAwsManagedRulesBotControlRuleSetInspectionLevel : IEquatable<WebAclAwsManagedRulesBotControlRuleSetInspectionLevel>
     {
@@ -797,6 +862,16 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+    /// 
+    /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclForwardedIpConfigurationFallbackBehavior : IEquatable<WebAclForwardedIpConfigurationFallbackBehavior>
     {
@@ -825,6 +900,16 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+    /// 
+    /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclIpSetForwardedIpConfigurationFallbackBehavior : IEquatable<WebAclIpSetForwardedIpConfigurationFallbackBehavior>
     {
@@ -853,6 +938,15 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+    /// 
+    /// The options for this setting are the following:
+    /// 
+    /// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+    /// - LAST - Inspect the last IP address in the list of IP addresses in the header.
+    /// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclIpSetForwardedIpConfigurationPosition : IEquatable<WebAclIpSetForwardedIpConfigurationPosition>
     {
@@ -882,6 +976,14 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclJa3FingerprintFallbackBehavior : IEquatable<WebAclJa3FingerprintFallbackBehavior>
     {
@@ -970,6 +1072,9 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// &gt; Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+    /// </summary>
     [EnumType]
     public readonly struct WebAclManagedRuleGroupConfigPayloadType : IEquatable<WebAclManagedRuleGroupConfigPayloadType>
     {
@@ -1096,6 +1201,28 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Setting that indicates how to aggregate the request counts.
+    /// 
+    /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+    /// 
+    /// - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+    /// 
+    /// With this option, you must configure the `ScopeDownStatement` property.
+    /// - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+    /// 
+    /// With this option, you must specify the aggregate keys in the `CustomKeys` property.
+    /// 
+    /// To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+    /// - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+    /// 
+    /// With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+    /// 
+    /// To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    /// - `IP` - Aggregate the request counts on the IP address from the web request origin.
+    /// 
+    /// To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    /// </summary>
     [EnumType]
     public readonly struct WebAclRateBasedStatementAggregateKeyType : IEquatable<WebAclRateBasedStatementAggregateKeyType>
     {
@@ -1126,6 +1253,9 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The payload type for your account creation endpoint, either JSON or form encoded.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclRequestInspectionAcfpPayloadType : IEquatable<WebAclRequestInspectionAcfpPayloadType>
     {
@@ -1154,6 +1284,9 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The payload type for your login endpoint, either JSON or form encoded.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclRequestInspectionPayloadType : IEquatable<WebAclRequestInspectionPayloadType>
     {
@@ -1276,6 +1409,9 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The operator to use to compare the request part to the size setting.
+    /// </summary>
     [EnumType]
     public readonly struct WebAclSizeConstraintStatementComparisonOperator : IEquatable<WebAclSizeConstraintStatementComparisonOperator>
     {

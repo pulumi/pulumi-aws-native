@@ -17,11 +17,13 @@ import (
 type Crl struct {
 	pulumi.CustomResourceState
 
-	CrlData        pulumi.StringOutput    `pulumi:"crlData"`
-	CrlId          pulumi.StringOutput    `pulumi:"crlId"`
-	Enabled        pulumi.BoolPtrOutput   `pulumi:"enabled"`
-	Name           pulumi.StringOutput    `pulumi:"name"`
-	Tags           aws.TagArrayOutput     `pulumi:"tags"`
+	CrlData pulumi.StringOutput  `pulumi:"crlData"`
+	CrlId   pulumi.StringOutput  `pulumi:"crlId"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Name    pulumi.StringOutput  `pulumi:"name"`
+	// A label that consists of a key and value you define.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn pulumi.StringPtrOutput `pulumi:"trustAnchorArn"`
 }
 
@@ -68,19 +70,23 @@ func (CrlState) ElementType() reflect.Type {
 }
 
 type crlArgs struct {
-	CrlData        string    `pulumi:"crlData"`
-	Enabled        *bool     `pulumi:"enabled"`
-	Name           *string   `pulumi:"name"`
-	Tags           []aws.Tag `pulumi:"tags"`
-	TrustAnchorArn *string   `pulumi:"trustAnchorArn"`
+	CrlData string  `pulumi:"crlData"`
+	Enabled *bool   `pulumi:"enabled"`
+	Name    *string `pulumi:"name"`
+	// A label that consists of a key and value you define.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
 }
 
 // The set of arguments for constructing a Crl resource.
 type CrlArgs struct {
-	CrlData        pulumi.StringInput
-	Enabled        pulumi.BoolPtrInput
-	Name           pulumi.StringPtrInput
-	Tags           aws.TagArrayInput
+	CrlData pulumi.StringInput
+	Enabled pulumi.BoolPtrInput
+	Name    pulumi.StringPtrInput
+	// A label that consists of a key and value you define.
+	Tags aws.TagArrayInput
+	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn pulumi.StringPtrInput
 }
 
@@ -137,10 +143,12 @@ func (o CrlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A label that consists of a key and value you define.
 func (o CrlOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Crl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 func (o CrlOutput) TrustAnchorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringPtrOutput { return v.TrustAnchorArn }).(pulumi.StringPtrOutput)
 }

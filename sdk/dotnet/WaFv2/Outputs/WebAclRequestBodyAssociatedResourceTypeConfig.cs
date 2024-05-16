@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRequestBodyAssociatedResourceTypeConfig
     {
+        /// <summary>
+        /// Specifies the maximum size of the web request body component that an associated CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body.
+        /// 
+        /// Default: `16 KB (16,384 bytes)`
+        /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.WebAclSizeInspectionLimit DefaultSizeInspectionLimit;
 
         [OutputConstructor]

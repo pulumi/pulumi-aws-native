@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -65,6 +71,9 @@ namespace Pulumi.AwsNative.SecretsManager
         /// The description of the secret.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the secret value in the secret. An alias is always prefixed by ``alias/``, for example ``alias/aws/secretsmanager``. For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html).

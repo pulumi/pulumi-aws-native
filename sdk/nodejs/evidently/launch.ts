@@ -37,17 +37,41 @@ export class Launch extends pulumi.CustomResource {
         return obj['__pulumiType'] === Launch.__pulumiType;
     }
 
+    /**
+     * The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An optional description for the launch.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Start or Stop Launch Launch. Default is not started.
      */
     public readonly executionStatus!: pulumi.Output<outputs.evidently.LaunchExecutionStatusObject | undefined>;
+    /**
+     * A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+     */
     public readonly groups!: pulumi.Output<outputs.evidently.LaunchGroupObject[]>;
+    /**
+     * This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+     */
     public readonly metricMonitors!: pulumi.Output<outputs.evidently.LaunchMetricDefinitionObject[] | undefined>;
+    /**
+     * The name for the launch. It can include up to 127 characters.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name or ARN of the project that you want to create the launch in.
+     */
     public readonly project!: pulumi.Output<string>;
+    /**
+     * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+     */
     public readonly randomizationSalt!: pulumi.Output<string | undefined>;
+    /**
+     * A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+     */
     public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchStepConfig[]>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -107,16 +131,37 @@ export class Launch extends pulumi.CustomResource {
  * The set of arguments for constructing a Launch resource.
  */
 export interface LaunchArgs {
+    /**
+     * An optional description for the launch.
+     */
     description?: pulumi.Input<string>;
     /**
      * Start or Stop Launch Launch. Default is not started.
      */
     executionStatus?: pulumi.Input<inputs.evidently.LaunchExecutionStatusObjectArgs>;
+    /**
+     * A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+     */
     groups: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroupObjectArgs>[]>;
+    /**
+     * This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+     */
     metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricDefinitionObjectArgs>[]>;
+    /**
+     * The name for the launch. It can include up to 127 characters.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name or ARN of the project that you want to create the launch in.
+     */
     project: pulumi.Input<string>;
+    /**
+     * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+     */
     randomizationSalt?: pulumi.Input<string>;
+    /**
+     * A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+     */
     scheduledSplitsConfig: pulumi.Input<pulumi.Input<inputs.evidently.LaunchStepConfigArgs>[]>;
     /**
      * An array of key-value pairs to apply to this resource.

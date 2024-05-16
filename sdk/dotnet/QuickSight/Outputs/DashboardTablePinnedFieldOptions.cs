@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTablePinnedFieldOptions
     {
+        /// <summary>
+        /// A list of columns to be pinned to the left of a table visual.
+        /// </summary>
         public readonly ImmutableArray<string> PinnedLeftFields;
 
         [OutputConstructor]

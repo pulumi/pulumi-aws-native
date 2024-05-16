@@ -16,12 +16,33 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     [OutputType]
     public sealed class ScheduledQueryTimestreamConfiguration
     {
+        /// <summary>
+        /// Name of Timestream database to which the query result will be written.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// This is to allow mapping column(s) from the query result to the dimension in the destination table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryDimensionMapping> DimensionMappings;
+        /// <summary>
+        /// Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
+        /// </summary>
         public readonly string? MeasureNameColumn;
+        /// <summary>
+        /// Specifies how to map measures to multi-measure records.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryMixedMeasureMapping> MixedMeasureMappings;
+        /// <summary>
+        /// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        /// </summary>
         public readonly Outputs.ScheduledQueryMultiMeasureMappings? MultiMeasureMappings;
+        /// <summary>
+        /// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+        /// </summary>
         public readonly string TableName;
+        /// <summary>
+        /// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+        /// </summary>
         public readonly string TimeColumn;
 
         [OutputConstructor]

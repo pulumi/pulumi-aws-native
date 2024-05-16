@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class QueueWindowsUserArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password ARN for the Windows user.
+        /// </summary>
         [Input("passwordArn", required: true)]
         public Input<string> PasswordArn { get; set; } = null!;
 
+        /// <summary>
+        /// The user.
+        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 

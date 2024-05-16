@@ -19,15 +19,38 @@ export function getDevicePool(args: GetDevicePoolArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDevicePoolArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetDevicePoolResult {
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * The device pool's description.
+     */
     readonly description?: string;
+    /**
+     * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+     *
+     * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+     */
     readonly maxDevices?: number;
+    /**
+     * The device pool's name.
+     */
     readonly name?: string;
+    /**
+     * Represents a condition for a device pool.
+     */
     readonly rules?: outputs.devicefarm.DevicePoolRule[];
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +61,8 @@ export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi
 }
 
 export interface GetDevicePoolOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

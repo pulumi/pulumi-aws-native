@@ -119,6 +119,7 @@ class SafetyRuleRuleConfigArgs:
         The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
         :param pulumi.Input[bool] inverted: Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
         :param pulumi.Input[int] threshold: The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
+        :param pulumi.Input['SafetyRuleRuleType'] type: A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
         """
         pulumi.set(__self__, "inverted", inverted)
         pulumi.set(__self__, "threshold", threshold)
@@ -151,6 +152,9 @@ class SafetyRuleRuleConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['SafetyRuleRuleType']:
+        """
+        A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
+        """
         return pulumi.get(self, "type")
 
     @type.setter

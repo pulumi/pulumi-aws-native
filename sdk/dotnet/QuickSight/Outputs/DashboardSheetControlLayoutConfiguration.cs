@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetControlLayoutConfiguration
     {
+        /// <summary>
+        /// The configuration for a grid layout. Also called a tiled layout.
+        /// 
+        /// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutConfiguration? GridLayout;
 
         [OutputConstructor]

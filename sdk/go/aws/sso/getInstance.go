@@ -39,7 +39,8 @@ type LookupInstanceResult struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
 	Status *InstanceStatus `pulumi:"status"`
-	Tags   []aws.Tag       `pulumi:"tags"`
+	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -103,6 +104,7 @@ func (o LookupInstanceResultOutput) Status() InstanceStatusPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceStatus { return v.Status }).(InstanceStatusPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
 func (o LookupInstanceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("sourceControls")]
         private InputList<Inputs.AnalysisCascadingControlSourceArgs>? _sourceControls;
+
+        /// <summary>
+        /// The source controls that are used in a `CascadingControlConfiguration` .
+        /// </summary>
         public InputList<Inputs.AnalysisCascadingControlSourceArgs> SourceControls
         {
             get => _sourceControls ?? (_sourceControls = new InputList<Inputs.AnalysisCascadingControlSourceArgs>());

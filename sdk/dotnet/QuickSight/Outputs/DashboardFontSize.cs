@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFontSize
     {
+        /// <summary>
+        /// The lexical name for the text size, proportional to its surrounding context.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardRelativeFontSize? Relative;
 
         [OutputConstructor]

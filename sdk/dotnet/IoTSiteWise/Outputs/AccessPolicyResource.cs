@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class AccessPolicyResource
     {
+        /// <summary>
+        /// Identifies an AWS IoT SiteWise Monitor portal.
+        /// </summary>
         public readonly Outputs.AccessPolicyPortal? Portal;
+        /// <summary>
+        /// Identifies a specific AWS IoT SiteWise Monitor project.
+        /// </summary>
         public readonly Outputs.AccessPolicyProject? Project;
 
         [OutputConstructor]

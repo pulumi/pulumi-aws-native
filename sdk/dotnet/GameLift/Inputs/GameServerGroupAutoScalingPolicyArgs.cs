@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class GameServerGroupAutoScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+        /// </summary>
         [Input("estimatedInstanceWarmup")]
         public Input<double>? EstimatedInstanceWarmup { get; set; }
 
+        /// <summary>
+        /// *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
+        /// 
+        /// Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+        /// </summary>
         [Input("targetTrackingConfiguration", required: true)]
         public Input<Inputs.GameServerGroupTargetTrackingConfigurationArgs> TargetTrackingConfiguration { get; set; } = null!;
 

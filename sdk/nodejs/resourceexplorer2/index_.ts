@@ -67,9 +67,25 @@ export class Index extends pulumi.CustomResource {
         return obj['__pulumiType'] === Index.__pulumiType;
     }
 
+    /**
+     * The ARN of the new index for the AWS Region . For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Indicates the current state of the index. For example:
+     *
+     * `CREATING`
+     */
     public /*out*/ readonly indexState!: pulumi.Output<enums.resourceexplorer2.IndexState>;
+    /**
+     * The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+     */
     public readonly type!: pulumi.Output<enums.resourceexplorer2.IndexType>;
 
     /**
@@ -105,6 +121,12 @@ export class Index extends pulumi.CustomResource {
  * The set of arguments for constructing a Index resource.
  */
 export interface IndexArgs {
+    /**
+     * The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+     */
     type: pulumi.Input<enums.resourceexplorer2.IndexType>;
 }

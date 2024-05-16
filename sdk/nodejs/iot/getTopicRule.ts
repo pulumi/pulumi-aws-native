@@ -19,12 +19,26 @@ export function getTopicRule(args: GetTopicRuleArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetTopicRuleArgs {
+    /**
+     * The name of the rule.
+     *
+     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     */
     ruleName: string;
 }
 
 export interface GetTopicRuleResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+     */
     readonly arn?: string;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * Describes a rule.
+     */
     readonly topicRulePayload?: outputs.iot.TopicRulePayload;
 }
 /**
@@ -35,5 +49,10 @@ export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.I
 }
 
 export interface GetTopicRuleOutputArgs {
+    /**
+     * The name of the rule.
+     *
+     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     */
     ruleName: pulumi.Input<string>;
 }

@@ -12,27 +12,51 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorRdsSourceConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The host name of the database.
+        /// </summary>
         [Input("databaseHost", required: true)]
         public Input<string> DatabaseHost { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the RDS database.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The port number where the database can be accessed.
+        /// </summary>
         [Input("databasePort", required: true)]
         public Input<int> DatabasePort { get; set; } = null!;
 
+        /// <summary>
+        /// A string identifying the database instance.
+        /// </summary>
         [Input("dbInstanceIdentifier", required: true)]
         public Input<string> DbInstanceIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        /// </summary>
         [Input("secretManagerArn", required: true)]
         public Input<string> SecretManagerArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the table in the database.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
+        /// <summary>
+        /// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        /// </summary>
         [Input("vpcConfiguration", required: true)]
         public Input<Inputs.AnomalyDetectorVpcConfigurationArgs> VpcConfiguration { get; set; } = null!;
 

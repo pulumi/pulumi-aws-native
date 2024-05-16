@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRulePutAssetPropertyValueEntry
     {
+        /// <summary>
+        /// The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        /// </summary>
         public readonly string? AssetId;
+        /// <summary>
+        /// Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+        /// </summary>
         public readonly string? EntryId;
+        /// <summary>
+        /// The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        /// </summary>
         public readonly string? PropertyAlias;
+        /// <summary>
+        /// The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        /// </summary>
         public readonly string? PropertyId;
+        /// <summary>
+        /// An asset property value entry containing the following information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleAssetPropertyValue> PropertyValues;
 
         [OutputConstructor]

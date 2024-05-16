@@ -40,12 +40,14 @@ type LookupAppResult struct {
 	DriftStatus *AppDriftStatus `pulumi:"driftStatus"`
 	// The list of events you would like to subscribe and get notification for.
 	EventSubscriptions []AppEventSubscription `pulumi:"eventSubscriptions"`
-	PermissionModel    *AppPermissionModel    `pulumi:"permissionModel"`
+	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+	PermissionModel *AppPermissionModel `pulumi:"permissionModel"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
 	ResourceMappings []AppResourceMapping `pulumi:"resourceMappings"`
-	Tags             map[string]string    `pulumi:"tags"`
+	// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -114,6 +116,7 @@ func (o LookupAppResultOutput) EventSubscriptions() AppEventSubscriptionArrayOut
 	return o.ApplyT(func(v LookupAppResult) []AppEventSubscription { return v.EventSubscriptions }).(AppEventSubscriptionArrayOutput)
 }
 
+// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 func (o LookupAppResultOutput) PermissionModel() AppPermissionModelPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *AppPermissionModel { return v.PermissionModel }).(AppPermissionModelPtrOutput)
 }
@@ -128,6 +131,7 @@ func (o LookupAppResultOutput) ResourceMappings() AppResourceMappingArrayOutput 
 	return o.ApplyT(func(v LookupAppResult) []AppResourceMapping { return v.ResourceMappings }).(AppResourceMappingArrayOutput)
 }
 
+// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
 func (o LookupAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -11,6 +11,9 @@ __all__ = [
 
 
 class ConnectionAliasAssociationAssociationStatus(str, Enum):
+    """
+    The association status of the connection alias.
+    """
     NOT_ASSOCIATED = "NOT_ASSOCIATED"
     PENDING_ASSOCIATION = "PENDING_ASSOCIATION"
     ASSOCIATED_WITH_OWNER_ACCOUNT = "ASSOCIATED_WITH_OWNER_ACCOUNT"
@@ -19,6 +22,9 @@ class ConnectionAliasAssociationAssociationStatus(str, Enum):
 
 
 class ConnectionAliasState(str, Enum):
+    """
+    The current state of the connection alias, returned as a string.
+    """
     CREATING = "CREATING"
     CREATED = "CREATED"
     DELETING = "DELETING"

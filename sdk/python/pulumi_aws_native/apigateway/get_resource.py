@@ -26,6 +26,9 @@ class GetResourceResult:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
+        """
+        The ID for the resource. For example: `abc123` .
+        """
         return pulumi.get(self, "resource_id")
 
 
@@ -45,6 +48,7 @@ def get_resource(resource_id: Optional[str] = None,
     The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
 
 
+    :param str resource_id: The ID for the resource. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
@@ -65,6 +69,7 @@ def get_resource_output(resource_id: Optional[pulumi.Input[str]] = None,
     The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
 
 
+    :param str resource_id: The ID for the resource. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

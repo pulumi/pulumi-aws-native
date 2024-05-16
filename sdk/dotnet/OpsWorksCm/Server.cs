@@ -80,72 +80,166 @@ namespace Pulumi.AwsNative.OpsWorksCm
     [AwsNativeResourceType("aws-native:opsworkscm:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
+        /// </summary>
         [Output("associatePublicIpAddress")]
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
+        /// </summary>
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+        /// </summary>
         [Output("backupRetentionCount")]
         public Output<int?> BackupRetentionCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
+        /// 
+        /// - You can provide either a self-signed, custom certificate, or the full certificate chain.
+        /// - The certificate must be a valid X509 certificate, or a certificate chain in PEM format.
+        /// - The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's `NotBefore` date), or after it expires (the certificate's `NotAfter` date).
+        /// - The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .
+        /// - The certificate must match the value of `CustomPrivateKey` .
+        /// </summary>
         [Output("customCertificate")]
         public Output<string?> CustomCertificate { get; private set; } = null!;
 
+        /// <summary>
+        /// Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
+        /// </summary>
         [Output("customDomain")]
         public Output<string?> CustomDomain { get; private set; } = null!;
 
+        /// <summary>
+        /// Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
+        /// </summary>
         [Output("customPrivateKey")]
         public Output<string?> CustomPrivateKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+        /// </summary>
         [Output("disableAutomatedBackup")]
         public Output<bool?> DisableAutomatedBackup { get; private set; } = null!;
 
+        /// <summary>
+        /// A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
+        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
+        /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
+        /// <summary>
+        /// The `EngineAttribute` property type specifies administrator credentials for an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. `EngineAttribute` is a property of the `AWS::OpsWorksCM::Server` resource type.
+        /// </summary>
         [Output("engineAttributes")]
         public Output<ImmutableArray<Outputs.ServerEngineAttribute>> EngineAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
+        /// </summary>
         [Output("engineModel")]
         public Output<string?> EngineModel { get; private set; } = null!;
 
+        /// <summary>
+        /// The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
+        /// </summary>
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the instance profile that your Amazon EC2 instances use.
+        /// </summary>
         [Output("instanceProfileArn")]
         public Output<string> InstanceProfileArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 instance type to use. For example, `m5.large` .
+        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
+        /// </summary>
         [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
 
+        /// <summary>
+        /// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+        /// 
+        /// - `HH:MM` for daily backups
+        /// - `DDD:HH:MM` for weekly backups
+        /// 
+        /// `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+        /// 
+        /// *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+        /// 
+        /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
+        /// <summary>
+        /// The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+        /// 
+        /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
+        /// 
+        /// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
         [Output("serverName")]
         public Output<string> ServerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+        /// </summary>
         [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IDs of subnets in which to launch the server EC2 instance.
+        /// 
+        /// Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
+        /// 
+        /// EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
+        /// 
+        /// For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. Leading and trailing spaces are trimmed from both the key and value. A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks CM resources.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -212,75 +306,163 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
+        /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
+        /// <summary>
+        /// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
+        /// </summary>
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
+        /// <summary>
+        /// The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+        /// </summary>
         [Input("backupRetentionCount")]
         public Input<int>? BackupRetentionCount { get; set; }
 
+        /// <summary>
+        /// Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
+        /// 
+        /// - You can provide either a self-signed, custom certificate, or the full certificate chain.
+        /// - The certificate must be a valid X509 certificate, or a certificate chain in PEM format.
+        /// - The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's `NotBefore` date), or after it expires (the certificate's `NotAfter` date).
+        /// - The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .
+        /// - The certificate must match the value of `CustomPrivateKey` .
+        /// </summary>
         [Input("customCertificate")]
         public Input<string>? CustomCertificate { get; set; }
 
+        /// <summary>
+        /// Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
+        /// </summary>
         [Input("customDomain")]
         public Input<string>? CustomDomain { get; set; }
 
+        /// <summary>
+        /// Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
+        /// </summary>
         [Input("customPrivateKey")]
         public Input<string>? CustomPrivateKey { get; set; }
 
+        /// <summary>
+        /// Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+        /// </summary>
         [Input("disableAutomatedBackup")]
         public Input<bool>? DisableAutomatedBackup { get; set; }
 
+        /// <summary>
+        /// The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
+        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         [Input("engineAttributes")]
         private InputList<Inputs.ServerEngineAttributeArgs>? _engineAttributes;
+
+        /// <summary>
+        /// The `EngineAttribute` property type specifies administrator credentials for an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. `EngineAttribute` is a property of the `AWS::OpsWorksCM::Server` resource type.
+        /// </summary>
         public InputList<Inputs.ServerEngineAttributeArgs> EngineAttributes
         {
             get => _engineAttributes ?? (_engineAttributes = new InputList<Inputs.ServerEngineAttributeArgs>());
             set => _engineAttributes = value;
         }
 
+        /// <summary>
+        /// The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
+        /// </summary>
         [Input("engineModel")]
         public Input<string>? EngineModel { get; set; }
 
+        /// <summary>
+        /// The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
+        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// The ARN of the instance profile that your Amazon EC2 instances use.
+        /// </summary>
         [Input("instanceProfileArn", required: true)]
         public Input<string> InstanceProfileArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 instance type to use. For example, `m5.large` .
+        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
+        /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
+        /// <summary>
+        /// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+        /// 
+        /// - `HH:MM` for daily backups
+        /// - `DDD:HH:MM` for weekly backups
+        /// 
+        /// `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+        /// 
+        /// *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+        /// 
+        /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
+        /// <summary>
+        /// The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+        /// 
+        /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
+        /// 
+        /// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }
 
+        /// <summary>
+        /// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+        /// </summary>
         [Input("serviceRoleArn", required: true)]
         public Input<string> ServiceRoleArn { get; set; } = null!;
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The IDs of subnets in which to launch the server EC2 instance.
+        /// 
+        /// Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
+        /// 
+        /// EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
+        /// 
+        /// For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -289,6 +471,10 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. Leading and trailing spaces are trimmed from both the key and value. A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks CM resources.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

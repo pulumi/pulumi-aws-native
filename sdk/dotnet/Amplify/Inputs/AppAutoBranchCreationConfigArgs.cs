@@ -14,44 +14,91 @@ namespace Pulumi.AwsNative.Amplify.Inputs
     {
         [Input("autoBranchCreationPatterns")]
         private InputList<string>? _autoBranchCreationPatterns;
+
+        /// <summary>
+        /// Automated branch creation glob patterns for the Amplify app.
+        /// </summary>
         public InputList<string> AutoBranchCreationPatterns
         {
             get => _autoBranchCreationPatterns ?? (_autoBranchCreationPatterns = new InputList<string>());
             set => _autoBranchCreationPatterns = value;
         }
 
+        /// <summary>
+        /// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        /// </summary>
         [Input("basicAuthConfig")]
         public Input<Inputs.AppBasicAuthConfigArgs>? BasicAuthConfig { get; set; }
 
+        /// <summary>
+        /// The build specification (build spec) for the autocreated branch.
+        /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
+        /// <summary>
+        /// Enables automated branch creation for the Amplify app.
+        /// </summary>
         [Input("enableAutoBranchCreation")]
         public Input<bool>? EnableAutoBranchCreation { get; set; }
 
+        /// <summary>
+        /// Enables auto building for the auto created branch.
+        /// </summary>
         [Input("enableAutoBuild")]
         public Input<bool>? EnableAutoBuild { get; set; }
 
+        /// <summary>
+        /// Enables performance mode for the branch.
+        /// 
+        /// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        /// </summary>
         [Input("enablePerformanceMode")]
         public Input<bool>? EnablePerformanceMode { get; set; }
 
+        /// <summary>
+        /// Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+        /// 
+        /// To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+        /// 
+        /// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        /// </summary>
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.AppEnvironmentVariableArgs>? _environmentVariables;
+
+        /// <summary>
+        /// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        /// </summary>
         public InputList<Inputs.AppEnvironmentVariableArgs> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.AppEnvironmentVariableArgs>());
             set => _environmentVariables = value;
         }
 
+        /// <summary>
+        /// The framework for the autocreated branch.
+        /// </summary>
         [Input("framework")]
         public Input<string>? Framework { get; set; }
 
+        /// <summary>
+        /// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+        /// 
+        /// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+        /// 
+        /// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+        /// 
+        /// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
+        /// <summary>
+        /// Stage for the auto created branch.
+        /// </summary>
         [Input("stage")]
         public Input<Pulumi.AwsNative.Amplify.AppAutoBranchCreationConfigStage>? Stage { get; set; }
 

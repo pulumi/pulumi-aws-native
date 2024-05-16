@@ -33,16 +33,25 @@ class GetVirtualMfaDeviceResult:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[str]:
+        """
+        Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        """
         return pulumi.get(self, "serial_number")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
+        """
+        The IAM user associated with this virtual MFA device.
+        """
         return pulumi.get(self, "users")
 
 
@@ -61,6 +70,9 @@ def get_virtual_mfa_device(serial_number: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMfaDeviceResult:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice
+
+
+    :param str serial_number: Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
     """
     __args__ = dict()
     __args__['serialNumber'] = serial_number
@@ -78,5 +90,8 @@ def get_virtual_mfa_device_output(serial_number: Optional[pulumi.Input[str]] = N
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMfaDeviceResult]:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice
+
+
+    :param str serial_number: Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
     """
     ...

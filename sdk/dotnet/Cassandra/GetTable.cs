@@ -69,11 +69,17 @@ namespace Pulumi.AwsNative.Cassandra
     [OutputType]
     public sealed class GetTableResult
     {
+        /// <summary>
+        /// Determines the billing mode for the table - on-demand or provisioned.
+        /// </summary>
         public readonly Outputs.TableBillingMode? BillingMode;
         /// <summary>
         /// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
         /// </summary>
         public readonly int? DefaultTimeToLive;
+        /// <summary>
+        /// Specifies the encryption at rest option selected for the table.
+        /// </summary>
         public readonly Outputs.TableEncryptionSpecification? EncryptionSpecification;
         /// <summary>
         /// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table

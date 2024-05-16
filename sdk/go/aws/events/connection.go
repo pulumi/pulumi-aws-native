@@ -63,8 +63,12 @@ type Connection struct {
 	pulumi.CustomResourceState
 
 	// The arn of the connection resource.
-	Arn               pulumi.StringOutput               `pulumi:"arn"`
-	AuthParameters    ConnectionAuthParametersOutput    `pulumi:"authParameters"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Contains the authorization parameters to use for the connection.
+	AuthParameters ConnectionAuthParametersOutput `pulumi:"authParameters"`
+	// The type of authorization to use for the connection.
+	//
+	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType ConnectionAuthorizationTypeOutput `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -124,7 +128,11 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	AuthParameters    ConnectionAuthParameters    `pulumi:"authParameters"`
+	// Contains the authorization parameters to use for the connection.
+	AuthParameters ConnectionAuthParameters `pulumi:"authParameters"`
+	// The type of authorization to use for the connection.
+	//
+	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -134,7 +142,11 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	AuthParameters    ConnectionAuthParametersInput
+	// Contains the authorization parameters to use for the connection.
+	AuthParameters ConnectionAuthParametersInput
+	// The type of authorization to use for the connection.
+	//
+	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType ConnectionAuthorizationTypeInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -184,10 +196,14 @@ func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Contains the authorization parameters to use for the connection.
 func (o ConnectionOutput) AuthParameters() ConnectionAuthParametersOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthParametersOutput { return v.AuthParameters }).(ConnectionAuthParametersOutput)
 }
 
+// The type of authorization to use for the connection.
+//
+// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 func (o ConnectionOutput) AuthorizationType() ConnectionAuthorizationTypeOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthorizationTypeOutput { return v.AuthorizationType }).(ConnectionAuthorizationTypeOutput)
 }

@@ -17,19 +17,32 @@ import (
 type WebExperience struct {
 	pulumi.CustomResourceState
 
-	ApplicationId            pulumi.StringOutput                            `pulumi:"applicationId"`
-	CreatedAt                pulumi.StringOutput                            `pulumi:"createdAt"`
-	DefaultEndpoint          pulumi.StringOutput                            `pulumi:"defaultEndpoint"`
-	RoleArn                  pulumi.StringPtrOutput                         `pulumi:"roleArn"`
+	// The identifier of the Amazon Q Business web experience.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The Unix timestamp when the Amazon Q Business application was last updated.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
+	DefaultEndpoint pulumi.StringOutput `pulumi:"defaultEndpoint"`
+	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrOutput `pulumi:"samplePromptsControlMode"`
-	Status                   WebExperienceStatusOutput                      `pulumi:"status"`
-	Subtitle                 pulumi.StringPtrOutput                         `pulumi:"subtitle"`
-	Tags                     aws.TagArrayOutput                             `pulumi:"tags"`
-	Title                    pulumi.StringPtrOutput                         `pulumi:"title"`
-	UpdatedAt                pulumi.StringOutput                            `pulumi:"updatedAt"`
-	WebExperienceArn         pulumi.StringOutput                            `pulumi:"webExperienceArn"`
-	WebExperienceId          pulumi.StringOutput                            `pulumi:"webExperienceId"`
-	WelcomeMessage           pulumi.StringPtrOutput                         `pulumi:"welcomeMessage"`
+	// The status of your Amazon Q Business web experience.
+	Status WebExperienceStatusOutput `pulumi:"status"`
+	// A subtitle to personalize your Amazon Q Business web experience.
+	Subtitle pulumi.StringPtrOutput `pulumi:"subtitle"`
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The title for your Amazon Q Business web experience.
+	Title pulumi.StringPtrOutput `pulumi:"title"`
+	// The Unix timestamp when your Amazon Q Business web experience was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
+	WebExperienceArn pulumi.StringOutput `pulumi:"webExperienceArn"`
+	// The identifier of your Amazon Q Business web experience.
+	WebExperienceId pulumi.StringOutput `pulumi:"webExperienceId"`
+	// A message in an Amazon Q Business web experience.
+	WelcomeMessage pulumi.StringPtrOutput `pulumi:"welcomeMessage"`
 }
 
 // NewWebExperience registers a new resource with the given unique name, arguments, and options.
@@ -79,24 +92,38 @@ func (WebExperienceState) ElementType() reflect.Type {
 }
 
 type webExperienceArgs struct {
-	ApplicationId            string                                 `pulumi:"applicationId"`
-	RoleArn                  *string                                `pulumi:"roleArn"`
+	// The identifier of the Amazon Q Business web experience.
+	ApplicationId string `pulumi:"applicationId"`
+	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+	RoleArn *string `pulumi:"roleArn"`
+	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode *WebExperienceSamplePromptsControlMode `pulumi:"samplePromptsControlMode"`
-	Subtitle                 *string                                `pulumi:"subtitle"`
-	Tags                     []aws.Tag                              `pulumi:"tags"`
-	Title                    *string                                `pulumi:"title"`
-	WelcomeMessage           *string                                `pulumi:"welcomeMessage"`
+	// A subtitle to personalize your Amazon Q Business web experience.
+	Subtitle *string `pulumi:"subtitle"`
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The title for your Amazon Q Business web experience.
+	Title *string `pulumi:"title"`
+	// A message in an Amazon Q Business web experience.
+	WelcomeMessage *string `pulumi:"welcomeMessage"`
 }
 
 // The set of arguments for constructing a WebExperience resource.
 type WebExperienceArgs struct {
-	ApplicationId            pulumi.StringInput
-	RoleArn                  pulumi.StringPtrInput
+	// The identifier of the Amazon Q Business web experience.
+	ApplicationId pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+	RoleArn pulumi.StringPtrInput
+	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrInput
-	Subtitle                 pulumi.StringPtrInput
-	Tags                     aws.TagArrayInput
-	Title                    pulumi.StringPtrInput
-	WelcomeMessage           pulumi.StringPtrInput
+	// A subtitle to personalize your Amazon Q Business web experience.
+	Subtitle pulumi.StringPtrInput
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayInput
+	// The title for your Amazon Q Business web experience.
+	Title pulumi.StringPtrInput
+	// A message in an Amazon Q Business web experience.
+	WelcomeMessage pulumi.StringPtrInput
 }
 
 func (WebExperienceArgs) ElementType() reflect.Type {
@@ -136,56 +163,69 @@ func (o WebExperienceOutput) ToWebExperienceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The identifier of the Amazon Q Business web experience.
 func (o WebExperienceOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The Unix timestamp when the Amazon Q Business application was last updated.
 func (o WebExperienceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 func (o WebExperienceOutput) DefaultEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.DefaultEndpoint }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 func (o WebExperienceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether sample prompts are enabled in the web experience for an end user.
 func (o WebExperienceOutput) SamplePromptsControlMode() WebExperienceSamplePromptsControlModePtrOutput {
 	return o.ApplyT(func(v *WebExperience) WebExperienceSamplePromptsControlModePtrOutput {
 		return v.SamplePromptsControlMode
 	}).(WebExperienceSamplePromptsControlModePtrOutput)
 }
 
+// The status of your Amazon Q Business web experience.
 func (o WebExperienceOutput) Status() WebExperienceStatusOutput {
 	return o.ApplyT(func(v *WebExperience) WebExperienceStatusOutput { return v.Status }).(WebExperienceStatusOutput)
 }
 
+// A subtitle to personalize your Amazon Q Business web experience.
 func (o WebExperienceOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.Subtitle }).(pulumi.StringPtrOutput)
 }
 
+// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o WebExperienceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *WebExperience) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The title for your Amazon Q Business web experience.
 func (o WebExperienceOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
 }
 
+// The Unix timestamp when your Amazon Q Business web experience was updated.
 func (o WebExperienceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
 func (o WebExperienceOutput) WebExperienceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.WebExperienceArn }).(pulumi.StringOutput)
 }
 
+// The identifier of your Amazon Q Business web experience.
 func (o WebExperienceOutput) WebExperienceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.WebExperienceId }).(pulumi.StringOutput)
 }
 
+// A message in an Amazon Q Business web experience.
 func (o WebExperienceOutput) WelcomeMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.WelcomeMessage }).(pulumi.StringPtrOutput)
 }

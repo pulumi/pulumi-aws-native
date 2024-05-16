@@ -16,8 +16,27 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableReplicaSpecification
     {
+        /// <summary>
+        /// The optional auto scaling settings for a table with provisioned throughput capacity.
+        /// 
+        /// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+        /// 
+        /// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+        /// 
+        /// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+        /// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+        /// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+        /// 
+        /// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         public readonly Outputs.TableAutoScalingSetting? ReadCapacityAutoScaling;
+        /// <summary>
+        /// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
+        /// </summary>
         public readonly int? ReadCapacityUnits;
+        /// <summary>
+        /// The AWS Region.
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

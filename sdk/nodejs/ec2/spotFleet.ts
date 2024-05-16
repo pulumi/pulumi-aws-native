@@ -37,7 +37,15 @@ export class SpotFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpotFleet.__pulumiType;
     }
 
+    /**
+     * The ID of the Spot Fleet.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+     *
+     * You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+     */
     public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetRequestConfigData>;
 
     /**
@@ -71,5 +79,10 @@ export class SpotFleet extends pulumi.CustomResource {
  * The set of arguments for constructing a SpotFleet resource.
  */
 export interface SpotFleetArgs {
+    /**
+     * Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+     *
+     * You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+     */
     spotFleetRequestConfigData: pulumi.Input<inputs.ec2.SpotFleetRequestConfigDataArgs>;
 }

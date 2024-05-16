@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAssistantAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the association.
+        /// </summary>
         [Input("assistantAssociationId", required: true)]
         public string AssistantAssociationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Wisdom assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAssistantAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the association.
+        /// </summary>
         [Input("assistantAssociationId", required: true)]
         public Input<string> AssistantAssociationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Wisdom assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -57,8 +69,17 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAssistantAssociationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Wisdom assistant.
+        /// </summary>
         public readonly string? AssistantArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the assistant association.
+        /// </summary>
         public readonly string? AssistantAssociationArn;
+        /// <summary>
+        /// The ID of the association.
+        /// </summary>
         public readonly string? AssistantAssociationId;
 
         [OutputConstructor]

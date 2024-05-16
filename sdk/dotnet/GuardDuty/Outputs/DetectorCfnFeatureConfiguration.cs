@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfnFeatureConfiguration
     {
+        /// <summary>
+        /// Information about the additional configuration of a feature in your account.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorCfnFeatureAdditionalConfiguration> AdditionalConfiguration;
+        /// <summary>
+        /// Name of the feature.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Status of the feature configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationStatus Status;
 
         [OutputConstructor]

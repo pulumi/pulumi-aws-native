@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MemoryDb.Inputs
 {
 
+    /// <summary>
+    /// Denotes whether the user requires a password to authenticate.
+    /// 
+    /// *Example:*
+    /// 
+    /// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &amp;* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+    /// </summary>
     public sealed class AuthenticationModePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("passwords")]

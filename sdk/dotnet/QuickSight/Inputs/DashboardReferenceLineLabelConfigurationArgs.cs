@@ -12,21 +12,46 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardReferenceLineLabelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for a custom label on a `ReferenceLine` .
+        /// </summary>
         [Input("customLabelConfiguration")]
         public Input<Inputs.DashboardReferenceLineCustomLabelConfigurationArgs>? CustomLabelConfiguration { get; set; }
 
+        /// <summary>
+        /// The font color configuration of the label in a reference line.
+        /// </summary>
         [Input("fontColor")]
         public Input<string>? FontColor { get; set; }
 
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? FontConfiguration { get; set; }
 
+        /// <summary>
+        /// The horizontal position configuration of the label in a reference line. Choose one of the following options:
+        /// 
+        /// - `LEFT`
+        /// - `CENTER`
+        /// - `RIGHT`
+        /// </summary>
         [Input("horizontalPosition")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardReferenceLineLabelHorizontalPosition>? HorizontalPosition { get; set; }
 
+        /// <summary>
+        /// The value label configuration of the label in a reference line.
+        /// </summary>
         [Input("valueLabelConfiguration")]
         public Input<Inputs.DashboardReferenceLineValueLabelConfigurationArgs>? ValueLabelConfiguration { get; set; }
 
+        /// <summary>
+        /// The vertical position configuration of the label in a reference line. Choose one of the following options:
+        /// 
+        /// - `ABOVE`
+        /// - `BELOW`
+        /// </summary>
         [Input("verticalPosition")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardReferenceLineLabelVerticalPosition>? VerticalPosition { get; set; }
 

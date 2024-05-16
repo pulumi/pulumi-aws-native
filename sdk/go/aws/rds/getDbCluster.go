@@ -62,8 +62,9 @@ type LookupDbClusterResult struct {
 	// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIamDatabaseAuthentication *bool              `pulumi:"enableIamDatabaseAuthentication"`
-	Endpoint                        *DbClusterEndpoint `pulumi:"endpoint"`
+	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
+	// The `Endpoint` return value specifies the connection endpoint for the primary instance of the DB cluster.
+	Endpoint *DbClusterEndpoint `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
 	// The version number of the database engine to use.
@@ -97,8 +98,15 @@ type LookupDbClusterResult struct {
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
-	PreferredMaintenanceWindow *string                `pulumi:"preferredMaintenanceWindow"`
-	ReadEndpoint               *DbClusterReadEndpoint `pulumi:"readEndpoint"`
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+	//
+	// The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+	//
+	// If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+	//
+	// For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+	ReadEndpoint *DbClusterReadEndpoint `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
@@ -236,6 +244,7 @@ func (o LookupDbClusterResultOutput) EnableIamDatabaseAuthentication() pulumi.Bo
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
 }
 
+// The `Endpoint` return value specifies the connection endpoint for the primary instance of the DB cluster.
 func (o LookupDbClusterResultOutput) Endpoint() DbClusterEndpointPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterEndpoint { return v.Endpoint }).(DbClusterEndpointPtrOutput)
 }
@@ -322,6 +331,13 @@ func (o LookupDbClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringP
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+//
+// The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+//
+// If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+//
+// For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
 func (o LookupDbClusterResultOutput) ReadEndpoint() DbClusterReadEndpointPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterReadEndpoint { return v.ReadEndpoint }).(DbClusterReadEndpointPtrOutput)
 }

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPanelTitleOptions
     {
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.DashboardFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// Sets the horizontal text alignment of the title within each panel.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardHorizontalTextAlignment? HorizontalTextAlignment;
+        /// <summary>
+        /// Determines whether or not panel titles are displayed.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

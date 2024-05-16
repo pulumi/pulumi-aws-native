@@ -34,7 +34,13 @@ export interface GetLocationNfsResult {
      * The URL of the NFS location that was described.
      */
     readonly locationUri?: string;
+    /**
+     * Specifies the options that DataSync can use to mount your NFS file server.
+     */
     readonly mountOptions?: outputs.datasync.LocationNfsMountOptions;
+    /**
+     * The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+     */
     readonly onPremConfig?: outputs.datasync.LocationNfsOnPremConfig;
     /**
      * An array of key-value pairs to apply to this resource.

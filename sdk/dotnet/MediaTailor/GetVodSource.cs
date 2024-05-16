@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetVodSourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the source location that the VOD source is associated with.
+        /// </summary>
         [Input("sourceLocationName", required: true)]
         public string SourceLocationName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the VOD source.
+        /// </summary>
         [Input("vodSourceName", required: true)]
         public string VodSourceName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetVodSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the source location that the VOD source is associated with.
+        /// </summary>
         [Input("sourceLocationName", required: true)]
         public Input<string> SourceLocationName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the VOD source.
+        /// </summary>
         [Input("vodSourceName", required: true)]
         public Input<string> VodSourceName { get; set; } = null!;
 

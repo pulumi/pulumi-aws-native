@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("dataPathList", required: true)]
         private InputList<Inputs.AnalysisDataPathValueArgs>? _dataPathList;
+
+        /// <summary>
+        /// The list of data path values for the data path options.
+        /// </summary>
         public InputList<Inputs.AnalysisDataPathValueArgs> DataPathList
         {
             get => _dataPathList ?? (_dataPathList = new InputList<Inputs.AnalysisDataPathValueArgs>());

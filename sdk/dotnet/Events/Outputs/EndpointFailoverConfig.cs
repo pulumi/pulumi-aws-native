@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class EndpointFailoverConfig
     {
+        /// <summary>
+        /// The primary Region of the endpoint.
+        /// </summary>
         public readonly Outputs.EndpointPrimary Primary;
+        /// <summary>
+        /// The secondary Region that processes events when failover is triggered or replication is enabled.
+        /// </summary>
         public readonly Outputs.EndpointSecondary Secondary;
 
         [OutputConstructor]

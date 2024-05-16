@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     [OutputType]
     public sealed class GetAnalyzerResult
     {
+        /// <summary>
+        /// Contains information about an archive rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerArchiveRule> ArchiveRules;
         /// <summary>
         /// Amazon Resource Name (ARN) of the analyzer

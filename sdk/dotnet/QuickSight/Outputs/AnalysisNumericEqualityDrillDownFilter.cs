@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNumericEqualityDrillDownFilter
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The value of the double input numeric drill down filter.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

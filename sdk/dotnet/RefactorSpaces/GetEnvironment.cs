@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetEnvironmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public string EnvironmentIdentifier { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
@@ -51,12 +57,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [OutputType]
     public sealed class GetEnvironmentResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the environment.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         public readonly string? EnvironmentIdentifier;
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ID of the AWS Transit Gateway set up by the environment.
+        /// </summary>
         public readonly string? TransitGatewayId;
 
         [OutputConstructor]

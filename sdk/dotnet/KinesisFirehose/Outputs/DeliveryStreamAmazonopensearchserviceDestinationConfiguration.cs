@@ -13,19 +13,61 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamAmazonopensearchserviceDestinationConfiguration
     {
+        /// <summary>
+        /// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+        /// </summary>
         public readonly Outputs.DeliveryStreamAmazonopensearchserviceBufferingHints? BufferingHints;
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field.
+        /// </summary>
         public readonly string? ClusterEndpoint;
+        /// <summary>
+        /// Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDocumentIdOptions? DocumentIdOptions;
+        /// <summary>
+        /// The ARN of the Amazon OpenSearch Service domain.
+        /// </summary>
         public readonly string? DomainArn;
+        /// <summary>
+        /// The Amazon OpenSearch Service index name.
+        /// </summary>
         public readonly string IndexName;
+        /// <summary>
+        /// The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod? IndexRotationPeriod;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+        /// </summary>
         public readonly Outputs.DeliveryStreamAmazonopensearchserviceRetryOptions? RetryOptions;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Defines how documents should be delivered to Amazon S3.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode? S3BackupMode;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The Amazon OpenSearch Service type name.
+        /// </summary>
         public readonly string? TypeName;
+        /// <summary>
+        /// The details of the VPC of the Amazon ES destination.
+        /// </summary>
         public readonly Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

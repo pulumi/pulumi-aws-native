@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisArcOptions
     {
+        /// <summary>
+        /// The arc thickness of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisArcThickness? ArcThickness;
 
         [OutputConstructor]

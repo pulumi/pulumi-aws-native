@@ -31,9 +31,17 @@ type LookupSpaceArgs struct {
 
 type LookupSpaceResult struct {
 	// The space Amazon Resource Name (ARN).
-	SpaceArn         *string `pulumi:"spaceArn"`
+	SpaceArn *string `pulumi:"spaceArn"`
+	// The name of the space that appears in the Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
-	Url              *string `pulumi:"url"`
+	// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+	//
+	// The following application types are supported:
+	//
+	// - Studio Classic: `&redirect=JupyterServer`
+	// - JupyterLab: `&redirect=JupyterLab`
+	// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
+	Url *string `pulumi:"url"`
 }
 
 func LookupSpaceOutput(ctx *pulumi.Context, args LookupSpaceOutputArgs, opts ...pulumi.InvokeOption) LookupSpaceResultOutput {
@@ -79,10 +87,18 @@ func (o LookupSpaceResultOutput) SpaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.SpaceArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the space that appears in the Studio UI.
 func (o LookupSpaceResultOutput) SpaceDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+//
+// The following application types are supported:
+//
+// - Studio Classic: `&redirect=JupyterServer`
+// - JupyterLab: `&redirect=JupyterLab`
+// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
 func (o LookupSpaceResultOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.Url }).(pulumi.StringPtrOutput)
 }

@@ -24,6 +24,10 @@ class ProjectArgs:
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
+        :param pulumi.Input[int] default_job_timeout_minutes: Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        :param pulumi.Input[str] name: The project's name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: The VPC security groups and subnets that are attached to a project.
         """
         if default_job_timeout_minutes is not None:
             pulumi.set(__self__, "default_job_timeout_minutes", default_job_timeout_minutes)
@@ -37,6 +41,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="defaultJobTimeoutMinutes")
     def default_job_timeout_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        """
         return pulumi.get(self, "default_job_timeout_minutes")
 
     @default_job_timeout_minutes.setter
@@ -46,6 +53,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project's name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -55,6 +65,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,6 +77,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
+        """
+        The VPC security groups and subnets that are attached to a project.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -86,6 +102,10 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] default_job_timeout_minutes: Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        :param pulumi.Input[str] name: The project's name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: The VPC security groups and subnets that are attached to a project.
         """
         ...
     @overload
@@ -161,25 +181,40 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultJobTimeoutMinutes")
     def default_job_timeout_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        """
         return pulumi.get(self, "default_job_timeout_minutes")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The project's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.ProjectVpcConfig']]:
+        """
+        The VPC security groups and subnets that are attached to a project.
+        """
         return pulumi.get(self, "vpc_config")
 

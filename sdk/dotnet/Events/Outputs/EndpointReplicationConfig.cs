@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class EndpointReplicationConfig
     {
+        /// <summary>
+        /// The state of event replication.
+        /// </summary>
         public readonly Pulumi.AwsNative.Events.EndpointReplicationState State;
 
         [OutputConstructor]

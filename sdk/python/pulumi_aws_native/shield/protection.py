@@ -27,6 +27,9 @@ class ProtectionArgs:
         """
         The set of arguments for constructing a Protection resource.
         :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
+        :param pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs'] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+               
+               If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[str] name: Friendly name for the Protection.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tag key-value pairs for the Protection object.
@@ -56,6 +59,11 @@ class ProtectionArgs:
     @property
     @pulumi.getter(name="applicationLayerAutomaticResponseConfiguration")
     def application_layer_automatic_response_configuration(self) -> Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]:
+        """
+        The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+
+        If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+        """
         return pulumi.get(self, "application_layer_automatic_response_configuration")
 
     @application_layer_automatic_response_configuration.setter
@@ -115,6 +123,9 @@ class Protection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+               
+               If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[str] name: Friendly name for the Protection.
         :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
@@ -203,6 +214,11 @@ class Protection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationLayerAutomaticResponseConfiguration")
     def application_layer_automatic_response_configuration(self) -> pulumi.Output[Optional['outputs.ProtectionApplicationLayerAutomaticResponseConfiguration']]:
+        """
+        The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+
+        If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+        """
         return pulumi.get(self, "application_layer_automatic_response_configuration")
 
     @property

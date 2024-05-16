@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisBarChartFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field wells of a bar chart.
+        /// </summary>
         [Input("barChartAggregatedFieldWells")]
         public Input<Inputs.AnalysisBarChartAggregatedFieldWellsArgs>? BarChartAggregatedFieldWells { get; set; }
 

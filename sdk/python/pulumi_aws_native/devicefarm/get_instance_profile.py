@@ -45,36 +45,59 @@ class GetInstanceProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the instance profile.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="excludeAppPackagesFromCleanup")
     def exclude_app_packages_from_cleanup(self) -> Optional[Sequence[str]]:
+        """
+        An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+
+        The list of packages is considered only if you set `packageCleanup` to `true` .
+        """
         return pulumi.get(self, "exclude_app_packages_from_cleanup")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the instance profile.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="packageCleanup")
     def package_cleanup(self) -> Optional[bool]:
+        """
+        When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+        """
         return pulumi.get(self, "package_cleanup")
 
     @property
     @pulumi.getter(name="rebootAfterUse")
     def reboot_after_use(self) -> Optional[bool]:
+        """
+        When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+        """
         return pulumi.get(self, "reboot_after_use")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -97,6 +120,9 @@ def get_instance_profile(arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceProfileResult:
     """
     AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -118,5 +144,8 @@ def get_instance_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     ...

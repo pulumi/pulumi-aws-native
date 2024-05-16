@@ -19,18 +19,36 @@ export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetExtensionArgs {
+    /**
+     * The system-generated ID of the extension.
+     */
     id: string;
 }
 
 export interface GetExtensionResult {
+    /**
+     * The actions defined in the extension.
+     */
     readonly actions?: {[key: string]: outputs.appconfig.ExtensionAction[]};
+    /**
+     * The system-generated Amazon Resource Name (ARN) for the extension.
+     */
     readonly arn?: string;
     /**
      * Description of the extension.
      */
     readonly description?: string;
+    /**
+     * The system-generated ID of the extension.
+     */
     readonly id?: string;
+    /**
+     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+     */
     readonly parameters?: {[key: string]: outputs.appconfig.ExtensionParameter};
+    /**
+     * The extension version number.
+     */
     readonly versionNumber?: number;
 }
 /**
@@ -41,5 +59,8 @@ export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.I
 }
 
 export interface GetExtensionOutputArgs {
+    /**
+     * The system-generated ID of the extension.
+     */
     id: pulumi.Input<string>;
 }

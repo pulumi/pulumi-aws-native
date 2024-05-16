@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Personalize
 
     public sealed class GetSolutionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the solution.
+        /// </summary>
         [Input("solutionArn", required: true)]
         public string SolutionArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Personalize
 
     public sealed class GetSolutionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the solution.
+        /// </summary>
         [Input("solutionArn", required: true)]
         public Input<string> SolutionArn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Personalize
     [OutputType]
     public sealed class GetSolutionResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the solution.
+        /// </summary>
         public readonly string? SolutionArn;
 
         [OutputConstructor]

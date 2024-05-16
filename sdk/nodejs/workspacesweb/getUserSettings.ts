@@ -19,20 +19,56 @@ export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetUserSettingsArgs {
+    /**
+     * The ARN of the user settings.
+     */
     userSettingsArn: string;
 }
 
 export interface GetUserSettingsResult {
+    /**
+     * A list of web portal ARNs that this user settings resource is associated with.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+     */
     readonly cookieSynchronizationConfiguration?: outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration;
+    /**
+     * Specifies whether the user can copy text from the streaming session to the local device.
+     */
     readonly copyAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    /**
+     * The amount of time that a streaming session remains active after users disconnect.
+     */
     readonly disconnectTimeoutInMinutes?: number;
+    /**
+     * Specifies whether the user can download files from the streaming session to the local device.
+     */
     readonly downloadAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    /**
+     * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+     */
     readonly idleDisconnectTimeoutInMinutes?: number;
+    /**
+     * Specifies whether the user can paste text from the local device to the streaming session.
+     */
     readonly pasteAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    /**
+     * Specifies whether the user can print to the local device.
+     */
     readonly printAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    /**
+     * The tag.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * Specifies whether the user can upload files from the local device to the streaming session.
+     */
     readonly uploadAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    /**
+     * The ARN of the user settings.
+     */
     readonly userSettingsArn?: string;
 }
 /**
@@ -43,5 +79,8 @@ export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pu
 }
 
 export interface GetUserSettingsOutputArgs {
+    /**
+     * The ARN of the user settings.
+     */
     userSettingsArn: pulumi.Input<string>;
 }

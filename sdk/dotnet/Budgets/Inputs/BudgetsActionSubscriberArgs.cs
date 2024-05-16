@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.Budgets.Inputs
 
     public sealed class BudgetsActionSubscriberArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The address that AWS sends budget notifications to, either an SNS topic or an email.
+        /// 
+        /// When you create a subscriber, the value of `Address` can't contain line breaks.
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
+        /// <summary>
+        /// The type of notification that AWS sends to a subscriber.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionSubscriberType> Type { get; set; } = null!;
 

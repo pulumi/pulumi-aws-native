@@ -22,6 +22,15 @@ class ZonalAutoshiftConfigurationArgs:
                  zonal_autoshift_status: Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None):
         """
         The set of arguments for constructing a ZonalAutoshiftConfiguration resource.
+        :param pulumi.Input['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs'] practice_run_configuration: A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+               
+               When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+               
+               You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+        :param pulumi.Input[str] resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+               
+               At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        :param pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus'] zonal_autoshift_status: When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
         """
         if practice_run_configuration is not None:
             pulumi.set(__self__, "practice_run_configuration", practice_run_configuration)
@@ -33,6 +42,13 @@ class ZonalAutoshiftConfigurationArgs:
     @property
     @pulumi.getter(name="practiceRunConfiguration")
     def practice_run_configuration(self) -> Optional[pulumi.Input['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']]:
+        """
+        A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+
+        When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+
+        You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+        """
         return pulumi.get(self, "practice_run_configuration")
 
     @practice_run_configuration.setter
@@ -42,6 +58,11 @@ class ZonalAutoshiftConfigurationArgs:
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+
+        At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -51,6 +72,9 @@ class ZonalAutoshiftConfigurationArgs:
     @property
     @pulumi.getter(name="zonalAutoshiftStatus")
     def zonal_autoshift_status(self) -> Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']]:
+        """
+        When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+        """
         return pulumi.get(self, "zonal_autoshift_status")
 
     @zonal_autoshift_status.setter
@@ -72,6 +96,15 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']] practice_run_configuration: A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+               
+               When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+               
+               You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+        :param pulumi.Input[str] resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+               
+               At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        :param pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus'] zonal_autoshift_status: When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
         """
         ...
     @overload
@@ -144,15 +177,30 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="practiceRunConfiguration")
     def practice_run_configuration(self) -> pulumi.Output[Optional['outputs.ZonalAutoshiftConfigurationPracticeRunConfiguration']]:
+        """
+        A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+
+        When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+
+        You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+        """
         return pulumi.get(self, "practice_run_configuration")
 
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+
+        At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @property
     @pulumi.getter(name="zonalAutoshiftStatus")
     def zonal_autoshift_status(self) -> pulumi.Output[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']]:
+        """
+        When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+        """
         return pulumi.get(self, "zonal_autoshift_status")
 

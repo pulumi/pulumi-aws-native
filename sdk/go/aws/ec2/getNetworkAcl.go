@@ -24,10 +24,12 @@ func LookupNetworkAcl(ctx *pulumi.Context, args *LookupNetworkAclArgs, opts ...p
 }
 
 type LookupNetworkAclArgs struct {
+	// The ID of the network ACL.
 	Id string `pulumi:"id"`
 }
 
 type LookupNetworkAclResult struct {
+	// The ID of the network ACL.
 	Id *string `pulumi:"id"`
 	// The tags for the network ACL.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -47,6 +49,7 @@ func LookupNetworkAclOutput(ctx *pulumi.Context, args LookupNetworkAclOutputArgs
 }
 
 type LookupNetworkAclOutputArgs struct {
+	// The ID of the network ACL.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -68,6 +71,7 @@ func (o LookupNetworkAclResultOutput) ToLookupNetworkAclResultOutputWithContext(
 	return o
 }
 
+// The ID of the network ACL.
 func (o LookupNetworkAclResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkAclResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The Amazon Resource Number (ARN) of the parent dataset.&lt;/p&gt;
         /// </summary>
         public readonly string? DataSetArn;
+        /// <summary>
+        /// The instructions associated with a join.
+        /// </summary>
         public readonly Outputs.DataSetJoinInstruction? JoinInstruction;
         /// <summary>
         /// &lt;p&gt;Physical table ID.&lt;/p&gt;

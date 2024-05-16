@@ -26,6 +26,9 @@ class GetDirectoryRegistrationResult:
     @property
     @pulumi.getter(name="directoryRegistrationArn")
     def directory_registration_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        """
         return pulumi.get(self, "directory_registration_arn")
 
 
@@ -42,6 +45,9 @@ def get_directory_registration(directory_registration_arn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryRegistrationResult:
     """
     Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
+
+
+    :param str directory_registration_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
     """
     __args__ = dict()
     __args__['directoryRegistrationArn'] = directory_registration_arn
@@ -57,5 +63,8 @@ def get_directory_registration_output(directory_registration_arn: Optional[pulum
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryRegistrationResult]:
     """
     Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
+
+
+    :param str directory_registration_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
     """
     ...

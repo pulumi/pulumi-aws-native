@@ -12,12 +12,26 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisAggregationSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.AnalysisAggregationFunctionArgs>? AggregationFunction { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The sort direction of values.
+        /// 
+        /// - `ASC` : Sort in ascending order.
+        /// - `DESC` : Sort in descending order.
+        /// </summary>
         [Input("sortDirection", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSortDirection> SortDirection { get; set; } = null!;
 

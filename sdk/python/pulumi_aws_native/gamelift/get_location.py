@@ -30,6 +30,9 @@ class GetLocationResult:
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> Optional[str]:
+        """
+        A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
+        """
         return pulumi.get(self, "location_arn")
 
     @property
@@ -55,6 +58,9 @@ def get_location(location_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationResult:
     """
     The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
+
+
+    :param str location_name: A descriptive name for the custom location.
     """
     __args__ = dict()
     __args__['locationName'] = location_name
@@ -71,5 +77,8 @@ def get_location_output(location_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
     """
     The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
+
+
+    :param str location_name: A descriptive name for the custom location.
     """
     ...

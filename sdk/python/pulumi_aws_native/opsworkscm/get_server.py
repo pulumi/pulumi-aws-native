@@ -41,31 +41,60 @@ class GetServerResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="backupRetentionCount")
     def backup_retention_count(self) -> Optional[int]:
+        """
+        The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+        """
         return pulumi.get(self, "backup_retention_count")
 
     @property
     @pulumi.getter(name="disableAutomatedBackup")
     def disable_automated_backup(self) -> Optional[bool]:
+        """
+        Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+        """
         return pulumi.get(self, "disable_automated_backup")
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[str]:
+        """
+        The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+
+        - `HH:MM` for daily backups
+        - `DDD:HH:MM` for weekly backups
+
+        `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+
+        *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+
+        *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[str]:
+        """
+        The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+
+        *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
 
@@ -87,6 +116,9 @@ def get_server(server_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
+
+
+    :param str server_name: The name of the server.
     """
     __args__ = dict()
     __args__['serverName'] = server_name
@@ -107,5 +139,8 @@ def get_server_output(server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
+
+
+    :param str server_name: The name of the server.
     """
     ...

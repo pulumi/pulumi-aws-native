@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisProgressBarOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the progress bar.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

@@ -40,21 +40,33 @@ class GetProjectResult:
     @property
     @pulumi.getter(name="appConfigResource")
     def app_config_resource(self) -> Optional['outputs.ProjectAppConfigResourceObject']:
+        """
+        This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        """
         return pulumi.get(self, "app_config_resource")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> Optional['outputs.ProjectDataDeliveryObject']:
+        """
+        A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        """
         return pulumi.get(self, "data_delivery")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description of the project.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -83,6 +95,9 @@ def get_project(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Resource Type definition for AWS::Evidently::Project
+
+
+    :param str arn: The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -102,5 +117,8 @@ def get_project_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::Evidently::Project
+
+
+    :param str arn: The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
     """
     ...

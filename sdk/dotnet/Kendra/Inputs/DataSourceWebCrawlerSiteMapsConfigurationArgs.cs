@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("siteMaps", required: true)]
         private InputList<string>? _siteMaps;
+
+        /// <summary>
+        /// The list of sitemap URLs of the websites you want to crawl.
+        /// 
+        /// The list can include a maximum of three sitemap URLs.
+        /// </summary>
         public InputList<string> SiteMaps
         {
             get => _siteMaps ?? (_siteMaps = new InputList<string>());

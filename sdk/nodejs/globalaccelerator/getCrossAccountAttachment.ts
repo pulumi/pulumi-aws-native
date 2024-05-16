@@ -42,6 +42,9 @@ export interface GetCrossAccountAttachmentResult {
      * Resources shared using the attachment.
      */
     readonly resources?: outputs.globalaccelerator.CrossAccountAttachmentResource[];
+    /**
+     * A complex type that contains a `Tag` key and `Tag` value.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

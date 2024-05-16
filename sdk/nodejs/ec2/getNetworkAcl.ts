@@ -19,10 +19,16 @@ export function getNetworkAcl(args: GetNetworkAclArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetNetworkAclArgs {
+    /**
+     * The ID of the network ACL.
+     */
     id: string;
 }
 
 export interface GetNetworkAclResult {
+    /**
+     * The ID of the network ACL.
+     */
     readonly id?: string;
     /**
      * The tags for the network ACL.
@@ -37,5 +43,8 @@ export function getNetworkAclOutput(args: GetNetworkAclOutputArgs, opts?: pulumi
 }
 
 export interface GetNetworkAclOutputArgs {
+    /**
+     * The ID of the network ACL.
+     */
     id: pulumi.Input<string>;
 }

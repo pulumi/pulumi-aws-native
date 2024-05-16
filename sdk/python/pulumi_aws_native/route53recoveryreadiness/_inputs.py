@@ -31,6 +31,7 @@ class ResourceSetDnsTargetResourceArgs:
         :param pulumi.Input[str] hosted_zone_arn: The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
         :param pulumi.Input[str] record_set_id: The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
         :param pulumi.Input[str] record_type: The type of DNS record of the target resource.
+        :param pulumi.Input['ResourceSetTargetResourceArgs'] target_resource: The target resource that the Route 53 record points to.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -94,6 +95,9 @@ class ResourceSetDnsTargetResourceArgs:
     @property
     @pulumi.getter(name="targetResource")
     def target_resource(self) -> Optional[pulumi.Input['ResourceSetTargetResourceArgs']]:
+        """
+        The target resource that the Route 53 record points to.
+        """
         return pulumi.get(self, "target_resource")
 
     @target_resource.setter
@@ -175,6 +179,7 @@ class ResourceSetResourceArgs:
         """
         The resource element of a ResourceSet
         :param pulumi.Input[str] component_id: The component identifier of the resource, generated when DNS target resource is used.
+        :param pulumi.Input['ResourceSetDnsTargetResourceArgs'] dns_target_resource: A component for DNS/routing control readiness checks and architecture checks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] readiness_scopes: A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the AWS resource.
         """
@@ -202,6 +207,9 @@ class ResourceSetResourceArgs:
     @property
     @pulumi.getter(name="dnsTargetResource")
     def dns_target_resource(self) -> Optional[pulumi.Input['ResourceSetDnsTargetResourceArgs']]:
+        """
+        A component for DNS/routing control readiness checks and architecture checks.
+        """
         return pulumi.get(self, "dns_target_resource")
 
     @dns_target_resource.setter
@@ -240,6 +248,8 @@ class ResourceSetTargetResourceArgs:
                  r53_resource: Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']] = None):
         """
         The target resource that the Route 53 record points to.
+        :param pulumi.Input['ResourceSetNlbResourceArgs'] nlb_resource: The Network Load Balancer resource that a DNS target resource points to.
+        :param pulumi.Input['ResourceSetR53ResourceRecordArgs'] r53_resource: The Amazon Route 53 resource that a DNS target resource record points to.
         """
         if nlb_resource is not None:
             pulumi.set(__self__, "nlb_resource", nlb_resource)
@@ -249,6 +259,9 @@ class ResourceSetTargetResourceArgs:
     @property
     @pulumi.getter(name="nlbResource")
     def nlb_resource(self) -> Optional[pulumi.Input['ResourceSetNlbResourceArgs']]:
+        """
+        The Network Load Balancer resource that a DNS target resource points to.
+        """
         return pulumi.get(self, "nlb_resource")
 
     @nlb_resource.setter
@@ -258,6 +271,9 @@ class ResourceSetTargetResourceArgs:
     @property
     @pulumi.getter(name="r53Resource")
     def r53_resource(self) -> Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']]:
+        """
+        The Amazon Route 53 resource that a DNS target resource record points to.
+        """
         return pulumi.get(self, "r53_resource")
 
     @r53_resource.setter

@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class FleetLocationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An AWS Region code, such as `us-west-2` .
+        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+        /// 
+        /// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+        /// </summary>
         [Input("locationCapacity")]
         public Input<Inputs.FleetLocationCapacityArgs>? LocationCapacity { get; set; }
 

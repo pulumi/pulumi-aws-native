@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether data processing is enabled (true) or disabled (false).
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("processors")]
         private InputList<Inputs.DeliveryStreamProcessorArgs>? _processors;
+
+        /// <summary>
+        /// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public InputList<Inputs.DeliveryStreamProcessorArgs> Processors
         {
             get => _processors ?? (_processors = new InputList<Inputs.DeliveryStreamProcessorArgs>());

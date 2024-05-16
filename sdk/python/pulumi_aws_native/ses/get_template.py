@@ -35,6 +35,9 @@ class GetTemplateResult:
     @property
     @pulumi.getter
     def template(self) -> Optional['outputs.Template']:
+        """
+        The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        """
         return pulumi.get(self, "template")
 
 

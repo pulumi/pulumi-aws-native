@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The availability status of the VPC connection.
+        /// </summary>
         [Output("availabilityStatus")]
         public Output<Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionAvailabilityStatus?> AvailabilityStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the account where you want to create a new VPC connection.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
@@ -33,6 +39,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        /// </summary>
         [Output("dnsResolvers")]
         public Output<ImmutableArray<string>> DnsResolvers { get; private set; } = null!;
 
@@ -42,6 +51,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name for the VPC connection.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -51,21 +63,39 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.VpcConnectionNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM role associated with the VPC connection.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 security group IDs associated with the VPC connection.
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The HTTP status of the request.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionResourceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of subnet IDs for the VPC connection.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+        /// </summary>
         [Output("vpcConnectionId")]
         public Output<string?> VpcConnectionId { get; private set; } = null!;
 
@@ -125,28 +155,48 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class VpcConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The availability status of the VPC connection.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionAvailabilityStatus>? AvailabilityStatus { get; set; }
 
+        /// <summary>
+        /// The AWS account ID of the account where you want to create a new VPC connection.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
         [Input("dnsResolvers")]
         private InputList<string>? _dnsResolvers;
+
+        /// <summary>
+        /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        /// </summary>
         public InputList<string> DnsResolvers
         {
             get => _dnsResolvers ?? (_dnsResolvers = new InputList<string>());
             set => _dnsResolvers = value;
         }
 
+        /// <summary>
+        /// The display name for the VPC connection.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ARN of the IAM role associated with the VPC connection.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The Amazon EC2 security group IDs associated with the VPC connection.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -155,6 +205,10 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// A list of subnet IDs for the VPC connection.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -163,12 +217,19 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+        /// </summary>
         [Input("vpcConnectionId")]
         public Input<string>? VpcConnectionId { get; set; }
 

@@ -38,8 +38,9 @@ type LookupChannelGroupResult struct {
 	// <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
 	EgressDomain *string `pulumi:"egressDomain"`
 	// <p>The date and time the channel group was modified.</p>
-	ModifiedAt *string   `pulumi:"modifiedAt"`
-	Tags       []aws.Tag `pulumi:"tags"`
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The tags associated with the channel group.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelGroupOutput(ctx *pulumi.Context, args LookupChannelGroupOutputArgs, opts ...pulumi.InvokeOption) LookupChannelGroupResultOutput {
@@ -103,6 +104,7 @@ func (o LookupChannelGroupResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The tags associated with the channel group.
 func (o LookupChannelGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

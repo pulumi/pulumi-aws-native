@@ -24,6 +24,10 @@ class CrossAccountAttachmentResourceArgs:
                  region: Optional[pulumi.Input[str]] = None):
         """
         ARN of resource to share.
+        :param pulumi.Input[str] endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
+               
+               An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+        :param pulumi.Input[str] region: The AWS Region where a shared endpoint resource is located.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         if region is not None:
@@ -32,6 +36,11 @@ class CrossAccountAttachmentResourceArgs:
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The endpoint ID for the endpoint that is specified as a AWS resource.
+
+        An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+        """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -41,6 +50,9 @@ class CrossAccountAttachmentResourceArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region where a shared endpoint resource is located.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -126,6 +138,8 @@ class EndpointGroupPortOverrideArgs:
                  listener_port: pulumi.Input[int]):
         """
         listener to endpoint port mapping.
+        :param pulumi.Input[int] endpoint_port: The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        :param pulumi.Input[int] listener_port: The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
         """
         pulumi.set(__self__, "endpoint_port", endpoint_port)
         pulumi.set(__self__, "listener_port", listener_port)
@@ -133,6 +147,9 @@ class EndpointGroupPortOverrideArgs:
     @property
     @pulumi.getter(name="endpointPort")
     def endpoint_port(self) -> pulumi.Input[int]:
+        """
+        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        """
         return pulumi.get(self, "endpoint_port")
 
     @endpoint_port.setter
@@ -142,6 +159,9 @@ class EndpointGroupPortOverrideArgs:
     @property
     @pulumi.getter(name="listenerPort")
     def listener_port(self) -> pulumi.Input[int]:
+        """
+        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+        """
         return pulumi.get(self, "listener_port")
 
     @listener_port.setter
@@ -156,6 +176,8 @@ class ListenerPortRangeArgs:
                  to_port: pulumi.Input[int]):
         """
         A port range to support for connections from  clients to your accelerator.
+        :param pulumi.Input[int] from_port: The first port in the range of ports, inclusive.
+        :param pulumi.Input[int] to_port: The last port in the range of ports, inclusive.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
@@ -163,6 +185,9 @@ class ListenerPortRangeArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
+        """
+        The first port in the range of ports, inclusive.
+        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -172,6 +197,9 @@ class ListenerPortRangeArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
+        """
+        The last port in the range of ports, inclusive.
+        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter

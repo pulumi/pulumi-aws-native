@@ -14,18 +14,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("categoryValues")]
         private InputList<string>? _categoryValues;
+
+        /// <summary>
+        /// The list of category values for the filter.
+        /// </summary>
         public InputList<string> CategoryValues
         {
             get => _categoryValues ?? (_categoryValues = new InputList<string>());
             set => _categoryValues = value;
         }
 
+        /// <summary>
+        /// The match operator that is used to determine if a filter should be applied.
+        /// </summary>
         [Input("matchOperator", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisCategoryFilterMatchOperator> MatchOperator { get; set; } = null!;
 
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         [Input("nullOption", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisFilterNullOption> NullOption { get; set; } = null!;
 
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         [Input("selectAllOptions")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisCategoryFilterSelectAllOptions>? SelectAllOptions { get; set; }
 

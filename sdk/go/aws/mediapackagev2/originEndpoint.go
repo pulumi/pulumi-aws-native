@@ -18,10 +18,13 @@ type OriginEndpoint struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
-	Arn              pulumi.StringOutput                  `pulumi:"arn"`
-	ChannelGroupName pulumi.StringOutput                  `pulumi:"channelGroupName"`
-	ChannelName      pulumi.StringOutput                  `pulumi:"channelName"`
-	ContainerType    OriginEndpointContainerTypePtrOutput `pulumi:"containerType"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the channel group associated with the origin endpoint configuration.
+	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
+	// The channel name associated with the origin endpoint.
+	ChannelName pulumi.StringOutput `pulumi:"channelName"`
+	// The container type associated with the origin endpoint configuration.
+	ContainerType OriginEndpointContainerTypePtrOutput `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
@@ -31,12 +34,15 @@ type OriginEndpoint struct {
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
-	ModifiedAt         pulumi.StringOutput            `pulumi:"modifiedAt"`
-	OriginEndpointName pulumi.StringOutput            `pulumi:"originEndpointName"`
-	Segment            OriginEndpointSegmentPtrOutput `pulumi:"segment"`
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// The name of the origin endpoint associated with the origin endpoint configuration.
+	OriginEndpointName pulumi.StringOutput `pulumi:"originEndpointName"`
+	// The segment configuration, including the segment name, duration, and other configuration values.
+	Segment OriginEndpointSegmentPtrOutput `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
-	Tags                   aws.TagArrayOutput  `pulumi:"tags"`
+	// The tags associated with the origin endpoint.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewOriginEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -91,38 +97,50 @@ func (OriginEndpointState) ElementType() reflect.Type {
 }
 
 type originEndpointArgs struct {
-	ChannelGroupName string                       `pulumi:"channelGroupName"`
-	ChannelName      string                       `pulumi:"channelName"`
-	ContainerType    *OriginEndpointContainerType `pulumi:"containerType"`
+	// The name of the channel group associated with the origin endpoint configuration.
+	ChannelGroupName string `pulumi:"channelGroupName"`
+	// The channel name associated with the origin endpoint.
+	ChannelName string `pulumi:"channelName"`
+	// The container type associated with the origin endpoint configuration.
+	ContainerType *OriginEndpointContainerType `pulumi:"containerType"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description *string `pulumi:"description"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
-	OriginEndpointName     *string                                            `pulumi:"originEndpointName"`
-	Segment                *OriginEndpointSegment                             `pulumi:"segment"`
+	// The name of the origin endpoint associated with the origin endpoint configuration.
+	OriginEndpointName *string `pulumi:"originEndpointName"`
+	// The segment configuration, including the segment name, duration, and other configuration values.
+	Segment *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-	StartoverWindowSeconds *int      `pulumi:"startoverWindowSeconds"`
-	Tags                   []aws.Tag `pulumi:"tags"`
+	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
+	// The tags associated with the origin endpoint.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OriginEndpoint resource.
 type OriginEndpointArgs struct {
+	// The name of the channel group associated with the origin endpoint configuration.
 	ChannelGroupName pulumi.StringInput
-	ChannelName      pulumi.StringInput
-	ContainerType    OriginEndpointContainerTypePtrInput
+	// The channel name associated with the origin endpoint.
+	ChannelName pulumi.StringInput
+	// The container type associated with the origin endpoint configuration.
+	ContainerType OriginEndpointContainerTypePtrInput
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description pulumi.StringPtrInput
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests OriginEndpointHlsManifestConfigurationArrayInput
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayInput
-	OriginEndpointName     pulumi.StringPtrInput
-	Segment                OriginEndpointSegmentPtrInput
+	// The name of the origin endpoint associated with the origin endpoint configuration.
+	OriginEndpointName pulumi.StringPtrInput
+	// The segment configuration, including the segment name, duration, and other configuration values.
+	Segment OriginEndpointSegmentPtrInput
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrInput
-	Tags                   aws.TagArrayInput
+	// The tags associated with the origin endpoint.
+	Tags aws.TagArrayInput
 }
 
 func (OriginEndpointArgs) ElementType() reflect.Type {
@@ -167,14 +185,17 @@ func (o OriginEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the channel group associated with the origin endpoint configuration.
 func (o OriginEndpointOutput) ChannelGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
+// The channel name associated with the origin endpoint.
 func (o OriginEndpointOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// The container type associated with the origin endpoint configuration.
 func (o OriginEndpointOutput) ContainerType() OriginEndpointContainerTypePtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointContainerTypePtrOutput { return v.ContainerType }).(OriginEndpointContainerTypePtrOutput)
 }
@@ -206,10 +227,12 @@ func (o OriginEndpointOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// The name of the origin endpoint associated with the origin endpoint configuration.
 func (o OriginEndpointOutput) OriginEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.OriginEndpointName }).(pulumi.StringOutput)
 }
 
+// The segment configuration, including the segment name, duration, and other configuration values.
 func (o OriginEndpointOutput) Segment() OriginEndpointSegmentPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointSegmentPtrOutput { return v.Segment }).(OriginEndpointSegmentPtrOutput)
 }
@@ -219,6 +242,7 @@ func (o OriginEndpointOutput) StartoverWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.IntPtrOutput { return v.StartoverWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The tags associated with the origin endpoint.
 func (o OriginEndpointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OriginEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

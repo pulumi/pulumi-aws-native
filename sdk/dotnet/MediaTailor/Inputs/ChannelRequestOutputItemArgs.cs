@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
     /// </summary>
     public sealed class ChannelRequestOutputItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Dash manifest configuration parameters.
+        /// </summary>
         [Input("dashPlaylistSettings")]
         public Input<Inputs.ChannelDashPlaylistSettingsArgs>? DashPlaylistSettings { get; set; }
 
+        /// <summary>
+        /// HLS playlist configuration parameters.
+        /// </summary>
         [Input("hlsPlaylistSettings")]
         public Input<Inputs.ChannelHlsPlaylistSettingsArgs>? HlsPlaylistSettings { get; set; }
 

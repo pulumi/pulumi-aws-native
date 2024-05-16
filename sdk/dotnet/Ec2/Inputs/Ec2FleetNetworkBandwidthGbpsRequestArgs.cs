@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class Ec2FleetNetworkBandwidthGbpsRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
+        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

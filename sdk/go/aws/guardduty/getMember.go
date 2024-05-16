@@ -23,12 +23,16 @@ func LookupMember(ctx *pulumi.Context, args *LookupMemberArgs, opts ...pulumi.In
 }
 
 type LookupMemberArgs struct {
+	// The ID of the detector associated with the GuardDuty service to add the member to.
 	DetectorId string `pulumi:"detectorId"`
-	MemberId   string `pulumi:"memberId"`
+	// The AWS account ID of the account to designate as a member.
+	MemberId string `pulumi:"memberId"`
 }
 
 type LookupMemberResult struct {
-	Email  *string `pulumi:"email"`
+	// The email address associated with the member account.
+	Email *string `pulumi:"email"`
+	// You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
 	Status *string `pulumi:"status"`
 }
 
@@ -46,8 +50,10 @@ func LookupMemberOutput(ctx *pulumi.Context, args LookupMemberOutputArgs, opts .
 }
 
 type LookupMemberOutputArgs struct {
+	// The ID of the detector associated with the GuardDuty service to add the member to.
 	DetectorId pulumi.StringInput `pulumi:"detectorId"`
-	MemberId   pulumi.StringInput `pulumi:"memberId"`
+	// The AWS account ID of the account to designate as a member.
+	MemberId pulumi.StringInput `pulumi:"memberId"`
 }
 
 func (LookupMemberOutputArgs) ElementType() reflect.Type {
@@ -68,10 +74,12 @@ func (o LookupMemberResultOutput) ToLookupMemberResultOutputWithContext(ctx cont
 	return o
 }
 
+// The email address associated with the member account.
 func (o LookupMemberResultOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMemberResult) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
+// You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
 func (o LookupMemberResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMemberResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

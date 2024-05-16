@@ -37,11 +37,26 @@ export class ResourceSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceSet.__pulumiType;
     }
 
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A description of the resource set.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     */
     public readonly resourceTypeList!: pulumi.Output<string[]>;
     public readonly resources!: pulumi.Output<string[] | undefined>;
+    /**
+     * A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -81,9 +96,21 @@ export class ResourceSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceSet resource.
  */
 export interface ResourceSetArgs {
+    /**
+     * A description of the resource set.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     */
     resourceTypeList: pulumi.Input<pulumi.Input<string>[]>;
     resources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

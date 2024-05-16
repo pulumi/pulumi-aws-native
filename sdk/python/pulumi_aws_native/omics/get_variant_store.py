@@ -48,41 +48,65 @@ class GetVariantStoreResult:
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        When the store was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the store.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The store's ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['VariantStoreStoreStatus']:
+        """
+        The store's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[str]:
+        """
+        The store's status message.
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="storeArn")
     def store_arn(self) -> Optional[str]:
+        """
+        The store's ARN.
+        """
         return pulumi.get(self, "store_arn")
 
     @property
     @pulumi.getter(name="storeSizeBytes")
     def store_size_bytes(self) -> Optional[float]:
+        """
+        The store's size in bytes.
+        """
         return pulumi.get(self, "store_size_bytes")
 
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        When the store was updated.
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -106,6 +130,9 @@ def get_variant_store(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariantStoreResult:
     """
     Definition of AWS::Omics::VariantStore Resource Type
+
+
+    :param str name: A name for the store.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -128,5 +155,8 @@ def get_variant_store_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariantStoreResult]:
     """
     Definition of AWS::Omics::VariantStore Resource Type
+
+
+    :param str name: A name for the store.
     """
     ...

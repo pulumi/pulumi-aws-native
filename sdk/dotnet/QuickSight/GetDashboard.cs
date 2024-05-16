@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDashboardArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account where you want to create the dashboard.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the dashboard, also added to the IAM policy.
+        /// </summary>
         [Input("dashboardId", required: true)]
         public string DashboardId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDashboardInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account where you want to create the dashboard.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the dashboard, also added to the IAM policy.
+        /// </summary>
         [Input("dashboardId", required: true)]
         public Input<string> DashboardId { get; set; } = null!;
 
@@ -73,10 +85,25 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The last time that this dashboard was updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+        /// </summary>
         public readonly ImmutableArray<string> LinkEntities;
+        /// <summary>
+        /// The display name of the dashboard.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Dashboard version.
+        /// </summary>
         public readonly Outputs.DashboardVersion? Version;
 
         [OutputConstructor]

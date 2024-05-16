@@ -16,17 +16,22 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
+	// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
 	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
-	DnsName               pulumi.StringOutput `pulumi:"dnsName"`
+	// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
-	IpAddressType   pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	LoadBalancerArn pulumi.StringOutput    `pulumi:"loadBalancerArn"`
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The Amazon Resource Name (ARN) of the load balancer.
+	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
 	// The load balancer attributes.
 	LoadBalancerAttributes LoadBalancerAttributeArrayOutput `pulumi:"loadBalancerAttributes"`
-	LoadBalancerFullName   pulumi.StringOutput              `pulumi:"loadBalancerFullName"`
-	LoadBalancerName       pulumi.StringOutput              `pulumi:"loadBalancerName"`
+	// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+	LoadBalancerFullName pulumi.StringOutput `pulumi:"loadBalancerFullName"`
+	// The name of the load balancer. For example, `my-load-balancer` .
+	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -214,10 +219,12 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
 func (o LoadBalancerOutput) CanonicalHostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneId }).(pulumi.StringOutput)
 }
 
+// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -234,6 +241,7 @@ func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the load balancer.
 func (o LoadBalancerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }
@@ -243,10 +251,12 @@ func (o LoadBalancerOutput) LoadBalancerAttributes() LoadBalancerAttributeArrayO
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAttributeArrayOutput { return v.LoadBalancerAttributes }).(LoadBalancerAttributeArrayOutput)
 }
 
+// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
 func (o LoadBalancerOutput) LoadBalancerFullName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerFullName }).(pulumi.StringOutput)
 }
 
+// The name of the load balancer. For example, `my-load-balancer` .
 func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }

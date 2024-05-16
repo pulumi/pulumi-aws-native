@@ -14,24 +14,43 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.TemplateVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.TemplateVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.TemplateVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.TemplateGaugeChartConfigurationArgs>? ChartConfiguration { get; set; }
 
+        /// <summary>
+        /// The conditional formatting of a `GaugeChartVisual` .
+        /// </summary>
         [Input("conditionalFormatting")]
         public Input<Inputs.TemplateGaugeChartConditionalFormattingArgs>? ConditionalFormatting { get; set; }
 
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.TemplateVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.TemplateVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

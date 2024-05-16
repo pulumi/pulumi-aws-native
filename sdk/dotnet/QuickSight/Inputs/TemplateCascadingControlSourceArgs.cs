@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateCascadingControlSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("columnToMatch")]
         public Input<Inputs.TemplateColumnIdentifierArgs>? ColumnToMatch { get; set; }
 
+        /// <summary>
+        /// The source sheet control ID of a `CascadingControlSource` .
+        /// </summary>
         [Input("sourceSheetControlId")]
         public Input<string>? SourceSheetControlId { get; set; }
 

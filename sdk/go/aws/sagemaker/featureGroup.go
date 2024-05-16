@@ -28,15 +28,20 @@ type FeatureGroup struct {
 	// The Name of the FeatureGroup.
 	FeatureGroupName pulumi.StringOutput `pulumi:"featureGroupName"`
 	// The status of the feature group.
-	FeatureGroupStatus pulumi.StringOutput                   `pulumi:"featureGroupStatus"`
+	FeatureGroupStatus pulumi.StringOutput `pulumi:"featureGroupStatus"`
+	// The configuration of an `OfflineStore` .
 	OfflineStoreConfig OfflineStoreConfigPropertiesPtrOutput `pulumi:"offlineStoreConfig"`
-	OnlineStoreConfig  OnlineStoreConfigPropertiesPtrOutput  `pulumi:"onlineStoreConfig"`
+	// The configuration of an `OnlineStore` .
+	OnlineStoreConfig OnlineStoreConfigPropertiesPtrOutput `pulumi:"onlineStoreConfig"`
 	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
 	// Role Arn
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// An array of key-value pair to apply to this resource.
-	Tags             aws.CreateOnlyTagArrayOutput          `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+	//
+	// Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
 	ThroughputConfig FeatureGroupThroughputConfigPtrOutput `pulumi:"throughputConfig"`
 }
 
@@ -106,15 +111,20 @@ type featureGroupArgs struct {
 	// An Array of Feature Definition
 	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
 	// The Name of the FeatureGroup.
-	FeatureGroupName   *string                       `pulumi:"featureGroupName"`
+	FeatureGroupName *string `pulumi:"featureGroupName"`
+	// The configuration of an `OfflineStore` .
 	OfflineStoreConfig *OfflineStoreConfigProperties `pulumi:"offlineStoreConfig"`
-	OnlineStoreConfig  *OnlineStoreConfigProperties  `pulumi:"onlineStoreConfig"`
+	// The configuration of an `OnlineStore` .
+	OnlineStoreConfig *OnlineStoreConfigProperties `pulumi:"onlineStoreConfig"`
 	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
 	// Role Arn
 	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pair to apply to this resource.
-	Tags             []aws.CreateOnlyTag           `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	// Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+	//
+	// Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
 	ThroughputConfig *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
 }
 
@@ -127,15 +137,20 @@ type FeatureGroupArgs struct {
 	// An Array of Feature Definition
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayInput
 	// The Name of the FeatureGroup.
-	FeatureGroupName   pulumi.StringPtrInput
+	FeatureGroupName pulumi.StringPtrInput
+	// The configuration of an `OfflineStore` .
 	OfflineStoreConfig OfflineStoreConfigPropertiesPtrInput
-	OnlineStoreConfig  OnlineStoreConfigPropertiesPtrInput
+	// The configuration of an `OnlineStore` .
+	OnlineStoreConfig OnlineStoreConfigPropertiesPtrInput
 	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName pulumi.StringInput
 	// Role Arn
 	RoleArn pulumi.StringPtrInput
 	// An array of key-value pair to apply to this resource.
-	Tags             aws.CreateOnlyTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
+	// Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+	//
+	// Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
 	ThroughputConfig FeatureGroupThroughputConfigPtrInput
 }
 
@@ -206,10 +221,12 @@ func (o FeatureGroupOutput) FeatureGroupStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.FeatureGroupStatus }).(pulumi.StringOutput)
 }
 
+// The configuration of an `OfflineStore` .
 func (o FeatureGroupOutput) OfflineStoreConfig() OfflineStoreConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) OfflineStoreConfigPropertiesPtrOutput { return v.OfflineStoreConfig }).(OfflineStoreConfigPropertiesPtrOutput)
 }
 
+// The configuration of an `OnlineStore` .
 func (o FeatureGroupOutput) OnlineStoreConfig() OnlineStoreConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) OnlineStoreConfigPropertiesPtrOutput { return v.OnlineStoreConfig }).(OnlineStoreConfigPropertiesPtrOutput)
 }
@@ -229,6 +246,9 @@ func (o FeatureGroupOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *FeatureGroup) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+//
+// Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
 func (o FeatureGroupOutput) ThroughputConfig() FeatureGroupThroughputConfigPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) FeatureGroupThroughputConfigPtrOutput { return v.ThroughputConfig }).(FeatureGroupThroughputConfigPtrOutput)
 }

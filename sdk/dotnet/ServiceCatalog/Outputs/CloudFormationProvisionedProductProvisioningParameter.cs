@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
     [OutputType]
     public sealed class CloudFormationProvisionedProductProvisioningParameter
     {
+        /// <summary>
+        /// The parameter key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The parameter value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -16,8 +16,23 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclResponseInspectionHeader
     {
+        /// <summary>
+        /// Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+        /// 
+        /// JSON examples: `"FailureValues": [ "LoginFailed", "Failed login" ]` and `"FailureValues": [ "AccountCreationFailed" ]`
+        /// </summary>
         public readonly ImmutableArray<string> FailureValues;
+        /// <summary>
+        /// The name of the header to match against. The name must be an exact match, including case.
+        /// 
+        /// JSON example: `"Name": [ "RequestResult" ]`
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Values in the response header with the specified name that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+        /// 
+        /// JSON examples: `"SuccessValues": [ "LoginPassed", "Successful login" ]` and `"SuccessValues": [ "AccountCreated", "Successful account creation" ]`
+        /// </summary>
         public readonly ImmutableArray<string> SuccessValues;
 
         [OutputConstructor]

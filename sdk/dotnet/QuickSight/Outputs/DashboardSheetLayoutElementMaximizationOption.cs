@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetLayoutElementMaximizationOption
     {
+        /// <summary>
+        /// The status of the sheet layout maximization options of a dashbaord.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]

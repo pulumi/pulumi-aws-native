@@ -20,7 +20,13 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetDataSetArgs {
+    /**
+     * The AWS account ID.
+     */
     awsAccountId: string;
+    /**
+     * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+     */
     dataSetId: string;
 }
 
@@ -48,17 +54,29 @@ export interface GetDataSetResult {
      * <p>The time that this dataset was created.</p>
      */
     readonly createdTime?: string;
+    /**
+     * The refresh properties of a dataset.
+     */
     readonly dataSetRefreshProperties?: outputs.quicksight.DataSetRefreshProperties;
+    /**
+     * The usage configuration to apply to child datasets that reference this dataset as a source.
+     */
     readonly dataSetUsageConfiguration?: outputs.quicksight.DataSetUsageConfiguration;
     /**
      * <p>The parameter declarations of the dataset.</p>
      */
     readonly datasetParameters?: outputs.quicksight.DataSetDatasetParameter[];
+    /**
+     * Indicates whether you want to import the data into SPICE.
+     */
     readonly importMode?: enums.quicksight.DataSetImportMode;
     /**
      * <p>The last time that this dataset was updated.</p>
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * Configures the combination and transformation of the data from the physical tables.
+     */
     readonly logicalTableMap?: {[key: string]: outputs.quicksight.DataSetLogicalTable};
     /**
      * <p>The display name for the dataset.</p>
@@ -73,8 +91,19 @@ export interface GetDataSetResult {
      * <p>A list of resource permissions on the dataset.</p>
      */
     readonly permissions?: outputs.quicksight.DataSetResourcePermission[];
+    /**
+     * Declares the physical tables that are available in the underlying data sources.
+     */
     readonly physicalTableMap?: {[key: string]: outputs.quicksight.DataSetPhysicalTable};
+    /**
+     * Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+     *
+     * The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+     */
     readonly rowLevelPermissionDataSet?: outputs.quicksight.DataSetRowLevelPermissionDataSet;
+    /**
+     * The element you can use to define tags for row-level security.
+     */
     readonly rowLevelPermissionTagConfiguration?: outputs.quicksight.DataSetRowLevelPermissionTagConfiguration;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -89,6 +118,12 @@ export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetDataSetOutputArgs {
+    /**
+     * The AWS account ID.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+     */
     dataSetId: pulumi.Input<string>;
 }

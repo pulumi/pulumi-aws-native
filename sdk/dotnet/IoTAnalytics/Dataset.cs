@@ -231,30 +231,54 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [AwsNativeResourceType("aws-native:iotanalytics:Dataset")]
     public partial class Dataset : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Information needed to run the "containerAction" to produce data set contents.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.DatasetAction>> Actions { get; private set; } = null!;
 
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// When dataset contents are created, they are delivered to destination specified here.
+        /// </summary>
         [Output("contentDeliveryRules")]
         public Output<ImmutableArray<Outputs.DatasetContentDeliveryRule>> ContentDeliveryRules { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the dataset.
+        /// </summary>
         [Output("datasetName")]
         public Output<string?> DatasetName { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that contains the name and configuration information of a late data rule.
+        /// </summary>
         [Output("lateDataRules")]
         public Output<ImmutableArray<Outputs.DatasetLateDataRule>> LateDataRules { get; private set; } = null!;
 
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.DatasetRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The "DatasetTrigger" that specifies when the data set is automatically updated.
+        /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.DatasetTrigger>> Triggers { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the versioning of dataset contents.
+        /// </summary>
         [Output("versioningConfiguration")]
         public Output<Outputs.DatasetVersioningConfiguration?> VersioningConfiguration { get; private set; } = null!;
 
@@ -309,6 +333,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
     {
         [Input("actions", required: true)]
         private InputList<Inputs.DatasetActionArgs>? _actions;
+
+        /// <summary>
+        /// Information needed to run the "containerAction" to produce data set contents.
+        /// </summary>
         public InputList<Inputs.DatasetActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.DatasetActionArgs>());
@@ -317,28 +345,46 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
         [Input("contentDeliveryRules")]
         private InputList<Inputs.DatasetContentDeliveryRuleArgs>? _contentDeliveryRules;
+
+        /// <summary>
+        /// When dataset contents are created, they are delivered to destination specified here.
+        /// </summary>
         public InputList<Inputs.DatasetContentDeliveryRuleArgs> ContentDeliveryRules
         {
             get => _contentDeliveryRules ?? (_contentDeliveryRules = new InputList<Inputs.DatasetContentDeliveryRuleArgs>());
             set => _contentDeliveryRules = value;
         }
 
+        /// <summary>
+        /// The name of the dataset.
+        /// </summary>
         [Input("datasetName")]
         public Input<string>? DatasetName { get; set; }
 
         [Input("lateDataRules")]
         private InputList<Inputs.DatasetLateDataRuleArgs>? _lateDataRules;
+
+        /// <summary>
+        /// A structure that contains the name and configuration information of a late data rule.
+        /// </summary>
         public InputList<Inputs.DatasetLateDataRuleArgs> LateDataRules
         {
             get => _lateDataRules ?? (_lateDataRules = new InputList<Inputs.DatasetLateDataRuleArgs>());
             set => _lateDataRules = value;
         }
 
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.DatasetRetentionPeriodArgs>? RetentionPeriod { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -347,12 +393,19 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
         [Input("triggers")]
         private InputList<Inputs.DatasetTriggerArgs>? _triggers;
+
+        /// <summary>
+        /// The "DatasetTrigger" that specifies when the data set is automatically updated.
+        /// </summary>
         public InputList<Inputs.DatasetTriggerArgs> Triggers
         {
             get => _triggers ?? (_triggers = new InputList<Inputs.DatasetTriggerArgs>());
             set => _triggers = value;
         }
 
+        /// <summary>
+        /// Information about the versioning of dataset contents.
+        /// </summary>
         [Input("versioningConfiguration")]
         public Input<Inputs.DatasetVersioningConfigurationArgs>? VersioningConfiguration { get; set; }
 

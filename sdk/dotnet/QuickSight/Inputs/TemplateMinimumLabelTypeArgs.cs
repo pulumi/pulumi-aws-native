@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateMinimumLabelTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the minimum label.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

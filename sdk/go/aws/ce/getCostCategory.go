@@ -31,9 +31,11 @@ type LookupCostCategoryResult struct {
 	// Cost category ARN
 	Arn *string `pulumi:"arn"`
 	// The default value for the cost category
-	DefaultValue   *string                  `pulumi:"defaultValue"`
-	EffectiveStart *string                  `pulumi:"effectiveStart"`
-	RuleVersion    *CostCategoryRuleVersion `pulumi:"ruleVersion"`
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The Cost Category's effective start date.
+	EffectiveStart *string `pulumi:"effectiveStart"`
+	// The rule schema version in this particular Cost Category.
+	RuleVersion *CostCategoryRuleVersion `pulumi:"ruleVersion"`
 	// JSON array format of Expression in Billing and Cost Management API
 	Rules *string `pulumi:"rules"`
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
@@ -86,10 +88,12 @@ func (o LookupCostCategoryResultOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// The Cost Category's effective start date.
 func (o LookupCostCategoryResultOutput) EffectiveStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.EffectiveStart }).(pulumi.StringPtrOutput)
 }
 
+// The rule schema version in this particular Cost Category.
 func (o LookupCostCategoryResultOutput) RuleVersion() CostCategoryRuleVersionPtrOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) *CostCategoryRuleVersion { return v.RuleVersion }).(CostCategoryRuleVersionPtrOutput)
 }

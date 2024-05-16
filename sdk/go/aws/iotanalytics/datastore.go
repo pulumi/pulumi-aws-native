@@ -148,13 +148,23 @@ import (
 type Datastore struct {
 	pulumi.CustomResourceState
 
-	AwsId                   pulumi.StringOutput                       `pulumi:"awsId"`
-	DatastoreName           pulumi.StringPtrOutput                    `pulumi:"datastoreName"`
-	DatastorePartitions     DatastorePartitionsPtrOutput              `pulumi:"datastorePartitions"`
-	DatastoreStorage        DatastoreStoragePtrOutput                 `pulumi:"datastoreStorage"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The name of the data store.
+	DatastoreName pulumi.StringPtrOutput `pulumi:"datastoreName"`
+	// Information about the partition dimensions in a data store.
+	DatastorePartitions DatastorePartitionsPtrOutput `pulumi:"datastorePartitions"`
+	// Where data store data is stored.
+	DatastoreStorage DatastoreStoragePtrOutput `pulumi:"datastoreStorage"`
+	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	//
+	// The default file format is JSON. You can specify only one format.
+	//
+	// You can't change the file format after you create the data store.
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrOutput `pulumi:"fileFormatConfiguration"`
-	RetentionPeriod         DatastoreRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
-	Tags                    aws.TagArrayOutput                        `pulumi:"tags"`
+	// How long, in days, message data is kept.
+	RetentionPeriod DatastoreRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
@@ -201,22 +211,42 @@ func (DatastoreState) ElementType() reflect.Type {
 }
 
 type datastoreArgs struct {
-	DatastoreName           *string                           `pulumi:"datastoreName"`
-	DatastorePartitions     *DatastorePartitions              `pulumi:"datastorePartitions"`
-	DatastoreStorage        *DatastoreStorage                 `pulumi:"datastoreStorage"`
+	// The name of the data store.
+	DatastoreName *string `pulumi:"datastoreName"`
+	// Information about the partition dimensions in a data store.
+	DatastorePartitions *DatastorePartitions `pulumi:"datastorePartitions"`
+	// Where data store data is stored.
+	DatastoreStorage *DatastoreStorage `pulumi:"datastoreStorage"`
+	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	//
+	// The default file format is JSON. You can specify only one format.
+	//
+	// You can't change the file format after you create the data store.
 	FileFormatConfiguration *DatastoreFileFormatConfiguration `pulumi:"fileFormatConfiguration"`
-	RetentionPeriod         *DatastoreRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []aws.Tag                         `pulumi:"tags"`
+	// How long, in days, message data is kept.
+	RetentionPeriod *DatastoreRetentionPeriod `pulumi:"retentionPeriod"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Datastore resource.
 type DatastoreArgs struct {
-	DatastoreName           pulumi.StringPtrInput
-	DatastorePartitions     DatastorePartitionsPtrInput
-	DatastoreStorage        DatastoreStoragePtrInput
+	// The name of the data store.
+	DatastoreName pulumi.StringPtrInput
+	// Information about the partition dimensions in a data store.
+	DatastorePartitions DatastorePartitionsPtrInput
+	// Where data store data is stored.
+	DatastoreStorage DatastoreStoragePtrInput
+	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	//
+	// The default file format is JSON. You can specify only one format.
+	//
+	// You can't change the file format after you create the data store.
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrInput
-	RetentionPeriod         DatastoreRetentionPeriodPtrInput
-	Tags                    aws.TagArrayInput
+	// How long, in days, message data is kept.
+	RetentionPeriod DatastoreRetentionPeriodPtrInput
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayInput
 }
 
 func (DatastoreArgs) ElementType() reflect.Type {
@@ -260,26 +290,36 @@ func (o DatastoreOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The name of the data store.
 func (o DatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringPtrOutput { return v.DatastoreName }).(pulumi.StringPtrOutput)
 }
 
+// Information about the partition dimensions in a data store.
 func (o DatastoreOutput) DatastorePartitions() DatastorePartitionsPtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastorePartitionsPtrOutput { return v.DatastorePartitions }).(DatastorePartitionsPtrOutput)
 }
 
+// Where data store data is stored.
 func (o DatastoreOutput) DatastoreStorage() DatastoreStoragePtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreStoragePtrOutput { return v.DatastoreStorage }).(DatastoreStoragePtrOutput)
 }
 
+// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+//
+// The default file format is JSON. You can specify only one format.
+//
+// You can't change the file format after you create the data store.
 func (o DatastoreOutput) FileFormatConfiguration() DatastoreFileFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreFileFormatConfigurationPtrOutput { return v.FileFormatConfiguration }).(DatastoreFileFormatConfigurationPtrOutput)
 }
 
+// How long, in days, message data is kept.
 func (o DatastoreOutput) RetentionPeriod() DatastoreRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatastoreRetentionPeriodPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource.
 func (o DatastoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Datastore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

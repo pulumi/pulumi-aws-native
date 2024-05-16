@@ -15,9 +15,12 @@ import (
 type AssessmentTarget struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
 	AssessmentTargetName pulumi.StringPtrOutput `pulumi:"assessmentTargetName"`
-	ResourceGroupArn     pulumi.StringPtrOutput `pulumi:"resourceGroupArn"`
+	// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+	ResourceGroupArn pulumi.StringPtrOutput `pulumi:"resourceGroupArn"`
 }
 
 // NewAssessmentTarget registers a new resource with the given unique name, arguments, and options.
@@ -64,14 +67,18 @@ func (AssessmentTargetState) ElementType() reflect.Type {
 }
 
 type assessmentTargetArgs struct {
+	// The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
 	AssessmentTargetName *string `pulumi:"assessmentTargetName"`
-	ResourceGroupArn     *string `pulumi:"resourceGroupArn"`
+	// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+	ResourceGroupArn *string `pulumi:"resourceGroupArn"`
 }
 
 // The set of arguments for constructing a AssessmentTarget resource.
 type AssessmentTargetArgs struct {
+	// The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
 	AssessmentTargetName pulumi.StringPtrInput
-	ResourceGroupArn     pulumi.StringPtrInput
+	// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+	ResourceGroupArn pulumi.StringPtrInput
 }
 
 func (AssessmentTargetArgs) ElementType() reflect.Type {
@@ -111,14 +118,17 @@ func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
 func (o AssessmentTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
 func (o AssessmentTargetOutput) AssessmentTargetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringPtrOutput { return v.AssessmentTargetName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
 func (o AssessmentTargetOutput) ResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringPtrOutput { return v.ResourceGroupArn }).(pulumi.StringPtrOutput)
 }

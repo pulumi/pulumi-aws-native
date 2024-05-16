@@ -34,6 +34,9 @@ class GetTransitGatewayVpcAttachmentResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the attachment.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -47,6 +50,9 @@ class GetTransitGatewayVpcAttachmentResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -65,6 +71,9 @@ def get_transit_gateway_vpc_attachment(id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayVpcAttachmentResult:
     """
     Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
+
+
+    :param str id: The ID of the attachment.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -82,5 +91,8 @@ def get_transit_gateway_vpc_attachment_output(id: Optional[pulumi.Input[str]] = 
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayVpcAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
+
+
+    :param str id: The ID of the attachment.
     """
     ...

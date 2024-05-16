@@ -19,12 +19,23 @@ class NotificationRuleTargetArgs:
     def __init__(__self__, *,
                  target_address: pulumi.Input[str],
                  target_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+        :param pulumi.Input[str] target_type: The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+               
+               - Amazon Simple Notification Service topics are specified as `SNS` .
+               - AWS Chatbot clients are specified as `AWSChatbotSlack` .
+               - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+        """
         pulumi.set(__self__, "target_address", target_address)
         pulumi.set(__self__, "target_type", target_type)
 
     @property
     @pulumi.getter(name="targetAddress")
     def target_address(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+        """
         return pulumi.get(self, "target_address")
 
     @target_address.setter
@@ -34,6 +45,13 @@ class NotificationRuleTargetArgs:
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input[str]:
+        """
+        The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+
+        - Amazon Simple Notification Service topics are specified as `SNS` .
+        - AWS Chatbot clients are specified as `AWSChatbotSlack` .
+        - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter

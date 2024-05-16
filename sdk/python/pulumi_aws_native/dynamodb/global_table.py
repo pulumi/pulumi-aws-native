@@ -31,6 +31,31 @@ class GlobalTableArgs:
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]] attribute_definitions: Represents an attribute for describing the schema for the table and indexes.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+               
+               A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+               
+               A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]] replicas: Defines settings specific to a single replica of a global table.
+        :param pulumi.Input[str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+               
+               - `PAY_PER_REQUEST`
+               - `PROVISIONED`
+               
+               All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]] local_secondary_indexes: Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        :param pulumi.Input['GlobalTableSseSpecificationArgs'] sse_specification: Represents the settings used to enable server-side encryption.
+        :param pulumi.Input['GlobalTableStreamSpecificationArgs'] stream_specification: Represents the DynamoDB Streams configuration for a table in DynamoDB.
+               
+               You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        :param pulumi.Input[str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+               
+               > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input['GlobalTableTimeToLiveSpecificationArgs'] time_to_live_specification: Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         pulumi.set(__self__, "attribute_definitions", attribute_definitions)
         pulumi.set(__self__, "key_schema", key_schema)
@@ -57,6 +82,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]:
+        """
+        Represents an attribute for describing the schema for the table and indexes.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @attribute_definitions.setter
@@ -66,6 +94,13 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
+        """
+        Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+
+        A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+
+        A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -75,6 +110,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]]:
+        """
+        Defines settings specific to a single replica of a global table.
+        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -84,6 +122,14 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+
+        - `PAY_PER_REQUEST`
+        - `PROVISIONED`
+
+        All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -93,6 +139,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]]:
+        """
+        Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
@@ -102,6 +151,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]:
+        """
+        Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @local_secondary_indexes.setter
@@ -111,6 +163,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['GlobalTableSseSpecificationArgs']]:
+        """
+        Represents the settings used to enable server-side encryption.
+        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -120,6 +175,11 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']]:
+        """
+        Represents the DynamoDB Streams configuration for a table in DynamoDB.
+
+        You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        """
         return pulumi.get(self, "stream_specification")
 
     @stream_specification.setter
@@ -129,6 +189,11 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+
+        > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -138,6 +203,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']]:
+        """
+        Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        """
         return pulumi.get(self, "time_to_live_specification")
 
     @time_to_live_specification.setter
@@ -147,6 +215,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
+        """
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @write_on_demand_throughput_settings.setter
@@ -156,6 +227,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
+        """
+        Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
     @write_provisioned_throughput_settings.setter
@@ -186,6 +260,31 @@ class GlobalTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableAttributeDefinitionArgs']]]] attribute_definitions: Represents an attribute for describing the schema for the table and indexes.
+        :param pulumi.Input[str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+               
+               - `PAY_PER_REQUEST`
+               - `PROVISIONED`
+               
+               All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableKeySchemaArgs']]]] key_schema: Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+               
+               A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+               
+               A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaSpecificationArgs']]]] replicas: Defines settings specific to a single replica of a global table.
+        :param pulumi.Input[pulumi.InputType['GlobalTableSseSpecificationArgs']] sse_specification: Represents the settings used to enable server-side encryption.
+        :param pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']] stream_specification: Represents the DynamoDB Streams configuration for a table in DynamoDB.
+               
+               You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        :param pulumi.Input[str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+               
+               > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']] time_to_live_specification: Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        :param pulumi.Input[pulumi.InputType['GlobalTableWriteOnDemandThroughputSettingsArgs']] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input[pulumi.InputType['GlobalTableWriteProvisionedThroughputSettingsArgs']] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         ...
     @overload
@@ -297,75 +396,135 @@ class GlobalTable(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Output[Sequence['outputs.GlobalTableAttributeDefinition']]:
+        """
+        Represents an attribute for describing the schema for the table and indexes.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+
+        - `PAY_PER_REQUEST`
+        - `PROVISIONED`
+
+        All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        """
         return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableGlobalSecondaryIndex']]]:
+        """
+        Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Output[Sequence['outputs.GlobalTableKeySchema']]:
+        """
+        Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+
+        A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+
+        A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        """
         return pulumi.get(self, "key_schema")
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableLocalSecondaryIndex']]]:
+        """
+        Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Sequence['outputs.GlobalTableReplicaSpecification']]:
+        """
+        Defines settings specific to a single replica of a global table.
+        """
         return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableSseSpecification']]:
+        """
+        Represents the settings used to enable server-side encryption.
+        """
         return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+
+        > You must specify the `StreamSpecification` property to use this attribute.
+        """
         return pulumi.get(self, "stream_arn")
 
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableStreamSpecification']]:
+        """
+        Represents the DynamoDB Streams configuration for a table in DynamoDB.
+
+        You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        """
         return pulumi.get(self, "stream_specification")
 
     @property
     @pulumi.getter(name="tableId")
     def table_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
+        """
         return pulumi.get(self, "table_id")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+
+        > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableTimeToLiveSpecification']]:
+        """
+        Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        """
         return pulumi.get(self, "time_to_live_specification")
 
     @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']]:
+        """
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteProvisionedThroughputSettings']]:
+        """
+        Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 

@@ -28,8 +28,10 @@ type LookupAccessPointArgs struct {
 }
 
 type LookupAccessPointResult struct {
+	// The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
 	Alias *AccessPointAlias `pulumi:"alias"`
-	Arn   *string           `pulumi:"arn"`
+	// Specifies the ARN for the Object Lambda Access Point.
+	Arn *string `pulumi:"arn"`
 	// The date and time when the Object lambda Access Point was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
@@ -75,10 +77,12 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContex
 	return o
 }
 
+// The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
 func (o LookupAccessPointResultOutput) Alias() AccessPointAliasPtrOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) *AccessPointAlias { return v.Alias }).(AccessPointAliasPtrOutput)
 }
 
+// Specifies the ARN for the Object Lambda Access Point.
 func (o LookupAccessPointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

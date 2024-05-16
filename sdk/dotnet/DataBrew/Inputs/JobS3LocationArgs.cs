@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class JobS3LocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket name.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the bucket owner.
+        /// </summary>
         [Input("bucketOwner")]
         public Input<string>? BucketOwner { get; set; }
 
+        /// <summary>
+        /// The unique name of the object in the bucket.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 

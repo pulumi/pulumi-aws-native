@@ -23,15 +23,21 @@ func LookupArchive(ctx *pulumi.Context, args *LookupArchiveArgs, opts ...pulumi.
 }
 
 type LookupArchiveArgs struct {
+	// The name for the archive to create.
 	ArchiveName string `pulumi:"archiveName"`
 }
 
 type LookupArchiveResult struct {
-	Arn         *string `pulumi:"arn"`
+	// The ARN of the archive created.
+	Arn *string `pulumi:"arn"`
+	// A description for the archive.
 	Description *string `pulumi:"description"`
+	// An event pattern to use to filter events sent to the archive.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern  interface{} `pulumi:"eventPattern"`
-	RetentionDays *int        `pulumi:"retentionDays"`
+	EventPattern interface{} `pulumi:"eventPattern"`
+	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+	RetentionDays *int `pulumi:"retentionDays"`
 }
 
 func LookupArchiveOutput(ctx *pulumi.Context, args LookupArchiveOutputArgs, opts ...pulumi.InvokeOption) LookupArchiveResultOutput {
@@ -48,6 +54,7 @@ func LookupArchiveOutput(ctx *pulumi.Context, args LookupArchiveOutputArgs, opts
 }
 
 type LookupArchiveOutputArgs struct {
+	// The name for the archive to create.
 	ArchiveName pulumi.StringInput `pulumi:"archiveName"`
 }
 
@@ -69,19 +76,24 @@ func (o LookupArchiveResultOutput) ToLookupArchiveResultOutputWithContext(ctx co
 	return o
 }
 
+// The ARN of the archive created.
 func (o LookupArchiveResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupArchiveResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A description for the archive.
 func (o LookupArchiveResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupArchiveResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An event pattern to use to filter events sent to the archive.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 func (o LookupArchiveResultOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupArchiveResult) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
 }
 
+// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 func (o LookupArchiveResultOutput) RetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupArchiveResult) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }

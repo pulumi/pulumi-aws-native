@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class JobTemplateMaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Displays the duration of the next maintenance window.
+        /// </summary>
         [Input("durationInMinutes")]
         public Input<int>? DurationInMinutes { get; set; }
 
+        /// <summary>
+        /// Displays the start time of the next maintenance window.
+        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 

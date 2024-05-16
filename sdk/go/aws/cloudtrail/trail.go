@@ -19,7 +19,8 @@ type Trail struct {
 
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors TrailAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
-	Arn                    pulumi.StringOutput                   `pulumi:"arn"`
+	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -44,11 +45,20 @@ type Trail struct {
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
-	SnsTopicArn pulumi.StringOutput    `pulumi:"snsTopicArn"`
+	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
-	Tags         aws.TagArrayOutput     `pulumi:"tags"`
-	TrailName    pulumi.StringPtrOutput `pulumi:"trailName"`
+	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Specifies the name of the trail. The name must meet the following requirements:
+	//
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+	// - Start with a letter or number, and end with a letter or number
+	// - Be between 3 and 128 characters
+	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+	// - Not be in IP address format (for example, 192.168.5.4)
+	TrailName pulumi.StringPtrOutput `pulumi:"trailName"`
 }
 
 // NewTrail registers a new resource with the given unique name, arguments, and options.
@@ -128,9 +138,17 @@ type trailArgs struct {
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
-	SnsTopicName *string   `pulumi:"snsTopicName"`
-	Tags         []aws.Tag `pulumi:"tags"`
-	TrailName    *string   `pulumi:"trailName"`
+	SnsTopicName *string `pulumi:"snsTopicName"`
+	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies the name of the trail. The name must meet the following requirements:
+	//
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+	// - Start with a letter or number, and end with a letter or number
+	// - Be between 3 and 128 characters
+	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+	// - Not be in IP address format (for example, 192.168.5.4)
+	TrailName *string `pulumi:"trailName"`
 }
 
 // The set of arguments for constructing a Trail resource.
@@ -163,8 +181,16 @@ type TrailArgs struct {
 	S3KeyPrefix pulumi.StringPtrInput
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName pulumi.StringPtrInput
-	Tags         aws.TagArrayInput
-	TrailName    pulumi.StringPtrInput
+	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	Tags aws.TagArrayInput
+	// Specifies the name of the trail. The name must meet the following requirements:
+	//
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+	// - Start with a letter or number, and end with a letter or number
+	// - Be between 3 and 128 characters
+	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+	// - Not be in IP address format (for example, 192.168.5.4)
+	TrailName pulumi.StringPtrInput
 }
 
 func (TrailArgs) ElementType() reflect.Type {
@@ -209,6 +235,7 @@ func (o TrailOutput) AdvancedEventSelectors() TrailAdvancedEventSelectorArrayOut
 	return o.ApplyT(func(v *Trail) TrailAdvancedEventSelectorArrayOutput { return v.AdvancedEventSelectors }).(TrailAdvancedEventSelectorArrayOutput)
 }
 
+// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 func (o TrailOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -273,6 +300,7 @@ func (o TrailOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 func (o TrailOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
@@ -282,10 +310,18 @@ func (o TrailOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }
 
+// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
 func (o TrailOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Trail) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Specifies the name of the trail. The name must meet the following requirements:
+//
+// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+// - Start with a letter or number, and end with a letter or number
+// - Be between 3 and 128 characters
+// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+// - Not be in IP address format (for example, 192.168.5.4)
 func (o TrailOutput) TrailName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.TrailName }).(pulumi.StringPtrOutput)
 }

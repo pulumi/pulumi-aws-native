@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.PipeFilterArgs>? _filters;
+
+        /// <summary>
+        /// Filter events using an event pattern. For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide* .
+        /// </summary>
         public InputList<Inputs.PipeFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.PipeFilterArgs>());

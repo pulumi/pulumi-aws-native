@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
         /// </summary>
         public readonly string? ContentType;
+        /// <summary>
+        /// Describes the location of the channel data.
+        /// </summary>
         public readonly Outputs.ModelPackageDataSource DataSource;
         /// <summary>
         /// The method to use to split the transform job's data files into smaller batches. 

@@ -76,12 +76,18 @@ __all__ = [
 class DataSourceAccessControlListConfigurationArgs:
     def __init__(__self__, *,
                  key_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_path: Path to the AWS S3 bucket that contains the access control list files.
+        """
         if key_path is not None:
             pulumi.set(__self__, "key_path", key_path)
 
     @property
     @pulumi.getter(name="keyPath")
     def key_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the AWS S3 bucket that contains the access control list files.
+        """
         return pulumi.get(self, "key_path")
 
     @key_path.setter
@@ -93,11 +99,17 @@ class DataSourceAccessControlListConfigurationArgs:
 class DataSourceAclConfigurationArgs:
     def __init__(__self__, *,
                  allowed_groups_column_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] allowed_groups_column_name: A list of groups, separated by semi-colons, that filters a query response based on user context. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
+        """
         pulumi.set(__self__, "allowed_groups_column_name", allowed_groups_column_name)
 
     @property
     @pulumi.getter(name="allowedGroupsColumnName")
     def allowed_groups_column_name(self) -> pulumi.Input[str]:
+        """
+        A list of groups, separated by semi-colons, that filters a query response based on user context. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
+        """
         return pulumi.get(self, "allowed_groups_column_name")
 
     @allowed_groups_column_name.setter
@@ -113,6 +125,13 @@ class DataSourceColumnConfigurationArgs:
                  document_id_column_name: pulumi.Input[str],
                  document_title_column_name: Optional[pulumi.Input[str]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] change_detecting_columns: One to five columns that indicate when a document in the database has changed.
+        :param pulumi.Input[str] document_data_column_name: The column that contains the contents of the document.
+        :param pulumi.Input[str] document_id_column_name: The column that provides the document's identifier.
+        :param pulumi.Input[str] document_title_column_name: The column that contains the title of the document.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+        """
         pulumi.set(__self__, "change_detecting_columns", change_detecting_columns)
         pulumi.set(__self__, "document_data_column_name", document_data_column_name)
         pulumi.set(__self__, "document_id_column_name", document_id_column_name)
@@ -124,6 +143,9 @@ class DataSourceColumnConfigurationArgs:
     @property
     @pulumi.getter(name="changeDetectingColumns")
     def change_detecting_columns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One to five columns that indicate when a document in the database has changed.
+        """
         return pulumi.get(self, "change_detecting_columns")
 
     @change_detecting_columns.setter
@@ -133,6 +155,9 @@ class DataSourceColumnConfigurationArgs:
     @property
     @pulumi.getter(name="documentDataColumnName")
     def document_data_column_name(self) -> pulumi.Input[str]:
+        """
+        The column that contains the contents of the document.
+        """
         return pulumi.get(self, "document_data_column_name")
 
     @document_data_column_name.setter
@@ -142,6 +167,9 @@ class DataSourceColumnConfigurationArgs:
     @property
     @pulumi.getter(name="documentIdColumnName")
     def document_id_column_name(self) -> pulumi.Input[str]:
+        """
+        The column that provides the document's identifier.
+        """
         return pulumi.get(self, "document_id_column_name")
 
     @document_id_column_name.setter
@@ -151,6 +179,9 @@ class DataSourceColumnConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleColumnName")
     def document_title_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column that contains the title of the document.
+        """
         return pulumi.get(self, "document_title_column_name")
 
     @document_title_column_name.setter
@@ -160,6 +191,9 @@ class DataSourceColumnConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -180,6 +214,28 @@ class DataSourceConfigurationArgs:
                  share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
                  web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
                  work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DataSourceConfluenceConfigurationArgs'] confluence_configuration: Provides the configuration information to connect to Confluence as your data source.
+        :param pulumi.Input['DataSourceDatabaseConfigurationArgs'] database_configuration: Provides the configuration information to an [Amazon Kendra supported database](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) .
+        :param pulumi.Input['DataSourceGoogleDriveConfigurationArgs'] google_drive_configuration: Provides the configuration information to connect to Google Drive as your data source.
+        :param pulumi.Input['DataSourceOneDriveConfigurationArgs'] one_drive_configuration: Provides the configuration information to connect to OneDrive as your data source.
+        :param pulumi.Input['DataSourceS3DataSourceConfigurationArgs'] s3_configuration: Provides the configuration information to connect to an Amazon S3 bucket.
+               
+               > Amazon Kendra now supports an upgraded Amazon S3 connector.
+               > 
+               > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+               > 
+               > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+               > 
+               > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
+        :param pulumi.Input['DataSourceSalesforceConfigurationArgs'] salesforce_configuration: Provides the configuration information to connect to Salesforce as your data source.
+        :param pulumi.Input['DataSourceServiceNowConfigurationArgs'] service_now_configuration: Provides the configuration information to connect to ServiceNow as your data source.
+        :param pulumi.Input['DataSourceSharePointConfigurationArgs'] share_point_configuration: Provides the configuration information to connect to Microsoft SharePoint as your data source.
+        :param pulumi.Input['DataSourceWebCrawlerConfigurationArgs'] web_crawler_configuration: Provides the configuration information required for Amazon Kendra Web Crawler.
+        :param pulumi.Input['DataSourceWorkDocsConfigurationArgs'] work_docs_configuration: Provides the configuration information to connect to Amazon WorkDocs as your data source.
+               
+               Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland regions.
+        """
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
         if database_configuration is not None:
@@ -204,6 +260,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="confluenceConfiguration")
     def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to Confluence as your data source.
+        """
         return pulumi.get(self, "confluence_configuration")
 
     @confluence_configuration.setter
@@ -213,6 +272,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="databaseConfiguration")
     def database_configuration(self) -> Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]:
+        """
+        Provides the configuration information to an [Amazon Kendra supported database](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) .
+        """
         return pulumi.get(self, "database_configuration")
 
     @database_configuration.setter
@@ -222,6 +284,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="googleDriveConfiguration")
     def google_drive_configuration(self) -> Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to Google Drive as your data source.
+        """
         return pulumi.get(self, "google_drive_configuration")
 
     @google_drive_configuration.setter
@@ -231,6 +296,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="oneDriveConfiguration")
     def one_drive_configuration(self) -> Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to OneDrive as your data source.
+        """
         return pulumi.get(self, "one_drive_configuration")
 
     @one_drive_configuration.setter
@@ -240,6 +308,17 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to an Amazon S3 bucket.
+
+        > Amazon Kendra now supports an upgraded Amazon S3 connector.
+        > 
+        > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+        > 
+        > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+        > 
+        > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
+        """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
@@ -249,6 +328,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="salesforceConfiguration")
     def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to Salesforce as your data source.
+        """
         return pulumi.get(self, "salesforce_configuration")
 
     @salesforce_configuration.setter
@@ -258,6 +340,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="serviceNowConfiguration")
     def service_now_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to ServiceNow as your data source.
+        """
         return pulumi.get(self, "service_now_configuration")
 
     @service_now_configuration.setter
@@ -267,6 +352,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to Microsoft SharePoint as your data source.
+        """
         return pulumi.get(self, "share_point_configuration")
 
     @share_point_configuration.setter
@@ -276,6 +364,9 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="webCrawlerConfiguration")
     def web_crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
+        """
+        Provides the configuration information required for Amazon Kendra Web Crawler.
+        """
         return pulumi.get(self, "web_crawler_configuration")
 
     @web_crawler_configuration.setter
@@ -285,6 +376,11 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="workDocsConfiguration")
     def work_docs_configuration(self) -> Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to Amazon WorkDocs as your data source.
+
+        Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland regions.
+        """
         return pulumi.get(self, "work_docs_configuration")
 
     @work_docs_configuration.setter
@@ -297,6 +393,12 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
     def __init__(__self__, *,
                  attachment_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]] = None,
                  crawl_attachments: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]] attachment_field_mappings: Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+               
+               If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
+        :param pulumi.Input[bool] crawl_attachments: `TRUE` to index attachments of pages and blogs in Confluence.
+        """
         if attachment_field_mappings is not None:
             pulumi.set(__self__, "attachment_field_mappings", attachment_field_mappings)
         if crawl_attachments is not None:
@@ -305,6 +407,11 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
     @property
     @pulumi.getter(name="attachmentFieldMappings")
     def attachment_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+
+        If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
+        """
         return pulumi.get(self, "attachment_field_mappings")
 
     @attachment_field_mappings.setter
@@ -314,6 +421,9 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
     @property
     @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to index attachments of pages and blogs in Confluence.
+        """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
@@ -364,12 +474,22 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
 class DataSourceConfluenceBlogConfigurationArgs:
     def __init__(__self__, *,
                  blog_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]] blog_field_mappings: Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+               
+               If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
+        """
         if blog_field_mappings is not None:
             pulumi.set(__self__, "blog_field_mappings", blog_field_mappings)
 
     @property
     @pulumi.getter(name="blogFieldMappings")
     def blog_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+
+        If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
+        """
         return pulumi.get(self, "blog_field_mappings")
 
     @blog_field_mappings.setter
@@ -429,6 +549,20 @@ class DataSourceConfluenceConfigurationArgs:
                  page_configuration: Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']] = None,
                  space_configuration: Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+               
+               You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
+        :param pulumi.Input[str] server_url: The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
+        :param pulumi.Input['DataSourceConfluenceVersion'] version: The version or the type of Confluence installation to connect to.
+        :param pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs'] attachment_configuration: Configuration of attachment settings for the Confluence data source. Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
+        :param pulumi.Input['DataSourceConfluenceBlogConfigurationArgs'] blog_configuration: Configuration of blog settings for the Confluence data source. Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+        :param pulumi.Input['DataSourceConfluencePageConfigurationArgs'] page_configuration: Configuration of the page settings for the Confluence data source.
+        :param pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs'] space_configuration: Configuration information for indexing Confluence spaces.
+        :param pulumi.Input['DataSourceVpcConfigurationArgs'] vpc_configuration: Provides the configuration information to connect to an Amazon VPC.
+        """
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "server_url", server_url)
         pulumi.set(__self__, "version", version)
@@ -450,6 +584,11 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+
+        You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -459,6 +598,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="serverUrl")
     def server_url(self) -> pulumi.Input[str]:
+        """
+        The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
+        """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
@@ -468,6 +610,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input['DataSourceConfluenceVersion']:
+        """
+        The version or the type of Confluence installation to connect to.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -477,6 +622,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="attachmentConfiguration")
     def attachment_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']]:
+        """
+        Configuration of attachment settings for the Confluence data source. Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
+        """
         return pulumi.get(self, "attachment_configuration")
 
     @attachment_configuration.setter
@@ -486,6 +634,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="blogConfiguration")
     def blog_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']]:
+        """
+        Configuration of blog settings for the Confluence data source. Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
+        """
         return pulumi.get(self, "blog_configuration")
 
     @blog_configuration.setter
@@ -495,6 +646,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+        """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
@@ -504,6 +658,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+        """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
@@ -513,6 +670,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="pageConfiguration")
     def page_configuration(self) -> Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']]:
+        """
+        Configuration of the page settings for the Confluence data source.
+        """
         return pulumi.get(self, "page_configuration")
 
     @page_configuration.setter
@@ -522,6 +682,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="spaceConfiguration")
     def space_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']]:
+        """
+        Configuration information for indexing Confluence spaces.
+        """
         return pulumi.get(self, "space_configuration")
 
     @space_configuration.setter
@@ -531,6 +694,9 @@ class DataSourceConfluenceConfigurationArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to an Amazon VPC.
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -542,12 +708,22 @@ class DataSourceConfluenceConfigurationArgs:
 class DataSourceConfluencePageConfigurationArgs:
     def __init__(__self__, *,
                  page_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]] page_field_mappings: Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+               
+               If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
+        """
         if page_field_mappings is not None:
             pulumi.set(__self__, "page_field_mappings", page_field_mappings)
 
     @property
     @pulumi.getter(name="pageFieldMappings")
     def page_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+
+        If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
+        """
         return pulumi.get(self, "page_field_mappings")
 
     @page_field_mappings.setter
@@ -602,6 +778,15 @@ class DataSourceConfluenceSpaceConfigurationArgs:
                  exclude_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  include_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  space_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] crawl_archived_spaces: `TRUE` to index archived spaces.
+        :param pulumi.Input[bool] crawl_personal_spaces: `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_spaces: A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_spaces: A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]] space_field_mappings: Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+               
+               If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
+        """
         if crawl_archived_spaces is not None:
             pulumi.set(__self__, "crawl_archived_spaces", crawl_archived_spaces)
         if crawl_personal_spaces is not None:
@@ -616,6 +801,9 @@ class DataSourceConfluenceSpaceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlArchivedSpaces")
     def crawl_archived_spaces(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to index archived spaces.
+        """
         return pulumi.get(self, "crawl_archived_spaces")
 
     @crawl_archived_spaces.setter
@@ -625,6 +813,9 @@ class DataSourceConfluenceSpaceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlPersonalSpaces")
     def crawl_personal_spaces(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
+        """
         return pulumi.get(self, "crawl_personal_spaces")
 
     @crawl_personal_spaces.setter
@@ -634,6 +825,9 @@ class DataSourceConfluenceSpaceConfigurationArgs:
     @property
     @pulumi.getter(name="excludeSpaces")
     def exclude_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
+        """
         return pulumi.get(self, "exclude_spaces")
 
     @exclude_spaces.setter
@@ -643,6 +837,9 @@ class DataSourceConfluenceSpaceConfigurationArgs:
     @property
     @pulumi.getter(name="includeSpaces")
     def include_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
+        """
         return pulumi.get(self, "include_spaces")
 
     @include_spaces.setter
@@ -652,6 +849,11 @@ class DataSourceConfluenceSpaceConfigurationArgs:
     @property
     @pulumi.getter(name="spaceFieldMappings")
     def space_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+
+        If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
+        """
         return pulumi.get(self, "space_field_mappings")
 
     @space_field_mappings.setter
@@ -706,6 +908,13 @@ class DataSourceConnectionConfigurationArgs:
                  database_port: pulumi.Input[int],
                  secret_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] database_host: The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
+        :param pulumi.Input[str] database_name: The name of the database containing the document data.
+        :param pulumi.Input[int] database_port: The port that the database uses for connections.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
+        :param pulumi.Input[str] table_name: The name of the table that contains the document data.
+        """
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "database_port", database_port)
@@ -715,6 +924,9 @@ class DataSourceConnectionConfigurationArgs:
     @property
     @pulumi.getter(name="databaseHost")
     def database_host(self) -> pulumi.Input[str]:
+        """
+        The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
+        """
         return pulumi.get(self, "database_host")
 
     @database_host.setter
@@ -724,6 +936,9 @@ class DataSourceConnectionConfigurationArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database containing the document data.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -733,6 +948,9 @@ class DataSourceConnectionConfigurationArgs:
     @property
     @pulumi.getter(name="databasePort")
     def database_port(self) -> pulumi.Input[int]:
+        """
+        The port that the database uses for connections.
+        """
         return pulumi.get(self, "database_port")
 
     @database_port.setter
@@ -742,6 +960,9 @@ class DataSourceConnectionConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -751,6 +972,9 @@ class DataSourceConnectionConfigurationArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table that contains the document data.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -765,6 +989,16 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
                  post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
                  pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
+        :param pulumi.Input['DataSourceHookConfigurationArgs'] post_extraction_hook_configuration: Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) . You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+               
+               For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        :param pulumi.Input['DataSourceHookConfigurationArgs'] pre_extraction_hook_configuration: Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) . You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+               
+               For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        """
         if inline_configurations is not None:
             pulumi.set(__self__, "inline_configurations", inline_configurations)
         if post_extraction_hook_configuration is not None:
@@ -777,6 +1011,9 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="inlineConfigurations")
     def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]:
+        """
+        Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
+        """
         return pulumi.get(self, "inline_configurations")
 
     @inline_configurations.setter
@@ -786,6 +1023,11 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="postExtractionHookConfiguration")
     def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+        """
+        Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) . You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+
+        For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        """
         return pulumi.get(self, "post_extraction_hook_configuration")
 
     @post_extraction_hook_configuration.setter
@@ -795,6 +1037,11 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="preExtractionHookConfiguration")
     def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+        """
+        Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) . You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+
+        For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        """
         return pulumi.get(self, "pre_extraction_hook_configuration")
 
     @pre_extraction_hook_configuration.setter
@@ -804,6 +1051,9 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -820,6 +1070,14 @@ class DataSourceDatabaseConfigurationArgs:
                  acl_configuration: Optional[pulumi.Input['DataSourceAclConfigurationArgs']] = None,
                  sql_configuration: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DataSourceColumnConfigurationArgs'] column_configuration: Provides information about how Amazon Kendra should use the columns of a database in an index.
+        :param pulumi.Input['DataSourceConnectionConfigurationArgs'] connection_configuration: Provides the configuration information that's required to connect to a database.
+        :param pulumi.Input['DataSourceDatabaseEngineType'] database_engine_type: The type of database engine that runs the database.
+        :param pulumi.Input['DataSourceAclConfigurationArgs'] acl_configuration: Provides information about the column that should be used for filtering the query response by groups.
+        :param pulumi.Input['DataSourceSqlConfigurationArgs'] sql_configuration: Provides information that configures Amazon Kendra to use a SQL database.
+        :param pulumi.Input['DataSourceVpcConfigurationArgs'] vpc_configuration: Provides the configuration information to connect to an Amazon VPC.
+        """
         pulumi.set(__self__, "column_configuration", column_configuration)
         pulumi.set(__self__, "connection_configuration", connection_configuration)
         pulumi.set(__self__, "database_engine_type", database_engine_type)
@@ -833,6 +1091,9 @@ class DataSourceDatabaseConfigurationArgs:
     @property
     @pulumi.getter(name="columnConfiguration")
     def column_configuration(self) -> pulumi.Input['DataSourceColumnConfigurationArgs']:
+        """
+        Provides information about how Amazon Kendra should use the columns of a database in an index.
+        """
         return pulumi.get(self, "column_configuration")
 
     @column_configuration.setter
@@ -842,6 +1103,9 @@ class DataSourceDatabaseConfigurationArgs:
     @property
     @pulumi.getter(name="connectionConfiguration")
     def connection_configuration(self) -> pulumi.Input['DataSourceConnectionConfigurationArgs']:
+        """
+        Provides the configuration information that's required to connect to a database.
+        """
         return pulumi.get(self, "connection_configuration")
 
     @connection_configuration.setter
@@ -851,6 +1115,9 @@ class DataSourceDatabaseConfigurationArgs:
     @property
     @pulumi.getter(name="databaseEngineType")
     def database_engine_type(self) -> pulumi.Input['DataSourceDatabaseEngineType']:
+        """
+        The type of database engine that runs the database.
+        """
         return pulumi.get(self, "database_engine_type")
 
     @database_engine_type.setter
@@ -860,6 +1127,9 @@ class DataSourceDatabaseConfigurationArgs:
     @property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['DataSourceAclConfigurationArgs']]:
+        """
+        Provides information about the column that should be used for filtering the query response by groups.
+        """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
@@ -869,6 +1139,9 @@ class DataSourceDatabaseConfigurationArgs:
     @property
     @pulumi.getter(name="sqlConfiguration")
     def sql_configuration(self) -> Optional[pulumi.Input['DataSourceSqlConfigurationArgs']]:
+        """
+        Provides information that configures Amazon Kendra to use a SQL database.
+        """
         return pulumi.get(self, "sql_configuration")
 
     @sql_configuration.setter
@@ -878,6 +1151,9 @@ class DataSourceDatabaseConfigurationArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to an Amazon VPC.
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -891,6 +1167,17 @@ class DataSourceDocumentAttributeConditionArgs:
                  condition_document_attribute_key: pulumi.Input[str],
                  operator: pulumi.Input['DataSourceConditionOperator'],
                  condition_on_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None):
+        """
+        :param pulumi.Input[str] condition_document_attribute_key: The identifier of the document attribute used for the condition.
+               
+               For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+               
+               Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+        :param pulumi.Input['DataSourceConditionOperator'] operator: The condition operator.
+               
+               For example, you can use 'Contains' to partially match a string.
+        :param pulumi.Input['DataSourceDocumentAttributeValueArgs'] condition_on_value: The value of a document attribute. You can only provide one value for a document attribute.
+        """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
         if condition_on_value is not None:
@@ -899,6 +1186,13 @@ class DataSourceDocumentAttributeConditionArgs:
     @property
     @pulumi.getter(name="conditionDocumentAttributeKey")
     def condition_document_attribute_key(self) -> pulumi.Input[str]:
+        """
+        The identifier of the document attribute used for the condition.
+
+        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+
+        Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+        """
         return pulumi.get(self, "condition_document_attribute_key")
 
     @condition_document_attribute_key.setter
@@ -908,6 +1202,11 @@ class DataSourceDocumentAttributeConditionArgs:
     @property
     @pulumi.getter
     def operator(self) -> pulumi.Input['DataSourceConditionOperator']:
+        """
+        The condition operator.
+
+        For example, you can use 'Contains' to partially match a string.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -917,6 +1216,9 @@ class DataSourceDocumentAttributeConditionArgs:
     @property
     @pulumi.getter(name="conditionOnValue")
     def condition_on_value(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]:
+        """
+        The value of a document attribute. You can only provide one value for a document attribute.
+        """
         return pulumi.get(self, "condition_on_value")
 
     @condition_on_value.setter
@@ -971,6 +1273,14 @@ class DataSourceDocumentAttributeValueArgs:
                  long_value: Optional[pulumi.Input[int]] = None,
                  string_list_value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] date_value: A date expressed as an ISO 8601 string.
+               
+               It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
+        :param pulumi.Input[int] long_value: A long integer value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_list_value: A list of strings. The default maximum length or number of strings is 10.
+        :param pulumi.Input[str] string_value: A string, such as "department".
+        """
         if date_value is not None:
             pulumi.set(__self__, "date_value", date_value)
         if long_value is not None:
@@ -983,6 +1293,11 @@ class DataSourceDocumentAttributeValueArgs:
     @property
     @pulumi.getter(name="dateValue")
     def date_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A date expressed as an ISO 8601 string.
+
+        It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
+        """
         return pulumi.get(self, "date_value")
 
     @date_value.setter
@@ -992,6 +1307,9 @@ class DataSourceDocumentAttributeValueArgs:
     @property
     @pulumi.getter(name="longValue")
     def long_value(self) -> Optional[pulumi.Input[int]]:
+        """
+        A long integer value.
+        """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
@@ -1001,6 +1319,9 @@ class DataSourceDocumentAttributeValueArgs:
     @property
     @pulumi.getter(name="stringListValue")
     def string_list_value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of strings. The default maximum length or number of strings is 10.
+        """
         return pulumi.get(self, "string_list_value")
 
     @string_list_value.setter
@@ -1010,6 +1331,9 @@ class DataSourceDocumentAttributeValueArgs:
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string, such as "department".
+        """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
@@ -1021,12 +1345,18 @@ class DataSourceDocumentAttributeValueArgs:
 class DataSourceDocumentsMetadataConfigurationArgs:
     def __init__(__self__, *,
                  s3_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_prefix: A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
+        """
         if s3_prefix is not None:
             pulumi.set(__self__, "s3_prefix", s3_prefix)
 
     @property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
+        """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
@@ -1044,6 +1374,17 @@ class DataSourceGoogleDriveConfigurationArgs:
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_mime_types: A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+               
+               For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_shared_drives: A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_user_accounts: A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        """
         pulumi.set(__self__, "secret_arn", secret_arn)
         if exclude_mime_types is not None:
             pulumi.set(__self__, "exclude_mime_types", exclude_mime_types)
@@ -1061,6 +1402,9 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -1070,6 +1414,11 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="excludeMimeTypes")
     def exclude_mime_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+
+        For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+        """
         return pulumi.get(self, "exclude_mime_types")
 
     @exclude_mime_types.setter
@@ -1079,6 +1428,9 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="excludeSharedDrives")
     def exclude_shared_drives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
+        """
         return pulumi.get(self, "exclude_shared_drives")
 
     @exclude_shared_drives.setter
@@ -1088,6 +1440,9 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="excludeUserAccounts")
     def exclude_user_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
+        """
         return pulumi.get(self, "exclude_user_accounts")
 
     @exclude_user_accounts.setter
@@ -1097,6 +1452,9 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
@@ -1106,6 +1464,9 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -1115,6 +1476,9 @@ class DataSourceGoogleDriveConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
@@ -1128,6 +1492,15 @@ class DataSourceHookConfigurationArgs:
                  lambda_arn: pulumi.Input[str],
                  s3_bucket: pulumi.Input[str],
                  invocation_condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None):
+        """
+        :param pulumi.Input[str] lambda_arn: The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        :param pulumi.Input[str] s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+        :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] invocation_condition: The condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. You use this with [DocumentAttributeTarget to apply the condition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) .
+               
+               For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
+               
+               Amazon Kendra cannot create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Kendra then will map your newly created metadata field to your index field.
+        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         if invocation_condition is not None:
@@ -1136,6 +1509,9 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        """
         return pulumi.get(self, "lambda_arn")
 
     @lambda_arn.setter
@@ -1145,6 +1521,9 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[str]:
+        """
+        Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -1154,6 +1533,13 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="invocationCondition")
     def invocation_condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+        """
+        The condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. You use this with [DocumentAttributeTarget to apply the condition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) .
+
+        For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
+
+        Amazon Kendra cannot create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Kendra then will map your newly created metadata field to your index field.
+        """
         return pulumi.get(self, "invocation_condition")
 
     @invocation_condition.setter
@@ -1212,6 +1598,19 @@ class DataSourceOneDriveConfigurationArgs:
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['DataSourceOneDriveUsersArgs'] one_drive_users: User accounts whose documents should be indexed.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
+        :param pulumi.Input[str] tenant_domain: The Azure Active Directory domain of the organization.
+        :param pulumi.Input[bool] disable_local_groups: `TRUE` to disable local groups information.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+               
+               The pattern is applied to the file name.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+               
+               The pattern is applied to the file name.
+        """
         pulumi.set(__self__, "one_drive_users", one_drive_users)
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "tenant_domain", tenant_domain)
@@ -1227,6 +1626,9 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="oneDriveUsers")
     def one_drive_users(self) -> pulumi.Input['DataSourceOneDriveUsersArgs']:
+        """
+        User accounts whose documents should be indexed.
+        """
         return pulumi.get(self, "one_drive_users")
 
     @one_drive_users.setter
@@ -1236,6 +1638,9 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -1245,6 +1650,9 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="tenantDomain")
     def tenant_domain(self) -> pulumi.Input[str]:
+        """
+        The Azure Active Directory domain of the organization.
+        """
         return pulumi.get(self, "tenant_domain")
 
     @tenant_domain.setter
@@ -1254,6 +1662,9 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="disableLocalGroups")
     def disable_local_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to disable local groups information.
+        """
         return pulumi.get(self, "disable_local_groups")
 
     @disable_local_groups.setter
@@ -1263,6 +1674,11 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+
+        The pattern is applied to the file name.
+        """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
@@ -1272,6 +1688,9 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -1281,6 +1700,11 @@ class DataSourceOneDriveConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+
+        The pattern is applied to the file name.
+        """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
@@ -1293,6 +1717,10 @@ class DataSourceOneDriveUsersArgs:
     def __init__(__self__, *,
                  one_drive_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  one_drive_user_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] one_drive_user_list: A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
+        :param pulumi.Input['DataSourceS3PathArgs'] one_drive_user_s3_path: Information required to find a specific file in an Amazon S3 bucket.
+        """
         if one_drive_user_list is not None:
             pulumi.set(__self__, "one_drive_user_list", one_drive_user_list)
         if one_drive_user_s3_path is not None:
@@ -1301,6 +1729,9 @@ class DataSourceOneDriveUsersArgs:
     @property
     @pulumi.getter(name="oneDriveUserList")
     def one_drive_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
+        """
         return pulumi.get(self, "one_drive_user_list")
 
     @one_drive_user_list.setter
@@ -1310,6 +1741,9 @@ class DataSourceOneDriveUsersArgs:
     @property
     @pulumi.getter(name="oneDriveUserS3Path")
     def one_drive_user_s3_path(self) -> Optional[pulumi.Input['DataSourceS3PathArgs']]:
+        """
+        Information required to find a specific file in an Amazon S3 bucket.
+        """
         return pulumi.get(self, "one_drive_user_s3_path")
 
     @one_drive_user_s3_path.setter
@@ -1323,6 +1757,17 @@ class DataSourceProxyConfigurationArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[int],
                  credentials: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host: The name of the website host you want to connect to via a web proxy server.
+               
+               For example, the host name of https://a.example.com/page1.html is "a.example.com".
+        :param pulumi.Input[int] port: The port number of the website host you want to connect to via a web proxy server.
+               
+               For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
+        :param pulumi.Input[str] credentials: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+               
+               The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
+        """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
         if credentials is not None:
@@ -1331,6 +1776,11 @@ class DataSourceProxyConfigurationArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
+        """
+        The name of the website host you want to connect to via a web proxy server.
+
+        For example, the host name of https://a.example.com/page1.html is "a.example.com".
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -1340,6 +1790,11 @@ class DataSourceProxyConfigurationArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number of the website host you want to connect to via a web proxy server.
+
+        For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1349,6 +1804,11 @@ class DataSourceProxyConfigurationArgs:
     @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+
+        The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
+        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -1367,6 +1827,34 @@ class DataSourceS3DataSourceConfigurationArgs:
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         S3 data source configuration
+        :param pulumi.Input[str] bucket_name: The name of the bucket that contains the documents.
+        :param pulumi.Input['DataSourceAccessControlListConfigurationArgs'] access_control_list_configuration: Specifies access control list files for the documents in a data source.
+        :param pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs'] documents_metadata_configuration: Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+               
+               - */myapp/config/** —All files inside config directory.
+               - ***/*.png* —All .png files in all directories.
+               - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+               - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+               - ***/!(*.module).ts* —All .ts files but not .module.ts
+               - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+               - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+               - ***/*internal** —All internal-related files in a directory and its subdirectories.
+               
+               For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+               
+               - */myapp/config/** —All files inside config directory.
+               - ***/*.png* —All .png files in all directories.
+               - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+               - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+               - ***/!(*.module).ts* —All .ts files but not .module.ts
+               - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+               - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+               - ***/*internal** —All internal-related files in a directory and its subdirectories.
+               
+               For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_prefixes: A list of S3 prefixes for the documents that should be included in the index.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if access_control_list_configuration is not None:
@@ -1383,6 +1871,9 @@ class DataSourceS3DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket that contains the documents.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -1392,6 +1883,9 @@ class DataSourceS3DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="accessControlListConfiguration")
     def access_control_list_configuration(self) -> Optional[pulumi.Input['DataSourceAccessControlListConfigurationArgs']]:
+        """
+        Specifies access control list files for the documents in a data source.
+        """
         return pulumi.get(self, "access_control_list_configuration")
 
     @access_control_list_configuration.setter
@@ -1401,6 +1895,9 @@ class DataSourceS3DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="documentsMetadataConfiguration")
     def documents_metadata_configuration(self) -> Optional[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs']]:
+        """
+        Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
+        """
         return pulumi.get(self, "documents_metadata_configuration")
 
     @documents_metadata_configuration.setter
@@ -1410,6 +1907,20 @@ class DataSourceS3DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+
+        - */myapp/config/** —All files inside config directory.
+        - ***/*.png* —All .png files in all directories.
+        - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+        - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+        - ***/!(*.module).ts* —All .ts files but not .module.ts
+        - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+        - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+        - ***/*internal** —All internal-related files in a directory and its subdirectories.
+
+        For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+        """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
@@ -1419,6 +1930,20 @@ class DataSourceS3DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+
+        - */myapp/config/** —All files inside config directory.
+        - ***/*.png* —All .png files in all directories.
+        - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+        - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+        - ***/!(*.module).ts* —All .ts files but not .module.ts
+        - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+        - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+        - ***/*internal** —All internal-related files in a directory and its subdirectories.
+
+        For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+        """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
@@ -1428,6 +1953,9 @@ class DataSourceS3DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPrefixes")
     def inclusion_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of S3 prefixes for the documents that should be included in the index.
+        """
         return pulumi.get(self, "inclusion_prefixes")
 
     @inclusion_prefixes.setter
@@ -1440,12 +1968,19 @@ class DataSourceS3PathArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[str] key: The name of the file.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -1455,6 +1990,9 @@ class DataSourceS3PathArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of the file.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1469,6 +2007,12 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None):
+        """
+        :param pulumi.Input[str] document_data_field_name: The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
+        :param pulumi.Input[str] document_title_field_name: The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]] include_filter_types: Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
+        """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
@@ -1480,6 +2024,9 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
     @property
     @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
+        """
+        The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
+        """
         return pulumi.get(self, "document_data_field_name")
 
     @document_data_field_name.setter
@@ -1489,6 +2036,9 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
+        """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
@@ -1498,6 +2048,9 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -1507,6 +2060,9 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
     @property
     @pulumi.getter(name="includeFilterTypes")
     def include_filter_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]:
+        """
+        Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
+        """
         return pulumi.get(self, "include_filter_types")
 
     @include_filter_types.setter
@@ -1526,6 +2082,28 @@ class DataSourceSalesforceConfigurationArgs:
                  knowledge_article_configuration: Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']] = None,
                  standard_object_attachment_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']] = None,
                  standard_object_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None):
+        """
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+               
+               - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+               - consumerKey - The application public key generated when you created your Salesforce application.
+               - consumerSecret - The application private key generated when you created your Salesforce application.
+               - password - The password associated with the user logging in to the Salesforce instance.
+               - securityToken - The token associated with the user logging in to the Salesforce instance.
+               - username - The user name of the user logging in to the Salesforce instance.
+        :param pulumi.Input[str] server_url: The instance URL for the Salesforce site that you want to index.
+        :param pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs'] chatter_feed_configuration: The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+        :param pulumi.Input[bool] crawl_attachments: Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_attachment_file_patterns: A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+               
+               The pattern is applied to the name of the attached file.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_attachment_file_patterns: A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+               
+               The pattern is applied to the name of the attached file.
+        :param pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs'] knowledge_article_configuration: Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+        :param pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs'] standard_object_attachment_configuration: Provides the configuration information for processing attachments to Salesforce standard objects.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]] standard_object_configurations: Configuration of the Salesforce standard objects that Amazon Kendra indexes.
+        """
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "server_url", server_url)
         if chatter_feed_configuration is not None:
@@ -1546,6 +2124,16 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+
+        - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+        - consumerKey - The application public key generated when you created your Salesforce application.
+        - consumerSecret - The application private key generated when you created your Salesforce application.
+        - password - The password associated with the user logging in to the Salesforce instance.
+        - securityToken - The token associated with the user logging in to the Salesforce instance.
+        - username - The user name of the user logging in to the Salesforce instance.
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -1555,6 +2143,9 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="serverUrl")
     def server_url(self) -> pulumi.Input[str]:
+        """
+        The instance URL for the Salesforce site that you want to index.
+        """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
@@ -1564,6 +2155,9 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="chatterFeedConfiguration")
     def chatter_feed_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs']]:
+        """
+        The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+        """
         return pulumi.get(self, "chatter_feed_configuration")
 
     @chatter_feed_configuration.setter
@@ -1573,6 +2167,9 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+        """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
@@ -1582,6 +2179,11 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="excludeAttachmentFilePatterns")
     def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+
+        The pattern is applied to the name of the attached file.
+        """
         return pulumi.get(self, "exclude_attachment_file_patterns")
 
     @exclude_attachment_file_patterns.setter
@@ -1591,6 +2193,11 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="includeAttachmentFilePatterns")
     def include_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+
+        The pattern is applied to the name of the attached file.
+        """
         return pulumi.get(self, "include_attachment_file_patterns")
 
     @include_attachment_file_patterns.setter
@@ -1600,6 +2207,9 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="knowledgeArticleConfiguration")
     def knowledge_article_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]:
+        """
+        Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+        """
         return pulumi.get(self, "knowledge_article_configuration")
 
     @knowledge_article_configuration.setter
@@ -1609,6 +2219,9 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="standardObjectAttachmentConfiguration")
     def standard_object_attachment_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]:
+        """
+        Provides the configuration information for processing attachments to Salesforce standard objects.
+        """
         return pulumi.get(self, "standard_object_attachment_configuration")
 
     @standard_object_attachment_configuration.setter
@@ -1618,6 +2231,9 @@ class DataSourceSalesforceConfigurationArgs:
     @property
     @pulumi.getter(name="standardObjectConfigurations")
     def standard_object_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]:
+        """
+        Configuration of the Salesforce standard objects that Amazon Kendra indexes.
+        """
         return pulumi.get(self, "standard_object_configurations")
 
     @standard_object_configurations.setter
@@ -1682,6 +2298,11 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
                  included_states: pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]],
                  custom_knowledge_article_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None,
                  standard_knowledge_article_type_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]] included_states: Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]] custom_knowledge_article_type_configurations: Configuration information for custom Salesforce knowledge articles.
+        :param pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs'] standard_knowledge_article_type_configuration: Provides the configuration information for standard Salesforce knowledge articles.
+        """
         pulumi.set(__self__, "included_states", included_states)
         if custom_knowledge_article_type_configurations is not None:
             pulumi.set(__self__, "custom_knowledge_article_type_configurations", custom_knowledge_article_type_configurations)
@@ -1691,6 +2312,9 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="includedStates")
     def included_states(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]]:
+        """
+        Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
+        """
         return pulumi.get(self, "included_states")
 
     @included_states.setter
@@ -1700,6 +2324,9 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="customKnowledgeArticleTypeConfigurations")
     def custom_knowledge_article_type_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]:
+        """
+        Configuration information for custom Salesforce knowledge articles.
+        """
         return pulumi.get(self, "custom_knowledge_article_type_configurations")
 
     @custom_knowledge_article_type_configurations.setter
@@ -1709,6 +2336,9 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="standardKnowledgeArticleTypeConfiguration")
     def standard_knowledge_article_type_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]:
+        """
+        Provides the configuration information for standard Salesforce knowledge articles.
+        """
         return pulumi.get(self, "standard_knowledge_article_type_configuration")
 
     @standard_knowledge_article_type_configuration.setter
@@ -1722,6 +2352,11 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
                  document_data_field_name: pulumi.Input[str],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[str] document_data_field_name: The name of the field that contains the document data to index.
+        :param pulumi.Input[str] document_title_field_name: The name of the field that contains the document title.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
+        """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
@@ -1731,6 +2366,9 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
     @property
     @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
+        """
+        The name of the field that contains the document data to index.
+        """
         return pulumi.get(self, "document_data_field_name")
 
     @document_data_field_name.setter
@@ -1740,6 +2378,9 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field that contains the document title.
+        """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
@@ -1749,6 +2390,9 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -1761,6 +2405,10 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
     def __init__(__self__, *,
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[str] document_title_field_name: The name of the field used for the document title.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: One or more objects that map fields in attachments to Amazon Kendra index fields.
+        """
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
@@ -1769,6 +2417,9 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field used for the document title.
+        """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
@@ -1778,6 +2429,9 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        One or more objects that map fields in attachments to Amazon Kendra index fields.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -1845,6 +2499,16 @@ class DataSourceServiceNowConfigurationArgs:
                  authentication_type: Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']] = None,
                  knowledge_article_configuration: Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']] = None,
                  service_catalog_configuration: Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] host_url: The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+        :param pulumi.Input['DataSourceServiceNowBuildVersionType'] service_now_build_version: The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
+        :param pulumi.Input['DataSourceServiceNowAuthenticationType'] authentication_type: The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
+               
+               When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+        :param pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs'] knowledge_article_configuration: Provides the configuration information for crawling knowledge articles in the ServiceNow site.
+        :param pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs'] service_catalog_configuration: Provides the configuration information for crawling service catalog items in the ServiceNow site
+        """
         pulumi.set(__self__, "host_url", host_url)
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "service_now_build_version", service_now_build_version)
@@ -1858,6 +2522,9 @@ class DataSourceServiceNowConfigurationArgs:
     @property
     @pulumi.getter(name="hostUrl")
     def host_url(self) -> pulumi.Input[str]:
+        """
+        The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
+        """
         return pulumi.get(self, "host_url")
 
     @host_url.setter
@@ -1867,6 +2534,9 @@ class DataSourceServiceNowConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -1876,6 +2546,9 @@ class DataSourceServiceNowConfigurationArgs:
     @property
     @pulumi.getter(name="serviceNowBuildVersion")
     def service_now_build_version(self) -> pulumi.Input['DataSourceServiceNowBuildVersionType']:
+        """
+        The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
+        """
         return pulumi.get(self, "service_now_build_version")
 
     @service_now_build_version.setter
@@ -1885,6 +2558,11 @@ class DataSourceServiceNowConfigurationArgs:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']]:
+        """
+        The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
+
+        When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -1894,6 +2572,9 @@ class DataSourceServiceNowConfigurationArgs:
     @property
     @pulumi.getter(name="knowledgeArticleConfiguration")
     def knowledge_article_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]:
+        """
+        Provides the configuration information for crawling knowledge articles in the ServiceNow site.
+        """
         return pulumi.get(self, "knowledge_article_configuration")
 
     @knowledge_article_configuration.setter
@@ -1903,6 +2584,9 @@ class DataSourceServiceNowConfigurationArgs:
     @property
     @pulumi.getter(name="serviceCatalogConfiguration")
     def service_catalog_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']]:
+        """
+        Provides the configuration information for crawling service catalog items in the ServiceNow site
+        """
         return pulumi.get(self, "service_catalog_configuration")
 
     @service_catalog_configuration.setter
@@ -1920,6 +2604,17 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  filter_query: Optional[pulumi.Input[str]] = None,
                  include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] document_data_field_name: The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+        :param pulumi.Input[bool] crawl_attachments: `TRUE` to index attachments to knowledge articles.
+        :param pulumi.Input[str] document_title_field_name: The name of the ServiceNow field that is mapped to the index document title field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_attachment_file_patterns: A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+        :param pulumi.Input[str] filter_query: A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+               
+               The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_attachment_file_patterns: A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
             pulumi.set(__self__, "crawl_attachments", crawl_attachments)
@@ -1937,6 +2632,9 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+        """
         return pulumi.get(self, "document_data_field_name")
 
     @document_data_field_name.setter
@@ -1946,6 +2644,9 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to index attachments to knowledge articles.
+        """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
@@ -1955,6 +2656,9 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ServiceNow field that is mapped to the index document title field.
+        """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
@@ -1964,6 +2668,9 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="excludeAttachmentFilePatterns")
     def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        """
         return pulumi.get(self, "exclude_attachment_file_patterns")
 
     @exclude_attachment_file_patterns.setter
@@ -1973,6 +2680,9 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -1982,6 +2692,11 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="filterQuery")
     def filter_query(self) -> Optional[pulumi.Input[str]]:
+        """
+        A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+
+        The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
+        """
         return pulumi.get(self, "filter_query")
 
     @filter_query.setter
@@ -1991,6 +2706,9 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @property
     @pulumi.getter(name="includeAttachmentFilePatterns")
     def include_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+        """
         return pulumi.get(self, "include_attachment_file_patterns")
 
     @include_attachment_file_patterns.setter
@@ -2007,6 +2725,18 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
                  exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] document_data_field_name: The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+        :param pulumi.Input[bool] crawl_attachments: `TRUE` to index attachments to service catalog items.
+        :param pulumi.Input[str] document_title_field_name: The name of the ServiceNow field that is mapped to the index document title field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_attachment_file_patterns: A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+               
+               The regex is applied to the file name of the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_attachment_file_patterns: A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+               
+               The regex is applied to the file name of the attachment.
+        """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
             pulumi.set(__self__, "crawl_attachments", crawl_attachments)
@@ -2022,6 +2752,9 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @property
     @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+        """
         return pulumi.get(self, "document_data_field_name")
 
     @document_data_field_name.setter
@@ -2031,6 +2764,9 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @property
     @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to index attachments to service catalog items.
+        """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
@@ -2040,6 +2776,9 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ServiceNow field that is mapped to the index document title field.
+        """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
@@ -2049,6 +2788,11 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @property
     @pulumi.getter(name="excludeAttachmentFilePatterns")
     def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+
+        The regex is applied to the file name of the attachment.
+        """
         return pulumi.get(self, "exclude_attachment_file_patterns")
 
     @exclude_attachment_file_patterns.setter
@@ -2058,6 +2802,9 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -2067,6 +2814,11 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @property
     @pulumi.getter(name="includeAttachmentFilePatterns")
     def include_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+
+        The regex is applied to the file name of the attachment.
+        """
         return pulumi.get(self, "include_attachment_file_patterns")
 
     @include_attachment_file_patterns.setter
@@ -2091,6 +2843,22 @@ class DataSourceSharePointConfigurationArgs:
                  vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         """
         SharePoint configuration
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
+        :param pulumi.Input['DataSourceSharePointConfigurationSharePointVersion'] share_point_version: The version of Microsoft SharePoint that you use.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: The Microsoft SharePoint site URLs for the documents you want to index.
+        :param pulumi.Input[bool] crawl_attachments: `TRUE` to index document attachments.
+        :param pulumi.Input[bool] disable_local_groups: `TRUE` to disable local groups information.
+        :param pulumi.Input[str] document_title_field_name: The Microsoft SharePoint attribute field that contains the title of the document.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+               
+               The regex is applied to the display URL of the SharePoint document.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+               
+               The regex applies to the display URL of the SharePoint document.
+        :param pulumi.Input['DataSourceS3PathArgs'] ssl_certificate_s3_path: Information required to find a specific file in an Amazon S3 bucket.
+        :param pulumi.Input[bool] use_change_log: `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
+        :param pulumi.Input['DataSourceVpcConfigurationArgs'] vpc_configuration: Provides the configuration information to connect to an Amazon VPC.
         """
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "share_point_version", share_point_version)
@@ -2117,6 +2885,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -2126,6 +2897,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="sharePointVersion")
     def share_point_version(self) -> pulumi.Input['DataSourceSharePointConfigurationSharePointVersion']:
+        """
+        The version of Microsoft SharePoint that you use.
+        """
         return pulumi.get(self, "share_point_version")
 
     @share_point_version.setter
@@ -2135,6 +2909,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter
     def urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The Microsoft SharePoint site URLs for the documents you want to index.
+        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -2144,6 +2921,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to index document attachments.
+        """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
@@ -2153,6 +2933,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="disableLocalGroups")
     def disable_local_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to disable local groups information.
+        """
         return pulumi.get(self, "disable_local_groups")
 
     @disable_local_groups.setter
@@ -2162,6 +2945,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Microsoft SharePoint attribute field that contains the title of the document.
+        """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
@@ -2171,6 +2957,11 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+
+        The regex is applied to the display URL of the SharePoint document.
+        """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
@@ -2180,6 +2971,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -2189,6 +2983,11 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+
+        The regex applies to the display URL of the SharePoint document.
+        """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
@@ -2198,6 +2997,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="sslCertificateS3Path")
     def ssl_certificate_s3_path(self) -> Optional[pulumi.Input['DataSourceS3PathArgs']]:
+        """
+        Information required to find a specific file in an Amazon S3 bucket.
+        """
         return pulumi.get(self, "ssl_certificate_s3_path")
 
     @ssl_certificate_s3_path.setter
@@ -2207,6 +3009,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="useChangeLog")
     def use_change_log(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
+        """
         return pulumi.get(self, "use_change_log")
 
     @use_change_log.setter
@@ -2216,6 +3021,9 @@ class DataSourceSharePointConfigurationArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to an Amazon VPC.
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -2227,12 +3035,30 @@ class DataSourceSharePointConfigurationArgs:
 class DataSourceSqlConfigurationArgs:
     def __init__(__self__, *,
                  query_identifiers_enclosing_option: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']] = None):
+        """
+        :param pulumi.Input['DataSourceQueryIdentifiersEnclosingOption'] query_identifiers_enclosing_option: Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
+               
+               By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+               
+               PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+               
+               For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
+        """
         if query_identifiers_enclosing_option is not None:
             pulumi.set(__self__, "query_identifiers_enclosing_option", query_identifiers_enclosing_option)
 
     @property
     @pulumi.getter(name="queryIdentifiersEnclosingOption")
     def query_identifiers_enclosing_option(self) -> Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]:
+        """
+        Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
+
+        By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+
+        PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+
+        For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
+        """
         return pulumi.get(self, "query_identifiers_enclosing_option")
 
     @query_identifiers_enclosing_option.setter
@@ -2284,12 +3110,19 @@ class DataSourceVpcConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Kendra to connect to the data source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Kendra to connect to the data source.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -2299,6 +3132,9 @@ class DataSourceVpcConfigurationArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -2310,12 +3146,22 @@ class DataSourceVpcConfigurationArgs:
 class DataSourceWebCrawlerAuthenticationConfigurationArgs:
     def __init__(__self__, *,
                  basic_authentication: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]] basic_authentication: The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+               
+               The list includes the name and port number of the website host.
+        """
         if basic_authentication is not None:
             pulumi.set(__self__, "basic_authentication", basic_authentication)
 
     @property
     @pulumi.getter(name="basicAuthentication")
     def basic_authentication(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]]:
+        """
+        The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+
+        The list includes the name and port number of the website host.
+        """
         return pulumi.get(self, "basic_authentication")
 
     @basic_authentication.setter
@@ -2373,6 +3219,35 @@ class DataSourceWebCrawlerConfigurationArgs:
                  proxy_configuration: Optional[pulumi.Input['DataSourceProxyConfigurationArgs']] = None,
                  url_exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  url_inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['DataSourceWebCrawlerUrlsArgs'] urls: Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+               
+               You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+               
+               You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+               
+               *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        :param pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgs'] authentication_configuration: Provides the configuration information to connect to websites that require user authentication.
+        :param pulumi.Input[int] crawl_depth: The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
+        :param pulumi.Input[float] max_content_size_per_page_in_mega_bytes: The maximum size (in MB) of a web page or attachment to crawl.
+               
+               Files larger than this size (in MB) are skipped/not crawled.
+               
+               The default maximum size of a web page or attachment is set to 50 MB.
+        :param pulumi.Input[int] max_links_per_page: The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
+               
+               As a website’s web pages are crawled, any URLs the web pages link to are also crawled. URLs on a web page are crawled in order of appearance.
+               
+               The default maximum links per page is 100.
+        :param pulumi.Input[int] max_urls_per_minute_crawl_rate: The maximum number of URLs crawled per website host per minute.
+               
+               A minimum of one URL is required.
+               
+               The default maximum number of URLs crawled per website host per minute is 300.
+        :param pulumi.Input['DataSourceProxyConfigurationArgs'] proxy_configuration: Provides the configuration information for a web proxy to connect to website hosts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] url_exclusion_patterns: A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] url_inclusion_patterns: A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+        """
         pulumi.set(__self__, "urls", urls)
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -2394,6 +3269,15 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter
     def urls(self) -> pulumi.Input['DataSourceWebCrawlerUrlsArgs']:
+        """
+        Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+
+        You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+
+        You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+
+        *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -2403,6 +3287,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgs']]:
+        """
+        Provides the configuration information to connect to websites that require user authentication.
+        """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
@@ -2412,6 +3299,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="crawlDepth")
     def crawl_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
+        """
         return pulumi.get(self, "crawl_depth")
 
     @crawl_depth.setter
@@ -2421,6 +3311,13 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="maxContentSizePerPageInMegaBytes")
     def max_content_size_per_page_in_mega_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum size (in MB) of a web page or attachment to crawl.
+
+        Files larger than this size (in MB) are skipped/not crawled.
+
+        The default maximum size of a web page or attachment is set to 50 MB.
+        """
         return pulumi.get(self, "max_content_size_per_page_in_mega_bytes")
 
     @max_content_size_per_page_in_mega_bytes.setter
@@ -2430,6 +3327,13 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="maxLinksPerPage")
     def max_links_per_page(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
+
+        As a website’s web pages are crawled, any URLs the web pages link to are also crawled. URLs on a web page are crawled in order of appearance.
+
+        The default maximum links per page is 100.
+        """
         return pulumi.get(self, "max_links_per_page")
 
     @max_links_per_page.setter
@@ -2439,6 +3343,13 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="maxUrlsPerMinuteCrawlRate")
     def max_urls_per_minute_crawl_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of URLs crawled per website host per minute.
+
+        A minimum of one URL is required.
+
+        The default maximum number of URLs crawled per website host per minute is 300.
+        """
         return pulumi.get(self, "max_urls_per_minute_crawl_rate")
 
     @max_urls_per_minute_crawl_rate.setter
@@ -2448,6 +3359,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="proxyConfiguration")
     def proxy_configuration(self) -> Optional[pulumi.Input['DataSourceProxyConfigurationArgs']]:
+        """
+        Provides the configuration information for a web proxy to connect to website hosts.
+        """
         return pulumi.get(self, "proxy_configuration")
 
     @proxy_configuration.setter
@@ -2457,6 +3371,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="urlExclusionPatterns")
     def url_exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+        """
         return pulumi.get(self, "url_exclusion_patterns")
 
     @url_exclusion_patterns.setter
@@ -2466,6 +3383,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="urlInclusionPatterns")
     def url_inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+        """
         return pulumi.get(self, "url_inclusion_patterns")
 
     @url_inclusion_patterns.setter
@@ -2478,6 +3398,18 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
     def __init__(__self__, *,
                  seed_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
                  web_crawler_mode: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] seed_urls: The list of seed or starting point URLs of the websites you want to crawl.
+               
+               The list can include a maximum of 100 seed URLs.
+        :param pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode'] web_crawler_mode: You can choose one of the following modes:
+               
+               - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+               - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+               - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+               
+               The default mode is set to `HOST_ONLY` .
+        """
         pulumi.set(__self__, "seed_urls", seed_urls)
         if web_crawler_mode is not None:
             pulumi.set(__self__, "web_crawler_mode", web_crawler_mode)
@@ -2485,6 +3417,11 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
     @property
     @pulumi.getter(name="seedUrls")
     def seed_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of seed or starting point URLs of the websites you want to crawl.
+
+        The list can include a maximum of 100 seed URLs.
+        """
         return pulumi.get(self, "seed_urls")
 
     @seed_urls.setter
@@ -2494,6 +3431,15 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
     @property
     @pulumi.getter(name="webCrawlerMode")
     def web_crawler_mode(self) -> Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]:
+        """
+        You can choose one of the following modes:
+
+        - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+        - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+        - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+
+        The default mode is set to `HOST_ONLY` .
+        """
         return pulumi.get(self, "web_crawler_mode")
 
     @web_crawler_mode.setter
@@ -2505,11 +3451,21 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
 class DataSourceWebCrawlerSiteMapsConfigurationArgs:
     def __init__(__self__, *,
                  site_maps: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] site_maps: The list of sitemap URLs of the websites you want to crawl.
+               
+               The list can include a maximum of three sitemap URLs.
+        """
         pulumi.set(__self__, "site_maps", site_maps)
 
     @property
     @pulumi.getter(name="siteMaps")
     def site_maps(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of sitemap URLs of the websites you want to crawl.
+
+        The list can include a maximum of three sitemap URLs.
+        """
         return pulumi.get(self, "site_maps")
 
     @site_maps.setter
@@ -2522,6 +3478,14 @@ class DataSourceWebCrawlerUrlsArgs:
     def __init__(__self__, *,
                  seed_url_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']] = None,
                  site_maps_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs'] seed_url_configuration: Provides the configuration information of the seed or starting point URLs to crawl.
+               
+               *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        :param pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs'] site_maps_configuration: Provides the configuration information of the sitemap URLs to crawl.
+               
+               *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        """
         if seed_url_configuration is not None:
             pulumi.set(__self__, "seed_url_configuration", seed_url_configuration)
         if site_maps_configuration is not None:
@@ -2530,6 +3494,11 @@ class DataSourceWebCrawlerUrlsArgs:
     @property
     @pulumi.getter(name="seedUrlConfiguration")
     def seed_url_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']]:
+        """
+        Provides the configuration information of the seed or starting point URLs to crawl.
+
+        *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        """
         return pulumi.get(self, "seed_url_configuration")
 
     @seed_url_configuration.setter
@@ -2539,6 +3508,11 @@ class DataSourceWebCrawlerUrlsArgs:
     @property
     @pulumi.getter(name="siteMapsConfiguration")
     def site_maps_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']]:
+        """
+        Provides the configuration information of the sitemap URLs to crawl.
+
+        *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        """
         return pulumi.get(self, "site_maps_configuration")
 
     @site_maps_configuration.setter
@@ -2555,6 +3529,18 @@ class DataSourceWorkDocsConfigurationArgs:
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_change_log: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] organization_id: The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+               
+               You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+        :param pulumi.Input[bool] crawl_comments: `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
+               
+               The default is set to `FALSE` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        :param pulumi.Input[bool] use_change_log: `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+        """
         pulumi.set(__self__, "organization_id", organization_id)
         if crawl_comments is not None:
             pulumi.set(__self__, "crawl_comments", crawl_comments)
@@ -2570,6 +3556,11 @@ class DataSourceWorkDocsConfigurationArgs:
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+
+        You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -2579,6 +3570,11 @@ class DataSourceWorkDocsConfigurationArgs:
     @property
     @pulumi.getter(name="crawlComments")
     def crawl_comments(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
+
+        The default is set to `FALSE` .
+        """
         return pulumi.get(self, "crawl_comments")
 
     @crawl_comments.setter
@@ -2588,6 +3584,9 @@ class DataSourceWorkDocsConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
@@ -2597,6 +3596,9 @@ class DataSourceWorkDocsConfigurationArgs:
     @property
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+        """
+        A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+        """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
@@ -2606,6 +3608,9 @@ class DataSourceWorkDocsConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
@@ -2615,6 +3620,9 @@ class DataSourceWorkDocsConfigurationArgs:
     @property
     @pulumi.getter(name="useChangeLog")
     def use_change_log(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+        """
         return pulumi.get(self, "use_change_log")
 
     @use_change_log.setter
@@ -2627,12 +3635,19 @@ class FaqS3PathArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[str] key: The name of the file.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -2642,6 +3657,9 @@ class FaqS3PathArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of the file.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2654,12 +3672,27 @@ class IndexCapacityUnitsConfigurationArgs:
     def __init__(__self__, *,
                  query_capacity_units: pulumi.Input[int],
                  storage_capacity_units: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] query_capacity_units: The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+               
+               A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day. You can add up to 100 extra capacity units.
+               
+               `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
+        :param pulumi.Input[int] storage_capacity_units: The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. You can add up to 100 extra capacity units.
+        """
         pulumi.set(__self__, "query_capacity_units", query_capacity_units)
         pulumi.set(__self__, "storage_capacity_units", storage_capacity_units)
 
     @property
     @pulumi.getter(name="queryCapacityUnits")
     def query_capacity_units(self) -> pulumi.Input[int]:
+        """
+        The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+
+        A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day. You can add up to 100 extra capacity units.
+
+        `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
+        """
         return pulumi.get(self, "query_capacity_units")
 
     @query_capacity_units.setter
@@ -2669,6 +3702,9 @@ class IndexCapacityUnitsConfigurationArgs:
     @property
     @pulumi.getter(name="storageCapacityUnits")
     def storage_capacity_units(self) -> pulumi.Input[int]:
+        """
+        The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. You can add up to 100 extra capacity units.
+        """
         return pulumi.get(self, "storage_capacity_units")
 
     @storage_capacity_units.setter
@@ -2964,12 +4000,18 @@ class IndexSearchArgs:
 class IndexServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
+        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter

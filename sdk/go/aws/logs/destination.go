@@ -16,6 +16,7 @@ import (
 type Destination struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the destination resource
 	DestinationName pulumi.StringOutput `pulumi:"destinationName"`
@@ -136,6 +137,7 @@ func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
 func (o DestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

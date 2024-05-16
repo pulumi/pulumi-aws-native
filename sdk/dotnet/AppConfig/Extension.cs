@@ -66,12 +66,21 @@ namespace Pulumi.AwsNative.AppConfig
     [AwsNativeResourceType("aws-native:appconfig:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The actions defined in the extension.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableDictionary<string, ImmutableArray<Outputs.ExtensionAction>>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated Amazon Resource Name (ARN) for the extension.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the extension.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -81,6 +90,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
+        /// </summary>
         [Output("latestVersionNumber")]
         public Output<int?> LatestVersionNumber { get; private set; } = null!;
 
@@ -90,6 +102,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, Outputs.ExtensionParameter>?> Parameters { get; private set; } = null!;
 
@@ -99,6 +114,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The extension version number.
+        /// </summary>
         [Output("versionNumber")]
         public Output<int> VersionNumber { get; private set; } = null!;
 
@@ -154,6 +172,10 @@ namespace Pulumi.AwsNative.AppConfig
     {
         [Input("actions", required: true)]
         private InputMap<ImmutableArray<Inputs.ExtensionActionArgs>>? _actions;
+
+        /// <summary>
+        /// The actions defined in the extension.
+        /// </summary>
         public InputMap<ImmutableArray<Inputs.ExtensionActionArgs>> Actions
         {
             get => _actions ?? (_actions = new InputMap<ImmutableArray<Inputs.ExtensionActionArgs>>());
@@ -166,6 +188,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
+        /// </summary>
         [Input("latestVersionNumber")]
         public Input<int>? LatestVersionNumber { get; set; }
 
@@ -177,6 +202,10 @@ namespace Pulumi.AwsNative.AppConfig
 
         [Input("parameters")]
         private InputMap<Inputs.ExtensionParameterArgs>? _parameters;
+
+        /// <summary>
+        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        /// </summary>
         public InputMap<Inputs.ExtensionParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<Inputs.ExtensionParameterArgs>());

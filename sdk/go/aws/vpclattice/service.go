@@ -16,17 +16,33 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput      `pulumi:"arn"`
-	AuthType         ServiceAuthTypePtrOutput `pulumi:"authType"`
-	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
-	CertificateArn   pulumi.StringPtrOutput   `pulumi:"certificateArn"`
-	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
-	CustomDomainName pulumi.StringPtrOutput   `pulumi:"customDomainName"`
-	DnsEntry         ServiceDnsEntryPtrOutput `pulumi:"dnsEntry"`
-	LastUpdatedAt    pulumi.StringOutput      `pulumi:"lastUpdatedAt"`
-	Name             pulumi.StringPtrOutput   `pulumi:"name"`
-	Status           ServiceStatusOutput      `pulumi:"status"`
-	Tags             aws.TagArrayOutput       `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+	AuthType ServiceAuthTypePtrOutput `pulumi:"authType"`
+	// The ID of the service.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) of the certificate.
+	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
+	// The date and time that the service was created, specified in ISO-8601 format.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The custom domain name of the service.
+	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
+	// Describes the DNS information of a service.
+	DnsEntry ServiceDnsEntryPtrOutput `pulumi:"dnsEntry"`
+	// The date and time that the service was last updated, specified in ISO-8601 format.
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The status of the service.
+	Status ServiceStatusOutput `pulumi:"status"`
+	// The tags for the service.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -74,22 +90,44 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	AuthType         *ServiceAuthType `pulumi:"authType"`
-	CertificateArn   *string          `pulumi:"certificateArn"`
-	CustomDomainName *string          `pulumi:"customDomainName"`
-	DnsEntry         *ServiceDnsEntry `pulumi:"dnsEntry"`
-	Name             *string          `pulumi:"name"`
-	Tags             []aws.Tag        `pulumi:"tags"`
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+	AuthType *ServiceAuthType `pulumi:"authType"`
+	// The Amazon Resource Name (ARN) of the certificate.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The custom domain name of the service.
+	CustomDomainName *string `pulumi:"customDomainName"`
+	// Describes the DNS information of a service.
+	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
+	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name *string `pulumi:"name"`
+	// The tags for the service.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	AuthType         ServiceAuthTypePtrInput
-	CertificateArn   pulumi.StringPtrInput
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+	AuthType ServiceAuthTypePtrInput
+	// The Amazon Resource Name (ARN) of the certificate.
+	CertificateArn pulumi.StringPtrInput
+	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
-	DnsEntry         ServiceDnsEntryPtrInput
-	Name             pulumi.StringPtrInput
-	Tags             aws.TagArrayInput
+	// Describes the DNS information of a service.
+	DnsEntry ServiceDnsEntryPtrInput
+	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrInput
+	// The tags for the service.
+	Tags aws.TagArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -129,46 +167,62 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The type of IAM policy.
+//
+// - `NONE` : The resource does not use an IAM policy. This is the default.
+// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 func (o ServiceOutput) AuthType() ServiceAuthTypePtrOutput {
 	return o.ApplyT(func(v *Service) ServiceAuthTypePtrOutput { return v.AuthType }).(ServiceAuthTypePtrOutput)
 }
 
+// The ID of the service.
 func (o ServiceOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the certificate.
 func (o ServiceOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the service was created, specified in ISO-8601 format.
 func (o ServiceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The custom domain name of the service.
 func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
+// Describes the DNS information of a service.
 func (o ServiceOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryPtrOutput { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
 }
 
+// The date and time that the service was last updated, specified in ISO-8601 format.
 func (o ServiceOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+//
+// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 func (o ServiceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the service.
 func (o ServiceOutput) Status() ServiceStatusOutput {
 	return o.ApplyT(func(v *Service) ServiceStatusOutput { return v.Status }).(ServiceStatusOutput)
 }
 
+// The tags for the service.
 func (o ServiceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

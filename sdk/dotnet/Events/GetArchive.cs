@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetArchiveArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name for the archive to create.
+        /// </summary>
         [Input("archiveName", required: true)]
         public string ArchiveName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetArchiveInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name for the archive to create.
+        /// </summary>
         [Input("archiveName", required: true)]
         public Input<string> ArchiveName { get; set; } = null!;
 
@@ -51,12 +57,23 @@ namespace Pulumi.AwsNative.Events
     [OutputType]
     public sealed class GetArchiveResult
     {
+        /// <summary>
+        /// The ARN of the archive created.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A description for the archive.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// An event pattern to use to filter events sent to the archive.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? EventPattern;
+        /// <summary>
+        /// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+        /// </summary>
         public readonly int? RetentionDays;
 
         [OutputConstructor]

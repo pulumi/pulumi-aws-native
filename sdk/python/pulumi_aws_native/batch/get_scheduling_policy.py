@@ -30,11 +30,17 @@ class GetSchedulingPolicyResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="fairsharePolicy")
     def fairshare_policy(self) -> Optional['outputs.SchedulingPolicyFairsharePolicy']:
+        """
+        The fair share policy for a scheduling policy.
+        """
         return pulumi.get(self, "fairshare_policy")
 
 
@@ -52,6 +58,9 @@ def get_scheduling_policy(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchedulingPolicyResult:
     """
     Resource Type schema for AWS::Batch::SchedulingPolicy
+
+
+    :param str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -68,5 +77,8 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
     Resource Type schema for AWS::Batch::SchedulingPolicy
+
+
+    :param str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
     """
     ...

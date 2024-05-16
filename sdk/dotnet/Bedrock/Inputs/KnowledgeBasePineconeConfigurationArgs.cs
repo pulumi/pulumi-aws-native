@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("credentialsSecretArn", required: true)]
         public Input<string> CredentialsSecretArn { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         [Input("fieldMapping", required: true)]
         public Input<Inputs.KnowledgeBasePineconeFieldMappingArgs> FieldMapping { get; set; } = null!;
 

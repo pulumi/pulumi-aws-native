@@ -23,14 +23,27 @@ func LookupWarmPool(ctx *pulumi.Context, args *LookupWarmPoolArgs, opts ...pulum
 }
 
 type LookupWarmPoolArgs struct {
+	// The name of the Auto Scaling group.
 	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
 }
 
 type LookupWarmPoolResult struct {
-	InstanceReusePolicy      *WarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicy"`
-	MaxGroupPreparedCapacity *int                         `pulumi:"maxGroupPreparedCapacity"`
-	MinSize                  *int                         `pulumi:"minSize"`
-	PoolState                *string                      `pulumi:"poolState"`
+	// A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.
+	//
+	// For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	InstanceReusePolicy *WarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicy"`
+	// Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+	//
+	// > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+	// >
+	// > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size.
+	//
+	// If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	MinSize *int `pulumi:"minSize"`
+	// Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
+	PoolState *string `pulumi:"poolState"`
 }
 
 func LookupWarmPoolOutput(ctx *pulumi.Context, args LookupWarmPoolOutputArgs, opts ...pulumi.InvokeOption) LookupWarmPoolResultOutput {
@@ -47,6 +60,7 @@ func LookupWarmPoolOutput(ctx *pulumi.Context, args LookupWarmPoolOutputArgs, op
 }
 
 type LookupWarmPoolOutputArgs struct {
+	// The name of the Auto Scaling group.
 	AutoScalingGroupName pulumi.StringInput `pulumi:"autoScalingGroupName"`
 }
 
@@ -68,18 +82,30 @@ func (o LookupWarmPoolResultOutput) ToLookupWarmPoolResultOutputWithContext(ctx 
 	return o
 }
 
+// A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.
+//
+// For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* .
 func (o LookupWarmPoolResultOutput) InstanceReusePolicy() WarmPoolInstanceReusePolicyPtrOutput {
 	return o.ApplyT(func(v LookupWarmPoolResult) *WarmPoolInstanceReusePolicy { return v.InstanceReusePolicy }).(WarmPoolInstanceReusePolicyPtrOutput)
 }
 
+// Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+//
+// > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+// >
+// > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size.
+//
+// If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
 func (o LookupWarmPoolResultOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWarmPoolResult) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 func (o LookupWarmPoolResultOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWarmPoolResult) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
+// Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
 func (o LookupWarmPoolResultOutput) PoolState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWarmPoolResult) *string { return v.PoolState }).(pulumi.StringPtrOutput)
 }

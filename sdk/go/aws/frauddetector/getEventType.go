@@ -34,10 +34,13 @@ type LookupEventTypeResult struct {
 	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description of the event type.
-	Description    *string                  `pulumi:"description"`
-	EntityTypes    []EventTypeEntityType    `pulumi:"entityTypes"`
+	Description *string `pulumi:"description"`
+	// The entity type details.
+	EntityTypes []EventTypeEntityType `pulumi:"entityTypes"`
+	// The variables associated with this event type.
 	EventVariables []EventTypeEventVariable `pulumi:"eventVariables"`
-	Labels         []EventTypeLabel         `pulumi:"labels"`
+	// The label associated with the event type.
+	Labels []EventTypeLabel `pulumi:"labels"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Tags associated with this event type.
@@ -95,14 +98,17 @@ func (o LookupEventTypeResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventTypeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The entity type details.
 func (o LookupEventTypeResultOutput) EntityTypes() EventTypeEntityTypeArrayOutput {
 	return o.ApplyT(func(v LookupEventTypeResult) []EventTypeEntityType { return v.EntityTypes }).(EventTypeEntityTypeArrayOutput)
 }
 
+// The variables associated with this event type.
 func (o LookupEventTypeResultOutput) EventVariables() EventTypeEventVariableArrayOutput {
 	return o.ApplyT(func(v LookupEventTypeResult) []EventTypeEventVariable { return v.EventVariables }).(EventTypeEventVariableArrayOutput)
 }
 
+// The label associated with the event type.
 func (o LookupEventTypeResultOutput) Labels() EventTypeLabelArrayOutput {
 	return o.ApplyT(func(v LookupEventTypeResult) []EventTypeLabel { return v.Labels }).(EventTypeLabelArrayOutput)
 }

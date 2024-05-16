@@ -16,10 +16,14 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	AwsId       pulumi.StringOutput        `pulumi:"awsId"`
-	Policy      ResourcePolicyPolicyOutput `pulumi:"policy"`
-	ResourceArn pulumi.StringOutput        `pulumi:"resourceArn"`
-	RevisionId  pulumi.StringOutput        `pulumi:"revisionId"`
+	// The identifier of the resource policy.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+	Policy ResourcePolicyPolicyOutput `pulumi:"policy"`
+	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Specifies the current revision of a resource policy.
+	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -68,13 +72,17 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	Policy      ResourcePolicyPolicy `pulumi:"policy"`
-	ResourceArn string               `pulumi:"resourceArn"`
+	// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+	Policy ResourcePolicyPolicy `pulumi:"policy"`
+	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	Policy      ResourcePolicyPolicyInput
+	// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+	Policy ResourcePolicyPolicyInput
+	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
 	ResourceArn pulumi.StringInput
 }
 
@@ -115,18 +123,22 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The identifier of the resource policy.
 func (o ResourcePolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
 func (o ResourcePolicyOutput) Policy() ResourcePolicyPolicyOutput {
 	return o.ApplyT(func(v *ResourcePolicy) ResourcePolicyPolicyOutput { return v.Policy }).(ResourcePolicyPolicyOutput)
 }
 
+// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// Specifies the current revision of a resource policy.
 func (o ResourcePolicyOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lambda
     [AwsNativeResourceType("aws-native:lambda:EventInvokeConfig")]
     public partial class EventInvokeConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A configuration object that specifies the destination of an event after Lambda processes it.
+        /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.EventInvokeConfigDestinationConfig?> DestinationConfig { get; private set; } = null!;
 
@@ -92,6 +95,9 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class EventInvokeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration object that specifies the destination of an event after Lambda processes it.
+        /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventInvokeConfigDestinationConfigArgs>? DestinationConfig { get; set; }
 

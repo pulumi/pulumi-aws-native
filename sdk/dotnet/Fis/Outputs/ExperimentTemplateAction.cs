@@ -16,12 +16,21 @@ namespace Pulumi.AwsNative.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateAction
     {
+        /// <summary>
+        /// The ID of the action.
+        /// </summary>
         public readonly string ActionId;
+        /// <summary>
+        /// A description for the action.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The parameters for the action, if applicable.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// The name of the action that must be completed before the current action starts.
+        /// </summary>
         public readonly ImmutableArray<string> StartAfter;
         /// <summary>
         /// One or more targets for the action.

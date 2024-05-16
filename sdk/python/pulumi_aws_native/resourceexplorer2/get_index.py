@@ -36,21 +36,37 @@ class GetIndexResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the new index for the AWS Region . For example:
+
+        `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="indexState")
     def index_state(self) -> Optional['IndexState']:
+        """
+        Indicates the current state of the index. For example:
+
+        `CREATING`
+        """
         return pulumi.get(self, "index_state")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['IndexType']:
+        """
+        Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        """
         return pulumi.get(self, "type")
 
 
@@ -70,6 +86,11 @@ def get_index(arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
     Definition of AWS::ResourceExplorer2::Index Resource Type
+
+
+    :param str arn: The ARN of the new index for the AWS Region . For example:
+           
+           `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -88,5 +109,10 @@ def get_index_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
     Definition of AWS::ResourceExplorer2::Index Resource Type
+
+
+    :param str arn: The ARN of the new index for the AWS Region . For example:
+           
+           `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
     """
     ...

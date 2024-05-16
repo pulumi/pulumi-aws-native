@@ -23,11 +23,14 @@ func LookupBackupSelection(ctx *pulumi.Context, args *LookupBackupSelectionArgs,
 }
 
 type LookupBackupSelectionArgs struct {
+	// Uniquely identifies the backup selection.
 	Id string `pulumi:"id"`
 }
 
 type LookupBackupSelectionResult struct {
-	Id          *string `pulumi:"id"`
+	// Uniquely identifies the backup selection.
+	Id *string `pulumi:"id"`
+	// Uniquely identifies a request to assign a set of resources to a backup plan.
 	SelectionId *string `pulumi:"selectionId"`
 }
 
@@ -45,6 +48,7 @@ func LookupBackupSelectionOutput(ctx *pulumi.Context, args LookupBackupSelection
 }
 
 type LookupBackupSelectionOutputArgs struct {
+	// Uniquely identifies the backup selection.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupBackupSelectionResultOutput) ToLookupBackupSelectionResultOutputWi
 	return o
 }
 
+// Uniquely identifies the backup selection.
 func (o LookupBackupSelectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupSelectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Uniquely identifies a request to assign a set of resources to a backup plan.
 func (o LookupBackupSelectionResultOutput) SelectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupSelectionResult) *string { return v.SelectionId }).(pulumi.StringPtrOutput)
 }

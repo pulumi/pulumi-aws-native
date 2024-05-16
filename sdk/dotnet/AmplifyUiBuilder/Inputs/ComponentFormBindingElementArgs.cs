@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentFormBindingElementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the component to retrieve a value from.
+        /// </summary>
         [Input("element", required: true)]
         public Input<string> Element { get; set; } = null!;
 
+        /// <summary>
+        /// The property to retrieve a value from.
+        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 

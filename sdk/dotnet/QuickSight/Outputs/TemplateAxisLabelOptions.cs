@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAxisLabelOptions
     {
+        /// <summary>
+        /// The reference that specifies where the axis label is applied to.
+        /// </summary>
         public readonly Outputs.TemplateAxisLabelReferenceOptions? ApplyTo;
+        /// <summary>
+        /// The text for the axis label.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.TemplateFontConfiguration? FontConfiguration;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentPropertyBindingProperties
     {
+        /// <summary>
+        /// The data field to bind the property to.
+        /// </summary>
         public readonly string? Field;
+        /// <summary>
+        /// The component property to bind to the data field.
+        /// </summary>
         public readonly string Property;
 
         [OutputConstructor]

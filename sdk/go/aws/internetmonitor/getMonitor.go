@@ -24,22 +24,41 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 }
 
 type LookupMonitorArgs struct {
+	// The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
 	MonitorName string `pulumi:"monitorName"`
 }
 
 type LookupMonitorResult struct {
-	CreatedAt                       *string                                 `pulumi:"createdAt"`
-	HealthEventsConfig              *MonitorHealthEventsConfig              `pulumi:"healthEventsConfig"`
+	// The time when the monitor was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Define the health event threshold percentages for the performance score and availability score for your application's monitor. Amazon CloudWatch Internet Monitor creates a health event when there's an internet issue that affects your application end users where a health score percentage is at or below a set threshold.
+	//
+	// If you don't set a health event threshold, the default value is 95%.
+	HealthEventsConfig *MonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
+	// Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery *MonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
-	MaxCityNetworksToMonitor        *int                                    `pulumi:"maxCityNetworksToMonitor"`
-	ModifiedAt                      *string                                 `pulumi:"modifiedAt"`
-	MonitorArn                      *string                                 `pulumi:"monitorArn"`
-	ProcessingStatus                *MonitorProcessingStatusCode            `pulumi:"processingStatus"`
-	ProcessingStatusInfo            *string                                 `pulumi:"processingStatusInfo"`
-	Resources                       []string                                `pulumi:"resources"`
-	Status                          *MonitorConfigState                     `pulumi:"status"`
-	Tags                            []aws.Tag                               `pulumi:"tags"`
-	TrafficPercentageToMonitor      *int                                    `pulumi:"trafficPercentageToMonitor"`
+	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+	//
+	// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+	MaxCityNetworksToMonitor *int `pulumi:"maxCityNetworksToMonitor"`
+	// The last time that the monitor was modified.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The Amazon Resource Name (ARN) of the monitor.
+	MonitorArn *string `pulumi:"monitorArn"`
+	// The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
+	ProcessingStatus *MonitorProcessingStatusCode `pulumi:"processingStatus"`
+	// Additional information about the health of the data processing for the monitor.
+	ProcessingStatusInfo *string `pulumi:"processingStatusInfo"`
+	// The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+	//
+	// > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+	Resources []string `pulumi:"resources"`
+	// The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+	Status *MonitorConfigState `pulumi:"status"`
+	// The tags for a monitor, listed as a set of *key:value* pairs.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+	TrafficPercentageToMonitor *int `pulumi:"trafficPercentageToMonitor"`
 }
 
 func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
@@ -56,6 +75,7 @@ func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts
 }
 
 type LookupMonitorOutputArgs struct {
+	// The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
 	MonitorName pulumi.StringInput `pulumi:"monitorName"`
 }
 
@@ -77,52 +97,70 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx co
 	return o
 }
 
+// The time when the monitor was created.
 func (o LookupMonitorResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Define the health event threshold percentages for the performance score and availability score for your application's monitor. Amazon CloudWatch Internet Monitor creates a health event when there's an internet issue that affects your application end users where a health score percentage is at or below a set threshold.
+//
+// If you don't set a health event threshold, the default value is 95%.
 func (o LookupMonitorResultOutput) HealthEventsConfig() MonitorHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *MonitorHealthEventsConfig { return v.HealthEventsConfig }).(MonitorHealthEventsConfigPtrOutput)
 }
 
+// Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.
 func (o LookupMonitorResultOutput) InternetMeasurementsLogDelivery() MonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *MonitorInternetMeasurementsLogDelivery {
 		return v.InternetMeasurementsLogDelivery
 	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
+// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+//
+// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
 func (o LookupMonitorResultOutput) MaxCityNetworksToMonitor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *int { return v.MaxCityNetworksToMonitor }).(pulumi.IntPtrOutput)
 }
 
+// The last time that the monitor was modified.
 func (o LookupMonitorResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the monitor.
 func (o LookupMonitorResultOutput) MonitorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.MonitorArn }).(pulumi.StringPtrOutput)
 }
 
+// The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
 func (o LookupMonitorResultOutput) ProcessingStatus() MonitorProcessingStatusCodePtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *MonitorProcessingStatusCode { return v.ProcessingStatus }).(MonitorProcessingStatusCodePtrOutput)
 }
 
+// Additional information about the health of the data processing for the monitor.
 func (o LookupMonitorResultOutput) ProcessingStatusInfo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.ProcessingStatusInfo }).(pulumi.StringPtrOutput)
 }
 
+// The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+//
+// > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
 func (o LookupMonitorResultOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
+// The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
 func (o LookupMonitorResultOutput) Status() MonitorConfigStatePtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *MonitorConfigState { return v.Status }).(MonitorConfigStatePtrOutput)
 }
 
+// The tags for a monitor, listed as a set of *key:value* pairs.
 func (o LookupMonitorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
 func (o LookupMonitorResultOutput) TrafficPercentageToMonitor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *int { return v.TrafficPercentageToMonitor }).(pulumi.IntPtrOutput)
 }

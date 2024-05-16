@@ -15,12 +15,18 @@ import (
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
 
-	AcceptanceRequired         pulumi.BoolPtrOutput     `pulumi:"acceptanceRequired"`
-	ContributorInsightsEnabled pulumi.BoolPtrOutput     `pulumi:"contributorInsightsEnabled"`
-	GatewayLoadBalancerArns    pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
-	NetworkLoadBalancerArns    pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility        pulumi.StringPtrOutput   `pulumi:"payerResponsibility"`
-	ServiceId                  pulumi.StringOutput      `pulumi:"serviceId"`
+	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+	AcceptanceRequired pulumi.BoolPtrOutput `pulumi:"acceptanceRequired"`
+	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
+	ContributorInsightsEnabled pulumi.BoolPtrOutput `pulumi:"contributorInsightsEnabled"`
+	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
+	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
+	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
+	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+	PayerResponsibility pulumi.StringPtrOutput `pulumi:"payerResponsibility"`
+	// The ID of the endpoint service.
+	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 }
 
 // NewVpcEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -63,20 +69,30 @@ func (VpcEndpointServiceState) ElementType() reflect.Type {
 }
 
 type vpcEndpointServiceArgs struct {
-	AcceptanceRequired         *bool    `pulumi:"acceptanceRequired"`
-	ContributorInsightsEnabled *bool    `pulumi:"contributorInsightsEnabled"`
-	GatewayLoadBalancerArns    []string `pulumi:"gatewayLoadBalancerArns"`
-	NetworkLoadBalancerArns    []string `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility        *string  `pulumi:"payerResponsibility"`
+	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
+	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
+	ContributorInsightsEnabled *bool `pulumi:"contributorInsightsEnabled"`
+	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
+	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
+	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
+	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+	PayerResponsibility *string `pulumi:"payerResponsibility"`
 }
 
 // The set of arguments for constructing a VpcEndpointService resource.
 type VpcEndpointServiceArgs struct {
-	AcceptanceRequired         pulumi.BoolPtrInput
+	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+	AcceptanceRequired pulumi.BoolPtrInput
+	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
 	ContributorInsightsEnabled pulumi.BoolPtrInput
-	GatewayLoadBalancerArns    pulumi.StringArrayInput
-	NetworkLoadBalancerArns    pulumi.StringArrayInput
-	PayerResponsibility        pulumi.StringPtrInput
+	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+	GatewayLoadBalancerArns pulumi.StringArrayInput
+	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
+	NetworkLoadBalancerArns pulumi.StringArrayInput
+	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+	PayerResponsibility pulumi.StringPtrInput
 }
 
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {
@@ -116,26 +132,32 @@ func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutputWithContext(ctx cont
 	return o
 }
 
+// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 func (o VpcEndpointServiceOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.BoolPtrOutput { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
 func (o VpcEndpointServiceOutput) ContributorInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.BoolPtrOutput { return v.ContributorInsightsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 func (o VpcEndpointServiceOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.GatewayLoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 func (o VpcEndpointServiceOutput) NetworkLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.NetworkLoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
+// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 func (o VpcEndpointServiceOutput) PayerResponsibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the endpoint service.
 func (o VpcEndpointServiceOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }

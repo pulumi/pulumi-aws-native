@@ -41,6 +41,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Parameters for enabling CDN authorization on the endpoint.
+     */
     public readonly authorization!: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
     /**
      * The ID of the OriginEndpoint.
@@ -50,17 +53,29 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * The ID of the Channel the OriginEndpoint is associated with.
      */
     public readonly channelId!: pulumi.Output<string>;
+    /**
+     * Parameters for Common Media Application Format (CMAF) packaging.
+     */
     public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointCmafPackage | undefined>;
+    /**
+     * Parameters for DASH packaging.
+     */
     public readonly dashPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointDashPackage | undefined>;
     /**
      * A short text description of the OriginEndpoint.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Parameters for Apple HLS packaging.
+     */
     public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointHlsPackage | undefined>;
     /**
      * A short string appended to the end of the OriginEndpoint URL.
      */
     public readonly manifestName!: pulumi.Output<string | undefined>;
+    /**
+     * Parameters for Microsoft Smooth Streaming packaging.
+     */
     public readonly mssPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointMssPackage | undefined>;
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
@@ -147,6 +162,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpoint resource.
  */
 export interface OriginEndpointArgs {
+    /**
+     * Parameters for enabling CDN authorization on the endpoint.
+     */
     authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs>;
     /**
      * The ID of the OriginEndpoint.
@@ -156,17 +174,29 @@ export interface OriginEndpointArgs {
      * The ID of the Channel the OriginEndpoint is associated with.
      */
     channelId: pulumi.Input<string>;
+    /**
+     * Parameters for Common Media Application Format (CMAF) packaging.
+     */
     cmafPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointCmafPackageArgs>;
+    /**
+     * Parameters for DASH packaging.
+     */
     dashPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointDashPackageArgs>;
     /**
      * A short text description of the OriginEndpoint.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Parameters for Apple HLS packaging.
+     */
     hlsPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointHlsPackageArgs>;
     /**
      * A short string appended to the end of the OriginEndpoint URL.
      */
     manifestName?: pulumi.Input<string>;
+    /**
+     * Parameters for Microsoft Smooth Streaming packaging.
+     */
     mssPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointMssPackageArgs>;
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination

@@ -38,6 +38,9 @@ export interface GetDiskResult {
      * Attachment State of the Lightsail disk
      */
     readonly attachmentState?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the disk.
+     */
     readonly diskArn?: string;
     /**
      * Iops of the Lightsail disk
@@ -47,6 +50,9 @@ export interface GetDiskResult {
      * Check is Disk is attached state
      */
     readonly isAttached?: boolean;
+    /**
+     * The AWS Region and Availability Zone where the disk is located.
+     */
     readonly location?: outputs.lightsail.DiskLocation;
     /**
      * Path of the  attached Disk

@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("failureStrings", required: true)]
         private InputList<string>? _failureStrings;
+
+        /// <summary>
+        /// Strings in the body of the response that indicate a failed login or account creation attempt. To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+        /// 
+        /// JSON example: `"FailureStrings": [ "Request failed" ]`
+        /// </summary>
         public InputList<string> FailureStrings
         {
             get => _failureStrings ?? (_failureStrings = new InputList<string>());
@@ -25,6 +31,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         [Input("successStrings", required: true)]
         private InputList<string>? _successStrings;
+
+        /// <summary>
+        /// Strings in the body of the response that indicate a successful login or account creation attempt. To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+        /// 
+        /// JSON examples: `"SuccessStrings": [ "Login successful" ]` and `"SuccessStrings": [ "Account creation successful", "Welcome to our site!" ]`
+        /// </summary>
         public InputList<string> SuccessStrings
         {
             get => _successStrings ?? (_successStrings = new InputList<string>());

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The CPU architecture of an application.
+        /// </summary>
         [Output("architecture")]
         public Output<Pulumi.AwsNative.EmrServerless.ApplicationArchitecture?> Architecture { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Output("autoStopConfiguration")]
         public Output<Outputs.ApplicationAutoStopConfiguration?> AutoStopConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The image configuration.
+        /// </summary>
         [Output("imageConfiguration")]
         public Output<Outputs.ApplicationImageConfigurationInput?> ImageConfiguration { get; private set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Output("maximumCapacity")]
         public Output<Outputs.ApplicationMaximumAllowedResources?> MaximumCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration setting for monitoring.
+        /// </summary>
         [Output("monitoringConfiguration")]
         public Output<Outputs.ApplicationMonitoringConfiguration?> MonitoringConfiguration { get; private set; } = null!;
 
@@ -78,6 +87,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Output("releaseLabel")]
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
+        /// <summary>
+        /// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        /// </summary>
         [Output("runtimeConfiguration")]
         public Output<ImmutableArray<Outputs.ApplicationConfigurationObject>> RuntimeConfiguration { get; private set; } = null!;
 
@@ -149,6 +161,9 @@ namespace Pulumi.AwsNative.EmrServerless
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CPU architecture of an application.
+        /// </summary>
         [Input("architecture")]
         public Input<Pulumi.AwsNative.EmrServerless.ApplicationArchitecture>? Architecture { get; set; }
 
@@ -164,6 +179,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Input("autoStopConfiguration")]
         public Input<Inputs.ApplicationAutoStopConfigurationArgs>? AutoStopConfiguration { get; set; }
 
+        /// <summary>
+        /// The image configuration.
+        /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.ApplicationImageConfigurationInputArgs>? ImageConfiguration { get; set; }
 
@@ -185,6 +203,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Input("maximumCapacity")]
         public Input<Inputs.ApplicationMaximumAllowedResourcesArgs>? MaximumCapacity { get; set; }
 
+        /// <summary>
+        /// The configuration setting for monitoring.
+        /// </summary>
         [Input("monitoringConfiguration")]
         public Input<Inputs.ApplicationMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
 
@@ -208,6 +229,10 @@ namespace Pulumi.AwsNative.EmrServerless
 
         [Input("runtimeConfiguration")]
         private InputList<Inputs.ApplicationConfigurationObjectArgs>? _runtimeConfiguration;
+
+        /// <summary>
+        /// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        /// </summary>
         public InputList<Inputs.ApplicationConfigurationObjectArgs> RuntimeConfiguration
         {
             get => _runtimeConfiguration ?? (_runtimeConfiguration = new InputList<Inputs.ApplicationConfigurationObjectArgs>());

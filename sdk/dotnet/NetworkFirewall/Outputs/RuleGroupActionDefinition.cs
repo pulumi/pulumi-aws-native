@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupActionDefinition
     {
+        /// <summary>
+        /// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+        /// </summary>
         public readonly Outputs.RuleGroupPublishMetricAction? PublishMetricAction;
 
         [OutputConstructor]

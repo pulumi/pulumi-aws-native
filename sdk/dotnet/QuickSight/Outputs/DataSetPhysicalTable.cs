@@ -18,8 +18,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetPhysicalTable
     {
+        /// <summary>
+        /// A physical table type built from the results of the custom SQL query.
+        /// </summary>
         public readonly Outputs.DataSetCustomSql? CustomSql;
+        /// <summary>
+        /// A physical table type for relational data sources.
+        /// </summary>
         public readonly Outputs.DataSetRelationalTable? RelationalTable;
+        /// <summary>
+        /// A physical table type for an S3 data source.
+        /// </summary>
         public readonly Outputs.DataSetS3Source? S3Source;
 
         [OutputConstructor]

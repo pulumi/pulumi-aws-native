@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
     public sealed class BackupSelectionConditionParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key in a key-value pair. For example, in the tag `Department: Accounting` , `Department` is the key.
+        /// </summary>
         [Input("conditionKey")]
         public Input<string>? ConditionKey { get; set; }
 
+        /// <summary>
+        /// The value in a key-value pair. For example, in the tag `Department: Accounting` , `Accounting` is the value.
+        /// </summary>
         [Input("conditionValue")]
         public Input<string>? ConditionValue { get; set; }
 

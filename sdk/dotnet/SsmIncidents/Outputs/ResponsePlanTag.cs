@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanTag
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

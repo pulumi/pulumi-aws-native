@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConfigAntennaDownlinkConfig struct {
+	// Defines a spectrum.
 	SpectrumConfig *ConfigSpectrumConfig `pulumi:"spectrumConfig"`
 }
 
@@ -29,6 +30,7 @@ type ConfigAntennaDownlinkConfigInput interface {
 }
 
 type ConfigAntennaDownlinkConfigArgs struct {
+	// Defines a spectrum.
 	SpectrumConfig ConfigSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
 }
 
@@ -109,6 +111,7 @@ func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigPtrOutpu
 	}).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
+// Defines a spectrum.
 func (o ConfigAntennaDownlinkConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
 }
@@ -137,6 +140,7 @@ func (o ConfigAntennaDownlinkConfigPtrOutput) Elem() ConfigAntennaDownlinkConfig
 	}).(ConfigAntennaDownlinkConfigOutput)
 }
 
+// Defines a spectrum.
 func (o ConfigAntennaDownlinkConfigPtrOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig {
 		if v == nil {
@@ -147,9 +151,12 @@ func (o ConfigAntennaDownlinkConfigPtrOutput) SpectrumConfig() ConfigSpectrumCon
 }
 
 type ConfigAntennaDownlinkDemodDecodeConfig struct {
-	DecodeConfig       *ConfigDecodeConfig       `pulumi:"decodeConfig"`
+	// Defines decoding settings.
+	DecodeConfig *ConfigDecodeConfig `pulumi:"decodeConfig"`
+	// Defines demodulation settings.
 	DemodulationConfig *ConfigDemodulationConfig `pulumi:"demodulationConfig"`
-	SpectrumConfig     *ConfigSpectrumConfig     `pulumi:"spectrumConfig"`
+	// Defines a spectrum.
+	SpectrumConfig *ConfigSpectrumConfig `pulumi:"spectrumConfig"`
 }
 
 // ConfigAntennaDownlinkDemodDecodeConfigInput is an input type that accepts ConfigAntennaDownlinkDemodDecodeConfigArgs and ConfigAntennaDownlinkDemodDecodeConfigOutput values.
@@ -164,9 +171,12 @@ type ConfigAntennaDownlinkDemodDecodeConfigInput interface {
 }
 
 type ConfigAntennaDownlinkDemodDecodeConfigArgs struct {
-	DecodeConfig       ConfigDecodeConfigPtrInput       `pulumi:"decodeConfig"`
+	// Defines decoding settings.
+	DecodeConfig ConfigDecodeConfigPtrInput `pulumi:"decodeConfig"`
+	// Defines demodulation settings.
 	DemodulationConfig ConfigDemodulationConfigPtrInput `pulumi:"demodulationConfig"`
-	SpectrumConfig     ConfigSpectrumConfigPtrInput     `pulumi:"spectrumConfig"`
+	// Defines a spectrum.
+	SpectrumConfig ConfigSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
 }
 
 func (ConfigAntennaDownlinkDemodDecodeConfigArgs) ElementType() reflect.Type {
@@ -246,14 +256,17 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDem
 	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
+// Defines decoding settings.
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDecodeConfig { return v.DecodeConfig }).(ConfigDecodeConfigPtrOutput)
 }
 
+// Defines demodulation settings.
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DemodulationConfig() ConfigDemodulationConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDemodulationConfig { return v.DemodulationConfig }).(ConfigDemodulationConfigPtrOutput)
 }
 
+// Defines a spectrum.
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
 }
@@ -282,6 +295,7 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) Elem() ConfigAntennaDow
 	}).(ConfigAntennaDownlinkDemodDecodeConfigOutput)
 }
 
+// Defines decoding settings.
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDecodeConfig {
 		if v == nil {
@@ -291,6 +305,7 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DecodeConfig() ConfigDe
 	}).(ConfigDecodeConfigPtrOutput)
 }
 
+// Defines demodulation settings.
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DemodulationConfig() ConfigDemodulationConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDemodulationConfig {
 		if v == nil {
@@ -300,6 +315,7 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DemodulationConfig() Co
 	}).(ConfigDemodulationConfigPtrOutput)
 }
 
+// Defines a spectrum.
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigSpectrumConfig {
 		if v == nil {
@@ -310,9 +326,12 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) SpectrumConfig() Config
 }
 
 type ConfigAntennaUplinkConfig struct {
-	SpectrumConfig   *ConfigUplinkSpectrumConfig `pulumi:"spectrumConfig"`
-	TargetEirp       *ConfigEirp                 `pulumi:"targetEirp"`
-	TransmitDisabled *bool                       `pulumi:"transmitDisabled"`
+	// Defines a uplink spectrum.
+	SpectrumConfig *ConfigUplinkSpectrumConfig `pulumi:"spectrumConfig"`
+	// Defines an equivalent isotropically radiated power (EIRP).
+	TargetEirp *ConfigEirp `pulumi:"targetEirp"`
+	// Whether or not uplink transmit is disabled.
+	TransmitDisabled *bool `pulumi:"transmitDisabled"`
 }
 
 // ConfigAntennaUplinkConfigInput is an input type that accepts ConfigAntennaUplinkConfigArgs and ConfigAntennaUplinkConfigOutput values.
@@ -327,9 +346,12 @@ type ConfigAntennaUplinkConfigInput interface {
 }
 
 type ConfigAntennaUplinkConfigArgs struct {
-	SpectrumConfig   ConfigUplinkSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
-	TargetEirp       ConfigEirpPtrInput                 `pulumi:"targetEirp"`
-	TransmitDisabled pulumi.BoolPtrInput                `pulumi:"transmitDisabled"`
+	// Defines a uplink spectrum.
+	SpectrumConfig ConfigUplinkSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
+	// Defines an equivalent isotropically radiated power (EIRP).
+	TargetEirp ConfigEirpPtrInput `pulumi:"targetEirp"`
+	// Whether or not uplink transmit is disabled.
+	TransmitDisabled pulumi.BoolPtrInput `pulumi:"transmitDisabled"`
 }
 
 func (ConfigAntennaUplinkConfigArgs) ElementType() reflect.Type {
@@ -409,14 +431,17 @@ func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigPtrOutputWit
 	}).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
+// Defines a uplink spectrum.
 func (o ConfigAntennaUplinkConfigOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *ConfigUplinkSpectrumConfig { return v.SpectrumConfig }).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
+// Defines an equivalent isotropically radiated power (EIRP).
 func (o ConfigAntennaUplinkConfigOutput) TargetEirp() ConfigEirpPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *ConfigEirp { return v.TargetEirp }).(ConfigEirpPtrOutput)
 }
 
+// Whether or not uplink transmit is disabled.
 func (o ConfigAntennaUplinkConfigOutput) TransmitDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *bool { return v.TransmitDisabled }).(pulumi.BoolPtrOutput)
 }
@@ -445,6 +470,7 @@ func (o ConfigAntennaUplinkConfigPtrOutput) Elem() ConfigAntennaUplinkConfigOutp
 	}).(ConfigAntennaUplinkConfigOutput)
 }
 
+// Defines a uplink spectrum.
 func (o ConfigAntennaUplinkConfigPtrOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *ConfigUplinkSpectrumConfig {
 		if v == nil {
@@ -454,6 +480,7 @@ func (o ConfigAntennaUplinkConfigPtrOutput) SpectrumConfig() ConfigUplinkSpectru
 	}).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
+// Defines an equivalent isotropically radiated power (EIRP).
 func (o ConfigAntennaUplinkConfigPtrOutput) TargetEirp() ConfigEirpPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *ConfigEirp {
 		if v == nil {
@@ -463,6 +490,7 @@ func (o ConfigAntennaUplinkConfigPtrOutput) TargetEirp() ConfigEirpPtrOutput {
 	}).(ConfigEirpPtrOutput)
 }
 
+// Whether or not uplink transmit is disabled.
 func (o ConfigAntennaUplinkConfigPtrOutput) TransmitDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *bool {
 		if v == nil {
@@ -473,13 +501,20 @@ func (o ConfigAntennaUplinkConfigPtrOutput) TransmitDisabled() pulumi.BoolPtrOut
 }
 
 type ConfigData struct {
-	AntennaDownlinkConfig            *ConfigAntennaDownlinkConfig            `pulumi:"antennaDownlinkConfig"`
+	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+	AntennaDownlinkConfig *ConfigAntennaDownlinkConfig `pulumi:"antennaDownlinkConfig"`
+	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
 	AntennaDownlinkDemodDecodeConfig *ConfigAntennaDownlinkDemodDecodeConfig `pulumi:"antennaDownlinkDemodDecodeConfig"`
-	AntennaUplinkConfig              *ConfigAntennaUplinkConfig              `pulumi:"antennaUplinkConfig"`
-	DataflowEndpointConfig           *ConfigDataflowEndpointConfig           `pulumi:"dataflowEndpointConfig"`
-	S3RecordingConfig                *ConfigS3RecordingConfig                `pulumi:"s3RecordingConfig"`
-	TrackingConfig                   *ConfigTrackingConfig                   `pulumi:"trackingConfig"`
-	UplinkEchoConfig                 *ConfigUplinkEchoConfig                 `pulumi:"uplinkEchoConfig"`
+	// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+	AntennaUplinkConfig *ConfigAntennaUplinkConfig `pulumi:"antennaUplinkConfig"`
+	// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+	DataflowEndpointConfig *ConfigDataflowEndpointConfig `pulumi:"dataflowEndpointConfig"`
+	// Provides information about how AWS Ground Station should save downlink data to S3.
+	S3RecordingConfig *ConfigS3RecordingConfig `pulumi:"s3RecordingConfig"`
+	// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+	TrackingConfig *ConfigTrackingConfig `pulumi:"trackingConfig"`
+	// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+	UplinkEchoConfig *ConfigUplinkEchoConfig `pulumi:"uplinkEchoConfig"`
 }
 
 // ConfigDataInput is an input type that accepts ConfigDataArgs and ConfigDataOutput values.
@@ -494,13 +529,20 @@ type ConfigDataInput interface {
 }
 
 type ConfigDataArgs struct {
-	AntennaDownlinkConfig            ConfigAntennaDownlinkConfigPtrInput            `pulumi:"antennaDownlinkConfig"`
+	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+	AntennaDownlinkConfig ConfigAntennaDownlinkConfigPtrInput `pulumi:"antennaDownlinkConfig"`
+	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
 	AntennaDownlinkDemodDecodeConfig ConfigAntennaDownlinkDemodDecodeConfigPtrInput `pulumi:"antennaDownlinkDemodDecodeConfig"`
-	AntennaUplinkConfig              ConfigAntennaUplinkConfigPtrInput              `pulumi:"antennaUplinkConfig"`
-	DataflowEndpointConfig           ConfigDataflowEndpointConfigPtrInput           `pulumi:"dataflowEndpointConfig"`
-	S3RecordingConfig                ConfigS3RecordingConfigPtrInput                `pulumi:"s3RecordingConfig"`
-	TrackingConfig                   ConfigTrackingConfigPtrInput                   `pulumi:"trackingConfig"`
-	UplinkEchoConfig                 ConfigUplinkEchoConfigPtrInput                 `pulumi:"uplinkEchoConfig"`
+	// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+	AntennaUplinkConfig ConfigAntennaUplinkConfigPtrInput `pulumi:"antennaUplinkConfig"`
+	// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+	DataflowEndpointConfig ConfigDataflowEndpointConfigPtrInput `pulumi:"dataflowEndpointConfig"`
+	// Provides information about how AWS Ground Station should save downlink data to S3.
+	S3RecordingConfig ConfigS3RecordingConfigPtrInput `pulumi:"s3RecordingConfig"`
+	// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+	TrackingConfig ConfigTrackingConfigPtrInput `pulumi:"trackingConfig"`
+	// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+	UplinkEchoConfig ConfigUplinkEchoConfigPtrInput `pulumi:"uplinkEchoConfig"`
 }
 
 func (ConfigDataArgs) ElementType() reflect.Type {
@@ -529,30 +571,37 @@ func (o ConfigDataOutput) ToConfigDataOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
 func (o ConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigAntennaDownlinkConfig { return v.AntennaDownlinkConfig }).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
 func (o ConfigDataOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig { return v.AntennaDownlinkDemodDecodeConfig }).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
 func (o ConfigDataOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigAntennaUplinkConfig { return v.AntennaUplinkConfig }).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
+// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
 func (o ConfigDataOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigDataflowEndpointConfig { return v.DataflowEndpointConfig }).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should save downlink data to S3.
 func (o ConfigDataOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigS3RecordingConfig { return v.S3RecordingConfig }).(ConfigS3RecordingConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
 func (o ConfigDataOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigTrackingConfig { return v.TrackingConfig }).(ConfigTrackingConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
 func (o ConfigDataOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigUplinkEchoConfig { return v.UplinkEchoConfig }).(ConfigUplinkEchoConfigPtrOutput)
 }
@@ -581,6 +630,7 @@ func (o ConfigDataPtrOutput) Elem() ConfigDataOutput {
 	}).(ConfigDataOutput)
 }
 
+// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
 func (o ConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkConfig {
 		if v == nil {
@@ -590,6 +640,7 @@ func (o ConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfig
 	}).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
 func (o ConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
 		if v == nil {
@@ -599,6 +650,7 @@ func (o ConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDow
 	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
 func (o ConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigAntennaUplinkConfig {
 		if v == nil {
@@ -608,6 +660,7 @@ func (o ConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrO
 	}).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
+// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
 func (o ConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigDataflowEndpointConfig {
 		if v == nil {
@@ -617,6 +670,7 @@ func (o ConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConf
 	}).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should save downlink data to S3.
 func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigS3RecordingConfig {
 		if v == nil {
@@ -626,6 +680,7 @@ func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutpu
 	}).(ConfigS3RecordingConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
 func (o ConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigTrackingConfig {
 		if v == nil {
@@ -635,6 +690,7 @@ func (o ConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 	}).(ConfigTrackingConfigPtrOutput)
 }
 
+// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
 func (o ConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigUplinkEchoConfig {
 		if v == nil {
@@ -645,7 +701,9 @@ func (o ConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput 
 }
 
 type ConfigDataflowEndpointConfig struct {
-	DataflowEndpointName   *string `pulumi:"dataflowEndpointName"`
+	// The name of the dataflow endpoint to use during contacts.
+	DataflowEndpointName *string `pulumi:"dataflowEndpointName"`
+	// The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
 	DataflowEndpointRegion *string `pulumi:"dataflowEndpointRegion"`
 }
 
@@ -661,7 +719,9 @@ type ConfigDataflowEndpointConfigInput interface {
 }
 
 type ConfigDataflowEndpointConfigArgs struct {
-	DataflowEndpointName   pulumi.StringPtrInput `pulumi:"dataflowEndpointName"`
+	// The name of the dataflow endpoint to use during contacts.
+	DataflowEndpointName pulumi.StringPtrInput `pulumi:"dataflowEndpointName"`
+	// The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
 	DataflowEndpointRegion pulumi.StringPtrInput `pulumi:"dataflowEndpointRegion"`
 }
 
@@ -742,10 +802,12 @@ func (o ConfigDataflowEndpointConfigOutput) ToConfigDataflowEndpointConfigPtrOut
 	}).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
+// The name of the dataflow endpoint to use during contacts.
 func (o ConfigDataflowEndpointConfigOutput) DataflowEndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDataflowEndpointConfig) *string { return v.DataflowEndpointName }).(pulumi.StringPtrOutput)
 }
 
+// The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
 func (o ConfigDataflowEndpointConfigOutput) DataflowEndpointRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDataflowEndpointConfig) *string { return v.DataflowEndpointRegion }).(pulumi.StringPtrOutput)
 }
@@ -774,6 +836,7 @@ func (o ConfigDataflowEndpointConfigPtrOutput) Elem() ConfigDataflowEndpointConf
 	}).(ConfigDataflowEndpointConfigOutput)
 }
 
+// The name of the dataflow endpoint to use during contacts.
 func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigDataflowEndpointConfig) *string {
 		if v == nil {
@@ -783,6 +846,7 @@ func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
 func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigDataflowEndpointConfig) *string {
 		if v == nil {
@@ -1059,8 +1123,10 @@ func (o ConfigDemodulationConfigPtrOutput) UnvalidatedJson() pulumi.StringPtrOut
 }
 
 type ConfigEirp struct {
+	// The units of the EIRP.
 	Units *ConfigEirpUnits `pulumi:"units"`
-	Value *float64         `pulumi:"value"`
+	// The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
+	Value *float64 `pulumi:"value"`
 }
 
 // ConfigEirpInput is an input type that accepts ConfigEirpArgs and ConfigEirpOutput values.
@@ -1075,8 +1141,10 @@ type ConfigEirpInput interface {
 }
 
 type ConfigEirpArgs struct {
+	// The units of the EIRP.
 	Units ConfigEirpUnitsPtrInput `pulumi:"units"`
-	Value pulumi.Float64PtrInput  `pulumi:"value"`
+	// The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
+	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (ConfigEirpArgs) ElementType() reflect.Type {
@@ -1156,10 +1224,12 @@ func (o ConfigEirpOutput) ToConfigEirpPtrOutputWithContext(ctx context.Context) 
 	}).(ConfigEirpPtrOutput)
 }
 
+// The units of the EIRP.
 func (o ConfigEirpOutput) Units() ConfigEirpUnitsPtrOutput {
 	return o.ApplyT(func(v ConfigEirp) *ConfigEirpUnits { return v.Units }).(ConfigEirpUnitsPtrOutput)
 }
 
+// The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
 func (o ConfigEirpOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigEirp) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
@@ -1188,6 +1258,7 @@ func (o ConfigEirpPtrOutput) Elem() ConfigEirpOutput {
 	}).(ConfigEirpOutput)
 }
 
+// The units of the EIRP.
 func (o ConfigEirpPtrOutput) Units() ConfigEirpUnitsPtrOutput {
 	return o.ApplyT(func(v *ConfigEirp) *ConfigEirpUnits {
 		if v == nil {
@@ -1197,6 +1268,7 @@ func (o ConfigEirpPtrOutput) Units() ConfigEirpUnitsPtrOutput {
 	}).(ConfigEirpUnitsPtrOutput)
 }
 
+// The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
 func (o ConfigEirpPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigEirp) *float64 {
 		if v == nil {
@@ -1207,8 +1279,10 @@ func (o ConfigEirpPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type ConfigFrequency struct {
+	// The units of the frequency.
 	Units *ConfigFrequencyUnits `pulumi:"units"`
-	Value *float64              `pulumi:"value"`
+	// The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
+	Value *float64 `pulumi:"value"`
 }
 
 // ConfigFrequencyInput is an input type that accepts ConfigFrequencyArgs and ConfigFrequencyOutput values.
@@ -1223,8 +1297,10 @@ type ConfigFrequencyInput interface {
 }
 
 type ConfigFrequencyArgs struct {
+	// The units of the frequency.
 	Units ConfigFrequencyUnitsPtrInput `pulumi:"units"`
-	Value pulumi.Float64PtrInput       `pulumi:"value"`
+	// The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
+	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (ConfigFrequencyArgs) ElementType() reflect.Type {
@@ -1304,10 +1380,12 @@ func (o ConfigFrequencyOutput) ToConfigFrequencyPtrOutputWithContext(ctx context
 	}).(ConfigFrequencyPtrOutput)
 }
 
+// The units of the frequency.
 func (o ConfigFrequencyOutput) Units() ConfigFrequencyUnitsPtrOutput {
 	return o.ApplyT(func(v ConfigFrequency) *ConfigFrequencyUnits { return v.Units }).(ConfigFrequencyUnitsPtrOutput)
 }
 
+// The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 func (o ConfigFrequencyOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigFrequency) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
@@ -1336,6 +1414,7 @@ func (o ConfigFrequencyPtrOutput) Elem() ConfigFrequencyOutput {
 	}).(ConfigFrequencyOutput)
 }
 
+// The units of the frequency.
 func (o ConfigFrequencyPtrOutput) Units() ConfigFrequencyUnitsPtrOutput {
 	return o.ApplyT(func(v *ConfigFrequency) *ConfigFrequencyUnits {
 		if v == nil {
@@ -1345,6 +1424,7 @@ func (o ConfigFrequencyPtrOutput) Units() ConfigFrequencyUnitsPtrOutput {
 	}).(ConfigFrequencyUnitsPtrOutput)
 }
 
+// The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 func (o ConfigFrequencyPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigFrequency) *float64 {
 		if v == nil {
@@ -1355,8 +1435,14 @@ func (o ConfigFrequencyPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type ConfigFrequencyBandwidth struct {
+	// The units of the bandwidth.
 	Units *ConfigBandwidthUnits `pulumi:"units"`
-	Value *float64              `pulumi:"value"`
+	// The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
+	//
+	// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+	// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+	// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
+	Value *float64 `pulumi:"value"`
 }
 
 // ConfigFrequencyBandwidthInput is an input type that accepts ConfigFrequencyBandwidthArgs and ConfigFrequencyBandwidthOutput values.
@@ -1371,8 +1457,14 @@ type ConfigFrequencyBandwidthInput interface {
 }
 
 type ConfigFrequencyBandwidthArgs struct {
+	// The units of the bandwidth.
 	Units ConfigBandwidthUnitsPtrInput `pulumi:"units"`
-	Value pulumi.Float64PtrInput       `pulumi:"value"`
+	// The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
+	//
+	// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+	// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+	// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
+	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (ConfigFrequencyBandwidthArgs) ElementType() reflect.Type {
@@ -1452,10 +1544,16 @@ func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthPtrOutputWithC
 	}).(ConfigFrequencyBandwidthPtrOutput)
 }
 
+// The units of the bandwidth.
 func (o ConfigFrequencyBandwidthOutput) Units() ConfigBandwidthUnitsPtrOutput {
 	return o.ApplyT(func(v ConfigFrequencyBandwidth) *ConfigBandwidthUnits { return v.Units }).(ConfigBandwidthUnitsPtrOutput)
 }
 
+// The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
+//
+// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
 func (o ConfigFrequencyBandwidthOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConfigFrequencyBandwidth) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
@@ -1484,6 +1582,7 @@ func (o ConfigFrequencyBandwidthPtrOutput) Elem() ConfigFrequencyBandwidthOutput
 	}).(ConfigFrequencyBandwidthOutput)
 }
 
+// The units of the bandwidth.
 func (o ConfigFrequencyBandwidthPtrOutput) Units() ConfigBandwidthUnitsPtrOutput {
 	return o.ApplyT(func(v *ConfigFrequencyBandwidth) *ConfigBandwidthUnits {
 		if v == nil {
@@ -1493,6 +1592,11 @@ func (o ConfigFrequencyBandwidthPtrOutput) Units() ConfigBandwidthUnitsPtrOutput
 	}).(ConfigBandwidthUnitsPtrOutput)
 }
 
+// The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
+//
+// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
 func (o ConfigFrequencyBandwidthPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConfigFrequencyBandwidth) *float64 {
 		if v == nil {
@@ -1503,9 +1607,14 @@ func (o ConfigFrequencyBandwidthPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type ConfigS3RecordingConfig struct {
+	// S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
 	BucketArn *string `pulumi:"bucketArn"`
-	Prefix    *string `pulumi:"prefix"`
-	RoleArn   *string `pulumi:"roleArn"`
+	// The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+	//
+	// *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
+	Prefix *string `pulumi:"prefix"`
+	// Defines the ARN of the role assumed for putting archives to S3.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // ConfigS3RecordingConfigInput is an input type that accepts ConfigS3RecordingConfigArgs and ConfigS3RecordingConfigOutput values.
@@ -1520,9 +1629,14 @@ type ConfigS3RecordingConfigInput interface {
 }
 
 type ConfigS3RecordingConfigArgs struct {
+	// S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
 	BucketArn pulumi.StringPtrInput `pulumi:"bucketArn"`
-	Prefix    pulumi.StringPtrInput `pulumi:"prefix"`
-	RoleArn   pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+	//
+	// *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Defines the ARN of the role assumed for putting archives to S3.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (ConfigS3RecordingConfigArgs) ElementType() reflect.Type {
@@ -1602,14 +1716,19 @@ func (o ConfigS3RecordingConfigOutput) ToConfigS3RecordingConfigPtrOutputWithCon
 	}).(ConfigS3RecordingConfigPtrOutput)
 }
 
+// S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
 func (o ConfigS3RecordingConfigOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigS3RecordingConfig) *string { return v.BucketArn }).(pulumi.StringPtrOutput)
 }
 
+// The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+//
+// *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
 func (o ConfigS3RecordingConfigOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigS3RecordingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Defines the ARN of the role assumed for putting archives to S3.
 func (o ConfigS3RecordingConfigOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigS3RecordingConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -1638,6 +1757,7 @@ func (o ConfigS3RecordingConfigPtrOutput) Elem() ConfigS3RecordingConfigOutput {
 	}).(ConfigS3RecordingConfigOutput)
 }
 
+// S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
 func (o ConfigS3RecordingConfigPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigS3RecordingConfig) *string {
 		if v == nil {
@@ -1647,6 +1767,9 @@ func (o ConfigS3RecordingConfigPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+//
+// *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
 func (o ConfigS3RecordingConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigS3RecordingConfig) *string {
 		if v == nil {
@@ -1656,6 +1779,7 @@ func (o ConfigS3RecordingConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the ARN of the role assumed for putting archives to S3.
 func (o ConfigS3RecordingConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigS3RecordingConfig) *string {
 		if v == nil {
@@ -1666,9 +1790,12 @@ func (o ConfigS3RecordingConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type ConfigSpectrumConfig struct {
-	Bandwidth       *ConfigFrequencyBandwidth `pulumi:"bandwidth"`
-	CenterFrequency *ConfigFrequency          `pulumi:"centerFrequency"`
-	Polarization    *ConfigPolarization       `pulumi:"polarization"`
+	// Defines a bandwidth.
+	Bandwidth *ConfigFrequencyBandwidth `pulumi:"bandwidth"`
+	// Defines a frequency.
+	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
+	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
+	Polarization *ConfigPolarization `pulumi:"polarization"`
 }
 
 // ConfigSpectrumConfigInput is an input type that accepts ConfigSpectrumConfigArgs and ConfigSpectrumConfigOutput values.
@@ -1683,9 +1810,12 @@ type ConfigSpectrumConfigInput interface {
 }
 
 type ConfigSpectrumConfigArgs struct {
-	Bandwidth       ConfigFrequencyBandwidthPtrInput `pulumi:"bandwidth"`
-	CenterFrequency ConfigFrequencyPtrInput          `pulumi:"centerFrequency"`
-	Polarization    ConfigPolarizationPtrInput       `pulumi:"polarization"`
+	// Defines a bandwidth.
+	Bandwidth ConfigFrequencyBandwidthPtrInput `pulumi:"bandwidth"`
+	// Defines a frequency.
+	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
+	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
+	Polarization ConfigPolarizationPtrInput `pulumi:"polarization"`
 }
 
 func (ConfigSpectrumConfigArgs) ElementType() reflect.Type {
@@ -1765,14 +1895,17 @@ func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigPtrOutputWithContext(c
 	}).(ConfigSpectrumConfigPtrOutput)
 }
 
+// Defines a bandwidth.
 func (o ConfigSpectrumConfigOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
 	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequencyBandwidth { return v.Bandwidth }).(ConfigFrequencyBandwidthPtrOutput)
 }
 
+// Defines a frequency.
 func (o ConfigSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
 
+// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
 func (o ConfigSpectrumConfigOutput) Polarization() ConfigPolarizationPtrOutput {
 	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigPolarization { return v.Polarization }).(ConfigPolarizationPtrOutput)
 }
@@ -1801,6 +1934,7 @@ func (o ConfigSpectrumConfigPtrOutput) Elem() ConfigSpectrumConfigOutput {
 	}).(ConfigSpectrumConfigOutput)
 }
 
+// Defines a bandwidth.
 func (o ConfigSpectrumConfigPtrOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
 	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigFrequencyBandwidth {
 		if v == nil {
@@ -1810,6 +1944,7 @@ func (o ConfigSpectrumConfigPtrOutput) Bandwidth() ConfigFrequencyBandwidthPtrOu
 	}).(ConfigFrequencyBandwidthPtrOutput)
 }
 
+// Defines a frequency.
 func (o ConfigSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigFrequency {
 		if v == nil {
@@ -1819,6 +1954,7 @@ func (o ConfigSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutpu
 	}).(ConfigFrequencyPtrOutput)
 }
 
+// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
 func (o ConfigSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPtrOutput {
 	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigPolarization {
 		if v == nil {
@@ -1834,6 +1970,7 @@ type ConfigTag struct {
 }
 
 type ConfigTrackingConfig struct {
+	// Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
 	Autotrack *ConfigTrackingConfigAutotrack `pulumi:"autotrack"`
 }
 
@@ -1849,6 +1986,7 @@ type ConfigTrackingConfigInput interface {
 }
 
 type ConfigTrackingConfigArgs struct {
+	// Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
 	Autotrack ConfigTrackingConfigAutotrackPtrInput `pulumi:"autotrack"`
 }
 
@@ -1929,6 +2067,7 @@ func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigPtrOutputWithContext(c
 	}).(ConfigTrackingConfigPtrOutput)
 }
 
+// Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
 func (o ConfigTrackingConfigOutput) Autotrack() ConfigTrackingConfigAutotrackPtrOutput {
 	return o.ApplyT(func(v ConfigTrackingConfig) *ConfigTrackingConfigAutotrack { return v.Autotrack }).(ConfigTrackingConfigAutotrackPtrOutput)
 }
@@ -1957,6 +2096,7 @@ func (o ConfigTrackingConfigPtrOutput) Elem() ConfigTrackingConfigOutput {
 	}).(ConfigTrackingConfigOutput)
 }
 
+// Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
 func (o ConfigTrackingConfigPtrOutput) Autotrack() ConfigTrackingConfigAutotrackPtrOutput {
 	return o.ApplyT(func(v *ConfigTrackingConfig) *ConfigTrackingConfigAutotrack {
 		if v == nil {
@@ -1967,8 +2107,10 @@ func (o ConfigTrackingConfigPtrOutput) Autotrack() ConfigTrackingConfigAutotrack
 }
 
 type ConfigUplinkEchoConfig struct {
+	// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
 	AntennaUplinkConfigArn *string `pulumi:"antennaUplinkConfigArn"`
-	Enabled                *bool   `pulumi:"enabled"`
+	// Whether or not uplink echo is enabled.
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // ConfigUplinkEchoConfigInput is an input type that accepts ConfigUplinkEchoConfigArgs and ConfigUplinkEchoConfigOutput values.
@@ -1983,8 +2125,10 @@ type ConfigUplinkEchoConfigInput interface {
 }
 
 type ConfigUplinkEchoConfigArgs struct {
+	// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
 	AntennaUplinkConfigArn pulumi.StringPtrInput `pulumi:"antennaUplinkConfigArn"`
-	Enabled                pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// Whether or not uplink echo is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (ConfigUplinkEchoConfigArgs) ElementType() reflect.Type {
@@ -2064,10 +2208,12 @@ func (o ConfigUplinkEchoConfigOutput) ToConfigUplinkEchoConfigPtrOutputWithConte
 	}).(ConfigUplinkEchoConfigPtrOutput)
 }
 
+// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
 func (o ConfigUplinkEchoConfigOutput) AntennaUplinkConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkEchoConfig) *string { return v.AntennaUplinkConfigArn }).(pulumi.StringPtrOutput)
 }
 
+// Whether or not uplink echo is enabled.
 func (o ConfigUplinkEchoConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkEchoConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2096,6 +2242,7 @@ func (o ConfigUplinkEchoConfigPtrOutput) Elem() ConfigUplinkEchoConfigOutput {
 	}).(ConfigUplinkEchoConfigOutput)
 }
 
+// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
 func (o ConfigUplinkEchoConfigPtrOutput) AntennaUplinkConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigUplinkEchoConfig) *string {
 		if v == nil {
@@ -2105,6 +2252,7 @@ func (o ConfigUplinkEchoConfigPtrOutput) AntennaUplinkConfigArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether or not uplink echo is enabled.
 func (o ConfigUplinkEchoConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigUplinkEchoConfig) *bool {
 		if v == nil {
@@ -2115,8 +2263,10 @@ func (o ConfigUplinkEchoConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ConfigUplinkSpectrumConfig struct {
-	CenterFrequency *ConfigFrequency    `pulumi:"centerFrequency"`
-	Polarization    *ConfigPolarization `pulumi:"polarization"`
+	// Defines a frequency.
+	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
+	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
+	Polarization *ConfigPolarization `pulumi:"polarization"`
 }
 
 // ConfigUplinkSpectrumConfigInput is an input type that accepts ConfigUplinkSpectrumConfigArgs and ConfigUplinkSpectrumConfigOutput values.
@@ -2131,8 +2281,10 @@ type ConfigUplinkSpectrumConfigInput interface {
 }
 
 type ConfigUplinkSpectrumConfigArgs struct {
-	CenterFrequency ConfigFrequencyPtrInput    `pulumi:"centerFrequency"`
-	Polarization    ConfigPolarizationPtrInput `pulumi:"polarization"`
+	// Defines a frequency.
+	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
+	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
+	Polarization ConfigPolarizationPtrInput `pulumi:"polarization"`
 }
 
 func (ConfigUplinkSpectrumConfigArgs) ElementType() reflect.Type {
@@ -2212,10 +2364,12 @@ func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigPtrOutputW
 	}).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
+// Defines a frequency.
 func (o ConfigUplinkSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
 
+// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
 func (o ConfigUplinkSpectrumConfigOutput) Polarization() ConfigPolarizationPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigPolarization { return v.Polarization }).(ConfigPolarizationPtrOutput)
 }
@@ -2244,6 +2398,7 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) Elem() ConfigUplinkSpectrumConfigOu
 	}).(ConfigUplinkSpectrumConfigOutput)
 }
 
+// Defines a frequency.
 func (o ConfigUplinkSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *ConfigFrequency {
 		if v == nil {
@@ -2253,6 +2408,7 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPt
 	}).(ConfigFrequencyPtrOutput)
 }
 
+// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
 func (o ConfigUplinkSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPtrOutput {
 	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *ConfigPolarization {
 		if v == nil {
@@ -2469,7 +2625,8 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Name() pulu
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetails struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           *int                                `pulumi:"mtu"`
+	Mtu *int `pulumi:"mtu"`
+	// The address of the endpoint, such as `192.168.1.1` .
 	SocketAddress *DataflowEndpointGroupSocketAddress `pulumi:"socketAddress"`
 }
 
@@ -2487,7 +2644,8 @@ type DataflowEndpointGroupConnectionDetailsInput interface {
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetailsArgs struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           pulumi.IntPtrInput                         `pulumi:"mtu"`
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// The address of the endpoint, such as `192.168.1.1` .
 	SocketAddress DataflowEndpointGroupSocketAddressPtrInput `pulumi:"socketAddress"`
 }
 
@@ -2574,6 +2732,7 @@ func (o DataflowEndpointGroupConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
+// The address of the endpoint, such as `192.168.1.1` .
 func (o DataflowEndpointGroupConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
 		return v.SocketAddress
@@ -2614,6 +2773,7 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The address of the endpoint, such as `192.168.1.1` .
 func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
 		if v == nil {
@@ -2624,9 +2784,13 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() Dataflo
 }
 
 type DataflowEndpointGroupDataflowEndpoint struct {
+	// The address of the endpoint, such as `192.168.1.1` .
 	Address *DataflowEndpointGroupSocketAddress `pulumi:"address"`
 	Mtu     *int                                `pulumi:"mtu"`
-	Name    *string                             `pulumi:"name"`
+	// The endpoint name.
+	//
+	// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
+	Name *string `pulumi:"name"`
 }
 
 // DataflowEndpointGroupDataflowEndpointInput is an input type that accepts DataflowEndpointGroupDataflowEndpointArgs and DataflowEndpointGroupDataflowEndpointOutput values.
@@ -2641,9 +2805,13 @@ type DataflowEndpointGroupDataflowEndpointInput interface {
 }
 
 type DataflowEndpointGroupDataflowEndpointArgs struct {
+	// The address of the endpoint, such as `192.168.1.1` .
 	Address DataflowEndpointGroupSocketAddressPtrInput `pulumi:"address"`
 	Mtu     pulumi.IntPtrInput                         `pulumi:"mtu"`
-	Name    pulumi.StringPtrInput                      `pulumi:"name"`
+	// The endpoint name.
+	//
+	// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DataflowEndpointGroupDataflowEndpointArgs) ElementType() reflect.Type {
@@ -2723,6 +2891,7 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) ToDataflowEndpointGroupData
 	}).(DataflowEndpointGroupDataflowEndpointPtrOutput)
 }
 
+// The address of the endpoint, such as `192.168.1.1` .
 func (o DataflowEndpointGroupDataflowEndpointOutput) Address() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupSocketAddress { return v.Address }).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
@@ -2731,6 +2900,9 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
+// The endpoint name.
+//
+// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
 func (o DataflowEndpointGroupDataflowEndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2759,6 +2931,7 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Elem() DataflowEndpointG
 	}).(DataflowEndpointGroupDataflowEndpointOutput)
 }
 
+// The address of the endpoint, such as `192.168.1.1` .
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Address() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupSocketAddress {
 		if v == nil {
@@ -2777,6 +2950,9 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Mtu() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The endpoint name.
+//
+// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *string {
 		if v == nil {
@@ -2788,8 +2964,10 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrO
 
 type DataflowEndpointGroupEndpointDetails struct {
 	AwsGroundStationAgentEndpoint *DataflowEndpointGroupAwsGroundStationAgentEndpoint `pulumi:"awsGroundStationAgentEndpoint"`
-	Endpoint                      *DataflowEndpointGroupDataflowEndpoint              `pulumi:"endpoint"`
-	SecurityDetails               *DataflowEndpointGroupSecurityDetails               `pulumi:"securityDetails"`
+	// Contains information such as socket address and name that defines an endpoint.
+	Endpoint *DataflowEndpointGroupDataflowEndpoint `pulumi:"endpoint"`
+	// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+	SecurityDetails *DataflowEndpointGroupSecurityDetails `pulumi:"securityDetails"`
 }
 
 // DataflowEndpointGroupEndpointDetailsInput is an input type that accepts DataflowEndpointGroupEndpointDetailsArgs and DataflowEndpointGroupEndpointDetailsOutput values.
@@ -2805,8 +2983,10 @@ type DataflowEndpointGroupEndpointDetailsInput interface {
 
 type DataflowEndpointGroupEndpointDetailsArgs struct {
 	AwsGroundStationAgentEndpoint DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput `pulumi:"awsGroundStationAgentEndpoint"`
-	Endpoint                      DataflowEndpointGroupDataflowEndpointPtrInput              `pulumi:"endpoint"`
-	SecurityDetails               DataflowEndpointGroupSecurityDetailsPtrInput               `pulumi:"securityDetails"`
+	// Contains information such as socket address and name that defines an endpoint.
+	Endpoint DataflowEndpointGroupDataflowEndpointPtrInput `pulumi:"endpoint"`
+	// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+	SecurityDetails DataflowEndpointGroupSecurityDetailsPtrInput `pulumi:"securityDetails"`
 }
 
 func (DataflowEndpointGroupEndpointDetailsArgs) ElementType() reflect.Type {
@@ -2866,10 +3046,12 @@ func (o DataflowEndpointGroupEndpointDetailsOutput) AwsGroundStationAgentEndpoin
 	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
 }
 
+// Contains information such as socket address and name that defines an endpoint.
 func (o DataflowEndpointGroupEndpointDetailsOutput) Endpoint() DataflowEndpointGroupDataflowEndpointPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupDataflowEndpoint { return v.Endpoint }).(DataflowEndpointGroupDataflowEndpointPtrOutput)
 }
 
+// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
 func (o DataflowEndpointGroupEndpointDetailsOutput) SecurityDetails() DataflowEndpointGroupSecurityDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupSecurityDetails {
 		return v.SecurityDetails
@@ -3374,9 +3556,14 @@ func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) PortRange() DataflowE
 }
 
 type DataflowEndpointGroupSecurityDetails struct {
-	RoleArn          *string  `pulumi:"roleArn"`
+	// The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
+	//
+	// Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
+	RoleArn *string `pulumi:"roleArn"`
+	// The security group Ids of the security role, such as `sg-1234567890abcdef0` .
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// The subnet Ids of the security details, such as `subnet-12345678` .
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // DataflowEndpointGroupSecurityDetailsInput is an input type that accepts DataflowEndpointGroupSecurityDetailsArgs and DataflowEndpointGroupSecurityDetailsOutput values.
@@ -3391,9 +3578,14 @@ type DataflowEndpointGroupSecurityDetailsInput interface {
 }
 
 type DataflowEndpointGroupSecurityDetailsArgs struct {
-	RoleArn          pulumi.StringPtrInput   `pulumi:"roleArn"`
+	// The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
+	//
+	// Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The security group Ids of the security role, such as `sg-1234567890abcdef0` .
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The subnet Ids of the security details, such as `subnet-12345678` .
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (DataflowEndpointGroupSecurityDetailsArgs) ElementType() reflect.Type {
@@ -3473,14 +3665,19 @@ func (o DataflowEndpointGroupSecurityDetailsOutput) ToDataflowEndpointGroupSecur
 	}).(DataflowEndpointGroupSecurityDetailsPtrOutput)
 }
 
+// The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
+//
+// Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
 func (o DataflowEndpointGroupSecurityDetailsOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupSecurityDetails) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The security group Ids of the security role, such as `sg-1234567890abcdef0` .
 func (o DataflowEndpointGroupSecurityDetailsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupSecurityDetails) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The subnet Ids of the security details, such as `subnet-12345678` .
 func (o DataflowEndpointGroupSecurityDetailsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupSecurityDetails) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -3509,6 +3706,9 @@ func (o DataflowEndpointGroupSecurityDetailsPtrOutput) Elem() DataflowEndpointGr
 	}).(DataflowEndpointGroupSecurityDetailsOutput)
 }
 
+// The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
+//
+// Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
 func (o DataflowEndpointGroupSecurityDetailsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupSecurityDetails) *string {
 		if v == nil {
@@ -3518,6 +3718,7 @@ func (o DataflowEndpointGroupSecurityDetailsPtrOutput) RoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security group Ids of the security role, such as `sg-1234567890abcdef0` .
 func (o DataflowEndpointGroupSecurityDetailsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupSecurityDetails) []string {
 		if v == nil {
@@ -3527,6 +3728,7 @@ func (o DataflowEndpointGroupSecurityDetailsPtrOutput) SecurityGroupIds() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
+// The subnet Ids of the security details, such as `subnet-12345678` .
 func (o DataflowEndpointGroupSecurityDetailsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupSecurityDetails) []string {
 		if v == nil {
@@ -3537,8 +3739,10 @@ func (o DataflowEndpointGroupSecurityDetailsPtrOutput) SubnetIds() pulumi.String
 }
 
 type DataflowEndpointGroupSocketAddress struct {
+	// The name of the endpoint, such as `Endpoint 1` .
 	Name *string `pulumi:"name"`
-	Port *int    `pulumi:"port"`
+	// The port of the endpoint, such as `55888` .
+	Port *int `pulumi:"port"`
 }
 
 // DataflowEndpointGroupSocketAddressInput is an input type that accepts DataflowEndpointGroupSocketAddressArgs and DataflowEndpointGroupSocketAddressOutput values.
@@ -3553,8 +3757,10 @@ type DataflowEndpointGroupSocketAddressInput interface {
 }
 
 type DataflowEndpointGroupSocketAddressArgs struct {
+	// The name of the endpoint, such as `Endpoint 1` .
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	Port pulumi.IntPtrInput    `pulumi:"port"`
+	// The port of the endpoint, such as `55888` .
+	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
 func (DataflowEndpointGroupSocketAddressArgs) ElementType() reflect.Type {
@@ -3634,10 +3840,12 @@ func (o DataflowEndpointGroupSocketAddressOutput) ToDataflowEndpointGroupSocketA
 	}).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
+// The name of the endpoint, such as `Endpoint 1` .
 func (o DataflowEndpointGroupSocketAddressOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupSocketAddress) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The port of the endpoint, such as `55888` .
 func (o DataflowEndpointGroupSocketAddressOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupSocketAddress) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3666,6 +3874,7 @@ func (o DataflowEndpointGroupSocketAddressPtrOutput) Elem() DataflowEndpointGrou
 	}).(DataflowEndpointGroupSocketAddressOutput)
 }
 
+// The name of the endpoint, such as `Endpoint 1` .
 func (o DataflowEndpointGroupSocketAddressPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupSocketAddress) *string {
 		if v == nil {
@@ -3675,6 +3884,7 @@ func (o DataflowEndpointGroupSocketAddressPtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port of the endpoint, such as `55888` .
 func (o DataflowEndpointGroupSocketAddressPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupSocketAddress) *int {
 		if v == nil {
@@ -3690,8 +3900,10 @@ type DataflowEndpointGroupTag struct {
 }
 
 type MissionProfileDataflowEdge struct {
+	// The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
 	Destination *string `pulumi:"destination"`
-	Source      *string `pulumi:"source"`
+	// The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
+	Source *string `pulumi:"source"`
 }
 
 // MissionProfileDataflowEdgeInput is an input type that accepts MissionProfileDataflowEdgeArgs and MissionProfileDataflowEdgeOutput values.
@@ -3706,8 +3918,10 @@ type MissionProfileDataflowEdgeInput interface {
 }
 
 type MissionProfileDataflowEdgeArgs struct {
+	// The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
-	Source      pulumi.StringPtrInput `pulumi:"source"`
+	// The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
+	Source pulumi.StringPtrInput `pulumi:"source"`
 }
 
 func (MissionProfileDataflowEdgeArgs) ElementType() reflect.Type {
@@ -3761,10 +3975,12 @@ func (o MissionProfileDataflowEdgeOutput) ToMissionProfileDataflowEdgeOutputWith
 	return o
 }
 
+// The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
 func (o MissionProfileDataflowEdgeOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MissionProfileDataflowEdge) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
 func (o MissionProfileDataflowEdgeOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MissionProfileDataflowEdge) *string { return v.Source }).(pulumi.StringPtrOutput)
 }

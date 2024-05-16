@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Amplify.Inputs
 
     public sealed class BranchEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The environment variable name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The environment variable value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

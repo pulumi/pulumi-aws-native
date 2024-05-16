@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
     {
         [Input("entityTypes")]
         private InputList<Inputs.FlywheelEntityTypesListItemArgs>? _entityTypes;
+
+        /// <summary>
+        /// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+        /// </summary>
         public InputList<Inputs.FlywheelEntityTypesListItemArgs> EntityTypes
         {
             get => _entityTypes ?? (_entityTypes = new InputList<Inputs.FlywheelEntityTypesListItemArgs>());

@@ -52,6 +52,9 @@ class GetLoggingConfigurationResult:
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional['outputs.LoggingConfigurationDestinationConfiguration']:
+        """
+        The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @property

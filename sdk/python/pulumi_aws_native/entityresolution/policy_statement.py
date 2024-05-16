@@ -23,6 +23,16 @@ class PolicyStatementArgs:
                  principal: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PolicyStatement resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+        :param pulumi.Input[str] statement_id: A statement identifier that differentiates the statement from others in the same policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action: The action that the principal can use on the resource.
+               
+               For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+        :param pulumi.Input[str] condition: A set of condition keys that you can use in key policies.
+        :param pulumi.Input['PolicyStatementStatementEffect'] effect: Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+               
+               > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principal: The AWS service or AWS account that can access the resource defined as ARN.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "statement_id", statement_id)
@@ -38,6 +48,9 @@ class PolicyStatementArgs:
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -47,6 +60,9 @@ class PolicyStatementArgs:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[str]:
+        """
+        A statement identifier that differentiates the statement from others in the same policy.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -56,6 +72,11 @@ class PolicyStatementArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The action that the principal can use on the resource.
+
+        For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -65,6 +86,9 @@ class PolicyStatementArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        A set of condition keys that you can use in key policies.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -74,6 +98,11 @@ class PolicyStatementArgs:
     @property
     @pulumi.getter
     def effect(self) -> Optional[pulumi.Input['PolicyStatementStatementEffect']]:
+        """
+        Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+
+        > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+        """
         return pulumi.get(self, "effect")
 
     @effect.setter
@@ -83,6 +112,9 @@ class PolicyStatementArgs:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The AWS service or AWS account that can access the resource defined as ARN.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -107,6 +139,16 @@ class PolicyStatement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action: The action that the principal can use on the resource.
+               
+               For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+        :param pulumi.Input[str] condition: A set of condition keys that you can use in key policies.
+        :param pulumi.Input['PolicyStatementStatementEffect'] effect: Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+               
+               > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principal: The AWS service or AWS account that can access the resource defined as ARN.
+        :param pulumi.Input[str] statement_id: A statement identifier that differentiates the statement from others in the same policy.
         """
         ...
     @overload
@@ -192,30 +234,52 @@ class PolicyStatement(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The action that the principal can use on the resource.
+
+        For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional[str]]:
+        """
+        A set of condition keys that you can use in key policies.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter
     def effect(self) -> pulumi.Output[Optional['PolicyStatementStatementEffect']]:
+        """
+        Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+
+        > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+        """
         return pulumi.get(self, "effect")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The AWS service or AWS account that can access the resource defined as ARN.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
+        """
+        A statement identifier that differentiates the statement from others in the same policy.
+        """
         return pulumi.get(self, "statement_id")
 

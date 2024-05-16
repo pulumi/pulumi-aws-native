@@ -98,8 +98,9 @@ type Nodegroup struct {
 
 	// The AMI type for your node group.
 	AmiType pulumi.StringPtrOutput `pulumi:"amiType"`
-	Arn     pulumi.StringOutput    `pulumi:"arn"`
-	AwsId   pulumi.StringOutput    `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) associated with the managed node group.
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The capacity type of your managed node group.
 	CapacityType pulumi.StringPtrOutput `pulumi:"capacityType"`
 	// Name of the cluster to create the node group in.
@@ -317,6 +318,7 @@ func (o NodegroupOutput) AmiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.AmiType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) associated with the managed node group.
 func (o NodegroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Nodegroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

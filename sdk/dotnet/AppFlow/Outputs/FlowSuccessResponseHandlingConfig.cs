@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSuccessResponseHandlingConfig
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket.
+        /// </summary>
         public readonly string? BucketName;
+        /// <summary>
+        /// The Amazon S3 bucket prefix.
+        /// </summary>
         public readonly string? BucketPrefix;
 
         [OutputConstructor]

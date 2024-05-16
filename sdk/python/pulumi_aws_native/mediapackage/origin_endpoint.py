@@ -37,8 +37,13 @@ class OriginEndpointArgs:
         The set of arguments for constructing a OriginEndpoint resource.
         :param pulumi.Input[str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
+        :param pulumi.Input['OriginEndpointAuthorizationArgs'] authorization: Parameters for enabling CDN authorization on the endpoint.
+        :param pulumi.Input['OriginEndpointCmafPackageArgs'] cmaf_package: Parameters for Common Media Application Format (CMAF) packaging.
+        :param pulumi.Input['OriginEndpointDashPackageArgs'] dash_package: Parameters for DASH packaging.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
+        :param pulumi.Input['OriginEndpointHlsPackageArgs'] hls_package: Parameters for Apple HLS packaging.
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
+        :param pulumi.Input['OriginEndpointMssPackageArgs'] mss_package: Parameters for Microsoft Smooth Streaming packaging.
         :param pulumi.Input['OriginEndpointOrigination'] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
@@ -99,6 +104,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter
     def authorization(self) -> Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]:
+        """
+        Parameters for enabling CDN authorization on the endpoint.
+        """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
@@ -108,6 +116,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="cmafPackage")
     def cmaf_package(self) -> Optional[pulumi.Input['OriginEndpointCmafPackageArgs']]:
+        """
+        Parameters for Common Media Application Format (CMAF) packaging.
+        """
         return pulumi.get(self, "cmaf_package")
 
     @cmaf_package.setter
@@ -117,6 +128,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="dashPackage")
     def dash_package(self) -> Optional[pulumi.Input['OriginEndpointDashPackageArgs']]:
+        """
+        Parameters for DASH packaging.
+        """
         return pulumi.get(self, "dash_package")
 
     @dash_package.setter
@@ -138,6 +152,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="hlsPackage")
     def hls_package(self) -> Optional[pulumi.Input['OriginEndpointHlsPackageArgs']]:
+        """
+        Parameters for Apple HLS packaging.
+        """
         return pulumi.get(self, "hls_package")
 
     @hls_package.setter
@@ -159,6 +176,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="mssPackage")
     def mss_package(self) -> Optional[pulumi.Input['OriginEndpointMssPackageArgs']]:
+        """
+        Parameters for Microsoft Smooth Streaming packaging.
+        """
         return pulumi.get(self, "mss_package")
 
     @mss_package.setter
@@ -251,10 +271,15 @@ class OriginEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']] authorization: Parameters for enabling CDN authorization on the endpoint.
         :param pulumi.Input[str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointCmafPackageArgs']] cmaf_package: Parameters for Common Media Application Format (CMAF) packaging.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']] dash_package: Parameters for DASH packaging.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']] hls_package: Parameters for Apple HLS packaging.
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']] mss_package: Parameters for Microsoft Smooth Streaming packaging.
         :param pulumi.Input['OriginEndpointOrigination'] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
@@ -379,6 +404,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Optional['outputs.OriginEndpointAuthorization']]:
+        """
+        Parameters for enabling CDN authorization on the endpoint.
+        """
         return pulumi.get(self, "authorization")
 
     @property
@@ -400,11 +428,17 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cmafPackage")
     def cmaf_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointCmafPackage']]:
+        """
+        Parameters for Common Media Application Format (CMAF) packaging.
+        """
         return pulumi.get(self, "cmaf_package")
 
     @property
     @pulumi.getter(name="dashPackage")
     def dash_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointDashPackage']]:
+        """
+        Parameters for DASH packaging.
+        """
         return pulumi.get(self, "dash_package")
 
     @property
@@ -418,6 +452,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hlsPackage")
     def hls_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointHlsPackage']]:
+        """
+        Parameters for Apple HLS packaging.
+        """
         return pulumi.get(self, "hls_package")
 
     @property
@@ -431,6 +468,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mssPackage")
     def mss_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointMssPackage']]:
+        """
+        Parameters for Microsoft Smooth Streaming packaging.
+        """
         return pulumi.get(self, "mss_package")
 
     @property

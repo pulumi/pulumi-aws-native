@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockBuilderArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the app block builder.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockBuilderInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the app block builder.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,15 +57,47 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetAppBlockBuilderResult
     {
+        /// <summary>
+        /// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AppBlockBuilderAccessEndpoint> AccessEndpoints;
+        /// <summary>
+        /// The ARN of the app block builder.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The time when the app block builder was created.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The description of the app block builder.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the app block builder.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// Indicates whether default internet access is enabled for the app block builder.
+        /// </summary>
         public readonly bool? EnableDefaultInternetAccess;
+        /// <summary>
+        /// The ARN of the IAM role that is applied to the app block builder.
+        /// </summary>
         public readonly string? IamRoleArn;
+        /// <summary>
+        /// The instance type of the app block builder.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// The platform of the app block builder.
+        /// 
+        /// *Allowed values* : `WINDOWS_SERVER_2019`
+        /// </summary>
         public readonly string? Platform;
+        /// <summary>
+        /// Describes VPC configuration information for fleets and image builders.
+        /// </summary>
         public readonly Outputs.AppBlockBuilderVpcConfig? VpcConfig;
 
         [OutputConstructor]

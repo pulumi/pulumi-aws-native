@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksHostPathArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path of the file or directory on the host to mount into containers on the pod.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

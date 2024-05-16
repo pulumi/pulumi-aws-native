@@ -46,36 +46,57 @@ class GetProvisioningTemplateResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the fleet provisioning template.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        True to enable the fleet provisioning template, otherwise false.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> Optional['outputs.ProvisioningTemplateProvisioningHook']:
+        """
+        Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        """
         return pulumi.get(self, "pre_provisioning_hook")
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> Optional[str]:
+        """
+        The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[str]:
+        """
+        The ARN that identifies the provisioning template.
+        """
         return pulumi.get(self, "template_arn")
 
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[str]:
+        """
+        The JSON formatted contents of the fleet provisioning template version.
+        """
         return pulumi.get(self, "template_body")
 
 
@@ -98,6 +119,9 @@ def get_provisioning_template(template_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProvisioningTemplateResult:
     """
     Creates a fleet provisioning template.
+
+
+    :param str template_name: The name of the fleet provisioning template.
     """
     __args__ = dict()
     __args__['templateName'] = template_name
@@ -119,5 +143,8 @@ def get_provisioning_template_output(template_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisioningTemplateResult]:
     """
     Creates a fleet provisioning template.
+
+
+    :param str template_name: The name of the fleet provisioning template.
     """
     ...

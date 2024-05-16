@@ -29,11 +29,24 @@ class GetDeploymentResult:
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[str]:
+        """
+        The ID of the deployment.
+        """
         return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+
+        This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+
+        ```json
+        "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        }
+        ```
+        """
         return pulumi.get(self, "tags")
 
 
@@ -51,6 +64,9 @@ def get_deployment(deployment_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Resource for Greengrass V2 deployment.
+
+
+    :param str deployment_id: The ID of the deployment.
     """
     __args__ = dict()
     __args__['deploymentId'] = deployment_id
@@ -67,5 +83,8 @@ def get_deployment_output(deployment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Resource for Greengrass V2 deployment.
+
+
+    :param str deployment_id: The ID of the deployment.
     """
     ...

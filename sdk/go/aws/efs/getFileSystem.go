@@ -24,14 +24,19 @@ func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...p
 }
 
 type LookupFileSystemArgs struct {
+	// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
 	FileSystemId string `pulumi:"fileSystemId"`
 }
 
 type LookupFileSystemResult struct {
+	// The Amazon Resource Name (ARN) of the EFS file system.
+	//
+	// Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
 	Arn *string `pulumi:"arn"`
 	// Use the ``BackupPolicy`` to turn automatic backups on or off for the file system.
 	BackupPolicy *FileSystemBackupPolicy `pulumi:"backupPolicy"`
-	FileSystemId *string                 `pulumi:"fileSystemId"`
+	// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
@@ -70,6 +75,7 @@ func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs
 }
 
 type LookupFileSystemOutputArgs struct {
+	// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
 }
 
@@ -91,6 +97,9 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the EFS file system.
+//
+// Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
 func (o LookupFileSystemResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -100,6 +109,7 @@ func (o LookupFileSystemResultOutput) BackupPolicy() FileSystemBackupPolicyPtrOu
 	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemBackupPolicy { return v.BackupPolicy }).(FileSystemBackupPolicyPtrOutput)
 }
 
+// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
 func (o LookupFileSystemResultOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }

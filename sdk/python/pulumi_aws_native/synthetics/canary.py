@@ -47,6 +47,7 @@ class CanaryArgs:
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of key-value pairs that are associated with the canary.
         :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: Visual reference configuration for visual testing
         :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Provide VPC Configuration if enabled.
         """
@@ -223,6 +224,9 @@ class CanaryArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The list of key-value pairs that are associated with the canary.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -379,6 +383,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Frequency to run your canaries
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of key-value pairs that are associated with the canary.
         :param pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']] visual_reference: Visual reference configuration for visual testing
         :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']] vpc_config: Provide VPC Configuration if enabled.
         """
@@ -702,6 +707,9 @@ class Canary(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The list of key-value pairs that are associated with the canary.
+        """
         return pulumi.get(self, "tags")
 
     @property

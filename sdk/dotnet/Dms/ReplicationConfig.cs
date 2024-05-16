@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Dms
     [AwsNativeResourceType("aws-native:dms:ReplicationConfig")]
     public partial class ReplicationConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration parameters for provisioning an AWS DMS Serverless replication.
+        /// </summary>
         [Output("computeConfig")]
         public Output<Outputs.ReplicationConfigComputeConfig?> ComputeConfig { get; private set; } = null!;
 
@@ -133,6 +136,9 @@ namespace Pulumi.AwsNative.Dms
 
     public sealed class ReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration parameters for provisioning an AWS DMS Serverless replication.
+        /// </summary>
         [Input("computeConfig")]
         public Input<Inputs.ReplicationConfigComputeConfigArgs>? ComputeConfig { get; set; }
 

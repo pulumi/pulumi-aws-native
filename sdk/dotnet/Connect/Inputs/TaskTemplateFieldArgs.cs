@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The identifier of the task template field.
+        /// </summary>
         [Input("id", required: true)]
         public Input<Inputs.TaskTemplateFieldIdentifierArgs> Id { get; set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _singleSelectOptions = value;
         }
 
+        /// <summary>
+        /// Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Connect.TaskTemplateFieldType> Type { get; set; } = null!;
 

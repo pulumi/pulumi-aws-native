@@ -58,8 +58,9 @@ type LookupEventDataStoreResult struct {
 	// The retention period, in days.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
-	Status *string   `pulumi:"status"`
-	Tags   []aws.Tag `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
 	// The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp.
@@ -179,6 +180,7 @@ func (o LookupEventDataStoreResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
 func (o LookupEventDataStoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

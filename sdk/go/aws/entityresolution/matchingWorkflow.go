@@ -19,14 +19,19 @@ type MatchingWorkflow struct {
 
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
-	Description          pulumi.StringPtrOutput                     `pulumi:"description"`
-	InputSourceConfig    MatchingWorkflowInputSourceArrayOutput     `pulumi:"inputSourceConfig"`
-	OutputSourceConfig   MatchingWorkflowOutputSourceArrayOutput    `pulumi:"outputSourceConfig"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+	InputSourceConfig MatchingWorkflowInputSourceArrayOutput `pulumi:"inputSourceConfig"`
+	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	OutputSourceConfig MatchingWorkflowOutputSourceArrayOutput `pulumi:"outputSourceConfig"`
+	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques MatchingWorkflowResolutionTechniquesOutput `pulumi:"resolutionTechniques"`
-	RoleArn              pulumi.StringOutput                        `pulumi:"roleArn"`
-	Tags                 aws.TagArrayOutput                         `pulumi:"tags"`
-	UpdatedAt            pulumi.StringOutput                        `pulumi:"updatedAt"`
-	WorkflowArn          pulumi.StringOutput                        `pulumi:"workflowArn"`
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags        aws.TagArrayOutput  `pulumi:"tags"`
+	UpdatedAt   pulumi.StringOutput `pulumi:"updatedAt"`
+	WorkflowArn pulumi.StringOutput `pulumi:"workflowArn"`
 	// The name of the MatchingWorkflow
 	WorkflowName pulumi.StringOutput `pulumi:"workflowName"`
 }
@@ -88,12 +93,17 @@ func (MatchingWorkflowState) ElementType() reflect.Type {
 
 type matchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
-	Description          *string                              `pulumi:"description"`
-	InputSourceConfig    []MatchingWorkflowInputSource        `pulumi:"inputSourceConfig"`
-	OutputSourceConfig   []MatchingWorkflowOutputSource       `pulumi:"outputSourceConfig"`
+	Description *string `pulumi:"description"`
+	// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
+	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	OutputSourceConfig []MatchingWorkflowOutputSource `pulumi:"outputSourceConfig"`
+	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
-	RoleArn              string                               `pulumi:"roleArn"`
-	Tags                 []aws.Tag                            `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+	RoleArn string `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the MatchingWorkflow
 	WorkflowName *string `pulumi:"workflowName"`
 }
@@ -101,12 +111,17 @@ type matchingWorkflowArgs struct {
 // The set of arguments for constructing a MatchingWorkflow resource.
 type MatchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
-	Description          pulumi.StringPtrInput
-	InputSourceConfig    MatchingWorkflowInputSourceArrayInput
-	OutputSourceConfig   MatchingWorkflowOutputSourceArrayInput
+	Description pulumi.StringPtrInput
+	// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+	InputSourceConfig MatchingWorkflowInputSourceArrayInput
+	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	OutputSourceConfig MatchingWorkflowOutputSourceArrayInput
+	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques MatchingWorkflowResolutionTechniquesInput
-	RoleArn              pulumi.StringInput
-	Tags                 aws.TagArrayInput
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+	RoleArn pulumi.StringInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayInput
 	// The name of the MatchingWorkflow
 	WorkflowName pulumi.StringPtrInput
 }
@@ -157,22 +172,27 @@ func (o MatchingWorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
 func (o MatchingWorkflowOutput) InputSourceConfig() MatchingWorkflowInputSourceArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowInputSourceArrayOutput { return v.InputSourceConfig }).(MatchingWorkflowInputSourceArrayOutput)
 }
 
+// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
 func (o MatchingWorkflowOutput) OutputSourceConfig() MatchingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowOutputSourceArrayOutput { return v.OutputSourceConfig }).(MatchingWorkflowOutputSourceArrayOutput)
 }
 
+// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 func (o MatchingWorkflowOutput) ResolutionTechniques() MatchingWorkflowResolutionTechniquesOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowResolutionTechniquesOutput { return v.ResolutionTechniques }).(MatchingWorkflowResolutionTechniquesOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 func (o MatchingWorkflowOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o MatchingWorkflowOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

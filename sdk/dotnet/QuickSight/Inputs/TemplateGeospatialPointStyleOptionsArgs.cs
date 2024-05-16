@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGeospatialPointStyleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cluster marker configuration of the geospatial map selected point style.
+        /// </summary>
         [Input("clusterMarkerConfiguration")]
         public Input<Inputs.TemplateClusterMarkerConfigurationArgs>? ClusterMarkerConfiguration { get; set; }
 
+        /// <summary>
+        /// The heatmap configuration of the geospatial point style.
+        /// </summary>
         [Input("heatmapConfiguration")]
         public Input<Inputs.TemplateGeospatialHeatmapConfigurationArgs>? HeatmapConfiguration { get; set; }
 
+        /// <summary>
+        /// The selected point styles (point, cluster) of the geospatial map.
+        /// </summary>
         [Input("selectedPointStyle")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateGeospatialSelectedPointStyle>? SelectedPointStyle { get; set; }
 

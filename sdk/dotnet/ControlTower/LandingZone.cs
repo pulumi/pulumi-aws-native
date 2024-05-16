@@ -15,30 +15,53 @@ namespace Pulumi.AwsNative.ControlTower
     [AwsNativeResourceType("aws-native:controltower:LandingZone")]
     public partial class LandingZone : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the landing zone.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The drift status of the landing zone.
+        /// </summary>
         [Output("driftStatus")]
         public Output<Pulumi.AwsNative.ControlTower.LandingZoneDriftStatus> DriftStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the landing zone.
+        /// </summary>
         [Output("landingZoneIdentifier")]
         public Output<string> LandingZoneIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The latest available version of the landing zone.
+        /// </summary>
         [Output("latestAvailableVersion")]
         public Output<string> LatestAvailableVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The landing zone manifest JSON text file that specifies the landing zone configurations.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         /// </summary>
         [Output("manifest")]
         public Output<object> Manifest { get; private set; } = null!;
 
+        /// <summary>
+        /// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.ControlTower.LandingZoneStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags applied to the landing zone.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The landing zone's current deployed version.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -88,6 +111,8 @@ namespace Pulumi.AwsNative.ControlTower
     public sealed class LandingZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The landing zone manifest JSON text file that specifies the landing zone configurations.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         /// </summary>
         [Input("manifest", required: true)]
@@ -95,12 +120,19 @@ namespace Pulumi.AwsNative.ControlTower
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags applied to the landing zone.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The landing zone's current deployed version.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 

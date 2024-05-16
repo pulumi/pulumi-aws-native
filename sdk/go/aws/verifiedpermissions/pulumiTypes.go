@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdentitySourceCognitoGroupConfiguration struct {
+	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 	GroupEntityType string `pulumi:"groupEntityType"`
 }
 
@@ -29,6 +30,7 @@ type IdentitySourceCognitoGroupConfigurationInput interface {
 }
 
 type IdentitySourceCognitoGroupConfigurationArgs struct {
+	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
 }
 
@@ -109,6 +111,7 @@ func (o IdentitySourceCognitoGroupConfigurationOutput) ToIdentitySourceCognitoGr
 	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
+// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 func (o IdentitySourceCognitoGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoGroupConfiguration) string { return v.GroupEntityType }).(pulumi.StringOutput)
 }
@@ -137,6 +140,7 @@ func (o IdentitySourceCognitoGroupConfigurationPtrOutput) Elem() IdentitySourceC
 	}).(IdentitySourceCognitoGroupConfigurationOutput)
 }
 
+// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 func (o IdentitySourceCognitoGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoGroupConfiguration) *string {
 		if v == nil {
@@ -147,9 +151,16 @@ func (o IdentitySourceCognitoGroupConfigurationPtrOutput) GroupEntityType() pulu
 }
 
 type IdentitySourceCognitoUserPoolConfiguration struct {
-	ClientIds          []string                                 `pulumi:"clientIds"`
+	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	//
+	// Example: `"ClientIds": ["&ExampleCogClientId;"]`
+	ClientIds []string `pulumi:"clientIds"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+	//
+	// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 	GroupConfiguration *IdentitySourceCognitoGroupConfiguration `pulumi:"groupConfiguration"`
-	UserPoolArn        string                                   `pulumi:"userPoolArn"`
+	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
+	UserPoolArn string `pulumi:"userPoolArn"`
 }
 
 // IdentitySourceCognitoUserPoolConfigurationInput is an input type that accepts IdentitySourceCognitoUserPoolConfigurationArgs and IdentitySourceCognitoUserPoolConfigurationOutput values.
@@ -164,9 +175,16 @@ type IdentitySourceCognitoUserPoolConfigurationInput interface {
 }
 
 type IdentitySourceCognitoUserPoolConfigurationArgs struct {
-	ClientIds          pulumi.StringArrayInput                         `pulumi:"clientIds"`
+	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	//
+	// Example: `"ClientIds": ["&ExampleCogClientId;"]`
+	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+	//
+	// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 	GroupConfiguration IdentitySourceCognitoGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
-	UserPoolArn        pulumi.StringInput                              `pulumi:"userPoolArn"`
+	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
+	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
 }
 
 func (IdentitySourceCognitoUserPoolConfigurationArgs) ElementType() reflect.Type {
@@ -195,16 +213,23 @@ func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognit
 	return o
 }
 
+// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+//
+// Example: `"ClientIds": ["&ExampleCogClientId;"]`
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
 
+// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+//
+// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
 		return v.GroupConfiguration
 	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
+// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) UserPoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) string { return v.UserPoolArn }).(pulumi.StringOutput)
 }
@@ -233,6 +258,9 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) Elem() IdentitySour
 	}).(IdentitySourceCognitoUserPoolConfigurationOutput)
 }
 
+// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+//
+// Example: `"ClientIds": ["&ExampleCogClientId;"]`
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) []string {
 		if v == nil {
@@ -242,6 +270,9 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+//
+// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
 		if v == nil {
@@ -251,6 +282,7 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) GroupConfiguration(
 	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
+// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) *string {
 		if v == nil {
@@ -261,6 +293,7 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulum
 }
 
 type IdentitySourceConfiguration struct {
+	// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
 	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
 }
 
@@ -276,6 +309,7 @@ type IdentitySourceConfigurationInput interface {
 }
 
 type IdentitySourceConfigurationArgs struct {
+	// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
 	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfigurationInput `pulumi:"cognitoUserPoolConfiguration"`
 }
 
@@ -305,6 +339,7 @@ func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutputWi
 	return o
 }
 
+// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
 func (o IdentitySourceConfigurationOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
 	return o.ApplyT(func(v IdentitySourceConfiguration) IdentitySourceCognitoUserPoolConfiguration {
 		return v.CognitoUserPoolConfiguration
@@ -335,6 +370,7 @@ func (o IdentitySourceConfigurationPtrOutput) Elem() IdentitySourceConfiguration
 	}).(IdentitySourceConfigurationOutput)
 }
 
+// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
 func (o IdentitySourceConfigurationPtrOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfiguration) *IdentitySourceCognitoUserPoolConfiguration {
 		if v == nil {
@@ -851,6 +887,7 @@ func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutpu
 }
 
 type PolicyStoreSchemaDefinition struct {
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 	CedarJson *string `pulumi:"cedarJson"`
 }
 
@@ -866,6 +903,7 @@ type PolicyStoreSchemaDefinitionInput interface {
 }
 
 type PolicyStoreSchemaDefinitionArgs struct {
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 	CedarJson pulumi.StringPtrInput `pulumi:"cedarJson"`
 }
 
@@ -946,6 +984,7 @@ func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutpu
 	}).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 func (o PolicyStoreSchemaDefinitionOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStoreSchemaDefinition) *string { return v.CedarJson }).(pulumi.StringPtrOutput)
 }
@@ -974,6 +1013,7 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) Elem() PolicyStoreSchemaDefinition
 	}).(PolicyStoreSchemaDefinitionOutput)
 }
 
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStoreSchemaDefinition) *string {
 		if v == nil {
@@ -984,6 +1024,14 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput
 }
 
 type PolicyStoreValidationSettings struct {
+	// The validation mode currently configured for this policy store. The valid values are:
+	//
+	// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+	// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+	//
+	// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+	// >
+	// > To submit a static policy or policy template without a schema, you must turn off validation.
 	Mode PolicyStoreValidationMode `pulumi:"mode"`
 }
 
@@ -999,6 +1047,14 @@ type PolicyStoreValidationSettingsInput interface {
 }
 
 type PolicyStoreValidationSettingsArgs struct {
+	// The validation mode currently configured for this policy store. The valid values are:
+	//
+	// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+	// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+	//
+	// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+	// >
+	// > To submit a static policy or policy template without a schema, you must turn off validation.
 	Mode PolicyStoreValidationModeInput `pulumi:"mode"`
 }
 
@@ -1028,6 +1084,14 @@ func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsOutp
 	return o
 }
 
+// The validation mode currently configured for this policy store. The valid values are:
+//
+// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+//
+// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+// >
+// > To submit a static policy or policy template without a schema, you must turn off validation.
 func (o PolicyStoreValidationSettingsOutput) Mode() PolicyStoreValidationModeOutput {
 	return o.ApplyT(func(v PolicyStoreValidationSettings) PolicyStoreValidationMode { return v.Mode }).(PolicyStoreValidationModeOutput)
 }
@@ -1056,6 +1120,14 @@ func (o PolicyStoreValidationSettingsPtrOutput) Elem() PolicyStoreValidationSett
 	}).(PolicyStoreValidationSettingsOutput)
 }
 
+// The validation mode currently configured for this policy store. The valid values are:
+//
+// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+//
+// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+// >
+// > To submit a static policy or policy template without a schema, you must turn off validation.
 func (o PolicyStoreValidationSettingsPtrOutput) Mode() PolicyStoreValidationModePtrOutput {
 	return o.ApplyT(func(v *PolicyStoreValidationSettings) *PolicyStoreValidationMode {
 		if v == nil {

@@ -15,42 +15,87 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:DomainConfiguration")]
     public partial class DomainConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the domain configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that specifies the authorization service for a domain.
+        /// </summary>
         [Output("authorizerConfig")]
         public Output<Outputs.DomainConfigurationAuthorizerConfig?> AuthorizerConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the domain configuration. This value must be unique to a region.
+        /// </summary>
         [Output("domainConfigurationName")]
         public Output<string?> DomainConfigurationName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status to which the domain configuration should be updated.
+        /// 
+        /// Valid values: `ENABLED` | `DISABLED`
+        /// </summary>
         [Output("domainConfigurationStatus")]
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationStatus?> DomainConfigurationStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the domain.
+        /// </summary>
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of service delivered by the domain.
+        /// </summary>
         [Output("domainType")]
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationDomainType> DomainType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+        /// </summary>
         [Output("serverCertificateArns")]
         public Output<ImmutableArray<string>> ServerCertificateArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The server certificate configuration.
+        /// 
+        /// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        /// </summary>
         [Output("serverCertificateConfig")]
         public Output<Outputs.DomainConfigurationServerCertificateConfig?> ServerCertificateConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that contains information about a server certificate.
+        /// </summary>
         [Output("serverCertificates")]
         public Output<ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary>> ServerCertificates { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of service delivered by the endpoint.
+        /// 
+        /// &gt; AWS IoT Core currently supports only the `DATA` service type.
+        /// </summary>
         [Output("serviceType")]
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationServiceType?> ServiceType { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key/value pairs that are used to manage the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that specifies the TLS configuration for a domain.
+        /// </summary>
         [Output("tlsConfig")]
         public Output<Outputs.DomainConfigurationTlsConfig?> TlsConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
+        /// </summary>
         [Output("validationCertificateArn")]
         public Output<string?> ValidationCertificateArn { get; private set; } = null!;
 
@@ -107,43 +152,81 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class DomainConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An object that specifies the authorization service for a domain.
+        /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigArgs>? AuthorizerConfig { get; set; }
 
+        /// <summary>
+        /// The name of the domain configuration. This value must be unique to a region.
+        /// </summary>
         [Input("domainConfigurationName")]
         public Input<string>? DomainConfigurationName { get; set; }
 
+        /// <summary>
+        /// The status to which the domain configuration should be updated.
+        /// 
+        /// Valid values: `ENABLED` | `DISABLED`
+        /// </summary>
         [Input("domainConfigurationStatus")]
         public Input<Pulumi.AwsNative.IoT.DomainConfigurationStatus>? DomainConfigurationStatus { get; set; }
 
+        /// <summary>
+        /// The name of the domain.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         [Input("serverCertificateArns")]
         private InputList<string>? _serverCertificateArns;
+
+        /// <summary>
+        /// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+        /// </summary>
         public InputList<string> ServerCertificateArns
         {
             get => _serverCertificateArns ?? (_serverCertificateArns = new InputList<string>());
             set => _serverCertificateArns = value;
         }
 
+        /// <summary>
+        /// The server certificate configuration.
+        /// 
+        /// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        /// </summary>
         [Input("serverCertificateConfig")]
         public Input<Inputs.DomainConfigurationServerCertificateConfigArgs>? ServerCertificateConfig { get; set; }
 
+        /// <summary>
+        /// The type of service delivered by the endpoint.
+        /// 
+        /// &gt; AWS IoT Core currently supports only the `DATA` service type.
+        /// </summary>
         [Input("serviceType")]
         public Input<Pulumi.AwsNative.IoT.DomainConfigurationServiceType>? ServiceType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of key/value pairs that are used to manage the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// An object that specifies the TLS configuration for a domain.
+        /// </summary>
         [Input("tlsConfig")]
         public Input<Inputs.DomainConfigurationTlsConfigArgs>? TlsConfig { get; set; }
 
+        /// <summary>
+        /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
+        /// </summary>
         [Input("validationCertificateArn")]
         public Input<string>? ValidationCertificateArn { get; set; }
 

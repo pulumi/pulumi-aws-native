@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardColorScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color fill type.
+        /// </summary>
         [Input("colorFillType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardColorFillType> ColorFillType { get; set; } = null!;
 
         [Input("colors", required: true)]
         private InputList<Inputs.DashboardDataColorArgs>? _colors;
+
+        /// <summary>
+        /// Determines the color that is applied to a particular data value.
+        /// </summary>
         public InputList<Inputs.DashboardDataColorArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.DashboardDataColorArgs>());
             set => _colors = value;
         }
 
+        /// <summary>
+        /// Determines the color that is applied to a particular data value.
+        /// </summary>
         [Input("nullValueColor")]
         public Input<Inputs.DashboardDataColorArgs>? NullValueColor { get; set; }
 

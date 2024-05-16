@@ -13,9 +13,31 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderAutoScalingGroupProvider
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
+        /// </summary>
         public readonly string AutoScalingGroupArn;
+        /// <summary>
+        /// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ecs.CapacityProviderAutoScalingGroupProviderManagedDraining? ManagedDraining;
+        /// <summary>
+        /// The managed scaling settings for the Auto Scaling group capacity provider.
+        /// 
+        /// When managed scaling is turned on, Amazon ECS manages the scale-in and scale-out actions of the Auto Scaling group. Amazon ECS manages a target tracking scaling policy using an Amazon ECS managed CloudWatch metric with the specified `targetCapacity` value as the target value for the metric. For more information, see [Using managed scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling) in the *Amazon Elastic Container Service Developer Guide* .
+        /// 
+        /// If managed scaling is off, the user must manage the scaling of the Auto Scaling group.
+        /// </summary>
         public readonly Outputs.CapacityProviderManagedScaling? ManagedScaling;
+        /// <summary>
+        /// The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+        /// 
+        /// &gt; When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work. 
+        /// 
+        /// When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+        /// 
+        /// When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection? ManagedTerminationProtection;
 
         [OutputConstructor]

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("healthCheckConfig")]
         public Output<Outputs.HealthCheckConfigProperties> HealthCheckConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+        /// </summary>
         [Output("healthCheckId")]
         public Output<string> HealthCheckId { get; private set; } = null!;
 

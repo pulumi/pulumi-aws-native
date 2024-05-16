@@ -29,22 +29,27 @@ type LookupLicenseArgs struct {
 
 type LookupLicenseResult struct {
 	// Beneficiary of the license.
-	Beneficiary              *string                          `pulumi:"beneficiary"`
+	Beneficiary *string `pulumi:"beneficiary"`
+	// Details about a consumption configuration.
 	ConsumptionConfiguration *LicenseConsumptionConfiguration `pulumi:"consumptionConfiguration"`
-	Entitlements             []LicenseEntitlement             `pulumi:"entitlements"`
+	// Describes a resource entitled for use with a license.
+	Entitlements []LicenseEntitlement `pulumi:"entitlements"`
 	// Home region for the created license.
-	HomeRegion *string            `pulumi:"homeRegion"`
-	Issuer     *LicenseIssuerData `pulumi:"issuer"`
+	HomeRegion *string `pulumi:"homeRegion"`
+	// Details associated with the issuer of a license.
+	Issuer *LicenseIssuerData `pulumi:"issuer"`
 	// Amazon Resource Name is a unique name for each resource.
-	LicenseArn      *string           `pulumi:"licenseArn"`
+	LicenseArn *string `pulumi:"licenseArn"`
+	// Describes key/value pairs.
 	LicenseMetadata []LicenseMetadata `pulumi:"licenseMetadata"`
 	// Name for the created license.
 	LicenseName *string `pulumi:"licenseName"`
 	// Product name for the created license.
 	ProductName *string `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSku *string                    `pulumi:"productSku"`
-	Validity   *LicenseValidityDateFormat `pulumi:"validity"`
+	ProductSku *string `pulumi:"productSku"`
+	// Date and time range during which the license is valid, in ISO8601-UTC format.
+	Validity *LicenseValidityDateFormat `pulumi:"validity"`
 	// The version of the license.
 	Version *string `pulumi:"version"`
 }
@@ -90,10 +95,12 @@ func (o LookupLicenseResultOutput) Beneficiary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *string { return v.Beneficiary }).(pulumi.StringPtrOutput)
 }
 
+// Details about a consumption configuration.
 func (o LookupLicenseResultOutput) ConsumptionConfiguration() LicenseConsumptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *LicenseConsumptionConfiguration { return v.ConsumptionConfiguration }).(LicenseConsumptionConfigurationPtrOutput)
 }
 
+// Describes a resource entitled for use with a license.
 func (o LookupLicenseResultOutput) Entitlements() LicenseEntitlementArrayOutput {
 	return o.ApplyT(func(v LookupLicenseResult) []LicenseEntitlement { return v.Entitlements }).(LicenseEntitlementArrayOutput)
 }
@@ -103,6 +110,7 @@ func (o LookupLicenseResultOutput) HomeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *string { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
+// Details associated with the issuer of a license.
 func (o LookupLicenseResultOutput) Issuer() LicenseIssuerDataPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *LicenseIssuerData { return v.Issuer }).(LicenseIssuerDataPtrOutput)
 }
@@ -112,6 +120,7 @@ func (o LookupLicenseResultOutput) LicenseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *string { return v.LicenseArn }).(pulumi.StringPtrOutput)
 }
 
+// Describes key/value pairs.
 func (o LookupLicenseResultOutput) LicenseMetadata() LicenseMetadataArrayOutput {
 	return o.ApplyT(func(v LookupLicenseResult) []LicenseMetadata { return v.LicenseMetadata }).(LicenseMetadataArrayOutput)
 }
@@ -131,6 +140,7 @@ func (o LookupLicenseResultOutput) ProductSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *string { return v.ProductSku }).(pulumi.StringPtrOutput)
 }
 
+// Date and time range during which the license is valid, in ISO8601-UTC format.
 func (o LookupLicenseResultOutput) Validity() LicenseValidityDateFormatPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *LicenseValidityDateFormat { return v.Validity }).(LicenseValidityDateFormatPtrOutput)
 }

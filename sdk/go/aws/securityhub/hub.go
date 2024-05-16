@@ -150,8 +150,11 @@ type Hub struct {
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 	EnableDefaultStandards pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
 	// The date and time when Security Hub was enabled in the account.
-	SubscribedAt pulumi.StringOutput    `pulumi:"subscribedAt"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	SubscribedAt pulumi.StringOutput `pulumi:"subscribedAt"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -199,8 +202,11 @@ type hubArgs struct {
 	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
-	EnableDefaultStandards *bool             `pulumi:"enableDefaultStandards"`
-	Tags                   map[string]string `pulumi:"tags"`
+	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Hub resource.
@@ -211,7 +217,10 @@ type HubArgs struct {
 	ControlFindingGenerator pulumi.StringPtrInput
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 	EnableDefaultStandards pulumi.BoolPtrInput
-	Tags                   pulumi.StringMapInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -276,6 +285,9 @@ func (o HubOutput) SubscribedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.SubscribedAt }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o HubOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -24,16 +24,25 @@ func LookupReplicaKey(ctx *pulumi.Context, args *LookupReplicaKeyArgs, opts ...p
 }
 
 type LookupReplicaKeyArgs struct {
+	// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+	//
+	// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 	KeyId string `pulumi:"keyId"`
 }
 
 type LookupReplicaKeyResult struct {
+	// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+	//
+	// The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 	Arn *string `pulumi:"arn"`
 	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description *string `pulumi:"description"`
 	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
-	Enabled *bool   `pulumi:"enabled"`
-	KeyId   *string `pulumi:"keyId"`
+	Enabled *bool `pulumi:"enabled"`
+	// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+	//
+	// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+	KeyId *string `pulumi:"keyId"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
@@ -56,6 +65,9 @@ func LookupReplicaKeyOutput(ctx *pulumi.Context, args LookupReplicaKeyOutputArgs
 }
 
 type LookupReplicaKeyOutputArgs struct {
+	// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+	//
+	// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
@@ -77,6 +89,9 @@ func (o LookupReplicaKeyResultOutput) ToLookupReplicaKeyResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+//
+// The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 func (o LookupReplicaKeyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -91,6 +106,9 @@ func (o LookupReplicaKeyResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+//
+// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 func (o LookupReplicaKeyResultOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }

@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.S3Outposts
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the endpoint.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.S3Outposts.EndpointStatus> Status { get; private set; } = null!;
 

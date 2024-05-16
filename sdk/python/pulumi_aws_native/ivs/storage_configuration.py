@@ -23,6 +23,7 @@ class StorageConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageConfiguration resource.
+        :param pulumi.Input['StorageConfigurationS3StorageConfigurationArgs'] s3: The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
         :param pulumi.Input[str] name: Storage Configuration Name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
@@ -35,6 +36,9 @@ class StorageConfigurationArgs:
     @property
     @pulumi.getter
     def s3(self) -> pulumi.Input['StorageConfigurationS3StorageConfigurationArgs']:
+        """
+        The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -81,6 +85,7 @@ class StorageConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Storage Configuration Name.
+        :param pulumi.Input[pulumi.InputType['StorageConfigurationS3StorageConfigurationArgs']] s3: The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
@@ -174,6 +179,9 @@ class StorageConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def s3(self) -> pulumi.Output['outputs.StorageConfigurationS3StorageConfiguration']:
+        """
+        The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        """
         return pulumi.get(self, "s3")
 
     @property

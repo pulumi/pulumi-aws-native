@@ -16,12 +16,18 @@ type StateMachineAlias struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the alias.
-	Arn                  pulumi.StringOutput                            `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
 	DeploymentPreference StateMachineAliasDeploymentPreferencePtrOutput `pulumi:"deploymentPreference"`
 	// An optional description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The alias name.
-	Name                 pulumi.StringPtrOutput                                  `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+	//
+	// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+	//
+	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration StateMachineAliasRoutingConfigurationVersionArrayOutput `pulumi:"routingConfiguration"`
 }
 
@@ -69,21 +75,33 @@ func (StateMachineAliasState) ElementType() reflect.Type {
 }
 
 type stateMachineAliasArgs struct {
+	// Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
 	DeploymentPreference *StateMachineAliasDeploymentPreference `pulumi:"deploymentPreference"`
 	// An optional description of the alias.
 	Description *string `pulumi:"description"`
 	// The alias name.
-	Name                 *string                                        `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+	//
+	// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+	//
+	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration []StateMachineAliasRoutingConfigurationVersion `pulumi:"routingConfiguration"`
 }
 
 // The set of arguments for constructing a StateMachineAlias resource.
 type StateMachineAliasArgs struct {
+	// Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
 	DeploymentPreference StateMachineAliasDeploymentPreferencePtrInput
 	// An optional description of the alias.
 	Description pulumi.StringPtrInput
 	// The alias name.
-	Name                 pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+	//
+	// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+	//
+	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration StateMachineAliasRoutingConfigurationVersionArrayInput
 }
 
@@ -129,6 +147,7 @@ func (o StateMachineAliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachineAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
 func (o StateMachineAliasOutput) DeploymentPreference() StateMachineAliasDeploymentPreferencePtrOutput {
 	return o.ApplyT(func(v *StateMachineAlias) StateMachineAliasDeploymentPreferencePtrOutput {
 		return v.DeploymentPreference
@@ -145,6 +164,11 @@ func (o StateMachineAliasOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineAlias) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+//
+// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+//
+// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 func (o StateMachineAliasOutput) RoutingConfiguration() StateMachineAliasRoutingConfigurationVersionArrayOutput {
 	return o.ApplyT(func(v *StateMachineAlias) StateMachineAliasRoutingConfigurationVersionArrayOutput {
 		return v.RoutingConfiguration

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCloudFrontOriginAccessIdentityArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCloudFrontOriginAccessIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetCloudFrontOriginAccessIdentityResult
     {
+        /// <summary>
+        /// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        /// </summary>
         public readonly Outputs.CloudFrontOriginAccessIdentityConfig? CloudFrontOriginAccessIdentityConfig;
+        /// <summary>
+        /// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
+        /// </summary>
         public readonly string? S3CanonicalUserId;
 
         [OutputConstructor]

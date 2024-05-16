@@ -51,15 +51,36 @@ namespace Pulumi.AwsNative.B2bi
     [OutputType]
     public sealed class GetProfileResult
     {
+        /// <summary>
+        /// Returns the name for the business associated with this profile.
+        /// </summary>
         public readonly string? BusinessName;
+        /// <summary>
+        /// Returns the timestamp for creation date and time of the profile.
+        /// </summary>
         public readonly string? CreatedAt;
         public readonly string? Email;
+        /// <summary>
+        /// Returns the name of the logging group.
+        /// </summary>
         public readonly string? LogGroupName;
+        /// <summary>
+        /// Returns the timestamp that identifies the most recent date and time that the profile was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// Returns the display name for profile.
+        /// </summary>
         public readonly string? Name;
         public readonly string? Phone;
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for the profile.
+        /// </summary>
         public readonly string? ProfileArn;
         public readonly string? ProfileId;
+        /// <summary>
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class ExperimentTreatmentObject
     {
+        /// <summary>
+        /// The description of the treatment.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the feature for this experiment.
+        /// </summary>
         public readonly string Feature;
+        /// <summary>
+        /// A name for this treatment. It can include up to 127 characters.
+        /// </summary>
         public readonly string TreatmentName;
+        /// <summary>
+        /// The name of the variation to use for this treatment.
+        /// </summary>
         public readonly string Variation;
 
         [OutputConstructor]

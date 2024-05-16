@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisHeaderFooterSectionConfiguration
     {
+        /// <summary>
+        /// The layout configuration of a section.
+        /// </summary>
         public readonly Outputs.AnalysisSectionLayoutConfiguration Layout;
+        /// <summary>
+        /// The unique identifier of the header or footer section.
+        /// </summary>
         public readonly string SectionId;
+        /// <summary>
+        /// The options that style a section.
+        /// </summary>
         public readonly Outputs.AnalysisSectionStyle? Style;
 
         [OutputConstructor]

@@ -45,7 +45,13 @@ export class LiveSource extends pulumi.CustomResource {
      * <p>A list of HTTP package configuration parameters for this live source.</p>
      */
     public readonly httpPackageConfigurations!: pulumi.Output<outputs.mediatailor.LiveSourceHttpPackageConfiguration[]>;
+    /**
+     * The name that's used to refer to a live source.
+     */
     public readonly liveSourceName!: pulumi.Output<string>;
+    /**
+     * The name of the source location.
+     */
     public readonly sourceLocationName!: pulumi.Output<string>;
     /**
      * The tags to assign to the live source.
@@ -96,7 +102,13 @@ export interface LiveSourceArgs {
      * <p>A list of HTTP package configuration parameters for this live source.</p>
      */
     httpPackageConfigurations: pulumi.Input<pulumi.Input<inputs.mediatailor.LiveSourceHttpPackageConfigurationArgs>[]>;
+    /**
+     * The name that's used to refer to a live source.
+     */
     liveSourceName?: pulumi.Input<string>;
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: pulumi.Input<string>;
     /**
      * The tags to assign to the live source.

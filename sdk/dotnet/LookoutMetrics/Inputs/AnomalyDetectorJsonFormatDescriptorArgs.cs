@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorJsonFormatDescriptorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The character set in which the source JSON file is written.
+        /// </summary>
         [Input("charset")]
         public Input<string>? Charset { get; set; }
 
+        /// <summary>
+        /// The level of compression of the source CSV file.
+        /// </summary>
         [Input("fileCompression")]
         public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorJsonFormatDescriptorFileCompression>? FileCompression { get; set; }
 

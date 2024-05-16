@@ -19,14 +19,36 @@ export function getTlsInspectionConfiguration(args: GetTlsInspectionConfiguratio
 }
 
 export interface GetTlsInspectionConfigurationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the TLS inspection configuration.
+     */
     tlsInspectionConfigurationArn: string;
 }
 
 export interface GetTlsInspectionConfigurationResult {
+    /**
+     * A description of the TLS inspection configuration.
+     */
     readonly description?: string;
+    /**
+     * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The object that defines a TLS inspection configuration. This defines the TLS inspection configuration.
+     *
+     * AWS Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.
+     *
+     * To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+     */
     readonly tlsInspectionConfiguration?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration;
+    /**
+     * The Amazon Resource Name (ARN) of the TLS inspection configuration.
+     */
     readonly tlsInspectionConfigurationArn?: string;
+    /**
+     * A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.
+     */
     readonly tlsInspectionConfigurationId?: string;
 }
 /**
@@ -37,5 +59,8 @@ export function getTlsInspectionConfigurationOutput(args: GetTlsInspectionConfig
 }
 
 export interface GetTlsInspectionConfigurationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the TLS inspection configuration.
+     */
     tlsInspectionConfigurationArn: pulumi.Input<string>;
 }

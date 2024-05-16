@@ -697,9 +697,15 @@ namespace Pulumi.AwsNative.Cassandra
     [AwsNativeResourceType("aws-native:cassandra:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The optional auto scaling capacity settings for a table in provisioned capacity mode.
+        /// </summary>
         [Output("autoScalingSpecifications")]
         public Output<Outputs.TableAutoScalingSpecification?> AutoScalingSpecifications { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines the billing mode for the table - on-demand or provisioned.
+        /// </summary>
         [Output("billingMode")]
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
@@ -721,6 +727,9 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("defaultTimeToLive")]
         public Output<int?> DefaultTimeToLive { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the encryption at rest option selected for the table.
+        /// </summary>
         [Output("encryptionSpecification")]
         public Output<Outputs.TableEncryptionSpecification?> EncryptionSpecification { get; private set; } = null!;
 
@@ -748,6 +757,15 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("regularColumns")]
         public Output<ImmutableArray<Outputs.TableColumn>> RegularColumns { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region specific settings of a multi-Region table.
+        /// 
+        /// For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+        /// 
+        /// - `region` : The Region where these settings are applied. (Required)
+        /// - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+        /// - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+        /// </summary>
         [Output("replicaSpecifications")]
         public Output<ImmutableArray<Outputs.TableReplicaSpecification>> ReplicaSpecifications { get; private set; } = null!;
 
@@ -816,9 +834,15 @@ namespace Pulumi.AwsNative.Cassandra
 
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The optional auto scaling capacity settings for a table in provisioned capacity mode.
+        /// </summary>
         [Input("autoScalingSpecifications")]
         public Input<Inputs.TableAutoScalingSpecificationArgs>? AutoScalingSpecifications { get; set; }
 
+        /// <summary>
+        /// Determines the billing mode for the table - on-demand or provisioned.
+        /// </summary>
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
 
@@ -846,6 +870,9 @@ namespace Pulumi.AwsNative.Cassandra
         [Input("defaultTimeToLive")]
         public Input<int>? DefaultTimeToLive { get; set; }
 
+        /// <summary>
+        /// Specifies the encryption at rest option selected for the table.
+        /// </summary>
         [Input("encryptionSpecification")]
         public Input<Inputs.TableEncryptionSpecificationArgs>? EncryptionSpecification { get; set; }
 
@@ -887,6 +914,16 @@ namespace Pulumi.AwsNative.Cassandra
 
         [Input("replicaSpecifications")]
         private InputList<Inputs.TableReplicaSpecificationArgs>? _replicaSpecifications;
+
+        /// <summary>
+        /// The AWS Region specific settings of a multi-Region table.
+        /// 
+        /// For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+        /// 
+        /// - `region` : The Region where these settings are applied. (Required)
+        /// - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+        /// - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+        /// </summary>
         public InputList<Inputs.TableReplicaSpecificationArgs> ReplicaSpecifications
         {
             get => _replicaSpecifications ?? (_replicaSpecifications = new InputList<Inputs.TableReplicaSpecificationArgs>());

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
         /// The Region where a core network edge is located.
         /// </summary>
         public readonly string? EdgeLocation;
+        /// <summary>
+        /// The inside IP addresses used for core network edges.
+        /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
 
         [OutputConstructor]

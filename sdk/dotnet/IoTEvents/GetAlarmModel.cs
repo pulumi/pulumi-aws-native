@@ -61,12 +61,21 @@ namespace Pulumi.AwsNative.IoTEvents
     [OutputType]
     public sealed class GetAlarmModelResult
     {
+        /// <summary>
+        /// Contains the configuration information of alarm state changes.
+        /// </summary>
         public readonly Outputs.AlarmModelAlarmCapabilities? AlarmCapabilities;
+        /// <summary>
+        /// Contains information about one or more alarm actions.
+        /// </summary>
         public readonly Outputs.AlarmModelAlarmEventActions? AlarmEventActions;
         /// <summary>
         /// A brief description of the alarm model.
         /// </summary>
         public readonly string? AlarmModelDescription;
+        /// <summary>
+        /// Defines when your alarm is invoked.
+        /// </summary>
         public readonly Outputs.AlarmModelAlarmRule? AlarmRule;
         /// <summary>
         /// The ARN of the role that grants permission to AWS IoT Events to perform its operations.

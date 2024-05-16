@@ -19,16 +19,28 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetEnvironmentArgs {
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: string;
 }
 
 export interface GetEnvironmentResult {
+    /**
+     * The Amazon Resource Name (ARN) of the environment.
+     */
     readonly arn?: string;
+    /**
+     * The unique identifier of the environment.
+     */
     readonly environmentIdentifier?: string;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ID of the AWS Transit Gateway set up by the environment.
+     */
     readonly transitGatewayId?: string;
 }
 /**
@@ -39,5 +51,8 @@ export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulu
 }
 
 export interface GetEnvironmentOutputArgs {
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
 }

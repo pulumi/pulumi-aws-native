@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetMembershipArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified membership.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public string MembershipIdentifier { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetMembershipInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified membership.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
@@ -51,12 +61,41 @@ namespace Pulumi.AwsNative.CleanRooms
     [OutputType]
     public sealed class GetMembershipResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified membership.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? CollaborationArn;
+        /// <summary>
+        /// Returns the unique identifier of the specified collaboration creator account.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? CollaborationCreatorAccountId;
+        /// <summary>
+        /// Contains configurations for protected query results.
+        /// </summary>
         public readonly Outputs.MembershipProtectedQueryResultConfiguration? DefaultResultConfiguration;
+        /// <summary>
+        /// Returns the unique identifier of the specified membership.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+        /// </summary>
         public readonly string? MembershipIdentifier;
+        /// <summary>
+        /// An object representing the payment responsibilities accepted by the collaboration member.
+        /// </summary>
         public readonly Outputs.MembershipPaymentConfiguration? PaymentConfiguration;
+        /// <summary>
+        /// An indicator as to whether query logging has been enabled or disabled for the membership.
+        /// </summary>
         public readonly Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus? QueryLogStatus;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.

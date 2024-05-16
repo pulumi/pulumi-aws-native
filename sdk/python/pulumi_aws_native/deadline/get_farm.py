@@ -35,21 +35,33 @@ class GetFarmResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) assigned to the farm.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the farm that helps identify what the farm is used for.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the farm.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> Optional[str]:
+        """
+        The farm ID.
+        """
         return pulumi.get(self, "farm_id")
 
 
@@ -69,6 +81,9 @@ def get_farm(arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFarmResult:
     """
     Definition of AWS::Deadline::Farm Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) assigned to the farm.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -87,5 +102,8 @@ def get_farm_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFarmResult]:
     """
     Definition of AWS::Deadline::Farm Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) assigned to the farm.
     """
     ...

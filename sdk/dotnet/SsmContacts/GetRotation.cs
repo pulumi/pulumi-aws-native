@@ -69,11 +69,17 @@ namespace Pulumi.AwsNative.SsmContacts
         /// Name of the Rotation
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+        /// </summary>
         public readonly Outputs.RotationRecurrenceSettings? Recurrence;
         /// <summary>
         /// Start time of the first shift of Oncall Schedule
         /// </summary>
         public readonly string? StartTime;
+        /// <summary>
+        /// A container of a key-value name pair.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// TimeZone Identifier for the Oncall Schedule

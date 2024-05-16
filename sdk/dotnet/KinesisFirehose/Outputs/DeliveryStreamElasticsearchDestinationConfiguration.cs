@@ -13,19 +13,65 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamElasticsearchDestinationConfiguration
     {
+        /// <summary>
+        /// The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        /// 
+        /// ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+        /// </summary>
         public readonly Outputs.DeliveryStreamElasticsearchBufferingHints? BufferingHints;
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.
+        /// </summary>
         public readonly string? ClusterEndpoint;
+        /// <summary>
+        /// Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDocumentIdOptions? DocumentIdOptions;
+        /// <summary>
+        /// The ARN of the Amazon ES domain. The IAM role must have permissions for `DescribeElasticsearchDomain` , `DescribeElasticsearchDomains` , and `DescribeElasticsearchDomainConfig` after assuming the role specified in *RoleARN* .
+        /// 
+        /// Specify either `ClusterEndpoint` or `DomainARN` .
+        /// </summary>
         public readonly string? DomainArn;
+        /// <summary>
+        /// The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.
+        /// </summary>
         public readonly string IndexName;
+        /// <summary>
+        /// The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod? IndexRotationPeriod;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+        /// </summary>
         public readonly Outputs.DeliveryStreamElasticsearchRetryOptions? RetryOptions;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode? S3BackupMode;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The Elasticsearch type name that Amazon ES adds to documents when indexing data.
+        /// </summary>
         public readonly string? TypeName;
+        /// <summary>
+        /// The details of the VPC of the Amazon ES destination.
+        /// </summary>
         public readonly Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

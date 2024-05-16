@@ -70,7 +70,8 @@ type Volume struct {
 	//  This parameter is valid only for ``gp3`` volumes. The default value is 125.
 	//  Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput pulumi.IntPtrOutput `pulumi:"throughput"`
-	VolumeId   pulumi.StringOutput `pulumi:"volumeId"`
+	// The ID of the volume.
+	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The volume type. This parameter can be one of the following values:
 	//   +  General Purpose SSD: ``gp2`` | ``gp3``
 	//   +  Provisioned IOPS SSD: ``io1`` | ``io2``
@@ -363,6 +364,7 @@ func (o VolumeOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the volume.
 func (o VolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }

@@ -23,6 +23,11 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         [Input("maxBackupsToRetain")]
         public Input<double>? MaxBackupsToRetain { get; set; }
 
+        /// <summary>
+        /// Specifies how artists sessions are backed up.
+        /// 
+        /// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
+        /// </summary>
         [Input("mode")]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionBackupMode>? Mode { get; set; }
 

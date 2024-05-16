@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSectionPageBreakConfiguration
     {
+        /// <summary>
+        /// The configuration of a page break after a section.
+        /// </summary>
         public readonly Outputs.TemplateSectionAfterPageBreak? After;
 
         [OutputConstructor]

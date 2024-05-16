@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWordCloudVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration of a word cloud visual.
+        /// </summary>
         public readonly Outputs.AnalysisWordCloudChartConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The column hierarchy that is used during drill-downs and drill-ups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisColumnHierarchy> ColumnHierarchies;
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

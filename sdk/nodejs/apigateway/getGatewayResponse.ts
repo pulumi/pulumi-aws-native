@@ -16,10 +16,16 @@ export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.I
 }
 
 export interface GetGatewayResponseArgs {
+    /**
+     * The ID for the gateway response. For example: `abc123` .
+     */
     id: string;
 }
 
 export interface GetGatewayResponseResult {
+    /**
+     * The ID for the gateway response. For example: `abc123` .
+     */
     readonly id?: string;
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
@@ -42,5 +48,8 @@ export function getGatewayResponseOutput(args: GetGatewayResponseOutputArgs, opt
 }
 
 export interface GetGatewayResponseOutputArgs {
+    /**
+     * The ID for the gateway response. For example: `abc123` .
+     */
     id: pulumi.Input<string>;
 }

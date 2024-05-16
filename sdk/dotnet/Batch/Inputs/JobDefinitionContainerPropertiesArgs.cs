@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Batch.Inputs
     {
         [Input("command")]
         private InputList<string>? _command;
+
+        /// <summary>
+        /// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
+        /// </summary>
         public InputList<string> Command
         {
             get => _command ?? (_command = new InputList<string>());
@@ -22,72 +26,142 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         [Input("environment")]
         private InputList<Inputs.JobDefinitionEnvironmentArgs>? _environment;
+
+        /// <summary>
+        /// The Environment property type specifies environment variables to use in a job definition.
+        /// </summary>
         public InputList<Inputs.JobDefinitionEnvironmentArgs> Environment
         {
             get => _environment ?? (_environment = new InputList<Inputs.JobDefinitionEnvironmentArgs>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
+        /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.JobDefinitionEphemeralStorageArgs>? EphemeralStorage { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
+        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
+        /// <summary>
+        /// The platform configuration for jobs that are running on Fargate resources. Jobs that run on Amazon EC2 resources must not specify this parameter.
+        /// </summary>
         [Input("fargatePlatformConfiguration")]
         public Input<Inputs.JobDefinitionFargatePlatformConfigurationArgs>? FargatePlatformConfiguration { get; set; }
 
+        /// <summary>
+        /// Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        /// 
+        /// &gt; Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources. 
+        /// 
+        /// - Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions. For example, `public.ecr.aws/ *registry_alias* / *my-web-app* : *latest*` .
+        /// - Images in Amazon ECR repositories use the full registry and repository URI (for example, `123456789012.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;` ).
+        /// - Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo` ).
+        /// - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
+        /// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
+        /// 
+        /// &gt; This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Input("jobRoleArn")]
         public Input<string>? JobRoleArn { get; set; }
 
+        /// <summary>
+        /// Linux-specific modifications that are applied to the container, such as details for device mappings.
+        /// </summary>
         [Input("linuxParameters")]
         public Input<Inputs.JobDefinitionLinuxParametersArgs>? LinuxParameters { get; set; }
 
+        /// <summary>
+        /// Log configuration options to send to a custom log driver for the container.
+        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.JobDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
 
+        /// <summary>
+        /// This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
+        /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
         [Input("mountPoints")]
         private InputList<Inputs.JobDefinitionMountPointsArgs>? _mountPoints;
+
+        /// <summary>
+        /// Details for a Docker volume mount point that's used in a job's container properties. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate) section of the *Docker Remote API* and the `--volume` option to docker run.
+        /// </summary>
         public InputList<Inputs.JobDefinitionMountPointsArgs> MountPoints
         {
             get => _mountPoints ?? (_mountPoints = new InputList<Inputs.JobDefinitionMountPointsArgs>());
             set => _mountPoints = value;
         }
 
+        /// <summary>
+        /// The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.JobDefinitionNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        /// <summary>
+        /// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The default value is false.
+        /// 
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided, or specified as false.
+        /// </summary>
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 
+        /// <summary>
+        /// When this parameter is true, the container is given read-only access to its root file system. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--read-only` option to `docker run` .
+        /// </summary>
         [Input("readonlyRootFilesystem")]
         public Input<bool>? ReadonlyRootFilesystem { get; set; }
 
+        /// <summary>
+        /// The repository credentials for private registry authentication.
+        /// </summary>
         [Input("repositoryCredentials")]
         public Input<Inputs.JobDefinitionRepositoryCredentialsArgs>? RepositoryCredentials { get; set; }
 
         [Input("resourceRequirements")]
         private InputList<Inputs.JobDefinitionResourceRequirementArgs>? _resourceRequirements;
+
+        /// <summary>
+        /// The type and amount of a resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        /// </summary>
         public InputList<Inputs.JobDefinitionResourceRequirementArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.JobDefinitionResourceRequirementArgs>());
             set => _resourceRequirements = value;
         }
 
+        /// <summary>
+        /// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+        /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.JobDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.JobDefinitionSecretArgs>? _secrets;
+
+        /// <summary>
+        /// The secrets for the container. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
+        /// </summary>
         public InputList<Inputs.JobDefinitionSecretArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.JobDefinitionSecretArgs>());
@@ -96,20 +170,38 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         [Input("ulimits")]
         private InputList<Inputs.JobDefinitionUlimitArgs>? _ulimits;
+
+        /// <summary>
+        /// The `ulimit` settings to pass to the container. For more information, see [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) .
+        /// 
+        /// &gt; This object isn't applicable to jobs that are running on Fargate resources.
+        /// </summary>
         public InputList<Inputs.JobDefinitionUlimitArgs> Ulimits
         {
             get => _ulimits ?? (_ulimits = new InputList<Inputs.JobDefinitionUlimitArgs>());
             set => _ulimits = value;
         }
 
+        /// <summary>
+        /// The user name to use inside the container. This parameter maps to `User` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--user` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }
 
+        /// <summary>
+        /// This parameter is deprecated, use `resourceRequirements` to specify the vCPU requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs running on Amazon EC2 resources, it specifies the number of vCPUs reserved for the job.
+        /// 
+        /// Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
+        /// </summary>
         [Input("vcpus")]
         public Input<int>? Vcpus { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.JobDefinitionVolumesArgs>? _volumes;
+
+        /// <summary>
+        /// A list of volumes that are associated with the job.
+        /// </summary>
         public InputList<Inputs.JobDefinitionVolumesArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.JobDefinitionVolumesArgs>());

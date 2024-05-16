@@ -37,15 +37,47 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnvironmentBlueprintConfiguration.__pulumiType;
     }
 
+    /**
+     * The timestamp of when an environment blueprint was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+     */
     public /*out*/ readonly domainId!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+     */
     public readonly domainIdentifier!: pulumi.Output<string>;
+    /**
+     * The enabled AWS Regions specified in a blueprint configuration.
+     */
     public readonly enabledRegions!: pulumi.Output<string[]>;
+    /**
+     * The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+     */
     public /*out*/ readonly environmentBlueprintId!: pulumi.Output<string>;
+    /**
+     * The identifier of the environment blueprint.
+     *
+     * In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+     */
     public readonly environmentBlueprintIdentifier!: pulumi.Output<string>;
+    /**
+     * The ARN of the manage access role.
+     */
     public readonly manageAccessRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the provisioning role.
+     */
     public readonly provisioningRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The regional parameters in the environment blueprint.
+     */
     public readonly regionalParameters!: pulumi.Output<outputs.datazone.EnvironmentBlueprintConfigurationRegionalParameter[] | undefined>;
+    /**
+     * The timestamp of when the environment blueprint was updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -101,10 +133,30 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a EnvironmentBlueprintConfiguration resource.
  */
 export interface EnvironmentBlueprintConfigurationArgs {
+    /**
+     * The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+     */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * The enabled AWS Regions specified in a blueprint configuration.
+     */
     enabledRegions: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The identifier of the environment blueprint.
+     *
+     * In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+     */
     environmentBlueprintIdentifier: pulumi.Input<string>;
+    /**
+     * The ARN of the manage access role.
+     */
     manageAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the provisioning role.
+     */
     provisioningRoleArn?: pulumi.Input<string>;
+    /**
+     * The regional parameters in the environment blueprint.
+     */
     regionalParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationRegionalParameterArgs>[]>;
 }

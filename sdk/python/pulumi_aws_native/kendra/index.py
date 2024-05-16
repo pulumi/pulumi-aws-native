@@ -31,11 +31,24 @@ class IndexArgs:
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Index resource.
+        :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        :param pulumi.Input[str] role_arn: An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
         :param pulumi.Input['IndexCapacityUnitsConfigurationArgs'] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the index
         :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]] document_metadata_configurations: Document metadata configurations
+        :param pulumi.Input[str] name: The name of the index.
         :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Server side encryption configuration
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for labeling the index
+        :param pulumi.Input['IndexUserContextPolicy'] user_context_policy: The user context policy.
+               
+               ATTRIBUTE_FILTER
+               
+               - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+               
+               USER_TOKEN
+               
+               - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]] user_token_configurations: Defines the type of user token used for the index.
         """
         pulumi.set(__self__, "edition", edition)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -59,6 +72,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def edition(self) -> pulumi.Input['IndexEdition']:
+        """
+        Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        """
         return pulumi.get(self, "edition")
 
     @edition.setter
@@ -68,6 +84,9 @@ class IndexArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -113,6 +132,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the index.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -146,6 +168,17 @@ class IndexArgs:
     @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> Optional[pulumi.Input['IndexUserContextPolicy']]:
+        """
+        The user context policy.
+
+        ATTRIBUTE_FILTER
+
+        - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+
+        USER_TOKEN
+
+        - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+        """
         return pulumi.get(self, "user_context_policy")
 
     @user_context_policy.setter
@@ -155,6 +188,9 @@ class IndexArgs:
     @property
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
+        """
+        Defines the type of user token used for the index.
+        """
         return pulumi.get(self, "user_token_configurations")
 
     @user_token_configurations.setter
@@ -186,8 +222,21 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsConfigurationArgs']] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the index
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationArgs']]]] document_metadata_configurations: Document metadata configurations
+        :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        :param pulumi.Input[str] name: The name of the index.
+        :param pulumi.Input[str] role_arn: An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
         :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Server side encryption configuration
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for labeling the index
+        :param pulumi.Input['IndexUserContextPolicy'] user_context_policy: The user context policy.
+               
+               ATTRIBUTE_FILTER
+               
+               - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+               
+               USER_TOKEN
+               
+               - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationArgs']]]] user_token_configurations: Defines the type of user token used for the index.
         """
         ...
     @overload
@@ -289,11 +338,17 @@ class Index(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -323,16 +378,25 @@ class Index(pulumi.CustomResource):
     @property
     @pulumi.getter
     def edition(self) -> pulumi.Output['IndexEdition']:
+        """
+        Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        """
         return pulumi.get(self, "edition")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the index.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
@@ -354,10 +418,24 @@ class Index(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> pulumi.Output[Optional['IndexUserContextPolicy']]:
+        """
+        The user context policy.
+
+        ATTRIBUTE_FILTER
+
+        - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+
+        USER_TOKEN
+
+        - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+        """
         return pulumi.get(self, "user_context_policy")
 
     @property
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.IndexUserTokenConfiguration']]]:
+        """
+        Defines the type of user token used for the index.
+        """
         return pulumi.get(self, "user_token_configurations")
 

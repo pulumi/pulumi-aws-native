@@ -15,27 +15,58 @@ namespace Pulumi.AwsNative.GreengrassV2
     [AwsNativeResourceType("aws-native:greengrassv2:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        /// </summary>
         [Output("components")]
         public Output<ImmutableDictionary<string, Outputs.DeploymentComponentDeploymentSpecification>?> Components { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the deployment.
+        /// </summary>
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the deployment.
+        /// </summary>
         [Output("deploymentName")]
         public Output<string?> DeploymentName { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about policies that define how a deployment updates components and handles failure.
+        /// </summary>
         [Output("deploymentPolicies")]
         public Output<Outputs.DeploymentPolicies?> DeploymentPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about an AWS IoT job configuration.
+        /// </summary>
         [Output("iotJobConfiguration")]
         public Output<Outputs.DeploymentIoTJobConfiguration?> IotJobConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+        /// </summary>
         [Output("parentTargetArn")]
         public Output<string?> ParentTargetArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// 
+        /// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+        /// 
+        /// ```json
+        /// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        /// }
+        /// ```
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the target AWS IoT thing or thing group.
+        /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
 
@@ -95,32 +126,62 @@ namespace Pulumi.AwsNative.GreengrassV2
     {
         [Input("components")]
         private InputMap<Inputs.DeploymentComponentDeploymentSpecificationArgs>? _components;
+
+        /// <summary>
+        /// The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        /// </summary>
         public InputMap<Inputs.DeploymentComponentDeploymentSpecificationArgs> Components
         {
             get => _components ?? (_components = new InputMap<Inputs.DeploymentComponentDeploymentSpecificationArgs>());
             set => _components = value;
         }
 
+        /// <summary>
+        /// The name of the deployment.
+        /// </summary>
         [Input("deploymentName")]
         public Input<string>? DeploymentName { get; set; }
 
+        /// <summary>
+        /// Contains information about policies that define how a deployment updates components and handles failure.
+        /// </summary>
         [Input("deploymentPolicies")]
         public Input<Inputs.DeploymentPoliciesArgs>? DeploymentPolicies { get; set; }
 
+        /// <summary>
+        /// Contains information about an AWS IoT job configuration.
+        /// </summary>
         [Input("iotJobConfiguration")]
         public Input<Inputs.DeploymentIoTJobConfigurationArgs>? IotJobConfiguration { get; set; }
 
+        /// <summary>
+        /// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+        /// </summary>
         [Input("parentTargetArn")]
         public Input<string>? ParentTargetArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// 
+        /// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+        /// 
+        /// ```json
+        /// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        /// }
+        /// ```
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ARN of the target AWS IoT thing or thing group.
+        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 

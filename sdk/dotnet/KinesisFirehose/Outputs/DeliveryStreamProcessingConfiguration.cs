@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamProcessingConfiguration
     {
+        /// <summary>
+        /// Indicates whether data processing is enabled (true) or disabled (false).
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryStreamProcessor> Processors;
 
         [OutputConstructor]

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
     [OutputType]
     public sealed class ConnectPeerBgpOptions
     {
+        /// <summary>
+        /// The Peer ASN of the BGP.
+        /// </summary>
         public readonly double? PeerAsn;
 
         [OutputConstructor]

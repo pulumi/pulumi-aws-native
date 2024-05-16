@@ -13,6 +13,16 @@ namespace Pulumi.AwsNative.Location.Outputs
     [OutputType]
     public sealed class PlaceIndexDataSourceConfiguration
     {
+        /// <summary>
+        /// Specifies how the results of an operation will be stored by the caller.
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `SingleUse` specifies that the results won't be stored.
+        /// - `Storage` specifies that the result can be cached or stored in a database.
+        /// 
+        /// Default value: `SingleUse`
+        /// </summary>
         public readonly Pulumi.AwsNative.Location.PlaceIndexIntendedUse? IntendedUse;
 
         [OutputConstructor]

@@ -76,6 +76,9 @@ class GetEndpointGroupResult:
     @property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[str]:
+        """
+        If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        """
         return pulumi.get(self, "health_check_path")
 
     @property
@@ -97,6 +100,11 @@ class GetEndpointGroupResult:
     @property
     @pulumi.getter(name="portOverrides")
     def port_overrides(self) -> Optional[Sequence['outputs.EndpointGroupPortOverride']]:
+        """
+        Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
+
+        For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        """
         return pulumi.get(self, "port_overrides")
 
     @property

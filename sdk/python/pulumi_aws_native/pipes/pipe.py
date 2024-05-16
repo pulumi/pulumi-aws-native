@@ -31,6 +31,20 @@ class PipeArgs:
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         The set of arguments for constructing a Pipe resource.
+        :param pulumi.Input[str] role_arn: The ARN of the role that allows the pipe to send data to the target.
+        :param pulumi.Input[str] source: The ARN of the source resource.
+        :param pulumi.Input[str] target: The ARN of the target resource.
+        :param pulumi.Input[str] description: A description of the pipe.
+        :param pulumi.Input['PipeRequestedPipeState'] desired_state: The state the pipe should be in.
+        :param pulumi.Input[str] enrichment: The ARN of the enrichment resource.
+        :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: The parameters required to set up enrichment on your pipe.
+        :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: Represents the configuration settings for the logs to which this pipe should report events.
+        :param pulumi.Input[str] name: The name of the pipe.
+        :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: The parameters required to set up a source for your pipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key-value pairs to associate with the pipe.
+        :param pulumi.Input['PipeTargetParametersArgs'] target_parameters: The parameters required to set up a target for your pipe.
+               
+               For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "source", source)
@@ -57,6 +71,9 @@ class PipeArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the role that allows the pipe to send data to the target.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -66,6 +83,9 @@ class PipeArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
+        """
+        The ARN of the source resource.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -75,6 +95,9 @@ class PipeArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
+        """
+        The ARN of the target resource.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -84,6 +107,9 @@ class PipeArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the pipe.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -93,6 +119,9 @@ class PipeArgs:
     @property
     @pulumi.getter(name="desiredState")
     def desired_state(self) -> Optional[pulumi.Input['PipeRequestedPipeState']]:
+        """
+        The state the pipe should be in.
+        """
         return pulumi.get(self, "desired_state")
 
     @desired_state.setter
@@ -102,6 +131,9 @@ class PipeArgs:
     @property
     @pulumi.getter
     def enrichment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the enrichment resource.
+        """
         return pulumi.get(self, "enrichment")
 
     @enrichment.setter
@@ -111,6 +143,9 @@ class PipeArgs:
     @property
     @pulumi.getter(name="enrichmentParameters")
     def enrichment_parameters(self) -> Optional[pulumi.Input['PipeEnrichmentParametersArgs']]:
+        """
+        The parameters required to set up enrichment on your pipe.
+        """
         return pulumi.get(self, "enrichment_parameters")
 
     @enrichment_parameters.setter
@@ -120,6 +155,9 @@ class PipeArgs:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
+        """
+        Represents the configuration settings for the logs to which this pipe should report events.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -129,6 +167,9 @@ class PipeArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipe.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -138,6 +179,9 @@ class PipeArgs:
     @property
     @pulumi.getter(name="sourceParameters")
     def source_parameters(self) -> Optional[pulumi.Input['PipeSourceParametersArgs']]:
+        """
+        The parameters required to set up a source for your pipe.
+        """
         return pulumi.get(self, "source_parameters")
 
     @source_parameters.setter
@@ -147,6 +191,9 @@ class PipeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of key-value pairs to associate with the pipe.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -156,6 +203,11 @@ class PipeArgs:
     @property
     @pulumi.getter(name="targetParameters")
     def target_parameters(self) -> Optional[pulumi.Input['PipeTargetParametersArgs']]:
+        """
+        The parameters required to set up a target for your pipe.
+
+        For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+        """
         return pulumi.get(self, "target_parameters")
 
     @target_parameters.setter
@@ -216,6 +268,20 @@ class Pipe(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the pipe.
+        :param pulumi.Input['PipeRequestedPipeState'] desired_state: The state the pipe should be in.
+        :param pulumi.Input[str] enrichment: The ARN of the enrichment resource.
+        :param pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']] enrichment_parameters: The parameters required to set up enrichment on your pipe.
+        :param pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']] log_configuration: Represents the configuration settings for the logs to which this pipe should report events.
+        :param pulumi.Input[str] name: The name of the pipe.
+        :param pulumi.Input[str] role_arn: The ARN of the role that allows the pipe to send data to the target.
+        :param pulumi.Input[str] source: The ARN of the source resource.
+        :param pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']] source_parameters: The parameters required to set up a source for your pipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key-value pairs to associate with the pipe.
+        :param pulumi.Input[str] target: The ARN of the target resource.
+        :param pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']] target_parameters: The parameters required to set up a target for your pipe.
+               
+               For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
         """
         ...
     @overload
@@ -361,85 +427,138 @@ class Pipe(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the pipe.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time the pipe was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="currentState")
     def current_state(self) -> pulumi.Output['PipeState']:
+        """
+        The state the pipe is in.
+        """
         return pulumi.get(self, "current_state")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the pipe.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="desiredState")
     def desired_state(self) -> pulumi.Output[Optional['PipeRequestedPipeState']]:
+        """
+        The state the pipe should be in.
+        """
         return pulumi.get(self, "desired_state")
 
     @property
     @pulumi.getter
     def enrichment(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the enrichment resource.
+        """
         return pulumi.get(self, "enrichment")
 
     @property
     @pulumi.getter(name="enrichmentParameters")
     def enrichment_parameters(self) -> pulumi.Output[Optional['outputs.PipeEnrichmentParameters']]:
+        """
+        The parameters required to set up enrichment on your pipe.
+        """
         return pulumi.get(self, "enrichment_parameters")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.PipeLogConfiguration']]:
+        """
+        Represents the configuration settings for the logs to which this pipe should report events.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the pipe.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the role that allows the pipe to send data to the target.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
+        """
+        The ARN of the source resource.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter(name="sourceParameters")
     def source_parameters(self) -> pulumi.Output[Optional['outputs.PipeSourceParameters']]:
+        """
+        The parameters required to set up a source for your pipe.
+        """
         return pulumi.get(self, "source_parameters")
 
     @property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> pulumi.Output[str]:
+        """
+        The reason the pipe is in its current state.
+        """
         return pulumi.get(self, "state_reason")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The list of key-value pairs to associate with the pipe.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def target(self) -> pulumi.Output[str]:
+        """
+        The ARN of the target resource.
+        """
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter(name="targetParameters")
     def target_parameters(self) -> pulumi.Output[Optional['outputs.PipeTargetParameters']]:
+        """
+        The parameters required to set up a target for your pipe.
+
+        For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+        """
         return pulumi.get(self, "target_parameters")
 

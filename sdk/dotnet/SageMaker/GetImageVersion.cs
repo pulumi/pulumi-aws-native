@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetImageVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image version.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
+        /// </summary>
         [Input("imageVersionArn", required: true)]
         public string ImageVersionArn { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetImageVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image version.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
+        /// </summary>
         [Input("imageVersionArn", required: true)]
         public Input<string> ImageVersionArn { get; set; } = null!;
 
@@ -51,9 +69,24 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetImageVersionResult
     {
+        /// <summary>
+        /// The URI of the container image version referenced by ImageVersion.
+        /// </summary>
         public readonly string? ContainerImage;
         public readonly bool? Horovod;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the parent Image.
+        /// </summary>
         public readonly string? ImageArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image version.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
+        /// </summary>
         public readonly string? ImageVersionArn;
         public readonly Pulumi.AwsNative.SageMaker.ImageVersionJobType? JobType;
         public readonly string? MlFramework;
@@ -61,6 +94,9 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? ProgrammingLang;
         public readonly string? ReleaseNotes;
         public readonly Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance? VendorGuidance;
+        /// <summary>
+        /// The version of the image.
+        /// </summary>
         public readonly int? Version;
 
         [OutputConstructor]

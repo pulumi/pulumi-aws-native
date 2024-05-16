@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionApiKeyAuthParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the API key to use for authorization.
+        /// </summary>
         [Input("apiKeyName", required: true)]
         public Input<string> ApiKeyName { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the API key to use for authorization.
+        /// </summary>
         [Input("apiKeyValue", required: true)]
         public Input<string> ApiKeyValue { get; set; } = null!;
 

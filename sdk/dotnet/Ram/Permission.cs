@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ram
     [AwsNativeResourceType("aws-native:ram:Permission")]
     public partial class Permission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the new permission.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -30,6 +33,12 @@ namespace Pulumi.AwsNative.Ram
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of managed permission. This can be one of the following values:
+        /// 
+        /// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+        /// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
+        /// </summary>
         [Output("permissionType")]
         public Output<string> PermissionType { get; private set; } = null!;
 
@@ -47,6 +56,11 @@ namespace Pulumi.AwsNative.Ram
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+        /// 
+        /// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -129,6 +143,12 @@ namespace Pulumi.AwsNative.Ram
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+        /// 
+        /// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -21,12 +21,24 @@ export function getVpc(args: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetVpcArgs {
+    /**
+     * The ID of the VPC.
+     */
     vpcId: string;
 }
 
 export interface GetVpcResult {
+    /**
+     * The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
+     */
     readonly cidrBlockAssociations?: string[];
+    /**
+     * The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+     */
     readonly defaultNetworkAcl?: string;
+    /**
+     * The ID of the default security group for the VPC. For example, sg-b178e0d3.
+     */
     readonly defaultSecurityGroup?: string;
     /**
      * Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
@@ -45,11 +57,17 @@ export interface GetVpcResult {
      *  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
      */
     readonly instanceTenancy?: string;
+    /**
+     * The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+     */
     readonly ipv6CidrBlocks?: string[];
     /**
      * The tags for the VPC.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ID of the VPC.
+     */
     readonly vpcId?: string;
 }
 /**
@@ -62,5 +80,8 @@ export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetVpcOutputArgs {
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

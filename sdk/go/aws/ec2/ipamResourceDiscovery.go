@@ -16,6 +16,7 @@ import (
 type IpamResourceDiscovery struct {
 	pulumi.CustomResourceState
 
+	// The resource discovery description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Amazon Resource Name (Arn) for the Resource Discovery.
 	IpamResourceDiscoveryArn pulumi.StringOutput `pulumi:"ipamResourceDiscoveryArn"`
@@ -75,6 +76,7 @@ func (IpamResourceDiscoveryState) ElementType() reflect.Type {
 }
 
 type ipamResourceDiscoveryArgs struct {
+	// The resource discovery description.
 	Description *string `pulumi:"description"`
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamResourceDiscoveryIpamOperatingRegion `pulumi:"operatingRegions"`
@@ -84,6 +86,7 @@ type ipamResourceDiscoveryArgs struct {
 
 // The set of arguments for constructing a IpamResourceDiscovery resource.
 type IpamResourceDiscoveryArgs struct {
+	// The resource discovery description.
 	Description pulumi.StringPtrInput
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamResourceDiscoveryIpamOperatingRegionArrayInput
@@ -128,6 +131,7 @@ func (o IpamResourceDiscoveryOutput) ToIpamResourceDiscoveryOutputWithContext(ct
 	return o
 }
 
+// The resource discovery description.
 func (o IpamResourceDiscoveryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamResourceDiscovery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

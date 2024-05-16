@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisLocalNavigationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The sheet that is targeted for navigation in the same analysis.
+        /// </summary>
         [Input("targetSheetId", required: true)]
         public Input<string> TargetSheetId { get; set; } = null!;
 

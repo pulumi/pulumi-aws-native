@@ -30,13 +30,19 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, o
 }
 
 type LookupLaunchTemplateArgs struct {
+	// The ID of the launch template.
 	LaunchTemplateId string `pulumi:"launchTemplateId"`
 }
 
 type LookupLaunchTemplateResult struct {
+	// The default version of the launch template, such as 2.
+	//
+	// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
 	DefaultVersionNumber *string `pulumi:"defaultVersionNumber"`
-	LatestVersionNumber  *string `pulumi:"latestVersionNumber"`
-	LaunchTemplateId     *string `pulumi:"launchTemplateId"`
+	// The latest version of the launch template, such as `5` .
+	LatestVersionNumber *string `pulumi:"latestVersionNumber"`
+	// The ID of the launch template.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
@@ -53,6 +59,7 @@ func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOu
 }
 
 type LookupLaunchTemplateOutputArgs struct {
+	// The ID of the launch template.
 	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
 }
 
@@ -74,14 +81,19 @@ func (o LookupLaunchTemplateResultOutput) ToLookupLaunchTemplateResultOutputWith
 	return o
 }
 
+// The default version of the launch template, such as 2.
+//
+// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
 func (o LookupLaunchTemplateResultOutput) DefaultVersionNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.DefaultVersionNumber }).(pulumi.StringPtrOutput)
 }
 
+// The latest version of the launch template, such as `5` .
 func (o LookupLaunchTemplateResultOutput) LatestVersionNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.LatestVersionNumber }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the launch template.
 func (o LookupLaunchTemplateResultOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }

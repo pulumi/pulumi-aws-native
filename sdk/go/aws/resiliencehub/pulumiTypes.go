@@ -310,10 +310,43 @@ func (o AppPermissionModelPtrOutput) Type() AppPermissionModelTypePtrOutput {
 }
 
 type AppPhysicalResourceId struct {
+	// The AWS account that owns the physical resource.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	AwsRegion    *string `pulumi:"awsRegion"`
-	Identifier   string  `pulumi:"identifier"`
-	Type         string  `pulumi:"type"`
+	// The AWS Region that the physical resource is located in.
+	AwsRegion *string `pulumi:"awsRegion"`
+	// Identifier of the physical resource.
+	Identifier string `pulumi:"identifier"`
+	// Specifies the type of physical resource identifier.
+	//
+	// - **Arn** - The resource identifier is an Amazon Resource Name (ARN) and it can identify the following list of resources:
+	//
+	// - `AWS::ECS::Service`
+	// - `AWS::EFS::FileSystem`
+	// - `AWS::ElasticLoadBalancingV2::LoadBalancer`
+	// - `AWS::Lambda::Function`
+	// - `AWS::SNS::Topic`
+	// - **Native** - The resource identifier is an AWS Resilience Hub -native identifier and it can identify the following list of resources:
+	//
+	// - `AWS::ApiGateway::RestApi`
+	// - `AWS::ApiGatewayV2::Api`
+	// - `AWS::AutoScaling::AutoScalingGroup`
+	// - `AWS::DocDB::DBCluster`
+	// - `AWS::DocDB::DBGlobalCluster`
+	// - `AWS::DocDB::DBInstance`
+	// - `AWS::DynamoDB::GlobalTable`
+	// - `AWS::DynamoDB::Table`
+	// - `AWS::EC2::EC2Fleet`
+	// - `AWS::EC2::Instance`
+	// - `AWS::EC2::NatGateway`
+	// - `AWS::EC2::Volume`
+	// - `AWS::ElasticLoadBalancing::LoadBalancer`
+	// - `AWS::RDS::DBCluster`
+	// - `AWS::RDS::DBInstance`
+	// - `AWS::RDS::GlobalCluster`
+	// - `AWS::Route53::RecordSet`
+	// - `AWS::S3::Bucket`
+	// - `AWS::SQS::Queue`
+	Type string `pulumi:"type"`
 }
 
 // AppPhysicalResourceIdInput is an input type that accepts AppPhysicalResourceIdArgs and AppPhysicalResourceIdOutput values.
@@ -328,10 +361,43 @@ type AppPhysicalResourceIdInput interface {
 }
 
 type AppPhysicalResourceIdArgs struct {
+	// The AWS account that owns the physical resource.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	AwsRegion    pulumi.StringPtrInput `pulumi:"awsRegion"`
-	Identifier   pulumi.StringInput    `pulumi:"identifier"`
-	Type         pulumi.StringInput    `pulumi:"type"`
+	// The AWS Region that the physical resource is located in.
+	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
+	// Identifier of the physical resource.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// Specifies the type of physical resource identifier.
+	//
+	// - **Arn** - The resource identifier is an Amazon Resource Name (ARN) and it can identify the following list of resources:
+	//
+	// - `AWS::ECS::Service`
+	// - `AWS::EFS::FileSystem`
+	// - `AWS::ElasticLoadBalancingV2::LoadBalancer`
+	// - `AWS::Lambda::Function`
+	// - `AWS::SNS::Topic`
+	// - **Native** - The resource identifier is an AWS Resilience Hub -native identifier and it can identify the following list of resources:
+	//
+	// - `AWS::ApiGateway::RestApi`
+	// - `AWS::ApiGatewayV2::Api`
+	// - `AWS::AutoScaling::AutoScalingGroup`
+	// - `AWS::DocDB::DBCluster`
+	// - `AWS::DocDB::DBGlobalCluster`
+	// - `AWS::DocDB::DBInstance`
+	// - `AWS::DynamoDB::GlobalTable`
+	// - `AWS::DynamoDB::Table`
+	// - `AWS::EC2::EC2Fleet`
+	// - `AWS::EC2::Instance`
+	// - `AWS::EC2::NatGateway`
+	// - `AWS::EC2::Volume`
+	// - `AWS::ElasticLoadBalancing::LoadBalancer`
+	// - `AWS::RDS::DBCluster`
+	// - `AWS::RDS::DBInstance`
+	// - `AWS::RDS::GlobalCluster`
+	// - `AWS::Route53::RecordSet`
+	// - `AWS::S3::Bucket`
+	// - `AWS::SQS::Queue`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AppPhysicalResourceIdArgs) ElementType() reflect.Type {
@@ -360,30 +426,71 @@ func (o AppPhysicalResourceIdOutput) ToAppPhysicalResourceIdOutputWithContext(ct
 	return o
 }
 
+// The AWS account that owns the physical resource.
 func (o AppPhysicalResourceIdOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppPhysicalResourceId) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region that the physical resource is located in.
 func (o AppPhysicalResourceIdOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppPhysicalResourceId) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the physical resource.
 func (o AppPhysicalResourceIdOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AppPhysicalResourceId) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
+// Specifies the type of physical resource identifier.
+//
+// - **Arn** - The resource identifier is an Amazon Resource Name (ARN) and it can identify the following list of resources:
+//
+// - `AWS::ECS::Service`
+// - `AWS::EFS::FileSystem`
+// - `AWS::ElasticLoadBalancingV2::LoadBalancer`
+// - `AWS::Lambda::Function`
+// - `AWS::SNS::Topic`
+// - **Native** - The resource identifier is an AWS Resilience Hub -native identifier and it can identify the following list of resources:
+//
+// - `AWS::ApiGateway::RestApi`
+// - `AWS::ApiGatewayV2::Api`
+// - `AWS::AutoScaling::AutoScalingGroup`
+// - `AWS::DocDB::DBCluster`
+// - `AWS::DocDB::DBGlobalCluster`
+// - `AWS::DocDB::DBInstance`
+// - `AWS::DynamoDB::GlobalTable`
+// - `AWS::DynamoDB::Table`
+// - `AWS::EC2::EC2Fleet`
+// - `AWS::EC2::Instance`
+// - `AWS::EC2::NatGateway`
+// - `AWS::EC2::Volume`
+// - `AWS::ElasticLoadBalancing::LoadBalancer`
+// - `AWS::RDS::DBCluster`
+// - `AWS::RDS::DBInstance`
+// - `AWS::RDS::GlobalCluster`
+// - `AWS::Route53::RecordSet`
+// - `AWS::S3::Bucket`
+// - `AWS::SQS::Queue`
 func (o AppPhysicalResourceIdOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppPhysicalResourceId) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMapping struct {
-	EksSourceName       *string               `pulumi:"eksSourceName"`
-	LogicalStackName    *string               `pulumi:"logicalStackName"`
-	MappingType         string                `pulumi:"mappingType"`
-	PhysicalResourceId  AppPhysicalResourceId `pulumi:"physicalResourceId"`
-	ResourceName        *string               `pulumi:"resourceName"`
-	TerraformSourceName *string               `pulumi:"terraformSourceName"`
+	// Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+	//
+	// > This parameter accepts values in "eks-cluster/namespace" format.
+	EksSourceName *string `pulumi:"eksSourceName"`
+	// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+	LogicalStackName *string `pulumi:"logicalStackName"`
+	// Specifies the type of resource mapping.
+	MappingType string `pulumi:"mappingType"`
+	// Defines a physical resource identifier.
+	PhysicalResourceId AppPhysicalResourceId `pulumi:"physicalResourceId"`
+	// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
+	ResourceName *string `pulumi:"resourceName"`
+	// Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
+	TerraformSourceName *string `pulumi:"terraformSourceName"`
 }
 
 // AppResourceMappingInput is an input type that accepts AppResourceMappingArgs and AppResourceMappingOutput values.
@@ -399,12 +506,20 @@ type AppResourceMappingInput interface {
 
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMappingArgs struct {
-	EksSourceName       pulumi.StringPtrInput      `pulumi:"eksSourceName"`
-	LogicalStackName    pulumi.StringPtrInput      `pulumi:"logicalStackName"`
-	MappingType         pulumi.StringInput         `pulumi:"mappingType"`
-	PhysicalResourceId  AppPhysicalResourceIdInput `pulumi:"physicalResourceId"`
-	ResourceName        pulumi.StringPtrInput      `pulumi:"resourceName"`
-	TerraformSourceName pulumi.StringPtrInput      `pulumi:"terraformSourceName"`
+	// Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+	//
+	// > This parameter accepts values in "eks-cluster/namespace" format.
+	EksSourceName pulumi.StringPtrInput `pulumi:"eksSourceName"`
+	// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+	LogicalStackName pulumi.StringPtrInput `pulumi:"logicalStackName"`
+	// Specifies the type of resource mapping.
+	MappingType pulumi.StringInput `pulumi:"mappingType"`
+	// Defines a physical resource identifier.
+	PhysicalResourceId AppPhysicalResourceIdInput `pulumi:"physicalResourceId"`
+	// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
+	TerraformSourceName pulumi.StringPtrInput `pulumi:"terraformSourceName"`
 }
 
 func (AppResourceMappingArgs) ElementType() reflect.Type {
@@ -459,26 +574,34 @@ func (o AppResourceMappingOutput) ToAppResourceMappingOutputWithContext(ctx cont
 	return o
 }
 
+// Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+//
+// > This parameter accepts values in "eks-cluster/namespace" format.
 func (o AppResourceMappingOutput) EksSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.EksSourceName }).(pulumi.StringPtrOutput)
 }
 
+// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
 func (o AppResourceMappingOutput) LogicalStackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.LogicalStackName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of resource mapping.
 func (o AppResourceMappingOutput) MappingType() pulumi.StringOutput {
 	return o.ApplyT(func(v AppResourceMapping) string { return v.MappingType }).(pulumi.StringOutput)
 }
 
+// Defines a physical resource identifier.
 func (o AppResourceMappingOutput) PhysicalResourceId() AppPhysicalResourceIdOutput {
 	return o.ApplyT(func(v AppResourceMapping) AppPhysicalResourceId { return v.PhysicalResourceId }).(AppPhysicalResourceIdOutput)
 }
 
+// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
 func (o AppResourceMappingOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
+// Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
 func (o AppResourceMappingOutput) TerraformSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.TerraformSourceName }).(pulumi.StringPtrOutput)
 }
@@ -663,10 +786,14 @@ func (o ResiliencyPolicyFailurePolicyPtrOutput) RtoInSecs() pulumi.IntPtrOutput 
 }
 
 type ResiliencyPolicyPolicyMap struct {
-	Az       ResiliencyPolicyFailurePolicy  `pulumi:"az"`
-	Hardware ResiliencyPolicyFailurePolicy  `pulumi:"hardware"`
-	Region   *ResiliencyPolicyFailurePolicy `pulumi:"region"`
-	Software ResiliencyPolicyFailurePolicy  `pulumi:"software"`
+	// Defines a failure policy.
+	Az ResiliencyPolicyFailurePolicy `pulumi:"az"`
+	// Defines a failure policy.
+	Hardware ResiliencyPolicyFailurePolicy `pulumi:"hardware"`
+	// Defines a failure policy.
+	Region *ResiliencyPolicyFailurePolicy `pulumi:"region"`
+	// Defines a failure policy.
+	Software ResiliencyPolicyFailurePolicy `pulumi:"software"`
 }
 
 // ResiliencyPolicyPolicyMapInput is an input type that accepts ResiliencyPolicyPolicyMap and ResiliencyPolicyPolicyMapOutput values.
@@ -681,10 +808,14 @@ type ResiliencyPolicyPolicyMapInput interface {
 }
 
 type ResiliencyPolicyPolicyMapArgs struct {
-	Az       ResiliencyPolicyFailurePolicyInput    `pulumi:"az"`
-	Hardware ResiliencyPolicyFailurePolicyInput    `pulumi:"hardware"`
-	Region   ResiliencyPolicyFailurePolicyPtrInput `pulumi:"region"`
-	Software ResiliencyPolicyFailurePolicyInput    `pulumi:"software"`
+	// Defines a failure policy.
+	Az ResiliencyPolicyFailurePolicyInput `pulumi:"az"`
+	// Defines a failure policy.
+	Hardware ResiliencyPolicyFailurePolicyInput `pulumi:"hardware"`
+	// Defines a failure policy.
+	Region ResiliencyPolicyFailurePolicyPtrInput `pulumi:"region"`
+	// Defines a failure policy.
+	Software ResiliencyPolicyFailurePolicyInput `pulumi:"software"`
 }
 
 func (ResiliencyPolicyPolicyMapArgs) ElementType() reflect.Type {
@@ -713,18 +844,22 @@ func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutputWithCo
 	return o
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapOutput) Az() ResiliencyPolicyFailurePolicyOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) ResiliencyPolicyFailurePolicy { return v.Az }).(ResiliencyPolicyFailurePolicyOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapOutput) Hardware() ResiliencyPolicyFailurePolicyOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) ResiliencyPolicyFailurePolicy { return v.Hardware }).(ResiliencyPolicyFailurePolicyOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapOutput) Region() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy { return v.Region }).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapOutput) Software() ResiliencyPolicyFailurePolicyOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) ResiliencyPolicyFailurePolicy { return v.Software }).(ResiliencyPolicyFailurePolicyOutput)
 }
@@ -753,6 +888,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Elem() ResiliencyPolicyPolicyMapOutp
 	}).(ResiliencyPolicyPolicyMapOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Az() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {
@@ -762,6 +898,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Az() ResiliencyPolicyFailurePolicyPt
 	}).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Hardware() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {
@@ -771,6 +908,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Hardware() ResiliencyPolicyFailurePo
 	}).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Region() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {
@@ -780,6 +918,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Region() ResiliencyPolicyFailurePoli
 	}).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
+// Defines a failure policy.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Software() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {

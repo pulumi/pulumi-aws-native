@@ -24,21 +24,33 @@ func LookupTransformer(ctx *pulumi.Context, args *LookupTransformerArgs, opts ..
 }
 
 type LookupTransformerArgs struct {
+	// The system-assigned unique identifier for the transformer.
 	TransformerId string `pulumi:"transformerId"`
 }
 
 type LookupTransformerResult struct {
-	CreatedAt       *string                       `pulumi:"createdAt"`
-	EdiType         *TransformerEdiTypeProperties `pulumi:"ediType"`
-	FileFormat      *TransformerFileFormat        `pulumi:"fileFormat"`
-	MappingTemplate *string                       `pulumi:"mappingTemplate"`
-	ModifiedAt      *string                       `pulumi:"modifiedAt"`
-	Name            *string                       `pulumi:"name"`
-	SampleDocument  *string                       `pulumi:"sampleDocument"`
-	Status          *TransformerStatus            `pulumi:"status"`
-	Tags            []aws.Tag                     `pulumi:"tags"`
-	TransformerArn  *string                       `pulumi:"transformerArn"`
-	TransformerId   *string                       `pulumi:"transformerId"`
+	// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
+	CreatedAt *string `pulumi:"createdAt"`
+	// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+	EdiType *TransformerEdiTypeProperties `pulumi:"ediType"`
+	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+	FileFormat *TransformerFileFormat `pulumi:"fileFormat"`
+	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	MappingTemplate *string `pulumi:"mappingTemplate"`
+	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// Returns the descriptive name for the transformer.
+	Name *string `pulumi:"name"`
+	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	SampleDocument *string `pulumi:"sampleDocument"`
+	// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+	Status *TransformerStatus `pulumi:"status"`
+	// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Returns an Amazon Resource Name (ARN) for a specific transformer.
+	TransformerArn *string `pulumi:"transformerArn"`
+	// The system-assigned unique identifier for the transformer.
+	TransformerId *string `pulumi:"transformerId"`
 }
 
 func LookupTransformerOutput(ctx *pulumi.Context, args LookupTransformerOutputArgs, opts ...pulumi.InvokeOption) LookupTransformerResultOutput {
@@ -55,6 +67,7 @@ func LookupTransformerOutput(ctx *pulumi.Context, args LookupTransformerOutputAr
 }
 
 type LookupTransformerOutputArgs struct {
+	// The system-assigned unique identifier for the transformer.
 	TransformerId pulumi.StringInput `pulumi:"transformerId"`
 }
 
@@ -76,46 +89,57 @@ func (o LookupTransformerResultOutput) ToLookupTransformerResultOutputWithContex
 	return o
 }
 
+// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
 func (o LookupTransformerResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 func (o LookupTransformerResultOutput) EdiType() TransformerEdiTypePropertiesPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *TransformerEdiTypeProperties { return v.EdiType }).(TransformerEdiTypePropertiesPtrOutput)
 }
 
+// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 func (o LookupTransformerResultOutput) FileFormat() TransformerFileFormatPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *TransformerFileFormat { return v.FileFormat }).(TransformerFileFormatPtrOutput)
 }
 
+// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 func (o LookupTransformerResultOutput) MappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.MappingTemplate }).(pulumi.StringPtrOutput)
 }
 
+// Returns a timestamp representing the date and time for the most recent change for the transformer object.
 func (o LookupTransformerResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// Returns the descriptive name for the transformer.
 func (o LookupTransformerResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 func (o LookupTransformerResultOutput) SampleDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.SampleDocument }).(pulumi.StringPtrOutput)
 }
 
+// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
 func (o LookupTransformerResultOutput) Status() TransformerStatusPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *TransformerStatus { return v.Status }).(TransformerStatusPtrOutput)
 }
 
+// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o LookupTransformerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransformerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Returns an Amazon Resource Name (ARN) for a specific transformer.
 func (o LookupTransformerResultOutput) TransformerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.TransformerArn }).(pulumi.StringPtrOutput)
 }
 
+// The system-assigned unique identifier for the transformer.
 func (o LookupTransformerResultOutput) TransformerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.TransformerId }).(pulumi.StringPtrOutput)
 }

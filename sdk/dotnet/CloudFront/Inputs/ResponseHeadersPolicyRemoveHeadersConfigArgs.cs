@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("items", required: true)]
         private InputList<Inputs.ResponseHeadersPolicyRemoveHeaderArgs>? _items;
+
+        /// <summary>
+        /// The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        /// </summary>
         public InputList<Inputs.ResponseHeadersPolicyRemoveHeaderArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.ResponseHeadersPolicyRemoveHeaderArgs>());

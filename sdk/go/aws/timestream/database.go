@@ -16,6 +16,7 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
+	// The `arn` of the database.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
@@ -124,6 +125,7 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// The `arn` of the database.
 func (o DatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

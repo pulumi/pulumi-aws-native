@@ -22,6 +22,16 @@ class NetworkSettingsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkSettings resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
+               
+               *Pattern* : `^[\\w+\\-]+$`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+               
+               *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        :param pulumi.Input[str] vpc_id: The VPC that streaming instances will connect to.
+               
+               *Pattern* : `^vpc-[0-9a-z]*$`
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -32,6 +42,11 @@ class NetworkSettingsArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more security groups used to control access from streaming instances to your VPC.
+
+        *Pattern* : `^[\\w+\\-]+$`
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -41,6 +56,11 @@ class NetworkSettingsArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+
+        *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -50,6 +70,11 @@ class NetworkSettingsArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The VPC that streaming instances will connect to.
+
+        *Pattern* : `^vpc-[0-9a-z]*$`
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -59,6 +84,9 @@ class NetworkSettingsArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +109,16 @@ class NetworkSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
+               
+               *Pattern* : `^[\\w+\\-]+$`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+               
+               *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input[str] vpc_id: The VPC that streaming instances will connect to.
+               
+               *Pattern* : `^vpc-[0-9a-z]*$`
         """
         ...
     @overload
@@ -164,30 +202,54 @@ class NetworkSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of web portal ARNs that this network settings is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the network settings.
+        """
         return pulumi.get(self, "network_settings_arn")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        One or more security groups used to control access from streaming instances to your VPC.
+
+        *Pattern* : `^[\\w+\\-]+$`
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+
+        *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The VPC that streaming instances will connect to.
+
+        *Pattern* : `^vpc-[0-9a-z]*$`
+        """
         return pulumi.get(self, "vpc_id")
 

@@ -12,15 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateReferenceLineDataConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The axis binding type of the reference line. Choose one of the following options:
+        /// 
+        /// - `PrimaryY`
+        /// - `SecondaryY`
+        /// </summary>
         [Input("axisBinding")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateAxisBinding>? AxisBinding { get; set; }
 
+        /// <summary>
+        /// The dynamic configuration of the reference line data configuration.
+        /// </summary>
         [Input("dynamicConfiguration")]
         public Input<Inputs.TemplateReferenceLineDynamicDataConfigurationArgs>? DynamicConfiguration { get; set; }
 
+        /// <summary>
+        /// The series type of the reference line data configuration. Choose one of the following options:
+        /// 
+        /// - `BAR`
+        /// - `LINE`
+        /// </summary>
         [Input("seriesType")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateReferenceLineSeriesType>? SeriesType { get; set; }
 
+        /// <summary>
+        /// The static data configuration of the reference line data configuration.
+        /// </summary>
         [Input("staticConfiguration")]
         public Input<Inputs.TemplateReferenceLineStaticDataConfigurationArgs>? StaticConfiguration { get; set; }
 

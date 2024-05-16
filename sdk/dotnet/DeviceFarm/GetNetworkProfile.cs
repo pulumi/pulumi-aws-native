@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetNetworkProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetNetworkProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,17 +57,53 @@ namespace Pulumi.AwsNative.DeviceFarm
     [OutputType]
     public sealed class GetNetworkProfileResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The description of the network profile.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        /// </summary>
         public readonly int? DownlinkBandwidthBits;
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         public readonly int? DownlinkDelayMs;
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         public readonly int? DownlinkJitterMs;
+        /// <summary>
+        /// Proportion of received packets that fail to arrive from 0 to 100 percent.
+        /// </summary>
         public readonly int? DownlinkLossPercent;
+        /// <summary>
+        /// The name of the network profile.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        /// </summary>
         public readonly int? UplinkBandwidthBits;
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         public readonly int? UplinkDelayMs;
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         public readonly int? UplinkJitterMs;
+        /// <summary>
+        /// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+        /// </summary>
         public readonly int? UplinkLossPercent;
 
         [OutputConstructor]

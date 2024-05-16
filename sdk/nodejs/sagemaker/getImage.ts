@@ -19,13 +19,48 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetImageArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the image.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+     */
     imageArn: string;
 }
 
 export interface GetImageResult {
+    /**
+     * The Amazon Resource Name (ARN) of the image.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+     */
     readonly imageArn?: string;
+    /**
+     * The description of the image.
+     */
     readonly imageDescription?: string;
+    /**
+     * The display name of the image.
+     *
+     * *Length Constraints* : Minimum length of 1. Maximum length of 128.
+     *
+     * *Pattern* : `^\S(.*\S)?$`
+     */
     readonly imageDisplayName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+     *
+     * *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+     *
+     * *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+     */
     readonly imageRoleArn?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -40,5 +75,14 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetImageOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the image.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+     */
     imageArn: pulumi.Input<string>;
 }

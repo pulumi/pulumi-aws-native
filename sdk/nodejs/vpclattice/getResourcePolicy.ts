@@ -16,11 +16,16 @@ export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.Inv
 }
 
 export interface GetResourcePolicyArgs {
+    /**
+     * An IAM policy.
+     */
     resourceArn: string;
 }
 
 export interface GetResourcePolicyResult {
     /**
+     * The Amazon Resource Name (ARN) of the service network or service.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
      */
     readonly policy?: any;
@@ -33,5 +38,8 @@ export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?
 }
 
 export interface GetResourcePolicyOutputArgs {
+    /**
+     * An IAM policy.
+     */
     resourceArn: pulumi.Input<string>;
 }

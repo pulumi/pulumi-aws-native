@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultFilterControlConfiguration
     {
+        /// <summary>
+        /// The option that corresponds to the control type of the filter.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultFilterControlOptions ControlOptions;
+        /// <summary>
+        /// The title of the `DefaultFilterControlConfiguration` . This title is shared by all controls that are tied to this filter.
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

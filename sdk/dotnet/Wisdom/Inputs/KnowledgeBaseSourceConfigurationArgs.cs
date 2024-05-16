@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class KnowledgeBaseSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration information for Amazon AppIntegrations to automatically ingest content.
+        /// </summary>
         [Input("appIntegrations")]
         public Input<Inputs.KnowledgeBaseAppIntegrationsConfigurationArgs>? AppIntegrations { get; set; }
 

@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class UserProficiency
     {
+        /// <summary>
+        /// The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+        /// </summary>
         public readonly string AttributeName;
+        /// <summary>
+        /// The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+        /// </summary>
         public readonly string AttributeValue;
+        /// <summary>
+        /// The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+        /// </summary>
         public readonly double Level;
 
         [OutputConstructor]

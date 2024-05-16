@@ -72,9 +72,12 @@ import (
 type CloudFrontOriginAccessIdentity struct {
 	pulumi.CustomResourceState
 
-	AwsId                                pulumi.StringOutput                        `pulumi:"awsId"`
+	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfigOutput `pulumi:"cloudFrontOriginAccessIdentityConfig"`
-	S3CanonicalUserId                    pulumi.StringOutput                        `pulumi:"s3CanonicalUserId"`
+	// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
+	S3CanonicalUserId pulumi.StringOutput `pulumi:"s3CanonicalUserId"`
 }
 
 // NewCloudFrontOriginAccessIdentity registers a new resource with the given unique name, arguments, and options.
@@ -120,11 +123,13 @@ func (CloudFrontOriginAccessIdentityState) ElementType() reflect.Type {
 }
 
 type cloudFrontOriginAccessIdentityArgs struct {
+	// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`
 }
 
 // The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
 type CloudFrontOriginAccessIdentityArgs struct {
+	// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfigInput
 }
 
@@ -165,16 +170,19 @@ func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOu
 	return o
 }
 
+// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 func (o CloudFrontOriginAccessIdentityOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFrontOriginAccessIdentity) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
 func (o CloudFrontOriginAccessIdentityOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigOutput {
 	return o.ApplyT(func(v *CloudFrontOriginAccessIdentity) CloudFrontOriginAccessIdentityConfigOutput {
 		return v.CloudFrontOriginAccessIdentityConfig
 	}).(CloudFrontOriginAccessIdentityConfigOutput)
 }
 
+// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
 func (o CloudFrontOriginAccessIdentityOutput) S3CanonicalUserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFrontOriginAccessIdentity) pulumi.StringOutput { return v.S3CanonicalUserId }).(pulumi.StringOutput)
 }

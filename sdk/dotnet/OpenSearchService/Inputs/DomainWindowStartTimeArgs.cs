@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainWindowStartTimeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+        /// </summary>
         [Input("hours", required: true)]
         public Input<int> Hours { get; set; } = null!;
 
+        /// <summary>
+        /// The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
+        /// </summary>
         [Input("minutes", required: true)]
         public Input<int> Minutes { get; set; } = null!;
 

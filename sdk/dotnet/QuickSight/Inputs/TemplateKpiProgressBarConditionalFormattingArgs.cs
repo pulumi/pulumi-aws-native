@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateKpiProgressBarConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         [Input("foregroundColor")]
         public Input<Inputs.TemplateConditionalFormattingColorArgs>? ForegroundColor { get; set; }
 

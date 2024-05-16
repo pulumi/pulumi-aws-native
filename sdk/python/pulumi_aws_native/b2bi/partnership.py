@@ -24,6 +24,10 @@ class PartnershipArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Partnership resource.
+        :param pulumi.Input[str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: Returns one or more capabilities associated with this partnership.
+        :param pulumi.Input[str] name: Returns the name of the partnership.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "profile_id", profile_id)
@@ -48,6 +52,9 @@ class PartnershipArgs:
     @property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Input[str]:
+        """
+        Returns the unique, system-generated identifier for the profile connected to this partnership.
+        """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
@@ -57,6 +64,9 @@ class PartnershipArgs:
     @property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Returns one or more capabilities associated with this partnership.
+        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -66,6 +76,9 @@ class PartnershipArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the name of the partnership.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -84,6 +97,9 @@ class PartnershipArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -108,6 +124,10 @@ class Partnership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: Returns one or more capabilities associated with this partnership.
+        :param pulumi.Input[str] name: Returns the name of the partnership.
+        :param pulumi.Input[str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         ...
     @overload
@@ -203,11 +223,17 @@ class Partnership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Returns one or more capabilities associated with this partnership.
+        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp for creation date and time of the partnership.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -218,21 +244,33 @@ class Partnership(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Returns the name of the partnership.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="partnershipArn")
     def partnership_arn(self) -> pulumi.Output[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        """
         return pulumi.get(self, "partnership_arn")
 
     @property
     @pulumi.getter(name="partnershipId")
     def partnership_id(self) -> pulumi.Output[str]:
+        """
+        Returns the unique, system-generated identifier for a partnership.
+        """
         return pulumi.get(self, "partnership_id")
 
     @property
@@ -243,15 +281,24 @@ class Partnership(pulumi.CustomResource):
     @property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[str]:
+        """
+        Returns the unique, system-generated identifier for the profile connected to this partnership.
+        """
         return pulumi.get(self, "profile_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tradingPartnerId")
     def trading_partner_id(self) -> pulumi.Output[str]:
+        """
+        Returns the unique, system-generated identifier for a trading partner.
+        """
         return pulumi.get(self, "trading_partner_id")
 

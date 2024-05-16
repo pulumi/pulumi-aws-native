@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
     {
         [Input("assignContactCategoryActions")]
         private InputList<Inputs.RuleAssignContactCategoryActionArgs>? _assignContactCategoryActions;
+
+        /// <summary>
+        /// Information about the contact category action. The syntax can be empty, for example, `{}` .
+        /// </summary>
         public InputList<Inputs.RuleAssignContactCategoryActionArgs> AssignContactCategoryActions
         {
             get => _assignContactCategoryActions ?? (_assignContactCategoryActions = new InputList<Inputs.RuleAssignContactCategoryActionArgs>());
@@ -41,6 +45,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         [Input("eventBridgeActions")]
         private InputList<Inputs.RuleEventBridgeActionArgs>? _eventBridgeActions;
+
+        /// <summary>
+        /// Information about the EventBridge action.
+        /// </summary>
         public InputList<Inputs.RuleEventBridgeActionArgs> EventBridgeActions
         {
             get => _eventBridgeActions ?? (_eventBridgeActions = new InputList<Inputs.RuleEventBridgeActionArgs>());
@@ -49,6 +57,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         [Input("sendNotificationActions")]
         private InputList<Inputs.RuleSendNotificationActionArgs>? _sendNotificationActions;
+
+        /// <summary>
+        /// Information about the send notification action.
+        /// </summary>
         public InputList<Inputs.RuleSendNotificationActionArgs> SendNotificationActions
         {
             get => _sendNotificationActions ?? (_sendNotificationActions = new InputList<Inputs.RuleSendNotificationActionArgs>());
@@ -57,6 +69,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         [Input("taskActions")]
         private InputList<Inputs.RuleTaskActionArgs>? _taskActions;
+
+        /// <summary>
+        /// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        /// </summary>
         public InputList<Inputs.RuleTaskActionArgs> TaskActions
         {
             get => _taskActions ?? (_taskActions = new InputList<Inputs.RuleTaskActionArgs>());

@@ -24,18 +24,29 @@ func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ..
 }
 
 type LookupTargetGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupTargetGroupResult struct {
-	Arn           *string             `pulumi:"arn"`
-	Config        *TargetGroupConfig  `pulumi:"config"`
-	CreatedAt     *string             `pulumi:"createdAt"`
-	Id            *string             `pulumi:"id"`
-	LastUpdatedAt *string             `pulumi:"lastUpdatedAt"`
-	Status        *TargetGroupStatus  `pulumi:"status"`
-	Tags          []aws.Tag           `pulumi:"tags"`
-	Targets       []TargetGroupTarget `pulumi:"targets"`
+	// The Amazon Resource Name (ARN) of the target group.
+	Arn *string `pulumi:"arn"`
+	// Describes the configuration of a target group.
+	//
+	// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+	Config *TargetGroupConfig `pulumi:"config"`
+	// The date and time that the target group was created, specified in ISO-8601 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ID of the target group.
+	Id *string `pulumi:"id"`
+	// The date and time that the target group was last updated, specified in ISO-8601 format.
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+	Status *TargetGroupStatus `pulumi:"status"`
+	// The tags for the target group.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Describes a target.
+	Targets []TargetGroupTarget `pulumi:"targets"`
 }
 
 func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTargetGroupResultOutput {
@@ -52,6 +63,7 @@ func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputAr
 }
 
 type LookupTargetGroupOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -73,34 +85,44 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the target group.
 func (o LookupTargetGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Describes the configuration of a target group.
+//
+// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
 func (o LookupTargetGroupResultOutput) Config() TargetGroupConfigPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *TargetGroupConfig { return v.Config }).(TargetGroupConfigPtrOutput)
 }
 
+// The date and time that the target group was created, specified in ISO-8601 format.
 func (o LookupTargetGroupResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the target group.
 func (o LookupTargetGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the target group was last updated, specified in ISO-8601 format.
 func (o LookupTargetGroupResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
 func (o LookupTargetGroupResultOutput) Status() TargetGroupStatusPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *TargetGroupStatus { return v.Status }).(TargetGroupStatusPtrOutput)
 }
 
+// The tags for the target group.
 func (o LookupTargetGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Describes a target.
 func (o LookupTargetGroupResultOutput) Targets() TargetGroupTargetArrayOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) []TargetGroupTarget { return v.Targets }).(TargetGroupTargetArrayOutput)
 }

@@ -13,10 +13,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisIntegerParameterDeclaration
     {
+        /// <summary>
+        /// The default values of the `IntegerParameterDeclaration` .
+        /// </summary>
         public readonly Outputs.AnalysisIntegerDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.AnalysisMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisParameterValueType ParameterValueType;
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisIntegerValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

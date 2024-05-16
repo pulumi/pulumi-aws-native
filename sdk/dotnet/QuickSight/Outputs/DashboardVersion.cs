@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Source entity ARN.&lt;/p&gt;
         /// </summary>
         public readonly string? SourceEntityArn;
+        /// <summary>
+        /// The HTTP status of the request.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardResourceStatus? Status;
         /// <summary>
         /// &lt;p&gt;The ARN of the theme associated with a version of the dashboard.&lt;/p&gt;

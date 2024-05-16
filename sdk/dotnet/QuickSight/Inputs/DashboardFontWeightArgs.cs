@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFontWeightArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The lexical name for the level of boldness of the text display.
+        /// </summary>
         [Input("name")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardFontWeightName>? Name { get; set; }
 

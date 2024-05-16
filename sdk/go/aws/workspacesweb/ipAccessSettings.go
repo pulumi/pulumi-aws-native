@@ -17,15 +17,26 @@ import (
 type IpAccessSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext pulumi.StringMapOutput            `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns        pulumi.StringArrayOutput          `pulumi:"associatedPortalArns"`
-	CreationDate                pulumi.StringOutput               `pulumi:"creationDate"`
-	CustomerManagedKey          pulumi.StringPtrOutput            `pulumi:"customerManagedKey"`
-	Description                 pulumi.StringPtrOutput            `pulumi:"description"`
-	DisplayName                 pulumi.StringPtrOutput            `pulumi:"displayName"`
-	IpAccessSettingsArn         pulumi.StringOutput               `pulumi:"ipAccessSettingsArn"`
-	IpRules                     IpAccessSettingsIpRuleArrayOutput `pulumi:"ipRules"`
-	Tags                        aws.TagArrayOutput                `pulumi:"tags"`
+	// Additional encryption context of the IP access settings.
+	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
+	// A list of web portal ARNs that this IP access settings resource is associated with.
+	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	// The creation date timestamp of the IP access settings.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The custom managed key of the IP access settings.
+	//
+	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	// The description of the IP access settings.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the IP access settings.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The ARN of the IP access settings resource.
+	IpAccessSettingsArn pulumi.StringOutput `pulumi:"ipAccessSettingsArn"`
+	// The IP rules of the IP access settings.
+	IpRules IpAccessSettingsIpRuleArrayOutput `pulumi:"ipRules"`
+	// The tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpAccessSettings registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +87,38 @@ func (IpAccessSettingsState) ElementType() reflect.Type {
 }
 
 type ipAccessSettingsArgs struct {
-	AdditionalEncryptionContext map[string]string        `pulumi:"additionalEncryptionContext"`
-	CustomerManagedKey          *string                  `pulumi:"customerManagedKey"`
-	Description                 *string                  `pulumi:"description"`
-	DisplayName                 *string                  `pulumi:"displayName"`
-	IpRules                     []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	Tags                        []aws.Tag                `pulumi:"tags"`
+	// Additional encryption context of the IP access settings.
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
+	// The custom managed key of the IP access settings.
+	//
+	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	// The description of the IP access settings.
+	Description *string `pulumi:"description"`
+	// The display name of the IP access settings.
+	DisplayName *string `pulumi:"displayName"`
+	// The IP rules of the IP access settings.
+	IpRules []IpAccessSettingsIpRule `pulumi:"ipRules"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpAccessSettings resource.
 type IpAccessSettingsArgs struct {
+	// Additional encryption context of the IP access settings.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	CustomerManagedKey          pulumi.StringPtrInput
-	Description                 pulumi.StringPtrInput
-	DisplayName                 pulumi.StringPtrInput
-	IpRules                     IpAccessSettingsIpRuleArrayInput
-	Tags                        aws.TagArrayInput
+	// The custom managed key of the IP access settings.
+	//
+	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+	CustomerManagedKey pulumi.StringPtrInput
+	// The description of the IP access settings.
+	Description pulumi.StringPtrInput
+	// The display name of the IP access settings.
+	DisplayName pulumi.StringPtrInput
+	// The IP rules of the IP access settings.
+	IpRules IpAccessSettingsIpRuleArrayInput
+	// The tag.
+	Tags aws.TagArrayInput
 }
 
 func (IpAccessSettingsArgs) ElementType() reflect.Type {
@@ -131,38 +158,49 @@ func (o IpAccessSettingsOutput) ToIpAccessSettingsOutputWithContext(ctx context.
 	return o
 }
 
+// Additional encryption context of the IP access settings.
 func (o IpAccessSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
+// A list of web portal ARNs that this IP access settings resource is associated with.
 func (o IpAccessSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The creation date timestamp of the IP access settings.
 func (o IpAccessSettingsOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// The custom managed key of the IP access settings.
+//
+// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
 func (o IpAccessSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
+// The description of the IP access settings.
 func (o IpAccessSettingsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the IP access settings.
 func (o IpAccessSettingsOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IP access settings resource.
 func (o IpAccessSettingsOutput) IpAccessSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringOutput { return v.IpAccessSettingsArn }).(pulumi.StringOutput)
 }
 
+// The IP rules of the IP access settings.
 func (o IpAccessSettingsOutput) IpRules() IpAccessSettingsIpRuleArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) IpAccessSettingsIpRuleArrayOutput { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
+// The tag.
 func (o IpAccessSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

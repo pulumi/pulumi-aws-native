@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePaginationConfiguration
     {
+        /// <summary>
+        /// Indicates the page number.
+        /// </summary>
         public readonly double PageNumber;
+        /// <summary>
+        /// Indicates how many items render in one page.
+        /// </summary>
         public readonly double PageSize;
 
         [OutputConstructor]

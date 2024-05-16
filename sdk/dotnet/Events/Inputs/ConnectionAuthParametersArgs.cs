@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionAuthParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the API key authorization parameters for the connection.
+        /// </summary>
         [Input("apiKeyAuthParameters")]
         public Input<Inputs.ConnectionApiKeyAuthParametersArgs>? ApiKeyAuthParameters { get; set; }
 
+        /// <summary>
+        /// Contains the Basic authorization parameters for the connection.
+        /// </summary>
         [Input("basicAuthParameters")]
         public Input<Inputs.ConnectionBasicAuthParametersArgs>? BasicAuthParameters { get; set; }
 
+        /// <summary>
+        /// Contains additional parameters for the connection.
+        /// </summary>
         [Input("invocationHttpParameters")]
         public Input<Inputs.ConnectionHttpParametersArgs>? InvocationHttpParameters { get; set; }
 
+        /// <summary>
+        /// Contains the OAuth authorization parameters to use for the connection.
+        /// </summary>
         [Input("oAuthParameters")]
         public Input<Inputs.ConnectionOAuthParametersArgs>? OAuthParameters { get; set; }
 

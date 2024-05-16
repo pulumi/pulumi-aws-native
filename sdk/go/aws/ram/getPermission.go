@@ -24,15 +24,24 @@ func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...p
 }
 
 type LookupPermissionArgs struct {
+	// The Amazon Resource Name (ARN) of the new permission.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupPermissionResult struct {
+	// The Amazon Resource Name (ARN) of the new permission.
 	Arn *string `pulumi:"arn"`
 	// Set to true to use this as the default permission.
-	IsResourceTypeDefault *bool     `pulumi:"isResourceTypeDefault"`
-	PermissionType        *string   `pulumi:"permissionType"`
-	Tags                  []aws.Tag `pulumi:"tags"`
+	IsResourceTypeDefault *bool `pulumi:"isResourceTypeDefault"`
+	// The type of managed permission. This can be one of the following values:
+	//
+	// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+	// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
+	PermissionType *string `pulumi:"permissionType"`
+	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+	//
+	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 	// Version of the permission.
 	Version *string `pulumi:"version"`
 }
@@ -51,6 +60,7 @@ func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs
 }
 
 type LookupPermissionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the new permission.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -72,6 +82,7 @@ func (o LookupPermissionResultOutput) ToLookupPermissionResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the new permission.
 func (o LookupPermissionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -81,10 +92,17 @@ func (o LookupPermissionResultOutput) IsResourceTypeDefault() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v LookupPermissionResult) *bool { return v.IsResourceTypeDefault }).(pulumi.BoolPtrOutput)
 }
 
+// The type of managed permission. This can be one of the following values:
+//
+// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
 func (o LookupPermissionResultOutput) PermissionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionResult) *string { return v.PermissionType }).(pulumi.StringPtrOutput)
 }
 
+// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+//
+// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
 func (o LookupPermissionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPermissionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

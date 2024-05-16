@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.Oam.Inputs
 
     public sealed class LinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
+        /// 
+        /// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+        /// </summary>
         [Input("logGroupConfiguration")]
         public Input<Inputs.LinkFilterArgs>? LogGroupConfiguration { get; set; }
 
+        /// <summary>
+        /// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
+        /// 
+        /// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+        /// </summary>
         [Input("metricConfiguration")]
         public Input<Inputs.LinkFilterArgs>? MetricConfiguration { get; set; }
 

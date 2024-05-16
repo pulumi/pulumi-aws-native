@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSameSheetTargetVisualConfiguration
     {
+        /// <summary>
+        /// The options that choose the target visual in the same sheet.
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `ALL_VISUALS` : Applies the filter operation to all visuals in the same sheet.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTargetVisualOptions? TargetVisualOptions;
+        /// <summary>
+        /// A list of the target visual IDs that are located in the same sheet of the analysis.
+        /// </summary>
         public readonly ImmutableArray<string> TargetVisuals;
 
         [OutputConstructor]

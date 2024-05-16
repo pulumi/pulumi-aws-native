@@ -92,7 +92,8 @@ type DbInstance struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles DbInstanceDbInstanceRoleArrayOutput `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade            pulumi.BoolPtrOutput   `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
+	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
 	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationKmsKeyId"`
 	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	AutomaticBackupReplicationRegion pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationRegion"`
@@ -154,7 +155,8 @@ type DbInstance struct {
 	//   +  If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the ``DBClusterSnapshotIdentifier`` must be the ARN of the shared snapshot.
 	//   +  Can't be the identifier of an Aurora DB cluster snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterSnapshotIdentifier"`
-	DbInstanceArn               pulumi.StringOutput    `pulumi:"dbInstanceArn"`
+	// The Amazon Resource Name (ARN) for the DB instance.
+	DbInstanceArn pulumi.StringOutput `pulumi:"dbInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example ``db.m5.large``. Not all DB instance classes are available in all AWS-Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide*.
 	DbInstanceClass pulumi.StringPtrOutput `pulumi:"dbInstanceClass"`
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -263,7 +265,8 @@ type DbInstance struct {
 	//  Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
-	DbSystemId    pulumi.StringOutput `pulumi:"dbSystemId"`
+	DbSystemId pulumi.StringOutput `pulumi:"dbSystemId"`
+	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
 	DedicatedLogVolume pulumi.BoolPtrOutput `pulumi:"dedicatedLogVolume"`
@@ -741,7 +744,8 @@ type dbInstanceArgs struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles []DbInstanceDbInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade            *bool   `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
 	AutomaticBackupReplicationKmsKeyId *string `pulumi:"automaticBackupReplicationKmsKeyId"`
 	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
@@ -1332,7 +1336,8 @@ type DbInstanceArgs struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles DbInstanceDbInstanceRoleArrayInput
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade            pulumi.BoolPtrInput
+	AutoMinorVersionUpgrade pulumi.BoolPtrInput
+	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
 	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrInput
 	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	AutomaticBackupReplicationRegion pulumi.StringPtrInput
@@ -1974,6 +1979,7 @@ func (o DbInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
+// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
 func (o DbInstanceOutput) AutomaticBackupReplicationKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AutomaticBackupReplicationKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -2079,6 +2085,7 @@ func (o DbInstanceOutput) DbClusterSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DbClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the DB instance.
 func (o DbInstanceOutput) DbInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DbInstanceArn }).(pulumi.StringOutput)
 }
@@ -2222,6 +2229,7 @@ func (o DbInstanceOutput) DbSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
+// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o DbInstanceOutput) DbiResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
 }

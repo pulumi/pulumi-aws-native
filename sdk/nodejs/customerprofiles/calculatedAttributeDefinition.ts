@@ -37,21 +37,45 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === CalculatedAttributeDefinition.__pulumiType;
     }
 
+    /**
+     * Mathematical expression and a list of attribute items specified in that expression.
+     */
     public readonly attributeDetails!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionAttributeDetails>;
+    /**
+     * The name of an attribute defined in a profile object type.
+     */
     public readonly calculatedAttributeName!: pulumi.Output<string>;
+    /**
+     * The conditions including range, object count, and threshold for the calculated attribute.
+     */
     public readonly conditions!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionConditions | undefined>;
     /**
      * The timestamp of when the calculated attribute definition was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The description of the calculated attribute.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the calculated attribute.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The unique name of the domain.
+     */
     public readonly domainName!: pulumi.Output<string>;
     /**
      * The timestamp of when the calculated attribute definition was most recently edited.
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    /**
+     * The aggregation operation to perform for the calculated attribute.
+     */
     public readonly statistic!: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -110,12 +134,36 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a CalculatedAttributeDefinition resource.
  */
 export interface CalculatedAttributeDefinitionArgs {
+    /**
+     * Mathematical expression and a list of attribute items specified in that expression.
+     */
     attributeDetails: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionAttributeDetailsArgs>;
+    /**
+     * The name of an attribute defined in a profile object type.
+     */
     calculatedAttributeName: pulumi.Input<string>;
+    /**
+     * The conditions including range, object count, and threshold for the calculated attribute.
+     */
     conditions?: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionConditionsArgs>;
+    /**
+     * The description of the calculated attribute.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the calculated attribute.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The unique name of the domain.
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * The aggregation operation to perform for the calculated attribute.
+     */
     statistic: pulumi.Input<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

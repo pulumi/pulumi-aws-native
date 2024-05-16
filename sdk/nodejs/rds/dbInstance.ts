@@ -121,6 +121,9 @@ export class DbInstance extends pulumi.CustomResource {
      * A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
+     */
     public readonly automaticBackupReplicationKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
@@ -204,6 +207,9 @@ export class DbInstance extends pulumi.CustomResource {
      *   +  Can't be the identifier of an Aurora DB cluster snapshot.
      */
     public readonly dbClusterSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) for the DB instance.
+     */
     public /*out*/ readonly dbInstanceArn!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the DB instance, for example ``db.m5.large``. Not all DB instance classes are available in all AWS-Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide*.
@@ -330,6 +336,9 @@ export class DbInstance extends pulumi.CustomResource {
      * The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
      */
     public /*out*/ readonly dbSystemId!: pulumi.Output<string>;
+    /**
+     * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+     */
     public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
      * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
@@ -1047,6 +1056,9 @@ export interface DbInstanceArgs {
      * A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
+     */
     automaticBackupReplicationKmsKeyId?: pulumi.Input<string>;
     /**
      * The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.

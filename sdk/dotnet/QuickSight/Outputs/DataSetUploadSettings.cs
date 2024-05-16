@@ -24,11 +24,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The delimiter between values in the file.&lt;/p&gt;
         /// </summary>
         public readonly string? Delimiter;
+        /// <summary>
+        /// File format.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetFileFormat? Format;
         /// <summary>
         /// &lt;p&gt;A row number to start reading data from.&lt;/p&gt;
         /// </summary>
         public readonly double? StartFromRow;
+        /// <summary>
+        /// Text qualifier.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetTextQualifier? TextQualifier;
 
         [OutputConstructor]

@@ -66,8 +66,9 @@ type Cluster struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrOutput `pulumi:"elasticIp"`
 	// If true, the data in the cluster is encrypted at rest.
-	Encrypted pulumi.BoolPtrOutput     `pulumi:"encrypted"`
-	Endpoint  ClusterEndpointPtrOutput `pulumi:"endpoint"`
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
+	// Describes a connection endpoint.
+	Endpoint ClusterEndpointPtrOutput `pulumi:"endpoint"`
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
 	//
 	// If this option is true , enhanced VPC routing is enabled.
@@ -81,7 +82,8 @@ type Cluster struct {
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-	KmsKeyId          pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	LoggingProperties ClusterLoggingPropertiesPtrOutput `pulumi:"loggingProperties"`
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
@@ -108,8 +110,9 @@ type Cluster struct {
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
-	NumberOfNodes pulumi.IntPtrOutput    `pulumi:"numberOfNodes"`
-	OwnerAccount  pulumi.StringPtrOutput `pulumi:"ownerAccount"`
+	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
+	// The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -249,8 +252,9 @@ type clusterArgs struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp *string `pulumi:"elasticIp"`
 	// If true, the data in the cluster is encrypted at rest.
-	Encrypted *bool            `pulumi:"encrypted"`
-	Endpoint  *ClusterEndpoint `pulumi:"endpoint"`
+	Encrypted *bool `pulumi:"encrypted"`
+	// Describes a connection endpoint.
+	Endpoint *ClusterEndpoint `pulumi:"endpoint"`
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
 	//
 	// If this option is true , enhanced VPC routing is enabled.
@@ -264,7 +268,8 @@ type clusterArgs struct {
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles []string `pulumi:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-	KmsKeyId          *string                   `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	LoggingProperties *ClusterLoggingProperties `pulumi:"loggingProperties"`
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
@@ -289,8 +294,9 @@ type clusterArgs struct {
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
-	NumberOfNodes *int    `pulumi:"numberOfNodes"`
-	OwnerAccount  *string `pulumi:"ownerAccount"`
+	NumberOfNodes *int `pulumi:"numberOfNodes"`
+	// The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+	OwnerAccount *string `pulumi:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
 	Port *int `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -371,7 +377,8 @@ type ClusterArgs struct {
 	ElasticIp pulumi.StringPtrInput
 	// If true, the data in the cluster is encrypted at rest.
 	Encrypted pulumi.BoolPtrInput
-	Endpoint  ClusterEndpointPtrInput
+	// Describes a connection endpoint.
+	Endpoint ClusterEndpointPtrInput
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
 	//
 	// If this option is true , enhanced VPC routing is enabled.
@@ -385,7 +392,8 @@ type ClusterArgs struct {
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles pulumi.StringArrayInput
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-	KmsKeyId          pulumi.StringPtrInput
+	KmsKeyId pulumi.StringPtrInput
+	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	LoggingProperties ClusterLoggingPropertiesPtrInput
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName pulumi.StringPtrInput
@@ -411,7 +419,8 @@ type ClusterArgs struct {
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
 	NumberOfNodes pulumi.IntPtrInput
-	OwnerAccount  pulumi.StringPtrInput
+	// The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+	OwnerAccount pulumi.StringPtrInput
 	// The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
 	Port pulumi.IntPtrInput
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -600,6 +609,7 @@ func (o ClusterOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// Describes a connection endpoint.
 func (o ClusterOutput) Endpoint() ClusterEndpointPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEndpointPtrOutput { return v.Endpoint }).(ClusterEndpointPtrOutput)
 }
@@ -633,6 +643,7 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 func (o ClusterOutput) LoggingProperties() ClusterLoggingPropertiesPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterLoggingPropertiesPtrOutput { return v.LoggingProperties }).(ClusterLoggingPropertiesPtrOutput)
 }
@@ -696,6 +707,7 @@ func (o ClusterOutput) NumberOfNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
 }
 
+// The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 func (o ClusterOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }

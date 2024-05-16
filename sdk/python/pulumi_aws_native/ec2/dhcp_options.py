@@ -244,6 +244,9 @@ class DhcpOptions(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the DHCP options set.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @property

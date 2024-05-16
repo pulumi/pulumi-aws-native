@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCurrencyDisplayFormatConfiguration
     {
+        /// <summary>
+        /// The option that determines the decimal places configuration.
+        /// </summary>
         public readonly Outputs.DashboardDecimalPlacesConfiguration? DecimalPlacesConfiguration;
+        /// <summary>
+        /// The options that determine the negative value configuration.
+        /// </summary>
         public readonly Outputs.DashboardNegativeValueConfiguration? NegativeValueConfiguration;
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         public readonly Outputs.DashboardNullValueFormatConfiguration? NullValueFormatConfiguration;
+        /// <summary>
+        /// Determines the number scale value for the currency format.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardNumberScale? NumberScale;
+        /// <summary>
+        /// Determines the prefix value of the currency format.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// The options that determine the numeric separator configuration.
+        /// </summary>
         public readonly Outputs.DashboardNumericSeparatorConfiguration? SeparatorConfiguration;
+        /// <summary>
+        /// Determines the suffix value of the currency format.
+        /// </summary>
         public readonly string? Suffix;
+        /// <summary>
+        /// Determines the symbol for the currency format.
+        /// </summary>
         public readonly string? Symbol;
 
         [OutputConstructor]

@@ -56,6 +56,9 @@ class GetIndexResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -85,16 +88,25 @@ class GetIndexResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the index.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
@@ -108,11 +120,25 @@ class GetIndexResult:
     @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> Optional['IndexUserContextPolicy']:
+        """
+        The user context policy.
+
+        ATTRIBUTE_FILTER
+
+        - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+
+        USER_TOKEN
+
+        - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+        """
         return pulumi.get(self, "user_context_policy")
 
     @property
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Optional[Sequence['outputs.IndexUserTokenConfiguration']]:
+        """
+        Defines the type of user token used for the index.
+        """
         return pulumi.get(self, "user_token_configurations")
 
 
@@ -138,6 +164,9 @@ def get_index(id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
     A Kendra index
+
+
+    :param str id: The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -162,5 +191,8 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
     A Kendra index
+
+
+    :param str id: The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
     """
     ...

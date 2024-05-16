@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetMapArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name for the map resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique map resource name.
+        /// - No spaces allowed. For example, `ExampleMap` .
+        /// </summary>
         [Input("mapName", required: true)]
         public string MapName { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetMapInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name for the map resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique map resource name.
+        /// - No spaces allowed. For example, `ExampleMap` .
+        /// </summary>
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
 
@@ -51,15 +69,39 @@ namespace Pulumi.AwsNative.Location
     [OutputType]
     public sealed class GetMapResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? CreateTime;
+        /// <summary>
+        /// An optional description for the map resource.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        /// </summary>
         public readonly string? MapArn;
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         public readonly Pulumi.AwsNative.Location.MapPricingPlan? PricingPlan;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? UpdateTime;
 
         [OutputConstructor]

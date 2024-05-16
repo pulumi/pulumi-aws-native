@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 location and configuration for storing inference request and response data.
+        /// 
+        /// This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
+        /// </summary>
         [Output("dataStorageConfig")]
         public Output<Outputs.InferenceExperimentDataStorageConfig?> DataStorageConfig { get; private set; } = null!;
 
@@ -42,9 +47,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("desiredState")]
         public Output<Pulumi.AwsNative.SageMaker.InferenceExperimentDesiredState?> DesiredState { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata of the endpoint.
+        /// </summary>
         [Output("endpointMetadata")]
         public Output<Outputs.InferenceExperimentEndpointMetadata> EndpointMetadata { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Output("endpointName")]
         public Output<string> EndpointName { get; private set; } = null!;
 
@@ -78,9 +89,17 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The start and end times of an inference experiment.
+        /// 
+        /// The maximum duration that you can set for an inference experiment is 30 days.
+        /// </summary>
         [Output("schedule")]
         public Output<Outputs.InferenceExperimentSchedule?> Schedule { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+        /// </summary>
         [Output("shadowModeConfig")]
         public Output<Outputs.InferenceExperimentShadowModeConfig?> ShadowModeConfig { get; private set; } = null!;
 
@@ -161,6 +180,11 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class InferenceExperimentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 location and configuration for storing inference request and response data.
+        /// 
+        /// This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
+        /// </summary>
         [Input("dataStorageConfig")]
         public Input<Inputs.InferenceExperimentDataStorageConfigArgs>? DataStorageConfig { get; set; }
 
@@ -176,6 +200,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("desiredState")]
         public Input<Pulumi.AwsNative.SageMaker.InferenceExperimentDesiredState>? DesiredState { get; set; }
 
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
@@ -209,9 +236,17 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The start and end times of an inference experiment.
+        /// 
+        /// The maximum duration that you can set for an inference experiment is 30 days.
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.InferenceExperimentScheduleArgs>? Schedule { get; set; }
 
+        /// <summary>
+        /// The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+        /// </summary>
         [Input("shadowModeConfig")]
         public Input<Inputs.InferenceExperimentShadowModeConfigArgs>? ShadowModeConfig { get; set; }
 

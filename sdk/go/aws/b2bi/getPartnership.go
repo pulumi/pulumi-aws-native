@@ -24,18 +24,27 @@ func LookupPartnership(ctx *pulumi.Context, args *LookupPartnershipArgs, opts ..
 }
 
 type LookupPartnershipArgs struct {
+	// Returns the unique, system-generated identifier for a partnership.
 	PartnershipId string `pulumi:"partnershipId"`
 }
 
 type LookupPartnershipResult struct {
-	Capabilities     []string  `pulumi:"capabilities"`
-	CreatedAt        *string   `pulumi:"createdAt"`
-	ModifiedAt       *string   `pulumi:"modifiedAt"`
-	Name             *string   `pulumi:"name"`
-	PartnershipArn   *string   `pulumi:"partnershipArn"`
-	PartnershipId    *string   `pulumi:"partnershipId"`
-	Tags             []aws.Tag `pulumi:"tags"`
-	TradingPartnerId *string   `pulumi:"tradingPartnerId"`
+	// Returns one or more capabilities associated with this partnership.
+	Capabilities []string `pulumi:"capabilities"`
+	// Returns a timestamp for creation date and time of the partnership.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// Returns the name of the partnership.
+	Name *string `pulumi:"name"`
+	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+	PartnershipArn *string `pulumi:"partnershipArn"`
+	// Returns the unique, system-generated identifier for a partnership.
+	PartnershipId *string `pulumi:"partnershipId"`
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Returns the unique, system-generated identifier for a trading partner.
+	TradingPartnerId *string `pulumi:"tradingPartnerId"`
 }
 
 func LookupPartnershipOutput(ctx *pulumi.Context, args LookupPartnershipOutputArgs, opts ...pulumi.InvokeOption) LookupPartnershipResultOutput {
@@ -52,6 +61,7 @@ func LookupPartnershipOutput(ctx *pulumi.Context, args LookupPartnershipOutputAr
 }
 
 type LookupPartnershipOutputArgs struct {
+	// Returns the unique, system-generated identifier for a partnership.
 	PartnershipId pulumi.StringInput `pulumi:"partnershipId"`
 }
 
@@ -73,34 +83,42 @@ func (o LookupPartnershipResultOutput) ToLookupPartnershipResultOutputWithContex
 	return o
 }
 
+// Returns one or more capabilities associated with this partnership.
 func (o LookupPartnershipResultOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
+// Returns a timestamp for creation date and time of the partnership.
 func (o LookupPartnershipResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
 func (o LookupPartnershipResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// Returns the name of the partnership.
 func (o LookupPartnershipResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 func (o LookupPartnershipResultOutput) PartnershipArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.PartnershipArn }).(pulumi.StringPtrOutput)
 }
 
+// Returns the unique, system-generated identifier for a partnership.
 func (o LookupPartnershipResultOutput) PartnershipId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.PartnershipId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 func (o LookupPartnershipResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Returns the unique, system-generated identifier for a trading partner.
 func (o LookupPartnershipResultOutput) TradingPartnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.TradingPartnerId }).(pulumi.StringPtrOutput)
 }

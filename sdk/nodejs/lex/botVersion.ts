@@ -37,9 +37,21 @@ export class BotVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === BotVersion.__pulumiType;
     }
 
+    /**
+     * The unique identifier of the bot.
+     */
     public readonly botId!: pulumi.Output<string>;
+    /**
+     * The version of the bot.
+     */
     public /*out*/ readonly botVersion!: pulumi.Output<string>;
+    /**
+     * Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+     */
     public readonly botVersionLocaleSpecification!: pulumi.Output<outputs.lex.BotVersionLocaleSpecification[]>;
+    /**
+     * The description of the version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
 
     /**
@@ -80,7 +92,16 @@ export class BotVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a BotVersion resource.
  */
 export interface BotVersionArgs {
+    /**
+     * The unique identifier of the bot.
+     */
     botId: pulumi.Input<string>;
+    /**
+     * Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+     */
     botVersionLocaleSpecification: pulumi.Input<pulumi.Input<inputs.lex.BotVersionLocaleSpecificationArgs>[]>;
+    /**
+     * The description of the version.
+     */
     description?: pulumi.Input<string>;
 }

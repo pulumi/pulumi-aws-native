@@ -7,6 +7,13 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.FraudDetector
 {
+    /// <summary>
+    /// The data source of the event variable.
+    /// 
+    /// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+    /// 
+    /// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+    /// </summary>
     [EnumType]
     public readonly struct DetectorEventVariableDataSource : IEquatable<DetectorEventVariableDataSource>
     {
@@ -34,6 +41,11 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The data type of the event variable.
+    /// 
+    /// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+    /// </summary>
     [EnumType]
     public readonly struct DetectorEventVariableDataType : IEquatable<DetectorEventVariableDataType>
     {
@@ -64,6 +76,9 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+    /// </summary>
     [EnumType]
     public readonly struct DetectorEventVariableVariableType : IEquatable<DetectorEventVariableVariableType>
     {
@@ -123,6 +138,17 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The rule execution mode for the rules included in the detector version.
+    /// 
+    /// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+    /// 
+    /// You can define and edit the rule mode at the detector version level, when it is in draft status.
+    /// 
+    /// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+    /// 
+    /// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+    /// </summary>
     [EnumType]
     public readonly struct DetectorRuleExecutionMode : IEquatable<DetectorRuleExecutionMode>
     {
@@ -151,6 +177,11 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The rule language.
+    /// 
+    /// Valid Value: DETECTORPL
+    /// </summary>
     [EnumType]
     public readonly struct DetectorRuleLanguage : IEquatable<DetectorRuleLanguage>
     {
@@ -209,6 +240,13 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The source of the event variable.
+    /// 
+    /// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+    /// 
+    /// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+    /// </summary>
     [EnumType]
     public readonly struct EventTypeEventVariableDataSource : IEquatable<EventTypeEventVariableDataSource>
     {
@@ -236,6 +274,9 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+    /// </summary>
     [EnumType]
     public readonly struct EventTypeEventVariableDataType : IEquatable<EventTypeEventVariableDataType>
     {
@@ -266,6 +307,9 @@ namespace Pulumi.AwsNative.FraudDetector
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
+    /// </summary>
     [EnumType]
     public readonly struct EventTypeEventVariableVariableType : IEquatable<EventTypeEventVariableVariableType>
     {

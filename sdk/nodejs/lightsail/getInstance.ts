@@ -30,7 +30,13 @@ export interface GetInstanceResult {
      * An array of objects representing the add-ons to enable for the new instance.
      */
     readonly addOns?: outputs.lightsail.InstanceAddOn[];
+    /**
+     * `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     */
     readonly hardware?: outputs.lightsail.InstanceHardware;
+    /**
+     * The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     readonly instanceArn?: string;
     /**
      * Is the IP Address of the Instance is the static IP
@@ -40,7 +46,13 @@ export interface GetInstanceResult {
      * The name of your key pair.
      */
     readonly keyPairName?: string;
+    /**
+     * `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+     */
     readonly location?: outputs.lightsail.InstanceLocation;
+    /**
+     * `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+     */
     readonly networking?: outputs.lightsail.InstanceNetworking;
     /**
      * Private IP Address of the Instance
@@ -58,6 +70,9 @@ export interface GetInstanceResult {
      * SSH Key Name of the  Lightsail instance.
      */
     readonly sshKeyName?: string;
+    /**
+     * `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+     */
     readonly state?: outputs.lightsail.InstanceState;
     /**
      * Support code to help identify any issues

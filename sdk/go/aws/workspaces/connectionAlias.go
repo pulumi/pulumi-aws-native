@@ -17,11 +17,16 @@ import (
 type ConnectionAlias struct {
 	pulumi.CustomResourceState
 
-	AliasId              pulumi.StringOutput                   `pulumi:"aliasId"`
-	Associations         ConnectionAliasAssociationArrayOutput `pulumi:"associations"`
-	ConnectionAliasState ConnectionAliasStateEnumOutput        `pulumi:"connectionAliasState"`
-	ConnectionString     pulumi.StringOutput                   `pulumi:"connectionString"`
-	Tags                 aws.CreateOnlyTagArrayOutput          `pulumi:"tags"`
+	// The identifier of the connection alias, returned as a string.
+	AliasId pulumi.StringOutput `pulumi:"aliasId"`
+	// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+	Associations ConnectionAliasAssociationArrayOutput `pulumi:"associations"`
+	// The current state of the connection alias, returned as a string.
+	ConnectionAliasState ConnectionAliasStateEnumOutput `pulumi:"connectionAliasState"`
+	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// Describes a tag.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewConnectionAlias registers a new resource with the given unique name, arguments, and options.
@@ -72,14 +77,18 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 }
 
 type connectionAliasArgs struct {
-	ConnectionString string              `pulumi:"connectionString"`
-	Tags             []aws.CreateOnlyTag `pulumi:"tags"`
+	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+	ConnectionString string `pulumi:"connectionString"`
+	// Describes a tag.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionAlias resource.
 type ConnectionAliasArgs struct {
+	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
 	ConnectionString pulumi.StringInput
-	Tags             aws.CreateOnlyTagArrayInput
+	// Describes a tag.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ConnectionAliasArgs) ElementType() reflect.Type {
@@ -119,22 +128,27 @@ func (o ConnectionAliasOutput) ToConnectionAliasOutputWithContext(ctx context.Co
 	return o
 }
 
+// The identifier of the connection alias, returned as a string.
 func (o ConnectionAliasOutput) AliasId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.AliasId }).(pulumi.StringOutput)
 }
 
+// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
 func (o ConnectionAliasOutput) Associations() ConnectionAliasAssociationArrayOutput {
 	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasAssociationArrayOutput { return v.Associations }).(ConnectionAliasAssociationArrayOutput)
 }
 
+// The current state of the connection alias, returned as a string.
 func (o ConnectionAliasOutput) ConnectionAliasState() ConnectionAliasStateEnumOutput {
 	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasStateEnumOutput { return v.ConnectionAliasState }).(ConnectionAliasStateEnumOutput)
 }
 
+// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
 func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
+// Describes a tag.
 func (o ConnectionAliasOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *ConnectionAlias) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

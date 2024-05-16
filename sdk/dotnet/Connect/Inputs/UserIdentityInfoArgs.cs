@@ -15,18 +15,35 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class UserIdentityInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
+        /// <summary>
+        /// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
+        /// <summary>
+        /// The user's mobile number.
+        /// </summary>
         [Input("mobile")]
         public Input<string>? Mobile { get; set; }
 
+        /// <summary>
+        /// The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+        /// 
+        /// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
+        /// </summary>
         [Input("secondaryEmail")]
         public Input<string>? SecondaryEmail { get; set; }
 

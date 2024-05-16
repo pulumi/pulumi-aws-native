@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicDataAggregationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("datasetRowDateGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TopicTimeGranularity>? DatasetRowDateGranularity { get; set; }
 
+        /// <summary>
+        /// The column name for the default date.
+        /// </summary>
         [Input("defaultDateColumnName")]
         public Input<string>? DefaultDateColumnName { get; set; }
 

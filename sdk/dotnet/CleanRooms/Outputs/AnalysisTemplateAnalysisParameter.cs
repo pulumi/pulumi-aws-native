@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class AnalysisTemplateAnalysisParameter
     {
+        /// <summary>
+        /// Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+        /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.CleanRooms.AnalysisTemplateAnalysisParameterType Type;
 
         [OutputConstructor]

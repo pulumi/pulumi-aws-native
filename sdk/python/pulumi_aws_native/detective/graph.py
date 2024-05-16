@@ -21,6 +21,7 @@ class GraphArgs:
         """
         The set of arguments for constructing a Graph resource.
         :param pulumi.Input[bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag values to assign to the new behavior graph.
         """
         if auto_enable_members is not None:
             pulumi.set(__self__, "auto_enable_members", auto_enable_members)
@@ -42,6 +43,9 @@ class GraphArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag values to assign to the new behavior graph.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -63,6 +67,7 @@ class Graph(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag values to assign to the new behavior graph.
         """
         ...
     @overload
@@ -148,5 +153,8 @@ class Graph(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag values to assign to the new behavior graph.
+        """
         return pulumi.get(self, "tags")
 

@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetIpamAllocationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The CIDR you would like to allocate from the IPAM pool. Note the following:
+        /// 
+        /// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+        /// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+        /// 
+        /// Possible values: Any available IPv4 or IPv6 CIDR.
+        /// </summary>
         [Input("cidr", required: true)]
         public string Cidr { get; set; } = null!;
 
@@ -50,6 +58,14 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetIpamAllocationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The CIDR you would like to allocate from the IPAM pool. Note the following:
+        /// 
+        /// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+        /// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+        /// 
+        /// Possible values: Any available IPv4 or IPv6 CIDR.
+        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 

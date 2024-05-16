@@ -12,12 +12,25 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
 
     public sealed class DeploymentConfigZonalConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+        /// 
+        /// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        /// </summary>
         [Input("firstZoneMonitorDurationInSeconds")]
         public Input<int>? FirstZoneMonitorDurationInSeconds { get; set; }
 
+        /// <summary>
+        /// Information about the minimum number of healthy instances per Availability Zone.
+        /// </summary>
         [Input("minimumHealthyHostsPerZone")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsPerZoneArgs>? MinimumHealthyHostsPerZone { get; set; }
 
+        /// <summary>
+        /// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+        /// 
+        /// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        /// </summary>
         [Input("monitorDurationInSeconds")]
         public Input<int>? MonitorDurationInSeconds { get; set; }
 

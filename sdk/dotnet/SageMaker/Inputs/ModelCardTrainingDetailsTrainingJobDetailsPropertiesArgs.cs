@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
+    /// <summary>
+    /// Details about any associated training jobs.
+    /// </summary>
     public sealed class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("hyperParameters")]
         private InputList<Inputs.ModelCardTrainingHyperParameterArgs>? _hyperParameters;
+
+        /// <summary>
+        /// A hyper parameter that was configured in training the model.
+        /// </summary>
         public InputList<Inputs.ModelCardTrainingHyperParameterArgs> HyperParameters
         {
             get => _hyperParameters ?? (_hyperParameters = new InputList<Inputs.ModelCardTrainingHyperParameterArgs>());
@@ -43,6 +50,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         [Input("trainingMetrics")]
         private InputList<Inputs.ModelCardTrainingMetricArgs>? _trainingMetrics;
+
+        /// <summary>
+        /// A result from a SageMaker training job.
+        /// </summary>
         public InputList<Inputs.ModelCardTrainingMetricArgs> TrainingMetrics
         {
             get => _trainingMetrics ?? (_trainingMetrics = new InputList<Inputs.ModelCardTrainingMetricArgs>());

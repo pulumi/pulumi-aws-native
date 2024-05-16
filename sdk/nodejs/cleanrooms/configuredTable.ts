@@ -37,13 +37,41 @@ export class ConfiguredTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfiguredTable.__pulumiType;
     }
 
+    /**
+     * The columns within the underlying AWS Glue table that can be utilized within collaborations.
+     */
     public readonly allowedColumns!: pulumi.Output<string[]>;
+    /**
+     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+     */
     public readonly analysisMethod!: pulumi.Output<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
+    /**
+     * A specification about how data from the configured table can be used in a query.
+     */
     public readonly analysisRules!: pulumi.Output<outputs.cleanrooms.ConfiguredTableAnalysisRule[] | undefined>;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified configured table.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Returns the unique identifier of the specified configured table.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     public /*out*/ readonly configuredTableIdentifier!: pulumi.Output<string>;
+    /**
+     * A description for the configured table.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the configured table.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+     */
     public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -101,11 +129,29 @@ export class ConfiguredTable extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfiguredTable resource.
  */
 export interface ConfiguredTableArgs {
+    /**
+     * The columns within the underlying AWS Glue table that can be utilized within collaborations.
+     */
     allowedColumns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+     */
     analysisMethod: pulumi.Input<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
+    /**
+     * A specification about how data from the configured table can be used in a query.
+     */
     analysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleArgs>[]>;
+    /**
+     * A description for the configured table.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A name for the configured table.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+     */
     tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReferenceArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

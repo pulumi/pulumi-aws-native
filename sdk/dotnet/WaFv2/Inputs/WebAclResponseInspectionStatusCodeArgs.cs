@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("failureCodes", required: true)]
         private InputList<int>? _failureCodes;
+
+        /// <summary>
+        /// Status codes in the response that indicate a failed login or account creation attempt. To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+        /// 
+        /// JSON example: `"FailureCodes": [ 400, 404 ]`
+        /// </summary>
         public InputList<int> FailureCodes
         {
             get => _failureCodes ?? (_failureCodes = new InputList<int>());
@@ -25,6 +31,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         [Input("successCodes", required: true)]
         private InputList<int>? _successCodes;
+
+        /// <summary>
+        /// Status codes in the response that indicate a successful login or account creation attempt. To be counted as a success, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+        /// 
+        /// JSON example: `"SuccessCodes": [ 200, 201 ]`
+        /// </summary>
         public InputList<int> SuccessCodes
         {
             get => _successCodes ?? (_successCodes = new InputList<int>());

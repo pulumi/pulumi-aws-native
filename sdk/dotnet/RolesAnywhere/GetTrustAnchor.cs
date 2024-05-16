@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class GetTrustAnchorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the trust anchor.
+        /// </summary>
         [Input("trustAnchorId", required: true)]
         public string TrustAnchorId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class GetTrustAnchorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the trust anchor.
+        /// </summary>
         [Input("trustAnchorId", required: true)]
         public Input<string> TrustAnchorId { get; set; } = null!;
 
@@ -51,12 +57,33 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [OutputType]
     public sealed class GetTrustAnchorResult
     {
+        /// <summary>
+        /// Indicates whether the trust anchor is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The name of the trust anchor.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TrustAnchorNotificationSetting> NotificationSettings;
+        /// <summary>
+        /// Object representing the TrustAnchor type and its related certificate data.
+        /// </summary>
         public readonly Outputs.TrustAnchorSource? Source;
+        /// <summary>
+        /// A label that consists of a key and value you define.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of the trust anchor.
+        /// </summary>
         public readonly string? TrustAnchorArn;
+        /// <summary>
+        /// The unique identifier of the trust anchor.
+        /// </summary>
         public readonly string? TrustAnchorId;
 
         [OutputConstructor]

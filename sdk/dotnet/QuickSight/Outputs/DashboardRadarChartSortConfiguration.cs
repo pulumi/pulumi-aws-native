@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardRadarChartSortConfiguration
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The category sort options of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> CategorySort;
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? ColorItemsLimit;
+        /// <summary>
+        /// The color sort configuration of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> ColorSort;
 
         [OutputConstructor]

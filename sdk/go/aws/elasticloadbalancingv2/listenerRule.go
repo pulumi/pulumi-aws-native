@@ -24,13 +24,15 @@ type ListenerRule struct {
 	// The conditions.
 	//  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
 	Conditions ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
-	IsDefault  pulumi.BoolOutput                    `pulumi:"isDefault"`
+	// Indicates whether this is the default rule.
+	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringPtrOutput `pulumi:"listenerArn"`
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-	Priority pulumi.IntOutput    `pulumi:"priority"`
-	RuleArn  pulumi.StringOutput `pulumi:"ruleArn"`
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the rule.
+	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -165,6 +167,7 @@ func (o ListenerRuleOutput) Conditions() ListenerRuleRuleConditionArrayOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleRuleConditionArrayOutput { return v.Conditions }).(ListenerRuleRuleConditionArrayOutput)
 }
 
+// Indicates whether this is the default rule.
 func (o ListenerRuleOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -181,6 +184,7 @@ func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of the rule.
 func (o ListenerRuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }

@@ -13,17 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFreeFormLayoutElement
     {
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         public readonly Outputs.TemplateFreeFormLayoutElementBackgroundStyle? BackgroundStyle;
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         public readonly Outputs.TemplateFreeFormLayoutElementBorderStyle? BorderStyle;
+        /// <summary>
+        /// A unique identifier for an element within a free-form layout.
+        /// </summary>
         public readonly string ElementId;
+        /// <summary>
+        /// The type of element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLayoutElementType ElementType;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string Height;
+        /// <summary>
+        /// The configuration of loading animation in free-form layout.
+        /// </summary>
         public readonly Outputs.TemplateLoadingAnimation? LoadingAnimation;
+        /// <summary>
+        /// The rendering rules of a sheet that uses a free-form layout.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetElementRenderingRule> RenderingRules;
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         public readonly Outputs.TemplateFreeFormLayoutElementBorderStyle? SelectedBorderStyle;
+        /// <summary>
+        /// The visibility of an element within a free-form layout.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px

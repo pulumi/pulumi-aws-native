@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionMonitoringResources
     {
+        /// <summary>
+        /// The configuration for the cluster resources used to run the processing job.
+        /// </summary>
         public readonly Outputs.ModelExplainabilityJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]

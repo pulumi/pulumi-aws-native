@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.IoT.Inputs
     {
         [Input("criteriaList", required: true)]
         private InputList<Inputs.JobTemplateAbortCriteriaArgs>? _criteriaList;
+
+        /// <summary>
+        /// The criteria that determine when and how a job abort takes place.
+        /// </summary>
         public InputList<Inputs.JobTemplateAbortCriteriaArgs> CriteriaList
         {
             get => _criteriaList ?? (_criteriaList = new InputList<Inputs.JobTemplateAbortCriteriaArgs>());

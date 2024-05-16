@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterEndpoint struct {
+	// The DNS address of the cluster. This property is read only.
 	Address *string `pulumi:"address"`
-	Port    *string `pulumi:"port"`
+	// The port that the database engine is listening on. This property is read only.
+	Port *string `pulumi:"port"`
 }
 
 // ClusterEndpointInput is an input type that accepts ClusterEndpointArgs and ClusterEndpointOutput values.
@@ -30,8 +32,10 @@ type ClusterEndpointInput interface {
 }
 
 type ClusterEndpointArgs struct {
+	// The DNS address of the cluster. This property is read only.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	Port    pulumi.StringPtrInput `pulumi:"port"`
+	// The port that the database engine is listening on. This property is read only.
+	Port pulumi.StringPtrInput `pulumi:"port"`
 }
 
 func (ClusterEndpointArgs) ElementType() reflect.Type {
@@ -111,10 +115,12 @@ func (o ClusterEndpointOutput) ToClusterEndpointPtrOutputWithContext(ctx context
 	}).(ClusterEndpointPtrOutput)
 }
 
+// The DNS address of the cluster. This property is read only.
 func (o ClusterEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
+// The port that the database engine is listening on. This property is read only.
 func (o ClusterEndpointOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -143,6 +149,7 @@ func (o ClusterEndpointPtrOutput) Elem() ClusterEndpointOutput {
 	}).(ClusterEndpointOutput)
 }
 
+// The DNS address of the cluster. This property is read only.
 func (o ClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) *string {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o ClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port that the database engine is listening on. This property is read only.
 func (o ClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) *string {
 		if v == nil {
@@ -162,7 +170,25 @@ func (o ClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 }
 
 type ClusterLoggingProperties struct {
-	BucketName  *string `pulumi:"bucketName"`
+	// The name of an existing S3 bucket where the log files are to be stored.
+	//
+	// Constraints:
+	//
+	// - Must be in the same region as the cluster
+	// - The cluster must have read bucket and put object permissions
+	BucketName *string `pulumi:"bucketName"`
+	// The prefix applied to the log file names.
+	//
+	// Constraints:
+	//
+	// - Cannot exceed 512 characters
+	// - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+	//
+	// - x00 to x20
+	// - x22
+	// - x27
+	// - x5c
+	// - x7f or larger
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
@@ -178,7 +204,25 @@ type ClusterLoggingPropertiesInput interface {
 }
 
 type ClusterLoggingPropertiesArgs struct {
-	BucketName  pulumi.StringPtrInput `pulumi:"bucketName"`
+	// The name of an existing S3 bucket where the log files are to be stored.
+	//
+	// Constraints:
+	//
+	// - Must be in the same region as the cluster
+	// - The cluster must have read bucket and put object permissions
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// The prefix applied to the log file names.
+	//
+	// Constraints:
+	//
+	// - Cannot exceed 512 characters
+	// - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+	//
+	// - x00 to x20
+	// - x22
+	// - x27
+	// - x5c
+	// - x7f or larger
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
@@ -259,10 +303,28 @@ func (o ClusterLoggingPropertiesOutput) ToClusterLoggingPropertiesPtrOutputWithC
 	}).(ClusterLoggingPropertiesPtrOutput)
 }
 
+// The name of an existing S3 bucket where the log files are to be stored.
+//
+// Constraints:
+//
+// - Must be in the same region as the cluster
+// - The cluster must have read bucket and put object permissions
 func (o ClusterLoggingPropertiesOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// The prefix applied to the log file names.
+//
+// Constraints:
+//
+// - Cannot exceed 512 characters
+// - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+//
+// - x00 to x20
+// - x22
+// - x27
+// - x5c
+// - x7f or larger
 func (o ClusterLoggingPropertiesOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -291,6 +353,12 @@ func (o ClusterLoggingPropertiesPtrOutput) Elem() ClusterLoggingPropertiesOutput
 	}).(ClusterLoggingPropertiesOutput)
 }
 
+// The name of an existing S3 bucket where the log files are to be stored.
+//
+// Constraints:
+//
+// - Must be in the same region as the cluster
+// - The cluster must have read bucket and put object permissions
 func (o ClusterLoggingPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingProperties) *string {
 		if v == nil {
@@ -300,6 +368,18 @@ func (o ClusterLoggingPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The prefix applied to the log file names.
+//
+// Constraints:
+//
+// - Cannot exceed 512 characters
+// - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+//
+// - x00 to x20
+// - x22
+// - x27
+// - x5c
+// - x7f or larger
 func (o ClusterLoggingPropertiesPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingProperties) *string {
 		if v == nil {

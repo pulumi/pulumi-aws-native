@@ -19,6 +19,11 @@ export function getServerCertificate(args: GetServerCertificateArgs, opts?: pulu
 }
 
 export interface GetServerCertificateArgs {
+    /**
+     * The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+     *
+     * This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+     */
     serverCertificateName: string;
 }
 
@@ -27,7 +32,17 @@ export interface GetServerCertificateResult {
      * Amazon Resource Name (ARN) of the server certificate
      */
     readonly arn?: string;
+    /**
+     * The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+     *
+     * This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+     *
+     * > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+     */
     readonly path?: string;
+    /**
+     * A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +53,10 @@ export function getServerCertificateOutput(args: GetServerCertificateOutputArgs,
 }
 
 export interface GetServerCertificateOutputArgs {
+    /**
+     * The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+     *
+     * This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+     */
     serverCertificateName: pulumi.Input<string>;
 }

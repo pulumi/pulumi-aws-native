@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class FunctionKeyValueStoreAssociation
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the key value store association.
+        /// </summary>
         public readonly string KeyValueStoreArn;
 
         [OutputConstructor]

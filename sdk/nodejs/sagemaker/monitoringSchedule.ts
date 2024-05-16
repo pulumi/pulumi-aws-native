@@ -41,6 +41,9 @@ export class MonitoringSchedule extends pulumi.CustomResource {
      * The time at which the schedule was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The name of the endpoint using the monitoring schedule.
+     */
     public readonly endpointName!: pulumi.Output<string | undefined>;
     /**
      * Contains the reason a monitoring job failed, if it failed.
@@ -58,7 +61,13 @@ export class MonitoringSchedule extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the monitoring schedule.
      */
     public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
+    /**
+     * Configures the monitoring schedule and defines the monitoring job.
+     */
     public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleConfig>;
+    /**
+     * The name of the monitoring schedule.
+     */
     public readonly monitoringScheduleName!: pulumi.Output<string>;
     /**
      * The status of a schedule job.
@@ -116,6 +125,9 @@ export class MonitoringSchedule extends pulumi.CustomResource {
  * The set of arguments for constructing a MonitoringSchedule resource.
  */
 export interface MonitoringScheduleArgs {
+    /**
+     * The name of the endpoint using the monitoring schedule.
+     */
     endpointName?: pulumi.Input<string>;
     /**
      * Contains the reason a monitoring job failed, if it failed.
@@ -125,7 +137,13 @@ export interface MonitoringScheduleArgs {
      * Describes metadata on the last execution to run, if there was one.
      */
     lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
+    /**
+     * Configures the monitoring schedule and defines the monitoring job.
+     */
     monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleConfigArgs>;
+    /**
+     * The name of the monitoring schedule.
+     */
     monitoringScheduleName?: pulumi.Input<string>;
     /**
      * The status of a schedule job.

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
     /// </summary>
     public sealed class ApplicationWorkerTypeSpecificationInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The image configuration.
+        /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.ApplicationImageConfigurationInputArgs>? ImageConfiguration { get; set; }
 

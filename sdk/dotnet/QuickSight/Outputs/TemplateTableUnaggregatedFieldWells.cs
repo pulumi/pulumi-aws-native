@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableUnaggregatedFieldWells
     {
+        /// <summary>
+        /// The unaggregated field for a table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateUnaggregatedField> Values;
 
         [OutputConstructor]

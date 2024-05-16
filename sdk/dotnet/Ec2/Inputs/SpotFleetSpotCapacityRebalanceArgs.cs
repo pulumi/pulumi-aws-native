@@ -12,9 +12,25 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetSpotCapacityRebalanceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The replacement strategy to use. Only available for fleets of type `maintain` .
+        /// 
+        /// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+        /// 
+        /// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
+        /// </summary>
         [Input("replacementStrategy")]
         public Input<Pulumi.AwsNative.Ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy>? ReplacementStrategy { get; set; }
 
+        /// <summary>
+        /// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+        /// 
+        /// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+        /// 
+        /// Not valid when `ReplacementStrategy` is set to `launch` .
+        /// 
+        /// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+        /// </summary>
         [Input("terminationDelay")]
         public Input<int>? TerminationDelay { get; set; }
 

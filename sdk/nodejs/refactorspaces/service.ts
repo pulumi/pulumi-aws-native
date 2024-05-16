@@ -37,19 +37,49 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * The unique identifier of the application.
+     */
     public readonly applicationIdentifier!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description of the service.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The endpoint type of the service.
+     */
     public readonly endpointType!: pulumi.Output<enums.refactorspaces.ServiceEndpointType>;
+    /**
+     * The unique identifier of the environment.
+     */
     public readonly environmentIdentifier!: pulumi.Output<string>;
+    /**
+     * The input for the AWS Lambda endpoint type.
+     */
     public readonly lambdaEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceLambdaEndpointInput | undefined>;
+    /**
+     * The name of the service.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the service.
+     */
     public /*out*/ readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The configuration for the URL endpoint type.
+     */
     public readonly urlEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceUrlEndpointInput | undefined>;
+    /**
+     * The ID of the virtual private cloud (VPC).
+     */
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
@@ -107,16 +137,40 @@ export class Service extends pulumi.CustomResource {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: pulumi.Input<string>;
+    /**
+     * A description of the service.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The endpoint type of the service.
+     */
     endpointType: pulumi.Input<enums.refactorspaces.ServiceEndpointType>;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
+    /**
+     * The input for the AWS Lambda endpoint type.
+     */
     lambdaEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceLambdaEndpointInputArgs>;
+    /**
+     * The name of the service.
+     */
     name?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The configuration for the URL endpoint type.
+     */
     urlEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceUrlEndpointInputArgs>;
+    /**
+     * The ID of the virtual private cloud (VPC).
+     */
     vpcId?: pulumi.Input<string>;
 }

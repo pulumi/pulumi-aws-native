@@ -20,7 +20,13 @@ export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDataSourceArgs {
+    /**
+     * The AWS account ID.
+     */
     awsAccountId: string;
+    /**
+     * An ID for the data source. This ID is unique per AWS Region for each AWS account.
+     */
     dataSourceId: string;
 }
 
@@ -45,17 +51,41 @@ export interface GetDataSourceResult {
      * <p>The time that this data source was created.</p>
      */
     readonly createdTime?: string;
+    /**
+     * The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     */
     readonly dataSourceParameters?: outputs.quicksight.DataSourceParameters;
+    /**
+     * Error information for the data source creation or update.
+     */
     readonly errorInfo?: outputs.quicksight.DataSourceErrorInfo;
     /**
      * <p>The last time that this data source was updated.</p>
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * A display name for the data source.
+     */
     readonly name?: string;
+    /**
+     * Permission for the resource.
+     */
     readonly permissions?: outputs.quicksight.DataSourceResourcePermission[];
+    /**
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+     */
     readonly sslProperties?: outputs.quicksight.DataSourceSslProperties;
+    /**
+     * The HTTP status of the request.
+     */
     readonly status?: enums.quicksight.DataSourceResourceStatus;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * VPC connection properties.
+     */
     readonly vpcConnectionProperties?: outputs.quicksight.DataSourceVpcConnectionProperties;
 }
 /**
@@ -66,6 +96,12 @@ export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi
 }
 
 export interface GetDataSourceOutputArgs {
+    /**
+     * The AWS account ID.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * An ID for the data source. This ID is unique per AWS Region for each AWS account.
+     */
     dataSourceId: pulumi.Input<string>;
 }

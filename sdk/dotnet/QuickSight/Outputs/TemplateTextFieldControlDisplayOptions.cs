@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTextFieldControlDisplayOptions
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         public readonly Outputs.TemplateSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The configuration of the placeholder options in a text control.
+        /// </summary>
         public readonly Outputs.TemplateTextControlPlaceholderOptions? PlaceholderOptions;
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         public readonly Outputs.TemplateLabelOptions? TitleOptions;
 
         [OutputConstructor]

@@ -15,21 +15,41 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     [AwsNativeResourceType("aws-native:resourceexplorer2:View")]
     public partial class View : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A search filter defines which resources can be part of a search query result set.
+        /// </summary>
         [Output("filters")]
         public Output<Outputs.ViewSearchFilter?> Filters { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about an additional property that describes a resource, that you can optionally include in a view.
+        /// </summary>
         [Output("includedProperties")]
         public Output<ImmutableArray<Outputs.ViewIncludedProperty>> IncludedProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Tag key and value pairs that are attached to the view.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Output("viewArn")]
         public Output<string> ViewArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the new view.
+        /// </summary>
         [Output("viewName")]
         public Output<string> ViewName { get; private set; } = null!;
 
@@ -83,28 +103,45 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A search filter defines which resources can be part of a search query result set.
+        /// </summary>
         [Input("filters")]
         public Input<Inputs.ViewSearchFilterArgs>? Filters { get; set; }
 
         [Input("includedProperties")]
         private InputList<Inputs.ViewIncludedPropertyArgs>? _includedProperties;
+
+        /// <summary>
+        /// Information about an additional property that describes a resource, that you can optionally include in a view.
+        /// </summary>
         public InputList<Inputs.ViewIncludedPropertyArgs> IncludedProperties
         {
             get => _includedProperties ?? (_includedProperties = new InputList<Inputs.ViewIncludedPropertyArgs>());
             set => _includedProperties = value;
         }
 
+        /// <summary>
+        /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tag key and value pairs that are attached to the view.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the new view.
+        /// </summary>
         [Input("viewName")]
         public Input<string>? ViewName { get; set; }
 

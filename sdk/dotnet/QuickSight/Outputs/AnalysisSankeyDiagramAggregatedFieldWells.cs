@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSankeyDiagramAggregatedFieldWells
     {
+        /// <summary>
+        /// The destination field wells of a sankey diagram.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Destination;
+        /// <summary>
+        /// The source field wells of a sankey diagram.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Source;
+        /// <summary>
+        /// The weight field wells of a sankey diagram.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Weight;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetTargetGroup
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target group.
+        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

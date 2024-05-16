@@ -12,17 +12,31 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableLocalSecondaryIndexArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the local secondary index. The name must be unique among all other indexes on this table.
+        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
         [Input("keySchema", required: true)]
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
+
+        /// <summary>
+        /// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+        /// 
+        /// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+        /// 
+        /// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        /// </summary>
         public InputList<Inputs.GlobalTableKeySchemaArgs> KeySchema
         {
             get => _keySchema ?? (_keySchema = new InputList<Inputs.GlobalTableKeySchemaArgs>());
             set => _keySchema = value;
         }
 
+        /// <summary>
+        /// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        /// </summary>
         [Input("projection", required: true)]
         public Input<Inputs.GlobalTableProjectionArgs> Projection { get; set; } = null!;
 

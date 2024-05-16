@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Lex
     [AwsNativeResourceType("aws-native:lex:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the resource policy.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        /// </summary>
         [Output("policy")]
         public Output<Outputs.ResourcePolicyPolicy> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the current revision of a resource policy.
+        /// </summary>
         [Output("revisionId")]
         public Output<string> RevisionId { get; private set; } = null!;
 
@@ -72,9 +84,15 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.ResourcePolicyPolicyArgs> Policy { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

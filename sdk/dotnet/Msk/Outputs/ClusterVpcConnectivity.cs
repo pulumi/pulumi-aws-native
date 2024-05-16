@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterVpcConnectivity
     {
+        /// <summary>
+        /// Includes all client authentication information for VpcConnectivity.
+        /// </summary>
         public readonly Outputs.ClusterVpcConnectivityClientAuthentication? ClientAuthentication;
 
         [OutputConstructor]

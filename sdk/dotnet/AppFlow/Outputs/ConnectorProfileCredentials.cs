@@ -16,23 +16,77 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileCredentials
     {
+        /// <summary>
+        /// The connector-specific credentials required when using Amplitude.
+        /// </summary>
         public readonly Outputs.ConnectorProfileAmplitudeConnectorProfileCredentials? Amplitude;
+        /// <summary>
+        /// The connector-specific profile credentials that are required when using the custom connector.
+        /// </summary>
         public readonly Outputs.ConnectorProfileCustomConnectorProfileCredentials? CustomConnector;
+        /// <summary>
+        /// The connector-specific credentials required by Datadog.
+        /// </summary>
         public readonly Outputs.ConnectorProfileDatadogConnectorProfileCredentials? Datadog;
+        /// <summary>
+        /// The connector-specific profile credentials required by Dynatrace.
+        /// </summary>
         public readonly Outputs.ConnectorProfileDynatraceConnectorProfileCredentials? Dynatrace;
+        /// <summary>
+        /// The connector-specific profile credentials required by Google Analytics.
+        /// </summary>
         public readonly Outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials? GoogleAnalytics;
+        /// <summary>
+        /// The connector-specific profile credentials required by Infor Nexus.
+        /// </summary>
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? InforNexus;
+        /// <summary>
+        /// The connector-specific profile credentials required by Marketo.
+        /// </summary>
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileCredentials? Marketo;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Salesforce Pardot.
+        /// </summary>
         public readonly Outputs.ConnectorProfilePardotConnectorProfileCredentials? Pardot;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Amazon Redshift.
+        /// </summary>
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? Redshift;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Salesforce.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? Salesforce;
+        /// <summary>
+        /// The connector-specific profile credentials required when using SAPOData.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSapoDataConnectorProfileCredentials? SapoData;
+        /// <summary>
+        /// The connector-specific profile credentials required when using ServiceNow.
+        /// </summary>
         public readonly Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? ServiceNow;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Singular.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSingularConnectorProfileCredentials? Singular;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Slack.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSlackConnectorProfileCredentials? Slack;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Snowflake.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSnowflakeConnectorProfileCredentials? Snowflake;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Trend Micro.
+        /// </summary>
         public readonly Outputs.ConnectorProfileTrendmicroConnectorProfileCredentials? Trendmicro;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Veeva.
+        /// </summary>
         public readonly Outputs.ConnectorProfileVeevaConnectorProfileCredentials? Veeva;
+        /// <summary>
+        /// The connector-specific profile credentials required when using Zendesk.
+        /// </summary>
         public readonly Outputs.ConnectorProfileZendeskConnectorProfileCredentials? Zendesk;
 
         [OutputConstructor]

@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSheetControlLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for a grid layout. Also called a tiled layout.
+        /// 
+        /// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+        /// </summary>
         [Input("gridLayout")]
         public Input<Inputs.TemplateGridLayoutConfigurationArgs>? GridLayout { get; set; }
 

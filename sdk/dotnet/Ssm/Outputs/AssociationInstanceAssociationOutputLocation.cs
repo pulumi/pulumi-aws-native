@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class AssociationInstanceAssociationOutputLocation
     {
+        /// <summary>
+        /// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+        /// </summary>
         public readonly Outputs.AssociationS3OutputLocation? S3Location;
 
         [OutputConstructor]

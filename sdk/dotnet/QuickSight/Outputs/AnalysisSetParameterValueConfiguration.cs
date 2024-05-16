@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSetParameterValueConfiguration
     {
+        /// <summary>
+        /// The destination parameter name of the `SetParameterValueConfiguration` .
+        /// </summary>
         public readonly string DestinationParameterName;
+        /// <summary>
+        /// The configuration of destination parameter values.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisDestinationParameterValueConfiguration Value;
 
         [OutputConstructor]

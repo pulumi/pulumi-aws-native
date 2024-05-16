@@ -83,6 +83,9 @@ class GetTableResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -206,6 +209,11 @@ class GetTableResult:
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[str]:
+        """
+        The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
+
+        > You must specify the `StreamSpecification` property to use this attribute.
+        """
         return pulumi.get(self, "stream_arn")
 
     @property

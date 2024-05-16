@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The DNS host name for the Docker container.
         /// </summary>
         public readonly string? ContainerHostname;
+        /// <summary>
+        /// The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
+        /// </summary>
         public readonly Outputs.ModelPackageEnvironment? Environment;
         /// <summary>
         /// The machine learning framework of the model package container image.
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// A structure with Model Input details.
         /// </summary>
         public readonly string? ModelDataUrl;
+        /// <summary>
+        /// A structure with Model Input details.
+        /// </summary>
         public readonly Outputs.ModelPackageContainerDefinitionModelInputProperties? ModelInput;
         /// <summary>
         /// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.

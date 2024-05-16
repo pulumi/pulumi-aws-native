@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ce
 
     public sealed class GetAnomalyMonitorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) value for the monitor.
+        /// </summary>
         [Input("monitorArn", required: true)]
         public string MonitorArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ce
 
     public sealed class GetAnomalyMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) value for the monitor.
+        /// </summary>
         [Input("monitorArn", required: true)]
         public Input<string> MonitorArn { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.Ce
         /// The date when the monitor was last updated.
         /// </summary>
         public readonly string? LastUpdatedDate;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) value for the monitor.
+        /// </summary>
         public readonly string? MonitorArn;
         /// <summary>
         /// The name of the monitor.

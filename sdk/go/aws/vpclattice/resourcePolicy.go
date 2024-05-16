@@ -16,8 +16,11 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the service network or service.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
-	Policy      pulumi.AnyOutput    `pulumi:"policy"`
+	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// An IAM policy.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -71,15 +74,21 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
+	// The Amazon Resource Name (ARN) of the service network or service.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
-	Policy      interface{} `pulumi:"policy"`
-	ResourceArn string      `pulumi:"resourceArn"`
+	Policy interface{} `pulumi:"policy"`
+	// An IAM policy.
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
+	// The Amazon Resource Name (ARN) of the service network or service.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
-	Policy      pulumi.Input
+	Policy pulumi.Input
+	// An IAM policy.
 	ResourceArn pulumi.StringInput
 }
 
@@ -120,11 +129,14 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service network or service.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
 func (o ResourcePolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// An IAM policy.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

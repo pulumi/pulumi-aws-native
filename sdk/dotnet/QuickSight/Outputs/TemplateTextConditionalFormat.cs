@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTextConditionalFormat
     {
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? BackgroundColor;
+        /// <summary>
+        /// The formatting configuration for the icon.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingIcon? Icon;
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? TextColor;
 
         [OutputConstructor]

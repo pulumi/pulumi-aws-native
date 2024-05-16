@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkVpcAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkVpcAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,15 +57,45 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetServiceNetworkVpcAssociationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The date and time that the association was created, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The ID of the specified association between the service network and the VPC.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         public readonly string? ServiceNetworkArn;
+        /// <summary>
+        /// The ID of the service network.
+        /// </summary>
         public readonly string? ServiceNetworkId;
+        /// <summary>
+        /// The name of the service network.
+        /// </summary>
         public readonly string? ServiceNetworkName;
+        /// <summary>
+        /// The status of the association.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkVpcAssociationStatus? Status;
+        /// <summary>
+        /// The tags for the association.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

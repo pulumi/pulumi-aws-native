@@ -45,8 +45,17 @@ export class CostCategory extends pulumi.CustomResource {
      * The default value for the cost category
      */
     public readonly defaultValue!: pulumi.Output<string | undefined>;
+    /**
+     * The Cost Category's effective start date.
+     */
     public /*out*/ readonly effectiveStart!: pulumi.Output<string>;
+    /**
+     * The unique name of the Cost Category.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The rule schema version in this particular Cost Category.
+     */
     public readonly ruleVersion!: pulumi.Output<enums.ce.CostCategoryRuleVersion>;
     /**
      * JSON array format of Expression in Billing and Cost Management API
@@ -105,7 +114,13 @@ export interface CostCategoryArgs {
      * The default value for the cost category
      */
     defaultValue?: pulumi.Input<string>;
+    /**
+     * The unique name of the Cost Category.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The rule schema version in this particular Cost Category.
+     */
     ruleVersion: pulumi.Input<enums.ce.CostCategoryRuleVersion>;
     /**
      * JSON array format of Expression in Billing and Cost Management API

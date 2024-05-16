@@ -39,6 +39,9 @@ class GetEipResult:
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[str]:
+        """
+        The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+        """
         return pulumi.get(self, "allocation_id")
 
     @property
@@ -53,6 +56,9 @@ class GetEipResult:
     @property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[str]:
+        """
+        The Elastic IP address.
+        """
         return pulumi.get(self, "public_ip")
 
     @property
@@ -94,6 +100,10 @@ def get_eip(allocation_id: Optional[str] = None,
     Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.
      You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the *Amazon EC2 User Guide*.
      For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
+
+
+    :param str allocation_id: The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+    :param str public_ip: The Elastic IP address.
     """
     __args__ = dict()
     __args__['allocationId'] = allocation_id
@@ -117,5 +127,9 @@ def get_eip_output(allocation_id: Optional[pulumi.Input[str]] = None,
     Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.
      You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the *Amazon EC2 User Guide*.
      For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
+
+
+    :param str allocation_id: The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+    :param str public_ip: The Elastic IP address.
     """
     ...

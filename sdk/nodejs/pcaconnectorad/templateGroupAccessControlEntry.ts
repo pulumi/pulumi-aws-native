@@ -37,9 +37,21 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
         return obj['__pulumiType'] === TemplateGroupAccessControlEntry.__pulumiType;
     }
 
+    /**
+     * Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+     */
     public readonly accessRights!: pulumi.Output<outputs.pcaconnectorad.TemplateGroupAccessControlEntryAccessRights>;
+    /**
+     * Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+     */
     public readonly groupDisplayName!: pulumi.Output<string>;
+    /**
+     * Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+     */
     public readonly groupSecurityIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+     */
     public readonly templateArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -80,8 +92,20 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
  * The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
  */
 export interface TemplateGroupAccessControlEntryArgs {
+    /**
+     * Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+     */
     accessRights: pulumi.Input<inputs.pcaconnectorad.TemplateGroupAccessControlEntryAccessRightsArgs>;
+    /**
+     * Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+     */
     groupDisplayName: pulumi.Input<string>;
+    /**
+     * Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+     */
     groupSecurityIdentifier?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+     */
     templateArn?: pulumi.Input<string>;
 }

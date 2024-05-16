@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateLayout
     {
+        /// <summary>
+        /// The configuration that determines what the type of layout will be used on a sheet.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateLayoutConfiguration Configuration;
 
         [OutputConstructor]

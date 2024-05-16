@@ -53,7 +53,13 @@ export class Instance extends pulumi.CustomResource {
      * The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
      */
     public readonly bundleId!: pulumi.Output<string>;
+    /**
+     * `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     */
     public readonly hardware!: pulumi.Output<outputs.lightsail.InstanceHardware | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     public /*out*/ readonly instanceArn!: pulumi.Output<string>;
     /**
      * The names to use for your new Lightsail instance.
@@ -67,7 +73,13 @@ export class Instance extends pulumi.CustomResource {
      * The name of your key pair.
      */
     public readonly keyPairName!: pulumi.Output<string | undefined>;
+    /**
+     * `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+     */
     public readonly location!: pulumi.Output<outputs.lightsail.InstanceLocation | undefined>;
+    /**
+     * `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+     */
     public readonly networking!: pulumi.Output<outputs.lightsail.InstanceNetworking | undefined>;
     /**
      * Private IP Address of the Instance
@@ -85,6 +97,9 @@ export class Instance extends pulumi.CustomResource {
      * SSH Key Name of the  Lightsail instance.
      */
     public /*out*/ readonly sshKeyName!: pulumi.Output<string>;
+    /**
+     * `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+     */
     public readonly state!: pulumi.Output<outputs.lightsail.InstanceState | undefined>;
     /**
      * Support code to help identify any issues
@@ -189,6 +204,9 @@ export interface InstanceArgs {
      * The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
      */
     bundleId: pulumi.Input<string>;
+    /**
+     * `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     */
     hardware?: pulumi.Input<inputs.lightsail.InstanceHardwareArgs>;
     /**
      * The names to use for your new Lightsail instance.
@@ -198,8 +216,17 @@ export interface InstanceArgs {
      * The name of your key pair.
      */
     keyPairName?: pulumi.Input<string>;
+    /**
+     * `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+     */
     location?: pulumi.Input<inputs.lightsail.InstanceLocationArgs>;
+    /**
+     * `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+     */
     networking?: pulumi.Input<inputs.lightsail.InstanceNetworkingArgs>;
+    /**
+     * `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+     */
     state?: pulumi.Input<inputs.lightsail.InstanceStateArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

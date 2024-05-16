@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateVersionDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for default analysis settings.
+        /// </summary>
         [Input("analysisDefaults")]
         public Input<Inputs.TemplateAnalysisDefaultsArgs>? AnalysisDefaults { get; set; }
 
         [Input("calculatedFields")]
         private InputList<Inputs.TemplateCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// The calculated field of an analysis.
+        /// </summary>
         public InputList<Inputs.TemplateCalculatedFieldArgs> CalculatedFields
         {
             get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.TemplateCalculatedFieldArgs>());
@@ -25,6 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("columnConfigurations")]
         private InputList<Inputs.TemplateColumnConfigurationArgs>? _columnConfigurations;
+
+        /// <summary>
+        /// The general configuration of a column.
+        /// </summary>
         public InputList<Inputs.TemplateColumnConfigurationArgs> ColumnConfigurations
         {
             get => _columnConfigurations ?? (_columnConfigurations = new InputList<Inputs.TemplateColumnConfigurationArgs>());
@@ -33,6 +44,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("dataSetConfigurations", required: true)]
         private InputList<Inputs.TemplateDataSetConfigurationArgs>? _dataSetConfigurations;
+
+        /// <summary>
+        /// Dataset configuration.
+        /// </summary>
         public InputList<Inputs.TemplateDataSetConfigurationArgs> DataSetConfigurations
         {
             get => _dataSetConfigurations ?? (_dataSetConfigurations = new InputList<Inputs.TemplateDataSetConfigurationArgs>());
@@ -41,17 +56,34 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("filterGroups")]
         private InputList<Inputs.TemplateFilterGroupArgs>? _filterGroups;
+
+        /// <summary>
+        /// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+        /// 
+        /// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.TemplateFilterGroupArgs> FilterGroups
         {
             get => _filterGroups ?? (_filterGroups = new InputList<Inputs.TemplateFilterGroupArgs>());
             set => _filterGroups = value;
         }
 
+        /// <summary>
+        /// An array of analysis level configurations.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.TemplateAssetOptionsArgs>? Options { get; set; }
 
         [Input("parameterDeclarations")]
         private InputList<Inputs.TemplateParameterDeclarationArgs>? _parameterDeclarations;
+
+        /// <summary>
+        /// The declaration definition of a parameter.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.TemplateParameterDeclarationArgs> ParameterDeclarations
         {
             get => _parameterDeclarations ?? (_parameterDeclarations = new InputList<Inputs.TemplateParameterDeclarationArgs>());
@@ -60,6 +92,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sheets")]
         private InputList<Inputs.TemplateSheetDefinitionArgs>? _sheets;
+
+        /// <summary>
+        /// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
+        /// </summary>
         public InputList<Inputs.TemplateSheetDefinitionArgs> Sheets
         {
             get => _sheets ?? (_sheets = new InputList<Inputs.TemplateSheetDefinitionArgs>());

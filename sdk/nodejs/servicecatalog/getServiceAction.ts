@@ -19,14 +19,32 @@ export function getServiceAction(args: GetServiceActionArgs, opts?: pulumi.Invok
 }
 
 export interface GetServiceActionArgs {
+    /**
+     * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+     */
     id: string;
 }
 
 export interface GetServiceActionResult {
+    /**
+     * The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+     */
     readonly definition?: outputs.servicecatalog.ServiceActionDefinitionParameter[];
+    /**
+     * The self-service action definition type. For example, `SSM_AUTOMATION` .
+     */
     readonly definitionType?: enums.servicecatalog.ServiceActionDefinitionType;
+    /**
+     * The self-service action description.
+     */
     readonly description?: string;
+    /**
+     * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+     */
     readonly id?: string;
+    /**
+     * The self-service action name.
+     */
     readonly name?: string;
 }
 /**
@@ -37,5 +55,8 @@ export function getServiceActionOutput(args: GetServiceActionOutputArgs, opts?: 
 }
 
 export interface GetServiceActionOutputArgs {
+    /**
+     * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+     */
     id: pulumi.Input<string>;
 }

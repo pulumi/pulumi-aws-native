@@ -18,19 +18,29 @@ type Space struct {
 	pulumi.CustomResourceState
 
 	// The ID of the associated Domain.
-	DomainId          pulumi.StringOutput             `pulumi:"domainId"`
+	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// The collection of ownership settings for a space.
 	OwnershipSettings SpaceOwnershipSettingsPtrOutput `pulumi:"ownershipSettings"`
 	// The space Amazon Resource Name (ARN).
-	SpaceArn         pulumi.StringOutput    `pulumi:"spaceArn"`
+	SpaceArn pulumi.StringOutput `pulumi:"spaceArn"`
+	// The name of the space that appears in the Studio UI.
 	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
 	// A name for the Space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 	// A collection of settings.
-	SpaceSettings        SpaceSettingsPtrOutput        `pulumi:"spaceSettings"`
+	SpaceSettings SpaceSettingsPtrOutput `pulumi:"spaceSettings"`
+	// A collection of space sharing settings.
 	SpaceSharingSettings SpaceSharingSettingsPtrOutput `pulumi:"spaceSharingSettings"`
 	// A list of tags to apply to the space.
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
-	Url  pulumi.StringOutput `pulumi:"url"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+	//
+	// The following application types are supported:
+	//
+	// - Studio Classic: `&redirect=JupyterServer`
+	// - JupyterLab: `&redirect=JupyterLab`
+	// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewSpace registers a new resource with the given unique name, arguments, and options.
@@ -84,13 +94,16 @@ func (SpaceState) ElementType() reflect.Type {
 
 type spaceArgs struct {
 	// The ID of the associated Domain.
-	DomainId          string                  `pulumi:"domainId"`
+	DomainId string `pulumi:"domainId"`
+	// The collection of ownership settings for a space.
 	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
-	SpaceDisplayName  *string                 `pulumi:"spaceDisplayName"`
+	// The name of the space that appears in the Studio UI.
+	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// A name for the Space.
 	SpaceName *string `pulumi:"spaceName"`
 	// A collection of settings.
-	SpaceSettings        *SpaceSettings        `pulumi:"spaceSettings"`
+	SpaceSettings *SpaceSettings `pulumi:"spaceSettings"`
+	// A collection of space sharing settings.
 	SpaceSharingSettings *SpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A list of tags to apply to the space.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -99,13 +112,16 @@ type spaceArgs struct {
 // The set of arguments for constructing a Space resource.
 type SpaceArgs struct {
 	// The ID of the associated Domain.
-	DomainId          pulumi.StringInput
+	DomainId pulumi.StringInput
+	// The collection of ownership settings for a space.
 	OwnershipSettings SpaceOwnershipSettingsPtrInput
-	SpaceDisplayName  pulumi.StringPtrInput
+	// The name of the space that appears in the Studio UI.
+	SpaceDisplayName pulumi.StringPtrInput
 	// A name for the Space.
 	SpaceName pulumi.StringPtrInput
 	// A collection of settings.
-	SpaceSettings        SpaceSettingsPtrInput
+	SpaceSettings SpaceSettingsPtrInput
+	// A collection of space sharing settings.
 	SpaceSharingSettings SpaceSharingSettingsPtrInput
 	// A list of tags to apply to the space.
 	Tags aws.TagArrayInput
@@ -153,6 +169,7 @@ func (o SpaceOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
+// The collection of ownership settings for a space.
 func (o SpaceOutput) OwnershipSettings() SpaceOwnershipSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceOwnershipSettingsPtrOutput { return v.OwnershipSettings }).(SpaceOwnershipSettingsPtrOutput)
 }
@@ -162,6 +179,7 @@ func (o SpaceOutput) SpaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.SpaceArn }).(pulumi.StringOutput)
 }
 
+// The name of the space that appears in the Studio UI.
 func (o SpaceOutput) SpaceDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
 }
@@ -176,6 +194,7 @@ func (o SpaceOutput) SpaceSettings() SpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceSettingsPtrOutput { return v.SpaceSettings }).(SpaceSettingsPtrOutput)
 }
 
+// A collection of space sharing settings.
 func (o SpaceOutput) SpaceSharingSettings() SpaceSharingSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceSharingSettingsPtrOutput { return v.SpaceSharingSettings }).(SpaceSharingSettingsPtrOutput)
 }
@@ -185,6 +204,13 @@ func (o SpaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Space) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+//
+// The following application types are supported:
+//
+// - Studio Classic: `&redirect=JupyterServer`
+// - JupyterLab: `&redirect=JupyterLab`
+// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
 func (o SpaceOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

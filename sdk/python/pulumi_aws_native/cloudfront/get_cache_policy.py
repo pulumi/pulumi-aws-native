@@ -33,16 +33,32 @@ class GetCachePolicyResult:
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> Optional['outputs.CachePolicyConfig']:
+        """
+        A cache policy configuration.
+
+        This configuration determines the following:
+
+        - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+        - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+
+        The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        """
         return pulumi.get(self, "cache_policy_config")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the cache policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
 
@@ -61,6 +77,9 @@ def get_cache_policy(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCachePolicyResult:
     """
     Resource Type definition for AWS::CloudFront::CachePolicy
+
+
+    :param str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +97,8 @@ def get_cache_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     Resource Type definition for AWS::CloudFront::CachePolicy
+
+
+    :param str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """
     ...

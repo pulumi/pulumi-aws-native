@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateStringDefaultValues
     {
+        /// <summary>
+        /// Defines different defaults to the users or groups based on mapping.
+        /// </summary>
         public readonly Outputs.TemplateDynamicDefaultValue? DynamicValue;
+        /// <summary>
+        /// The static values of the `DecimalDefaultValues` .
+        /// </summary>
         public readonly ImmutableArray<string> StaticValues;
 
         [OutputConstructor]

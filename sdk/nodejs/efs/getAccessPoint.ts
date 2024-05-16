@@ -20,16 +20,25 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetAccessPointArgs {
+    /**
+     * The ID of the EFS access point.
+     */
     accessPointId: string;
 }
 
 export interface GetAccessPointResult {
+    /**
+     * The ID of the EFS access point.
+     */
     readonly accessPointId?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
     readonly accessPointTags?: outputs.Tag[];
+    /**
+     * The Amazon Resource Name (ARN) of the access point.
+     */
     readonly arn?: string;
 }
 /**
@@ -41,5 +50,8 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
 }
 
 export interface GetAccessPointOutputArgs {
+    /**
+     * The ID of the EFS access point.
+     */
     accessPointId: pulumi.Input<string>;
 }

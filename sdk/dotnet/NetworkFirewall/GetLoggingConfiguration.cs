@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetLoggingConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        /// </summary>
         [Input("firewallArn", required: true)]
         public string FirewallArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetLoggingConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetLoggingConfigurationResult
     {
+        /// <summary>
+        /// Defines how AWS Network Firewall performs logging for a `Firewall` .
+        /// </summary>
         public readonly Outputs.LoggingConfiguration? LoggingConfigurationValue;
 
         [OutputConstructor]

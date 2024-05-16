@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         [Input("sourceGroup", required: true)]
         public Input<string> SourceGroup { get; set; } = null!;
 
+        /// <summary>
+        /// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.MediaTailor.VodSourceType> Type { get; set; } = null!;
 

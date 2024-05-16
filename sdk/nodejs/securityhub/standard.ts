@@ -48,6 +48,9 @@ export class Standard extends pulumi.CustomResource {
      * The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      */
     public readonly standardsArn!: pulumi.Output<string>;
+    /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     */
     public /*out*/ readonly standardsSubscriptionArn!: pulumi.Output<string>;
 
     /**

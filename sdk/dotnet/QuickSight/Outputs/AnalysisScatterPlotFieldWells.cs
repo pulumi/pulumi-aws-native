@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScatterPlotFieldWells
     {
+        /// <summary>
+        /// The aggregated field well of a scatter plot.
+        /// </summary>
         public readonly Outputs.AnalysisScatterPlotCategoricallyAggregatedFieldWells? ScatterPlotCategoricallyAggregatedFieldWells;
+        /// <summary>
+        /// The unaggregated field wells of a scatter plot.
+        /// </summary>
         public readonly Outputs.AnalysisScatterPlotUnaggregatedFieldWells? ScatterPlotUnaggregatedFieldWells;
 
         [OutputConstructor]

@@ -16,14 +16,22 @@ import (
 type ExtensionAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput    `pulumi:"arn"`
-	AwsId                  pulumi.StringOutput    `pulumi:"awsId"`
-	ExtensionArn           pulumi.StringOutput    `pulumi:"extensionArn"`
-	ExtensionIdentifier    pulumi.StringPtrOutput `pulumi:"extensionIdentifier"`
-	ExtensionVersionNumber pulumi.IntPtrOutput    `pulumi:"extensionVersionNumber"`
-	Parameters             pulumi.StringMapOutput `pulumi:"parameters"`
-	ResourceArn            pulumi.StringOutput    `pulumi:"resourceArn"`
-	ResourceIdentifier     pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
+	// The ARN of the extension defined in the association.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The system-generated ID for the association.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The ARN of the extension defined in the association.
+	ExtensionArn pulumi.StringOutput `pulumi:"extensionArn"`
+	// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+	ExtensionIdentifier pulumi.StringPtrOutput `pulumi:"extensionIdentifier"`
+	// The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+	ExtensionVersionNumber pulumi.IntPtrOutput `pulumi:"extensionVersionNumber"`
+	// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The ARNs of applications, configuration profiles, or environments defined in the association.
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// The ARN of an application, configuration profile, or environment.
+	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
@@ -75,20 +83,28 @@ func (ExtensionAssociationState) ElementType() reflect.Type {
 }
 
 type extensionAssociationArgs struct {
-	ExtensionIdentifier    *string           `pulumi:"extensionIdentifier"`
-	ExtensionVersionNumber *int              `pulumi:"extensionVersionNumber"`
-	Parameters             map[string]string `pulumi:"parameters"`
-	ResourceIdentifier     *string           `pulumi:"resourceIdentifier"`
+	// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+	ExtensionIdentifier *string `pulumi:"extensionIdentifier"`
+	// The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+	ExtensionVersionNumber *int `pulumi:"extensionVersionNumber"`
+	// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The ARN of an application, configuration profile, or environment.
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExtensionAssociation resource.
 type ExtensionAssociationArgs struct {
-	ExtensionIdentifier    pulumi.StringPtrInput
+	// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+	ExtensionIdentifier pulumi.StringPtrInput
+	// The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
 	ExtensionVersionNumber pulumi.IntPtrInput
-	Parameters             pulumi.StringMapInput
-	ResourceIdentifier     pulumi.StringPtrInput
+	// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+	Parameters pulumi.StringMapInput
+	// The ARN of an application, configuration profile, or environment.
+	ResourceIdentifier pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
 }
@@ -130,34 +146,42 @@ func (o ExtensionAssociationOutput) ToExtensionAssociationOutputWithContext(ctx 
 	return o
 }
 
+// The ARN of the extension defined in the association.
 func (o ExtensionAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The system-generated ID for the association.
 func (o ExtensionAssociationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The ARN of the extension defined in the association.
 func (o ExtensionAssociationOutput) ExtensionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.ExtensionArn }).(pulumi.StringOutput)
 }
 
+// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 func (o ExtensionAssociationOutput) ExtensionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringPtrOutput { return v.ExtensionIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
 func (o ExtensionAssociationOutput) ExtensionVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.IntPtrOutput { return v.ExtensionVersionNumber }).(pulumi.IntPtrOutput)
 }
 
+// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
 func (o ExtensionAssociationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The ARNs of applications, configuration profiles, or environments defined in the association.
 func (o ExtensionAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// The ARN of an application, configuration profile, or environment.
 func (o ExtensionAssociationOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }

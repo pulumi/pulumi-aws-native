@@ -13,16 +13,49 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamRedshiftDestinationConfiguration
     {
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
+        /// </summary>
         public readonly string ClusterJdbcurl;
+        /// <summary>
+        /// The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCopyCommand CopyCommand;
+        /// <summary>
+        /// The password for the Amazon Redshift user that you specified in the `Username` property.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+        /// </summary>
         public readonly Outputs.DeliveryStreamRedshiftRetryOptions? RetryOptions;
+        /// <summary>
+        /// The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
+        /// <summary>
+        /// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode? S3BackupMode;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

@@ -19,6 +19,8 @@ class IndexArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Index resource.
+        :param pulumi.Input['IndexType'] type: Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
         """
         pulumi.set(__self__, "type", type)
         if tags is not None:
@@ -27,6 +29,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['IndexType']:
+        """
+        Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -36,6 +41,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -84,6 +92,8 @@ class Index(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        :param pulumi.Input['IndexType'] type: Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
         """
         ...
     @overload
@@ -185,20 +195,36 @@ class Index(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the new index for the AWS Region . For example:
+
+        `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="indexState")
     def index_state(self) -> pulumi.Output['IndexState']:
+        """
+        Indicates the current state of the index. For example:
+
+        `CREATING`
+        """
         return pulumi.get(self, "index_state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['IndexType']:
+        """
+        Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        """
         return pulumi.get(self, "type")
 

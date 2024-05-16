@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
 
     public sealed class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the configuration for scanning EBS volumes as data source.
+        /// </summary>
         [Input("ebsVolumes")]
         public Input<bool>? EbsVolumes { get; set; }
 

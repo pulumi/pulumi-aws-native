@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
     [OutputType]
     public sealed class LicenseConsumptionConfiguration
     {
+        /// <summary>
+        /// Details about a borrow configuration.
+        /// </summary>
         public readonly Outputs.LicenseBorrowConfiguration? BorrowConfiguration;
+        /// <summary>
+        /// Details about a provisional configuration.
+        /// </summary>
         public readonly Outputs.LicenseProvisionalConfiguration? ProvisionalConfiguration;
+        /// <summary>
+        /// Renewal frequency.
+        /// </summary>
         public readonly string? RenewType;
 
         [OutputConstructor]

@@ -592,6 +592,7 @@ func (o FhirDatastorePreloadDataConfigPtrOutput) PreloadDataType() FhirDatastore
 
 // The server-side encryption key configuration for a customer provided encryption key.
 type FhirDatastoreSseConfiguration struct {
+	// The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
 	KmsEncryptionConfig FhirDatastoreKmsEncryptionConfig `pulumi:"kmsEncryptionConfig"`
 }
 
@@ -608,6 +609,7 @@ type FhirDatastoreSseConfigurationInput interface {
 
 // The server-side encryption key configuration for a customer provided encryption key.
 type FhirDatastoreSseConfigurationArgs struct {
+	// The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
 	KmsEncryptionConfig FhirDatastoreKmsEncryptionConfigInput `pulumi:"kmsEncryptionConfig"`
 }
 
@@ -689,6 +691,7 @@ func (o FhirDatastoreSseConfigurationOutput) ToFhirDatastoreSseConfigurationPtrO
 	}).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
+// The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
 func (o FhirDatastoreSseConfigurationOutput) KmsEncryptionConfig() FhirDatastoreKmsEncryptionConfigOutput {
 	return o.ApplyT(func(v FhirDatastoreSseConfiguration) FhirDatastoreKmsEncryptionConfig { return v.KmsEncryptionConfig }).(FhirDatastoreKmsEncryptionConfigOutput)
 }
@@ -717,6 +720,7 @@ func (o FhirDatastoreSseConfigurationPtrOutput) Elem() FhirDatastoreSseConfigura
 	}).(FhirDatastoreSseConfigurationOutput)
 }
 
+// The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
 func (o FhirDatastoreSseConfigurationPtrOutput) KmsEncryptionConfig() FhirDatastoreKmsEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *FhirDatastoreSseConfiguration) *FhirDatastoreKmsEncryptionConfig {
 		if v == nil {

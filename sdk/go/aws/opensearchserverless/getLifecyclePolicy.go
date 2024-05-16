@@ -24,7 +24,8 @@ func LookupLifecyclePolicy(ctx *pulumi.Context, args *LookupLifecyclePolicyArgs,
 
 type LookupLifecyclePolicyArgs struct {
 	// The name of the policy
-	Name string              `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The type of lifecycle policy.
 	Type LifecyclePolicyType `pulumi:"type"`
 }
 
@@ -50,7 +51,8 @@ func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicy
 
 type LookupLifecyclePolicyOutputArgs struct {
 	// The name of the policy
-	Name pulumi.StringInput       `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of lifecycle policy.
 	Type LifecyclePolicyTypeInput `pulumi:"type"`
 }
 

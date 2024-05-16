@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Timestream
     [AwsNativeResourceType("aws-native:timestream:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The `arn` of the table.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

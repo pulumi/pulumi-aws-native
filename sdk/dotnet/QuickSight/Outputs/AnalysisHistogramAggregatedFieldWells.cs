@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisHistogramAggregatedFieldWells
     {
+        /// <summary>
+        /// The value field wells of a histogram. Values are aggregated by `COUNT` or `DISTINCT_COUNT` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Values;
 
         [OutputConstructor]

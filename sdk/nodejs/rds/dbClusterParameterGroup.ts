@@ -37,6 +37,17 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbClusterParameterGroup.__pulumiType;
     }
 
+    /**
+     * The name of the DB cluster parameter group.
+     *
+     * Constraints:
+     *
+     * - Must not match the name of an existing DB cluster parameter group.
+     *
+     * If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+     *
+     * > This value is stored as a lowercase string.
+     */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * A friendly description for this DB cluster parameter group.
@@ -100,6 +111,17 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DbClusterParameterGroup resource.
  */
 export interface DbClusterParameterGroupArgs {
+    /**
+     * The name of the DB cluster parameter group.
+     *
+     * Constraints:
+     *
+     * - Must not match the name of an existing DB cluster parameter group.
+     *
+     * If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+     *
+     * > This value is stored as a lowercase string.
+     */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * A friendly description for this DB cluster parameter group.

@@ -20,11 +20,17 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
         /// </summary>
         public readonly bool Active;
+        /// <summary>
+        /// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+        /// </summary>
         public readonly Outputs.BotFulfillmentStartResponseSpecification? StartResponse;
         /// <summary>
         /// The length of time that the fulfillment Lambda function should run before it times out.
         /// </summary>
         public readonly int? TimeoutInSeconds;
+        /// <summary>
+        /// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+        /// </summary>
         public readonly Outputs.BotFulfillmentUpdateResponseSpecification? UpdateResponse;
 
         [OutputConstructor]

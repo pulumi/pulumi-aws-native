@@ -26,6 +26,9 @@ export interface GetInstanceAccessControlAttributeConfigurationArgs {
 }
 
 export interface GetInstanceAccessControlAttributeConfigurationResult {
+    /**
+     * Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+     */
     readonly accessControlAttributes?: outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[];
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.

@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisComboChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of the category field well in a combo chart.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }
 
         [Input("colorSort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _colorSort;
+
+        /// <summary>
+        /// The sort configuration of the color field well in a combo chart.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> ColorSort
         {
             get => _colorSort ?? (_colorSort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

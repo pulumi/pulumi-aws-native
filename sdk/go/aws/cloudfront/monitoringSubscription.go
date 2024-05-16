@@ -16,7 +16,9 @@ import (
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState
 
-	DistributionId         pulumi.StringOutput              `pulumi:"distributionId"`
+	// The ID of the distribution that you are enabling metrics for.
+	DistributionId pulumi.StringOutput `pulumi:"distributionId"`
+	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	MonitoringSubscription MonitoringSubscriptionTypeOutput `pulumi:"monitoringSubscription"`
 }
 
@@ -70,13 +72,17 @@ func (MonitoringSubscriptionState) ElementType() reflect.Type {
 }
 
 type monitoringSubscriptionArgs struct {
-	DistributionId         string                     `pulumi:"distributionId"`
+	// The ID of the distribution that you are enabling metrics for.
+	DistributionId string `pulumi:"distributionId"`
+	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	MonitoringSubscription MonitoringSubscriptionType `pulumi:"monitoringSubscription"`
 }
 
 // The set of arguments for constructing a MonitoringSubscription resource.
 type MonitoringSubscriptionArgs struct {
-	DistributionId         pulumi.StringInput
+	// The ID of the distribution that you are enabling metrics for.
+	DistributionId pulumi.StringInput
+	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	MonitoringSubscription MonitoringSubscriptionTypeInput
 }
 
@@ -117,10 +123,12 @@ func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutputWithContext(
 	return o
 }
 
+// The ID of the distribution that you are enabling metrics for.
 func (o MonitoringSubscriptionOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSubscription) pulumi.StringOutput { return v.DistributionId }).(pulumi.StringOutput)
 }
 
+// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 func (o MonitoringSubscriptionOutput) MonitoringSubscription() MonitoringSubscriptionTypeOutput {
 	return o.ApplyT(func(v *MonitoringSubscription) MonitoringSubscriptionTypeOutput { return v.MonitoringSubscription }).(MonitoringSubscriptionTypeOutput)
 }

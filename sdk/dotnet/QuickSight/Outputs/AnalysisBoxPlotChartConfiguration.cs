@@ -13,16 +13,51 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisBoxPlotChartConfiguration
     {
+        /// <summary>
+        /// The options of a box plot visual.
+        /// </summary>
         public readonly Outputs.AnalysisBoxPlotOptions? BoxPlotOptions;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of a `BoxPlotVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisBoxPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The sort configuration of a `BoxPlotVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisBoxPlotSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
 
         [OutputConstructor]

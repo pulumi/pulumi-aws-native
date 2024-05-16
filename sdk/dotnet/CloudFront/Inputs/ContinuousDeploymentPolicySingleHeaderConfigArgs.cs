@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class ContinuousDeploymentPolicySingleHeaderConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
+        /// </summary>
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
 
+        /// <summary>
+        /// The request header value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

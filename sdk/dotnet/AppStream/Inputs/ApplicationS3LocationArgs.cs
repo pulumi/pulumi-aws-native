@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class ApplicationS3LocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 bucket of the S3 object.
+        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 key of the S3 object.
+        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 

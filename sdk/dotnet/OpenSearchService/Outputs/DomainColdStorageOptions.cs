@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainColdStorageOptions
     {
+        /// <summary>
+        /// Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -328,6 +328,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("architectures")]
         public Output<ImmutableArray<Pulumi.AwsNative.Lambda.FunctionArchitecturesItem>> Architectures { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the function.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -454,6 +457,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("snapStart")]
         public Output<Outputs.FunctionSnapStart?> SnapStart { get; private set; } = null!;
 
+        /// <summary>
+        /// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        /// </summary>
         [Output("snapStartResponse")]
         public Output<Outputs.FunctionSnapStartResponse> SnapStartResponse { get; private set; } = null!;
 

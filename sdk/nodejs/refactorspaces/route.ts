@@ -37,18 +37,45 @@ export class Route extends pulumi.CustomResource {
         return obj['__pulumiType'] === Route.__pulumiType;
     }
 
+    /**
+     * The unique identifier of the application.
+     */
     public readonly applicationIdentifier!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the route.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The configuration for the default route type.
+     */
     public readonly defaultRoute!: pulumi.Output<outputs.refactorspaces.RouteDefaultRouteInput | undefined>;
+    /**
+     * The unique identifier of the environment.
+     */
     public readonly environmentIdentifier!: pulumi.Output<string>;
+    /**
+     * A mapping of Amazon API Gateway path resources to resource IDs.
+     */
     public /*out*/ readonly pathResourceToId!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the route.
+     */
     public /*out*/ readonly routeIdentifier!: pulumi.Output<string>;
+    /**
+     * The route type of the route.
+     */
     public readonly routeType!: pulumi.Output<enums.refactorspaces.RouteType>;
+    /**
+     * The unique identifier of the service.
+     */
     public readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The configuration for the URI path route type.
+     */
     public readonly uriPathRoute!: pulumi.Output<outputs.refactorspaces.RouteUriPathRouteInput | undefined>;
 
     /**
@@ -107,14 +134,32 @@ export class Route extends pulumi.CustomResource {
  * The set of arguments for constructing a Route resource.
  */
 export interface RouteArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: pulumi.Input<string>;
+    /**
+     * The configuration for the default route type.
+     */
     defaultRoute?: pulumi.Input<inputs.refactorspaces.RouteDefaultRouteInputArgs>;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
+    /**
+     * The route type of the route.
+     */
     routeType: pulumi.Input<enums.refactorspaces.RouteType>;
+    /**
+     * The unique identifier of the service.
+     */
     serviceIdentifier: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The configuration for the URI path route type.
+     */
     uriPathRoute?: pulumi.Input<inputs.refactorspaces.RouteUriPathRouteInputArgs>;
 }

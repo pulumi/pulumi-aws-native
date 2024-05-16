@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
 
     public sealed class DeploymentConfigTimeBasedCanaryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        /// </summary>
         [Input("canaryInterval", required: true)]
         public Input<int> CanaryInterval { get; set; } = null!;
 
+        /// <summary>
+        /// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        /// </summary>
         [Input("canaryPercentage", required: true)]
         public Input<int> CanaryPercentage { get; set; } = null!;
 

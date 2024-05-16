@@ -30,10 +30,12 @@ type LookupCampaignArgs struct {
 
 type LookupCampaignResult struct {
 	// Amazon Connect Campaign Arn
-	Arn          *string               `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Contains dialer configuration for an outbound campaign.
 	DialerConfig *CampaignDialerConfig `pulumi:"dialerConfig"`
 	// Amazon Connect Campaign Name
-	Name               *string                     `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Contains outbound call configuration for an outbound campaign.
 	OutboundCallConfig *CampaignOutboundCallConfig `pulumi:"outboundCallConfig"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -80,6 +82,7 @@ func (o LookupCampaignResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Contains dialer configuration for an outbound campaign.
 func (o LookupCampaignResultOutput) DialerConfig() CampaignDialerConfigPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignDialerConfig { return v.DialerConfig }).(CampaignDialerConfigPtrOutput)
 }
@@ -89,6 +92,7 @@ func (o LookupCampaignResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Contains outbound call configuration for an outbound campaign.
 func (o LookupCampaignResultOutput) OutboundCallConfig() CampaignOutboundCallConfigPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignOutboundCallConfig { return v.OutboundCallConfig }).(CampaignOutboundCallConfigPtrOutput)
 }

@@ -41,6 +41,9 @@ export class IpamScope extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IPAM scope.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the scope.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
@@ -116,6 +119,9 @@ export class IpamScope extends pulumi.CustomResource {
  * The set of arguments for constructing a IpamScope resource.
  */
 export interface IpamScopeArgs {
+    /**
+     * The description of the scope.
+     */
     description?: pulumi.Input<string>;
     /**
      * The Id of the IPAM this scope is a part of.

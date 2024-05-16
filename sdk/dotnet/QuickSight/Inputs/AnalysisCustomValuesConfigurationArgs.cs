@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCustomValuesConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The customized parameter values.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("customValues", required: true)]
         public Input<Inputs.AnalysisCustomParameterValuesArgs> CustomValues { get; set; } = null!;
 
+        /// <summary>
+        /// Includes the null value in custom action parameter values.
+        /// </summary>
         [Input("includeNullValue")]
         public Input<bool>? IncludeNullValue { get; set; }
 

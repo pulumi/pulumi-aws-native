@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGlobalTableBorderOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The side border options for a table.
+        /// </summary>
         [Input("sideSpecificBorder")]
         public Input<Inputs.TemplateTableSideBorderOptionsArgs>? SideSpecificBorder { get; set; }
 
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         [Input("uniformBorder")]
         public Input<Inputs.TemplateTableBorderOptionsArgs>? UniformBorder { get; set; }
 

@@ -45,16 +45,25 @@ export class Scraper extends pulumi.CustomResource {
      * Scraper ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Where to send the metrics from a scraper.
+     */
     public readonly destination!: pulumi.Output<outputs.aps.ScraperDestination>;
     /**
      * IAM role ARN for the scraper.
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+     */
     public readonly scrapeConfiguration!: pulumi.Output<outputs.aps.ScraperScrapeConfiguration>;
     /**
      * Required to identify a specific scraper.
      */
     public /*out*/ readonly scraperId!: pulumi.Output<string>;
+    /**
+     * The source of collected metrics for a scraper.
+     */
     public readonly source!: pulumi.Output<outputs.aps.ScraperSource>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -114,8 +123,17 @@ export interface ScraperArgs {
      * Scraper alias.
      */
     alias?: pulumi.Input<string>;
+    /**
+     * Where to send the metrics from a scraper.
+     */
     destination: pulumi.Input<inputs.aps.ScraperDestinationArgs>;
+    /**
+     * A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+     */
     scrapeConfiguration: pulumi.Input<inputs.aps.ScraperScrapeConfigurationArgs>;
+    /**
+     * The source of collected metrics for a scraper.
+     */
     source: pulumi.Input<inputs.aps.ScraperSourceArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

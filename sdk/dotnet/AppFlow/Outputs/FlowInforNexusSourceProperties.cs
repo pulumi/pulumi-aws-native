@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowInforNexusSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Infor Nexus flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

@@ -57,6 +57,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[int]:
+        """
+        The number of days for which automatic snapshots are retained.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
@@ -67,46 +70,81 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> Optional[str]:
+        """
+        The URL used to connect to the elastic cluster.
+        """
         return pulumi.get(self, "cluster_endpoint")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[str]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[str]:
+        """
+        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+
+        *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+
+        *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+
+        *Constraints* : Minimum 30-minute window.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> Optional[int]:
+        """
+        The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+        """
         return pulumi.get(self, "shard_capacity")
 
     @property
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> Optional[int]:
+        """
+        The number of shards assigned to the elastic cluster. Maximum is 32.
+        """
         return pulumi.get(self, "shard_count")
 
     @property
     @pulumi.getter(name="shardInstanceCount")
     def shard_instance_count(self) -> Optional[int]:
+        """
+        The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+        """
         return pulumi.get(self, "shard_instance_count")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon EC2 subnet IDs for the new elastic cluster.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to be assigned to the new elastic cluster.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of EC2 VPC security groups to associate with the new elastic cluster.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 

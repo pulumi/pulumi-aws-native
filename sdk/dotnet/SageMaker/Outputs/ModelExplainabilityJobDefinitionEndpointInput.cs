@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionEndpointInput
     {
+        /// <summary>
+        /// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        /// </summary>
         public readonly string EndpointName;
         /// <summary>
         /// JSONpath to locate features in JSONlines dataset

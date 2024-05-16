@@ -12,33 +12,54 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardBarChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The field sort options in a chart configuration.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }
 
         [Input("colorSort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _colorSort;
+
+        /// <summary>
+        /// The sort configuration of color fields in a bar chart.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> ColorSort
         {
             get => _colorSort ?? (_colorSort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());
             set => _colorSort = value;
         }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }
 
         [Input("smallMultiplesSort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _smallMultiplesSort;
+
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> SmallMultiplesSort
         {
             get => _smallMultiplesSort ?? (_smallMultiplesSort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());

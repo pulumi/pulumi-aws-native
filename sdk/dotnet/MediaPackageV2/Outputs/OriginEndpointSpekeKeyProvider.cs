@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;The DRM solution provider you're using to protect your content during distribution.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDrmSystem> DrmSystems;
+        /// <summary>
+        /// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+        /// </summary>
         public readonly Outputs.OriginEndpointEncryptionContractConfiguration EncryptionContractConfiguration;
         /// <summary>
         /// &lt;p&gt;The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.&lt;/p&gt;

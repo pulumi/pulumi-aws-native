@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Inspector
     [AwsNativeResourceType("aws-native:inspector:AssessmentTemplate")]
     public partial class AssessmentTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the assessment target to be included in the assessment template.
+        /// </summary>
         [Output("assessmentTargetArn")]
         public Output<string> AssessmentTargetArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
+        /// </summary>
         [Output("assessmentTemplateName")]
         public Output<string?> AssessmentTemplateName { get; private set; } = null!;
 
+        /// <summary>
+        /// The duration of the assessment run in seconds.
+        /// </summary>
         [Output("durationInSeconds")]
         public Output<int> DurationInSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the rules packages that you want to use in the assessment template.
+        /// </summary>
         [Output("rulesPackageArns")]
         public Output<ImmutableArray<string>> RulesPackageArns { get; private set; } = null!;
 
+        /// <summary>
+        /// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        /// </summary>
         [Output("userAttributesForFindings")]
         public Output<ImmutableArray<Outputs.AssessmentTemplateTag>> UserAttributesForFindings { get; private set; } = null!;
 
@@ -86,17 +104,30 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class AssessmentTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the assessment target to be included in the assessment template.
+        /// </summary>
         [Input("assessmentTargetArn", required: true)]
         public Input<string> AssessmentTargetArn { get; set; } = null!;
 
+        /// <summary>
+        /// The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
+        /// </summary>
         [Input("assessmentTemplateName")]
         public Input<string>? AssessmentTemplateName { get; set; }
 
+        /// <summary>
+        /// The duration of the assessment run in seconds.
+        /// </summary>
         [Input("durationInSeconds", required: true)]
         public Input<int> DurationInSeconds { get; set; } = null!;
 
         [Input("rulesPackageArns", required: true)]
         private InputList<string>? _rulesPackageArns;
+
+        /// <summary>
+        /// The ARNs of the rules packages that you want to use in the assessment template.
+        /// </summary>
         public InputList<string> RulesPackageArns
         {
             get => _rulesPackageArns ?? (_rulesPackageArns = new InputList<string>());
@@ -105,6 +136,10 @@ namespace Pulumi.AwsNative.Inspector
 
         [Input("userAttributesForFindings")]
         private InputList<Inputs.AssessmentTemplateTagArgs>? _userAttributesForFindings;
+
+        /// <summary>
+        /// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        /// </summary>
         public InputList<Inputs.AssessmentTemplateTagArgs> UserAttributesForFindings
         {
             get => _userAttributesForFindings ?? (_userAttributesForFindings = new InputList<Inputs.AssessmentTemplateTagArgs>());

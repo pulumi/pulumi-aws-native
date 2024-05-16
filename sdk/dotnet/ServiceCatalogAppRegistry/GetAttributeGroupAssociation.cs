@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetAttributeGroupAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) of the application that was augmented with attributes.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+        /// </summary>
         [Input("attributeGroupArn", required: true)]
         public string AttributeGroupArn { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetAttributeGroupAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) of the application that was augmented with attributes.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+        /// </summary>
         [Input("attributeGroupArn", required: true)]
         public Input<string> AttributeGroupArn { get; set; } = null!;
 
@@ -57,7 +69,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [OutputType]
     public sealed class GetAttributeGroupAssociationResult
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) of the application that was augmented with attributes.
+        /// </summary>
         public readonly string? ApplicationArn;
+        /// <summary>
+        /// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+        /// </summary>
         public readonly string? AttributeGroupArn;
 
         [OutputConstructor]

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class QuickConnectQueueQuickConnectConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the flow.
+        /// </summary>
         public readonly string ContactFlowArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         public readonly string QueueArn;
 
         [OutputConstructor]

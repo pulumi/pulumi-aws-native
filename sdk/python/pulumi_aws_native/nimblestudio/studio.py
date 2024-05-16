@@ -28,7 +28,11 @@ class StudioArgs:
         :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
         :param pulumi.Input[str] display_name: <p>A friendly name for the studio.</p>
         :param pulumi.Input[str] user_role_arn: <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        :param pulumi.Input['StudioEncryptionConfigurationArgs'] studio_encryption_configuration: Configuration of the encryption method that is used for the studio.
         :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "admin_role_arn", admin_role_arn)
         pulumi.set(__self__, "display_name", display_name)
@@ -79,6 +83,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
     def studio_encryption_configuration(self) -> Optional[pulumi.Input['StudioEncryptionConfigurationArgs']]:
+        """
+        Configuration of the encryption method that is used for the studio.
+        """
         return pulumi.get(self, "studio_encryption_configuration")
 
     @studio_encryption_configuration.setter
@@ -100,6 +107,11 @@ class StudioArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -126,7 +138,11 @@ class Studio(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
         :param pulumi.Input[str] display_name: <p>A friendly name for the studio.</p>
+        :param pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']] studio_encryption_configuration: Configuration of the encryption method that is used for the studio.
         :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input[str] user_role_arn: <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
         """
         ...
@@ -255,11 +271,17 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
     def studio_encryption_configuration(self) -> pulumi.Output[Optional['outputs.StudioEncryptionConfiguration']]:
+        """
+        Configuration of the encryption method that is used for the studio.
+        """
         return pulumi.get(self, "studio_encryption_configuration")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the studio resource.
+        """
         return pulumi.get(self, "studio_id")
 
     @property
@@ -281,6 +303,11 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @property

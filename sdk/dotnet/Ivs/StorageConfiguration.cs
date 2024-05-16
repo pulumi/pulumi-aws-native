@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        /// </summary>
         [Output("s3")]
         public Output<Outputs.StorageConfigurationS3StorageConfiguration> S3 { get; private set; } = null!;
 
@@ -92,6 +95,9 @@ namespace Pulumi.AwsNative.Ivs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        /// </summary>
         [Input("s3", required: true)]
         public Input<Inputs.StorageConfigurationS3StorageConfigurationArgs> S3 { get; set; } = null!;
 

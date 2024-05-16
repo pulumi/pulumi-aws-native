@@ -50,41 +50,69 @@ class GetDomainConfigurationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the domain configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authorizerConfig")
     def authorizer_config(self) -> Optional['outputs.DomainConfigurationAuthorizerConfig']:
+        """
+        An object that specifies the authorization service for a domain.
+        """
         return pulumi.get(self, "authorizer_config")
 
     @property
     @pulumi.getter(name="domainConfigurationStatus")
     def domain_configuration_status(self) -> Optional['DomainConfigurationStatus']:
+        """
+        The status to which the domain configuration should be updated.
+
+        Valid values: `ENABLED` | `DISABLED`
+        """
         return pulumi.get(self, "domain_configuration_status")
 
     @property
     @pulumi.getter(name="domainType")
     def domain_type(self) -> Optional['DomainConfigurationDomainType']:
+        """
+        The type of service delivered by the domain.
+        """
         return pulumi.get(self, "domain_type")
 
     @property
     @pulumi.getter(name="serverCertificateConfig")
     def server_certificate_config(self) -> Optional['outputs.DomainConfigurationServerCertificateConfig']:
+        """
+        The server certificate configuration.
+
+        For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        """
         return pulumi.get(self, "server_certificate_config")
 
     @property
     @pulumi.getter(name="serverCertificates")
     def server_certificates(self) -> Optional[Sequence['outputs.DomainConfigurationServerCertificateSummary']]:
+        """
+        An object that contains information about a server certificate.
+        """
         return pulumi.get(self, "server_certificates")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional['outputs.DomainConfigurationTlsConfig']:
+        """
+        An object that specifies the TLS configuration for a domain.
+        """
         return pulumi.get(self, "tls_config")
 
 
@@ -108,6 +136,9 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainConfigurationResult:
     """
     Create and manage a Domain Configuration
+
+
+    :param str domain_configuration_name: The name of the domain configuration. This value must be unique to a region.
     """
     __args__ = dict()
     __args__['domainConfigurationName'] = domain_configuration_name
@@ -130,5 +161,8 @@ def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainConfigurationResult]:
     """
     Create and manage a Domain Configuration
+
+
+    :param str domain_configuration_name: The name of the domain configuration. This value must be unique to a region.
     """
     ...

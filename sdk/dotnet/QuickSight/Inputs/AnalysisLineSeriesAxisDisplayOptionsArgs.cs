@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisLineSeriesAxisDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("axisOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? AxisOptions { get; set; }
 
         [Input("missingDataConfigurations")]
         private InputList<Inputs.AnalysisMissingDataConfigurationArgs>? _missingDataConfigurations;
+
+        /// <summary>
+        /// The configuration options that determine how missing data is treated during the rendering of a line chart.
+        /// </summary>
         public InputList<Inputs.AnalysisMissingDataConfigurationArgs> MissingDataConfigurations
         {
             get => _missingDataConfigurations ?? (_missingDataConfigurations = new InputList<Inputs.AnalysisMissingDataConfigurationArgs>());

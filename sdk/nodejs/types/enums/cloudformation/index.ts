@@ -183,6 +183,9 @@ export const StackStatus = {
     ImportRollbackComplete: "IMPORT_ROLLBACK_COMPLETE",
 } as const;
 
+/**
+ * Current status of the stack.
+ */
 export type StackStatus = (typeof StackStatus)[keyof typeof StackStatus];
 
 export const TypeActivationType = {

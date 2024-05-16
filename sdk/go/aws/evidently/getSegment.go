@@ -24,14 +24,19 @@ func LookupSegment(ctx *pulumi.Context, args *LookupSegmentArgs, opts ...pulumi.
 }
 
 type LookupSegmentArgs struct {
+	// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
 	Arn string `pulumi:"arn"`
 }
 
 type LookupSegmentResult struct {
-	Arn         *string `pulumi:"arn"`
+	// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+	Arn *string `pulumi:"arn"`
+	// An optional description for this segment.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Pattern     *string `pulumi:"pattern"`
+	// A name for the segment.
+	Name *string `pulumi:"name"`
+	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Pattern *string `pulumi:"pattern"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -50,6 +55,7 @@ func LookupSegmentOutput(ctx *pulumi.Context, args LookupSegmentOutputArgs, opts
 }
 
 type LookupSegmentOutputArgs struct {
+	// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,18 +77,22 @@ func (o LookupSegmentResultOutput) ToLookupSegmentResultOutputWithContext(ctx co
 	return o
 }
 
+// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
 func (o LookupSegmentResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An optional description for this segment.
 func (o LookupSegmentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the segment.
 func (o LookupSegmentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
 func (o LookupSegmentResultOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }

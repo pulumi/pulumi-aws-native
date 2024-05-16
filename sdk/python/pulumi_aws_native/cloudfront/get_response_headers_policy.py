@@ -33,16 +33,27 @@ class GetResponseHeadersPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the response headers policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="responseHeadersPolicyConfig")
     def response_headers_policy_config(self) -> Optional['outputs.ResponseHeadersPolicyConfig']:
+        """
+        A response headers policy configuration.
+
+        A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+        """
         return pulumi.get(self, "response_headers_policy_config")
 
 
@@ -61,6 +72,9 @@ def get_response_headers_policy(id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResponseHeadersPolicyResult:
     """
     Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
+
+
+    :param str id: The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +92,8 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
     """
     Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
+
+
+    :param str id: The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
     """
     ...

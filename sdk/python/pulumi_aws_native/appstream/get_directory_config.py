@@ -33,16 +33,25 @@ class GetDirectoryConfigResult:
     @property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> Optional['outputs.DirectoryConfigCertificateBasedAuthProperties']:
+        """
+        The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedNames")
     def organizational_unit_distinguished_names(self) -> Optional[Sequence[str]]:
+        """
+        The distinguished names of the organizational units for computer accounts.
+        """
         return pulumi.get(self, "organizational_unit_distinguished_names")
 
     @property
     @pulumi.getter(name="serviceAccountCredentials")
     def service_account_credentials(self) -> Optional['outputs.DirectoryConfigServiceAccountCredentials']:
+        """
+        The credentials for the service account used by the streaming instance to connect to the directory.
+        """
         return pulumi.get(self, "service_account_credentials")
 
 
@@ -61,6 +70,9 @@ def get_directory_config(directory_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryConfigResult:
     """
     Resource Type definition for AWS::AppStream::DirectoryConfig
+
+
+    :param str directory_name: The fully qualified name of the directory (for example, corp.example.com).
     """
     __args__ = dict()
     __args__['directoryName'] = directory_name
@@ -78,5 +90,8 @@ def get_directory_config_output(directory_name: Optional[pulumi.Input[str]] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryConfigResult]:
     """
     Resource Type definition for AWS::AppStream::DirectoryConfig
+
+
+    :param str directory_name: The fully qualified name of the directory (for example, corp.example.com).
     """
     ...

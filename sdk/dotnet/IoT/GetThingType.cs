@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingTypeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Input("thingTypeName", required: true)]
         public string ThingTypeName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Input("thingTypeName", required: true)]
         public Input<string> ThingTypeName { get; set; } = null!;
 
@@ -51,8 +57,19 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetThingTypeResult
     {
+        /// <summary>
+        /// The thing type arn.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
+        /// 
+        /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+        /// </summary>
         public readonly bool? DeprecateThingType;
+        /// <summary>
+        /// The thing type id.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

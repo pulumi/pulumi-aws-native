@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclExcludedRule
     {
+        /// <summary>
+        /// The name of the rule whose action you want to override to `Count` .
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

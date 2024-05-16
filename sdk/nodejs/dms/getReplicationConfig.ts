@@ -26,6 +26,9 @@ export interface GetReplicationConfigArgs {
 }
 
 export interface GetReplicationConfigResult {
+    /**
+     * Configuration parameters for provisioning an AWS DMS Serverless replication.
+     */
     readonly computeConfig?: outputs.dms.ReplicationConfigComputeConfig;
     /**
      * The Amazon Resource Name (ARN) of the Replication Config

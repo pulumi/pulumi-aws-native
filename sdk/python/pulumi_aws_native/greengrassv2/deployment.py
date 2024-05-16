@@ -26,6 +26,20 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+        :param pulumi.Input[str] target_arn: The ARN of the target AWS IoT thing or thing group.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        :param pulumi.Input[str] deployment_name: The name of the deployment.
+        :param pulumi.Input['DeploymentPoliciesArgs'] deployment_policies: Contains information about policies that define how a deployment updates components and handles failure.
+        :param pulumi.Input['DeploymentIoTJobConfigurationArgs'] iot_job_configuration: Contains information about an AWS IoT job configuration.
+        :param pulumi.Input[str] parent_target_arn: The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+               
+               This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+               
+               ```json
+               "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+               }
+               ```
         """
         pulumi.set(__self__, "target_arn", target_arn)
         if components is not None:
@@ -44,6 +58,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the target AWS IoT thing or thing group.
+        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -53,6 +70,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def components(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]:
+        """
+        The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        """
         return pulumi.get(self, "components")
 
     @components.setter
@@ -62,6 +82,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="deploymentName")
     def deployment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the deployment.
+        """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
@@ -71,6 +94,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="deploymentPolicies")
     def deployment_policies(self) -> Optional[pulumi.Input['DeploymentPoliciesArgs']]:
+        """
+        Contains information about policies that define how a deployment updates components and handles failure.
+        """
         return pulumi.get(self, "deployment_policies")
 
     @deployment_policies.setter
@@ -80,6 +106,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="iotJobConfiguration")
     def iot_job_configuration(self) -> Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']]:
+        """
+        Contains information about an AWS IoT job configuration.
+        """
         return pulumi.get(self, "iot_job_configuration")
 
     @iot_job_configuration.setter
@@ -89,6 +118,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="parentTargetArn")
     def parent_target_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+        """
         return pulumi.get(self, "parent_target_arn")
 
     @parent_target_arn.setter
@@ -98,6 +130,16 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+
+        This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+
+        ```json
+        "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        }
+        ```
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -123,6 +165,20 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentComponentDeploymentSpecificationArgs']]]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        :param pulumi.Input[str] deployment_name: The name of the deployment.
+        :param pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']] deployment_policies: Contains information about policies that define how a deployment updates components and handles failure.
+        :param pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']] iot_job_configuration: Contains information about an AWS IoT job configuration.
+        :param pulumi.Input[str] parent_target_arn: The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+               
+               This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+               
+               ```json
+               "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+               }
+               ```
+        :param pulumi.Input[str] target_arn: The ARN of the target AWS IoT thing or thing group.
         """
         ...
     @overload
@@ -211,40 +267,71 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def components(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DeploymentComponentDeploymentSpecification']]]:
+        """
+        The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        """
         return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the deployment.
+        """
         return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter(name="deploymentName")
     def deployment_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the deployment.
+        """
         return pulumi.get(self, "deployment_name")
 
     @property
     @pulumi.getter(name="deploymentPolicies")
     def deployment_policies(self) -> pulumi.Output[Optional['outputs.DeploymentPolicies']]:
+        """
+        Contains information about policies that define how a deployment updates components and handles failure.
+        """
         return pulumi.get(self, "deployment_policies")
 
     @property
     @pulumi.getter(name="iotJobConfiguration")
     def iot_job_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentIoTJobConfiguration']]:
+        """
+        Contains information about an AWS IoT job configuration.
+        """
         return pulumi.get(self, "iot_job_configuration")
 
     @property
     @pulumi.getter(name="parentTargetArn")
     def parent_target_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+        """
         return pulumi.get(self, "parent_target_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+
+        This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+
+        ```json
+        "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        }
+        ```
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the target AWS IoT thing or thing group.
+        """
         return pulumi.get(self, "target_arn")
 

@@ -20,8 +20,9 @@ type StorageConfiguration struct {
 	// Storage Configuration ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Storage Configuration Name.
-	Name pulumi.StringPtrOutput                           `pulumi:"name"`
-	S3   StorageConfigurationS3StorageConfigurationOutput `pulumi:"s3"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+	S3 StorageConfigurationS3StorageConfigurationOutput `pulumi:"s3"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -75,8 +76,9 @@ func (StorageConfigurationState) ElementType() reflect.Type {
 
 type storageConfigurationArgs struct {
 	// Storage Configuration Name.
-	Name *string                                    `pulumi:"name"`
-	S3   StorageConfigurationS3StorageConfiguration `pulumi:"s3"`
+	Name *string `pulumi:"name"`
+	// The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+	S3 StorageConfigurationS3StorageConfiguration `pulumi:"s3"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -85,7 +87,8 @@ type storageConfigurationArgs struct {
 type StorageConfigurationArgs struct {
 	// Storage Configuration Name.
 	Name pulumi.StringPtrInput
-	S3   StorageConfigurationS3StorageConfigurationInput
+	// The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+	S3 StorageConfigurationS3StorageConfigurationInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayInput
 }
@@ -137,6 +140,7 @@ func (o StorageConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
 func (o StorageConfigurationOutput) S3() StorageConfigurationS3StorageConfigurationOutput {
 	return o.ApplyT(func(v *StorageConfiguration) StorageConfigurationS3StorageConfigurationOutput { return v.S3 }).(StorageConfigurationS3StorageConfigurationOutput)
 }

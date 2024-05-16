@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// A string that determines the number of records included in a single mini-batch.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageTransformJobDefinitionBatchStrategy? BatchStrategy;
+        /// <summary>
+        /// The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
+        /// </summary>
         public readonly Outputs.ModelPackageEnvironment? Environment;
         /// <summary>
         /// The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
@@ -29,8 +32,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
         /// </summary>
         public readonly int? MaxPayloadInMb;
+        /// <summary>
+        /// Describes the input source of a transform job and the way the transform job consumes it.
+        /// </summary>
         public readonly Outputs.ModelPackageTransformInput TransformInput;
+        /// <summary>
+        /// Describes the results of a transform job.
+        /// </summary>
         public readonly Outputs.ModelPackageTransformOutput TransformOutput;
+        /// <summary>
+        /// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+        /// </summary>
         public readonly Outputs.ModelPackageTransformResources TransformResources;
 
         [OutputConstructor]

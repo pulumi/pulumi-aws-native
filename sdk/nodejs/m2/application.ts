@@ -37,17 +37,43 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the application.
+     */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the application.
+     */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+     */
     public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition0Properties | outputs.m2.ApplicationDefinition1Properties>;
+    /**
+     * The description of the application.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The type of the target platform for this application.
+     */
     public readonly engineType!: pulumi.Output<enums.m2.ApplicationEngineType>;
     /**
      * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the application.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the role associated with the application.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -98,14 +124,34 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+     */
     definition: pulumi.Input<inputs.m2.ApplicationDefinition0PropertiesArgs | inputs.m2.ApplicationDefinition1PropertiesArgs>;
+    /**
+     * The description of the application.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The type of the target platform for this application.
+     */
     engineType: pulumi.Input<enums.m2.ApplicationEngineType>;
     /**
      * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The name of the application.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the role associated with the application.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

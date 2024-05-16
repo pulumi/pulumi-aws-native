@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType
     {
+        /// <summary>
+        /// The compromised credentials actions type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType Actions;
+        /// <summary>
+        /// Perform the action for these events. The default is to perform all events if no event filter is specified.
+        /// </summary>
         public readonly ImmutableArray<string> EventFilter;
 
         [OutputConstructor]

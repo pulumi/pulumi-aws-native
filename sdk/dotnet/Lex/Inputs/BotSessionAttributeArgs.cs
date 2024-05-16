@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotSessionAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the session attribute.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The session-specific context information for the session attribute.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

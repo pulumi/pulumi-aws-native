@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicCategoryFilter
     {
+        /// <summary>
+        /// The category filter function. Valid values for this structure are `EXACT` and `CONTAINS` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicCategoryFilterFunction? CategoryFilterFunction;
+        /// <summary>
+        /// The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicCategoryFilterType? CategoryFilterType;
+        /// <summary>
+        /// A constant used in a category filter.
+        /// </summary>
         public readonly Outputs.TopicCategoryFilterConstant? Constant;
+        /// <summary>
+        /// A Boolean value that indicates if the filter is inverse.
+        /// </summary>
         public readonly bool? Inverse;
 
         [OutputConstructor]

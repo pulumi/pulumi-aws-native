@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The type of the inference experiment that you want to run.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.InferenceExperimentModelInfrastructureConfigInfrastructureType InfrastructureType;
+        /// <summary>
+        /// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+        /// </summary>
         public readonly Outputs.InferenceExperimentRealTimeInferenceConfig RealTimeInferenceConfig;
 
         [OutputConstructor]

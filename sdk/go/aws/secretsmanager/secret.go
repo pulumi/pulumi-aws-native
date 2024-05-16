@@ -22,6 +22,7 @@ import (
 type Secret struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the secret.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The description of the secret.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -208,6 +209,7 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
+// The ARN of the secret.
 func (o SecretOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

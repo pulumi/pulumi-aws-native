@@ -37,6 +37,9 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the certificate.
+     */
     public /*out*/ readonly certificateArn!: pulumi.Output<string>;
     /**
      * The name for the certificate.

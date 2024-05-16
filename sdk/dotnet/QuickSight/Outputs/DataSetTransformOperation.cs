@@ -17,13 +17,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetTransformOperation
     {
+        /// <summary>
+        /// A transform operation that casts a column to a different type.
+        /// </summary>
         public readonly Outputs.DataSetCastColumnTypeOperation? CastColumnTypeOperation;
+        /// <summary>
+        /// A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+        /// </summary>
         public readonly Outputs.DataSetCreateColumnsOperation? CreateColumnsOperation;
+        /// <summary>
+        /// A transform operation that filters rows based on a condition.
+        /// </summary>
         public readonly Outputs.DataSetFilterOperation? FilterOperation;
+        /// <summary>
+        /// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+        /// </summary>
         public readonly Outputs.DataSetOverrideDatasetParameterOperation? OverrideDatasetParameterOperation;
+        /// <summary>
+        /// A transform operation that projects columns. Operations that come after a projection can only refer to projected columns.
+        /// </summary>
         public readonly Outputs.DataSetProjectOperation? ProjectOperation;
+        /// <summary>
+        /// A transform operation that renames a column.
+        /// </summary>
         public readonly Outputs.DataSetRenameColumnOperation? RenameColumnOperation;
+        /// <summary>
+        /// A transform operation that tags a column with additional information.
+        /// </summary>
         public readonly Outputs.DataSetTagColumnOperation? TagColumnOperation;
+        /// <summary>
+        /// A transform operation that removes tags associated with a column.
+        /// </summary>
         public readonly Outputs.DataSetUntagColumnOperation? UntagColumnOperation;
 
         [OutputConstructor]

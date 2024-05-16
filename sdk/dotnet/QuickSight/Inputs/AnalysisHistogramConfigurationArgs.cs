@@ -12,27 +12,51 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisHistogramConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the presentation of histogram bins.
+        /// </summary>
         [Input("binOptions")]
         public Input<Inputs.AnalysisHistogramBinOptionsArgs>? BinOptions { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a histogram.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisHistogramFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("yAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? YAxisDisplayOptions { get; set; }
 

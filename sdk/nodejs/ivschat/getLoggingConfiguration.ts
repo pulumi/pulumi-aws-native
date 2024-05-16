@@ -30,6 +30,9 @@ export interface GetLoggingConfigurationResult {
      * LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
      */
     readonly arn?: string;
+    /**
+     * The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+     */
     readonly destinationConfiguration?: outputs.ivschat.LoggingConfigurationDestinationConfiguration;
     /**
      * The system-generated ID of the logging configuration.

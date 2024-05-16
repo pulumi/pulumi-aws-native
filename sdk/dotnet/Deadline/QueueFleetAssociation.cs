@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:QueueFleetAssociation")]
     public partial class QueueFleetAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the farm that contains the queue and the fleet.
+        /// </summary>
         [Output("farmId")]
         public Output<string> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The fleet ID.
+        /// </summary>
         [Output("fleetId")]
         public Output<string> FleetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The queue ID.
+        /// </summary>
         [Output("queueId")]
         public Output<string> QueueId { get; private set; } = null!;
 
@@ -75,12 +84,21 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class QueueFleetAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the farm that contains the queue and the fleet.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The fleet ID.
+        /// </summary>
         [Input("fleetId", required: true)]
         public Input<string> FleetId { get; set; } = null!;
 
+        /// <summary>
+        /// The queue ID.
+        /// </summary>
         [Input("queueId", required: true)]
         public Input<string> QueueId { get; set; } = null!;
 

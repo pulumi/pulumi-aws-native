@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.Ssm.Inputs
     {
         [Input("patchRules")]
         private InputList<Inputs.PatchBaselineRuleArgs>? _patchRules;
+
+        /// <summary>
+        /// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+        /// 
+        /// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+        /// </summary>
         public InputList<Inputs.PatchBaselineRuleArgs> PatchRules
         {
             get => _patchRules ?? (_patchRules = new InputList<Inputs.PatchBaselineRuleArgs>());

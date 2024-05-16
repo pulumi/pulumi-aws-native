@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Signer.Outputs
     [OutputType]
     public sealed class SigningProfileSignatureValidityPeriod
     {
+        /// <summary>
+        /// The time unit for signature validity: DAYS | MONTHS | YEARS.
+        /// </summary>
         public readonly Pulumi.AwsNative.Signer.SigningProfileSignatureValidityPeriodType? Type;
+        /// <summary>
+        /// The numerical value of the time unit for signature validity.
+        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]

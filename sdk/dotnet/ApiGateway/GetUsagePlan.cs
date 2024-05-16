@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetUsagePlanArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the usage plan. For example: `abc123` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetUsagePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the usage plan. For example: `abc123` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -61,6 +67,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The description of a usage plan.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ID for the usage plan. For example: `abc123` .
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The target maximum number of permitted requests per a given unit time interval.

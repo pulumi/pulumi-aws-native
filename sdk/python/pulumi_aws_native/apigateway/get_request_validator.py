@@ -32,6 +32,9 @@ class GetRequestValidatorResult:
     @property
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> Optional[str]:
+        """
+        The ID for the request validator. For example: `abc123` .
+        """
         return pulumi.get(self, "request_validator_id")
 
     @property
@@ -69,6 +72,7 @@ def get_request_validator(request_validator_id: Optional[str] = None,
     The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
 
+    :param str request_validator_id: The ID for the request validator. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
@@ -91,6 +95,7 @@ def get_request_validator_output(request_validator_id: Optional[pulumi.Input[str
     The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
 
+    :param str request_validator_id: The ID for the request validator. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

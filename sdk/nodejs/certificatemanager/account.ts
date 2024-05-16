@@ -37,7 +37,13 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    /**
+     * ID of the AWS account that owns the certificate.
+     */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
+     * Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+     */
     public readonly expiryEventsConfiguration!: pulumi.Output<outputs.certificatemanager.AccountExpiryEventsConfiguration>;
 
     /**
@@ -69,5 +75,8 @@ export class Account extends pulumi.CustomResource {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+     */
     expiryEventsConfiguration: pulumi.Input<inputs.certificatemanager.AccountExpiryEventsConfigurationArgs>;
 }

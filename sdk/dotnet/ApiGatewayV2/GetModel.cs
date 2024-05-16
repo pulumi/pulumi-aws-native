@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The model ID.
+        /// </summary>
         [Input("modelId", required: true)]
         public string ModelId { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The model ID.
+        /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 
@@ -71,6 +77,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// The description of the model.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The model ID.
+        /// </summary>
         public readonly string? ModelId;
         /// <summary>
         /// The name of the model.

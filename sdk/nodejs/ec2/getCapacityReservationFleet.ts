@@ -16,13 +16,28 @@ export function getCapacityReservationFleet(args: GetCapacityReservationFleetArg
 }
 
 export interface GetCapacityReservationFleetArgs {
+    /**
+     * The ID of the Capacity Reservation Fleet.
+     */
     capacityReservationFleetId: string;
 }
 
 export interface GetCapacityReservationFleetResult {
+    /**
+     * The ID of the Capacity Reservation Fleet.
+     */
     readonly capacityReservationFleetId?: string;
+    /**
+     * Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+     */
     readonly noRemoveEndDate?: boolean;
+    /**
+     * Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+     */
     readonly removeEndDate?: boolean;
+    /**
+     * The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+     */
     readonly totalTargetCapacity?: number;
 }
 /**
@@ -33,5 +48,8 @@ export function getCapacityReservationFleetOutput(args: GetCapacityReservationFl
 }
 
 export interface GetCapacityReservationFleetOutputArgs {
+    /**
+     * The ID of the Capacity Reservation Fleet.
+     */
     capacityReservationFleetId: pulumi.Input<string>;
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName", required: true)]
         public string ChannelName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
@@ -51,9 +57,18 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [OutputType]
     public sealed class GetChannelResult
     {
+        /// <summary>
+        /// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        /// </summary>
         public readonly Outputs.ChannelStorage? ChannelStorage;
         public readonly string? Id;
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         public readonly Outputs.ChannelRetentionPeriod? RetentionPeriod;
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

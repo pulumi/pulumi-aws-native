@@ -13,7 +13,23 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class EntitlementAttribute
     {
+        /// <summary>
+        /// A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+        /// 
+        /// The following are supported values:
+        /// 
+        /// - roles
+        /// - department
+        /// - organization
+        /// - groups
+        /// - title
+        /// - costCenter
+        /// - userType
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -17,19 +17,32 @@ import (
 type Plugin struct {
 	pulumi.CustomResourceState
 
-	ApplicationId             pulumi.StringOutput                      `pulumi:"applicationId"`
-	AuthConfiguration         pulumi.AnyOutput                         `pulumi:"authConfiguration"`
-	BuildStatus               PluginBuildStatusOutput                  `pulumi:"buildStatus"`
-	CreatedAt                 pulumi.StringOutput                      `pulumi:"createdAt"`
+	// The identifier of the application that will contain the plugin.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Authentication configuration information for an Amazon Q Business plugin.
+	AuthConfiguration pulumi.AnyOutput `pulumi:"authConfiguration"`
+	// The current status of a plugin. A plugin is modified asynchronously.
+	BuildStatus PluginBuildStatusOutput `pulumi:"buildStatus"`
+	// The timestamp for when the plugin was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Configuration information required to create a custom plugin.
 	CustomPluginConfiguration PluginCustomPluginConfigurationPtrOutput `pulumi:"customPluginConfiguration"`
-	DisplayName               pulumi.StringOutput                      `pulumi:"displayName"`
-	PluginArn                 pulumi.StringOutput                      `pulumi:"pluginArn"`
-	PluginId                  pulumi.StringOutput                      `pulumi:"pluginId"`
-	ServerUrl                 pulumi.StringPtrOutput                   `pulumi:"serverUrl"`
-	State                     PluginStateEnumPtrOutput                 `pulumi:"state"`
-	Tags                      aws.TagArrayOutput                       `pulumi:"tags"`
-	Type                      PluginTypeOutput                         `pulumi:"type"`
-	UpdatedAt                 pulumi.StringOutput                      `pulumi:"updatedAt"`
+	// The name of the plugin.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of a plugin.
+	PluginArn pulumi.StringOutput `pulumi:"pluginArn"`
+	// The identifier of the plugin.
+	PluginId pulumi.StringOutput `pulumi:"pluginId"`
+	// The plugin server URL used for configuration.
+	ServerUrl pulumi.StringPtrOutput `pulumi:"serverUrl"`
+	// The current status of the plugin.
+	State PluginStateEnumPtrOutput `pulumi:"state"`
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of the plugin.
+	Type PluginTypeOutput `pulumi:"type"`
+	// The timestamp for when the plugin was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewPlugin registers a new resource with the given unique name, arguments, and options.
@@ -89,26 +102,42 @@ func (PluginState) ElementType() reflect.Type {
 }
 
 type pluginArgs struct {
-	ApplicationId             string                           `pulumi:"applicationId"`
-	AuthConfiguration         interface{}                      `pulumi:"authConfiguration"`
+	// The identifier of the application that will contain the plugin.
+	ApplicationId string `pulumi:"applicationId"`
+	// Authentication configuration information for an Amazon Q Business plugin.
+	AuthConfiguration interface{} `pulumi:"authConfiguration"`
+	// Configuration information required to create a custom plugin.
 	CustomPluginConfiguration *PluginCustomPluginConfiguration `pulumi:"customPluginConfiguration"`
-	DisplayName               string                           `pulumi:"displayName"`
-	ServerUrl                 *string                          `pulumi:"serverUrl"`
-	State                     *PluginStateEnum                 `pulumi:"state"`
-	Tags                      []aws.Tag                        `pulumi:"tags"`
-	Type                      PluginType                       `pulumi:"type"`
+	// The name of the plugin.
+	DisplayName string `pulumi:"displayName"`
+	// The plugin server URL used for configuration.
+	ServerUrl *string `pulumi:"serverUrl"`
+	// The current status of the plugin.
+	State *PluginStateEnum `pulumi:"state"`
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of the plugin.
+	Type PluginType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Plugin resource.
 type PluginArgs struct {
-	ApplicationId             pulumi.StringInput
-	AuthConfiguration         pulumi.Input
+	// The identifier of the application that will contain the plugin.
+	ApplicationId pulumi.StringInput
+	// Authentication configuration information for an Amazon Q Business plugin.
+	AuthConfiguration pulumi.Input
+	// Configuration information required to create a custom plugin.
 	CustomPluginConfiguration PluginCustomPluginConfigurationPtrInput
-	DisplayName               pulumi.StringInput
-	ServerUrl                 pulumi.StringPtrInput
-	State                     PluginStateEnumPtrInput
-	Tags                      aws.TagArrayInput
-	Type                      PluginTypeInput
+	// The name of the plugin.
+	DisplayName pulumi.StringInput
+	// The plugin server URL used for configuration.
+	ServerUrl pulumi.StringPtrInput
+	// The current status of the plugin.
+	State PluginStateEnumPtrInput
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayInput
+	// The type of the plugin.
+	Type PluginTypeInput
 }
 
 func (PluginArgs) ElementType() reflect.Type {
@@ -148,54 +177,67 @@ func (o PluginOutput) ToPluginOutputWithContext(ctx context.Context) PluginOutpu
 	return o
 }
 
+// The identifier of the application that will contain the plugin.
 func (o PluginOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Authentication configuration information for an Amazon Q Business plugin.
 func (o PluginOutput) AuthConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.AnyOutput { return v.AuthConfiguration }).(pulumi.AnyOutput)
 }
 
+// The current status of a plugin. A plugin is modified asynchronously.
 func (o PluginOutput) BuildStatus() PluginBuildStatusOutput {
 	return o.ApplyT(func(v *Plugin) PluginBuildStatusOutput { return v.BuildStatus }).(PluginBuildStatusOutput)
 }
 
+// The timestamp for when the plugin was created.
 func (o PluginOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Configuration information required to create a custom plugin.
 func (o PluginOutput) CustomPluginConfiguration() PluginCustomPluginConfigurationPtrOutput {
 	return o.ApplyT(func(v *Plugin) PluginCustomPluginConfigurationPtrOutput { return v.CustomPluginConfiguration }).(PluginCustomPluginConfigurationPtrOutput)
 }
 
+// The name of the plugin.
 func (o PluginOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of a plugin.
 func (o PluginOutput) PluginArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.PluginArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the plugin.
 func (o PluginOutput) PluginId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.PluginId }).(pulumi.StringOutput)
 }
 
+// The plugin server URL used for configuration.
 func (o PluginOutput) ServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringPtrOutput { return v.ServerUrl }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the plugin.
 func (o PluginOutput) State() PluginStateEnumPtrOutput {
 	return o.ApplyT(func(v *Plugin) PluginStateEnumPtrOutput { return v.State }).(PluginStateEnumPtrOutput)
 }
 
+// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o PluginOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Plugin) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the plugin.
 func (o PluginOutput) Type() PluginTypeOutput {
 	return o.ApplyT(func(v *Plugin) PluginTypeOutput { return v.Type }).(PluginTypeOutput)
 }
 
+// The timestamp for when the plugin was last updated.
 func (o PluginOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

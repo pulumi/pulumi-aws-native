@@ -26,6 +26,11 @@ class CapabilityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
+        :param pulumi.Input['CapabilityConfigurationPropertiesArgs'] configuration: A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]] instructions_documents: Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        :param pulumi.Input[str] name: The display name of the capability.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "type", type)
@@ -39,6 +44,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input['CapabilityConfigurationPropertiesArgs']:
+        """
+        A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -48,6 +56,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['CapabilityType']:
+        """
+        Returns the type of the capability. Currently, only `edi` is supported.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -57,6 +68,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]:
+        """
+        Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        """
         return pulumi.get(self, "instructions_documents")
 
     @instructions_documents.setter
@@ -66,6 +80,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the capability.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -75,6 +92,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -98,6 +118,11 @@ class Capability(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CapabilityConfigurationPropertiesArgs']] configuration: A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityS3LocationArgs']]]] instructions_documents: Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        :param pulumi.Input[str] name: The display name of the capability.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
         """
         ...
     @overload
@@ -188,45 +213,72 @@ class Capability(pulumi.CustomResource):
     @property
     @pulumi.getter(name="capabilityArn")
     def capability_arn(self) -> pulumi.Output[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        """
         return pulumi.get(self, "capability_arn")
 
     @property
     @pulumi.getter(name="capabilityId")
     def capability_id(self) -> pulumi.Output[str]:
+        """
+        Returns a system-assigned unique identifier for the capability.
+        """
         return pulumi.get(self, "capability_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.CapabilityConfigurationProperties']:
+        """
+        A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp for creation date and time of the capability.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> pulumi.Output[Optional[Sequence['outputs.CapabilityS3Location']]]:
+        """
+        Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        """
         return pulumi.get(self, "instructions_documents")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The display name of the capability.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['CapabilityType']:
+        """
+        Returns the type of the capability. Currently, only `edi` is supported.
+        """
         return pulumi.get(self, "type")
 

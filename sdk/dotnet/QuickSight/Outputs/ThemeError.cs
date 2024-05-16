@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The error message.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// The type of error.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.ThemeErrorType? Type;
 
         [OutputConstructor]

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("authorizerCredentials")]
         public Output<string?> AuthorizerCredentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the authorizer. For example: `abc123` .
+        /// </summary>
         [Output("authorizerId")]
         public Output<string> AuthorizerId { get; private set; } = null!;
 

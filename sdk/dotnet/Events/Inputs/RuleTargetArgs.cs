@@ -12,54 +12,107 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
+        /// </summary>
         [Input("appSyncParameters")]
         public Input<Inputs.RuleAppSyncParametersArgs>? AppSyncParameters { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// The custom parameters to be used when the target is an AWS Batch job.
+        /// </summary>
         [Input("batchParameters")]
         public Input<Inputs.RuleBatchParametersArgs>? BatchParameters { get; set; }
 
+        /// <summary>
+        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
+        /// 
+        /// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+        /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.RuleDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
 
+        /// <summary>
+        /// The custom parameters to be used when the target is an Amazon ECS task.
+        /// </summary>
         [Input("ecsParameters")]
         public Input<Inputs.RuleEcsParametersArgs>? EcsParameters { get; set; }
 
+        /// <summary>
+        /// These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        /// </summary>
         [Input("httpParameters")]
         public Input<Inputs.RuleHttpParametersArgs>? HttpParameters { get; set; }
 
+        /// <summary>
+        /// The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+        /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
+        /// <summary>
+        /// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+        /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }
 
+        /// <summary>
+        /// Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+        /// </summary>
         [Input("inputTransformer")]
         public Input<Inputs.RuleInputTransformerArgs>? InputTransformer { get; set; }
 
+        /// <summary>
+        /// This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        /// </summary>
         [Input("kinesisParameters")]
         public Input<Inputs.RuleKinesisParametersArgs>? KinesisParameters { get; set; }
 
+        /// <summary>
+        /// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        /// </summary>
         [Input("redshiftDataParameters")]
         public Input<Inputs.RuleRedshiftDataParametersArgs>? RedshiftDataParameters { get; set; }
 
+        /// <summary>
+        /// A `RetryPolicy` object that includes information about the retry policy settings.
+        /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.RuleRetryPolicyArgs>? RetryPolicy { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+        /// </summary>
         [Input("runCommandParameters")]
         public Input<Inputs.RuleRunCommandParametersArgs>? RunCommandParameters { get; set; }
 
+        /// <summary>
+        /// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+        /// </summary>
         [Input("sageMakerPipelineParameters")]
         public Input<Inputs.RuleSageMakerPipelineParametersArgs>? SageMakerPipelineParameters { get; set; }
 
+        /// <summary>
+        /// This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        /// </summary>
         [Input("sqsParameters")]
         public Input<Inputs.RuleSqsParametersArgs>? SqsParameters { get; set; }
 

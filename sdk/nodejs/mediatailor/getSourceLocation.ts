@@ -19,16 +19,28 @@ export function getSourceLocation(args: GetSourceLocationArgs, opts?: pulumi.Inv
 }
 
 export interface GetSourceLocationArgs {
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: string;
 }
 
 export interface GetSourceLocationResult {
+    /**
+     * Access configuration parameters.
+     */
     readonly accessConfiguration?: outputs.mediatailor.SourceLocationAccessConfiguration;
     /**
      * <p>The ARN of the source location.</p>
      */
     readonly arn?: string;
+    /**
+     * The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+     */
     readonly defaultSegmentDeliveryConfiguration?: outputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfiguration;
+    /**
+     * The HTTP configuration for the source location.
+     */
     readonly httpConfiguration?: outputs.mediatailor.SourceLocationHttpConfiguration;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
@@ -47,5 +59,8 @@ export function getSourceLocationOutput(args: GetSourceLocationOutputArgs, opts?
 }
 
 export interface GetSourceLocationOutputArgs {
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: pulumi.Input<string>;
 }

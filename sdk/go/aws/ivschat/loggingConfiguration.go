@@ -20,7 +20,8 @@ type LoggingConfiguration struct {
 	// LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The system-generated ID of the logging configuration.
-	AwsId                    pulumi.StringOutput                                `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
 	// The name of the logging configuration. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -73,6 +74,7 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type loggingConfigurationArgs struct {
+	// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
 	DestinationConfiguration LoggingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
 	// The name of the logging configuration. The value does not need to be unique.
 	Name *string `pulumi:"name"`
@@ -82,6 +84,7 @@ type loggingConfigurationArgs struct {
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
+	// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationInput
 	// The name of the logging configuration. The value does not need to be unique.
 	Name pulumi.StringPtrInput
@@ -136,6 +139,7 @@ func (o LoggingConfigurationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
 func (o LoggingConfigurationOutput) DestinationConfiguration() LoggingConfigurationDestinationConfigurationOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationDestinationConfigurationOutput {
 		return v.DestinationConfiguration

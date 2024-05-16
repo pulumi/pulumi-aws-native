@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class RecipeStep
     {
+        /// <summary>
+        /// Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+        /// </summary>
         public readonly Outputs.RecipeAction Action;
         /// <summary>
         /// Condition expressions applied to the step action

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisWaterfallChartGroupColorConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the color for the negative bars of a waterfall chart.
+        /// </summary>
         [Input("negativeBarColor")]
         public Input<string>? NegativeBarColor { get; set; }
 
+        /// <summary>
+        /// Defines the color for the positive bars of a waterfall chart.
+        /// </summary>
         [Input("positiveBarColor")]
         public Input<string>? PositiveBarColor { get; set; }
 
+        /// <summary>
+        /// Defines the color for the total bars of a waterfall chart.
+        /// </summary>
         [Input("totalBarColor")]
         public Input<string>? TotalBarColor { get; set; }
 

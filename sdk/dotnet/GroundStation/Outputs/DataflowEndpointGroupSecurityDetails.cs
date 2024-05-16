@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupSecurityDetails
     {
+        /// <summary>
+        /// The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
+        /// 
+        /// Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The security group Ids of the security role, such as `sg-1234567890abcdef0` .
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The subnet Ids of the security details, such as `subnet-12345678` .
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

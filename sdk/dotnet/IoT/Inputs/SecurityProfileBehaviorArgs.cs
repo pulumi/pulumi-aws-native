@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class SecurityProfileBehaviorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The criteria by which the behavior is determined to be normal.
+        /// </summary>
         [Input("criteria")]
         public Input<Inputs.SecurityProfileBehaviorCriteriaArgs>? Criteria { get; set; }
 
+        /// <summary>
+        /// Value indicates exporting metrics related to the behavior when it is true.
+        /// </summary>
         [Input("exportMetric")]
         public Input<bool>? ExportMetric { get; set; }
 
@@ -27,6 +33,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
+        /// <summary>
+        /// The dimension of the metric.
+        /// </summary>
         [Input("metricDimension")]
         public Input<Inputs.SecurityProfileMetricDimensionArgs>? MetricDimension { get; set; }
 

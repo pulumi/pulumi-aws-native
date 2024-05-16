@@ -30,9 +30,11 @@ type LookupGroupArgs struct {
 
 type LookupGroupResult struct {
 	// Id of the group.
-	Id           *string   `pulumi:"id"`
-	ResourceArns []string  `pulumi:"resourceArns"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	Id *string `pulumi:"id"`
+	// The ARNs of the canaries that you want to associate with this group.
+	ResourceArns []string `pulumi:"resourceArns"`
+	// The list of key-value pairs that are associated with the group.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -76,10 +78,12 @@ func (o LookupGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The ARNs of the canaries that you want to associate with this group.
 func (o LookupGroupResultOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
+// The list of key-value pairs that are associated with the group.
 func (o LookupGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

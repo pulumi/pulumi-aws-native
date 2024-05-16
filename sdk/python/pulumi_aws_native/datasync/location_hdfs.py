@@ -42,6 +42,7 @@ class LocationHdfsArgs:
         :param pulumi.Input[str] kerberos_krb5_conf: The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
         :param pulumi.Input[str] kerberos_principal: The unique identity, or principal, to which Kerberos can assign tickets.
         :param pulumi.Input[str] kms_key_provider_uri: The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
+        :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
@@ -170,6 +171,9 @@ class LocationHdfsArgs:
     @property
     @pulumi.getter(name="qopConfiguration")
     def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
+        """
+        The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
+        """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
@@ -257,6 +261,7 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[str] kerberos_principal: The unique identity, or principal, to which Kerberos can assign tickets.
         :param pulumi.Input[str] kms_key_provider_uri: The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: An array of Name Node(s) of the HDFS location.
+        :param pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
@@ -451,6 +456,9 @@ class LocationHdfs(pulumi.CustomResource):
     @property
     @pulumi.getter(name="qopConfiguration")
     def qop_configuration(self) -> pulumi.Output[Optional['outputs.LocationHdfsQopConfiguration']]:
+        """
+        The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
+        """
         return pulumi.get(self, "qop_configuration")
 
     @property

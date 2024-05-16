@@ -22,6 +22,8 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] name: Name of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_arns: The ARNs of the canaries that you want to associate with this group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of key-value pairs that are associated with the group.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -45,6 +47,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ARNs of the canaries that you want to associate with this group.
+        """
         return pulumi.get(self, "resource_arns")
 
     @resource_arns.setter
@@ -54,6 +59,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The list of key-value pairs that are associated with the group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -76,6 +84,8 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_arns: The ARNs of the canaries that you want to associate with this group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of key-value pairs that are associated with the group.
         """
         ...
     @overload
@@ -166,10 +176,16 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The ARNs of the canaries that you want to associate with this group.
+        """
         return pulumi.get(self, "resource_arns")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The list of key-value pairs that are associated with the group.
+        """
         return pulumi.get(self, "tags")
 

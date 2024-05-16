@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("alarmName")]
         public Output<string?> AlarmName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -133,6 +136,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("statistic")]
         public Output<string?> Statistic { get; private set; } = null!;
 
+        /// <summary>
+        /// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -356,6 +362,10 @@ namespace Pulumi.AwsNative.CloudWatch
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

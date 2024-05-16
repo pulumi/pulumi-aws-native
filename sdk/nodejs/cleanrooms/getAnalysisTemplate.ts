@@ -20,17 +20,56 @@ export function getAnalysisTemplate(args: GetAnalysisTemplateArgs, opts?: pulumi
 }
 
 export interface GetAnalysisTemplateArgs {
+    /**
+     * Returns the identifier for the analysis template.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+     */
     analysisTemplateIdentifier: string;
+    /**
+     * The identifier for a membership resource.
+     */
     membershipIdentifier: string;
 }
 
 export interface GetAnalysisTemplateResult {
+    /**
+     * Returns the identifier for the analysis template.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+     */
     readonly analysisTemplateIdentifier?: string;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the analysis template.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+     */
     readonly arn?: string;
+    /**
+     * Returns the unique ARN for the analysis template’s associated collaboration.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     readonly collaborationArn?: string;
+    /**
+     * Returns the unique ID for the associated collaboration of the analysis template.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     readonly collaborationIdentifier?: string;
+    /**
+     * The description of the analysis template.
+     */
     readonly description?: string;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly membershipArn?: string;
+    /**
+     * A relation within an analysis.
+     */
     readonly schema?: outputs.cleanrooms.AnalysisTemplateAnalysisSchema;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
@@ -45,6 +84,14 @@ export function getAnalysisTemplateOutput(args: GetAnalysisTemplateOutputArgs, o
 }
 
 export interface GetAnalysisTemplateOutputArgs {
+    /**
+     * Returns the identifier for the analysis template.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+     */
     analysisTemplateIdentifier: pulumi.Input<string>;
+    /**
+     * The identifier for a membership resource.
+     */
     membershipIdentifier: pulumi.Input<string>;
 }

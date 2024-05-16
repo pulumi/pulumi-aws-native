@@ -13,21 +13,74 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBarChartConfiguration
     {
+        /// <summary>
+        /// Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateBarsArrangement? BarsArrangement;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ColorLabelOptions;
+        /// <summary>
+        /// The contribution analysis visual display for a line, pie, or bar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field wells of a `BarChartVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateBarChartFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The orientation of the bars in a bar chart visual. There are two valid values in this structure:
+        /// 
+        /// - `HORIZONTAL` : Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.
+        /// - `VERTICAL` : Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateBarChartOrientation? Orientation;
+        /// <summary>
+        /// The reference line visual display options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateReferenceLine> ReferenceLines;
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         public readonly Outputs.TemplateSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// sort-configuration-description
+        /// </summary>
         public readonly Outputs.TemplateBarChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? ValueAxis;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ValueLabelOptions;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 
         [OutputConstructor]

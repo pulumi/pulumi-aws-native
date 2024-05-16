@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLayoutConfiguration
     {
+        /// <summary>
+        /// The configuration of a free-form layout.
+        /// </summary>
         public readonly Outputs.DashboardFreeFormLayoutConfiguration? FreeFormLayout;
+        /// <summary>
+        /// The configuration for a grid layout. Also called a tiled layout.
+        /// 
+        /// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutConfiguration? GridLayout;
+        /// <summary>
+        /// The configuration for a section-based layout.
+        /// </summary>
         public readonly Outputs.DashboardSectionBasedLayoutConfiguration? SectionBasedLayout;
 
         [OutputConstructor]

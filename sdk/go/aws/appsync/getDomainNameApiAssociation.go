@@ -28,7 +28,8 @@ type LookupDomainNameApiAssociationArgs struct {
 
 type LookupDomainNameApiAssociationResult struct {
 	ApiAssociationIdentifier *string `pulumi:"apiAssociationIdentifier"`
-	ApiId                    *string `pulumi:"apiId"`
+	// The API ID.
+	ApiId *string `pulumi:"apiId"`
 }
 
 func LookupDomainNameApiAssociationOutput(ctx *pulumi.Context, args LookupDomainNameApiAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameApiAssociationResultOutput {
@@ -70,6 +71,7 @@ func (o LookupDomainNameApiAssociationResultOutput) ApiAssociationIdentifier() p
 	return o.ApplyT(func(v LookupDomainNameApiAssociationResult) *string { return v.ApiAssociationIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The API ID.
 func (o LookupDomainNameApiAssociationResultOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameApiAssociationResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Error message.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// Error type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSourceErrorInfoType? Type;
 
         [OutputConstructor]

@@ -16,9 +16,29 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclResponseInspection
     {
+        /// <summary>
+        /// Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionBodyContains? BodyContains;
+        /// <summary>
+        /// Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionHeader? Header;
+        /// <summary>
+        /// Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionJson? Json;
+        /// <summary>
+        /// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionStatusCode? StatusCode;
 
         [OutputConstructor]

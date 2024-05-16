@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     {
         [Input("types")]
         private InputList<string>? _types;
+
+        /// <summary>
+        /// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+        /// </summary>
         public InputList<string> Types
         {
             get => _types ?? (_types = new InputList<string>());

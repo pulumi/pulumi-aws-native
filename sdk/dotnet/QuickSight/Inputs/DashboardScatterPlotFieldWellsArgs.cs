@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardScatterPlotFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field well of a scatter plot.
+        /// </summary>
         [Input("scatterPlotCategoricallyAggregatedFieldWells")]
         public Input<Inputs.DashboardScatterPlotCategoricallyAggregatedFieldWellsArgs>? ScatterPlotCategoricallyAggregatedFieldWells { get; set; }
 
+        /// <summary>
+        /// The unaggregated field wells of a scatter plot.
+        /// </summary>
         [Input("scatterPlotUnaggregatedFieldWells")]
         public Input<Inputs.DashboardScatterPlotUnaggregatedFieldWellsArgs>? ScatterPlotUnaggregatedFieldWells { get; set; }
 

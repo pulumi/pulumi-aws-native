@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSankeyDiagramAggregatedFieldWells
     {
+        /// <summary>
+        /// The destination field wells of a sankey diagram.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Destination;
+        /// <summary>
+        /// The source field wells of a sankey diagram.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Source;
+        /// <summary>
+        /// The weight field wells of a sankey diagram.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Weight;
 
         [OutputConstructor]

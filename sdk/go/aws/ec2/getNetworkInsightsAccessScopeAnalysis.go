@@ -24,19 +24,29 @@ func LookupNetworkInsightsAccessScopeAnalysis(ctx *pulumi.Context, args *LookupN
 }
 
 type LookupNetworkInsightsAccessScopeAnalysisArgs struct {
+	// The ID of the Network Access Scope analysis.
 	NetworkInsightsAccessScopeAnalysisId string `pulumi:"networkInsightsAccessScopeAnalysisId"`
 }
 
 type LookupNetworkInsightsAccessScopeAnalysisResult struct {
-	AnalyzedEniCount                      *int                                             `pulumi:"analyzedEniCount"`
-	EndDate                               *string                                          `pulumi:"endDate"`
-	FindingsFound                         *NetworkInsightsAccessScopeAnalysisFindingsFound `pulumi:"findingsFound"`
-	NetworkInsightsAccessScopeAnalysisArn *string                                          `pulumi:"networkInsightsAccessScopeAnalysisArn"`
-	NetworkInsightsAccessScopeAnalysisId  *string                                          `pulumi:"networkInsightsAccessScopeAnalysisId"`
-	StartDate                             *string                                          `pulumi:"startDate"`
-	Status                                *NetworkInsightsAccessScopeAnalysisStatus        `pulumi:"status"`
-	StatusMessage                         *string                                          `pulumi:"statusMessage"`
-	Tags                                  []aws.Tag                                        `pulumi:"tags"`
+	// The number of network interfaces analyzed.
+	AnalyzedEniCount *int `pulumi:"analyzedEniCount"`
+	// The end date of the analysis.
+	EndDate *string `pulumi:"endDate"`
+	// Indicates whether there are findings (true | false | unknown).
+	FindingsFound *NetworkInsightsAccessScopeAnalysisFindingsFound `pulumi:"findingsFound"`
+	// The ARN of the Network Access Scope analysis.
+	NetworkInsightsAccessScopeAnalysisArn *string `pulumi:"networkInsightsAccessScopeAnalysisArn"`
+	// The ID of the Network Access Scope analysis.
+	NetworkInsightsAccessScopeAnalysisId *string `pulumi:"networkInsightsAccessScopeAnalysisId"`
+	// The start date of the analysis.
+	StartDate *string `pulumi:"startDate"`
+	// The status of the analysis (running | succeeded | failed).
+	Status *NetworkInsightsAccessScopeAnalysisStatus `pulumi:"status"`
+	// The status message.
+	StatusMessage *string `pulumi:"statusMessage"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupNetworkInsightsAccessScopeAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAccessScopeAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAccessScopeAnalysisResultOutput {
@@ -53,6 +63,7 @@ func LookupNetworkInsightsAccessScopeAnalysisOutput(ctx *pulumi.Context, args Lo
 }
 
 type LookupNetworkInsightsAccessScopeAnalysisOutputArgs struct {
+	// The ID of the Network Access Scope analysis.
 	NetworkInsightsAccessScopeAnalysisId pulumi.StringInput `pulumi:"networkInsightsAccessScopeAnalysisId"`
 }
 
@@ -74,46 +85,55 @@ func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) ToLookupNetworkIns
 	return o
 }
 
+// The number of network interfaces analyzed.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) AnalyzedEniCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *int { return v.AnalyzedEniCount }).(pulumi.IntPtrOutput)
 }
 
+// The end date of the analysis.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether there are findings (true | false | unknown).
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) FindingsFound() NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *NetworkInsightsAccessScopeAnalysisFindingsFound {
 		return v.FindingsFound
 	}).(NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput)
 }
 
+// The ARN of the Network Access Scope analysis.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) NetworkInsightsAccessScopeAnalysisArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string {
 		return v.NetworkInsightsAccessScopeAnalysisArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Network Access Scope analysis.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) NetworkInsightsAccessScopeAnalysisId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string {
 		return v.NetworkInsightsAccessScopeAnalysisId
 	}).(pulumi.StringPtrOutput)
 }
 
+// The start date of the analysis.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
+// The status of the analysis (running | succeeded | failed).
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) Status() NetworkInsightsAccessScopeAnalysisStatusPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *NetworkInsightsAccessScopeAnalysisStatus {
 		return v.Status
 	}).(NetworkInsightsAccessScopeAnalysisStatusPtrOutput)
 }
 
+// The status message.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

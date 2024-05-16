@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeEnrichmentParameters
     {
+        /// <summary>
+        /// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        /// </summary>
         public readonly Outputs.PipeEnrichmentHttpParameters? HttpParameters;
+        /// <summary>
+        /// Valid JSON text passed to the enrichment. In this case, nothing from the event itself is passed to the enrichment. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+        /// 
+        /// To remove an input template, specify an empty string.
+        /// </summary>
         public readonly string? InputTemplate;
 
         [OutputConstructor]

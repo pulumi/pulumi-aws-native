@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:MonitoringSubscription")]
     public partial class MonitoringSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the distribution that you are enabling metrics for.
+        /// </summary>
         [Output("distributionId")]
         public Output<string> DistributionId { get; private set; } = null!;
 
+        /// <summary>
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
         [Output("monitoringSubscription")]
         public Output<Outputs.MonitoringSubscription> MonitoringSubscriptionValue { get; private set; } = null!;
 
@@ -70,9 +76,15 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class MonitoringSubscriptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the distribution that you are enabling metrics for.
+        /// </summary>
         [Input("distributionId", required: true)]
         public Input<string> DistributionId { get; set; } = null!;
 
+        /// <summary>
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
         [Input("monitoringSubscription", required: true)]
         public Input<Inputs.MonitoringSubscriptionArgs> MonitoringSubscriptionValue { get; set; } = null!;
 

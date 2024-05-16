@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetLiveSourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name that's used to refer to a live source.
+        /// </summary>
         [Input("liveSourceName", required: true)]
         public string LiveSourceName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the source location.
+        /// </summary>
         [Input("sourceLocationName", required: true)]
         public string SourceLocationName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetLiveSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name that's used to refer to a live source.
+        /// </summary>
         [Input("liveSourceName", required: true)]
         public Input<string> LiveSourceName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the source location.
+        /// </summary>
         [Input("sourceLocationName", required: true)]
         public Input<string> SourceLocationName { get; set; } = null!;
 

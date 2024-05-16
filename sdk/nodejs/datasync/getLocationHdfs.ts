@@ -58,6 +58,9 @@ export interface GetLocationHdfsResult {
      * An array of Name Node(s) of the HDFS location.
      */
     readonly nameNodes?: outputs.datasync.LocationHdfsNameNode[];
+    /**
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
+     */
     readonly qopConfiguration?: outputs.datasync.LocationHdfsQopConfiguration;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.

@@ -23,12 +23,18 @@ func LookupResponseHeadersPolicy(ctx *pulumi.Context, args *LookupResponseHeader
 }
 
 type LookupResponseHeadersPolicyArgs struct {
+	// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
 	Id string `pulumi:"id"`
 }
 
 type LookupResponseHeadersPolicyResult struct {
-	Id                          *string                      `pulumi:"id"`
-	LastModifiedTime            *string                      `pulumi:"lastModifiedTime"`
+	// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+	Id *string `pulumi:"id"`
+	// The date and time when the response headers policy was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// A response headers policy configuration.
+	//
+	// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 	ResponseHeadersPolicyConfig *ResponseHeadersPolicyConfig `pulumi:"responseHeadersPolicyConfig"`
 }
 
@@ -46,6 +52,7 @@ func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseH
 }
 
 type LookupResponseHeadersPolicyOutputArgs struct {
+	// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +74,19 @@ func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyRe
 	return o
 }
 
+// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
 func (o LookupResponseHeadersPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the response headers policy was last modified.
 func (o LookupResponseHeadersPolicyResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// A response headers policy configuration.
+//
+// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 func (o LookupResponseHeadersPolicyResultOutput) ResponseHeadersPolicyConfig() ResponseHeadersPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *ResponseHeadersPolicyConfig {
 		return v.ResponseHeadersPolicyConfig

@@ -37,13 +37,37 @@ export class Hypervisor extends pulumi.CustomResource {
         return obj['__pulumiType'] === Hypervisor.__pulumiType;
     }
 
+    /**
+     * The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+     */
     public readonly host!: pulumi.Output<string | undefined>;
+    /**
+     * Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+     */
     public /*out*/ readonly hypervisorArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+     */
     public readonly logGroupArn!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the hypervisor.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The password for the hypervisor.
+     */
     public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * The username for the hypervisor.
+     */
     public readonly username!: pulumi.Output<string | undefined>;
 
     /**
@@ -86,11 +110,32 @@ export class Hypervisor extends pulumi.CustomResource {
  * The set of arguments for constructing a Hypervisor resource.
  */
 export interface HypervisorArgs {
+    /**
+     * The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+     */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+     */
     logGroupArn?: pulumi.Input<string>;
+    /**
+     * The name of the hypervisor.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The password for the hypervisor.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    /**
+     * The username for the hypervisor.
+     */
     username?: pulumi.Input<string>;
 }

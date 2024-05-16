@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ResourceExplorer2
         [Output("associatedAwsPrincipal")]
         public Output<string> AssociatedAwsPrincipal { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+        /// </summary>
         [Output("viewArn")]
         public Output<string> ViewArn { get; private set; } = null!;
 
@@ -69,6 +72,9 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class DefaultViewAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+        /// </summary>
         [Input("viewArn", required: true)]
         public Input<string> ViewArn { get; set; } = null!;
 

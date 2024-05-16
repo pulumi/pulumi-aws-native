@@ -46,6 +46,7 @@ class EventDataStoreArgs:
         :param pulumi.Input[str] name: The name of the event data store.
         :param pulumi.Input[bool] organization_enabled: Indicates that an event data store is collecting logged events for an organization.
         :param pulumi.Input[int] retention_period: The retention period, in days.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
         :param pulumi.Input[bool] termination_protection_enabled: Indicates whether the event data store is protected from termination.
         """
         if advanced_event_selectors is not None:
@@ -224,6 +225,9 @@ class EventDataStoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -280,6 +284,7 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the event data store.
         :param pulumi.Input[bool] organization_enabled: Indicates that an event data store is collecting logged events for an organization.
         :param pulumi.Input[int] retention_period: The retention period, in days.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
         :param pulumi.Input[bool] termination_protection_enabled: Indicates whether the event data store is protected from termination.
         """
         ...
@@ -512,6 +517,9 @@ class EventDataStore(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -16,8 +16,19 @@ namespace Pulumi.AwsNative.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentModuleLoggingConfiguration
     {
+        /// <summary>
+        /// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+        /// 
+        /// &gt; `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
+        /// </summary>
         public readonly string? CloudWatchLogGroupArn;
+        /// <summary>
+        /// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Mwaa.EnvironmentLoggingLevel? LogLevel;
 
         [OutputConstructor]

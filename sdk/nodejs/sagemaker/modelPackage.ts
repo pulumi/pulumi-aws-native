@@ -37,35 +37,123 @@ export class ModelPackage extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelPackage.__pulumiType;
     }
 
+    /**
+     * An array of additional Inference Specification objects.
+     */
     public readonly additionalInferenceSpecifications!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
+    /**
+     * An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+     */
     public readonly additionalInferenceSpecificationsToAdd!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
+    /**
+     * A description provided when the model approval is set.
+     */
     public readonly approvalDescription!: pulumi.Output<string | undefined>;
+    /**
+     * Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+     */
     public readonly certifyForMarketplace!: pulumi.Output<boolean | undefined>;
+    /**
+     * A unique token that guarantees that the call to this API is idempotent.
+     */
     public readonly clientToken!: pulumi.Output<string | undefined>;
+    /**
+     * The time that the model package was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The metadata properties for the model package.
+     */
     public readonly customerMetadataProperties!: pulumi.Output<outputs.sagemaker.ModelPackageCustomerMetadataProperties | undefined>;
+    /**
+     * The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+     */
     public readonly domain!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the drift check baselines that can be used when the model monitor is set using the model package.
+     */
     public readonly driftCheckBaselines!: pulumi.Output<outputs.sagemaker.ModelPackageDriftCheckBaselines | undefined>;
+    /**
+     * Defines how to perform inference generation after a training job is run.
+     */
     public readonly inferenceSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageInferenceSpecification | undefined>;
+    /**
+     * The last time the model package was modified.
+     */
     public readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata properties of the tracking entity, trial, or trial component.
+     */
     public readonly metadataProperties!: pulumi.Output<outputs.sagemaker.ModelPackageMetadataProperties | undefined>;
+    /**
+     * The approval status of the model. This can be one of the following values.
+     *
+     * - `APPROVED` - The model is approved
+     * - `REJECTED` - The model is rejected.
+     * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+     */
     public readonly modelApprovalStatus!: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
+    /**
+     * Contains metrics captured from a model.
+     */
     public readonly modelMetrics!: pulumi.Output<outputs.sagemaker.ModelPackageModelMetrics | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the model package.
+     */
     public /*out*/ readonly modelPackageArn!: pulumi.Output<string>;
+    /**
+     * The description of the model package.
+     */
     public readonly modelPackageDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The model group to which the model belongs.
+     */
     public readonly modelPackageGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the model.
+     */
     public readonly modelPackageName!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the model package. This can be one of the following values.
+     *
+     * - `PENDING` - The model package creation is pending.
+     * - `IN_PROGRESS` - The model package is in the process of being created.
+     * - `COMPLETED` - The model package was successfully created.
+     * - `FAILED` - The model package creation failed.
+     * - `DELETING` - The model package is in the process of being deleted.
+     */
     public /*out*/ readonly modelPackageStatus!: pulumi.Output<enums.sagemaker.ModelPackageStatus>;
+    /**
+     * Specifies the validation and image scan statuses of the model package.
+     */
     public readonly modelPackageStatusDetails!: pulumi.Output<outputs.sagemaker.ModelPackageStatusDetails | undefined>;
+    /**
+     * The version number of a versioned model.
+     */
     public readonly modelPackageVersion!: pulumi.Output<number | undefined>;
+    /**
+     * The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+     */
     public readonly samplePayloadUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if you want to skip model validation.
+     */
     public readonly skipModelValidation!: pulumi.Output<enums.sagemaker.ModelPackageSkipModelValidation | undefined>;
+    /**
+     * A list of algorithms that were used to create a model package.
+     */
     public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+     */
     public readonly task!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies batch transform jobs that SageMaker runs to validate your model package.
+     */
     public readonly validationSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageValidationSpecification | undefined>;
 
     /**
@@ -146,31 +234,104 @@ export class ModelPackage extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelPackage resource.
  */
 export interface ModelPackageArgs {
+    /**
+     * An array of additional Inference Specification objects.
+     */
     additionalInferenceSpecifications?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>[]>;
+    /**
+     * An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+     */
     additionalInferenceSpecificationsToAdd?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>[]>;
+    /**
+     * A description provided when the model approval is set.
+     */
     approvalDescription?: pulumi.Input<string>;
+    /**
+     * Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+     */
     certifyForMarketplace?: pulumi.Input<boolean>;
+    /**
+     * A unique token that guarantees that the call to this API is idempotent.
+     */
     clientToken?: pulumi.Input<string>;
+    /**
+     * The metadata properties for the model package.
+     */
     customerMetadataProperties?: pulumi.Input<inputs.sagemaker.ModelPackageCustomerMetadataPropertiesArgs>;
+    /**
+     * The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * Represents the drift check baselines that can be used when the model monitor is set using the model package.
+     */
     driftCheckBaselines?: pulumi.Input<inputs.sagemaker.ModelPackageDriftCheckBaselinesArgs>;
+    /**
+     * Defines how to perform inference generation after a training job is run.
+     */
     inferenceSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageInferenceSpecificationArgs>;
+    /**
+     * The last time the model package was modified.
+     */
     lastModifiedTime?: pulumi.Input<string>;
+    /**
+     * Metadata properties of the tracking entity, trial, or trial component.
+     */
     metadataProperties?: pulumi.Input<inputs.sagemaker.ModelPackageMetadataPropertiesArgs>;
+    /**
+     * The approval status of the model. This can be one of the following values.
+     *
+     * - `APPROVED` - The model is approved
+     * - `REJECTED` - The model is rejected.
+     * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+     */
     modelApprovalStatus?: pulumi.Input<enums.sagemaker.ModelPackageModelApprovalStatus>;
+    /**
+     * Contains metrics captured from a model.
+     */
     modelMetrics?: pulumi.Input<inputs.sagemaker.ModelPackageModelMetricsArgs>;
+    /**
+     * The description of the model package.
+     */
     modelPackageDescription?: pulumi.Input<string>;
+    /**
+     * The model group to which the model belongs.
+     */
     modelPackageGroupName?: pulumi.Input<string>;
+    /**
+     * The name of the model.
+     */
     modelPackageName?: pulumi.Input<string>;
+    /**
+     * Specifies the validation and image scan statuses of the model package.
+     */
     modelPackageStatusDetails?: pulumi.Input<inputs.sagemaker.ModelPackageStatusDetailsArgs>;
+    /**
+     * The version number of a versioned model.
+     */
     modelPackageVersion?: pulumi.Input<number>;
+    /**
+     * The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+     */
     samplePayloadUrl?: pulumi.Input<string>;
+    /**
+     * Indicates if you want to skip model validation.
+     */
     skipModelValidation?: pulumi.Input<enums.sagemaker.ModelPackageSkipModelValidation>;
+    /**
+     * A list of algorithms that were used to create a model package.
+     */
     sourceAlgorithmSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageSourceAlgorithmSpecificationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+     */
     task?: pulumi.Input<string>;
+    /**
+     * Specifies batch transform jobs that SageMaker runs to validate your model package.
+     */
     validationSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageValidationSpecificationArgs>;
 }

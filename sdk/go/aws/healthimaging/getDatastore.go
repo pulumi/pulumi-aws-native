@@ -23,15 +23,21 @@ func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pul
 }
 
 type LookupDatastoreArgs struct {
+	// The data store identifier.
 	DatastoreId string `pulumi:"datastoreId"`
 }
 
 type LookupDatastoreResult struct {
-	CreatedAt       *string          `pulumi:"createdAt"`
-	DatastoreArn    *string          `pulumi:"datastoreArn"`
-	DatastoreId     *string          `pulumi:"datastoreId"`
+	// The timestamp when the data store was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) for the data store.
+	DatastoreArn *string `pulumi:"datastoreArn"`
+	// The data store identifier.
+	DatastoreId *string `pulumi:"datastoreId"`
+	// The data store status.
 	DatastoreStatus *DatastoreStatus `pulumi:"datastoreStatus"`
-	UpdatedAt       *string          `pulumi:"updatedAt"`
+	// The timestamp when the data store was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupDatastoreResultOutput {
@@ -48,6 +54,7 @@ func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, 
 }
 
 type LookupDatastoreOutputArgs struct {
+	// The data store identifier.
 	DatastoreId pulumi.StringInput `pulumi:"datastoreId"`
 }
 
@@ -69,22 +76,27 @@ func (o LookupDatastoreResultOutput) ToLookupDatastoreResultOutputWithContext(ct
 	return o
 }
 
+// The timestamp when the data store was created.
 func (o LookupDatastoreResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the data store.
 func (o LookupDatastoreResultOutput) DatastoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.DatastoreArn }).(pulumi.StringPtrOutput)
 }
 
+// The data store identifier.
 func (o LookupDatastoreResultOutput) DatastoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
 }
 
+// The data store status.
 func (o LookupDatastoreResultOutput) DatastoreStatus() DatastoreStatusPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *DatastoreStatus { return v.DatastoreStatus }).(DatastoreStatusPtrOutput)
 }
 
+// The timestamp when the data store was last updated.
 func (o LookupDatastoreResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

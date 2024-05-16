@@ -19,21 +19,60 @@ export function getServiceNetworkServiceAssociation(args: GetServiceNetworkServi
 }
 
 export interface GetServiceNetworkServiceAssociationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the service.
+     */
     arn: string;
 }
 
 export interface GetServiceNetworkServiceAssociationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the service.
+     */
     readonly arn?: string;
+    /**
+     * The date and time that the association was created, specified in ISO-8601 format.
+     */
     readonly createdAt?: string;
+    /**
+     * The DNS information.
+     */
     readonly dnsEntry?: outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry;
+    /**
+     * The ID of the of the association between the service network and the service.
+     */
     readonly id?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     readonly serviceArn?: string;
+    /**
+     * The ID of the service.
+     */
     readonly serviceId?: string;
+    /**
+     * The name of the service.
+     */
     readonly serviceName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the service network
+     */
     readonly serviceNetworkArn?: string;
+    /**
+     * The ID of the service network.
+     */
     readonly serviceNetworkId?: string;
+    /**
+     * The name of the service network.
+     */
     readonly serviceNetworkName?: string;
+    /**
+     * The status of the association between the service network and the service.
+     */
     readonly status?: enums.vpclattice.ServiceNetworkServiceAssociationStatus;
+    /**
+     * The tags for the association.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -44,5 +83,8 @@ export function getServiceNetworkServiceAssociationOutput(args: GetServiceNetwor
 }
 
 export interface GetServiceNetworkServiceAssociationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the service.
+     */
     arn: pulumi.Input<string>;
 }

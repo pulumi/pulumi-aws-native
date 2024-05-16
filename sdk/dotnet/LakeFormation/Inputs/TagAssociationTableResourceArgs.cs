@@ -12,15 +12,29 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
 
     public sealed class TagAssociationTableResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for the Data Catalog . By default, it is the account ID of the caller.
+        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+        /// 
+        /// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
+        /// </summary>
         [Input("tableWildcard")]
         public Input<Inputs.TagAssociationTableWildcardArgs>? TableWildcard { get; set; }
 

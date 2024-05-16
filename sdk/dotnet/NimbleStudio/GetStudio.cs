@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the studio resource.
+        /// </summary>
         [Input("studioId", required: true)]
         public string StudioId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the studio resource.
+        /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
 
@@ -67,7 +73,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// &lt;p&gt;The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.&lt;/p&gt;
         /// </summary>
         public readonly string? SsoClientId;
+        /// <summary>
+        /// Configuration of the encryption method that is used for the studio.
+        /// </summary>
         public readonly Outputs.StudioEncryptionConfiguration? StudioEncryptionConfiguration;
+        /// <summary>
+        /// The unique identifier for the studio resource.
+        /// </summary>
         public readonly string? StudioId;
         /// <summary>
         /// &lt;p&gt;The address of the web page for the studio.&lt;/p&gt;

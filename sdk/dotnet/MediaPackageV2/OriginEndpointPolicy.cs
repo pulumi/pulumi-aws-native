@@ -15,16 +15,27 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [AwsNativeResourceType("aws-native:mediapackagev2:OriginEndpointPolicy")]
     public partial class OriginEndpointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the channel group associated with the origin endpoint policy.
+        /// </summary>
         [Output("channelGroupName")]
         public Output<string> ChannelGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The channel name associated with the origin endpoint policy.
+        /// </summary>
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the origin endpoint associated with the origin endpoint policy.
+        /// </summary>
         [Output("originEndpointName")]
         public Output<string> OriginEndpointName { get; private set; } = null!;
 
         /// <summary>
+        /// The policy associated with the origin endpoint.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
@@ -81,16 +92,27 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class OriginEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the origin endpoint policy.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public Input<string> ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The channel name associated with the origin endpoint policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the origin endpoint associated with the origin endpoint policy.
+        /// </summary>
         [Input("originEndpointName", required: true)]
         public Input<string> OriginEndpointName { get; set; } = null!;
 
         /// <summary>
+        /// The policy associated with the origin endpoint.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy", required: true)]

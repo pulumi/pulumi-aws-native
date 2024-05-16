@@ -73,6 +73,10 @@ def get_vod_source(source_location_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVodSourceResult:
     """
     Definition of AWS::MediaTailor::VodSource Resource Type
+
+
+    :param str source_location_name: The name of the source location that the VOD source is associated with.
+    :param str vod_source_name: The name of the VOD source.
     """
     __args__ = dict()
     __args__['sourceLocationName'] = source_location_name
@@ -92,5 +96,9 @@ def get_vod_source_output(source_location_name: Optional[pulumi.Input[str]] = No
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVodSourceResult]:
     """
     Definition of AWS::MediaTailor::VodSource Resource Type
+
+
+    :param str source_location_name: The name of the source location that the VOD source is associated with.
+    :param str vod_source_name: The name of the VOD source.
     """
     ...

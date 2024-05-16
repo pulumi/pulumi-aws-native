@@ -23,7 +23,11 @@ class ModelPackageGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
-        :param Any model_package_group_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        :param pulumi.Input[str] model_package_group_description: The description for the model group.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param Any model_package_group_policy: A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if model_package_group_description is not None:
@@ -38,6 +42,9 @@ class ModelPackageGroupArgs:
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
     def model_package_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the model group.
+        """
         return pulumi.get(self, "model_package_group_description")
 
     @model_package_group_description.setter
@@ -47,6 +54,9 @@ class ModelPackageGroupArgs:
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -57,6 +67,8 @@ class ModelPackageGroupArgs:
     @pulumi.getter(name="modelPackageGroupPolicy")
     def model_package_group_policy(self) -> Optional[Any]:
         """
+        A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "model_package_group_policy")
@@ -93,7 +105,11 @@ class ModelPackageGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any model_package_group_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        :param pulumi.Input[str] model_package_group_description: The description for the model group.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param Any model_package_group_policy: A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -184,22 +200,33 @@ class ModelPackageGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modelPackageGroupArn")
     def model_package_group_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the model group.
+        """
         return pulumi.get(self, "model_package_group_arn")
 
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
     def model_package_group_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description for the model group.
+        """
         return pulumi.get(self, "model_package_group_description")
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the model group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
     def model_package_group_policy(self) -> pulumi.Output[Optional[Any]]:
         """
+        A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "model_package_group_policy")

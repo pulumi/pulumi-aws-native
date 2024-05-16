@@ -26,6 +26,11 @@ class AssistantArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Assistant resource.
+        :param pulumi.Input['AssistantType'] type: The type of assistant.
+        :param pulumi.Input[str] description: The description of the assistant.
+        :param pulumi.Input[str] name: The name of the assistant.
+        :param pulumi.Input['AssistantServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: The configuration information for the customer managed key used for encryption.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -40,6 +45,9 @@ class AssistantArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AssistantType']:
+        """
+        The type of assistant.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -49,6 +57,9 @@ class AssistantArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the assistant.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -58,6 +69,9 @@ class AssistantArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assistant.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,6 +81,9 @@ class AssistantArgs:
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AssistantServerSideEncryptionConfigurationArgs']]:
+        """
+        The configuration information for the customer managed key used for encryption.
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -76,6 +93,9 @@ class AssistantArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,6 +119,11 @@ class Assistant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the assistant.
+        :param pulumi.Input[str] name: The name of the assistant.
+        :param pulumi.Input[pulumi.InputType['AssistantServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: The configuration information for the customer managed key used for encryption.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input['AssistantType'] type: The type of assistant.
         """
         ...
     @overload
@@ -183,35 +208,56 @@ class Assistant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Wisdom assistant.
+        """
         return pulumi.get(self, "assistant_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the assistant.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the assistant.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.AssistantServerSideEncryptionConfiguration']]:
+        """
+        The configuration information for the customer managed key used for encryption.
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['AssistantType']:
+        """
+        The type of assistant.
+        """
         return pulumi.get(self, "type")
 

@@ -23,13 +23,24 @@ func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ..
 }
 
 type LookupCachePolicyArgs struct {
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 	Id string `pulumi:"id"`
 }
 
 type LookupCachePolicyResult struct {
+	// A cache policy configuration.
+	//
+	// This configuration determines the following:
+	//
+	// - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+	// - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+	//
+	// The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
 	CachePolicyConfig *CachePolicyConfig `pulumi:"cachePolicyConfig"`
-	Id                *string            `pulumi:"id"`
-	LastModifiedTime  *string            `pulumi:"lastModifiedTime"`
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+	Id *string `pulumi:"id"`
+	// The date and time when the cache policy was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 }
 
 func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupCachePolicyResultOutput {
@@ -46,6 +57,7 @@ func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputAr
 }
 
 type LookupCachePolicyOutputArgs struct {
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +79,24 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContex
 	return o
 }
 
+// A cache policy configuration.
+//
+// This configuration determines the following:
+//
+// - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+// - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+//
+// The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
 func (o LookupCachePolicyResultOutput) CachePolicyConfig() CachePolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *CachePolicyConfig { return v.CachePolicyConfig }).(CachePolicyConfigPtrOutput)
 }
 
+// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 func (o LookupCachePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the cache policy was last modified.
 func (o LookupCachePolicyResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }

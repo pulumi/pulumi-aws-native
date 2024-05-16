@@ -49,6 +49,9 @@ export class Listener extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the listener.
      */
     public /*out*/ readonly listenerArn!: pulumi.Output<string>;
+    /**
+     * A complex type for a range of ports for a listener.
+     */
     public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
      * The protocol for the listener.
@@ -106,6 +109,9 @@ export interface ListenerArgs {
      * Client affinity lets you direct all requests from a user to the same endpoint.
      */
     clientAffinity?: pulumi.Input<enums.globalaccelerator.ListenerClientAffinity>;
+    /**
+     * A complex type for a range of ports for a listener.
+     */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRangeArgs>[]>;
     /**
      * The protocol for the listener.

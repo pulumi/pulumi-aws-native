@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the value is secret.
+        /// </summary>
         [Input("isValueSecret")]
         public Input<bool>? IsValueSecret { get; set; }
 
+        /// <summary>
+        /// The key for a query string parameter.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value associated with the key for the query string parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

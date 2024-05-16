@@ -41,6 +41,9 @@ export class Url extends pulumi.CustomResource {
      * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
      */
     public readonly authType!: pulumi.Output<enums.lambda.UrlAuthType>;
+    /**
+     * The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+     */
     public readonly cors!: pulumi.Output<outputs.lambda.UrlCors | undefined>;
     /**
      * The full Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -111,6 +114,9 @@ export interface UrlArgs {
      * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
      */
     authType: pulumi.Input<enums.lambda.UrlAuthType>;
+    /**
+     * The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+     */
     cors?: pulumi.Input<inputs.lambda.UrlCorsArgs>;
     /**
      * The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.

@@ -14,29 +14,49 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.AnalysisVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// A custom action defined on a visual.
+        /// </summary>
         public InputList<Inputs.AnalysisVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AnalysisVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The configuration of a `BarChartVisual` .
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.AnalysisBarChartConfigurationArgs>? ChartConfiguration { get; set; }
 
         [Input("columnHierarchies")]
         private InputList<Inputs.AnalysisColumnHierarchyArgs>? _columnHierarchies;
+
+        /// <summary>
+        /// The option that determines the hierarchy of the fields for a visual element.
+        /// </summary>
         public InputList<Inputs.AnalysisColumnHierarchyArgs> ColumnHierarchies
         {
             get => _columnHierarchies ?? (_columnHierarchies = new InputList<Inputs.AnalysisColumnHierarchyArgs>());
             set => _columnHierarchies = value;
         }
 
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.AnalysisVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

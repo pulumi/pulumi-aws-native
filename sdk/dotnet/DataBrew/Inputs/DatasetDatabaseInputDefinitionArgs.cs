@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("queryString")]
         public Input<string>? QueryString { get; set; }
 
+        /// <summary>
+        /// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        /// </summary>
         [Input("tempDirectory")]
         public Input<Inputs.DatasetS3LocationArgs>? TempDirectory { get; set; }
 

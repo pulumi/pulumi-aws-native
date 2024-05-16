@@ -19,6 +19,9 @@ export function getHealthCheck(args: GetHealthCheckArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetHealthCheckArgs {
+    /**
+     * The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+     */
     healthCheckId: string;
 }
 
@@ -27,6 +30,9 @@ export interface GetHealthCheckResult {
      * A complex type that contains information about the health check.
      */
     readonly healthCheckConfig?: outputs.route53.HealthCheckConfigProperties;
+    /**
+     * The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+     */
     readonly healthCheckId?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -41,5 +47,8 @@ export function getHealthCheckOutput(args: GetHealthCheckOutputArgs, opts?: pulu
 }
 
 export interface GetHealthCheckOutputArgs {
+    /**
+     * The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+     */
     healthCheckId: pulumi.Input<string>;
 }

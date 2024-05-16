@@ -17,16 +17,32 @@ import (
 type Collaboration struct {
 	pulumi.CustomResourceState
 
-	Arn                         pulumi.StringOutput                          `pulumi:"arn"`
-	CollaborationIdentifier     pulumi.StringOutput                          `pulumi:"collaborationIdentifier"`
-	CreatorDisplayName          pulumi.StringOutput                          `pulumi:"creatorDisplayName"`
-	CreatorMemberAbilities      CollaborationMemberAbilityArrayOutput        `pulumi:"creatorMemberAbilities"`
-	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrOutput   `pulumi:"creatorPaymentConfiguration"`
-	DataEncryptionMetadata      CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
-	Description                 pulumi.StringOutput                          `pulumi:"description"`
-	Members                     CollaborationMemberSpecificationArrayOutput  `pulumi:"members"`
-	Name                        pulumi.StringOutput                          `pulumi:"name"`
-	QueryLogStatus              CollaborationQueryLogStatusOutput            `pulumi:"queryLogStatus"`
+	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Returns the unique identifier of the specified collaboration.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
+	// A display name of the collaboration creator.
+	CreatorDisplayName pulumi.StringOutput `pulumi:"creatorDisplayName"`
+	// The abilities granted to the collaboration creator.
+	//
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	CreatorMemberAbilities CollaborationMemberAbilityArrayOutput `pulumi:"creatorMemberAbilities"`
+	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrOutput `pulumi:"creatorPaymentConfiguration"`
+	// The settings for client-side encryption for cryptographic computing.
+	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
+	// A description of the collaboration provided by the collaboration owner.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// Basic metadata used to construct a new member.
+	Members CollaborationMemberSpecificationArrayOutput `pulumi:"members"`
+	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	QueryLogStatus CollaborationQueryLogStatusOutput `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -95,28 +111,48 @@ func (CollaborationState) ElementType() reflect.Type {
 }
 
 type collaborationArgs struct {
-	CreatorDisplayName          string                               `pulumi:"creatorDisplayName"`
-	CreatorMemberAbilities      []CollaborationMemberAbility         `pulumi:"creatorMemberAbilities"`
-	CreatorPaymentConfiguration *CollaborationPaymentConfiguration   `pulumi:"creatorPaymentConfiguration"`
-	DataEncryptionMetadata      *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
-	Description                 string                               `pulumi:"description"`
-	Members                     []CollaborationMemberSpecification   `pulumi:"members"`
-	Name                        *string                              `pulumi:"name"`
-	QueryLogStatus              CollaborationQueryLogStatus          `pulumi:"queryLogStatus"`
+	// A display name of the collaboration creator.
+	CreatorDisplayName string `pulumi:"creatorDisplayName"`
+	// The abilities granted to the collaboration creator.
+	//
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	CreatorMemberAbilities []CollaborationMemberAbility `pulumi:"creatorMemberAbilities"`
+	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+	CreatorPaymentConfiguration *CollaborationPaymentConfiguration `pulumi:"creatorPaymentConfiguration"`
+	// The settings for client-side encryption for cryptographic computing.
+	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
+	// A description of the collaboration provided by the collaboration owner.
+	Description string `pulumi:"description"`
+	// Basic metadata used to construct a new member.
+	Members []CollaborationMemberSpecification `pulumi:"members"`
+	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+	Name *string `pulumi:"name"`
+	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	QueryLogStatus CollaborationQueryLogStatus `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Collaboration resource.
 type CollaborationArgs struct {
-	CreatorDisplayName          pulumi.StringInput
-	CreatorMemberAbilities      CollaborationMemberAbilityArrayInput
+	// A display name of the collaboration creator.
+	CreatorDisplayName pulumi.StringInput
+	// The abilities granted to the collaboration creator.
+	//
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	CreatorMemberAbilities CollaborationMemberAbilityArrayInput
+	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrInput
-	DataEncryptionMetadata      CollaborationDataEncryptionMetadataPtrInput
-	Description                 pulumi.StringInput
-	Members                     CollaborationMemberSpecificationArrayInput
-	Name                        pulumi.StringPtrInput
-	QueryLogStatus              CollaborationQueryLogStatusInput
+	// The settings for client-side encryption for cryptographic computing.
+	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
+	// A description of the collaboration provided by the collaboration owner.
+	Description pulumi.StringInput
+	// Basic metadata used to construct a new member.
+	Members CollaborationMemberSpecificationArrayInput
+	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+	Name pulumi.StringPtrInput
+	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	QueryLogStatus CollaborationQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayInput
 }
@@ -158,44 +194,60 @@ func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o CollaborationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Returns the unique identifier of the specified collaboration.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o CollaborationOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
 }
 
+// A display name of the collaboration creator.
 func (o CollaborationOutput) CreatorDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.CreatorDisplayName }).(pulumi.StringOutput)
 }
 
+// The abilities granted to the collaboration creator.
+//
+// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 func (o CollaborationOutput) CreatorMemberAbilities() CollaborationMemberAbilityArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberAbilityArrayOutput { return v.CreatorMemberAbilities }).(CollaborationMemberAbilityArrayOutput)
 }
 
+// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 func (o CollaborationOutput) CreatorPaymentConfiguration() CollaborationPaymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationPaymentConfigurationPtrOutput {
 		return v.CreatorPaymentConfiguration
 	}).(CollaborationPaymentConfigurationPtrOutput)
 }
 
+// The settings for client-side encryption for cryptographic computing.
 func (o CollaborationOutput) DataEncryptionMetadata() CollaborationDataEncryptionMetadataPtrOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationDataEncryptionMetadataPtrOutput { return v.DataEncryptionMetadata }).(CollaborationDataEncryptionMetadataPtrOutput)
 }
 
+// A description of the collaboration provided by the collaboration owner.
 func (o CollaborationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// Basic metadata used to construct a new member.
 func (o CollaborationOutput) Members() CollaborationMemberSpecificationArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberSpecificationArrayOutput { return v.Members }).(CollaborationMemberSpecificationArrayOutput)
 }
 
+// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 func (o CollaborationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An indicator as to whether query logging has been enabled or disabled for the collaboration.
 func (o CollaborationOutput) QueryLogStatus() CollaborationQueryLogStatusOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationQueryLogStatusOutput { return v.QueryLogStatus }).(CollaborationQueryLogStatusOutput)
 }

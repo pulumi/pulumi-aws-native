@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Identifier for a resource.
         /// </summary>
         public readonly string KnowledgeBaseId;
+        /// <summary>
+        /// Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentKnowledgeBaseState? KnowledgeBaseState;
 
         [OutputConstructor]

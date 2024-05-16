@@ -40,26 +40,41 @@ class GetPackageResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The package's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[int]:
+        """
+        When the package was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="packageId")
     def package_id(self) -> Optional[str]:
+        """
+        The package's ID.
+        """
         return pulumi.get(self, "package_id")
 
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> Optional['outputs.PackageStorageLocation']:
+        """
+        A storage location.
+        """
         return pulumi.get(self, "storage_location")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags for the package.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -80,6 +95,9 @@ def get_package(package_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
     Schema for Package CloudFormation Resource
+
+
+    :param str package_id: The package's ID.
     """
     __args__ = dict()
     __args__['packageId'] = package_id
@@ -99,5 +117,8 @@ def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
     Schema for Package CloudFormation Resource
+
+
+    :param str package_id: The package's ID.
     """
     ...

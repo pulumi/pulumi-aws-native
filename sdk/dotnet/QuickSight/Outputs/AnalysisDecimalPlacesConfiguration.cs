@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDecimalPlacesConfiguration
     {
+        /// <summary>
+        /// The values of the decimal places.
+        /// </summary>
         public readonly double DecimalPlaces;
 
         [OutputConstructor]

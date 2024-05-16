@@ -31,9 +31,11 @@ type LookupTableArgs struct {
 }
 
 type LookupTableResult struct {
+	// Determines the billing mode for the table - on-demand or provisioned.
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
-	DefaultTimeToLive       *int                          `pulumi:"defaultTimeToLive"`
+	DefaultTimeToLive *int `pulumi:"defaultTimeToLive"`
+	// Specifies the encryption at rest option selected for the table.
 	EncryptionSpecification *TableEncryptionSpecification `pulumi:"encryptionSpecification"`
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
@@ -81,6 +83,7 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 	return o
 }
 
+// Determines the billing mode for the table - on-demand or provisioned.
 func (o LookupTableResultOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableBillingMode { return v.BillingMode }).(TableBillingModePtrOutput)
 }
@@ -90,6 +93,7 @@ func (o LookupTableResultOutput) DefaultTimeToLive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *int { return v.DefaultTimeToLive }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the encryption at rest option selected for the table.
 func (o LookupTableResultOutput) EncryptionSpecification() TableEncryptionSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableEncryptionSpecification { return v.EncryptionSpecification }).(TableEncryptionSpecificationPtrOutput)
 }

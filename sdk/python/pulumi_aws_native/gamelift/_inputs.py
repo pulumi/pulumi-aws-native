@@ -689,12 +689,26 @@ class FleetCertificateConfigurationArgs:
                  certificate_type: pulumi.Input['FleetCertificateConfigurationCertificateType']):
         """
         Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
+        :param pulumi.Input['FleetCertificateConfigurationCertificateType'] certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet.
+               
+               Valid values include:
+               
+               - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+               - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
 
     @property
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> pulumi.Input['FleetCertificateConfigurationCertificateType']:
+        """
+        Indicates whether a TLS/SSL certificate is generated for a fleet.
+
+        Valid values include:
+
+        - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+        - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+        """
         return pulumi.get(self, "certificate_type")
 
     @certificate_type.setter
@@ -748,7 +762,25 @@ class FleetContainerGroupsConfigurationArgs:
                  container_groups_per_instance: Optional[pulumi.Input['FleetContainerGroupsPerInstanceArgs']] = None):
         """
         Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+        :param pulumi.Input['FleetConnectionPortRangeArgs'] connection_port_range: *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+               
+               The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+               
+               *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_group_definition_names: The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
+        :param pulumi.Input['FleetContainerGroupsPerInstanceArgs'] container_groups_per_instance: *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+               
+               Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
+               
+               Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
+               
+               - If no desired value is set, Amazon GameLift places the calculated maximum.
+               - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
+               - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
+               
+               *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+               
+               *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
         """
         pulumi.set(__self__, "connection_port_range", connection_port_range)
         pulumi.set(__self__, "container_group_definition_names", container_group_definition_names)
@@ -758,6 +790,13 @@ class FleetContainerGroupsConfigurationArgs:
     @property
     @pulumi.getter(name="connectionPortRange")
     def connection_port_range(self) -> pulumi.Input['FleetConnectionPortRangeArgs']:
+        """
+        *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+
+        *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+        """
         return pulumi.get(self, "connection_port_range")
 
     @connection_port_range.setter
@@ -779,6 +818,21 @@ class FleetContainerGroupsConfigurationArgs:
     @property
     @pulumi.getter(name="containerGroupsPerInstance")
     def container_groups_per_instance(self) -> Optional[pulumi.Input['FleetContainerGroupsPerInstanceArgs']]:
+        """
+        *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
+
+        Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
+
+        - If no desired value is set, Amazon GameLift places the calculated maximum.
+        - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
+        - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
+
+        *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+
+        *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
+        """
         return pulumi.get(self, "container_groups_per_instance")
 
     @container_groups_per_instance.setter
@@ -954,6 +1008,10 @@ class FleetLocationConfigurationArgs:
                  location_capacity: Optional[pulumi.Input['FleetLocationCapacityArgs']] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+        :param pulumi.Input[str] location: An AWS Region code, such as `us-west-2` .
+        :param pulumi.Input['FleetLocationCapacityArgs'] location_capacity: Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+               
+               *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
         """
         pulumi.set(__self__, "location", location)
         if location_capacity is not None:
@@ -962,6 +1020,9 @@ class FleetLocationConfigurationArgs:
     @property
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
+        """
+        An AWS Region code, such as `us-west-2` .
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -971,6 +1032,11 @@ class FleetLocationConfigurationArgs:
     @property
     @pulumi.getter(name="locationCapacity")
     def location_capacity(self) -> Optional[pulumi.Input['FleetLocationCapacityArgs']]:
+        """
+        Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+
+        *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+        """
         return pulumi.get(self, "location_capacity")
 
     @location_capacity.setter
@@ -1101,6 +1167,7 @@ class FleetScalingPolicyArgs:
         :param pulumi.Input[str] name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
         :param pulumi.Input['FleetScalingPolicyComparisonOperator'] comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
         :param pulumi.Input[int] evaluation_periods: Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+        :param pulumi.Input[str] location: The fleet location.
         :param pulumi.Input['FleetScalingPolicyPolicyType'] policy_type: The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
         :param pulumi.Input[int] scaling_adjustment: Amount of adjustment to make, based on the scaling adjustment type.
         :param pulumi.Input['FleetScalingPolicyScalingAdjustmentType'] scaling_adjustment_type: The type of adjustment to make to a fleet's instance count.
@@ -1183,6 +1250,9 @@ class FleetScalingPolicyArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fleet location.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -1366,6 +1436,10 @@ class GameServerGroupAutoScalingPolicyArgs:
                  estimated_instance_warmup: Optional[pulumi.Input[float]] = None):
         """
         Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs'] target_tracking_configuration: *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
+               
+               Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+        :param pulumi.Input[float] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
         """
         pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
@@ -1374,6 +1448,11 @@ class GameServerGroupAutoScalingPolicyArgs:
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
     def target_tracking_configuration(self) -> pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs']:
+        """
+        *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
+
+        Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+        """
         return pulumi.get(self, "target_tracking_configuration")
 
     @target_tracking_configuration.setter
@@ -1383,6 +1462,9 @@ class GameServerGroupAutoScalingPolicyArgs:
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> Optional[pulumi.Input[float]]:
+        """
+        Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+        """
         return pulumi.get(self, "estimated_instance_warmup")
 
     @estimated_instance_warmup.setter
@@ -1429,6 +1511,9 @@ class GameServerGroupLaunchTemplateArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input[str] launch_template_id: A unique identifier for an existing Amazon EC2 launch template.
+        :param pulumi.Input[str] launch_template_name: A readable identifier for an existing Amazon EC2 launch template.
+        :param pulumi.Input[str] version: The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
         """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
@@ -1440,6 +1525,9 @@ class GameServerGroupLaunchTemplateArgs:
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for an existing Amazon EC2 launch template.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @launch_template_id.setter
@@ -1449,6 +1537,9 @@ class GameServerGroupLaunchTemplateArgs:
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A readable identifier for an existing Amazon EC2 launch template.
+        """
         return pulumi.get(self, "launch_template_name")
 
     @launch_template_name.setter
@@ -1458,6 +1549,9 @@ class GameServerGroupLaunchTemplateArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -1471,12 +1565,16 @@ class GameServerGroupTargetTrackingConfigurationArgs:
                  target_value: pulumi.Input[float]):
         """
         Settings for a target-based scaling policy applied to Auto Scaling group.
+        :param pulumi.Input[float] target_value: Desired value to use with a game server group target-based scaling policy.
         """
         pulumi.set(__self__, "target_value", target_value)
 
     @property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[float]:
+        """
+        Desired value to use with a game server group target-based scaling policy.
+        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -1490,6 +1588,7 @@ class GameSessionQueueDestinationArgs:
                  destination_arn: Optional[pulumi.Input[str]] = None):
         """
         A fleet or alias designated in a game session queue.
+        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
         """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
@@ -1497,6 +1596,9 @@ class GameSessionQueueDestinationArgs:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -1508,12 +1610,18 @@ class GameSessionQueueDestinationArgs:
 class GameSessionQueueFilterConfigurationArgs:
     def __init__(__self__, *,
                  allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_locations: A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
+        """
         if allowed_locations is not None:
             pulumi.set(__self__, "allowed_locations", allowed_locations)
 
     @property
     @pulumi.getter(name="allowedLocations")
     def allowed_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
+        """
         return pulumi.get(self, "allowed_locations")
 
     @allowed_locations.setter
@@ -1566,6 +1674,15 @@ class GameSessionQueuePriorityConfigurationArgs:
     def __init__(__self__, *,
                  location_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  priority_order: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_order: The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
+        :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]] priority_order: The recommended sequence to use when prioritizing where to place new game sessions. Each type can only be listed once.
+               
+               - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
+               - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
+               - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
+               - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+        """
         if location_order is not None:
             pulumi.set(__self__, "location_order", location_order)
         if priority_order is not None:
@@ -1574,6 +1691,9 @@ class GameSessionQueuePriorityConfigurationArgs:
     @property
     @pulumi.getter(name="locationOrder")
     def location_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
+        """
         return pulumi.get(self, "location_order")
 
     @location_order.setter
@@ -1583,6 +1703,14 @@ class GameSessionQueuePriorityConfigurationArgs:
     @property
     @pulumi.getter(name="priorityOrder")
     def priority_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]]:
+        """
+        The recommended sequence to use when prioritizing where to place new game sessions. Each type can only be listed once.
+
+        - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
+        - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
+        - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
+        - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+        """
         return pulumi.get(self, "priority_order")
 
     @priority_order.setter

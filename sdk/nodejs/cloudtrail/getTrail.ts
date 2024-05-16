@@ -19,6 +19,15 @@ export function getTrail(args: GetTrailArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetTrailArgs {
+    /**
+     * Specifies the name of the trail. The name must meet the following requirements:
+     *
+     * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+     * - Start with a letter or number, and end with a letter or number
+     * - Be between 3 and 128 characters
+     * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+     * - Not be in IP address format (for example, 192.168.5.4)
+     */
     trailName: string;
 }
 
@@ -27,6 +36,9 @@ export interface GetTrailResult {
      * The advanced event selectors that were used to select events for the data store.
      */
     readonly advancedEventSelectors?: outputs.cloudtrail.TrailAdvancedEventSelector[];
+    /**
+     * `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+     */
     readonly arn?: string;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -76,11 +88,17 @@ export interface GetTrailResult {
      * Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
      */
     readonly s3KeyPrefix?: string;
+    /**
+     * `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+     */
     readonly snsTopicArn?: string;
     /**
      * Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
      */
     readonly snsTopicName?: string;
+    /**
+     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -91,5 +109,14 @@ export function getTrailOutput(args: GetTrailOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTrailOutputArgs {
+    /**
+     * Specifies the name of the trail. The name must meet the following requirements:
+     *
+     * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+     * - Start with a letter or number, and end with a letter or number
+     * - Be between 3 and 128 characters
+     * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+     * - Not be in IP address format (for example, 192.168.5.4)
+     */
     trailName: pulumi.Input<string>;
 }

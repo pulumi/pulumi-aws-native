@@ -22,8 +22,44 @@ class UserPoolIdentityProviderArgs:
                  provider_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
-        :param Any attribute_mapping: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-        :param Any provider_details: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[str] provider_type: The IdP type.
+        :param pulumi.Input[str] user_pool_id: The user pool ID.
+        :param Any attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: A list of IdP identifiers.
+        :param Any provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
+               examples describe the provider detail keys for each IdP type. These values and their
+               schema are subject to change. Social IdP `authorize_scopes` values must match
+               the values listed here.
+               
+               - **OpenID Connect (OIDC)** - Amazon Cognito accepts the following elements when it can't discover endpoint URLs from `oidc_issuer` : `attributes_url` , `authorize_url` , `jwks_uri` , `token_url` .
+               
+               Create or update request: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+               
+               Describe response: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "attributes_url_add_attributes": "false", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+               - **SAML** - Create or update request with Metadata URL: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256" }`
+               
+               Create or update request with Metadata file: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm": "rsa-sha256" }`
+               
+               The value of `MetadataFile` must be the plaintext metadata document with all quote (") characters escaped by backslashes.
+               
+               Describe response: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256", "SLORedirectBindingURI": "https://auth.example.com/slo/saml", "SSORedirectBindingURI": "https://auth.example.com/sso/saml" }`
+               - **LoginWithAmazon** - Create or update request: `"ProviderDetails": { "authorize_scopes": "profile postal_code", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret"`
+               
+               Describe response: `"ProviderDetails": { "attributes_url": "https://api.amazon.com/user/profile", "attributes_url_add_attributes": "false", "authorize_scopes": "profile postal_code", "authorize_url": "https://www.amazon.com/ap/oa", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "POST", "token_url": "https://api.amazon.com/auth/o2/token" }`
+               - **Google** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email profile openid", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret" }`
+               
+               Describe response: `"ProviderDetails": { "attributes_url": "https://people.googleapis.com/v1/people/me?personFields=", "attributes_url_add_attributes": "true", "authorize_scopes": "email profile openid", "authorize_url": "https://accounts.google.com/o/oauth2/v2/auth", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret", "oidc_issuer": "https://accounts.google.com", "token_request_method": "POST", "token_url": "https://www.googleapis.com/oauth2/v4/token" }`
+               - **SignInWithApple** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE", "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" }`
+               
+               Describe response: `"ProviderDetails": { "attributes_url_add_attributes": "false", "authorize_scopes": "email name", "authorize_url": "https://appleid.apple.com/auth/authorize", "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer": "https://appleid.apple.com", "team_id": "2EXAMPLE", "token_request_method": "POST", "token_url": "https://appleid.apple.com/auth/token" }`
+               - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
+               
+               Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[str] provider_name: The IdP name.
         """
         pulumi.set(__self__, "provider_type", provider_type)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -39,6 +75,9 @@ class UserPoolIdentityProviderArgs:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Input[str]:
+        """
+        The IdP type.
+        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -48,6 +87,9 @@ class UserPoolIdentityProviderArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -58,6 +100,8 @@ class UserPoolIdentityProviderArgs:
     @pulumi.getter(name="attributeMapping")
     def attribute_mapping(self) -> Optional[Any]:
         """
+        A mapping of IdP attributes to standard and custom user pool attributes.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attribute_mapping")
@@ -69,6 +113,9 @@ class UserPoolIdentityProviderArgs:
     @property
     @pulumi.getter(name="idpIdentifiers")
     def idp_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IdP identifiers.
+        """
         return pulumi.get(self, "idp_identifiers")
 
     @idp_identifiers.setter
@@ -79,6 +126,36 @@ class UserPoolIdentityProviderArgs:
     @pulumi.getter(name="providerDetails")
     def provider_details(self) -> Optional[Any]:
         """
+        The scopes, URLs, and identifiers for your external identity provider. The following
+        examples describe the provider detail keys for each IdP type. These values and their
+        schema are subject to change. Social IdP `authorize_scopes` values must match
+        the values listed here.
+
+        - **OpenID Connect (OIDC)** - Amazon Cognito accepts the following elements when it can't discover endpoint URLs from `oidc_issuer` : `attributes_url` , `authorize_url` , `jwks_uri` , `token_url` .
+
+        Create or update request: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+
+        Describe response: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "attributes_url_add_attributes": "false", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+        - **SAML** - Create or update request with Metadata URL: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256" }`
+
+        Create or update request with Metadata file: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm": "rsa-sha256" }`
+
+        The value of `MetadataFile` must be the plaintext metadata document with all quote (") characters escaped by backslashes.
+
+        Describe response: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256", "SLORedirectBindingURI": "https://auth.example.com/slo/saml", "SSORedirectBindingURI": "https://auth.example.com/sso/saml" }`
+        - **LoginWithAmazon** - Create or update request: `"ProviderDetails": { "authorize_scopes": "profile postal_code", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret"`
+
+        Describe response: `"ProviderDetails": { "attributes_url": "https://api.amazon.com/user/profile", "attributes_url_add_attributes": "false", "authorize_scopes": "profile postal_code", "authorize_url": "https://www.amazon.com/ap/oa", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "POST", "token_url": "https://api.amazon.com/auth/o2/token" }`
+        - **Google** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email profile openid", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret" }`
+
+        Describe response: `"ProviderDetails": { "attributes_url": "https://people.googleapis.com/v1/people/me?personFields=", "attributes_url_add_attributes": "true", "authorize_scopes": "email profile openid", "authorize_url": "https://accounts.google.com/o/oauth2/v2/auth", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret", "oidc_issuer": "https://accounts.google.com", "token_request_method": "POST", "token_url": "https://www.googleapis.com/oauth2/v4/token" }`
+        - **SignInWithApple** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE", "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" }`
+
+        Describe response: `"ProviderDetails": { "attributes_url_add_attributes": "false", "authorize_scopes": "email name", "authorize_url": "https://appleid.apple.com/auth/authorize", "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer": "https://appleid.apple.com", "team_id": "2EXAMPLE", "token_request_method": "POST", "token_url": "https://appleid.apple.com/auth/token" }`
+        - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
+
+        Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "provider_details")
@@ -90,6 +167,9 @@ class UserPoolIdentityProviderArgs:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IdP name.
+        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -114,8 +194,44 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any attribute_mapping: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-        :param Any provider_details: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param Any attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: A list of IdP identifiers.
+        :param Any provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
+               examples describe the provider detail keys for each IdP type. These values and their
+               schema are subject to change. Social IdP `authorize_scopes` values must match
+               the values listed here.
+               
+               - **OpenID Connect (OIDC)** - Amazon Cognito accepts the following elements when it can't discover endpoint URLs from `oidc_issuer` : `attributes_url` , `authorize_url` , `jwks_uri` , `token_url` .
+               
+               Create or update request: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+               
+               Describe response: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "attributes_url_add_attributes": "false", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+               - **SAML** - Create or update request with Metadata URL: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256" }`
+               
+               Create or update request with Metadata file: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm": "rsa-sha256" }`
+               
+               The value of `MetadataFile` must be the plaintext metadata document with all quote (") characters escaped by backslashes.
+               
+               Describe response: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256", "SLORedirectBindingURI": "https://auth.example.com/slo/saml", "SSORedirectBindingURI": "https://auth.example.com/sso/saml" }`
+               - **LoginWithAmazon** - Create or update request: `"ProviderDetails": { "authorize_scopes": "profile postal_code", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret"`
+               
+               Describe response: `"ProviderDetails": { "attributes_url": "https://api.amazon.com/user/profile", "attributes_url_add_attributes": "false", "authorize_scopes": "profile postal_code", "authorize_url": "https://www.amazon.com/ap/oa", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "POST", "token_url": "https://api.amazon.com/auth/o2/token" }`
+               - **Google** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email profile openid", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret" }`
+               
+               Describe response: `"ProviderDetails": { "attributes_url": "https://people.googleapis.com/v1/people/me?personFields=", "attributes_url_add_attributes": "true", "authorize_scopes": "email profile openid", "authorize_url": "https://accounts.google.com/o/oauth2/v2/auth", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret", "oidc_issuer": "https://accounts.google.com", "token_request_method": "POST", "token_url": "https://www.googleapis.com/oauth2/v4/token" }`
+               - **SignInWithApple** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE", "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" }`
+               
+               Describe response: `"ProviderDetails": { "attributes_url_add_attributes": "false", "authorize_scopes": "email name", "authorize_url": "https://appleid.apple.com/auth/authorize", "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer": "https://appleid.apple.com", "team_id": "2EXAMPLE", "token_request_method": "POST", "token_url": "https://appleid.apple.com/auth/token" }`
+               - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
+               
+               Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[str] provider_name: The IdP name.
+        :param pulumi.Input[str] provider_type: The IdP type.
+        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         ...
     @overload
@@ -204,6 +320,8 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     @pulumi.getter(name="attributeMapping")
     def attribute_mapping(self) -> pulumi.Output[Optional[Any]]:
         """
+        A mapping of IdP attributes to standard and custom user pool attributes.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attribute_mapping")
@@ -211,17 +329,53 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="idpIdentifiers")
     def idp_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of IdP identifiers.
+        """
         return pulumi.get(self, "idp_identifiers")
 
     @property
     @pulumi.getter(name="providerDetails")
     def provider_details(self) -> pulumi.Output[Optional[Any]]:
         """
+        The scopes, URLs, and identifiers for your external identity provider. The following
+        examples describe the provider detail keys for each IdP type. These values and their
+        schema are subject to change. Social IdP `authorize_scopes` values must match
+        the values listed here.
+
+        - **OpenID Connect (OIDC)** - Amazon Cognito accepts the following elements when it can't discover endpoint URLs from `oidc_issuer` : `attributes_url` , `authorize_url` , `jwks_uri` , `token_url` .
+
+        Create or update request: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+
+        Describe response: `"ProviderDetails": { "attributes_request_method": "GET", "attributes_url": "https://auth.example.com/userInfo", "attributes_url_add_attributes": "false", "authorize_scopes": "openid profile email", "authorize_url": "https://auth.example.com/authorize", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "jwks_uri": "https://auth.example.com/.well-known/jwks.json", "oidc_issuer": "https://auth.example.com", "token_url": "https://example.com/token" }`
+        - **SAML** - Create or update request with Metadata URL: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256" }`
+
+        Create or update request with Metadata file: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm": "rsa-sha256" }`
+
+        The value of `MetadataFile` must be the plaintext metadata document with all quote (") characters escaped by backslashes.
+
+        Describe response: `"ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256", "SLORedirectBindingURI": "https://auth.example.com/slo/saml", "SSORedirectBindingURI": "https://auth.example.com/sso/saml" }`
+        - **LoginWithAmazon** - Create or update request: `"ProviderDetails": { "authorize_scopes": "profile postal_code", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret"`
+
+        Describe response: `"ProviderDetails": { "attributes_url": "https://api.amazon.com/user/profile", "attributes_url_add_attributes": "false", "authorize_scopes": "profile postal_code", "authorize_url": "https://www.amazon.com/ap/oa", "client_id": "amzn1.application-oa2-client.1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "POST", "token_url": "https://api.amazon.com/auth/o2/token" }`
+        - **Google** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email profile openid", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret" }`
+
+        Describe response: `"ProviderDetails": { "attributes_url": "https://people.googleapis.com/v1/people/me?personFields=", "attributes_url_add_attributes": "true", "authorize_scopes": "email profile openid", "authorize_url": "https://accounts.google.com/o/oauth2/v2/auth", "client_id": "1example23456789.apps.googleusercontent.com", "client_secret": "provider-app-client-secret", "oidc_issuer": "https://accounts.google.com", "token_request_method": "POST", "token_url": "https://www.googleapis.com/oauth2/v4/token" }`
+        - **SignInWithApple** - Create or update request: `"ProviderDetails": { "authorize_scopes": "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE", "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" }`
+
+        Describe response: `"ProviderDetails": { "attributes_url_add_attributes": "false", "authorize_scopes": "email name", "authorize_url": "https://appleid.apple.com/auth/authorize", "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer": "https://appleid.apple.com", "team_id": "2EXAMPLE", "token_request_method": "POST", "token_url": "https://appleid.apple.com/auth/token" }`
+        - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
+
+        Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "provider_details")
@@ -229,15 +383,24 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Output[str]:
+        """
+        The IdP name.
+        """
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
+        """
+        The IdP type.
+        """
         return pulumi.get(self, "provider_type")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID.
+        """
         return pulumi.get(self, "user_pool_id")
 

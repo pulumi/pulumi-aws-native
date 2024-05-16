@@ -12,14 +12,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSheetDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The layout content type of the sheet. Choose one of the following options:
+        /// 
+        /// - `PAGINATED` : Creates a sheet for a paginated report.
+        /// - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
+        /// </summary>
         [Input("contentType")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardSheetContentType>? ContentType { get; set; }
 
+        /// <summary>
+        /// A description of the sheet.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("filterControls")]
         private InputList<Inputs.DashboardFilterControlArgs>? _filterControls;
+
+        /// <summary>
+        /// The control of a filter that is used to interact with a dashboard or an analysis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardFilterControlArgs> FilterControls
         {
             get => _filterControls ?? (_filterControls = new InputList<Inputs.DashboardFilterControlArgs>());
@@ -28,17 +43,34 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("layouts")]
         private InputList<Inputs.DashboardLayoutArgs>? _layouts;
+
+        /// <summary>
+        /// A `Layout` defines the placement of elements within a sheet.
+        /// 
+        /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardLayoutArgs> Layouts
         {
             get => _layouts ?? (_layouts = new InputList<Inputs.DashboardLayoutArgs>());
             set => _layouts = value;
         }
 
+        /// <summary>
+        /// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameterControls")]
         private InputList<Inputs.DashboardParameterControlArgs>? _parameterControls;
+
+        /// <summary>
+        /// The control of a parameter that users can interact with in a dashboard or an analysis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardParameterControlArgs> ParameterControls
         {
             get => _parameterControls ?? (_parameterControls = new InputList<Inputs.DashboardParameterControlArgs>());
@@ -47,28 +79,48 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sheetControlLayouts")]
         private InputList<Inputs.DashboardSheetControlLayoutArgs>? _sheetControlLayouts;
+
+        /// <summary>
+        /// A grid layout to define the placement of sheet control.
+        /// </summary>
         public InputList<Inputs.DashboardSheetControlLayoutArgs> SheetControlLayouts
         {
             get => _sheetControlLayouts ?? (_sheetControlLayouts = new InputList<Inputs.DashboardSheetControlLayoutArgs>());
             set => _sheetControlLayouts = value;
         }
 
+        /// <summary>
+        /// The unique identifier of a sheet.
+        /// </summary>
         [Input("sheetId", required: true)]
         public Input<string> SheetId { get; set; } = null!;
 
         [Input("textBoxes")]
         private InputList<Inputs.DashboardSheetTextBoxArgs>? _textBoxes;
+
+        /// <summary>
+        /// A text box.
+        /// </summary>
         public InputList<Inputs.DashboardSheetTextBoxArgs> TextBoxes
         {
             get => _textBoxes ?? (_textBoxes = new InputList<Inputs.DashboardSheetTextBoxArgs>());
             set => _textBoxes = value;
         }
 
+        /// <summary>
+        /// The title of the sheet.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         [Input("visuals")]
         private InputList<Inputs.DashboardVisualArgs>? _visuals;
+
+        /// <summary>
+        /// A visual displayed on a sheet in an analysis, dashboard, or template.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardVisualArgs> Visuals
         {
             get => _visuals ?? (_visuals = new InputList<Inputs.DashboardVisualArgs>());

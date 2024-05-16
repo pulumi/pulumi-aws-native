@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class JobTemplateRateIncreaseCriteriaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The threshold for number of notified things that will initiate the increase in rate of rollout.
+        /// </summary>
         [Input("numberOfNotifiedThings")]
         public Input<int>? NumberOfNotifiedThings { get; set; }
 
+        /// <summary>
+        /// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        /// </summary>
         [Input("numberOfSucceededThings")]
         public Input<int>? NumberOfSucceededThings { get; set; }
 

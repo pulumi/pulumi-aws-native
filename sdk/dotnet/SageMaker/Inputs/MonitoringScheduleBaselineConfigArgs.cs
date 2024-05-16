@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class MonitoringScheduleBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 URI for the constraints resource.
+        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.MonitoringScheduleConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
+        /// <summary>
+        /// The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+        /// </summary>
         [Input("statisticsResource")]
         public Input<Inputs.MonitoringScheduleStatisticsResourceArgs>? StatisticsResource { get; set; }
 

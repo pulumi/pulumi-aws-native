@@ -19,11 +19,24 @@ export function getOriginAccessControl(args: GetOriginAccessControlArgs, opts?: 
 }
 
 export interface GetOriginAccessControlArgs {
+    /**
+     * The unique identifier of the origin access control.
+     */
     id: string;
 }
 
 export interface GetOriginAccessControlResult {
+    /**
+     * The unique identifier of the origin access control.
+     */
     readonly id?: string;
+    /**
+     * Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+     *
+     * This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+     *
+     * For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+     */
     readonly originAccessControlConfig?: outputs.cloudfront.OriginAccessControlConfig;
 }
 /**
@@ -34,5 +47,8 @@ export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputA
 }
 
 export interface GetOriginAccessControlOutputArgs {
+    /**
+     * The unique identifier of the origin access control.
+     */
     id: pulumi.Input<string>;
 }

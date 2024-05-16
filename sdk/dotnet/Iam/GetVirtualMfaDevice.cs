@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetVirtualMfaDeviceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         [Input("serialNumber", required: true)]
         public string SerialNumber { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetVirtualMfaDeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         [Input("serialNumber", required: true)]
         public Input<string> SerialNumber { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetVirtualMfaDeviceResult
     {
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         public readonly string? SerialNumber;
+        /// <summary>
+        /// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The IAM user associated with this virtual MFA device.
+        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

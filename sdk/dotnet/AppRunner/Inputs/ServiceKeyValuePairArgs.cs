@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
 
     public sealed class ServiceKeyValuePairArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key name string to map to a value.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The value string to which the key name is mapped.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

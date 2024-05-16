@@ -19,15 +19,24 @@ export function getTrainingDataset(args: GetTrainingDatasetArgs, opts?: pulumi.I
 }
 
 export interface GetTrainingDatasetArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the training dataset.
+     */
     trainingDatasetArn: string;
 }
 
 export interface GetTrainingDatasetResult {
+    /**
+     * The status of the training dataset.
+     */
     readonly status?: enums.cleanroomsml.TrainingDatasetStatus;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The Amazon Resource Name (ARN) of the training dataset.
+     */
     readonly trainingDatasetArn?: string;
 }
 /**
@@ -38,5 +47,8 @@ export function getTrainingDatasetOutput(args: GetTrainingDatasetOutputArgs, opt
 }
 
 export interface GetTrainingDatasetOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the training dataset.
+     */
     trainingDatasetArn: pulumi.Input<string>;
 }

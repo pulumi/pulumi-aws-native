@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingCustomizedLoadMetric
     {
+        /// <summary>
+        /// One or more metric data queries to provide the data points for a load metric. Use multiple metric data queries only if you are performing a math expression on returned data.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyMetricDataQuery> MetricDataQueries;
 
         [OutputConstructor]

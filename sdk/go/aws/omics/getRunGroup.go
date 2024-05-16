@@ -23,19 +23,29 @@ func LookupRunGroup(ctx *pulumi.Context, args *LookupRunGroupArgs, opts ...pulum
 }
 
 type LookupRunGroupArgs struct {
+	// The run group's ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupRunGroupResult struct {
-	Arn          *string           `pulumi:"arn"`
-	CreationTime *string           `pulumi:"creationTime"`
-	Id           *string           `pulumi:"id"`
-	MaxCpus      *float64          `pulumi:"maxCpus"`
-	MaxDuration  *float64          `pulumi:"maxDuration"`
-	MaxGpus      *float64          `pulumi:"maxGpus"`
-	MaxRuns      *float64          `pulumi:"maxRuns"`
-	Name         *string           `pulumi:"name"`
-	Tags         map[string]string `pulumi:"tags"`
+	// The run group's ARN.
+	Arn *string `pulumi:"arn"`
+	// When the run group was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The run group's ID.
+	Id *string `pulumi:"id"`
+	// The group's maximum CPU count setting.
+	MaxCpus *float64 `pulumi:"maxCpus"`
+	// The group's maximum duration setting in minutes.
+	MaxDuration *float64 `pulumi:"maxDuration"`
+	// The maximum GPUs that can be used by a run group.
+	MaxGpus *float64 `pulumi:"maxGpus"`
+	// The group's maximum concurrent run setting.
+	MaxRuns *float64 `pulumi:"maxRuns"`
+	// The group's name.
+	Name *string `pulumi:"name"`
+	// Tags for the group.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupRunGroupOutput(ctx *pulumi.Context, args LookupRunGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRunGroupResultOutput {
@@ -52,6 +62,7 @@ func LookupRunGroupOutput(ctx *pulumi.Context, args LookupRunGroupOutputArgs, op
 }
 
 type LookupRunGroupOutputArgs struct {
+	// The run group's ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -73,38 +84,47 @@ func (o LookupRunGroupResultOutput) ToLookupRunGroupResultOutputWithContext(ctx 
 	return o
 }
 
+// The run group's ARN.
 func (o LookupRunGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// When the run group was created.
 func (o LookupRunGroupResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The run group's ID.
 func (o LookupRunGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The group's maximum CPU count setting.
 func (o LookupRunGroupResultOutput) MaxCpus() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *float64 { return v.MaxCpus }).(pulumi.Float64PtrOutput)
 }
 
+// The group's maximum duration setting in minutes.
 func (o LookupRunGroupResultOutput) MaxDuration() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *float64 { return v.MaxDuration }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum GPUs that can be used by a run group.
 func (o LookupRunGroupResultOutput) MaxGpus() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *float64 { return v.MaxGpus }).(pulumi.Float64PtrOutput)
 }
 
+// The group's maximum concurrent run setting.
 func (o LookupRunGroupResultOutput) MaxRuns() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *float64 { return v.MaxRuns }).(pulumi.Float64PtrOutput)
 }
 
+// The group's name.
 func (o LookupRunGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Tags for the group.
 func (o LookupRunGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

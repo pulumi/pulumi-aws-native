@@ -23,6 +23,7 @@ func LookupAnomalyMonitor(ctx *pulumi.Context, args *LookupAnomalyMonitorArgs, o
 }
 
 type LookupAnomalyMonitorArgs struct {
+	// The Amazon Resource Name (ARN) value for the monitor.
 	MonitorArn string `pulumi:"monitorArn"`
 }
 
@@ -35,7 +36,8 @@ type LookupAnomalyMonitorResult struct {
 	LastEvaluatedDate *string `pulumi:"lastEvaluatedDate"`
 	// The date when the monitor was last updated.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	MonitorArn      *string `pulumi:"monitorArn"`
+	// The Amazon Resource Name (ARN) value for the monitor.
+	MonitorArn *string `pulumi:"monitorArn"`
 	// The name of the monitor.
 	MonitorName *string `pulumi:"monitorName"`
 }
@@ -54,6 +56,7 @@ func LookupAnomalyMonitorOutput(ctx *pulumi.Context, args LookupAnomalyMonitorOu
 }
 
 type LookupAnomalyMonitorOutputArgs struct {
+	// The Amazon Resource Name (ARN) value for the monitor.
 	MonitorArn pulumi.StringInput `pulumi:"monitorArn"`
 }
 
@@ -95,6 +98,7 @@ func (o LookupAnomalyMonitorResultOutput) LastUpdatedDate() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupAnomalyMonitorResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) value for the monitor.
 func (o LookupAnomalyMonitorResultOutput) MonitorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnomalyMonitorResult) *string { return v.MonitorArn }).(pulumi.StringPtrOutput)
 }

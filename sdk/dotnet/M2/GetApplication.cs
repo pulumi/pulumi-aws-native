@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.M2
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the application.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.M2
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the application.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
@@ -51,9 +57,23 @@ namespace Pulumi.AwsNative.M2
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the application.
+        /// </summary>
         public readonly string? ApplicationArn;
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

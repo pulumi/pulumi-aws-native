@@ -13,20 +13,67 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetEcsTaskParameters
     {
+        /// <summary>
+        /// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeCapacityProviderStrategyItem> CapacityProviderStrategy;
+        /// <summary>
+        /// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         public readonly bool? EnableEcsManagedTags;
+        /// <summary>
+        /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        /// </summary>
         public readonly bool? EnableExecuteCommand;
+        /// <summary>
+        /// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+        /// </summary>
         public readonly string? Group;
+        /// <summary>
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeLaunchType? LaunchType;
+        /// <summary>
+        /// This structure specifies the network configuration for an Amazon ECS task.
+        /// </summary>
         public readonly Outputs.PipeNetworkConfiguration? NetworkConfiguration;
+        /// <summary>
+        /// The overrides that are associated with a task.
+        /// </summary>
         public readonly Outputs.PipeEcsTaskOverride? Overrides;
+        /// <summary>
+        /// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipePlacementConstraint> PlacementConstraints;
+        /// <summary>
+        /// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipePlacementStrategy> PlacementStrategy;
+        /// <summary>
+        /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
+        /// 
+        /// This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         public readonly string? PlatformVersion;
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the `TagResource` API action.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipePropagateTags? PropagateTags;
+        /// <summary>
+        /// The reference ID to use for the task.
+        /// </summary>
         public readonly string? ReferenceId;
+        /// <summary>
+        /// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeTag> Tags;
+        /// <summary>
+        /// The number of tasks to create based on `TaskDefinition` . The default is 1.
+        /// </summary>
         public readonly int? TaskCount;
+        /// <summary>
+        /// The ARN of the task definition to use if the event target is an Amazon ECS task.
+        /// </summary>
         public readonly string TaskDefinitionArn;
 
         [OutputConstructor]

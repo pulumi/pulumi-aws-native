@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:StorageProfile")]
     public partial class StorageProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The display name of the storage profile summary to update.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the farm that contains the storage profile.
+        /// </summary>
         [Output("farmId")]
         public Output<string?> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the file system location for the resource.
+        /// </summary>
         [Output("fileSystemLocations")]
         public Output<ImmutableArray<Outputs.StorageProfileFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
 
+        /// <summary>
+        /// The operating system (OS) family.
+        /// </summary>
         [Output("osFamily")]
         public Output<Pulumi.AwsNative.Deadline.StorageProfileOperatingSystemFamily> OsFamily { get; private set; } = null!;
 
+        /// <summary>
+        /// The storage profile ID.
+        /// </summary>
         [Output("storageProfileId")]
         public Output<string> StorageProfileId { get; private set; } = null!;
 
@@ -79,20 +94,33 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display name of the storage profile summary to update.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the farm that contains the storage profile.
+        /// </summary>
         [Input("farmId")]
         public Input<string>? FarmId { get; set; }
 
         [Input("fileSystemLocations")]
         private InputList<Inputs.StorageProfileFileSystemLocationArgs>? _fileSystemLocations;
+
+        /// <summary>
+        /// The details of the file system location for the resource.
+        /// </summary>
         public InputList<Inputs.StorageProfileFileSystemLocationArgs> FileSystemLocations
         {
             get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.StorageProfileFileSystemLocationArgs>());
             set => _fileSystemLocations = value;
         }
 
+        /// <summary>
+        /// The operating system (OS) family.
+        /// </summary>
         [Input("osFamily", required: true)]
         public Input<Pulumi.AwsNative.Deadline.StorageProfileOperatingSystemFamily> OsFamily { get; set; } = null!;
 

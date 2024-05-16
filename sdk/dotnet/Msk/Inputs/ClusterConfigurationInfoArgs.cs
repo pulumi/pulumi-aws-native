@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the configuration to use.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// The revision of the configuration to use.
+        /// </summary>
         [Input("revision", required: true)]
         public Input<int> Revision { get; set; } = null!;
 

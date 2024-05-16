@@ -164,5 +164,8 @@ class Standard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="standardsSubscriptionArn")
     def standards_subscription_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of a resource that represents your subscription to a supported standard.
+        """
         return pulumi.get(self, "standards_subscription_arn")
 

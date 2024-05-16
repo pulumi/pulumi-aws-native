@@ -24,11 +24,13 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 
 type LookupDeploymentArgs struct {
 	// The API identifier.
-	ApiId        string `pulumi:"apiId"`
+	ApiId string `pulumi:"apiId"`
+	// The deployment ID.
 	DeploymentId string `pulumi:"deploymentId"`
 }
 
 type LookupDeploymentResult struct {
+	// The deployment ID.
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The description for the deployment resource.
 	Description *string `pulumi:"description"`
@@ -49,7 +51,8 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 
 type LookupDeploymentOutputArgs struct {
 	// The API identifier.
-	ApiId        pulumi.StringInput `pulumi:"apiId"`
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The deployment ID.
 	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 }
 
@@ -71,6 +74,7 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(
 	return o
 }
 
+// The deployment ID.
 func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }

@@ -319,6 +319,9 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property

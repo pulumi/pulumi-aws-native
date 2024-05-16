@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssociationInstanceAssociationOutputLocation struct {
+	// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
 	S3Location *AssociationS3OutputLocation `pulumi:"s3Location"`
 }
 
@@ -29,6 +30,7 @@ type AssociationInstanceAssociationOutputLocationInput interface {
 }
 
 type AssociationInstanceAssociationOutputLocationArgs struct {
+	// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
 	S3Location AssociationS3OutputLocationPtrInput `pulumi:"s3Location"`
 }
 
@@ -109,6 +111,7 @@ func (o AssociationInstanceAssociationOutputLocationOutput) ToAssociationInstanc
 	}).(AssociationInstanceAssociationOutputLocationPtrOutput)
 }
 
+// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
 func (o AssociationInstanceAssociationOutputLocationOutput) S3Location() AssociationS3OutputLocationPtrOutput {
 	return o.ApplyT(func(v AssociationInstanceAssociationOutputLocation) *AssociationS3OutputLocation { return v.S3Location }).(AssociationS3OutputLocationPtrOutput)
 }
@@ -137,6 +140,7 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) Elem() Associatio
 	}).(AssociationInstanceAssociationOutputLocationOutput)
 }
 
+// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
 func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() AssociationS3OutputLocationPtrOutput {
 	return o.ApplyT(func(v *AssociationInstanceAssociationOutputLocation) *AssociationS3OutputLocation {
 		if v == nil {
@@ -147,9 +151,12 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() Asso
 }
 
 type AssociationS3OutputLocation struct {
+	// The name of the S3 bucket.
 	OutputS3BucketName *string `pulumi:"outputS3BucketName"`
-	OutputS3KeyPrefix  *string `pulumi:"outputS3KeyPrefix"`
-	OutputS3Region     *string `pulumi:"outputS3Region"`
+	// The S3 bucket subfolder.
+	OutputS3KeyPrefix *string `pulumi:"outputS3KeyPrefix"`
+	// The AWS Region of the S3 bucket.
+	OutputS3Region *string `pulumi:"outputS3Region"`
 }
 
 // AssociationS3OutputLocationInput is an input type that accepts AssociationS3OutputLocationArgs and AssociationS3OutputLocationOutput values.
@@ -164,9 +171,12 @@ type AssociationS3OutputLocationInput interface {
 }
 
 type AssociationS3OutputLocationArgs struct {
+	// The name of the S3 bucket.
 	OutputS3BucketName pulumi.StringPtrInput `pulumi:"outputS3BucketName"`
-	OutputS3KeyPrefix  pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
-	OutputS3Region     pulumi.StringPtrInput `pulumi:"outputS3Region"`
+	// The S3 bucket subfolder.
+	OutputS3KeyPrefix pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
+	// The AWS Region of the S3 bucket.
+	OutputS3Region pulumi.StringPtrInput `pulumi:"outputS3Region"`
 }
 
 func (AssociationS3OutputLocationArgs) ElementType() reflect.Type {
@@ -246,14 +256,17 @@ func (o AssociationS3OutputLocationOutput) ToAssociationS3OutputLocationPtrOutpu
 	}).(AssociationS3OutputLocationPtrOutput)
 }
 
+// The name of the S3 bucket.
 func (o AssociationS3OutputLocationOutput) OutputS3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationS3OutputLocation) *string { return v.OutputS3BucketName }).(pulumi.StringPtrOutput)
 }
 
+// The S3 bucket subfolder.
 func (o AssociationS3OutputLocationOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationS3OutputLocation) *string { return v.OutputS3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region of the S3 bucket.
 func (o AssociationS3OutputLocationOutput) OutputS3Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationS3OutputLocation) *string { return v.OutputS3Region }).(pulumi.StringPtrOutput)
 }
@@ -282,6 +295,7 @@ func (o AssociationS3OutputLocationPtrOutput) Elem() AssociationS3OutputLocation
 	}).(AssociationS3OutputLocationOutput)
 }
 
+// The name of the S3 bucket.
 func (o AssociationS3OutputLocationPtrOutput) OutputS3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationS3OutputLocation) *string {
 		if v == nil {
@@ -291,6 +305,7 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3BucketName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 bucket subfolder.
 func (o AssociationS3OutputLocationPtrOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationS3OutputLocation) *string {
 		if v == nil {
@@ -300,6 +315,7 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3KeyPrefix() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region of the S3 bucket.
 func (o AssociationS3OutputLocationPtrOutput) OutputS3Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationS3OutputLocation) *string {
 		if v == nil {
@@ -310,7 +326,11 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3Region() pulumi.StringPtrO
 }
 
 type AssociationTarget struct {
-	Key    string   `pulumi:"key"`
+	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
+	Key string `pulumi:"key"`
+	// User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
+	//
+	// Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
 	Values []string `pulumi:"values"`
 }
 
@@ -326,7 +346,11 @@ type AssociationTargetInput interface {
 }
 
 type AssociationTargetArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
+	Key pulumi.StringInput `pulumi:"key"`
+	// User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
+	//
+	// Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -381,10 +405,14 @@ func (o AssociationTargetOutput) ToAssociationTargetOutputWithContext(ctx contex
 	return o
 }
 
+// User-defined criteria for sending commands that target managed nodes that meet the criteria.
 func (o AssociationTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
+//
+// Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
 func (o AssociationTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssociationTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -639,8 +667,14 @@ type DocumentTag struct {
 
 // Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilter struct {
-	Key    *PatchBaselinePatchFilterKey `pulumi:"key"`
-	Values []string                     `pulumi:"values"`
+	// The key for the filter.
+	//
+	// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+	Key *PatchBaselinePatchFilterKey `pulumi:"key"`
+	// The value for the filter key.
+	//
+	// For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+	Values []string `pulumi:"values"`
 }
 
 // PatchBaselinePatchFilterInput is an input type that accepts PatchBaselinePatchFilterArgs and PatchBaselinePatchFilterOutput values.
@@ -656,8 +690,14 @@ type PatchBaselinePatchFilterInput interface {
 
 // Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilterArgs struct {
-	Key    PatchBaselinePatchFilterKeyPtrInput `pulumi:"key"`
-	Values pulumi.StringArrayInput             `pulumi:"values"`
+	// The key for the filter.
+	//
+	// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+	Key PatchBaselinePatchFilterKeyPtrInput `pulumi:"key"`
+	// The value for the filter key.
+	//
+	// For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (PatchBaselinePatchFilterArgs) ElementType() reflect.Type {
@@ -712,10 +752,16 @@ func (o PatchBaselinePatchFilterOutput) ToPatchBaselinePatchFilterOutputWithCont
 	return o
 }
 
+// The key for the filter.
+//
+// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
 func (o PatchBaselinePatchFilterOutput) Key() PatchBaselinePatchFilterKeyPtrOutput {
 	return o.ApplyT(func(v PatchBaselinePatchFilter) *PatchBaselinePatchFilterKey { return v.Key }).(PatchBaselinePatchFilterKeyPtrOutput)
 }
 
+// The value for the filter key.
+//
+// For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
 func (o PatchBaselinePatchFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PatchBaselinePatchFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -742,6 +788,11 @@ func (o PatchBaselinePatchFilterArrayOutput) Index(i pulumi.IntInput) PatchBasel
 
 // The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroup struct {
+	// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
+	//
+	// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
+	//
+	// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
 	PatchFilters []PatchBaselinePatchFilter `pulumi:"patchFilters"`
 }
 
@@ -758,6 +809,11 @@ type PatchBaselinePatchFilterGroupInput interface {
 
 // The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroupArgs struct {
+	// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
+	//
+	// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
+	//
+	// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
 	PatchFilters PatchBaselinePatchFilterArrayInput `pulumi:"patchFilters"`
 }
 
@@ -839,6 +895,11 @@ func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupPtrO
 	}).(PatchBaselinePatchFilterGroupPtrOutput)
 }
 
+// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
+//
+// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
+//
+// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
 func (o PatchBaselinePatchFilterGroupOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
 	return o.ApplyT(func(v PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter { return v.PatchFilters }).(PatchBaselinePatchFilterArrayOutput)
 }
@@ -867,6 +928,11 @@ func (o PatchBaselinePatchFilterGroupPtrOutput) Elem() PatchBaselinePatchFilterG
 	}).(PatchBaselinePatchFilterGroupOutput)
 }
 
+// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
+//
+// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
+//
+// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
 func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
 	return o.ApplyT(func(v *PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter {
 		if v == nil {
@@ -878,9 +944,22 @@ func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatc
 
 // Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSource struct {
-	Configuration *string  `pulumi:"configuration"`
-	Name          *string  `pulumi:"name"`
-	Products      []string `pulumi:"products"`
+	// The value of the yum repo configuration. For example:
+	//
+	// `[main]`
+	//
+	// `name=MyCustomRepository`
+	//
+	// `baseurl=https://my-custom-repository`
+	//
+	// `enabled=1`
+	//
+	// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+	Configuration *string `pulumi:"configuration"`
+	// The name specified to identify the patch source.
+	Name *string `pulumi:"name"`
+	// The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+	Products []string `pulumi:"products"`
 }
 
 // PatchBaselinePatchSourceInput is an input type that accepts PatchBaselinePatchSourceArgs and PatchBaselinePatchSourceOutput values.
@@ -896,9 +975,22 @@ type PatchBaselinePatchSourceInput interface {
 
 // Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSourceArgs struct {
-	Configuration pulumi.StringPtrInput   `pulumi:"configuration"`
-	Name          pulumi.StringPtrInput   `pulumi:"name"`
-	Products      pulumi.StringArrayInput `pulumi:"products"`
+	// The value of the yum repo configuration. For example:
+	//
+	// `[main]`
+	//
+	// `name=MyCustomRepository`
+	//
+	// `baseurl=https://my-custom-repository`
+	//
+	// `enabled=1`
+	//
+	// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
+	// The name specified to identify the patch source.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+	Products pulumi.StringArrayInput `pulumi:"products"`
 }
 
 func (PatchBaselinePatchSourceArgs) ElementType() reflect.Type {
@@ -953,14 +1045,27 @@ func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutputWithCont
 	return o
 }
 
+// The value of the yum repo configuration. For example:
+//
+// `[main]`
+//
+// `name=MyCustomRepository`
+//
+// `baseurl=https://my-custom-repository`
+//
+// `enabled=1`
+//
+// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
 func (o PatchBaselinePatchSourceOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
+// The name specified to identify the patch source.
 func (o PatchBaselinePatchSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
 func (o PatchBaselinePatchSourceOutput) Products() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PatchBaselinePatchSource) []string { return v.Products }).(pulumi.StringArrayOutput)
 }
@@ -987,11 +1092,24 @@ func (o PatchBaselinePatchSourceArrayOutput) Index(i pulumi.IntInput) PatchBasel
 
 // Defines an approval rule for a patch baseline.
 type PatchBaselineRule struct {
-	ApproveAfterDays  *int                              `pulumi:"approveAfterDays"`
-	ApproveUntilDate  *string                           `pulumi:"approveUntilDate"`
-	ComplianceLevel   *PatchBaselineRuleComplianceLevel `pulumi:"complianceLevel"`
-	EnableNonSecurity *bool                             `pulumi:"enableNonSecurity"`
-	PatchFilterGroup  *PatchBaselinePatchFilterGroup    `pulumi:"patchFilterGroup"`
+	// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+	//
+	// You must specify a value for `ApproveAfterDays` .
+	//
+	// Exception: Not supported on Debian Server or Ubuntu Server.
+	ApproveAfterDays *int `pulumi:"approveAfterDays"`
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+	//
+	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+	ApproveUntilDate *string `pulumi:"approveUntilDate"`
+	// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+	ComplianceLevel *PatchBaselineRuleComplianceLevel `pulumi:"complianceLevel"`
+	// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
+	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
+	// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
+	//
+	// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+	PatchFilterGroup *PatchBaselinePatchFilterGroup `pulumi:"patchFilterGroup"`
 }
 
 // PatchBaselineRuleInput is an input type that accepts PatchBaselineRuleArgs and PatchBaselineRuleOutput values.
@@ -1007,11 +1125,24 @@ type PatchBaselineRuleInput interface {
 
 // Defines an approval rule for a patch baseline.
 type PatchBaselineRuleArgs struct {
-	ApproveAfterDays  pulumi.IntPtrInput                       `pulumi:"approveAfterDays"`
-	ApproveUntilDate  pulumi.StringPtrInput                    `pulumi:"approveUntilDate"`
-	ComplianceLevel   PatchBaselineRuleComplianceLevelPtrInput `pulumi:"complianceLevel"`
-	EnableNonSecurity pulumi.BoolPtrInput                      `pulumi:"enableNonSecurity"`
-	PatchFilterGroup  PatchBaselinePatchFilterGroupPtrInput    `pulumi:"patchFilterGroup"`
+	// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+	//
+	// You must specify a value for `ApproveAfterDays` .
+	//
+	// Exception: Not supported on Debian Server or Ubuntu Server.
+	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+	//
+	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+	ApproveUntilDate pulumi.StringPtrInput `pulumi:"approveUntilDate"`
+	// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+	ComplianceLevel PatchBaselineRuleComplianceLevelPtrInput `pulumi:"complianceLevel"`
+	// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
+	EnableNonSecurity pulumi.BoolPtrInput `pulumi:"enableNonSecurity"`
+	// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
+	//
+	// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+	PatchFilterGroup PatchBaselinePatchFilterGroupPtrInput `pulumi:"patchFilterGroup"`
 }
 
 func (PatchBaselineRuleArgs) ElementType() reflect.Type {
@@ -1066,22 +1197,35 @@ func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutputWithContext(ctx contex
 	return o
 }
 
+// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+//
+// You must specify a value for `ApproveAfterDays` .
+//
+// Exception: Not supported on Debian Server or Ubuntu Server.
 func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
 }
 
+// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+//
+// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
 func (o PatchBaselineRuleOutput) ApproveUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ApproveUntilDate }).(pulumi.StringPtrOutput)
 }
 
+// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
 func (o PatchBaselineRuleOutput) ComplianceLevel() PatchBaselineRuleComplianceLevelPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselineRuleComplianceLevel { return v.ComplianceLevel }).(PatchBaselineRuleComplianceLevelPtrOutput)
 }
 
+// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
 func (o PatchBaselineRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
+// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
+//
+// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
 func (o PatchBaselineRuleOutput) PatchFilterGroup() PatchBaselinePatchFilterGroupPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchFilterGroup { return v.PatchFilterGroup }).(PatchBaselinePatchFilterGroupPtrOutput)
 }
@@ -1108,6 +1252,9 @@ func (o PatchBaselineRuleArrayOutput) Index(i pulumi.IntInput) PatchBaselineRule
 
 // A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroup struct {
+	// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+	//
+	// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
 	PatchRules []PatchBaselineRule `pulumi:"patchRules"`
 }
 
@@ -1124,6 +1271,9 @@ type PatchBaselineRuleGroupInput interface {
 
 // A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroupArgs struct {
+	// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+	//
+	// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
 	PatchRules PatchBaselineRuleArrayInput `pulumi:"patchRules"`
 }
 
@@ -1205,6 +1355,9 @@ func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupPtrOutputWithConte
 	}).(PatchBaselineRuleGroupPtrOutput)
 }
 
+// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+//
+// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
 func (o PatchBaselineRuleGroupOutput) PatchRules() PatchBaselineRuleArrayOutput {
 	return o.ApplyT(func(v PatchBaselineRuleGroup) []PatchBaselineRule { return v.PatchRules }).(PatchBaselineRuleArrayOutput)
 }
@@ -1233,6 +1386,9 @@ func (o PatchBaselineRuleGroupPtrOutput) Elem() PatchBaselineRuleGroupOutput {
 	}).(PatchBaselineRuleGroupOutput)
 }
 
+// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+//
+// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
 func (o PatchBaselineRuleGroupPtrOutput) PatchRules() PatchBaselineRuleArrayOutput {
 	return o.ApplyT(func(v *PatchBaselineRuleGroup) []PatchBaselineRule {
 		if v == nil {
@@ -1244,13 +1400,17 @@ func (o PatchBaselineRuleGroupPtrOutput) PatchRules() PatchBaselineRuleArrayOutp
 
 // Metadata that you assign to your AWS resources.
 type PatchBaselineTag struct {
-	Key   string `pulumi:"key"`
+	// The name of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type ResourceDataSyncAwsOrganizationsSource struct {
-	OrganizationSourceType string   `pulumi:"organizationSourceType"`
-	OrganizationalUnits    []string `pulumi:"organizationalUnits"`
+	// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+	OrganizationSourceType string `pulumi:"organizationSourceType"`
+	// The AWS Organizations organization units included in the sync.
+	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 }
 
 // ResourceDataSyncAwsOrganizationsSourceInput is an input type that accepts ResourceDataSyncAwsOrganizationsSourceArgs and ResourceDataSyncAwsOrganizationsSourceOutput values.
@@ -1265,8 +1425,10 @@ type ResourceDataSyncAwsOrganizationsSourceInput interface {
 }
 
 type ResourceDataSyncAwsOrganizationsSourceArgs struct {
-	OrganizationSourceType pulumi.StringInput      `pulumi:"organizationSourceType"`
-	OrganizationalUnits    pulumi.StringArrayInput `pulumi:"organizationalUnits"`
+	// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+	OrganizationSourceType pulumi.StringInput `pulumi:"organizationSourceType"`
+	// The AWS Organizations organization units included in the sync.
+	OrganizationalUnits pulumi.StringArrayInput `pulumi:"organizationalUnits"`
 }
 
 func (ResourceDataSyncAwsOrganizationsSourceArgs) ElementType() reflect.Type {
@@ -1346,10 +1508,12 @@ func (o ResourceDataSyncAwsOrganizationsSourceOutput) ToResourceDataSyncAwsOrgan
 	}).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
+// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
 func (o ResourceDataSyncAwsOrganizationsSourceOutput) OrganizationSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncAwsOrganizationsSource) string { return v.OrganizationSourceType }).(pulumi.StringOutput)
 }
 
+// The AWS Organizations organization units included in the sync.
 func (o ResourceDataSyncAwsOrganizationsSourceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDataSyncAwsOrganizationsSource) []string { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
@@ -1378,6 +1542,7 @@ func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) Elem() ResourceDataSync
 	}).(ResourceDataSyncAwsOrganizationsSourceOutput)
 }
 
+// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
 func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationSourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncAwsOrganizationsSource) *string {
 		if v == nil {
@@ -1387,6 +1552,7 @@ func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationSourceType(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS Organizations organization units included in the sync.
 func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDataSyncAwsOrganizationsSource) []string {
 		if v == nil {
@@ -1397,11 +1563,16 @@ func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationalUnits() p
 }
 
 type ResourceDataSyncS3Destination struct {
-	BucketName   string  `pulumi:"bucketName"`
+	// The name of the S3 bucket where the aggregated data is stored.
+	BucketName string `pulumi:"bucketName"`
+	// An Amazon S3 prefix for the bucket.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	BucketRegion string  `pulumi:"bucketRegion"`
-	KmsKeyArn    *string `pulumi:"kmsKeyArn"`
-	SyncFormat   string  `pulumi:"syncFormat"`
+	// The AWS Region with the S3 bucket targeted by the resource data sync.
+	BucketRegion string `pulumi:"bucketRegion"`
+	// The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// A supported sync format. The following format is currently supported: JsonSerDe
+	SyncFormat string `pulumi:"syncFormat"`
 }
 
 // ResourceDataSyncS3DestinationInput is an input type that accepts ResourceDataSyncS3DestinationArgs and ResourceDataSyncS3DestinationOutput values.
@@ -1416,11 +1587,16 @@ type ResourceDataSyncS3DestinationInput interface {
 }
 
 type ResourceDataSyncS3DestinationArgs struct {
-	BucketName   pulumi.StringInput    `pulumi:"bucketName"`
+	// The name of the S3 bucket where the aggregated data is stored.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// An Amazon S3 prefix for the bucket.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	BucketRegion pulumi.StringInput    `pulumi:"bucketRegion"`
-	KmsKeyArn    pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	SyncFormat   pulumi.StringInput    `pulumi:"syncFormat"`
+	// The AWS Region with the S3 bucket targeted by the resource data sync.
+	BucketRegion pulumi.StringInput `pulumi:"bucketRegion"`
+	// The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// A supported sync format. The following format is currently supported: JsonSerDe
+	SyncFormat pulumi.StringInput `pulumi:"syncFormat"`
 }
 
 func (ResourceDataSyncS3DestinationArgs) ElementType() reflect.Type {
@@ -1500,22 +1676,27 @@ func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrO
 	}).(ResourceDataSyncS3DestinationPtrOutput)
 }
 
+// The name of the S3 bucket where the aggregated data is stored.
 func (o ResourceDataSyncS3DestinationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// An Amazon S3 prefix for the bucket.
 func (o ResourceDataSyncS3DestinationOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region with the S3 bucket targeted by the resource data sync.
 func (o ResourceDataSyncS3DestinationOutput) BucketRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.BucketRegion }).(pulumi.StringOutput)
 }
 
+// The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
 func (o ResourceDataSyncS3DestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// A supported sync format. The following format is currently supported: JsonSerDe
 func (o ResourceDataSyncS3DestinationOutput) SyncFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.SyncFormat }).(pulumi.StringOutput)
 }
@@ -1544,6 +1725,7 @@ func (o ResourceDataSyncS3DestinationPtrOutput) Elem() ResourceDataSyncS3Destina
 	}).(ResourceDataSyncS3DestinationOutput)
 }
 
+// The name of the S3 bucket where the aggregated data is stored.
 func (o ResourceDataSyncS3DestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1553,6 +1735,7 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Amazon S3 prefix for the bucket.
 func (o ResourceDataSyncS3DestinationPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1562,6 +1745,7 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketPrefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region with the S3 bucket targeted by the resource data sync.
 func (o ResourceDataSyncS3DestinationPtrOutput) BucketRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1571,6 +1755,7 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketRegion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
 func (o ResourceDataSyncS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1580,6 +1765,7 @@ func (o ResourceDataSyncS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// A supported sync format. The following format is currently supported: JsonSerDe
 func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1590,10 +1776,14 @@ func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOut
 }
 
 type ResourceDataSyncSyncSource struct {
+	// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
 	AwsOrganizationsSource *ResourceDataSyncAwsOrganizationsSource `pulumi:"awsOrganizationsSource"`
-	IncludeFutureRegions   *bool                                   `pulumi:"includeFutureRegions"`
-	SourceRegions          []string                                `pulumi:"sourceRegions"`
-	SourceType             string                                  `pulumi:"sourceType"`
+	// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+	IncludeFutureRegions *bool `pulumi:"includeFutureRegions"`
+	// The `SyncSource` AWS Regions included in the resource data sync.
+	SourceRegions []string `pulumi:"sourceRegions"`
+	// The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
+	SourceType string `pulumi:"sourceType"`
 }
 
 // ResourceDataSyncSyncSourceInput is an input type that accepts ResourceDataSyncSyncSourceArgs and ResourceDataSyncSyncSourceOutput values.
@@ -1608,10 +1798,14 @@ type ResourceDataSyncSyncSourceInput interface {
 }
 
 type ResourceDataSyncSyncSourceArgs struct {
+	// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
 	AwsOrganizationsSource ResourceDataSyncAwsOrganizationsSourcePtrInput `pulumi:"awsOrganizationsSource"`
-	IncludeFutureRegions   pulumi.BoolPtrInput                            `pulumi:"includeFutureRegions"`
-	SourceRegions          pulumi.StringArrayInput                        `pulumi:"sourceRegions"`
-	SourceType             pulumi.StringInput                             `pulumi:"sourceType"`
+	// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+	IncludeFutureRegions pulumi.BoolPtrInput `pulumi:"includeFutureRegions"`
+	// The `SyncSource` AWS Regions included in the resource data sync.
+	SourceRegions pulumi.StringArrayInput `pulumi:"sourceRegions"`
+	// The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
 }
 
 func (ResourceDataSyncSyncSourceArgs) ElementType() reflect.Type {
@@ -1691,20 +1885,24 @@ func (o ResourceDataSyncSyncSourceOutput) ToResourceDataSyncSyncSourcePtrOutputW
 	}).(ResourceDataSyncSyncSourcePtrOutput)
 }
 
+// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
 func (o ResourceDataSyncSyncSourceOutput) AwsOrganizationsSource() ResourceDataSyncAwsOrganizationsSourcePtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) *ResourceDataSyncAwsOrganizationsSource {
 		return v.AwsOrganizationsSource
 	}).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
+// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
 func (o ResourceDataSyncSyncSourceOutput) IncludeFutureRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) *bool { return v.IncludeFutureRegions }).(pulumi.BoolPtrOutput)
 }
 
+// The `SyncSource` AWS Regions included in the resource data sync.
 func (o ResourceDataSyncSyncSourceOutput) SourceRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) []string { return v.SourceRegions }).(pulumi.StringArrayOutput)
 }
 
+// The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
 func (o ResourceDataSyncSyncSourceOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) string { return v.SourceType }).(pulumi.StringOutput)
 }
@@ -1733,6 +1931,7 @@ func (o ResourceDataSyncSyncSourcePtrOutput) Elem() ResourceDataSyncSyncSourceOu
 	}).(ResourceDataSyncSyncSourceOutput)
 }
 
+// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
 func (o ResourceDataSyncSyncSourcePtrOutput) AwsOrganizationsSource() ResourceDataSyncAwsOrganizationsSourcePtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *ResourceDataSyncAwsOrganizationsSource {
 		if v == nil {
@@ -1742,6 +1941,7 @@ func (o ResourceDataSyncSyncSourcePtrOutput) AwsOrganizationsSource() ResourceDa
 	}).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
+// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
 func (o ResourceDataSyncSyncSourcePtrOutput) IncludeFutureRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *bool {
 		if v == nil {
@@ -1751,6 +1951,7 @@ func (o ResourceDataSyncSyncSourcePtrOutput) IncludeFutureRegions() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The `SyncSource` AWS Regions included in the resource data sync.
 func (o ResourceDataSyncSyncSourcePtrOutput) SourceRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) []string {
 		if v == nil {
@@ -1760,6 +1961,7 @@ func (o ResourceDataSyncSyncSourcePtrOutput) SourceRegions() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
 func (o ResourceDataSyncSyncSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *string {
 		if v == nil {

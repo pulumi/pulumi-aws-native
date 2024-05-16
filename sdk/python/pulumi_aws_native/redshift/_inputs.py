@@ -22,6 +22,10 @@ class ClusterEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address: The DNS address of the cluster. This property is read only.
+        :param pulumi.Input[str] port: The port that the database engine is listening on. This property is read only.
+        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -30,6 +34,9 @@ class ClusterEndpointArgs:
     @property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS address of the cluster. This property is read only.
+        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -39,6 +46,9 @@ class ClusterEndpointArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The port that the database engine is listening on. This property is read only.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -51,6 +61,26 @@ class ClusterLoggingPropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The name of an existing S3 bucket where the log files are to be stored.
+               
+               Constraints:
+               
+               - Must be in the same region as the cluster
+               - The cluster must have read bucket and put object permissions
+        :param pulumi.Input[str] s3_key_prefix: The prefix applied to the log file names.
+               
+               Constraints:
+               
+               - Cannot exceed 512 characters
+               - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\\), or control characters. The hexadecimal codes for invalid characters are:
+               
+               - x00 to x20
+               - x22
+               - x27
+               - x5c
+               - x7f or larger
+        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if s3_key_prefix is not None:
@@ -59,6 +89,14 @@ class ClusterLoggingPropertiesArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing S3 bucket where the log files are to be stored.
+
+        Constraints:
+
+        - Must be in the same region as the cluster
+        - The cluster must have read bucket and put object permissions
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -68,6 +106,20 @@ class ClusterLoggingPropertiesArgs:
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix applied to the log file names.
+
+        Constraints:
+
+        - Cannot exceed 512 characters
+        - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\\), or control characters. The hexadecimal codes for invalid characters are:
+
+        - x00 to x20
+        - x22
+        - x27
+        - x5c
+        - x7f or larger
+        """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter

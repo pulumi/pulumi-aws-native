@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SsmIncidents
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Chatbot chat channel used for collaboration during an incident.
+        /// </summary>
         [Output("chatChannel")]
         public Output<Outputs.ResponsePlanChatChannel?> ChatChannel { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.SsmIncidents
         [Output("engagements")]
         public Output<ImmutableArray<string>> Engagements { get; private set; } = null!;
 
+        /// <summary>
+        /// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        /// </summary>
         [Output("incidentTemplate")]
         public Output<Outputs.ResponsePlanIncidentTemplate> IncidentTemplate { get; private set; } = null!;
 
@@ -124,6 +130,9 @@ namespace Pulumi.AwsNative.SsmIncidents
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The AWS Chatbot chat channel used for collaboration during an incident.
+        /// </summary>
         [Input("chatChannel")]
         public Input<Inputs.ResponsePlanChatChannelArgs>? ChatChannel { get; set; }
 
@@ -145,6 +154,9 @@ namespace Pulumi.AwsNative.SsmIncidents
             set => _engagements = value;
         }
 
+        /// <summary>
+        /// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        /// </summary>
         [Input("incidentTemplate", required: true)]
         public Input<Inputs.ResponsePlanIncidentTemplateArgs> IncidentTemplate { get; set; } = null!;
 

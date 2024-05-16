@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetImageBuilderArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A unique name for the image builder.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetImageBuilderInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A unique name for the image builder.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,19 +57,97 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetImageBuilderResult
     {
+        /// <summary>
+        /// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ImageBuilderAccessEndpoint> AccessEndpoints;
+        /// <summary>
+        /// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        /// </summary>
         public readonly string? AppstreamAgentVersion;
+        /// <summary>
+        /// The description to display.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The image builder name to display.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+        /// </summary>
         public readonly Outputs.ImageBuilderDomainJoinInfo? DomainJoinInfo;
+        /// <summary>
+        /// Enables or disables default internet access for the image builder.
+        /// </summary>
         public readonly bool? EnableDefaultInternetAccess;
+        /// <summary>
+        /// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+        /// 
+        /// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+        /// </summary>
         public readonly string? IamRoleArn;
+        /// <summary>
+        /// The ARN of the public, private, or shared image to use.
+        /// </summary>
         public readonly string? ImageArn;
+        /// <summary>
+        /// The name of the image used to create the image builder.
+        /// </summary>
         public readonly string? ImageName;
+        /// <summary>
+        /// The instance type to use when launching the image builder. The following instance types are available:
+        /// 
+        /// - stream.standard.small
+        /// - stream.standard.medium
+        /// - stream.standard.large
+        /// - stream.compute.large
+        /// - stream.compute.xlarge
+        /// - stream.compute.2xlarge
+        /// - stream.compute.4xlarge
+        /// - stream.compute.8xlarge
+        /// - stream.memory.large
+        /// - stream.memory.xlarge
+        /// - stream.memory.2xlarge
+        /// - stream.memory.4xlarge
+        /// - stream.memory.8xlarge
+        /// - stream.memory.z1d.large
+        /// - stream.memory.z1d.xlarge
+        /// - stream.memory.z1d.2xlarge
+        /// - stream.memory.z1d.3xlarge
+        /// - stream.memory.z1d.6xlarge
+        /// - stream.memory.z1d.12xlarge
+        /// - stream.graphics-design.large
+        /// - stream.graphics-design.xlarge
+        /// - stream.graphics-design.2xlarge
+        /// - stream.graphics-design.4xlarge
+        /// - stream.graphics-desktop.2xlarge
+        /// - stream.graphics.g4dn.xlarge
+        /// - stream.graphics.g4dn.2xlarge
+        /// - stream.graphics.g4dn.4xlarge
+        /// - stream.graphics.g4dn.8xlarge
+        /// - stream.graphics.g4dn.12xlarge
+        /// - stream.graphics.g4dn.16xlarge
+        /// - stream.graphics-pro.4xlarge
+        /// - stream.graphics-pro.8xlarge
+        /// - stream.graphics-pro.16xlarge
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// A unique name for the image builder.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The URL to start an image builder streaming session, returned as a string.
+        /// </summary>
         public readonly string? StreamingUrl;
+        /// <summary>
+        /// The tag of the image builder.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The VPC configuration for the image builder.
+        /// </summary>
         public readonly Outputs.ImageBuilderVpcConfig? VpcConfig;
 
         [OutputConstructor]

@@ -728,12 +728,15 @@ func (o WorkspaceRoleValuesPtrOutput) Editor() pulumi.StringArrayOutput {
 // SAML configuration data associated with an AMG workspace.
 type WorkspaceSamlConfiguration struct {
 	// List of SAML organizations allowed to access Grafana.
-	AllowedOrganizations []string                      `pulumi:"allowedOrganizations"`
-	AssertionAttributes  *WorkspaceAssertionAttributes `pulumi:"assertionAttributes"`
-	IdpMetadata          WorkspaceIdpMetadata          `pulumi:"idpMetadata"`
+	AllowedOrganizations []string `pulumi:"allowedOrganizations"`
+	// A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
+	AssertionAttributes *WorkspaceAssertionAttributes `pulumi:"assertionAttributes"`
+	// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the `url` parameter, or by specifying the full metadata in XML format in the `xml` parameter. Specifying both will cause an error.
+	IdpMetadata WorkspaceIdpMetadata `pulumi:"idpMetadata"`
 	// The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
-	LoginValidityDuration *float64             `pulumi:"loginValidityDuration"`
-	RoleValues            *WorkspaceRoleValues `pulumi:"roleValues"`
+	LoginValidityDuration *float64 `pulumi:"loginValidityDuration"`
+	// This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana `Admin` and `Editor` roles in the workspace. SAML authenticated users not part of `Admin` or `Editor` role groups have `Viewer` permission over the workspace.
+	RoleValues *WorkspaceRoleValues `pulumi:"roleValues"`
 }
 
 // WorkspaceSamlConfigurationInput is an input type that accepts WorkspaceSamlConfigurationArgs and WorkspaceSamlConfigurationOutput values.
@@ -750,12 +753,15 @@ type WorkspaceSamlConfigurationInput interface {
 // SAML configuration data associated with an AMG workspace.
 type WorkspaceSamlConfigurationArgs struct {
 	// List of SAML organizations allowed to access Grafana.
-	AllowedOrganizations pulumi.StringArrayInput              `pulumi:"allowedOrganizations"`
-	AssertionAttributes  WorkspaceAssertionAttributesPtrInput `pulumi:"assertionAttributes"`
-	IdpMetadata          WorkspaceIdpMetadataInput            `pulumi:"idpMetadata"`
+	AllowedOrganizations pulumi.StringArrayInput `pulumi:"allowedOrganizations"`
+	// A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
+	AssertionAttributes WorkspaceAssertionAttributesPtrInput `pulumi:"assertionAttributes"`
+	// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the `url` parameter, or by specifying the full metadata in XML format in the `xml` parameter. Specifying both will cause an error.
+	IdpMetadata WorkspaceIdpMetadataInput `pulumi:"idpMetadata"`
 	// The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
-	LoginValidityDuration pulumi.Float64PtrInput      `pulumi:"loginValidityDuration"`
-	RoleValues            WorkspaceRoleValuesPtrInput `pulumi:"roleValues"`
+	LoginValidityDuration pulumi.Float64PtrInput `pulumi:"loginValidityDuration"`
+	// This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana `Admin` and `Editor` roles in the workspace. SAML authenticated users not part of `Admin` or `Editor` role groups have `Viewer` permission over the workspace.
+	RoleValues WorkspaceRoleValuesPtrInput `pulumi:"roleValues"`
 }
 
 func (WorkspaceSamlConfigurationArgs) ElementType() reflect.Type {
@@ -841,10 +847,12 @@ func (o WorkspaceSamlConfigurationOutput) AllowedOrganizations() pulumi.StringAr
 	return o.ApplyT(func(v WorkspaceSamlConfiguration) []string { return v.AllowedOrganizations }).(pulumi.StringArrayOutput)
 }
 
+// A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
 func (o WorkspaceSamlConfigurationOutput) AssertionAttributes() WorkspaceAssertionAttributesPtrOutput {
 	return o.ApplyT(func(v WorkspaceSamlConfiguration) *WorkspaceAssertionAttributes { return v.AssertionAttributes }).(WorkspaceAssertionAttributesPtrOutput)
 }
 
+// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the `url` parameter, or by specifying the full metadata in XML format in the `xml` parameter. Specifying both will cause an error.
 func (o WorkspaceSamlConfigurationOutput) IdpMetadata() WorkspaceIdpMetadataOutput {
 	return o.ApplyT(func(v WorkspaceSamlConfiguration) WorkspaceIdpMetadata { return v.IdpMetadata }).(WorkspaceIdpMetadataOutput)
 }
@@ -854,6 +862,7 @@ func (o WorkspaceSamlConfigurationOutput) LoginValidityDuration() pulumi.Float64
 	return o.ApplyT(func(v WorkspaceSamlConfiguration) *float64 { return v.LoginValidityDuration }).(pulumi.Float64PtrOutput)
 }
 
+// This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana `Admin` and `Editor` roles in the workspace. SAML authenticated users not part of `Admin` or `Editor` role groups have `Viewer` permission over the workspace.
 func (o WorkspaceSamlConfigurationOutput) RoleValues() WorkspaceRoleValuesPtrOutput {
 	return o.ApplyT(func(v WorkspaceSamlConfiguration) *WorkspaceRoleValues { return v.RoleValues }).(WorkspaceRoleValuesPtrOutput)
 }
@@ -892,6 +901,7 @@ func (o WorkspaceSamlConfigurationPtrOutput) AllowedOrganizations() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
 func (o WorkspaceSamlConfigurationPtrOutput) AssertionAttributes() WorkspaceAssertionAttributesPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) *WorkspaceAssertionAttributes {
 		if v == nil {
@@ -901,6 +911,7 @@ func (o WorkspaceSamlConfigurationPtrOutput) AssertionAttributes() WorkspaceAsse
 	}).(WorkspaceAssertionAttributesPtrOutput)
 }
 
+// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the `url` parameter, or by specifying the full metadata in XML format in the `xml` parameter. Specifying both will cause an error.
 func (o WorkspaceSamlConfigurationPtrOutput) IdpMetadata() WorkspaceIdpMetadataPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) *WorkspaceIdpMetadata {
 		if v == nil {
@@ -920,6 +931,7 @@ func (o WorkspaceSamlConfigurationPtrOutput) LoginValidityDuration() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
+// This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana `Admin` and `Editor` roles in the workspace. SAML authenticated users not part of `Admin` or `Editor` role groups have `Viewer` permission over the workspace.
 func (o WorkspaceSamlConfigurationPtrOutput) RoleValues() WorkspaceRoleValuesPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) *WorkspaceRoleValues {
 		if v == nil {

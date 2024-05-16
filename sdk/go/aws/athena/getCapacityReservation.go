@@ -24,13 +24,16 @@ func LookupCapacityReservation(ctx *pulumi.Context, args *LookupCapacityReservat
 }
 
 type LookupCapacityReservationArgs struct {
+	// The ARN of the capacity reservation.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupCapacityReservationResult struct {
 	// The number of DPUs Athena has provisioned and allocated for the reservation
-	AllocatedDpus                   *int                                                `pulumi:"allocatedDpus"`
-	Arn                             *string                                             `pulumi:"arn"`
+	AllocatedDpus *int `pulumi:"allocatedDpus"`
+	// The ARN of the capacity reservation.
+	Arn *string `pulumi:"arn"`
+	// Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
 	CapacityAssignmentConfiguration *CapacityReservationCapacityAssignmentConfiguration `pulumi:"capacityAssignmentConfiguration"`
 	// The date and time the reservation was created.
 	CreationTime *string `pulumi:"creationTime"`
@@ -58,6 +61,7 @@ func LookupCapacityReservationOutput(ctx *pulumi.Context, args LookupCapacityRes
 }
 
 type LookupCapacityReservationOutputArgs struct {
+	// The ARN of the capacity reservation.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -84,10 +88,12 @@ func (o LookupCapacityReservationResultOutput) AllocatedDpus() pulumi.IntPtrOutp
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.AllocatedDpus }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the capacity reservation.
 func (o LookupCapacityReservationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
 func (o LookupCapacityReservationResultOutput) CapacityAssignmentConfiguration() CapacityReservationCapacityAssignmentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *CapacityReservationCapacityAssignmentConfiguration {
 		return v.CapacityAssignmentConfiguration

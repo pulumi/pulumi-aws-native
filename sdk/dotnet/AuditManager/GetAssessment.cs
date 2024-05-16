@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AuditManager
 
     public sealed class GetAssessmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the assessment.
+        /// </summary>
         [Input("assessmentId", required: true)]
         public string AssessmentId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AuditManager
 
     public sealed class GetAssessmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the assessment.
+        /// </summary>
         [Input("assessmentId", required: true)]
         public Input<string> AssessmentId { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.AuditManager
     [OutputType]
     public sealed class GetAssessmentResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the assessment.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The unique identifier for the assessment.
+        /// </summary>
         public readonly string? AssessmentId;
+        /// <summary>
+        /// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        /// </summary>
         public readonly Outputs.AssessmentReportsDestination? AssessmentReportsDestination;
+        /// <summary>
+        /// Specifies when the assessment was created.
+        /// </summary>
         public readonly double? CreationTime;
         /// <summary>
         /// The list of delegations.
@@ -63,7 +81,17 @@ namespace Pulumi.AwsNative.AuditManager
         /// The list of roles for the specified assessment.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssessmentRole> Roles;
+        /// <summary>
+        /// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        /// </summary>
         public readonly Outputs.AssessmentScope? Scope;
+        /// <summary>
+        /// The overall status of the assessment.
+        /// 
+        /// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+        /// 
+        /// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.AuditManager.AssessmentStatus? Status;
         /// <summary>
         /// The tags associated with the assessment.

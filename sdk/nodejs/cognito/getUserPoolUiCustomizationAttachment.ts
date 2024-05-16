@@ -16,11 +16,20 @@ export function getUserPoolUiCustomizationAttachment(args: GetUserPoolUiCustomiz
 }
 
 export interface GetUserPoolUiCustomizationAttachmentArgs {
+    /**
+     * The resource ID.
+     */
     id: string;
 }
 
 export interface GetUserPoolUiCustomizationAttachmentResult {
+    /**
+     * The CSS values in the UI customization.
+     */
     readonly css?: string;
+    /**
+     * The resource ID.
+     */
     readonly id?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getUserPoolUiCustomizationAttachmentOutput(args: GetUserPoolUiCu
 }
 
 export interface GetUserPoolUiCustomizationAttachmentOutputArgs {
+    /**
+     * The resource ID.
+     */
     id: pulumi.Input<string>;
 }

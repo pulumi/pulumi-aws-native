@@ -26,8 +26,11 @@ class ExtensionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Extension resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ExtensionActionArgs']]]]] actions: The actions defined in the extension.
         :param pulumi.Input[str] description: Description of the extension.
+        :param pulumi.Input[int] latest_version_number: You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
         :param pulumi.Input[str] name: Name of the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ExtensionParameterArgs']]] parameters: The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value tags to apply to this resource.
         """
         pulumi.set(__self__, "actions", actions)
@@ -45,6 +48,9 @@ class ExtensionArgs:
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ExtensionActionArgs']]]]]:
+        """
+        The actions defined in the extension.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -66,6 +72,9 @@ class ExtensionArgs:
     @property
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
+        """
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
@@ -87,6 +96,9 @@ class ExtensionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtensionParameterArgs']]]]:
+        """
+        The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -155,8 +167,11 @@ class Extension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionActionArgs']]]]]] actions: The actions defined in the extension.
         :param pulumi.Input[str] description: Description of the extension.
+        :param pulumi.Input[int] latest_version_number: You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
         :param pulumi.Input[str] name: Name of the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExtensionParameterArgs']]]] parameters: The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value tags to apply to this resource.
         """
         ...
@@ -279,16 +294,25 @@ class Extension(pulumi.CustomResource):
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Mapping[str, Sequence['outputs.ExtensionAction']]]:
+        """
+        The actions defined in the extension.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The system-generated Amazon Resource Name (ARN) for the extension.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The system-generated ID of the extension.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -302,6 +326,9 @@ class Extension(pulumi.CustomResource):
     @property
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> pulumi.Output[Optional[int]]:
+        """
+        You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
+        """
         return pulumi.get(self, "latest_version_number")
 
     @property
@@ -315,6 +342,9 @@ class Extension(pulumi.CustomResource):
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ExtensionParameter']]]:
+        """
+        The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        """
         return pulumi.get(self, "parameters")
 
     @property
@@ -328,5 +358,8 @@ class Extension(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[int]:
+        """
+        The extension version number.
+        """
         return pulumi.get(self, "version_number")
 

@@ -184,6 +184,10 @@ class ContainerEnvironmentVariable(dict):
     def __init__(__self__, *,
                  value: Optional[str] = None,
                  variable: Optional[str] = None):
+        """
+        :param str value: The environment variable value.
+        :param str variable: The environment variable key.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
         if variable is not None:
@@ -192,11 +196,17 @@ class ContainerEnvironmentVariable(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The environment variable value.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def variable(self) -> Optional[str]:
+        """
+        The environment variable key.
+        """
         return pulumi.get(self, "variable")
 
 
@@ -313,6 +323,12 @@ class ContainerPortInfo(dict):
     def __init__(__self__, *,
                  port: Optional[str] = None,
                  protocol: Optional[str] = None):
+        """
+        :param str port: The open firewall ports of the container.
+        :param str protocol: The protocol name for the open ports.
+               
+               *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+        """
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -321,11 +337,19 @@ class ContainerPortInfo(dict):
     @property
     @pulumi.getter
     def port(self) -> Optional[str]:
+        """
+        The open firewall ports of the container.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
+        """
+        The protocol name for the open ports.
+
+        *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+        """
         return pulumi.get(self, "protocol")
 
 
@@ -452,6 +476,7 @@ class ContainerPublicDomainName(dict):
                  domain_names: Optional[Sequence[str]] = None):
         """
         The public domain name to use with the container service, such as example.com and www.example.com.
+        :param str certificate_name: The name of the certificate for the public domains.
         :param Sequence[str] domain_names: An object that describes the configuration for the containers of the deployment.
         """
         if certificate_name is not None:
@@ -462,6 +487,9 @@ class ContainerPublicDomainName(dict):
     @property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[str]:
+        """
+        The name of the certificate for the public domains.
+        """
         return pulumi.get(self, "certificate_name")
 
     @property
@@ -760,6 +788,7 @@ class DiskAddOn(dict):
         """
         A addon associate with a resource.
         :param str add_on_type: The add-on type
+        :param 'DiskAutoSnapshotAddOn' auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
         :param 'DiskAddOnStatus' status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -779,6 +808,9 @@ class DiskAddOn(dict):
     @property
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional['outputs.DiskAutoSnapshotAddOn']:
+        """
+        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
     @property
@@ -915,6 +947,7 @@ class InstanceAddOn(dict):
         """
         A addon associate with a resource.
         :param str add_on_type: The add-on type
+        :param 'InstanceAutoSnapshotAddOn' auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
         :param 'InstanceAddOnStatus' status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -934,6 +967,9 @@ class InstanceAddOn(dict):
     @property
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional['outputs.InstanceAutoSnapshotAddOn']:
+        """
+        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
     @property
@@ -1291,6 +1327,7 @@ class InstanceNetworking(dict):
         """
         Networking of the Instance.
         :param Sequence['InstancePort'] ports: Ports to the Instance.
+        :param 'InstanceMonthlyTransfer' monthly_transfer: `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
         """
         pulumi.set(__self__, "ports", ports)
         if monthly_transfer is not None:
@@ -1307,6 +1344,9 @@ class InstanceNetworking(dict):
     @property
     @pulumi.getter(name="monthlyTransfer")
     def monthly_transfer(self) -> Optional['outputs.InstanceMonthlyTransfer']:
+        """
+        `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        """
         return pulumi.get(self, "monthly_transfer")
 
 
@@ -1362,8 +1402,22 @@ class InstancePort(dict):
         :param str access_direction: Access Direction for Protocol of the Instance(inbound/outbound).
         :param str access_from: Access From Protocol of the Instance.
         :param str access_type: Access Type Protocol of the Instance.
+        :param Sequence[str] cidr_list_aliases: An alias that defines access for a preconfigured range of IP addresses.
+               
+               The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
+        :param Sequence[str] cidrs: The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+               
+               > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+               
+               Examples:
+               
+               - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+               - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
         :param str common_name: CommonName for Protocol of the Instance.
         :param int from_port: From Port of the Instance.
+        :param Sequence[str] ipv6_cidrs: The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+               
+               > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
         :param str protocol: Port Protocol of the Instance.
         :param int to_port: To Port of the Instance.
         """
@@ -1415,11 +1469,26 @@ class InstancePort(dict):
     @property
     @pulumi.getter(name="cidrListAliases")
     def cidr_list_aliases(self) -> Optional[Sequence[str]]:
+        """
+        An alias that defines access for a preconfigured range of IP addresses.
+
+        The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
+        """
         return pulumi.get(self, "cidr_list_aliases")
 
     @property
     @pulumi.getter
     def cidrs(self) -> Optional[Sequence[str]]:
+        """
+        The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+
+        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+
+        Examples:
+
+        - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+        - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
+        """
         return pulumi.get(self, "cidrs")
 
     @property
@@ -1441,6 +1510,11 @@ class InstancePort(dict):
     @property
     @pulumi.getter(name="ipv6Cidrs")
     def ipv6_cidrs(self) -> Optional[Sequence[str]]:
+        """
+        The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+
+        > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
+        """
         return pulumi.get(self, "ipv6_cidrs")
 
     @property

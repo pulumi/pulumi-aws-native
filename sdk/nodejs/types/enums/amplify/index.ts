@@ -10,6 +10,9 @@ export const AppAutoBranchCreationConfigStage = {
     Development: "DEVELOPMENT",
 } as const;
 
+/**
+ * Stage for the auto created branch.
+ */
 export type AppAutoBranchCreationConfigStage = (typeof AppAutoBranchCreationConfigStage)[keyof typeof AppAutoBranchCreationConfigStage];
 
 export const AppPlatform = {
@@ -18,6 +21,9 @@ export const AppPlatform = {
     WebCompute: "WEB_COMPUTE",
 } as const;
 
+/**
+ * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+ */
 export type AppPlatform = (typeof AppPlatform)[keyof typeof AppPlatform];
 
 export const BranchStage = {
@@ -28,6 +34,9 @@ export const BranchStage = {
     Development: "DEVELOPMENT",
 } as const;
 
+/**
+ * Describes the current stage for the branch.
+ */
 export type BranchStage = (typeof BranchStage)[keyof typeof BranchStage];
 
 export const DomainCertificateCertificateType = {
@@ -35,6 +44,13 @@ export const DomainCertificateCertificateType = {
     Custom: "CUSTOM",
 } as const;
 
+/**
+ * The type of SSL/TLS certificate that you want to use.
+ *
+ * Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+ *
+ * Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+ */
 export type DomainCertificateCertificateType = (typeof DomainCertificateCertificateType)[keyof typeof DomainCertificateCertificateType];
 
 export const DomainCertificateSettingsCertificateType = {
@@ -42,4 +58,11 @@ export const DomainCertificateSettingsCertificateType = {
     Custom: "CUSTOM",
 } as const;
 
+/**
+ * The certificate type.
+ *
+ * Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+ *
+ * Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+ */
 export type DomainCertificateSettingsCertificateType = (typeof DomainCertificateSettingsCertificateType)[keyof typeof DomainCertificateSettingsCertificateType];

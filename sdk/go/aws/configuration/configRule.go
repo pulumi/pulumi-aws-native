@@ -25,10 +25,12 @@ import (
 type ConfigRule struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
-	Compliance   CompliancePropertiesPtrOutput `pulumi:"compliance"`
-	ConfigRuleId pulumi.StringOutput           `pulumi:"configRuleId"`
+	Compliance CompliancePropertiesPtrOutput `pulumi:"compliance"`
+	// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
+	ConfigRuleId pulumi.StringOutput `pulumi:"configRuleId"`
 	// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	ConfigRuleName pulumi.StringPtrOutput `pulumi:"configRuleName"`
 	// The description that you provide for the CC rule.
@@ -188,6 +190,7 @@ func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
 func (o ConfigRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -197,6 +200,7 @@ func (o ConfigRuleOutput) Compliance() CompliancePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) CompliancePropertiesPtrOutput { return v.Compliance }).(CompliancePropertiesPtrOutput)
 }
 
+// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
 func (o ConfigRuleOutput) ConfigRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.ConfigRuleId }).(pulumi.StringOutput)
 }

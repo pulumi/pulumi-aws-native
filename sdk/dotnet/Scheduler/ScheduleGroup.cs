@@ -33,9 +33,17 @@ namespace Pulumi.AwsNative.Scheduler
         [Output("lastModificationDate")]
         public Output<string> LastModificationDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the schedule group.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the state of the schedule group.
+        /// 
+        /// *Allowed Values* : `ACTIVE` | `DELETING`
+        /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.Scheduler.ScheduleGroupState> State { get; private set; } = null!;
 
@@ -94,6 +102,9 @@ namespace Pulumi.AwsNative.Scheduler
 
     public sealed class ScheduleGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the schedule group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

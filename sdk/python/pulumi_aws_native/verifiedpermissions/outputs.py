@@ -46,11 +46,17 @@ class IdentitySourceCognitoGroupConfiguration(dict):
 
     def __init__(__self__, *,
                  group_entity_type: str):
+        """
+        :param str group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
+        """
         pulumi.set(__self__, "group_entity_type", group_entity_type)
 
     @property
     @pulumi.getter(name="groupEntityType")
     def group_entity_type(self) -> str:
+        """
+        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
+        """
         return pulumi.get(self, "group_entity_type")
 
 
@@ -81,6 +87,15 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
                  user_pool_arn: str,
                  client_ids: Optional[Sequence[str]] = None,
                  group_configuration: Optional['outputs.IdentitySourceCognitoGroupConfiguration'] = None):
+        """
+        :param str user_pool_arn: The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
+        :param Sequence[str] client_ids: The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+               
+               Example: `"ClientIds": ["&ExampleCogClientId;"]`
+        :param 'IdentitySourceCognitoGroupConfiguration' group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+               
+               This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
+        """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -90,16 +105,29 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
     @property
     @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> str:
+        """
+        The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
+        """
         return pulumi.get(self, "user_pool_arn")
 
     @property
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Optional[Sequence[str]]:
+        """
+        The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+
+        Example: `"ClientIds": ["&ExampleCogClientId;"]`
+        """
         return pulumi.get(self, "client_ids")
 
     @property
     @pulumi.getter(name="groupConfiguration")
     def group_configuration(self) -> Optional['outputs.IdentitySourceCognitoGroupConfiguration']:
+        """
+        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+
+        This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
+        """
         return pulumi.get(self, "group_configuration")
 
 
@@ -124,11 +152,17 @@ class IdentitySourceConfiguration(dict):
 
     def __init__(__self__, *,
                  cognito_user_pool_configuration: 'outputs.IdentitySourceCognitoUserPoolConfiguration'):
+        """
+        :param 'IdentitySourceCognitoUserPoolConfiguration' cognito_user_pool_configuration: A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
+        """
         pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)
 
     @property
     @pulumi.getter(name="cognitoUserPoolConfiguration")
     def cognito_user_pool_configuration(self) -> 'outputs.IdentitySourceCognitoUserPoolConfiguration':
+        """
+        A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
+        """
         return pulumi.get(self, "cognito_user_pool_configuration")
 
 
@@ -312,12 +346,18 @@ class PolicyStoreSchemaDefinition(dict):
 
     def __init__(__self__, *,
                  cedar_json: Optional[str] = None):
+        """
+        :param str cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        """
         if cedar_json is not None:
             pulumi.set(__self__, "cedar_json", cedar_json)
 
     @property
     @pulumi.getter(name="cedarJson")
     def cedar_json(self) -> Optional[str]:
+        """
+        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        """
         return pulumi.get(self, "cedar_json")
 
 
@@ -325,11 +365,31 @@ class PolicyStoreSchemaDefinition(dict):
 class PolicyStoreValidationSettings(dict):
     def __init__(__self__, *,
                  mode: 'PolicyStoreValidationMode'):
+        """
+        :param 'PolicyStoreValidationMode' mode: The validation mode currently configured for this policy store. The valid values are:
+               
+               - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+               - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+               
+               > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+               > 
+               > To submit a static policy or policy template without a schema, you must turn off validation.
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> 'PolicyStoreValidationMode':
+        """
+        The validation mode currently configured for this policy store. The valid values are:
+
+        - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+        - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+
+        > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+        > 
+        > To submit a static policy or policy template without a schema, you must turn off validation.
+        """
         return pulumi.get(self, "mode")
 
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisIntegerParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default values of the `IntegerParameterDeclaration` .
+        /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.AnalysisIntegerDefaultValuesArgs>? DefaultValues { get; set; }
 
@@ -23,12 +26,23 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _mappedDataSetParameters = value;
         }
 
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         [Input("parameterValueType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisParameterValueType> ParameterValueType { get; set; } = null!;
 
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("valueWhenUnset")]
         public Input<Inputs.AnalysisIntegerValueWhenUnsetConfigurationArgs>? ValueWhenUnset { get; set; }
 

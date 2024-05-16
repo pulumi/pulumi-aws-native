@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelPackageDriftCheckExplainabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains details regarding the file source.
+        /// </summary>
         [Input("configFile")]
         public Input<Inputs.ModelPackageFileSourceArgs>? ConfigFile { get; set; }
 
+        /// <summary>
+        /// Details about the metrics source.
+        /// </summary>
         [Input("constraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Constraints { get; set; }
 

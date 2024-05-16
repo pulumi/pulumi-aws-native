@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainColdStorageOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

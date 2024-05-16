@@ -97,6 +97,9 @@ export class Environment extends pulumi.CustomResource {
      * Federation mode used with the Environment
      */
     public readonly federationMode!: pulumi.Output<enums.finspace.EnvironmentFederationMode | undefined>;
+    /**
+     * Configuration information when authentication mode is FEDERATED.
+     */
     public readonly federationParameters!: pulumi.Output<outputs.finspace.EnvironmentFederationParameters | undefined>;
     /**
      * KMS key used to encrypt customer data within FinSpace Environment infrastructure
@@ -114,6 +117,9 @@ export class Environment extends pulumi.CustomResource {
      * State of the Environment
      */
     public /*out*/ readonly status!: pulumi.Output<enums.finspace.EnvironmentStatus>;
+    /**
+     * Configuration information for the superuser.
+     */
     public readonly superuserParameters!: pulumi.Output<outputs.finspace.EnvironmentSuperuserParameters | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -186,6 +192,9 @@ export interface EnvironmentArgs {
      * Federation mode used with the Environment
      */
     federationMode?: pulumi.Input<enums.finspace.EnvironmentFederationMode>;
+    /**
+     * Configuration information when authentication mode is FEDERATED.
+     */
     federationParameters?: pulumi.Input<inputs.finspace.EnvironmentFederationParametersArgs>;
     /**
      * KMS key used to encrypt customer data within FinSpace Environment infrastructure
@@ -195,6 +204,9 @@ export interface EnvironmentArgs {
      * Name of the Environment
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration information for the superuser.
+     */
     superuserParameters?: pulumi.Input<inputs.finspace.EnvironmentSuperuserParametersArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

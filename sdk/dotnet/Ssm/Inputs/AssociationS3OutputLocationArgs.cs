@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Ssm.Inputs
 
     public sealed class AssociationS3OutputLocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket.
+        /// </summary>
         [Input("outputS3BucketName")]
         public Input<string>? OutputS3BucketName { get; set; }
 
+        /// <summary>
+        /// The S3 bucket subfolder.
+        /// </summary>
         [Input("outputS3KeyPrefix")]
         public Input<string>? OutputS3KeyPrefix { get; set; }
 
+        /// <summary>
+        /// The AWS Region of the S3 bucket.
+        /// </summary>
         [Input("outputS3Region")]
         public Input<string>? OutputS3Region { get; set; }
 

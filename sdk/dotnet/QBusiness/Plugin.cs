@@ -15,42 +15,81 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:Plugin")]
     public partial class Plugin : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the application that will contain the plugin.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Authentication configuration information for an Amazon Q Business plugin.
+        /// </summary>
         [Output("authConfiguration")]
         public Output<object> AuthConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of a plugin. A plugin is modified asynchronously.
+        /// </summary>
         [Output("buildStatus")]
         public Output<Pulumi.AwsNative.QBusiness.PluginBuildStatus> BuildStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the plugin was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information required to create a custom plugin.
+        /// </summary>
         [Output("customPluginConfiguration")]
         public Output<Outputs.PluginCustomPluginConfiguration?> CustomPluginConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the plugin.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a plugin.
+        /// </summary>
         [Output("pluginArn")]
         public Output<string> PluginArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the plugin.
+        /// </summary>
         [Output("pluginId")]
         public Output<string> PluginId { get; private set; } = null!;
 
+        /// <summary>
+        /// The plugin server URL used for configuration.
+        /// </summary>
         [Output("serverUrl")]
         public Output<string?> ServerUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the plugin.
+        /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.QBusiness.PluginState?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the plugin.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.QBusiness.PluginType> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the plugin was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -104,32 +143,57 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class PluginArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the application that will contain the plugin.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Authentication configuration information for an Amazon Q Business plugin.
+        /// </summary>
         [Input("authConfiguration", required: true)]
         public object AuthConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration information required to create a custom plugin.
+        /// </summary>
         [Input("customPluginConfiguration")]
         public Input<Inputs.PluginCustomPluginConfigurationArgs>? CustomPluginConfiguration { get; set; }
 
+        /// <summary>
+        /// The name of the plugin.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The plugin server URL used for configuration.
+        /// </summary>
         [Input("serverUrl")]
         public Input<string>? ServerUrl { get; set; }
 
+        /// <summary>
+        /// The current status of the plugin.
+        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.QBusiness.PluginState>? State { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of the plugin.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QBusiness.PluginType> Type { get; set; } = null!;
 

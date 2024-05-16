@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisRollingDateConfiguration
     {
+        /// <summary>
+        /// The data set that is used in the rolling date configuration.
+        /// </summary>
         public readonly string? DataSetIdentifier;
+        /// <summary>
+        /// The expression of the rolling date configuration.
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

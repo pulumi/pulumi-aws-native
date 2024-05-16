@@ -18,7 +18,8 @@ type IpamScope struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the IPAM scope.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the scope.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
 	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
@@ -83,6 +84,7 @@ func (IpamScopeState) ElementType() reflect.Type {
 }
 
 type ipamScopeArgs struct {
+	// The description of the scope.
 	Description *string `pulumi:"description"`
 	// The Id of the IPAM this scope is a part of.
 	IpamId string `pulumi:"ipamId"`
@@ -92,6 +94,7 @@ type ipamScopeArgs struct {
 
 // The set of arguments for constructing a IpamScope resource.
 type IpamScopeArgs struct {
+	// The description of the scope.
 	Description pulumi.StringPtrInput
 	// The Id of the IPAM this scope is a part of.
 	IpamId pulumi.StringInput
@@ -141,6 +144,7 @@ func (o IpamScopeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpamScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the scope.
 func (o IpamScopeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

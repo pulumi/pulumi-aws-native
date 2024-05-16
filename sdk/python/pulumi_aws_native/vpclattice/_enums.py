@@ -25,17 +25,26 @@ __all__ = [
 
 
 class AuthPolicyState(str, Enum):
+    """
+    The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+    """
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
 
 
 class ListenerProtocol(str, Enum):
+    """
+    The listener protocol.
+    """
     HTTP = "HTTP"
     HTTPS = "HTTPS"
     TLS_PASSTHROUGH = "TLS_PASSTHROUGH"
 
 
 class RuleHttpMatchMethod(str, Enum):
+    """
+    The HTTP method type.
+    """
     CONNECT = "CONNECT"
     DELETE = "DELETE"
     GET = "GET"
@@ -47,16 +56,31 @@ class RuleHttpMatchMethod(str, Enum):
 
 
 class ServiceAuthType(str, Enum):
+    """
+    The type of IAM policy.
+
+    - `NONE` : The resource does not use an IAM policy. This is the default.
+    - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+    """
     NONE = "NONE"
     AWS_IAM = "AWS_IAM"
 
 
 class ServiceNetworkAuthType(str, Enum):
+    """
+    The type of IAM policy.
+
+    - `NONE` : The resource does not use an IAM policy. This is the default.
+    - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+    """
     NONE = "NONE"
     AWS_IAM = "AWS_IAM"
 
 
 class ServiceNetworkServiceAssociationStatus(str, Enum):
+    """
+    The status of the association between the service network and the service.
+    """
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     ACTIVE = "ACTIVE"
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
@@ -65,6 +89,9 @@ class ServiceNetworkServiceAssociationStatus(str, Enum):
 
 
 class ServiceNetworkVpcAssociationStatus(str, Enum):
+    """
+    The status of the association.
+    """
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     ACTIVE = "ACTIVE"
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
@@ -74,6 +101,9 @@ class ServiceNetworkVpcAssociationStatus(str, Enum):
 
 
 class ServiceStatus(str, Enum):
+    """
+    The status of the service.
+    """
     ACTIVE = "ACTIVE"
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
@@ -82,38 +112,59 @@ class ServiceStatus(str, Enum):
 
 
 class TargetGroupConfigIpAddressType(str, Enum):
+    """
+    The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
+    """
     IPV4 = "IPV4"
     IPV6 = "IPV6"
 
 
 class TargetGroupConfigLambdaEventStructureVersion(str, Enum):
+    """
+    The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
+    """
     V1 = "V1"
     V2 = "V2"
 
 
 class TargetGroupConfigProtocol(str, Enum):
+    """
+    The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
+    """
     HTTP = "HTTP"
     HTTPS = "HTTPS"
     TCP = "TCP"
 
 
 class TargetGroupConfigProtocolVersion(str, Enum):
+    """
+    The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
+    """
     HTTP1 = "HTTP1"
     HTTP2 = "HTTP2"
     GRPC = "GRPC"
 
 
 class TargetGroupHealthCheckConfigProtocol(str, Enum):
+    """
+    The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
+    """
     HTTP = "HTTP"
     HTTPS = "HTTPS"
 
 
 class TargetGroupHealthCheckConfigProtocolVersion(str, Enum):
+    """
+    The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
+    """
     HTTP1 = "HTTP1"
     HTTP2 = "HTTP2"
 
 
 class TargetGroupStatus(str, Enum):
+    """
+    The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+    """
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     ACTIVE = "ACTIVE"
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
@@ -122,6 +173,9 @@ class TargetGroupStatus(str, Enum):
 
 
 class TargetGroupType(str, Enum):
+    """
+    The type of target group.
+    """
     IP = "IP"
     LAMBDA_ = "LAMBDA"
     INSTANCE = "INSTANCE"

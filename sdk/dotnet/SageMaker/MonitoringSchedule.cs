@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the endpoint using the monitoring schedule.
+        /// </summary>
         [Output("endpointName")]
         public Output<string?> EndpointName { get; private set; } = null!;
 
@@ -48,9 +51,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("monitoringScheduleArn")]
         public Output<string> MonitoringScheduleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures the monitoring schedule and defines the monitoring job.
+        /// </summary>
         [Output("monitoringScheduleConfig")]
         public Output<Outputs.MonitoringScheduleConfig> MonitoringScheduleConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the monitoring schedule.
+        /// </summary>
         [Output("monitoringScheduleName")]
         public Output<string> MonitoringScheduleName { get; private set; } = null!;
 
@@ -115,6 +124,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class MonitoringScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the endpoint using the monitoring schedule.
+        /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
@@ -130,9 +142,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("lastMonitoringExecutionSummary")]
         public Input<Inputs.MonitoringScheduleMonitoringExecutionSummaryArgs>? LastMonitoringExecutionSummary { get; set; }
 
+        /// <summary>
+        /// Configures the monitoring schedule and defines the monitoring job.
+        /// </summary>
         [Input("monitoringScheduleConfig", required: true)]
         public Input<Inputs.MonitoringScheduleConfigArgs> MonitoringScheduleConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the monitoring schedule.
+        /// </summary>
         [Input("monitoringScheduleName")]
         public Input<string>? MonitoringScheduleName { get; set; }
 

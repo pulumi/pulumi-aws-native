@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The message associated with the analysis error.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// The type of the analysis error.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisErrorType? Type;
         /// <summary>
         /// &lt;p&gt;Lists the violated entities that caused the analysis error&lt;/p&gt;

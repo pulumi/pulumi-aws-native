@@ -24,6 +24,9 @@ class ConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Config resource.
+        :param pulumi.Input['ConfigDataArgs'] config_data: Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        :param pulumi.Input[str] name: The name of the config object.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to a resource.
         """
         pulumi.set(__self__, "config_data", config_data)
         if name is not None:
@@ -34,6 +37,9 @@ class ConfigArgs:
     @property
     @pulumi.getter(name="configData")
     def config_data(self) -> pulumi.Input['ConfigDataArgs']:
+        """
+        Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        """
         return pulumi.get(self, "config_data")
 
     @config_data.setter
@@ -43,6 +49,9 @@ class ConfigArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the config object.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,6 +61,9 @@ class ConfigArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -73,6 +85,9 @@ class Config(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfigDataArgs']] config_data: Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        :param pulumi.Input[str] name: The name of the config object.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags assigned to a resource.
         """
         ...
     @overload
@@ -151,30 +166,48 @@ class Config(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configData")
     def config_data(self) -> pulumi.Output['outputs.ConfigData']:
+        """
+        Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        """
         return pulumi.get(self, "config_data")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the config object.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of the config, such as `tracking` .
+        """
         return pulumi.get(self, "type")
 

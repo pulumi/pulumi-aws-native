@@ -15,87 +15,198 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPool")]
     public partial class UserPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        /// </summary>
         [Output("accountRecoverySetting")]
         public Output<Outputs.UserPoolAccountRecoverySetting?> AccountRecoverySetting { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for `AdminCreateUser` requests.
+        /// </summary>
         [Output("adminCreateUserConfig")]
         public Output<Outputs.UserPoolAdminCreateUserConfig?> AdminCreateUserConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+        /// 
+        /// &gt; This user pool property cannot be updated.
+        /// </summary>
         [Output("aliasAttributes")]
         public Output<ImmutableArray<string>> AliasAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the user pool, such as `arn:aws:cognito-idp:us-east-1:123412341234:userpool/us-east-1_123412341` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+        /// </summary>
         [Output("autoVerifiedAttributes")]
         public Output<ImmutableArray<string>> AutoVerifiedAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// When active, `DeletionProtection` prevents accidental deletion of your user
+        /// pool. Before you can delete a user pool that you have protected against deletion, you
+        /// must deactivate this feature.
+        /// 
+        /// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<string?> DeletionProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// The device-remembering configuration for a user pool. A [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. Additionally. when the property `DeviceOnlyRememberedOnUserPrompt` is `true` , you must follow `ConfirmDevice` with an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request that sets the user's device to `remembered` or `not_remembered` .
+        /// 
+        /// To sign in with a remembered device, include `DEVICE_KEY` in the authentication parameters in your user's [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request. If your app doesn't include a `DEVICE_KEY` parameter, the [response](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax) from Amazon Cognito includes newly-generated `DEVICE_KEY` and `DEVICE_GROUP_KEY` values under `NewDeviceMetadata` . Store these values to use in future device-authentication requests.
+        /// 
+        /// &gt; When you provide a value for any property of `DeviceConfiguration` , you activate the device remembering for the user pool.
+        /// </summary>
         [Output("deviceConfiguration")]
         public Output<Outputs.UserPoolDeviceConfiguration?> DeviceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
+        /// </summary>
         [Output("emailConfiguration")]
         public Output<Outputs.UserPoolEmailConfiguration?> EmailConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// </summary>
         [Output("emailVerificationMessage")]
         public Output<string?> EmailVerificationMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// </summary>
         [Output("emailVerificationSubject")]
         public Output<string?> EmailVerificationSubject { get; private set; } = null!;
 
+        /// <summary>
+        /// Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        /// 
+        /// - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+        /// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+        /// 
+        /// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+        /// </summary>
         [Output("enabledMfas")]
         public Output<ImmutableArray<string>> EnabledMfas { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration for AWS Lambda triggers.
+        /// </summary>
         [Output("lambdaConfig")]
         public Output<Outputs.UserPoolLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The multi-factor authentication (MFA) configuration. Valid values include:
+        /// 
+        /// - `OFF` MFA won't be used for any users.
+        /// - `ON` MFA is required for all users to sign in.
+        /// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+        /// </summary>
         [Output("mfaConfiguration")]
         public Output<string?> MfaConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy associated with a user pool.
+        /// </summary>
         [Output("policies")]
         public Output<Outputs.UserPoolPolicies?> Policies { get; private set; } = null!;
 
+        /// <summary>
+        /// The provider name of the Amazon Cognito user pool, specified as a `String` .
+        /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
+        /// </summary>
         [Output("providerUrl")]
         public Output<string> ProviderUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of the user attributes and their properties in your user pool. The attribute schema contains standard attributes, custom attributes with a `custom:` prefix, and developer attributes with a `dev:` prefix. For more information, see [User pool attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
+        /// 
+        /// Developer-only attributes are a legacy feature of user pools, are read-only to all app clients. You can create and update developer-only attributes only with IAM-authenticated API operations. Use app client read/write permissions instead.
+        /// </summary>
         [Output("schema")]
         public Output<ImmutableArray<Outputs.UserPoolSchemaAttribute>> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// A string representing the SMS authentication message.
+        /// </summary>
         [Output("smsAuthenticationMessage")]
         public Output<string?> SmsAuthenticationMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account . The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your AWS account .
+        /// </summary>
         [Output("smsConfiguration")]
         public Output<Outputs.UserPoolSmsConfiguration?> SmsConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// </summary>
         [Output("smsVerificationMessage")]
         public Output<string?> SmsVerificationMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
+        /// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+        /// more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+        /// </summary>
         [Output("userAttributeUpdateSettings")]
         public Output<Outputs.UserPoolUserAttributeUpdateSettings?> UserAttributeUpdateSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        /// 
+        /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
+        /// </summary>
         [Output("userPoolAddOns")]
         public Output<Outputs.UserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the user pool.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// A string used to name the user pool.
+        /// </summary>
         [Output("userPoolName")]
         public Output<string?> UserPoolName { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+        /// </summary>
         [Output("userPoolTags")]
         public Output<ImmutableDictionary<string, string>?> UserPoolTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
+        /// 
+        /// This user pool property cannot be updated.
+        /// </summary>
         [Output("usernameAttributes")]
         public Output<ImmutableArray<string>> UsernameAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
+        /// </summary>
         [Output("usernameConfiguration")]
         public Output<Outputs.UserPoolUsernameConfiguration?> UsernameConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The template for verification messages.
+        /// </summary>
         [Output("verificationMessageTemplate")]
         public Output<Outputs.UserPoolVerificationMessageTemplate?> VerificationMessageTemplate { get; private set; } = null!;
 
@@ -144,14 +255,26 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        /// </summary>
         [Input("accountRecoverySetting")]
         public Input<Inputs.UserPoolAccountRecoverySettingArgs>? AccountRecoverySetting { get; set; }
 
+        /// <summary>
+        /// The configuration for `AdminCreateUser` requests.
+        /// </summary>
         [Input("adminCreateUserConfig")]
         public Input<Inputs.UserPoolAdminCreateUserConfigArgs>? AdminCreateUserConfig { get; set; }
 
         [Input("aliasAttributes")]
         private InputList<string>? _aliasAttributes;
+
+        /// <summary>
+        /// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+        /// 
+        /// &gt; This user pool property cannot be updated.
+        /// </summary>
         public InputList<string> AliasAttributes
         {
             get => _aliasAttributes ?? (_aliasAttributes = new InputList<string>());
@@ -160,72 +283,153 @@ namespace Pulumi.AwsNative.Cognito
 
         [Input("autoVerifiedAttributes")]
         private InputList<string>? _autoVerifiedAttributes;
+
+        /// <summary>
+        /// The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+        /// </summary>
         public InputList<string> AutoVerifiedAttributes
         {
             get => _autoVerifiedAttributes ?? (_autoVerifiedAttributes = new InputList<string>());
             set => _autoVerifiedAttributes = value;
         }
 
+        /// <summary>
+        /// When active, `DeletionProtection` prevents accidental deletion of your user
+        /// pool. Before you can delete a user pool that you have protected against deletion, you
+        /// must deactivate this feature.
+        /// 
+        /// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<string>? DeletionProtection { get; set; }
 
+        /// <summary>
+        /// The device-remembering configuration for a user pool. A [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. Additionally. when the property `DeviceOnlyRememberedOnUserPrompt` is `true` , you must follow `ConfirmDevice` with an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request that sets the user's device to `remembered` or `not_remembered` .
+        /// 
+        /// To sign in with a remembered device, include `DEVICE_KEY` in the authentication parameters in your user's [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request. If your app doesn't include a `DEVICE_KEY` parameter, the [response](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax) from Amazon Cognito includes newly-generated `DEVICE_KEY` and `DEVICE_GROUP_KEY` values under `NewDeviceMetadata` . Store these values to use in future device-authentication requests.
+        /// 
+        /// &gt; When you provide a value for any property of `DeviceConfiguration` , you activate the device remembering for the user pool.
+        /// </summary>
         [Input("deviceConfiguration")]
         public Input<Inputs.UserPoolDeviceConfigurationArgs>? DeviceConfiguration { get; set; }
 
+        /// <summary>
+        /// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
+        /// </summary>
         [Input("emailConfiguration")]
         public Input<Inputs.UserPoolEmailConfigurationArgs>? EmailConfiguration { get; set; }
 
+        /// <summary>
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// </summary>
         [Input("emailVerificationMessage")]
         public Input<string>? EmailVerificationMessage { get; set; }
 
+        /// <summary>
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// </summary>
         [Input("emailVerificationSubject")]
         public Input<string>? EmailVerificationSubject { get; set; }
 
         [Input("enabledMfas")]
         private InputList<string>? _enabledMfas;
+
+        /// <summary>
+        /// Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        /// 
+        /// - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+        /// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+        /// 
+        /// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+        /// </summary>
         public InputList<string> EnabledMfas
         {
             get => _enabledMfas ?? (_enabledMfas = new InputList<string>());
             set => _enabledMfas = value;
         }
 
+        /// <summary>
+        /// Specifies the configuration for AWS Lambda triggers.
+        /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.UserPoolLambdaConfigArgs>? LambdaConfig { get; set; }
 
+        /// <summary>
+        /// The multi-factor authentication (MFA) configuration. Valid values include:
+        /// 
+        /// - `OFF` MFA won't be used for any users.
+        /// - `ON` MFA is required for all users to sign in.
+        /// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+        /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
 
+        /// <summary>
+        /// The policy associated with a user pool.
+        /// </summary>
         [Input("policies")]
         public Input<Inputs.UserPoolPoliciesArgs>? Policies { get; set; }
 
         [Input("schema")]
         private InputList<Inputs.UserPoolSchemaAttributeArgs>? _schema;
+
+        /// <summary>
+        /// A list of the user attributes and their properties in your user pool. The attribute schema contains standard attributes, custom attributes with a `custom:` prefix, and developer attributes with a `dev:` prefix. For more information, see [User pool attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
+        /// 
+        /// Developer-only attributes are a legacy feature of user pools, are read-only to all app clients. You can create and update developer-only attributes only with IAM-authenticated API operations. Use app client read/write permissions instead.
+        /// </summary>
         public InputList<Inputs.UserPoolSchemaAttributeArgs> Schema
         {
             get => _schema ?? (_schema = new InputList<Inputs.UserPoolSchemaAttributeArgs>());
             set => _schema = value;
         }
 
+        /// <summary>
+        /// A string representing the SMS authentication message.
+        /// </summary>
         [Input("smsAuthenticationMessage")]
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
+        /// <summary>
+        /// The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account . The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your AWS account .
+        /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
 
+        /// <summary>
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// </summary>
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
 
+        /// <summary>
+        /// The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
+        /// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+        /// more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+        /// </summary>
         [Input("userAttributeUpdateSettings")]
         public Input<Inputs.UserPoolUserAttributeUpdateSettingsArgs>? UserAttributeUpdateSettings { get; set; }
 
+        /// <summary>
+        /// User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        /// 
+        /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
+        /// </summary>
         [Input("userPoolAddOns")]
         public Input<Inputs.UserPoolAddOnsArgs>? UserPoolAddOns { get; set; }
 
+        /// <summary>
+        /// A string used to name the user pool.
+        /// </summary>
         [Input("userPoolName")]
         public Input<string>? UserPoolName { get; set; }
 
         [Input("userPoolTags")]
         private InputMap<string>? _userPoolTags;
+
+        /// <summary>
+        /// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+        /// </summary>
         public InputMap<string> UserPoolTags
         {
             get => _userPoolTags ?? (_userPoolTags = new InputMap<string>());
@@ -234,15 +438,27 @@ namespace Pulumi.AwsNative.Cognito
 
         [Input("usernameAttributes")]
         private InputList<string>? _usernameAttributes;
+
+        /// <summary>
+        /// Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
+        /// 
+        /// This user pool property cannot be updated.
+        /// </summary>
         public InputList<string> UsernameAttributes
         {
             get => _usernameAttributes ?? (_usernameAttributes = new InputList<string>());
             set => _usernameAttributes = value;
         }
 
+        /// <summary>
+        /// The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
+        /// </summary>
         [Input("usernameConfiguration")]
         public Input<Inputs.UserPoolUsernameConfigurationArgs>? UsernameConfiguration { get; set; }
 
+        /// <summary>
+        /// The template for verification messages.
+        /// </summary>
         [Input("verificationMessageTemplate")]
         public Input<Inputs.UserPoolVerificationMessageTemplateArgs>? VerificationMessageTemplate { get; set; }
 

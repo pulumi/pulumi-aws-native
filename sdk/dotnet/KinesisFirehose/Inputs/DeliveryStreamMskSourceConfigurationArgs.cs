@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamMskSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication configuration of the Amazon MSK cluster.
+        /// </summary>
         [Input("authenticationConfiguration", required: true)]
         public Input<Inputs.DeliveryStreamAuthenticationConfigurationArgs> AuthenticationConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the Amazon MSK cluster.
+        /// </summary>
         [Input("mskClusterArn", required: true)]
         public Input<string> MskClusterArn { get; set; } = null!;
 
+        /// <summary>
+        /// The topic name within the Amazon MSK cluster.
+        /// </summary>
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;
 

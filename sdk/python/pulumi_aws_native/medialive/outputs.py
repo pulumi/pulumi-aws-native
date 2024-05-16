@@ -480,6 +480,7 @@ class MultiplexprogramMultiplexProgramSettings(dict):
         """
         Multiplex Program settings configuration.
         :param int program_number: Unique program number.
+        :param 'MultiplexprogramPreferredChannelPipeline' preferred_channel_pipeline: Indicates which pipeline is preferred by the multiplex for program ingest.
         :param 'MultiplexprogramMultiplexProgramServiceDescriptor' service_descriptor: Transport stream service descriptor configuration for the Multiplex program.
         :param 'MultiplexprogramMultiplexVideoSettings' video_settings: Program video settings configuration.
         """
@@ -502,6 +503,9 @@ class MultiplexprogramMultiplexProgramSettings(dict):
     @property
     @pulumi.getter(name="preferredChannelPipeline")
     def preferred_channel_pipeline(self) -> Optional['MultiplexprogramPreferredChannelPipeline']:
+        """
+        Indicates which pipeline is preferred by the multiplex for program ingest.
+        """
         return pulumi.get(self, "preferred_channel_pipeline")
 
     @property

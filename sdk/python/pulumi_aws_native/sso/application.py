@@ -34,6 +34,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: The name you want to assign to this Identity Center (SSO) Application
         :param pulumi.Input['ApplicationPortalOptionsConfigurationArgs'] portal_options: A structure that describes the options for the portal associated with an application
         :param pulumi.Input['ApplicationStatus'] status: Specifies whether the application is enabled or disabled
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies tags to be attached to the application
         """
         pulumi.set(__self__, "application_provider_arn", application_provider_arn)
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -123,6 +124,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies tags to be attached to the application
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -154,6 +158,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name you want to assign to this Identity Center (SSO) Application
         :param pulumi.Input[pulumi.InputType['ApplicationPortalOptionsConfigurationArgs']] portal_options: A structure that describes the options for the portal associated with an application
         :param pulumi.Input['ApplicationStatus'] status: Specifies whether the application is enabled or disabled
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies tags to be attached to the application
         """
         ...
     @overload
@@ -300,5 +305,8 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies tags to be attached to the application
+        """
         return pulumi.get(self, "tags")
 

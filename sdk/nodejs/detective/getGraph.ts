@@ -34,6 +34,9 @@ export interface GetGraphResult {
      * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
      */
     readonly autoEnableMembers?: boolean;
+    /**
+     * The tag values to assign to the new behavior graph.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

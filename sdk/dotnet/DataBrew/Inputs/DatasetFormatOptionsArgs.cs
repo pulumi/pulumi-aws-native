@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+        /// </summary>
         [Input("csv")]
         public Input<Inputs.DatasetCsvOptionsArgs>? Csv { get; set; }
 
+        /// <summary>
+        /// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+        /// </summary>
         [Input("excel")]
         public Input<Inputs.DatasetExcelOptionsArgs>? Excel { get; set; }
 
+        /// <summary>
+        /// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+        /// </summary>
         [Input("json")]
         public Input<Inputs.DatasetJsonOptionsArgs>? Json { get; set; }
 

@@ -16,11 +16,29 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensConfiguration
     {
+        /// <summary>
+        /// This resource contains the details of the account-level metrics for Amazon S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAccountLevel AccountLevel;
+        /// <summary>
+        /// This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAwsOrg? AwsOrg;
+        /// <summary>
+        /// This resource contains the details of the Amazon S3 Storage Lens metrics export.
+        /// </summary>
         public readonly Outputs.StorageLensDataExport? DataExport;
+        /// <summary>
+        /// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+        /// </summary>
         public readonly Outputs.StorageLensBucketsAndRegions? Exclude;
+        /// <summary>
+        /// This property contains the details of the ID of the S3 Storage Lens configuration.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+        /// </summary>
         public readonly Outputs.StorageLensBucketsAndRegions? Include;
         /// <summary>
         /// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.

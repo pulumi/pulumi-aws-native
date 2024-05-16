@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceStandardObjectAttachmentConfiguration
     {
+        /// <summary>
+        /// The name of the field used for the document title.
+        /// </summary>
         public readonly string? DocumentTitleFieldName;
+        /// <summary>
+        /// One or more objects that map fields in attachments to Amazon Kendra index fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]

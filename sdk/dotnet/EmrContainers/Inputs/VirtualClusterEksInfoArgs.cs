@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.EmrContainers.Inputs
 
     public sealed class VirtualClusterEksInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The namespaces of the EKS cluster.
+        /// 
+        /// *Minimum* : 1
+        /// 
+        /// *Maximum* : 63
+        /// 
+        /// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

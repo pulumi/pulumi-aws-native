@@ -130,7 +130,9 @@ type ApiKeyTag struct {
 }
 
 type ClientCertificateTag struct {
-	Key   string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1540,6 +1542,7 @@ func (o DocumentationPartLocationOutput) Type() DocumentationPartLocationTypePtr
 }
 
 type DomainNameEndpointConfiguration struct {
+	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types []string `pulumi:"types"`
 }
 
@@ -1555,6 +1558,7 @@ type DomainNameEndpointConfigurationInput interface {
 }
 
 type DomainNameEndpointConfigurationArgs struct {
+	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
@@ -1635,6 +1639,7 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
 
+// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
@@ -1663,6 +1668,7 @@ func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfi
 	}).(DomainNameEndpointConfigurationOutput)
 }
 
+// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainNameEndpointConfiguration) []string {
 		if v == nil {
@@ -1673,7 +1679,9 @@ func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutp
 }
 
 type DomainNameMutualTlsAuthentication struct {
-	TruststoreUri     *string `pulumi:"truststoreUri"`
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+	TruststoreUri *string `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion *string `pulumi:"truststoreVersion"`
 }
 
@@ -1689,7 +1697,9 @@ type DomainNameMutualTlsAuthenticationInput interface {
 }
 
 type DomainNameMutualTlsAuthenticationArgs struct {
-	TruststoreUri     pulumi.StringPtrInput `pulumi:"truststoreUri"`
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+	TruststoreUri pulumi.StringPtrInput `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
 }
 
@@ -1770,10 +1780,12 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
 }
 
+// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -1802,6 +1814,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAu
 	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -1811,6 +1824,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -1821,7 +1835,9 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 }
 
 type DomainNameTag struct {
-	Key   *string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key *string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value *string `pulumi:"value"`
 }
 
@@ -2857,7 +2873,9 @@ func (o RestApiS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type RestApiTag struct {
-	Key   string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -3931,7 +3949,9 @@ func (o UsagePlanThrottleSettingsMapOutput) MapIndex(k pulumi.StringInput) Usage
 }
 
 type VpcLinkTag struct {
-	Key   string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 

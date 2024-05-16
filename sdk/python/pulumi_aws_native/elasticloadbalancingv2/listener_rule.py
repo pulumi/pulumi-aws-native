@@ -215,6 +215,9 @@ class ListenerRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether this is the default rule.
+        """
         return pulumi.get(self, "is_default")
 
     @property
@@ -237,5 +240,8 @@ class ListenerRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the rule.
+        """
         return pulumi.get(self, "rule_arn")
 

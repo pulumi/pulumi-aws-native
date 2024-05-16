@@ -19,13 +19,28 @@ export function getTestGridProject(args: GetTestGridProjectArgs, opts?: pulumi.I
 }
 
 export interface GetTestGridProjectArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetTestGridProjectResult {
+    /**
+     * The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * A human-readable description for the project.
+     */
     readonly description?: string;
+    /**
+     * A human-readable name for the project.
+     */
     readonly name?: string;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -36,5 +51,8 @@ export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opt
 }
 
 export interface GetTestGridProjectOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

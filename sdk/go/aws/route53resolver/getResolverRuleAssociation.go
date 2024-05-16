@@ -23,10 +23,12 @@ func LookupResolverRuleAssociation(ctx *pulumi.Context, args *LookupResolverRule
 }
 
 type LookupResolverRuleAssociationArgs struct {
+	// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
 	ResolverRuleAssociationId string `pulumi:"resolverRuleAssociationId"`
 }
 
 type LookupResolverRuleAssociationResult struct {
+	// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
 	ResolverRuleAssociationId *string `pulumi:"resolverRuleAssociationId"`
 }
 
@@ -44,6 +46,7 @@ func LookupResolverRuleAssociationOutput(ctx *pulumi.Context, args LookupResolve
 }
 
 type LookupResolverRuleAssociationOutputArgs struct {
+	// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
 	ResolverRuleAssociationId pulumi.StringInput `pulumi:"resolverRuleAssociationId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupResolverRuleAssociationResultOutput) ToLookupResolverRuleAssociati
 	return o
 }
 
+// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
 func (o LookupResolverRuleAssociationResultOutput) ResolverRuleAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverRuleAssociationResult) *string { return v.ResolverRuleAssociationId }).(pulumi.StringPtrOutput)
 }

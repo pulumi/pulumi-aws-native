@@ -38,6 +38,9 @@ export class RequestValidator extends pulumi.CustomResource {
      * The name of this RequestValidator
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The ID for the request validator. For example: `abc123` .
+     */
     public /*out*/ readonly requestValidatorId!: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.

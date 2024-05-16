@@ -15,42 +15,81 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:WebExperience")]
     public partial class WebExperience : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business web experience.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business application was last updated.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
+        /// </summary>
         [Output("defaultEndpoint")]
         public Output<string> DefaultEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines whether sample prompts are enabled in the web experience for an end user.
+        /// </summary>
         [Output("samplePromptsControlMode")]
         public Output<Pulumi.AwsNative.QBusiness.WebExperienceSamplePromptsControlMode?> SamplePromptsControlMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of your Amazon Q Business web experience.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QBusiness.WebExperienceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A subtitle to personalize your Amazon Q Business web experience.
+        /// </summary>
         [Output("subtitle")]
         public Output<string?> Subtitle { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The title for your Amazon Q Business web experience.
+        /// </summary>
         [Output("title")]
         public Output<string?> Title { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when your Amazon Q Business web experience was updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
+        /// </summary>
         [Output("webExperienceArn")]
         public Output<string> WebExperienceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of your Amazon Q Business web experience.
+        /// </summary>
         [Output("webExperienceId")]
         public Output<string> WebExperienceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A message in an Amazon Q Business web experience.
+        /// </summary>
         [Output("welcomeMessage")]
         public Output<string?> WelcomeMessage { get; private set; } = null!;
 
@@ -103,29 +142,51 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class WebExperienceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business web experience.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// Determines whether sample prompts are enabled in the web experience for an end user.
+        /// </summary>
         [Input("samplePromptsControlMode")]
         public Input<Pulumi.AwsNative.QBusiness.WebExperienceSamplePromptsControlMode>? SamplePromptsControlMode { get; set; }
 
+        /// <summary>
+        /// A subtitle to personalize your Amazon Q Business web experience.
+        /// </summary>
         [Input("subtitle")]
         public Input<string>? Subtitle { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The title for your Amazon Q Business web experience.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// A message in an Amazon Q Business web experience.
+        /// </summary>
         [Input("welcomeMessage")]
         public Input<string>? WelcomeMessage { get; set; }
 

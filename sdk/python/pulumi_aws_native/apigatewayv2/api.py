@@ -462,11 +462,17 @@ class Api(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiEndpoint")
     def api_endpoint(self) -> pulumi.Output[str]:
+        """
+        The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
+        """
         return pulumi.get(self, "api_endpoint")
 
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @property

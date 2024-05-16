@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayVpcAttachmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayVpcAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,11 +57,17 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetTransitGatewayVpcAttachmentResult
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The options for the transit gateway vpc attachment.
         /// </summary>
         public readonly Outputs.OptionsProperties? Options;
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

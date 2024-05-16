@@ -15,39 +15,75 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the fleet.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The amounts and attributes of fleets.
+        /// </summary>
         [Output("capabilities")]
         public Output<Outputs.FleetCapabilities> Capabilities { get; private set; } = null!;
 
+        /// <summary>
+        /// Fleet configuration details.
+        /// </summary>
         [Output("configuration")]
         public Output<Union<Outputs.FleetConfiguration0Properties, Outputs.FleetConfiguration1Properties>> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// A description that helps identify what the fleet is used for.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the fleet summary to update.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The farm ID.
+        /// </summary>
         [Output("farmId")]
         public Output<string?> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The fleet ID.
+        /// </summary>
         [Output("fleetId")]
         public Output<string> FleetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of workers specified in the fleet.
+        /// </summary>
         [Output("maxWorkerCount")]
         public Output<int> MaxWorkerCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum number of workers in the fleet.
+        /// </summary>
         [Output("minWorkerCount")]
         public Output<int?> MinWorkerCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The IAM role that workers in the fleet use when processing jobs.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the fleet.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Deadline.FleetStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of workers in the fleet summary.
+        /// </summary>
         [Output("workerCount")]
         public Output<int> WorkerCount { get; private set; } = null!;
 
@@ -100,24 +136,45 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Fleet configuration details.
+        /// </summary>
         [Input("configuration", required: true)]
         public InputUnion<Inputs.FleetConfiguration0PropertiesArgs, Inputs.FleetConfiguration1PropertiesArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// A description that helps identify what the fleet is used for.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the fleet summary to update.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The farm ID.
+        /// </summary>
         [Input("farmId")]
         public Input<string>? FarmId { get; set; }
 
+        /// <summary>
+        /// The maximum number of workers specified in the fleet.
+        /// </summary>
         [Input("maxWorkerCount", required: true)]
         public Input<int> MaxWorkerCount { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum number of workers in the fleet.
+        /// </summary>
         [Input("minWorkerCount")]
         public Input<int>? MinWorkerCount { get; set; }
 
+        /// <summary>
+        /// The IAM role that workers in the fleet use when processing jobs.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

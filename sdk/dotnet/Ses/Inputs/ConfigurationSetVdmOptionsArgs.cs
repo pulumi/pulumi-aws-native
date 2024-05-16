@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Ses.Inputs
     /// </summary>
     public sealed class ConfigurationSetVdmOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings for your VDM configuration as applicable to the Dashboard.
+        /// </summary>
         [Input("dashboardOptions")]
         public Input<Inputs.ConfigurationSetDashboardOptionsArgs>? DashboardOptions { get; set; }
 
+        /// <summary>
+        /// Settings for your VDM configuration as applicable to the Guardian.
+        /// </summary>
         [Input("guardianOptions")]
         public Input<Inputs.ConfigurationSetGuardianOptionsArgs>? GuardianOptions { get; set; }
 

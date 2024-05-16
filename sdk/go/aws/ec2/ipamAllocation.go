@@ -16,7 +16,14 @@ import (
 type IpamAllocation struct {
 	pulumi.CustomResourceState
 
-	Cidr        pulumi.StringPtrOutput `pulumi:"cidr"`
+	// The CIDR you would like to allocate from the IPAM pool. Note the following:
+	//
+	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+	//
+	// Possible values: Any available IPv4 or IPv6 CIDR.
+	Cidr pulumi.StringPtrOutput `pulumi:"cidr"`
+	// A description for the allocation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Id of the allocation.
 	IpamPoolAllocationId pulumi.StringOutput `pulumi:"ipamPoolAllocationId"`
@@ -76,7 +83,14 @@ func (IpamAllocationState) ElementType() reflect.Type {
 }
 
 type ipamAllocationArgs struct {
-	Cidr        *string `pulumi:"cidr"`
+	// The CIDR you would like to allocate from the IPAM pool. Note the following:
+	//
+	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+	//
+	// Possible values: Any available IPv4 or IPv6 CIDR.
+	Cidr *string `pulumi:"cidr"`
+	// A description for the allocation.
 	Description *string `pulumi:"description"`
 	// Id of the IPAM Pool.
 	IpamPoolId string `pulumi:"ipamPoolId"`
@@ -86,7 +100,14 @@ type ipamAllocationArgs struct {
 
 // The set of arguments for constructing a IpamAllocation resource.
 type IpamAllocationArgs struct {
-	Cidr        pulumi.StringPtrInput
+	// The CIDR you would like to allocate from the IPAM pool. Note the following:
+	//
+	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+	//
+	// Possible values: Any available IPv4 or IPv6 CIDR.
+	Cidr pulumi.StringPtrInput
+	// A description for the allocation.
 	Description pulumi.StringPtrInput
 	// Id of the IPAM Pool.
 	IpamPoolId pulumi.StringInput
@@ -131,10 +152,17 @@ func (o IpamAllocationOutput) ToIpamAllocationOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The CIDR you would like to allocate from the IPAM pool. Note the following:
+//
+// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+//
+// Possible values: Any available IPv4 or IPv6 CIDR.
 func (o IpamAllocationOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamAllocation) pulumi.StringPtrOutput { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
+// A description for the allocation.
 func (o IpamAllocationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamAllocation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

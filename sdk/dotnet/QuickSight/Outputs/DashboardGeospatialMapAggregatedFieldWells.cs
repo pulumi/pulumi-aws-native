@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialMapAggregatedFieldWells
     {
+        /// <summary>
+        /// The color field wells of a geospatial map.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Colors;
+        /// <summary>
+        /// The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Geospatial;
+        /// <summary>
+        /// The size field wells of a geospatial map. Values are aggregated based on geospatial fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Values;
 
         [OutputConstructor]

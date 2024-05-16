@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardWaterfallChartFieldWells
     {
+        /// <summary>
+        /// The field well configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.DashboardWaterfallChartAggregatedFieldWells? WaterfallChartAggregatedFieldWells;
 
         [OutputConstructor]

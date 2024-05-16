@@ -17,12 +17,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetPhysicalTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A physical table type built from the results of the custom SQL query.
+        /// </summary>
         [Input("customSql")]
         public Input<Inputs.DataSetCustomSqlArgs>? CustomSql { get; set; }
 
+        /// <summary>
+        /// A physical table type for relational data sources.
+        /// </summary>
         [Input("relationalTable")]
         public Input<Inputs.DataSetRelationalTableArgs>? RelationalTable { get; set; }
 
+        /// <summary>
+        /// A physical table type for an S3 data source.
+        /// </summary>
         [Input("s3Source")]
         public Input<Inputs.DataSetS3SourceArgs>? S3Source { get; set; }
 

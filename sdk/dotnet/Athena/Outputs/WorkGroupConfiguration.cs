@@ -13,14 +13,43 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupConfiguration
     {
+        /// <summary>
+        /// Specifies a user defined JSON string that is passed to the session engine.
+        /// </summary>
         public readonly string? AdditionalConfiguration;
+        /// <summary>
+        /// The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. No default is defined.
+        /// 
+        /// &gt; This property currently supports integer types. Support for long values is planned.
+        /// </summary>
         public readonly int? BytesScannedCutoffPerQuery;
+        /// <summary>
+        /// Specifies the customer managed KMS key that is used to encrypt the user's data stores in Athena. When an AWS managed key is used, this value is null. This setting does not apply to Athena SQL workgroups.
+        /// </summary>
         public readonly Outputs.WorkGroupCustomerContentEncryptionConfiguration? CustomerContentEncryptionConfiguration;
+        /// <summary>
+        /// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         public readonly bool? EnforceWorkGroupConfiguration;
+        /// <summary>
+        /// The Athena engine version for running queries, or the PySpark engine version for running sessions.
+        /// </summary>
         public readonly Outputs.WorkGroupEngineVersion? EngineVersion;
+        /// <summary>
+        /// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
+        /// </summary>
         public readonly string? ExecutionRole;
+        /// <summary>
+        /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+        /// </summary>
         public readonly bool? PublishCloudWatchMetricsEnabled;
+        /// <summary>
+        /// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
+        /// </summary>
         public readonly bool? RequesterPaysEnabled;
+        /// <summary>
+        /// The location in Amazon S3 where query and calculation results are stored and the encryption option, if any, used for query and calculation results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
+        /// </summary>
         public readonly Outputs.WorkGroupResultConfiguration? ResultConfiguration;
 
         [OutputConstructor]

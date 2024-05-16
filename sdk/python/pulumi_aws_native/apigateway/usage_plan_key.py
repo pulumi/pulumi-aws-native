@@ -162,6 +162,9 @@ class UsagePlanKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the usage plan key. For example: `abc123` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property

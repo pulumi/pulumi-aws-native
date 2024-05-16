@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("message")]
         public Input<string>? Message { get; set; }
 
+        /// <summary>
+        /// The type of the analysis error.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisErrorType>? Type { get; set; }
 

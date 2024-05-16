@@ -16,12 +16,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleConfig
     {
+        /// <summary>
+        /// Defines the monitoring job.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringJobDefinition? MonitoringJobDefinition;
         /// <summary>
         /// Name of the job definition
         /// </summary>
         public readonly string? MonitoringJobDefinitionName;
+        /// <summary>
+        /// The type of the monitoring job definition to schedule.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType? MonitoringType;
+        /// <summary>
+        /// Configuration details about the monitoring schedule.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleScheduleConfig? ScheduleConfig;
 
         [OutputConstructor]

@@ -15,42 +15,81 @@ namespace Pulumi.AwsNative.DeviceFarm
     [AwsNativeResourceType("aws-native:devicefarm:NetworkProfile")]
     public partial class NetworkProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the network profile.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        /// </summary>
         [Output("downlinkBandwidthBits")]
         public Output<int?> DownlinkBandwidthBits { get; private set; } = null!;
 
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Output("downlinkDelayMs")]
         public Output<int?> DownlinkDelayMs { get; private set; } = null!;
 
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Output("downlinkJitterMs")]
         public Output<int?> DownlinkJitterMs { get; private set; } = null!;
 
+        /// <summary>
+        /// Proportion of received packets that fail to arrive from 0 to 100 percent.
+        /// </summary>
         [Output("downlinkLossPercent")]
         public Output<int?> DownlinkLossPercent { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the network profile.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified project.
+        /// </summary>
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        /// </summary>
         [Output("uplinkBandwidthBits")]
         public Output<int?> UplinkBandwidthBits { get; private set; } = null!;
 
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Output("uplinkDelayMs")]
         public Output<int?> UplinkDelayMs { get; private set; } = null!;
 
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Output("uplinkJitterMs")]
         public Output<int?> UplinkJitterMs { get; private set; } = null!;
 
+        /// <summary>
+        /// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+        /// </summary>
         [Output("uplinkLossPercent")]
         public Output<int?> UplinkLossPercent { get; private set; } = null!;
 
@@ -103,44 +142,81 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the network profile.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        /// </summary>
         [Input("downlinkBandwidthBits")]
         public Input<int>? DownlinkBandwidthBits { get; set; }
 
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Input("downlinkDelayMs")]
         public Input<int>? DownlinkDelayMs { get; set; }
 
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Input("downlinkJitterMs")]
         public Input<int>? DownlinkJitterMs { get; set; }
 
+        /// <summary>
+        /// Proportion of received packets that fail to arrive from 0 to 100 percent.
+        /// </summary>
         [Input("downlinkLossPercent")]
         public Input<int>? DownlinkLossPercent { get; set; }
 
+        /// <summary>
+        /// The name of the network profile.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified project.
+        /// </summary>
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        /// </summary>
         [Input("uplinkBandwidthBits")]
         public Input<int>? UplinkBandwidthBits { get; set; }
 
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Input("uplinkDelayMs")]
         public Input<int>? UplinkDelayMs { get; set; }
 
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        /// </summary>
         [Input("uplinkJitterMs")]
         public Input<int>? UplinkJitterMs { get; set; }
 
+        /// <summary>
+        /// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+        /// </summary>
         [Input("uplinkLossPercent")]
         public Input<int>? UplinkLossPercent { get; set; }
 

@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableSideBorderOptions
     {
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.AnalysisTableBorderOptions? Bottom;
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.AnalysisTableBorderOptions? InnerHorizontal;
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.AnalysisTableBorderOptions? InnerVertical;
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.AnalysisTableBorderOptions? Left;
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.AnalysisTableBorderOptions? Right;
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.AnalysisTableBorderOptions? Top;
 
         [OutputConstructor]

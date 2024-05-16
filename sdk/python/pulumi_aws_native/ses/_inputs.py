@@ -320,12 +320,20 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
                  topic_arn: pulumi.Input[str]):
         """
         An object that contains SNS topic ARN associated event destination.
+        :param pulumi.Input[str] topic_arn: The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+               
+               For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+
+        For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
+        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -386,6 +394,7 @@ class ConfigurationSetSendingOptionsArgs:
                  sending_enabled: Optional[pulumi.Input[bool]] = None):
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        :param pulumi.Input[bool] sending_enabled: If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
         """
         if sending_enabled is not None:
             pulumi.set(__self__, "sending_enabled", sending_enabled)
@@ -393,6 +402,9 @@ class ConfigurationSetSendingOptionsArgs:
     @property
     @pulumi.getter(name="sendingEnabled")
     def sending_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
+        """
         return pulumi.get(self, "sending_enabled")
 
     @sending_enabled.setter
@@ -455,6 +467,8 @@ class ConfigurationSetVdmOptionsArgs:
                  guardian_options: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']] = None):
         """
         An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+        :param pulumi.Input['ConfigurationSetDashboardOptionsArgs'] dashboard_options: Settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input['ConfigurationSetGuardianOptionsArgs'] guardian_options: Settings for your VDM configuration as applicable to the Guardian.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -464,6 +478,9 @@ class ConfigurationSetVdmOptionsArgs:
     @property
     @pulumi.getter(name="dashboardOptions")
     def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']]:
+        """
+        Settings for your VDM configuration as applicable to the Dashboard.
+        """
         return pulumi.get(self, "dashboard_options")
 
     @dashboard_options.setter
@@ -473,6 +490,9 @@ class ConfigurationSetVdmOptionsArgs:
     @property
     @pulumi.getter(name="guardianOptions")
     def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]:
+        """
+        Settings for your VDM configuration as applicable to the Guardian.
+        """
         return pulumi.get(self, "guardian_options")
 
     @guardian_options.setter
@@ -488,6 +508,7 @@ class ContactListTopicArgs:
                  topic_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         :param pulumi.Input[str] display_name: The display name of the topic.
         :param pulumi.Input[str] topic_name: The name of the topic.
         :param pulumi.Input[str] description: The description of the topic.
@@ -501,6 +522,9 @@ class ContactListTopicArgs:
     @property
     @pulumi.getter(name="defaultSubscriptionStatus")
     def default_subscription_status(self) -> pulumi.Input[str]:
+        """
+        The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        """
         return pulumi.get(self, "default_subscription_status")
 
     @default_subscription_status.setter

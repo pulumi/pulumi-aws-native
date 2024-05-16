@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
+        /// </summary>
         [Output("automaticBackupReplicationKmsKeyId")]
         public Output<string?> AutomaticBackupReplicationKmsKeyId { get; private set; } = null!;
 
@@ -214,6 +217,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("dbClusterSnapshotIdentifier")]
         public Output<string?> DbClusterSnapshotIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB instance.
+        /// </summary>
         [Output("dbInstanceArn")]
         public Output<string> DbInstanceArn { get; private set; } = null!;
 
@@ -358,6 +364,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("dbSystemId")]
         public Output<string> DbSystemId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        /// </summary>
         [Output("dbiResourceId")]
         public Output<string> DbiResourceId { get; private set; } = null!;
 
@@ -1075,6 +1084,9 @@ namespace Pulumi.AwsNative.Rds
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
+        /// <summary>
+        /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
+        /// </summary>
         [Input("automaticBackupReplicationKmsKeyId")]
         public Input<string>? AutomaticBackupReplicationKmsKeyId { get; set; }
 

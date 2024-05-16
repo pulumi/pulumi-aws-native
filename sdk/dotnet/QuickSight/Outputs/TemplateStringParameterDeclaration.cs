@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateStringParameterDeclaration
     {
+        /// <summary>
+        /// The default values of the `StringParameterDeclaration` .
+        /// </summary>
         public readonly Outputs.TemplateStringDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.TemplateMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateParameterValueType ParameterValueType;
+        /// <summary>
+        /// The configuration that defines the default value of a `String` parameter when a value has not been set.
+        /// </summary>
         public readonly Outputs.TemplateStringValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

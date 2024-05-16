@@ -15,51 +15,99 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class AccountAuditConfigurationAuditCheckConfigurationsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("authenticatedCognitoRoleOverlyPermissiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? AuthenticatedCognitoRoleOverlyPermissiveCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("caCertificateExpiringCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? CaCertificateExpiringCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("caCertificateKeyQualityCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? CaCertificateKeyQualityCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("conflictingClientIdsCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? ConflictingClientIdsCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("deviceCertificateExpiringCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? DeviceCertificateExpiringCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("deviceCertificateKeyQualityCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? DeviceCertificateKeyQualityCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("deviceCertificateSharedCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? DeviceCertificateSharedCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("intermediateCaRevokedForActiveDeviceCertificatesCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IntermediateCaRevokedForActiveDeviceCertificatesCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("ioTPolicyPotentialMisConfigurationCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IoTPolicyPotentialMisConfigurationCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("iotPolicyOverlyPermissiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IotPolicyOverlyPermissiveCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("iotRoleAliasAllowsAccessToUnusedServicesCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IotRoleAliasAllowsAccessToUnusedServicesCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("iotRoleAliasOverlyPermissiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IotRoleAliasOverlyPermissiveCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("loggingDisabledCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? LoggingDisabledCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("revokedCaCertificateStillActiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? RevokedCaCertificateStillActiveCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("revokedDeviceCertificateStillActiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? RevokedDeviceCertificateStillActiveCheck { get; set; }
 
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         [Input("unauthenticatedCognitoRoleOverlyPermissiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? UnauthenticatedCognitoRoleOverlyPermissiveCheck { get; set; }
 

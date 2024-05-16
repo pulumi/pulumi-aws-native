@@ -16,15 +16,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class ThemeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
+        /// </summary>
         [Input("dataColorPalette")]
         public Input<Inputs.ThemeDataColorPaletteArgs>? DataColorPalette { get; set; }
 
+        /// <summary>
+        /// The theme display options for sheets.
+        /// </summary>
         [Input("sheet")]
         public Input<Inputs.ThemeSheetStyleArgs>? Sheet { get; set; }
 
+        /// <summary>
+        /// Determines the typography options.
+        /// </summary>
         [Input("typography")]
         public Input<Inputs.ThemeTypographyArgs>? Typography { get; set; }
 
+        /// <summary>
+        /// The theme colors that apply to UI and to charts, excluding data colors. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
+        /// </summary>
         [Input("uiColorPalette")]
         public Input<Inputs.ThemeUiColorPaletteArgs>? UiColorPalette { get; set; }
 

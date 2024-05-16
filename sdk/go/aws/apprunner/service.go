@@ -18,12 +18,17 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// Autoscaling configuration ARN
-	AutoScalingConfigurationArn pulumi.StringPtrOutput                     `pulumi:"autoScalingConfigurationArn"`
-	EncryptionConfiguration     ServiceEncryptionConfigurationPtrOutput    `pulumi:"encryptionConfiguration"`
-	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrOutput   `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration       ServiceInstanceConfigurationPtrOutput      `pulumi:"instanceConfiguration"`
-	NetworkConfiguration        ServiceNetworkConfigurationPtrOutput       `pulumi:"networkConfiguration"`
-	ObservabilityConfiguration  ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
+	AutoScalingConfigurationArn pulumi.StringPtrOutput `pulumi:"autoScalingConfigurationArn"`
+	// Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+	EncryptionConfiguration ServiceEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
+	// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrOutput `pulumi:"healthCheckConfiguration"`
+	// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+	InstanceConfiguration ServiceInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
+	// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+	ObservabilityConfiguration ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The AppRunner Service Id
@@ -31,11 +36,13 @@ type Service struct {
 	// The AppRunner Service Name.
 	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
 	// The Service Url of the AppRunner Service.
-	ServiceUrl          pulumi.StringOutput              `pulumi:"serviceUrl"`
+	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
+	// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
 	SourceConfiguration ServiceSourceConfigurationOutput `pulumi:"sourceConfiguration"`
 	// AppRunner Service status.
-	Status pulumi.StringOutput          `pulumi:"status"`
-	Tags   aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -88,31 +95,45 @@ func (ServiceState) ElementType() reflect.Type {
 
 type serviceArgs struct {
 	// Autoscaling configuration ARN
-	AutoScalingConfigurationArn *string                            `pulumi:"autoScalingConfigurationArn"`
-	EncryptionConfiguration     *ServiceEncryptionConfiguration    `pulumi:"encryptionConfiguration"`
-	HealthCheckConfiguration    *ServiceHealthCheckConfiguration   `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration       *ServiceInstanceConfiguration      `pulumi:"instanceConfiguration"`
-	NetworkConfiguration        *ServiceNetworkConfiguration       `pulumi:"networkConfiguration"`
-	ObservabilityConfiguration  *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
+	AutoScalingConfigurationArn *string `pulumi:"autoScalingConfigurationArn"`
+	// Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+	EncryptionConfiguration *ServiceEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
+	// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+	InstanceConfiguration *ServiceInstanceConfiguration `pulumi:"instanceConfiguration"`
+	// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
+	// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// The AppRunner Service Name.
-	ServiceName         *string                    `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
+	// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
-	Tags                []aws.CreateOnlyTag        `pulumi:"tags"`
+	// Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// Autoscaling configuration ARN
 	AutoScalingConfigurationArn pulumi.StringPtrInput
-	EncryptionConfiguration     ServiceEncryptionConfigurationPtrInput
-	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrInput
-	InstanceConfiguration       ServiceInstanceConfigurationPtrInput
-	NetworkConfiguration        ServiceNetworkConfigurationPtrInput
-	ObservabilityConfiguration  ServiceObservabilityConfigurationPtrInput
+	// Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+	EncryptionConfiguration ServiceEncryptionConfigurationPtrInput
+	// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrInput
+	// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+	InstanceConfiguration ServiceInstanceConfigurationPtrInput
+	// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+	NetworkConfiguration ServiceNetworkConfigurationPtrInput
+	// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
 	// The AppRunner Service Name.
-	ServiceName         pulumi.StringPtrInput
+	ServiceName pulumi.StringPtrInput
+	// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
 	SourceConfiguration ServiceSourceConfigurationInput
-	Tags                aws.CreateOnlyTagArrayInput
+	// Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -157,22 +178,27 @@ func (o ServiceOutput) AutoScalingConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoScalingConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
+// Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
 func (o ServiceOutput) EncryptionConfiguration() ServiceEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ServiceEncryptionConfigurationPtrOutput)
 }
 
+// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
 func (o ServiceOutput) HealthCheckConfiguration() ServiceHealthCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigurationPtrOutput { return v.HealthCheckConfiguration }).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
+// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
 func (o ServiceOutput) InstanceConfiguration() ServiceInstanceConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceInstanceConfigurationPtrOutput { return v.InstanceConfiguration }).(ServiceInstanceConfigurationPtrOutput)
 }
 
+// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
 func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
 }
 
+// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
 func (o ServiceOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceObservabilityConfigurationPtrOutput { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
 }
@@ -197,6 +223,7 @@ func (o ServiceOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
 }
 
+// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
 func (o ServiceOutput) SourceConfiguration() ServiceSourceConfigurationOutput {
 	return o.ApplyT(func(v *Service) ServiceSourceConfigurationOutput { return v.SourceConfiguration }).(ServiceSourceConfigurationOutput)
 }
@@ -206,6 +233,7 @@ func (o ServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
 func (o ServiceOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

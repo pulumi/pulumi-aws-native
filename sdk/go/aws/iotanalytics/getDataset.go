@@ -24,17 +24,25 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
+	// The name of the dataset.
 	DatasetName string `pulumi:"datasetName"`
 }
 
 type LookupDatasetResult struct {
-	Actions                 []DatasetAction                 `pulumi:"actions"`
-	ContentDeliveryRules    []DatasetContentDeliveryRule    `pulumi:"contentDeliveryRules"`
-	Id                      *string                         `pulumi:"id"`
-	LateDataRules           []DatasetLateDataRule           `pulumi:"lateDataRules"`
-	RetentionPeriod         *DatasetRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []aws.Tag                       `pulumi:"tags"`
-	Triggers                []DatasetTrigger                `pulumi:"triggers"`
+	// Information needed to run the "containerAction" to produce data set contents.
+	Actions []DatasetAction `pulumi:"actions"`
+	// When dataset contents are created, they are delivered to destination specified here.
+	ContentDeliveryRules []DatasetContentDeliveryRule `pulumi:"contentDeliveryRules"`
+	Id                   *string                      `pulumi:"id"`
+	// A structure that contains the name and configuration information of a late data rule.
+	LateDataRules []DatasetLateDataRule `pulumi:"lateDataRules"`
+	// How long, in days, message data is kept.
+	RetentionPeriod *DatasetRetentionPeriod `pulumi:"retentionPeriod"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The "DatasetTrigger" that specifies when the data set is automatically updated.
+	Triggers []DatasetTrigger `pulumi:"triggers"`
+	// Information about the versioning of dataset contents.
 	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
@@ -52,6 +60,7 @@ func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts
 }
 
 type LookupDatasetOutputArgs struct {
+	// The name of the dataset.
 	DatasetName pulumi.StringInput `pulumi:"datasetName"`
 }
 
@@ -73,10 +82,12 @@ func (o LookupDatasetResultOutput) ToLookupDatasetResultOutputWithContext(ctx co
 	return o
 }
 
+// Information needed to run the "containerAction" to produce data set contents.
 func (o LookupDatasetResultOutput) Actions() DatasetActionArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetAction { return v.Actions }).(DatasetActionArrayOutput)
 }
 
+// When dataset contents are created, they are delivered to destination specified here.
 func (o LookupDatasetResultOutput) ContentDeliveryRules() DatasetContentDeliveryRuleArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetContentDeliveryRule { return v.ContentDeliveryRules }).(DatasetContentDeliveryRuleArrayOutput)
 }
@@ -85,22 +96,27 @@ func (o LookupDatasetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A structure that contains the name and configuration information of a late data rule.
 func (o LookupDatasetResultOutput) LateDataRules() DatasetLateDataRuleArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetLateDataRule { return v.LateDataRules }).(DatasetLateDataRuleArrayOutput)
 }
 
+// How long, in days, message data is kept.
 func (o LookupDatasetResultOutput) RetentionPeriod() DatasetRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetRetentionPeriod { return v.RetentionPeriod }).(DatasetRetentionPeriodPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource.
 func (o LookupDatasetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The "DatasetTrigger" that specifies when the data set is automatically updated.
 func (o LookupDatasetResultOutput) Triggers() DatasetTriggerArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetTrigger { return v.Triggers }).(DatasetTriggerArrayOutput)
 }
 
+// Information about the versioning of dataset contents.
 func (o LookupDatasetResultOutput) VersioningConfiguration() DatasetVersioningConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetVersioningConfiguration { return v.VersioningConfiguration }).(DatasetVersioningConfigurationPtrOutput)
 }

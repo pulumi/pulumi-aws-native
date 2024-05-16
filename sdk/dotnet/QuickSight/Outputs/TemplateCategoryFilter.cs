@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCategoryFilter
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The configuration for a `CategoryFilter` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateCategoryFilterConfiguration Configuration;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
 
         [OutputConstructor]

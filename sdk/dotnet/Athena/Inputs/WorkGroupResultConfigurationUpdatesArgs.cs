@@ -15,27 +15,53 @@ namespace Pulumi.AwsNative.Athena.Inputs
     /// </summary>
     public sealed class WorkGroupResultConfigurationUpdatesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. When Athena stores query results in Amazon S3, the canned ACL is set with the `x-amz-acl` request header. For more information about S3 Object Ownership, see [Object Ownership settings](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html#object-ownership-overview) in the *Amazon S3 User Guide* .
+        /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.WorkGroupAclConfigurationArgs>? AclConfiguration { get; set; }
 
+        /// <summary>
+        /// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.WorkGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration$OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` AWS account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
+        /// 
+        /// If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `WorkGroupConfiguration$EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . For more information, see [Query Results](https://docs.aws.amazon.com/athena/latest/ug/querying.html) If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See `EnforceWorkGroupConfiguration` .
+        /// </summary>
         [Input("outputLocation")]
         public Input<string>? OutputLocation { get; set; }
 
+        /// <summary>
+        /// If set to `true` , indicates that the previously-specified ACL configuration for queries in this workgroup should be ignored and set to null. If set to `false` or not set, and a value is present in the `AclConfiguration` of `ResultConfigurationUpdates` , the `AclConfiguration` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         [Input("removeAclConfiguration")]
         public Input<bool>? RemoveAclConfiguration { get; set; }
 
+        /// <summary>
+        /// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         [Input("removeEncryptionConfiguration")]
         public Input<bool>? RemoveEncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// If set to "true", removes the AWS account ID previously specified for `ResultConfiguration$ExpectedBucketOwner` . If set to "false" or not set, and a value is present in the `ExpectedBucketOwner` in `ResultConfigurationUpdates` (the client-side setting), the `ExpectedBucketOwner` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         [Input("removeExpectedBucketOwner")]
         public Input<bool>? RemoveExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         [Input("removeOutputLocation")]
         public Input<bool>? RemoveOutputLocation { get; set; }
 

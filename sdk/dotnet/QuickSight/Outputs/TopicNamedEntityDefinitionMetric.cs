@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicNamedEntityDefinitionMetric
     {
+        /// <summary>
+        /// The aggregation of a named entity. Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNamedEntityAggType? Aggregation;
+        /// <summary>
+        /// The additional parameters for an aggregation function.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? AggregationFunctionParameters;
 
         [OutputConstructor]

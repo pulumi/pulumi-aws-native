@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     [OutputType]
     public sealed class InAppTemplateBodyConfig
     {
+        /// <summary>
+        /// The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Pinpoint.InAppTemplateAlignment? Alignment;
+        /// <summary>
+        /// The main body text of the message.
+        /// </summary>
         public readonly string? Body;
+        /// <summary>
+        /// The color of the body text, expressed as a hex color code (such as #000000 for black).
+        /// </summary>
         public readonly string? TextColor;
 
         [OutputConstructor]

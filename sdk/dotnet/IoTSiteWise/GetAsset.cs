@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The External ID of the asset
         /// </summary>
         public readonly string? AssetExternalId;
+        /// <summary>
+        /// Describes an asset hierarchy that contains a hierarchy's name and ID.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AssetHierarchy> AssetHierarchies;
         /// <summary>
         /// The ID of the asset
@@ -82,6 +85,9 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// A unique, friendly name for the asset.
         /// </summary>
         public readonly string? AssetName;
+        /// <summary>
+        /// Contains asset property information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AssetProperty> AssetProperties;
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset.

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupReferenceSets
     {
+        /// <summary>
+        /// The IP set references to use in the stateful rule group.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.RuleGroupIpSetReference>? IpSetReferences;
 
         [OutputConstructor]

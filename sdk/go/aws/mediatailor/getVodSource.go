@@ -24,8 +24,10 @@ func LookupVodSource(ctx *pulumi.Context, args *LookupVodSourceArgs, opts ...pul
 }
 
 type LookupVodSourceArgs struct {
+	// The name of the source location that the VOD source is associated with.
 	SourceLocationName string `pulumi:"sourceLocationName"`
-	VodSourceName      string `pulumi:"vodSourceName"`
+	// The name of the VOD source.
+	VodSourceName string `pulumi:"vodSourceName"`
 }
 
 type LookupVodSourceResult struct {
@@ -51,8 +53,10 @@ func LookupVodSourceOutput(ctx *pulumi.Context, args LookupVodSourceOutputArgs, 
 }
 
 type LookupVodSourceOutputArgs struct {
+	// The name of the source location that the VOD source is associated with.
 	SourceLocationName pulumi.StringInput `pulumi:"sourceLocationName"`
-	VodSourceName      pulumi.StringInput `pulumi:"vodSourceName"`
+	// The name of the VOD source.
+	VodSourceName pulumi.StringInput `pulumi:"vodSourceName"`
 }
 
 func (LookupVodSourceOutputArgs) ElementType() reflect.Type {

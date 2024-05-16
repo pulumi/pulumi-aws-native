@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeFilter
     {
+        /// <summary>
+        /// The event pattern.
+        /// </summary>
         public readonly string? Pattern;
 
         [OutputConstructor]

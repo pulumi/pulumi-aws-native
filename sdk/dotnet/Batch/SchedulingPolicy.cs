@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Batch
     [AwsNativeResourceType("aws-native:batch:SchedulingPolicy")]
     public partial class SchedulingPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The fair share policy for a scheduling policy.
+        /// </summary>
         [Output("fairsharePolicy")]
         public Output<Outputs.SchedulingPolicyFairsharePolicy?> FairsharePolicy { get; private set; } = null!;
 
@@ -83,6 +89,9 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class SchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fair share policy for a scheduling policy.
+        /// </summary>
         [Input("fairsharePolicy")]
         public Input<Inputs.SchedulingPolicyFairsharePolicyArgs>? FairsharePolicy { get; set; }
 

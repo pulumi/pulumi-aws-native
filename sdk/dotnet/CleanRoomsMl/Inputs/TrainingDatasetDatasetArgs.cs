@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CleanRoomsMl.Inputs
 
     public sealed class TrainingDatasetDatasetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the Glue data source and schema mapping information.
+        /// </summary>
         [Input("inputConfig", required: true)]
         public Input<Inputs.TrainingDatasetDatasetInputConfigArgs> InputConfig { get; set; } = null!;
 
+        /// <summary>
+        /// What type of information is found in the dataset.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.CleanRoomsMl.TrainingDatasetDatasetType> Type { get; set; } = null!;
 

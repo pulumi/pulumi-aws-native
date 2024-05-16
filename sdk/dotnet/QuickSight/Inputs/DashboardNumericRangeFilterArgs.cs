@@ -12,33 +12,71 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardNumericRangeFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.DashboardAggregationFunctionArgs>? AggregationFunction { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.DashboardDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 
+        /// <summary>
+        /// Determines whether the maximum value in the filter value range should be included in the filtered results.
+        /// </summary>
         [Input("includeMaximum")]
         public Input<bool>? IncludeMaximum { get; set; }
 
+        /// <summary>
+        /// Determines whether the minimum value in the filter value range should be included in the filtered results.
+        /// </summary>
         [Input("includeMinimum")]
         public Input<bool>? IncludeMinimum { get; set; }
 
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         [Input("nullOption", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardFilterNullOption> NullOption { get; set; } = null!;
 
+        /// <summary>
+        /// The value input pf the numeric range filter.
+        /// </summary>
         [Input("rangeMaximum")]
         public Input<Inputs.DashboardNumericRangeFilterValueArgs>? RangeMaximum { get; set; }
 
+        /// <summary>
+        /// The value input pf the numeric range filter.
+        /// </summary>
         [Input("rangeMinimum")]
         public Input<Inputs.DashboardNumericRangeFilterValueArgs>? RangeMinimum { get; set; }
 
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         [Input("selectAllOptions")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardNumericFilterSelectAllOptions>? SelectAllOptions { get; set; }
 

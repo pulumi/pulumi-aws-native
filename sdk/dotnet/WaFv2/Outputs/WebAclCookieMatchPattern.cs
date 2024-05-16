@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// Inspect all parts of the web request cookies.
         /// </summary>
         public readonly object? All;
+        /// <summary>
+        /// Inspect only the cookies whose keys don't match any of the strings specified here.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedCookies;
+        /// <summary>
+        /// Inspect only the cookies that have a key that matches one of the strings specified here.
+        /// </summary>
         public readonly ImmutableArray<string> IncludedCookies;
 
         [OutputConstructor]

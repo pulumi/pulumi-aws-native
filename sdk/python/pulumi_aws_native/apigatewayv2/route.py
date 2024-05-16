@@ -431,6 +431,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Output[str]:
+        """
+        The route ID.
+        """
         return pulumi.get(self, "route_id")
 
     @property

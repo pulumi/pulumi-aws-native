@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableWriteOnDemandThroughputSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum number of write request settings for the specified replica of a global table.
+        /// </summary>
         [Input("maxWriteRequestUnits")]
         public Input<int>? MaxWriteRequestUnits { get; set; }
 

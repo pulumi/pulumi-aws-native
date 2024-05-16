@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardRelativeDateTimeControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Customize how dates are formatted in controls.
+        /// </summary>
         [Input("dateTimeFormat")]
         public Input<string>? DateTimeFormat { get; set; }
 
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.DashboardSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.DashboardLabelOptionsArgs>? TitleOptions { get; set; }
 

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         /// &lt;p&gt;The ARN for a KMS key that is used to encrypt studio data.&lt;/p&gt;
         /// </summary>
         public readonly string? KeyArn;
+        /// <summary>
+        /// The type of KMS key that is used to encrypt studio data.
+        /// </summary>
         public readonly Pulumi.AwsNative.NimbleStudio.StudioEncryptionConfigurationKeyType KeyType;
 
         [OutputConstructor]

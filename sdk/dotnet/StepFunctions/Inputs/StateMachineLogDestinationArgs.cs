@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
 
     public sealed class StateMachineLogDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a CloudWatch log group.
+        /// 
+        /// &gt; For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        /// </summary>
         [Input("cloudWatchLogsLogGroup")]
         public Input<Inputs.StateMachineCloudWatchLogsLogGroupArgs>? CloudWatchLogsLogGroup { get; set; }
 

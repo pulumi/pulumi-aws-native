@@ -62,9 +62,23 @@ export class Thing extends pulumi.CustomResource {
         return obj['__pulumiType'] === Thing.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+     */
     public readonly attributePayload!: pulumi.Output<outputs.iot.ThingAttributePayload | undefined>;
+    /**
+     * The Id of this thing.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The name of the thing to update.
+     *
+     * You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+     */
     public readonly thingName!: pulumi.Output<string | undefined>;
 
     /**
@@ -99,6 +113,14 @@ export class Thing extends pulumi.CustomResource {
  * The set of arguments for constructing a Thing resource.
  */
 export interface ThingArgs {
+    /**
+     * The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+     */
     attributePayload?: pulumi.Input<inputs.iot.ThingAttributePayloadArgs>;
+    /**
+     * The name of the thing to update.
+     *
+     * You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+     */
     thingName?: pulumi.Input<string>;
 }

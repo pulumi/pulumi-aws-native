@@ -15,14 +15,24 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetPathOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+        /// </summary>
         [Input("filesLimit")]
         public Input<Inputs.DatasetFilesLimitArgs>? FilesLimit { get; set; }
 
+        /// <summary>
+        /// Represents a structure for defining parameter conditions.
+        /// </summary>
         [Input("lastModifiedDateCondition")]
         public Input<Inputs.DatasetFilterExpressionArgs>? LastModifiedDateCondition { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.DatasetPathParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+        /// </summary>
         public InputList<Inputs.DatasetPathParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.DatasetPathParameterArgs>());

@@ -37,22 +37,87 @@ export class Monitor extends pulumi.CustomResource {
         return obj['__pulumiType'] === Monitor.__pulumiType;
     }
 
+    /**
+     * The time when the monitor was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Define the health event threshold percentages for the performance score and availability score for your application's monitor. Amazon CloudWatch Internet Monitor creates a health event when there's an internet issue that affects your application end users where a health score percentage is at or below a set threshold.
+     *
+     * If you don't set a health event threshold, the default value is 95%.
+     */
     public readonly healthEventsConfig!: pulumi.Output<outputs.internetmonitor.MonitorHealthEventsConfig | undefined>;
+    /**
+     * A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+     */
     public readonly includeLinkedAccounts!: pulumi.Output<boolean | undefined>;
+    /**
+     * Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.
+     */
     public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.internetmonitor.MonitorInternetMeasurementsLogDelivery | undefined>;
+    /**
+     * The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+     */
     public readonly linkedAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+     *
+     * For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+     */
     public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
+    /**
+     * The last time that the monitor was modified.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the monitor.
+     */
     public /*out*/ readonly monitorArn!: pulumi.Output<string>;
+    /**
+     * The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+     */
     public readonly monitorName!: pulumi.Output<string>;
+    /**
+     * The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
+     */
     public /*out*/ readonly processingStatus!: pulumi.Output<enums.internetmonitor.MonitorProcessingStatusCode>;
+    /**
+     * Additional information about the health of the data processing for the monitor.
+     */
     public /*out*/ readonly processingStatusInfo!: pulumi.Output<string>;
+    /**
+     * The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+     *
+     * > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+     */
     public readonly resources!: pulumi.Output<string[] | undefined>;
+    /**
+     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
+     *
+     * You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together with any other resources.
+     *
+     * If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
+     *
+     * > You can specify this field for a monitor update only if the `Resources` field is empty.
+     */
     public readonly resourcesToAdd!: pulumi.Output<string[] | undefined>;
+    /**
+     * The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
+     *
+     * > You can specify this field for a monitor update only if the `Resources` field is empty.
+     */
     public readonly resourcesToRemove!: pulumi.Output<string[] | undefined>;
+    /**
+     * The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+     */
     public readonly status!: pulumi.Output<enums.internetmonitor.MonitorConfigState | undefined>;
+    /**
+     * The tags for a monitor, listed as a set of *key:value* pairs.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+     */
     public readonly trafficPercentageToMonitor!: pulumi.Output<number | undefined>;
 
     /**
@@ -113,16 +178,66 @@ export class Monitor extends pulumi.CustomResource {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    /**
+     * Define the health event threshold percentages for the performance score and availability score for your application's monitor. Amazon CloudWatch Internet Monitor creates a health event when there's an internet issue that affects your application end users where a health score percentage is at or below a set threshold.
+     *
+     * If you don't set a health event threshold, the default value is 95%.
+     */
     healthEventsConfig?: pulumi.Input<inputs.internetmonitor.MonitorHealthEventsConfigArgs>;
+    /**
+     * A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+     */
     includeLinkedAccounts?: pulumi.Input<boolean>;
+    /**
+     * Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.
+     */
     internetMeasurementsLogDelivery?: pulumi.Input<inputs.internetmonitor.MonitorInternetMeasurementsLogDeliveryArgs>;
+    /**
+     * The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+     */
     linkedAccountId?: pulumi.Input<string>;
+    /**
+     * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+     *
+     * For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+     */
     maxCityNetworksToMonitor?: pulumi.Input<number>;
+    /**
+     * The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+     */
     monitorName?: pulumi.Input<string>;
+    /**
+     * The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+     *
+     * > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+     */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
+     *
+     * You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together with any other resources.
+     *
+     * If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
+     *
+     * > You can specify this field for a monitor update only if the `Resources` field is empty.
+     */
     resourcesToAdd?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
+     *
+     * > You can specify this field for a monitor update only if the `Resources` field is empty.
+     */
     resourcesToRemove?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+     */
     status?: pulumi.Input<enums.internetmonitor.MonitorConfigState>;
+    /**
+     * The tags for a monitor, listed as a set of *key:value* pairs.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+     */
     trafficPercentageToMonitor?: pulumi.Input<number>;
 }

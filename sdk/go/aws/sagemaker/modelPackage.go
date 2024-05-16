@@ -16,33 +16,69 @@ import (
 type ModelPackage struct {
 	pulumi.CustomResourceState
 
-	AdditionalInferenceSpecifications      ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecifications"`
+	// An array of additional Inference Specification objects.
+	AdditionalInferenceSpecifications ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecifications"`
+	// An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 	AdditionalInferenceSpecificationsToAdd ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecificationsToAdd"`
-	ApprovalDescription                    pulumi.StringPtrOutput                                            `pulumi:"approvalDescription"`
-	CertifyForMarketplace                  pulumi.BoolPtrOutput                                              `pulumi:"certifyForMarketplace"`
-	ClientToken                            pulumi.StringPtrOutput                                            `pulumi:"clientToken"`
-	CreationTime                           pulumi.StringOutput                                               `pulumi:"creationTime"`
-	CustomerMetadataProperties             ModelPackageCustomerMetadataPropertiesPtrOutput                   `pulumi:"customerMetadataProperties"`
-	Domain                                 pulumi.StringPtrOutput                                            `pulumi:"domain"`
-	DriftCheckBaselines                    ModelPackageDriftCheckBaselinesPtrOutput                          `pulumi:"driftCheckBaselines"`
-	InferenceSpecification                 ModelPackageInferenceSpecificationPtrOutput                       `pulumi:"inferenceSpecification"`
-	LastModifiedTime                       pulumi.StringPtrOutput                                            `pulumi:"lastModifiedTime"`
-	MetadataProperties                     ModelPackageMetadataPropertiesPtrOutput                           `pulumi:"metadataProperties"`
-	ModelApprovalStatus                    ModelPackageModelApprovalStatusPtrOutput                          `pulumi:"modelApprovalStatus"`
-	ModelMetrics                           ModelPackageModelMetricsPtrOutput                                 `pulumi:"modelMetrics"`
-	ModelPackageArn                        pulumi.StringOutput                                               `pulumi:"modelPackageArn"`
-	ModelPackageDescription                pulumi.StringPtrOutput                                            `pulumi:"modelPackageDescription"`
-	ModelPackageGroupName                  pulumi.StringPtrOutput                                            `pulumi:"modelPackageGroupName"`
-	ModelPackageName                       pulumi.StringPtrOutput                                            `pulumi:"modelPackageName"`
-	ModelPackageStatus                     ModelPackageStatusOutput                                          `pulumi:"modelPackageStatus"`
-	ModelPackageStatusDetails              ModelPackageStatusDetailsPtrOutput                                `pulumi:"modelPackageStatusDetails"`
-	ModelPackageVersion                    pulumi.IntPtrOutput                                               `pulumi:"modelPackageVersion"`
-	SamplePayloadUrl                       pulumi.StringPtrOutput                                            `pulumi:"samplePayloadUrl"`
-	SkipModelValidation                    ModelPackageSkipModelValidationPtrOutput                          `pulumi:"skipModelValidation"`
-	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrOutput                 `pulumi:"sourceAlgorithmSpecification"`
+	// A description provided when the model approval is set.
+	ApprovalDescription pulumi.StringPtrOutput `pulumi:"approvalDescription"`
+	// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+	CertifyForMarketplace pulumi.BoolPtrOutput `pulumi:"certifyForMarketplace"`
+	// A unique token that guarantees that the call to this API is idempotent.
+	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
+	// The time that the model package was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The metadata properties for the model package.
+	CustomerMetadataProperties ModelPackageCustomerMetadataPropertiesPtrOutput `pulumi:"customerMetadataProperties"`
+	// The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
+	DriftCheckBaselines ModelPackageDriftCheckBaselinesPtrOutput `pulumi:"driftCheckBaselines"`
+	// Defines how to perform inference generation after a training job is run.
+	InferenceSpecification ModelPackageInferenceSpecificationPtrOutput `pulumi:"inferenceSpecification"`
+	// The last time the model package was modified.
+	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
+	// Metadata properties of the tracking entity, trial, or trial component.
+	MetadataProperties ModelPackageMetadataPropertiesPtrOutput `pulumi:"metadataProperties"`
+	// The approval status of the model. This can be one of the following values.
+	//
+	// - `APPROVED` - The model is approved
+	// - `REJECTED` - The model is rejected.
+	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+	ModelApprovalStatus ModelPackageModelApprovalStatusPtrOutput `pulumi:"modelApprovalStatus"`
+	// Contains metrics captured from a model.
+	ModelMetrics ModelPackageModelMetricsPtrOutput `pulumi:"modelMetrics"`
+	// The Amazon Resource Name (ARN) of the model package.
+	ModelPackageArn pulumi.StringOutput `pulumi:"modelPackageArn"`
+	// The description of the model package.
+	ModelPackageDescription pulumi.StringPtrOutput `pulumi:"modelPackageDescription"`
+	// The model group to which the model belongs.
+	ModelPackageGroupName pulumi.StringPtrOutput `pulumi:"modelPackageGroupName"`
+	// The name of the model.
+	ModelPackageName pulumi.StringPtrOutput `pulumi:"modelPackageName"`
+	// The status of the model package. This can be one of the following values.
+	//
+	// - `PENDING` - The model package creation is pending.
+	// - `IN_PROGRESS` - The model package is in the process of being created.
+	// - `COMPLETED` - The model package was successfully created.
+	// - `FAILED` - The model package creation failed.
+	// - `DELETING` - The model package is in the process of being deleted.
+	ModelPackageStatus ModelPackageStatusOutput `pulumi:"modelPackageStatus"`
+	// Specifies the validation and image scan statuses of the model package.
+	ModelPackageStatusDetails ModelPackageStatusDetailsPtrOutput `pulumi:"modelPackageStatusDetails"`
+	// The version number of a versioned model.
+	ModelPackageVersion pulumi.IntPtrOutput `pulumi:"modelPackageVersion"`
+	// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+	SamplePayloadUrl pulumi.StringPtrOutput `pulumi:"samplePayloadUrl"`
+	// Indicates if you want to skip model validation.
+	SkipModelValidation ModelPackageSkipModelValidationPtrOutput `pulumi:"skipModelValidation"`
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithmSpecification ModelPackageSourceAlgorithmSpecificationPtrOutput `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                    aws.TagArrayOutput                           `pulumi:"tags"`
-	Task                    pulumi.StringPtrOutput                       `pulumi:"task"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+	Task pulumi.StringPtrOutput `pulumi:"task"`
+	// Specifies batch transform jobs that SageMaker runs to validate your model package.
 	ValidationSpecification ModelPackageValidationSpecificationPtrOutput `pulumi:"validationSpecification"`
 }
 
@@ -101,59 +137,113 @@ func (ModelPackageState) ElementType() reflect.Type {
 }
 
 type modelPackageArgs struct {
-	AdditionalInferenceSpecifications      []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
+	// An array of additional Inference Specification objects.
+	AdditionalInferenceSpecifications []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
+	// An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 	AdditionalInferenceSpecificationsToAdd []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecificationsToAdd"`
-	ApprovalDescription                    *string                                                  `pulumi:"approvalDescription"`
-	CertifyForMarketplace                  *bool                                                    `pulumi:"certifyForMarketplace"`
-	ClientToken                            *string                                                  `pulumi:"clientToken"`
-	CustomerMetadataProperties             *ModelPackageCustomerMetadataProperties                  `pulumi:"customerMetadataProperties"`
-	Domain                                 *string                                                  `pulumi:"domain"`
-	DriftCheckBaselines                    *ModelPackageDriftCheckBaselines                         `pulumi:"driftCheckBaselines"`
-	InferenceSpecification                 *ModelPackageInferenceSpecification                      `pulumi:"inferenceSpecification"`
-	LastModifiedTime                       *string                                                  `pulumi:"lastModifiedTime"`
-	MetadataProperties                     *ModelPackageMetadataProperties                          `pulumi:"metadataProperties"`
-	ModelApprovalStatus                    *ModelPackageModelApprovalStatus                         `pulumi:"modelApprovalStatus"`
-	ModelMetrics                           *ModelPackageModelMetrics                                `pulumi:"modelMetrics"`
-	ModelPackageDescription                *string                                                  `pulumi:"modelPackageDescription"`
-	ModelPackageGroupName                  *string                                                  `pulumi:"modelPackageGroupName"`
-	ModelPackageName                       *string                                                  `pulumi:"modelPackageName"`
-	ModelPackageStatusDetails              *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
-	ModelPackageVersion                    *int                                                     `pulumi:"modelPackageVersion"`
-	SamplePayloadUrl                       *string                                                  `pulumi:"samplePayloadUrl"`
-	SkipModelValidation                    *ModelPackageSkipModelValidation                         `pulumi:"skipModelValidation"`
-	SourceAlgorithmSpecification           *ModelPackageSourceAlgorithmSpecification                `pulumi:"sourceAlgorithmSpecification"`
+	// A description provided when the model approval is set.
+	ApprovalDescription *string `pulumi:"approvalDescription"`
+	// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+	CertifyForMarketplace *bool `pulumi:"certifyForMarketplace"`
+	// A unique token that guarantees that the call to this API is idempotent.
+	ClientToken *string `pulumi:"clientToken"`
+	// The metadata properties for the model package.
+	CustomerMetadataProperties *ModelPackageCustomerMetadataProperties `pulumi:"customerMetadataProperties"`
+	// The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+	Domain *string `pulumi:"domain"`
+	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
+	DriftCheckBaselines *ModelPackageDriftCheckBaselines `pulumi:"driftCheckBaselines"`
+	// Defines how to perform inference generation after a training job is run.
+	InferenceSpecification *ModelPackageInferenceSpecification `pulumi:"inferenceSpecification"`
+	// The last time the model package was modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Metadata properties of the tracking entity, trial, or trial component.
+	MetadataProperties *ModelPackageMetadataProperties `pulumi:"metadataProperties"`
+	// The approval status of the model. This can be one of the following values.
+	//
+	// - `APPROVED` - The model is approved
+	// - `REJECTED` - The model is rejected.
+	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
+	// Contains metrics captured from a model.
+	ModelMetrics *ModelPackageModelMetrics `pulumi:"modelMetrics"`
+	// The description of the model package.
+	ModelPackageDescription *string `pulumi:"modelPackageDescription"`
+	// The model group to which the model belongs.
+	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
+	// The name of the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
+	// Specifies the validation and image scan statuses of the model package.
+	ModelPackageStatusDetails *ModelPackageStatusDetails `pulumi:"modelPackageStatusDetails"`
+	// The version number of a versioned model.
+	ModelPackageVersion *int `pulumi:"modelPackageVersion"`
+	// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+	SamplePayloadUrl *string `pulumi:"samplePayloadUrl"`
+	// Indicates if you want to skip model validation.
+	SkipModelValidation *ModelPackageSkipModelValidation `pulumi:"skipModelValidation"`
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithmSpecification *ModelPackageSourceAlgorithmSpecification `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                    []aws.Tag                            `pulumi:"tags"`
-	Task                    *string                              `pulumi:"task"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+	Task *string `pulumi:"task"`
+	// Specifies batch transform jobs that SageMaker runs to validate your model package.
 	ValidationSpecification *ModelPackageValidationSpecification `pulumi:"validationSpecification"`
 }
 
 // The set of arguments for constructing a ModelPackage resource.
 type ModelPackageArgs struct {
-	AdditionalInferenceSpecifications      ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
+	// An array of additional Inference Specification objects.
+	AdditionalInferenceSpecifications ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
+	// An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 	AdditionalInferenceSpecificationsToAdd ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
-	ApprovalDescription                    pulumi.StringPtrInput
-	CertifyForMarketplace                  pulumi.BoolPtrInput
-	ClientToken                            pulumi.StringPtrInput
-	CustomerMetadataProperties             ModelPackageCustomerMetadataPropertiesPtrInput
-	Domain                                 pulumi.StringPtrInput
-	DriftCheckBaselines                    ModelPackageDriftCheckBaselinesPtrInput
-	InferenceSpecification                 ModelPackageInferenceSpecificationPtrInput
-	LastModifiedTime                       pulumi.StringPtrInput
-	MetadataProperties                     ModelPackageMetadataPropertiesPtrInput
-	ModelApprovalStatus                    ModelPackageModelApprovalStatusPtrInput
-	ModelMetrics                           ModelPackageModelMetricsPtrInput
-	ModelPackageDescription                pulumi.StringPtrInput
-	ModelPackageGroupName                  pulumi.StringPtrInput
-	ModelPackageName                       pulumi.StringPtrInput
-	ModelPackageStatusDetails              ModelPackageStatusDetailsPtrInput
-	ModelPackageVersion                    pulumi.IntPtrInput
-	SamplePayloadUrl                       pulumi.StringPtrInput
-	SkipModelValidation                    ModelPackageSkipModelValidationPtrInput
-	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrInput
+	// A description provided when the model approval is set.
+	ApprovalDescription pulumi.StringPtrInput
+	// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+	CertifyForMarketplace pulumi.BoolPtrInput
+	// A unique token that guarantees that the call to this API is idempotent.
+	ClientToken pulumi.StringPtrInput
+	// The metadata properties for the model package.
+	CustomerMetadataProperties ModelPackageCustomerMetadataPropertiesPtrInput
+	// The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+	Domain pulumi.StringPtrInput
+	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
+	DriftCheckBaselines ModelPackageDriftCheckBaselinesPtrInput
+	// Defines how to perform inference generation after a training job is run.
+	InferenceSpecification ModelPackageInferenceSpecificationPtrInput
+	// The last time the model package was modified.
+	LastModifiedTime pulumi.StringPtrInput
+	// Metadata properties of the tracking entity, trial, or trial component.
+	MetadataProperties ModelPackageMetadataPropertiesPtrInput
+	// The approval status of the model. This can be one of the following values.
+	//
+	// - `APPROVED` - The model is approved
+	// - `REJECTED` - The model is rejected.
+	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+	ModelApprovalStatus ModelPackageModelApprovalStatusPtrInput
+	// Contains metrics captured from a model.
+	ModelMetrics ModelPackageModelMetricsPtrInput
+	// The description of the model package.
+	ModelPackageDescription pulumi.StringPtrInput
+	// The model group to which the model belongs.
+	ModelPackageGroupName pulumi.StringPtrInput
+	// The name of the model.
+	ModelPackageName pulumi.StringPtrInput
+	// Specifies the validation and image scan statuses of the model package.
+	ModelPackageStatusDetails ModelPackageStatusDetailsPtrInput
+	// The version number of a versioned model.
+	ModelPackageVersion pulumi.IntPtrInput
+	// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+	SamplePayloadUrl pulumi.StringPtrInput
+	// Indicates if you want to skip model validation.
+	SkipModelValidation ModelPackageSkipModelValidationPtrInput
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithmSpecification ModelPackageSourceAlgorithmSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                    aws.TagArrayInput
-	Task                    pulumi.StringPtrInput
+	Tags aws.TagArrayInput
+	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+	Task pulumi.StringPtrInput
+	// Specifies batch transform jobs that SageMaker runs to validate your model package.
 	ValidationSpecification ModelPackageValidationSpecificationPtrInput
 }
 
@@ -194,104 +284,138 @@ func (o ModelPackageOutput) ToModelPackageOutputWithContext(ctx context.Context)
 	return o
 }
 
+// An array of additional Inference Specification objects.
 func (o ModelPackageOutput) AdditionalInferenceSpecifications() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 		return v.AdditionalInferenceSpecifications
 	}).(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput)
 }
 
+// An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 func (o ModelPackageOutput) AdditionalInferenceSpecificationsToAdd() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 		return v.AdditionalInferenceSpecificationsToAdd
 	}).(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput)
 }
 
+// A description provided when the model approval is set.
 func (o ModelPackageOutput) ApprovalDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.ApprovalDescription }).(pulumi.StringPtrOutput)
 }
 
+// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
 func (o ModelPackageOutput) CertifyForMarketplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.BoolPtrOutput { return v.CertifyForMarketplace }).(pulumi.BoolPtrOutput)
 }
 
+// A unique token that guarantees that the call to this API is idempotent.
 func (o ModelPackageOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
+// The time that the model package was created.
 func (o ModelPackageOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The metadata properties for the model package.
 func (o ModelPackageOutput) CustomerMetadataProperties() ModelPackageCustomerMetadataPropertiesPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageCustomerMetadataPropertiesPtrOutput {
 		return v.CustomerMetadataProperties
 	}).(ModelPackageCustomerMetadataPropertiesPtrOutput)
 }
 
+// The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
 func (o ModelPackageOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// Represents the drift check baselines that can be used when the model monitor is set using the model package.
 func (o ModelPackageOutput) DriftCheckBaselines() ModelPackageDriftCheckBaselinesPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageDriftCheckBaselinesPtrOutput { return v.DriftCheckBaselines }).(ModelPackageDriftCheckBaselinesPtrOutput)
 }
 
+// Defines how to perform inference generation after a training job is run.
 func (o ModelPackageOutput) InferenceSpecification() ModelPackageInferenceSpecificationPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageInferenceSpecificationPtrOutput { return v.InferenceSpecification }).(ModelPackageInferenceSpecificationPtrOutput)
 }
 
+// The last time the model package was modified.
 func (o ModelPackageOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// Metadata properties of the tracking entity, trial, or trial component.
 func (o ModelPackageOutput) MetadataProperties() ModelPackageMetadataPropertiesPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageMetadataPropertiesPtrOutput { return v.MetadataProperties }).(ModelPackageMetadataPropertiesPtrOutput)
 }
 
+// The approval status of the model. This can be one of the following values.
+//
+// - `APPROVED` - The model is approved
+// - `REJECTED` - The model is rejected.
+// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 func (o ModelPackageOutput) ModelApprovalStatus() ModelPackageModelApprovalStatusPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelApprovalStatusPtrOutput { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
+// Contains metrics captured from a model.
 func (o ModelPackageOutput) ModelMetrics() ModelPackageModelMetricsPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelMetricsPtrOutput { return v.ModelMetrics }).(ModelPackageModelMetricsPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the model package.
 func (o ModelPackageOutput) ModelPackageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringOutput { return v.ModelPackageArn }).(pulumi.StringOutput)
 }
 
+// The description of the model package.
 func (o ModelPackageOutput) ModelPackageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.ModelPackageDescription }).(pulumi.StringPtrOutput)
 }
 
+// The model group to which the model belongs.
 func (o ModelPackageOutput) ModelPackageGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.ModelPackageGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the model.
 func (o ModelPackageOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the model package. This can be one of the following values.
+//
+// - `PENDING` - The model package creation is pending.
+// - `IN_PROGRESS` - The model package is in the process of being created.
+// - `COMPLETED` - The model package was successfully created.
+// - `FAILED` - The model package creation failed.
+// - `DELETING` - The model package is in the process of being deleted.
 func (o ModelPackageOutput) ModelPackageStatus() ModelPackageStatusOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageStatusOutput { return v.ModelPackageStatus }).(ModelPackageStatusOutput)
 }
 
+// Specifies the validation and image scan statuses of the model package.
 func (o ModelPackageOutput) ModelPackageStatusDetails() ModelPackageStatusDetailsPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageStatusDetailsPtrOutput { return v.ModelPackageStatusDetails }).(ModelPackageStatusDetailsPtrOutput)
 }
 
+// The version number of a versioned model.
 func (o ModelPackageOutput) ModelPackageVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.IntPtrOutput { return v.ModelPackageVersion }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 func (o ModelPackageOutput) SamplePayloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.SamplePayloadUrl }).(pulumi.StringPtrOutput)
 }
 
+// Indicates if you want to skip model validation.
 func (o ModelPackageOutput) SkipModelValidation() ModelPackageSkipModelValidationPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageSkipModelValidationPtrOutput { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
 }
 
+// A list of algorithms that were used to create a model package.
 func (o ModelPackageOutput) SourceAlgorithmSpecification() ModelPackageSourceAlgorithmSpecificationPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageSourceAlgorithmSpecificationPtrOutput {
 		return v.SourceAlgorithmSpecification
@@ -303,10 +427,12 @@ func (o ModelPackageOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ModelPackage) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
 func (o ModelPackageOutput) Task() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.Task }).(pulumi.StringPtrOutput)
 }
 
+// Specifies batch transform jobs that SageMaker runs to validate your model package.
 func (o ModelPackageOutput) ValidationSpecification() ModelPackageValidationSpecificationPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageValidationSpecificationPtrOutput { return v.ValidationSpecification }).(ModelPackageValidationSpecificationPtrOutput)
 }

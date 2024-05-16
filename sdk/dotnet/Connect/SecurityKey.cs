@@ -36,12 +36,31 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:SecurityKey")]
     public partial class SecurityKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `AssociationId` is automatically generated when a storage config is associated with an instance.
+        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid security key in PEM format. For example:
+        /// 
+        /// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `1024`
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -95,9 +114,25 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class SecurityKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// A valid security key in PEM format. For example:
+        /// 
+        /// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `1024`
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

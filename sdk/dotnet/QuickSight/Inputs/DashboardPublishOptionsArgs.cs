@@ -15,36 +15,69 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An ad hoc (one-time) filtering option.
+        /// </summary>
         [Input("adHocFilteringOption")]
         public Input<Inputs.DashboardAdHocFilteringOptionArgs>? AdHocFilteringOption { get; set; }
 
+        /// <summary>
+        /// The drill down options for data points in a dashbaord.
+        /// </summary>
         [Input("dataPointDrillUpDownOption")]
         public Input<Inputs.DashboardDataPointDrillUpDownOptionArgs>? DataPointDrillUpDownOption { get; set; }
 
+        /// <summary>
+        /// The data point menu options of a dashboard.
+        /// </summary>
         [Input("dataPointMenuLabelOption")]
         public Input<Inputs.DashboardDataPointMenuLabelOptionArgs>? DataPointMenuLabelOption { get; set; }
 
+        /// <summary>
+        /// The data point tooltip options.
+        /// </summary>
         [Input("dataPointTooltipOption")]
         public Input<Inputs.DashboardDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
 
+        /// <summary>
+        /// Export to .csv option.
+        /// </summary>
         [Input("exportToCsvOption")]
         public Input<Inputs.DashboardExportToCsvOptionArgs>? ExportToCsvOption { get; set; }
 
+        /// <summary>
+        /// Determines whether or not hidden fields are visible on exported dashbaords.
+        /// </summary>
         [Input("exportWithHiddenFieldsOption")]
         public Input<Inputs.DashboardExportWithHiddenFieldsOptionArgs>? ExportWithHiddenFieldsOption { get; set; }
 
+        /// <summary>
+        /// Sheet controls option.
+        /// </summary>
         [Input("sheetControlsOption")]
         public Input<Inputs.DashboardSheetControlsOptionArgs>? SheetControlsOption { get; set; }
 
+        /// <summary>
+        /// The sheet layout maximization options of a dashbaord.
+        /// </summary>
         [Input("sheetLayoutElementMaximizationOption")]
         public Input<Inputs.DashboardSheetLayoutElementMaximizationOptionArgs>? SheetLayoutElementMaximizationOption { get; set; }
 
+        /// <summary>
+        /// The axis sort options for a visual.
+        /// </summary>
         [Input("visualAxisSortOption")]
         public Input<Inputs.DashboardVisualAxisSortOptionArgs>? VisualAxisSortOption { get; set; }
 
+        /// <summary>
+        /// The menu options for a visual.
+        /// </summary>
         [Input("visualMenuOption")]
         public Input<Inputs.DashboardVisualMenuOptionArgs>? VisualMenuOption { get; set; }
 
+        /// <summary>
+        /// The visual publish options of a visual in a dashboard
+        /// </summary>
         [Input("visualPublishOptions")]
         public Input<Inputs.DashboardVisualPublishOptionsArgs>? VisualPublishOptions { get; set; }
 

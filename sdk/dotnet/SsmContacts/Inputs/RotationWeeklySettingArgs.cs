@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SsmContacts.Inputs
     /// </summary>
     public sealed class RotationWeeklySettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The day of the week when weekly recurring on-call shift rotations begins.
+        /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<Pulumi.AwsNative.SsmContacts.RotationDayOfWeek> DayOfWeek { get; set; } = null!;
 
+        /// <summary>
+        /// The time of day when a weekly recurring on-call shift rotation begins.
+        /// </summary>
         [Input("handOffTime", required: true)]
         public Input<string> HandOffTime { get; set; } = null!;
 

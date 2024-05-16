@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineLoggingConfiguration
     {
+        /// <summary>
+        /// Defines a destination for `LoggingConfiguration` .
+        /// 
+        /// &gt; For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.StateMachineLogDestination> Destinations;
+        /// <summary>
+        /// Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        /// </summary>
         public readonly bool? IncludeExecutionData;
+        /// <summary>
+        /// Defines which category of execution history events are logged.
+        /// </summary>
         public readonly Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel? Level;
 
         [OutputConstructor]

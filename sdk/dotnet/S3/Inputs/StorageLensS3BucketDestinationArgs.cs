@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.StorageLensEncryptionArgs>? Encryption { get; set; }
 

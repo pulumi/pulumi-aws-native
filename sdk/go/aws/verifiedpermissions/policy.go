@@ -102,10 +102,19 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Definition    pulumi.AnyOutput    `pulumi:"definition"`
-	PolicyId      pulumi.StringOutput `pulumi:"policyId"`
+	// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+	//
+	// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+	Definition pulumi.AnyOutput `pulumi:"definition"`
+	// The unique ID of the new or updated policy.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
-	PolicyType    PolicyTypeOutput    `pulumi:"policyType"`
+	// The type of the policy. This is one of the following values:
+	//
+	// - Static
+	// - TemplateLinked
+	PolicyType PolicyTypeOutput `pulumi:"policyType"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -158,13 +167,21 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	Definition    interface{} `pulumi:"definition"`
-	PolicyStoreId string      `pulumi:"policyStoreId"`
+	// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+	//
+	// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+	Definition interface{} `pulumi:"definition"`
+	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+	PolicyStoreId string `pulumi:"policyStoreId"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	Definition    pulumi.Input
+	// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+	//
+	// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+	Definition pulumi.Input
+	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId pulumi.StringInput
 }
 
@@ -205,18 +222,27 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+//
+// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
 func (o PolicyOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }
 
+// The unique ID of the new or updated policy.
 func (o PolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
+// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 func (o PolicyOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
+// The type of the policy. This is one of the following values:
+//
+// - Static
+// - TemplateLinked
 func (o PolicyOutput) PolicyType() PolicyTypeOutput {
 	return o.ApplyT(func(v *Policy) PolicyTypeOutput { return v.PolicyType }).(PolicyTypeOutput)
 }

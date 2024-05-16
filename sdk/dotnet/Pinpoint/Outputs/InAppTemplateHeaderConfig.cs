@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     [OutputType]
     public sealed class InAppTemplateHeaderConfig
     {
+        /// <summary>
+        /// The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Pinpoint.InAppTemplateAlignment? Alignment;
+        /// <summary>
+        /// The title text of the in-app message.
+        /// </summary>
         public readonly string? Header;
+        /// <summary>
+        /// The color of the title text, expressed as a hex color code (such as #000000 for black).
+        /// </summary>
         public readonly string? TextColor;
 
         [OutputConstructor]

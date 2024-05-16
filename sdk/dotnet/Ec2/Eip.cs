@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:Eip")]
     public partial class Eip : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+        /// </summary>
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
 
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("networkBorderGroup")]
         public Output<string?> NetworkBorderGroup { get; private set; } = null!;
 
+        /// <summary>
+        /// The Elastic IP address.
+        /// </summary>
         [Output("publicIp")]
         public Output<string> PublicIp { get; private set; } = null!;
 

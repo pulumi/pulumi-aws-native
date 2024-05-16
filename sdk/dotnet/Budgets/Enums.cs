@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Budgets
 {
+    /// <summary>
+    /// The type of threshold for a notification.
+    /// </summary>
     [EnumType]
     public readonly struct BudgetsActionActionThresholdType : IEquatable<BudgetsActionActionThresholdType>
     {
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.Budgets
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+    /// </summary>
     [EnumType]
     public readonly struct BudgetsActionActionType : IEquatable<BudgetsActionActionType>
     {
@@ -64,6 +70,9 @@ namespace Pulumi.AwsNative.Budgets
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// This specifies if the action needs manual or automatic approval.
+    /// </summary>
     [EnumType]
     public readonly struct BudgetsActionApprovalModel : IEquatable<BudgetsActionApprovalModel>
     {
@@ -92,6 +101,9 @@ namespace Pulumi.AwsNative.Budgets
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of a notification.
+    /// </summary>
     [EnumType]
     public readonly struct BudgetsActionNotificationType : IEquatable<BudgetsActionNotificationType>
     {
@@ -120,6 +132,9 @@ namespace Pulumi.AwsNative.Budgets
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action subType.
+    /// </summary>
     [EnumType]
     public readonly struct BudgetsActionSsmActionDefinitionSubtype : IEquatable<BudgetsActionSsmActionDefinitionSubtype>
     {
@@ -148,6 +163,9 @@ namespace Pulumi.AwsNative.Budgets
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of notification that AWS sends to a subscriber.
+    /// </summary>
     [EnumType]
     public readonly struct BudgetsActionSubscriberType : IEquatable<BudgetsActionSubscriberType>
     {

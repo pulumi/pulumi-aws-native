@@ -24,15 +24,19 @@ func LookupSourceLocation(ctx *pulumi.Context, args *LookupSourceLocationArgs, o
 }
 
 type LookupSourceLocationArgs struct {
+	// The name of the source location.
 	SourceLocationName string `pulumi:"sourceLocationName"`
 }
 
 type LookupSourceLocationResult struct {
+	// Access configuration parameters.
 	AccessConfiguration *SourceLocationAccessConfiguration `pulumi:"accessConfiguration"`
 	// <p>The ARN of the source location.</p>
-	Arn                                 *string                                            `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
 	DefaultSegmentDeliveryConfiguration *SourceLocationDefaultSegmentDeliveryConfiguration `pulumi:"defaultSegmentDeliveryConfiguration"`
-	HttpConfiguration                   *SourceLocationHttpConfiguration                   `pulumi:"httpConfiguration"`
+	// The HTTP configuration for the source location.
+	HttpConfiguration *SourceLocationHttpConfiguration `pulumi:"httpConfiguration"`
 	// <p>A list of the segment delivery configurations associated with this resource.</p>
 	SegmentDeliveryConfigurations []SourceLocationSegmentDeliveryConfiguration `pulumi:"segmentDeliveryConfigurations"`
 	// The tags to assign to the source location.
@@ -53,6 +57,7 @@ func LookupSourceLocationOutput(ctx *pulumi.Context, args LookupSourceLocationOu
 }
 
 type LookupSourceLocationOutputArgs struct {
+	// The name of the source location.
 	SourceLocationName pulumi.StringInput `pulumi:"sourceLocationName"`
 }
 
@@ -74,6 +79,7 @@ func (o LookupSourceLocationResultOutput) ToLookupSourceLocationResultOutputWith
 	return o
 }
 
+// Access configuration parameters.
 func (o LookupSourceLocationResultOutput) AccessConfiguration() SourceLocationAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *SourceLocationAccessConfiguration { return v.AccessConfiguration }).(SourceLocationAccessConfigurationPtrOutput)
 }
@@ -83,12 +89,14 @@ func (o LookupSourceLocationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
 func (o LookupSourceLocationResultOutput) DefaultSegmentDeliveryConfiguration() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *SourceLocationDefaultSegmentDeliveryConfiguration {
 		return v.DefaultSegmentDeliveryConfiguration
 	}).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
 }
 
+// The HTTP configuration for the source location.
 func (o LookupSourceLocationResultOutput) HttpConfiguration() SourceLocationHttpConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *SourceLocationHttpConfiguration { return v.HttpConfiguration }).(SourceLocationHttpConfigurationPtrOutput)
 }

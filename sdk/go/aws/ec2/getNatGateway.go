@@ -28,10 +28,12 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 }
 
 type LookupNatGatewayArgs struct {
+	// The ID of the NAT gateway.
 	NatGatewayId string `pulumi:"natGatewayId"`
 }
 
 type LookupNatGatewayResult struct {
+	// The ID of the NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
@@ -59,6 +61,7 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 }
 
 type LookupNatGatewayOutputArgs struct {
+	// The ID of the NAT gateway.
 	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
 }
 
@@ -80,6 +83,7 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 	return o
 }
 
+// The ID of the NAT gateway.
 func (o LookupNatGatewayResultOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
 }

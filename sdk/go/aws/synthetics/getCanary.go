@@ -50,8 +50,9 @@ type LookupCanaryResult struct {
 	// State of the canary
 	State *string `pulumi:"state"`
 	// Retention period of successful canary runs represented in number of days
-	SuccessRetentionPeriod *int      `pulumi:"successRetentionPeriod"`
-	Tags                   []aws.Tag `pulumi:"tags"`
+	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
+	// The list of key-value pairs that are associated with the canary.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Provide VPC Configuration if enabled.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
 }
@@ -147,6 +148,7 @@ func (o LookupCanaryResultOutput) SuccessRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *int { return v.SuccessRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The list of key-value pairs that are associated with the canary.
 func (o LookupCanaryResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCanaryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -12,20 +12,35 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class InferenceComponentContainerSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        /// </summary>
         [Input("artifactUrl")]
         public Input<string>? ArtifactUrl { get; set; }
 
+        /// <summary>
+        /// Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this [ProductionVariant](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html) .
+        /// 
+        /// If you used the `registry/repository[:tag]` form to specify the image path of the primary container when you created the model hosted in this `ProductionVariant` , the path resolves to a path of the form `registry/repository[@digest]` . A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see [Pulling an Image](https://docs.aws.amazon.com//AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
+        /// </summary>
         [Input("deployedImage")]
         public Input<Inputs.InferenceComponentDeployedImageArgs>? DeployedImage { get; set; }
 
         [Input("environment")]
         private InputMap<string>? _environment;
+
+        /// <summary>
+        /// The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
+        /// </summary>
         public InputMap<string> Environment
         {
             get => _environment ?? (_environment = new InputMap<string>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
+        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 

@@ -106,6 +106,10 @@ class CapabilityS3LocationArgs:
     def __init__(__self__, *,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: Specifies the name of the Amazon S3 bucket.
+        :param pulumi.Input[str] key: Specifies the Amazon S3 key for the file location.
+        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if key is not None:
@@ -114,6 +118,9 @@ class CapabilityS3LocationArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Amazon S3 bucket.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -123,6 +130,9 @@ class CapabilityS3LocationArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Amazon S3 key for the file location.
+        """
         return pulumi.get(self, "key")
 
     @key.setter

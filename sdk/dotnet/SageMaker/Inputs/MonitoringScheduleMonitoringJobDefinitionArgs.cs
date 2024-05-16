@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class MonitoringScheduleMonitoringJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        /// </summary>
         [Input("baselineConfig")]
         public Input<Inputs.MonitoringScheduleBaselineConfigArgs>? BaselineConfig { get; set; }
 
@@ -24,23 +27,39 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("environment")]
         public Input<object>? Environment { get; set; }
 
+        /// <summary>
+        /// Container image configuration object for the monitoring job.
+        /// </summary>
         [Input("monitoringAppSpecification", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringAppSpecificationArgs> MonitoringAppSpecification { get; set; } = null!;
 
         [Input("monitoringInputs", required: true)]
         private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _monitoringInputs;
+
+        /// <summary>
+        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        /// </summary>
         public InputList<Inputs.MonitoringScheduleMonitoringInputArgs> MonitoringInputs
         {
             get => _monitoringInputs ?? (_monitoringInputs = new InputList<Inputs.MonitoringScheduleMonitoringInputArgs>());
             set => _monitoringInputs = value;
         }
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Input("monitoringOutputConfig", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringOutputConfigArgs> MonitoringOutputConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Input("monitoringResources", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringResourcesArgs> MonitoringResources { get; set; } = null!;
 
+        /// <summary>
+        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.MonitoringScheduleNetworkConfigArgs>? NetworkConfig { get; set; }
 
@@ -50,6 +69,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+        /// 
+        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+        /// 
+        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+        /// 
+        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.MonitoringScheduleStoppingConditionArgs>? StoppingCondition { get; set; }
 

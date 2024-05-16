@@ -33,6 +33,9 @@ class GetEventInvokeConfigResult:
     @property
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional['outputs.EventInvokeConfigDestinationConfig']:
+        """
+        A configuration object that specifies the destination of an event after Lambda processes it.
+        """
         return pulumi.get(self, "destination_config")
 
     @property

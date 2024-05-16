@@ -37,20 +37,63 @@ export class DataSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataSource.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the data source. For example:
+     *
+     * `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The identifier for the data source. For example:
+     *
+     * `b8cae438-6787-4091-8897-684a652bbb0a` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Provides the configuration information for altering document metadata and content during the document ingestion process.
+     *
+     * For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+     */
     public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
+    /**
+     * Provides the configuration information for an Amazon Kendra data source.
+     */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
+    /**
+     * A description for the data source connector.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier of the index you want to use with the data source connector.
+     */
     public readonly indexId!: pulumi.Output<string>;
+    /**
+     * The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+     */
     public readonly languageCode!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the data source.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access the data source.
+     *
+     * You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+     *
+     * The `RoleArn` parameter is required for all other data sources.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+     */
     public readonly schedule!: pulumi.Output<string | undefined>;
     /**
      * Tags for labeling the data source
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of the data source.
+     */
     public readonly type!: pulumi.Output<enums.kendra.DataSourceType>;
 
     /**
@@ -107,17 +150,50 @@ export class DataSource extends pulumi.CustomResource {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    /**
+     * Provides the configuration information for altering document metadata and content during the document ingestion process.
+     *
+     * For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+     */
     customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationArgs>;
+    /**
+     * Provides the configuration information for an Amazon Kendra data source.
+     */
     dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
+    /**
+     * A description for the data source connector.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier of the index you want to use with the data source connector.
+     */
     indexId: pulumi.Input<string>;
+    /**
+     * The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+     */
     languageCode?: pulumi.Input<string>;
+    /**
+     * The name of the data source.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access the data source.
+     *
+     * You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+     *
+     * The `RoleArn` parameter is required for all other data sources.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+     */
     schedule?: pulumi.Input<string>;
     /**
      * Tags for labeling the data source
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The type of the data source.
+     */
     type: pulumi.Input<enums.kendra.DataSourceType>;
 }

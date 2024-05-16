@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ContinuousDeploymentPolicySessionStickinessConfig
     {
+        /// <summary>
+        /// The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
+        /// </summary>
         public readonly int IdleTtl;
+        /// <summary>
+        /// The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
+        /// </summary>
         public readonly int MaximumTtl;
 
         [OutputConstructor]

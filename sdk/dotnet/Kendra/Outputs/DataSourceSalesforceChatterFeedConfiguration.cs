@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceChatterFeedConfiguration
     {
+        /// <summary>
+        /// The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
+        /// </summary>
         public readonly string DocumentDataFieldName;
+        /// <summary>
+        /// The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
+        /// </summary>
         public readonly string? DocumentTitleFieldName;
+        /// <summary>
+        /// Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
+        /// <summary>
+        /// Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceChatterFeedIncludeFilterType> IncludeFilterTypes;
 
         [OutputConstructor]

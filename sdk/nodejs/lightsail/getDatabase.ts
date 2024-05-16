@@ -34,6 +34,9 @@ export interface GetDatabaseResult {
      * Indicates the certificate that needs to be associated with the database.
      */
     readonly caCertificateIdentifier?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     readonly databaseArn?: string;
     /**
      * The daily time range during which automated backups are created for your new database if automated backups are enabled.

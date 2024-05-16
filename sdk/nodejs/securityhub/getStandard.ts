@@ -21,6 +21,9 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetStandardArgs {
+    /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     */
     standardsSubscriptionArn: string;
 }
 
@@ -30,6 +33,9 @@ export interface GetStandardResult {
      *  *Maximum*: ``100``
      */
     readonly disabledStandardsControls?: outputs.securityhub.StandardsControl[];
+    /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     */
     readonly standardsSubscriptionArn?: string;
 }
 /**
@@ -42,5 +48,8 @@ export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetStandardOutputArgs {
+    /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     */
     standardsSubscriptionArn: pulumi.Input<string>;
 }

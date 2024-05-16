@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class IdentitySourceConfiguration
     {
+        /// <summary>
+        /// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
+        /// </summary>
         public readonly Outputs.IdentitySourceCognitoUserPoolConfiguration CognitoUserPoolConfiguration;
 
         [OutputConstructor]

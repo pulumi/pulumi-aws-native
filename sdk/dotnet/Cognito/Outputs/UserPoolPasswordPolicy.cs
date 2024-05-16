@@ -13,11 +13,31 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolPasswordPolicy
     {
+        /// <summary>
+        /// The minimum length of the password in the policy that you have set. This value can't be less than 6.
+        /// </summary>
         public readonly int? MinimumLength;
+        /// <summary>
+        /// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+        /// </summary>
         public readonly bool? RequireLowercase;
+        /// <summary>
+        /// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+        /// </summary>
         public readonly bool? RequireNumbers;
+        /// <summary>
+        /// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+        /// </summary>
         public readonly bool? RequireSymbols;
+        /// <summary>
+        /// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+        /// </summary>
         public readonly bool? RequireUppercase;
+        /// <summary>
+        /// The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
+        /// 
+        /// &gt; When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
+        /// </summary>
         public readonly int? TemporaryPasswordValidityDays;
 
         [OutputConstructor]

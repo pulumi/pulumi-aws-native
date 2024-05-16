@@ -29,6 +29,7 @@ type LookupCertificateArgs struct {
 }
 
 type LookupCertificateResult struct {
+	// The Amazon Resource Name (ARN) of the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The validation status of the certificate.
 	Status *string `pulumi:"status"`
@@ -72,6 +73,7 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the certificate.
 func (o LookupCertificateResultOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }

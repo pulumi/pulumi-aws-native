@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTableFieldCustomIconContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The icon set type (link) of the custom icon content for table URL link content.
+        /// </summary>
         [Input("icon")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTableFieldIconSetType>? Icon { get; set; }
 

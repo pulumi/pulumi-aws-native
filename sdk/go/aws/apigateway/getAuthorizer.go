@@ -23,6 +23,7 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 }
 
 type LookupAuthorizerArgs struct {
+	// The ID for the authorizer. For example: `abc123` .
 	AuthorizerId string `pulumi:"authorizerId"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
@@ -33,7 +34,8 @@ type LookupAuthorizerResult struct {
 	AuthType *string `pulumi:"authType"`
 	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 	AuthorizerCredentials *string `pulumi:"authorizerCredentials"`
-	AuthorizerId          *string `pulumi:"authorizerId"`
+	// The ID for the authorizer. For example: `abc123` .
+	AuthorizerId *string `pulumi:"authorizerId"`
 	// The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
 	// Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations``. In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}``, where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/``. For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations``.
@@ -64,6 +66,7 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 }
 
 type LookupAuthorizerOutputArgs struct {
+	// The ID for the authorizer. For example: `abc123` .
 	AuthorizerId pulumi.StringInput `pulumi:"authorizerId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
@@ -97,6 +100,7 @@ func (o LookupAuthorizerResultOutput) AuthorizerCredentials() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerCredentials }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the authorizer. For example: `abc123` .
 func (o LookupAuthorizerResultOutput) AuthorizerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerId }).(pulumi.StringPtrOutput)
 }

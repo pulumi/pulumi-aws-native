@@ -61,17 +61,29 @@ namespace Pulumi.AwsNative.LicenseManager
         /// Beneficiary of the license.
         /// </summary>
         public readonly string? Beneficiary;
+        /// <summary>
+        /// Details about a consumption configuration.
+        /// </summary>
         public readonly Outputs.LicenseConsumptionConfiguration? ConsumptionConfiguration;
+        /// <summary>
+        /// Describes a resource entitled for use with a license.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LicenseEntitlement> Entitlements;
         /// <summary>
         /// Home region for the created license.
         /// </summary>
         public readonly string? HomeRegion;
+        /// <summary>
+        /// Details associated with the issuer of a license.
+        /// </summary>
         public readonly Outputs.LicenseIssuerData? Issuer;
         /// <summary>
         /// Amazon Resource Name is a unique name for each resource.
         /// </summary>
         public readonly string? LicenseArn;
+        /// <summary>
+        /// Describes key/value pairs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LicenseMetadata> LicenseMetadata;
         /// <summary>
         /// Name for the created license.
@@ -85,6 +97,9 @@ namespace Pulumi.AwsNative.LicenseManager
         /// ProductSKU of the license.
         /// </summary>
         public readonly string? ProductSku;
+        /// <summary>
+        /// Date and time range during which the license is valid, in ISO8601-UTC format.
+        /// </summary>
         public readonly Outputs.LicenseValidityDateFormat? Validity;
         /// <summary>
         /// The version of the license.

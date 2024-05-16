@@ -37,20 +37,65 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAnalysis.__pulumiType;
     }
 
+    /**
+     * The member accounts that contain resources that the path can traverse.
+     */
     public readonly additionalAccounts!: pulumi.Output<string[] | undefined>;
+    /**
+     * Describes an potential intermediate component of a feasible path.
+     */
     public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    /**
+     * Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+     */
     public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
+    /**
+     * The Amazon Resource Names (ARN) of the resources that the path must traverse.
+     */
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * Describes a path component.
+     */
     public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the network insights analysis.
+     */
     public /*out*/ readonly networkInsightsAnalysisArn!: pulumi.Output<string>;
+    /**
+     * The ID of the network insights analysis.
+     */
     public /*out*/ readonly networkInsightsAnalysisId!: pulumi.Output<string>;
+    /**
+     * The ID of the path.
+     */
     public readonly networkInsightsPathId!: pulumi.Output<string>;
+    /**
+     * Indicates whether the destination is reachable from the source.
+     */
     public /*out*/ readonly networkPathFound!: pulumi.Output<boolean>;
+    /**
+     * Describes a path component.
+     */
     public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
+    /**
+     * The time the analysis started.
+     */
     public /*out*/ readonly startDate!: pulumi.Output<string>;
+    /**
+     * The status of the network insights analysis.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.ec2.NetworkInsightsAnalysisStatus>;
+    /**
+     * The status message, if the status is `failed` .
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * The IDs of potential intermediate accounts.
+     */
     public /*out*/ readonly suggestedAccounts!: pulumi.Output<string[]>;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -110,8 +155,20 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsAnalysis resource.
  */
 export interface NetworkInsightsAnalysisArgs {
+    /**
+     * The member accounts that contain resources that the path can traverse.
+     */
     additionalAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Names (ARN) of the resources that the path must traverse.
+     */
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the path.
+     */
     networkInsightsPathId: pulumi.Input<string>;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

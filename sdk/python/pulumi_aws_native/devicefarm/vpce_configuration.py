@@ -23,6 +23,13 @@ class VpceConfigurationArgs:
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpceConfiguration resource.
+        :param pulumi.Input[str] service_dns_name: The DNS name that Device Farm will use to map to the private service you want to access.
+        :param pulumi.Input[str] vpce_service_name: The name of the VPC endpoint service that you want to access from Device Farm.
+               
+               The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[str] vpce_configuration_description: An optional description that provides details about your VPC endpoint configuration.
+        :param pulumi.Input[str] vpce_configuration_name: The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
         """
         pulumi.set(__self__, "service_dns_name", service_dns_name)
         pulumi.set(__self__, "vpce_service_name", vpce_service_name)
@@ -36,6 +43,9 @@ class VpceConfigurationArgs:
     @property
     @pulumi.getter(name="serviceDnsName")
     def service_dns_name(self) -> pulumi.Input[str]:
+        """
+        The DNS name that Device Farm will use to map to the private service you want to access.
+        """
         return pulumi.get(self, "service_dns_name")
 
     @service_dns_name.setter
@@ -45,6 +55,11 @@ class VpceConfigurationArgs:
     @property
     @pulumi.getter(name="vpceServiceName")
     def vpce_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VPC endpoint service that you want to access from Device Farm.
+
+        The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        """
         return pulumi.get(self, "vpce_service_name")
 
     @vpce_service_name.setter
@@ -54,6 +69,9 @@ class VpceConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -63,6 +81,9 @@ class VpceConfigurationArgs:
     @property
     @pulumi.getter(name="vpceConfigurationDescription")
     def vpce_configuration_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description that provides details about your VPC endpoint configuration.
+        """
         return pulumi.get(self, "vpce_configuration_description")
 
     @vpce_configuration_description.setter
@@ -72,6 +93,9 @@ class VpceConfigurationArgs:
     @property
     @pulumi.getter(name="vpceConfigurationName")
     def vpce_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        """
         return pulumi.get(self, "vpce_configuration_name")
 
     @vpce_configuration_name.setter
@@ -95,6 +119,13 @@ class VpceConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] service_dns_name: The DNS name that Device Farm will use to map to the private service you want to access.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[str] vpce_configuration_description: An optional description that provides details about your VPC endpoint configuration.
+        :param pulumi.Input[str] vpce_configuration_name: The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        :param pulumi.Input[str] vpce_service_name: The name of the VPC endpoint service that you want to access from Device Farm.
+               
+               The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
         """
         ...
     @overload
@@ -177,30 +208,50 @@ class VpceConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="serviceDnsName")
     def service_dns_name(self) -> pulumi.Output[str]:
+        """
+        The DNS name that Device Farm will use to map to the private service you want to access.
+        """
         return pulumi.get(self, "service_dns_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpceConfigurationDescription")
     def vpce_configuration_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description that provides details about your VPC endpoint configuration.
+        """
         return pulumi.get(self, "vpce_configuration_description")
 
     @property
     @pulumi.getter(name="vpceConfigurationName")
     def vpce_configuration_name(self) -> pulumi.Output[str]:
+        """
+        The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        """
         return pulumi.get(self, "vpce_configuration_name")
 
     @property
     @pulumi.getter(name="vpceServiceName")
     def vpce_service_name(self) -> pulumi.Output[str]:
+        """
+        The name of the VPC endpoint service that you want to access from Device Farm.
+
+        The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        """
         return pulumi.get(self, "vpce_service_name")
 

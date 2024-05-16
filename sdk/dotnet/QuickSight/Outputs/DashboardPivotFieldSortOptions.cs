@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotFieldSortOptions
     {
+        /// <summary>
+        /// The field ID for the field sort options.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The sort by field for the field sort options.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableSortBy SortBy;
 
         [OutputConstructor]

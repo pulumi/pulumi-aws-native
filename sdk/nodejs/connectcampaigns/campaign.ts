@@ -45,11 +45,17 @@ export class Campaign extends pulumi.CustomResource {
      * Amazon Connect Instance Arn
      */
     public readonly connectInstanceArn!: pulumi.Output<string>;
+    /**
+     * Contains dialer configuration for an outbound campaign.
+     */
     public readonly dialerConfig!: pulumi.Output<outputs.connectcampaigns.CampaignDialerConfig>;
     /**
      * Amazon Connect Campaign Name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Contains outbound call configuration for an outbound campaign.
+     */
     public readonly outboundCallConfig!: pulumi.Output<outputs.connectcampaigns.CampaignOutboundCallConfig>;
     /**
      * One or more tags.
@@ -105,11 +111,17 @@ export interface CampaignArgs {
      * Amazon Connect Instance Arn
      */
     connectInstanceArn: pulumi.Input<string>;
+    /**
+     * Contains dialer configuration for an outbound campaign.
+     */
     dialerConfig: pulumi.Input<inputs.connectcampaigns.CampaignDialerConfigArgs>;
     /**
      * Amazon Connect Campaign Name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Contains outbound call configuration for an outbound campaign.
+     */
     outboundCallConfig: pulumi.Input<inputs.connectcampaigns.CampaignOutboundCallConfigArgs>;
     /**
      * One or more tags.

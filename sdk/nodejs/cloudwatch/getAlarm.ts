@@ -41,6 +41,9 @@ export interface GetAlarmResult {
      * The description of the alarm.
      */
     readonly alarmDescription?: string;
+    /**
+     * The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+     */
     readonly arn?: string;
     /**
      * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
@@ -104,6 +107,9 @@ export interface GetAlarmResult {
      *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     readonly statistic?: string;
+    /**
+     * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * The value to compare with the specified statistic.

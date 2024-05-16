@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetDevicePoolArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetDevicePoolInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,31 @@ namespace Pulumi.AwsNative.DeviceFarm
     [OutputType]
     public sealed class GetDevicePoolResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The device pool's description.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+        /// 
+        /// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        /// </summary>
         public readonly int? MaxDevices;
+        /// <summary>
+        /// The device pool's name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Represents a condition for a device pool.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DevicePoolRule> Rules;
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

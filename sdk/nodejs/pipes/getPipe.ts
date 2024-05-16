@@ -19,22 +19,64 @@ export function getPipe(args: GetPipeArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetPipeArgs {
+    /**
+     * The name of the pipe.
+     */
     name: string;
 }
 
 export interface GetPipeResult {
+    /**
+     * The ARN of the pipe.
+     */
     readonly arn?: string;
+    /**
+     * The time the pipe was created.
+     */
     readonly creationTime?: string;
+    /**
+     * The state the pipe is in.
+     */
     readonly currentState?: enums.pipes.PipeState;
+    /**
+     * A description of the pipe.
+     */
     readonly description?: string;
+    /**
+     * The state the pipe should be in.
+     */
     readonly desiredState?: enums.pipes.PipeRequestedPipeState;
+    /**
+     * The ARN of the enrichment resource.
+     */
     readonly enrichment?: string;
+    /**
+     * The parameters required to set up enrichment on your pipe.
+     */
     readonly enrichmentParameters?: outputs.pipes.PipeEnrichmentParameters;
+    /**
+     * When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * Represents the configuration settings for the logs to which this pipe should report events.
+     */
     readonly logConfiguration?: outputs.pipes.PipeLogConfiguration;
+    /**
+     * The ARN of the role that allows the pipe to send data to the target.
+     */
     readonly roleArn?: string;
+    /**
+     * The reason the pipe is in its current state.
+     */
     readonly stateReason?: string;
+    /**
+     * The list of key-value pairs to associate with the pipe.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * The ARN of the target resource.
+     */
     readonly target?: string;
 }
 /**
@@ -45,5 +87,8 @@ export function getPipeOutput(args: GetPipeOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetPipeOutputArgs {
+    /**
+     * The name of the pipe.
+     */
     name: pulumi.Input<string>;
 }

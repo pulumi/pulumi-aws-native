@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+        /// </summary>
         [Output("flowDefinition")]
         public Output<Outputs.IntegrationFlowDefinition?> FlowDefinition { get; private set; } = null!;
 
@@ -116,6 +119,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+        /// </summary>
         [Input("flowDefinition")]
         public Input<Inputs.IntegrationFlowDefinitionArgs>? FlowDefinition { get; set; }
 

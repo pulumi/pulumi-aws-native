@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Configuration.Inputs
     /// </summary>
     public sealed class OrganizationConformancePackConformancePackInputParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// One part of a key-value pair.
+        /// </summary>
         [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
 
+        /// <summary>
+        /// One part of a key-value pair.
+        /// </summary>
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 

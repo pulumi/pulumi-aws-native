@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateLineSeriesAxisDisplayOptions
     {
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? AxisOptions;
+        /// <summary>
+        /// The configuration options that determine how missing data is treated during the rendering of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMissingDataConfiguration> MissingDataConfigurations;
 
         [OutputConstructor]

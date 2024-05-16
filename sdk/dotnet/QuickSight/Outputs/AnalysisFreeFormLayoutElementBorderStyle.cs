@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFreeFormLayoutElementBorderStyle
     {
+        /// <summary>
+        /// The border color of a free-form layout element.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The border visibility of a free-form layout element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

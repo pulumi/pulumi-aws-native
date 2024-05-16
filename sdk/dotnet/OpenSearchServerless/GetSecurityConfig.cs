@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The identifier of the security config
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        /// </summary>
         public readonly Outputs.SecurityConfigSamlConfigOptions? SamlOptions;
 
         [OutputConstructor]

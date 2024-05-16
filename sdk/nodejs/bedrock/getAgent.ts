@@ -46,6 +46,17 @@ export interface GetAgentResult {
      * ARN of a IAM role.
      */
     readonly agentResourceRoleArn?: string;
+    /**
+     * The status of the agent and whether it is ready for use. The following statuses are possible:
+     *
+     * - CREATING – The agent is being created.
+     * - PREPARING – The agent is being prepared.
+     * - PREPARED – The agent is prepared and ready to be invoked.
+     * - NOT_PREPARED – The agent has been created but not yet prepared.
+     * - FAILED – The agent API operation failed.
+     * - UPDATING – The agent is being updated.
+     * - DELETING – The agent is being deleted.
+     */
     readonly agentStatus?: enums.bedrock.AgentStatus;
     /**
      * Draft Agent Version.
@@ -87,12 +98,27 @@ export interface GetAgentResult {
      * Time Stamp.
      */
     readonly preparedAt?: string;
+    /**
+     * Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+     */
     readonly promptOverrideConfiguration?: outputs.bedrock.AgentPromptOverrideConfiguration;
     /**
      * The recommended actions users can take to resolve an error in failureReasons.
      */
     readonly recommendedActions?: string[];
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     readonly testAliasTags?: {[key: string]: string};
     /**
      * Time Stamp.

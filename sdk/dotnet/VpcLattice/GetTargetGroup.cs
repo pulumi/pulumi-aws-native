@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetTargetGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target group.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target group.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,13 +57,39 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetTargetGroupResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target group.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Describes the configuration of a target group.
+        /// 
+        /// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        /// </summary>
         public readonly Outputs.TargetGroupConfig? Config;
+        /// <summary>
+        /// The date and time that the target group was created, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The ID of the target group.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time that the target group was last updated, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupStatus? Status;
+        /// <summary>
+        /// The tags for the target group.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Describes a target.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TargetGroupTarget> Targets;
 
         [OutputConstructor]

@@ -14,13 +14,22 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CapacityReservationFleetInstanceTypeSpecification struct {
-	AvailabilityZone   *string  `pulumi:"availabilityZone"`
-	AvailabilityZoneId *string  `pulumi:"availabilityZoneId"`
-	EbsOptimized       *bool    `pulumi:"ebsOptimized"`
-	InstancePlatform   *string  `pulumi:"instancePlatform"`
-	InstanceType       *string  `pulumi:"instanceType"`
-	Priority           *int     `pulumi:"priority"`
-	Weight             *float64 `pulumi:"weight"`
+	// The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+	// Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using EBS-optimized instance types.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// The type of operating system for which the Capacity Reservation Fleet reserves capacity.
+	InstancePlatform *string `pulumi:"instancePlatform"`
+	// The instance type for which the Capacity Reservation Fleet reserves capacity.
+	InstanceType *string `pulumi:"instanceType"`
+	// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+	Priority *int `pulumi:"priority"`
+	// The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+	//
+	// Valid Range: Minimum value of `0.001` . Maximum value of `99.999` .
+	Weight *float64 `pulumi:"weight"`
 }
 
 // CapacityReservationFleetInstanceTypeSpecificationInput is an input type that accepts CapacityReservationFleetInstanceTypeSpecificationArgs and CapacityReservationFleetInstanceTypeSpecificationOutput values.
@@ -35,13 +44,22 @@ type CapacityReservationFleetInstanceTypeSpecificationInput interface {
 }
 
 type CapacityReservationFleetInstanceTypeSpecificationArgs struct {
-	AvailabilityZone   pulumi.StringPtrInput  `pulumi:"availabilityZone"`
-	AvailabilityZoneId pulumi.StringPtrInput  `pulumi:"availabilityZoneId"`
-	EbsOptimized       pulumi.BoolPtrInput    `pulumi:"ebsOptimized"`
-	InstancePlatform   pulumi.StringPtrInput  `pulumi:"instancePlatform"`
-	InstanceType       pulumi.StringPtrInput  `pulumi:"instanceType"`
-	Priority           pulumi.IntPtrInput     `pulumi:"priority"`
-	Weight             pulumi.Float64PtrInput `pulumi:"weight"`
+	// The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
+	// Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using EBS-optimized instance types.
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+	// The type of operating system for which the Capacity Reservation Fleet reserves capacity.
+	InstancePlatform pulumi.StringPtrInput `pulumi:"instancePlatform"`
+	// The instance type for which the Capacity Reservation Fleet reserves capacity.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+	//
+	// Valid Range: Minimum value of `0.001` . Maximum value of `99.999` .
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
 func (CapacityReservationFleetInstanceTypeSpecificationArgs) ElementType() reflect.Type {
@@ -95,30 +113,39 @@ func (o CapacityReservationFleetInstanceTypeSpecificationOutput) ToCapacityReser
 	return o
 }
 
+// The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using EBS-optimized instance types.
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
+// The type of operating system for which the Capacity Reservation Fleet reserves capacity.
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) InstancePlatform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *string { return v.InstancePlatform }).(pulumi.StringPtrOutput)
 }
 
+// The instance type for which the Capacity Reservation Fleet reserves capacity.
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+//
+// Valid Range: Minimum value of `0.001` . Maximum value of `99.999` .
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
@@ -144,7 +171,9 @@ func (o CapacityReservationFleetInstanceTypeSpecificationArrayOutput) Index(i pu
 }
 
 type CapacityReservationFleetTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -160,7 +189,9 @@ type CapacityReservationFleetTagInput interface {
 }
 
 type CapacityReservationFleetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -215,10 +246,12 @@ func (o CapacityReservationFleetTagOutput) ToCapacityReservationFleetTagOutputWi
 	return o
 }
 
+// The tag key.
 func (o CapacityReservationFleetTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationFleetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o CapacityReservationFleetTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationFleetTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -244,8 +277,12 @@ func (o CapacityReservationFleetTagArrayOutput) Index(i pulumi.IntInput) Capacit
 }
 
 type CapacityReservationFleetTagSpecification struct {
-	ResourceType *string                       `pulumi:"resourceType"`
-	Tags         []CapacityReservationFleetTag `pulumi:"tags"`
+	// The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
+	//
+	// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+	ResourceType *string `pulumi:"resourceType"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []CapacityReservationFleetTag `pulumi:"tags"`
 }
 
 // CapacityReservationFleetTagSpecificationInput is an input type that accepts CapacityReservationFleetTagSpecificationArgs and CapacityReservationFleetTagSpecificationOutput values.
@@ -260,8 +297,12 @@ type CapacityReservationFleetTagSpecificationInput interface {
 }
 
 type CapacityReservationFleetTagSpecificationArgs struct {
-	ResourceType pulumi.StringPtrInput                 `pulumi:"resourceType"`
-	Tags         CapacityReservationFleetTagArrayInput `pulumi:"tags"`
+	// The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
+	//
+	// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags CapacityReservationFleetTagArrayInput `pulumi:"tags"`
 }
 
 func (CapacityReservationFleetTagSpecificationArgs) ElementType() reflect.Type {
@@ -315,10 +356,14 @@ func (o CapacityReservationFleetTagSpecificationOutput) ToCapacityReservationFle
 	return o
 }
 
+// The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
+//
+// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
 func (o CapacityReservationFleetTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o CapacityReservationFleetTagSpecificationOutput) Tags() CapacityReservationFleetTagArrayOutput {
 	return o.ApplyT(func(v CapacityReservationFleetTagSpecification) []CapacityReservationFleetTag { return v.Tags }).(CapacityReservationFleetTagArrayOutput)
 }
@@ -344,7 +389,13 @@ func (o CapacityReservationFleetTagSpecificationArrayOutput) Index(i pulumi.IntI
 }
 
 type CapacityReservationTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	//
+	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	//
+	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 	Value string `pulumi:"value"`
 }
 
@@ -360,7 +411,13 @@ type CapacityReservationTagInput interface {
 }
 
 type CapacityReservationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key of the tag.
+	//
+	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag.
+	//
+	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -415,10 +472,16 @@ func (o CapacityReservationTagOutput) ToCapacityReservationTagOutputWithContext(
 	return o
 }
 
+// The key of the tag.
+//
+// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
 func (o CapacityReservationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the tag.
+//
+// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 func (o CapacityReservationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -444,8 +507,10 @@ func (o CapacityReservationTagArrayOutput) Index(i pulumi.IntInput) CapacityRese
 }
 
 type CapacityReservationTagSpecification struct {
-	ResourceType *string                  `pulumi:"resourceType"`
-	Tags         []CapacityReservationTag `pulumi:"tags"`
+	// The type of resource to tag. Specify `capacity-reservation` .
+	ResourceType *string `pulumi:"resourceType"`
+	// Describes a tag.
+	Tags []CapacityReservationTag `pulumi:"tags"`
 }
 
 // CapacityReservationTagSpecificationInput is an input type that accepts CapacityReservationTagSpecificationArgs and CapacityReservationTagSpecificationOutput values.
@@ -460,8 +525,10 @@ type CapacityReservationTagSpecificationInput interface {
 }
 
 type CapacityReservationTagSpecificationArgs struct {
-	ResourceType pulumi.StringPtrInput            `pulumi:"resourceType"`
-	Tags         CapacityReservationTagArrayInput `pulumi:"tags"`
+	// The type of resource to tag. Specify `capacity-reservation` .
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// Describes a tag.
+	Tags CapacityReservationTagArrayInput `pulumi:"tags"`
 }
 
 func (CapacityReservationTagSpecificationArgs) ElementType() reflect.Type {
@@ -515,10 +582,12 @@ func (o CapacityReservationTagSpecificationOutput) ToCapacityReservationTagSpeci
 	return o
 }
 
+// The type of resource to tag. Specify `capacity-reservation` .
 func (o CapacityReservationTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityReservationTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// Describes a tag.
 func (o CapacityReservationTagSpecificationOutput) Tags() CapacityReservationTagArrayOutput {
 	return o.ApplyT(func(v CapacityReservationTagSpecification) []CapacityReservationTag { return v.Tags }).(CapacityReservationTagArrayOutput)
 }
@@ -550,7 +619,9 @@ type CarrierGatewayTag struct {
 
 // The CPU options for the instance.
 type CpuOptionsProperties struct {
-	CoreCount      *int `pulumi:"coreCount"`
+	// The number of CPU cores for the instance.
+	CoreCount *int `pulumi:"coreCount"`
+	// The number of threads per CPU core.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
 
@@ -567,7 +638,9 @@ type CpuOptionsPropertiesInput interface {
 
 // The CPU options for the instance.
 type CpuOptionsPropertiesArgs struct {
-	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
+	// The number of CPU cores for the instance.
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// The number of threads per CPU core.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
 
@@ -649,10 +722,12 @@ func (o CpuOptionsPropertiesOutput) ToCpuOptionsPropertiesPtrOutputWithContext(c
 	}).(CpuOptionsPropertiesPtrOutput)
 }
 
+// The number of CPU cores for the instance.
 func (o CpuOptionsPropertiesOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CpuOptionsProperties) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of threads per CPU core.
 func (o CpuOptionsPropertiesOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CpuOptionsProperties) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
 }
@@ -681,6 +756,7 @@ func (o CpuOptionsPropertiesPtrOutput) Elem() CpuOptionsPropertiesOutput {
 	}).(CpuOptionsPropertiesOutput)
 }
 
+// The number of CPU cores for the instance.
 func (o CpuOptionsPropertiesPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CpuOptionsProperties) *int {
 		if v == nil {
@@ -690,6 +766,7 @@ func (o CpuOptionsPropertiesPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of threads per CPU core.
 func (o CpuOptionsPropertiesPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CpuOptionsProperties) *int {
 		if v == nil {
@@ -701,6 +778,11 @@ func (o CpuOptionsPropertiesPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 
 // The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
 type CreditSpecificationProperties struct {
+	// The credit option for CPU usage of the instance.
+	//
+	// Valid values: `standard` | `unlimited`
+	//
+	// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -717,6 +799,11 @@ type CreditSpecificationPropertiesInput interface {
 
 // The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
 type CreditSpecificationPropertiesArgs struct {
+	// The credit option for CPU usage of the instance.
+	//
+	// Valid values: `standard` | `unlimited`
+	//
+	// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -798,6 +885,11 @@ func (o CreditSpecificationPropertiesOutput) ToCreditSpecificationPropertiesPtrO
 	}).(CreditSpecificationPropertiesPtrOutput)
 }
 
+// The credit option for CPU usage of the instance.
+//
+// Valid values: `standard` | `unlimited`
+//
+// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
 func (o CreditSpecificationPropertiesOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreditSpecificationProperties) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -826,6 +918,11 @@ func (o CreditSpecificationPropertiesPtrOutput) Elem() CreditSpecificationProper
 	}).(CreditSpecificationPropertiesOutput)
 }
 
+// The credit option for CPU usage of the instance.
+//
+// Valid values: `standard` | `unlimited`
+//
+// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
 func (o CreditSpecificationPropertiesPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreditSpecificationProperties) *string {
 		if v == nil {
@@ -843,10 +940,14 @@ type CustomerGatewayTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The destination options.
 type DestinationOptionsProperties struct {
-	FileFormat               FlowLogDestinationOptionsPropertiesFileFormat `pulumi:"fileFormat"`
-	HiveCompatiblePartitions bool                                          `pulumi:"hiveCompatiblePartitions"`
-	PerHourPartition         bool                                          `pulumi:"perHourPartition"`
+	// The format for the flow log. The default is `plain-text` .
+	FileFormat FlowLogDestinationOptionsPropertiesFileFormat `pulumi:"fileFormat"`
+	// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
+	HiveCompatiblePartitions bool `pulumi:"hiveCompatiblePartitions"`
+	// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
+	PerHourPartition bool `pulumi:"perHourPartition"`
 }
 
 // DestinationOptionsPropertiesInput is an input type that accepts DestinationOptionsPropertiesArgs and DestinationOptionsPropertiesOutput values.
@@ -860,10 +961,14 @@ type DestinationOptionsPropertiesInput interface {
 	ToDestinationOptionsPropertiesOutputWithContext(context.Context) DestinationOptionsPropertiesOutput
 }
 
+// The destination options.
 type DestinationOptionsPropertiesArgs struct {
-	FileFormat               FlowLogDestinationOptionsPropertiesFileFormatInput `pulumi:"fileFormat"`
-	HiveCompatiblePartitions pulumi.BoolInput                                   `pulumi:"hiveCompatiblePartitions"`
-	PerHourPartition         pulumi.BoolInput                                   `pulumi:"perHourPartition"`
+	// The format for the flow log. The default is `plain-text` .
+	FileFormat FlowLogDestinationOptionsPropertiesFileFormatInput `pulumi:"fileFormat"`
+	// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
+	HiveCompatiblePartitions pulumi.BoolInput `pulumi:"hiveCompatiblePartitions"`
+	// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
+	PerHourPartition pulumi.BoolInput `pulumi:"perHourPartition"`
 }
 
 func (DestinationOptionsPropertiesArgs) ElementType() reflect.Type {
@@ -919,6 +1024,7 @@ func (i *destinationOptionsPropertiesPtrType) ToDestinationOptionsPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationOptionsPropertiesPtrOutput)
 }
 
+// The destination options.
 type DestinationOptionsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DestinationOptionsPropertiesOutput) ElementType() reflect.Type {
@@ -943,16 +1049,19 @@ func (o DestinationOptionsPropertiesOutput) ToDestinationOptionsPropertiesPtrOut
 	}).(DestinationOptionsPropertiesPtrOutput)
 }
 
+// The format for the flow log. The default is `plain-text` .
 func (o DestinationOptionsPropertiesOutput) FileFormat() FlowLogDestinationOptionsPropertiesFileFormatOutput {
 	return o.ApplyT(func(v DestinationOptionsProperties) FlowLogDestinationOptionsPropertiesFileFormat {
 		return v.FileFormat
 	}).(FlowLogDestinationOptionsPropertiesFileFormatOutput)
 }
 
+// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
 func (o DestinationOptionsPropertiesOutput) HiveCompatiblePartitions() pulumi.BoolOutput {
 	return o.ApplyT(func(v DestinationOptionsProperties) bool { return v.HiveCompatiblePartitions }).(pulumi.BoolOutput)
 }
 
+// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
 func (o DestinationOptionsPropertiesOutput) PerHourPartition() pulumi.BoolOutput {
 	return o.ApplyT(func(v DestinationOptionsProperties) bool { return v.PerHourPartition }).(pulumi.BoolOutput)
 }
@@ -981,6 +1090,7 @@ func (o DestinationOptionsPropertiesPtrOutput) Elem() DestinationOptionsProperti
 	}).(DestinationOptionsPropertiesOutput)
 }
 
+// The format for the flow log. The default is `plain-text` .
 func (o DestinationOptionsPropertiesPtrOutput) FileFormat() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
 	return o.ApplyT(func(v *DestinationOptionsProperties) *FlowLogDestinationOptionsPropertiesFileFormat {
 		if v == nil {
@@ -990,6 +1100,7 @@ func (o DestinationOptionsPropertiesPtrOutput) FileFormat() FlowLogDestinationOp
 	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
 }
 
+// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
 func (o DestinationOptionsPropertiesPtrOutput) HiveCompatiblePartitions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DestinationOptionsProperties) *bool {
 		if v == nil {
@@ -999,6 +1110,7 @@ func (o DestinationOptionsPropertiesPtrOutput) HiveCompatiblePartitions() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
 func (o DestinationOptionsPropertiesPtrOutput) PerHourPartition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DestinationOptionsProperties) *bool {
 		if v == nil {
@@ -1009,12 +1121,16 @@ func (o DestinationOptionsPropertiesPtrOutput) PerHourPartition() pulumi.BoolPtr
 }
 
 type DhcpOptionsTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type Ec2FleetAcceleratorCountRequest struct {
+	// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 	Max *int `pulumi:"max"`
+	// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -1030,7 +1146,9 @@ type Ec2FleetAcceleratorCountRequestInput interface {
 }
 
 type Ec2FleetAcceleratorCountRequestArgs struct {
+	// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1111,10 +1229,12 @@ func (o Ec2FleetAcceleratorCountRequestOutput) ToEc2FleetAcceleratorCountRequest
 	}).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
+// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o Ec2FleetAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetAcceleratorCountRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetAcceleratorCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -1143,6 +1263,7 @@ func (o Ec2FleetAcceleratorCountRequestPtrOutput) Elem() Ec2FleetAcceleratorCoun
 	}).(Ec2FleetAcceleratorCountRequestOutput)
 }
 
+// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o Ec2FleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetAcceleratorCountRequest) *int {
 		if v == nil {
@@ -1152,6 +1273,7 @@ func (o Ec2FleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetAcceleratorCountRequest) *int {
 		if v == nil {
@@ -1162,7 +1284,9 @@ func (o Ec2FleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type Ec2FleetAcceleratorTotalMemoryMiBRequest struct {
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -1178,7 +1302,9 @@ type Ec2FleetAcceleratorTotalMemoryMiBRequestInput interface {
 }
 
 type Ec2FleetAcceleratorTotalMemoryMiBRequestArgs struct {
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1259,10 +1385,12 @@ func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) ToEc2FleetAcceleratorTot
 	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetAcceleratorTotalMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetAcceleratorTotalMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -1291,6 +1419,7 @@ func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() Ec2FleetAccele
 	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestOutput)
 }
 
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
@@ -1300,6 +1429,7 @@ func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
@@ -1310,7 +1440,9 @@ func (o Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOu
 }
 
 type Ec2FleetBaselineEbsBandwidthMbpsRequest struct {
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -1326,7 +1458,9 @@ type Ec2FleetBaselineEbsBandwidthMbpsRequestInput interface {
 }
 
 type Ec2FleetBaselineEbsBandwidthMbpsRequestArgs struct {
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1407,10 +1541,12 @@ func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) ToEc2FleetBaselineEbsBand
 	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetBaselineEbsBandwidthMbpsRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetBaselineEbsBandwidthMbpsRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -1439,6 +1575,7 @@ func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() Ec2FleetBaselin
 	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestOutput)
 }
 
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
@@ -1448,6 +1585,7 @@ func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
@@ -1458,8 +1596,20 @@ func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOut
 }
 
 type Ec2FleetCapacityRebalance struct {
+	// The replacement strategy to use. Only available for fleets of type `maintain` .
+	//
+	// `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+	//
+	// `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 	ReplacementStrategy *Ec2FleetCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
-	TerminationDelay    *int                                          `pulumi:"terminationDelay"`
+	// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+	//
+	// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+	//
+	// Not valid when `ReplacementStrategy` is set to `launch` .
+	//
+	// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+	TerminationDelay *int `pulumi:"terminationDelay"`
 }
 
 // Ec2FleetCapacityRebalanceInput is an input type that accepts Ec2FleetCapacityRebalanceArgs and Ec2FleetCapacityRebalanceOutput values.
@@ -1474,8 +1624,20 @@ type Ec2FleetCapacityRebalanceInput interface {
 }
 
 type Ec2FleetCapacityRebalanceArgs struct {
+	// The replacement strategy to use. Only available for fleets of type `maintain` .
+	//
+	// `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+	//
+	// `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 	ReplacementStrategy Ec2FleetCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
-	TerminationDelay    pulumi.IntPtrInput                                   `pulumi:"terminationDelay"`
+	// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+	//
+	// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+	//
+	// Not valid when `ReplacementStrategy` is set to `launch` .
+	//
+	// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+	TerminationDelay pulumi.IntPtrInput `pulumi:"terminationDelay"`
 }
 
 func (Ec2FleetCapacityRebalanceArgs) ElementType() reflect.Type {
@@ -1555,12 +1717,24 @@ func (o Ec2FleetCapacityRebalanceOutput) ToEc2FleetCapacityRebalancePtrOutputWit
 	}).(Ec2FleetCapacityRebalancePtrOutput)
 }
 
+// The replacement strategy to use. Only available for fleets of type `maintain` .
+//
+// `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+//
+// `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 func (o Ec2FleetCapacityRebalanceOutput) ReplacementStrategy() Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput {
 	return o.ApplyT(func(v Ec2FleetCapacityRebalance) *Ec2FleetCapacityRebalanceReplacementStrategy {
 		return v.ReplacementStrategy
 	}).(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+//
+// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+//
+// Not valid when `ReplacementStrategy` is set to `launch` .
+//
+// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
 func (o Ec2FleetCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
 }
@@ -1589,6 +1763,11 @@ func (o Ec2FleetCapacityRebalancePtrOutput) Elem() Ec2FleetCapacityRebalanceOutp
 	}).(Ec2FleetCapacityRebalanceOutput)
 }
 
+// The replacement strategy to use. Only available for fleets of type `maintain` .
+//
+// `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+//
+// `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 func (o Ec2FleetCapacityRebalancePtrOutput) ReplacementStrategy() Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetCapacityRebalance) *Ec2FleetCapacityRebalanceReplacementStrategy {
 		if v == nil {
@@ -1598,6 +1777,13 @@ func (o Ec2FleetCapacityRebalancePtrOutput) ReplacementStrategy() Ec2FleetCapaci
 	}).(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+//
+// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+//
+// Not valid when `ReplacementStrategy` is set to `launch` .
+//
+// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
 func (o Ec2FleetCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetCapacityRebalance) *int {
 		if v == nil {
@@ -1608,6 +1794,11 @@ func (o Ec2FleetCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutp
 }
 
 type Ec2FleetCapacityReservationOptionsRequest struct {
+	// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+	//
+	// If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
+	//
+	// If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
 	UsageStrategy *Ec2FleetCapacityReservationOptionsRequestUsageStrategy `pulumi:"usageStrategy"`
 }
 
@@ -1623,6 +1814,11 @@ type Ec2FleetCapacityReservationOptionsRequestInput interface {
 }
 
 type Ec2FleetCapacityReservationOptionsRequestArgs struct {
+	// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+	//
+	// If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
+	//
+	// If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
 	UsageStrategy Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrInput `pulumi:"usageStrategy"`
 }
 
@@ -1703,6 +1899,11 @@ func (o Ec2FleetCapacityReservationOptionsRequestOutput) ToEc2FleetCapacityReser
 	}).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+//
+// If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
+//
+// If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
 func (o Ec2FleetCapacityReservationOptionsRequestOutput) UsageStrategy() Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
 	return o.ApplyT(func(v Ec2FleetCapacityReservationOptionsRequest) *Ec2FleetCapacityReservationOptionsRequestUsageStrategy {
 		return v.UsageStrategy
@@ -1733,6 +1934,11 @@ func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) Elem() Ec2FleetCapac
 	}).(Ec2FleetCapacityReservationOptionsRequestOutput)
 }
 
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+//
+// If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
+//
+// If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
 func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetCapacityReservationOptionsRequest) *Ec2FleetCapacityReservationOptionsRequestUsageStrategy {
 		if v == nil {
@@ -1743,8 +1949,23 @@ func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() Ec2F
 }
 
 type Ec2FleetFleetLaunchTemplateConfigRequest struct {
+	// Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+	//
+	// You must specify the following:
+	//
+	// - The ID or the name of the launch template, but not both.
+	// - The version of the launch template.
+	//
+	// `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+	//
+	// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+	//
+	// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 	LaunchTemplateSpecification *Ec2FleetFleetLaunchTemplateSpecificationRequest `pulumi:"launchTemplateSpecification"`
-	Overrides                   []Ec2FleetFleetLaunchTemplateOverridesRequest    `pulumi:"overrides"`
+	// Specifies overrides for a launch template for an EC2 Fleet.
+	//
+	// `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+	Overrides []Ec2FleetFleetLaunchTemplateOverridesRequest `pulumi:"overrides"`
 }
 
 // Ec2FleetFleetLaunchTemplateConfigRequestInput is an input type that accepts Ec2FleetFleetLaunchTemplateConfigRequestArgs and Ec2FleetFleetLaunchTemplateConfigRequestOutput values.
@@ -1759,8 +1980,23 @@ type Ec2FleetFleetLaunchTemplateConfigRequestInput interface {
 }
 
 type Ec2FleetFleetLaunchTemplateConfigRequestArgs struct {
+	// Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+	//
+	// You must specify the following:
+	//
+	// - The ID or the name of the launch template, but not both.
+	// - The version of the launch template.
+	//
+	// `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+	//
+	// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+	//
+	// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 	LaunchTemplateSpecification Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput `pulumi:"launchTemplateSpecification"`
-	Overrides                   Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput   `pulumi:"overrides"`
+	// Specifies overrides for a launch template for an EC2 Fleet.
+	//
+	// `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+	Overrides Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput `pulumi:"overrides"`
 }
 
 func (Ec2FleetFleetLaunchTemplateConfigRequestArgs) ElementType() reflect.Type {
@@ -1814,12 +2050,27 @@ func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) ToEc2FleetFleetLaunchTem
 	return o
 }
 
+// Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+//
+// You must specify the following:
+//
+// - The ID or the name of the launch template, but not both.
+// - The version of the launch template.
+//
+// `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+//
+// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+//
+// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) LaunchTemplateSpecification() Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateConfigRequest) *Ec2FleetFleetLaunchTemplateSpecificationRequest {
 		return v.LaunchTemplateSpecification
 	}).(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
 }
 
+// Specifies overrides for a launch template for an EC2 Fleet.
+//
+// `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
 func (o Ec2FleetFleetLaunchTemplateConfigRequestOutput) Overrides() Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateConfigRequest) []Ec2FleetFleetLaunchTemplateOverridesRequest {
 		return v.Overrides
@@ -1847,14 +2098,51 @@ func (o Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) Index(i pulumi.IntI
 }
 
 type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
-	AvailabilityZone     *string                              `pulumi:"availabilityZone"`
+	// The Availability Zone in which to launch the instances.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//
+	// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//
+	// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//
+	// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// >
+	// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+	//
+	// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 	InstanceRequirements *Ec2FleetInstanceRequirementsRequest `pulumi:"instanceRequirements"`
-	InstanceType         *string                              `pulumi:"instanceType"`
-	MaxPrice             *string                              `pulumi:"maxPrice"`
-	Placement            *Ec2FleetPlacement                   `pulumi:"placement"`
-	Priority             *float64                             `pulumi:"priority"`
-	SubnetId             *string                              `pulumi:"subnetId"`
-	WeightedCapacity     *float64                             `pulumi:"weightedCapacity"`
+	// The instance type.
+	//
+	// `mac1.metal` is not supported as a launch template override.
+	//
+	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
+	InstanceType *string `pulumi:"instanceType"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	MaxPrice *string `pulumi:"maxPrice"`
+	// Describes the placement of an instance.
+	Placement *Ec2FleetPlacement `pulumi:"placement"`
+	// The priority for the launch template override. The highest priority is launched first.
+	//
+	// If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+	//
+	// If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+	//
+	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+	Priority *float64 `pulumi:"priority"`
+	// The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
+	SubnetId *string `pulumi:"subnetId"`
+	// The number of units provided by the specified instance type.
+	//
+	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
 // Ec2FleetFleetLaunchTemplateOverridesRequestInput is an input type that accepts Ec2FleetFleetLaunchTemplateOverridesRequestArgs and Ec2FleetFleetLaunchTemplateOverridesRequestOutput values.
@@ -1869,14 +2157,51 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestInput interface {
 }
 
 type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
-	AvailabilityZone     pulumi.StringPtrInput                       `pulumi:"availabilityZone"`
+	// The Availability Zone in which to launch the instances.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//
+	// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//
+	// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//
+	// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// >
+	// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+	//
+	// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 	InstanceRequirements Ec2FleetInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
-	InstanceType         pulumi.StringPtrInput                       `pulumi:"instanceType"`
-	MaxPrice             pulumi.StringPtrInput                       `pulumi:"maxPrice"`
-	Placement            Ec2FleetPlacementPtrInput                   `pulumi:"placement"`
-	Priority             pulumi.Float64PtrInput                      `pulumi:"priority"`
-	SubnetId             pulumi.StringPtrInput                       `pulumi:"subnetId"`
-	WeightedCapacity     pulumi.Float64PtrInput                      `pulumi:"weightedCapacity"`
+	// The instance type.
+	//
+	// `mac1.metal` is not supported as a launch template override.
+	//
+	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	// Describes the placement of an instance.
+	Placement Ec2FleetPlacementPtrInput `pulumi:"placement"`
+	// The priority for the launch template override. The highest priority is launched first.
+	//
+	// If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+	//
+	// If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+	//
+	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The number of units provided by the specified instance type.
+	//
+	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
 }
 
 func (Ec2FleetFleetLaunchTemplateOverridesRequestArgs) ElementType() reflect.Type {
@@ -1930,36 +2255,73 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) ToEc2FleetFleetLaunch
 	return o
 }
 
+// The Availability Zone in which to launch the instances.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+//
+// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//
+// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//
+// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+// >
+// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+//
+// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceRequirements() Ec2FleetInstanceRequirementsRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *Ec2FleetInstanceRequirementsRequest {
 		return v.InstanceRequirements
 	}).(Ec2FleetInstanceRequirementsRequestPtrOutput)
 }
 
+// The instance type.
+//
+// `mac1.metal` is not supported as a launch template override.
+//
+// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
 
+// Describes the placement of an instance.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) Placement() Ec2FleetPlacementPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *Ec2FleetPlacement { return v.Placement }).(Ec2FleetPlacementPtrOutput)
 }
 
+// The priority for the launch template override. The highest priority is launched first.
+//
+// If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+//
+// If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+//
+// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) Priority() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
+// The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The number of units provided by the specified instance type.
+//
+// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) WeightedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -1985,9 +2347,20 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput) Index(i pulumi.I
 }
 
 type Ec2FleetFleetLaunchTemplateSpecificationRequest struct {
-	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
+	// The ID of the launch template.
+	//
+	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// The name of the launch template.
+	//
+	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	Version            string  `pulumi:"version"`
+	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
+	//
+	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
+	//
+	// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
+	Version string `pulumi:"version"`
 }
 
 // Ec2FleetFleetLaunchTemplateSpecificationRequestInput is an input type that accepts Ec2FleetFleetLaunchTemplateSpecificationRequestArgs and Ec2FleetFleetLaunchTemplateSpecificationRequestOutput values.
@@ -2002,9 +2375,20 @@ type Ec2FleetFleetLaunchTemplateSpecificationRequestInput interface {
 }
 
 type Ec2FleetFleetLaunchTemplateSpecificationRequestArgs struct {
-	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The ID of the launch template.
+	//
+	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The name of the launch template.
+	//
+	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	Version            pulumi.StringInput    `pulumi:"version"`
+	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
+	//
+	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
+	//
+	// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (Ec2FleetFleetLaunchTemplateSpecificationRequestArgs) ElementType() reflect.Type {
@@ -2084,14 +2468,25 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) ToEc2FleetFleetLa
 	}).(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput)
 }
 
+// The ID of the launch template.
+//
+// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
 func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
+//
+// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
+//
+// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
 func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -2120,6 +2515,9 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Elem() Ec2Flee
 	}).(Ec2FleetFleetLaunchTemplateSpecificationRequestOutput)
 }
 
+// The ID of the launch template.
+//
+// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
 func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
 		if v == nil {
@@ -2129,6 +2527,9 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
 		if v == nil {
@@ -2138,6 +2539,11 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
+// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
+//
+// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
+//
+// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
 func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
 		if v == nil {
@@ -2148,30 +2554,168 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulu
 }
 
 type Ec2FleetInstanceRequirementsRequest struct {
-	AcceleratorCount                               *Ec2FleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                       []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                               []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                      *Ec2FleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                               []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                           []string                                                          `pulumi:"allowedInstanceTypes"`
-	BareMetal                                      *Ec2FleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                       *Ec2FleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                           *Ec2FleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
-	CpuManufacturers                               []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                          []string                                                          `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                            []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
-	LocalStorage                                   *Ec2FleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
-	LocalStorageTypes                              []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                              `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               *Ec2FleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      *Ec2FleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           *Ec2FleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          *Ec2FleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice      *int                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                        *bool                                                             `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice          *int                                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                            *Ec2FleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                      *Ec2FleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
+	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+	AcceleratorCount *Ec2FleetAcceleratorCountRequest `pulumi:"acceleratorCount"`
+	// Indicates whether instance types must have accelerators by specific manufacturers.
+	//
+	// - For instance types with AWS devices, specify `amazon-web-services` .
+	// - For instance types with AMD devices, specify `amd` .
+	// - For instance types with Habana devices, specify `habana` .
+	// - For instance types with NVIDIA devices, specify `nvidia` .
+	// - For instance types with Xilinx devices, specify `xilinx` .
+	//
+	// Default: Any manufacturer
+	AcceleratorManufacturers []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	// The accelerators that must be on the instance type.
+	//
+	// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+	//
+	// Default: Any accelerator
+	AcceleratorNames []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem `pulumi:"acceleratorNames"`
+	// The minimum and maximum amount of total accelerator memory, in MiB.
+	AcceleratorTotalMemoryMiB *Ec2FleetAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types that must be on the instance type.
+	//
+	// - To include instance types with GPU hardware, specify `gpu` .
+	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - To include instance types with inference hardware, specify `inference` .
+	//
+	// Default: Any accelerator type
+	AcceleratorTypes []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+	//
+	// Default: All instance types
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// Indicates whether bare metal instance types must be included, excluded, or required.
+	//
+	// - To include bare metal instance types, specify `included` .
+	// - To require only bare metal instance types, specify `required` .
+	// - To exclude bare metal instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BareMetal *Ec2FleetInstanceRequirementsRequestBareMetal `pulumi:"bareMetal"`
+	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+	BaselineEbsBandwidthMbps *Ec2FleetBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+	//
+	// - To include burstable performance instance types, specify `included` .
+	// - To require only burstable performance instance types, specify `required` .
+	// - To exclude burstable performance instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BurstablePerformance *Ec2FleetInstanceRequirementsRequestBurstablePerformance `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include.
+	//
+	// - For instance types with Intel CPUs, specify `intel` .
+	// - For instance types with AMD CPUs, specify `amd` .
+	// - For instance types with AWS CPUs, specify `amazon-web-services` .
+	//
+	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
+	// Default: Any manufacturer
+	CpuManufacturers []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem `pulumi:"cpuManufacturers"`
+	// The instance types to exclude.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+	//
+	// Default: No excluded instance types
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	//
+	// For current generation instance types, specify `current` .
+	//
+	// For previous generation instance types, specify `previous` .
+	//
+	// Default: Current and previous generation instance types
+	InstanceGenerations []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem `pulumi:"instanceGenerations"`
+	// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+	//
+	// - To include instance types with instance store volumes, specify `included` .
+	// - To require only instance types with instance store volumes, specify `required` .
+	// - To exclude instance types with instance store volumes, specify `excluded` .
+	//
+	// Default: `included`
+	LocalStorage *Ec2FleetInstanceRequirementsRequestLocalStorage `pulumi:"localStorage"`
+	// The type of local storage that is required.
+	//
+	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+	// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+	//
+	// Default: `hdd` and `ssd`
+	LocalStorageTypes []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem `pulumi:"localStorageTypes"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU, in GiB.
+	MemoryGiBPerVCpu *Ec2FleetMemoryGiBPerVCpuRequest `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory, in MiB.
+	MemoryMiB *Ec2FleetMemoryMiBRequest `pulumi:"memoryMiB"`
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+	//
+	// > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+	NetworkBandwidthGbps *Ec2FleetNetworkBandwidthGbpsRequest `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces.
+	NetworkInterfaceCount *Ec2FleetNetworkInterfaceCountRequest `pulumi:"networkInterfaceCount"`
+	// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// To indicate no price protection threshold, specify a high value, such as `999999` .
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// Default: `20`
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+	//
+	// Default: `false`
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	//
+	// Default: `100`
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum amount of total local storage, in GB.
+	TotalLocalStorageGb *Ec2FleetTotalLocalStorageGbRequest `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs.
+	VCpuCount *Ec2FleetVCpuCountRangeRequest `pulumi:"vCpuCount"`
 }
 
 // Ec2FleetInstanceRequirementsRequestInput is an input type that accepts Ec2FleetInstanceRequirementsRequestArgs and Ec2FleetInstanceRequirementsRequestOutput values.
@@ -2186,30 +2730,168 @@ type Ec2FleetInstanceRequirementsRequestInput interface {
 }
 
 type Ec2FleetInstanceRequirementsRequestArgs struct {
-	AcceleratorCount                               Ec2FleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                       Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                               Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                      Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                               Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                           pulumi.StringArrayInput                                                   `pulumi:"allowedInstanceTypes"`
-	BareMetal                                      Ec2FleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                       Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                           Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
-	CpuManufacturers                               Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                   `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                            Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
-	LocalStorage                                   Ec2FleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
-	LocalStorageTypes                              Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                        `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               Ec2FleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      Ec2FleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           Ec2FleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          Ec2FleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                        `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                        pulumi.BoolPtrInput                                                       `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                            Ec2FleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                      Ec2FleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
+	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+	AcceleratorCount Ec2FleetAcceleratorCountRequestPtrInput `pulumi:"acceleratorCount"`
+	// Indicates whether instance types must have accelerators by specific manufacturers.
+	//
+	// - For instance types with AWS devices, specify `amazon-web-services` .
+	// - For instance types with AMD devices, specify `amd` .
+	// - For instance types with Habana devices, specify `habana` .
+	// - For instance types with NVIDIA devices, specify `nvidia` .
+	// - For instance types with Xilinx devices, specify `xilinx` .
+	//
+	// Default: Any manufacturer
+	AcceleratorManufacturers Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	// The accelerators that must be on the instance type.
+	//
+	// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+	//
+	// Default: Any accelerator
+	AcceleratorNames Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput `pulumi:"acceleratorNames"`
+	// The minimum and maximum amount of total accelerator memory, in MiB.
+	AcceleratorTotalMemoryMiB Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types that must be on the instance type.
+	//
+	// - To include instance types with GPU hardware, specify `gpu` .
+	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - To include instance types with inference hardware, specify `inference` .
+	//
+	// Default: Any accelerator type
+	AcceleratorTypes Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+	//
+	// Default: All instance types
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// Indicates whether bare metal instance types must be included, excluded, or required.
+	//
+	// - To include bare metal instance types, specify `included` .
+	// - To require only bare metal instance types, specify `required` .
+	// - To exclude bare metal instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BareMetal Ec2FleetInstanceRequirementsRequestBareMetalPtrInput `pulumi:"bareMetal"`
+	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+	BaselineEbsBandwidthMbps Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+	//
+	// - To include burstable performance instance types, specify `included` .
+	// - To require only burstable performance instance types, specify `required` .
+	// - To exclude burstable performance instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BurstablePerformance Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrInput `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include.
+	//
+	// - For instance types with Intel CPUs, specify `intel` .
+	// - For instance types with AMD CPUs, specify `amd` .
+	// - For instance types with AWS CPUs, specify `amazon-web-services` .
+	//
+	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
+	// Default: Any manufacturer
+	CpuManufacturers Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput `pulumi:"cpuManufacturers"`
+	// The instance types to exclude.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+	//
+	// Default: No excluded instance types
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	//
+	// For current generation instance types, specify `current` .
+	//
+	// For previous generation instance types, specify `previous` .
+	//
+	// Default: Current and previous generation instance types
+	InstanceGenerations Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput `pulumi:"instanceGenerations"`
+	// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+	//
+	// - To include instance types with instance store volumes, specify `included` .
+	// - To require only instance types with instance store volumes, specify `required` .
+	// - To exclude instance types with instance store volumes, specify `excluded` .
+	//
+	// Default: `included`
+	LocalStorage Ec2FleetInstanceRequirementsRequestLocalStoragePtrInput `pulumi:"localStorage"`
+	// The type of local storage that is required.
+	//
+	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+	// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+	//
+	// Default: `hdd` and `ssd`
+	LocalStorageTypes Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput `pulumi:"localStorageTypes"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU, in GiB.
+	MemoryGiBPerVCpu Ec2FleetMemoryGiBPerVCpuRequestPtrInput `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory, in MiB.
+	MemoryMiB Ec2FleetMemoryMiBRequestPtrInput `pulumi:"memoryMiB"`
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+	//
+	// > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+	NetworkBandwidthGbps Ec2FleetNetworkBandwidthGbpsRequestPtrInput `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces.
+	NetworkInterfaceCount Ec2FleetNetworkInterfaceCountRequestPtrInput `pulumi:"networkInterfaceCount"`
+	// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// To indicate no price protection threshold, specify a high value, such as `999999` .
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// Default: `20`
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+	//
+	// Default: `false`
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	//
+	// Default: `100`
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum amount of total local storage, in GB.
+	TotalLocalStorageGb Ec2FleetTotalLocalStorageGbRequestPtrInput `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs.
+	VCpuCount Ec2FleetVCpuCountRangeRequestPtrInput `pulumi:"vCpuCount"`
 }
 
 func (Ec2FleetInstanceRequirementsRequestArgs) ElementType() reflect.Type {
@@ -2289,132 +2971,270 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) ToEc2FleetInstanceRequirement
 	}).(Ec2FleetInstanceRequirementsRequestPtrOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorCount() Ec2FleetAcceleratorCountRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorCountRequest {
 		return v.AcceleratorCount
 	}).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
+// Indicates whether instance types must have accelerators by specific manufacturers.
+//
+// - For instance types with AWS devices, specify `amazon-web-services` .
+// - For instance types with AMD devices, specify `amd` .
+// - For instance types with Habana devices, specify `habana` .
+// - For instance types with NVIDIA devices, specify `nvidia` .
+// - For instance types with Xilinx devices, specify `xilinx` .
+//
+// Default: Any manufacturer
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorManufacturers() Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		return v.AcceleratorManufacturers
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+// The accelerators that must be on the instance type.
+//
+// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+// - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+//
+// Default: Any accelerator
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorNames() Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem {
 		return v.AcceleratorNames
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorTotalMemoryMiBRequest {
 		return v.AcceleratorTotalMemoryMiB
 	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The accelerator types that must be on the instance type.
+//
+// - To include instance types with GPU hardware, specify `gpu` .
+// - To include instance types with FPGA hardware, specify `fpga` .
+// - To include instance types with inference hardware, specify `inference` .
+//
+// Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem {
 		return v.AcceleratorTypes
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+//
+// Default: All instance types
 func (o Ec2FleetInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
+//
+// - To include bare metal instance types, specify `included` .
+// - To require only bare metal instance types, specify `required` .
+// - To exclude bare metal instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o Ec2FleetInstanceRequirementsRequestOutput) BareMetal() Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBareMetal {
 		return v.BareMetal
 	}).(Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
 	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+//
+// - To include burstable performance instance types, specify `included` .
+// - To require only burstable performance instance types, specify `required` .
+// - To exclude burstable performance instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o Ec2FleetInstanceRequirementsRequestOutput) BurstablePerformance() Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBurstablePerformance {
 		return v.BurstablePerformance
 	}).(Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+// The CPU manufacturers to include.
+//
+// - For instance types with Intel CPUs, specify `intel` .
+// - For instance types with AMD CPUs, specify `amd` .
+// - For instance types with AWS CPUs, specify `amazon-web-services` .
+//
+// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
+// Default: Any manufacturer
 func (o Ec2FleetInstanceRequirementsRequestOutput) CpuManufacturers() Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem {
 		return v.CpuManufacturers
 	}).(Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+// The instance types to exclude.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+//
+// Default: No excluded instance types
 func (o Ec2FleetInstanceRequirementsRequestOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+//
+// For current generation instance types, specify `current` .
+//
+// For previous generation instance types, specify `previous` .
+//
+// Default: Current and previous generation instance types
 func (o Ec2FleetInstanceRequirementsRequestOutput) InstanceGenerations() Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem {
 		return v.InstanceGenerations
 	}).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+//
+// - To include instance types with instance store volumes, specify `included` .
+// - To require only instance types with instance store volumes, specify `required` .
+// - To exclude instance types with instance store volumes, specify `excluded` .
+//
+// Default: `included`
 func (o Ec2FleetInstanceRequirementsRequestOutput) LocalStorage() Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestLocalStorage {
 		return v.LocalStorage
 	}).(Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+// The type of local storage that is required.
+//
+// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+//
+// Default: `hdd` and `ssd`
 func (o Ec2FleetInstanceRequirementsRequestOutput) LocalStorageTypes() Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem {
 		return v.LocalStorageTypes
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
 func (o Ec2FleetInstanceRequirementsRequestOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 func (o Ec2FleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryGiBPerVCpuRequest {
 		return v.MemoryGiBPerVCpu
 	}).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 func (o Ec2FleetInstanceRequirementsRequestOutput) MemoryMiB() Ec2FleetMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryMiBRequest { return v.MemoryMiB }).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+// > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetInstanceRequirementsRequestOutput) NetworkBandwidthGbps() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkBandwidthGbpsRequest {
 		return v.NetworkBandwidthGbps
 	}).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces.
 func (o Ec2FleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkInterfaceCountRequest {
 		return v.NetworkInterfaceCount
 	}).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
+// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// To indicate no price protection threshold, specify a high value, such as `999999` .
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// Default: `20`
 func (o Ec2FleetInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instance types must support hibernation for On-Demand Instances.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+//
+// Default: `false`
 func (o Ec2FleetInstanceRequirementsRequestOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+//
+// Default: `100`
 func (o Ec2FleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 func (o Ec2FleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetTotalLocalStorageGbRequest {
 		return v.TotalLocalStorageGb
 	}).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 func (o Ec2FleetInstanceRequirementsRequestOutput) VCpuCount() Ec2FleetVCpuCountRangeRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetVCpuCountRangeRequest { return v.VCpuCount }).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
@@ -2443,6 +3263,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) Elem() Ec2FleetInstanceReq
 	}).(Ec2FleetInstanceRequirementsRequestOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorCount() Ec2FleetAcceleratorCountRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorCountRequest {
 		if v == nil {
@@ -2452,6 +3273,15 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorCount() Ec2Flee
 	}).(Ec2FleetAcceleratorCountRequestPtrOutput)
 }
 
+// Indicates whether instance types must have accelerators by specific manufacturers.
+//
+// - For instance types with AWS devices, specify `amazon-web-services` .
+// - For instance types with AMD devices, specify `amd` .
+// - For instance types with Habana devices, specify `habana` .
+// - For instance types with NVIDIA devices, specify `nvidia` .
+// - For instance types with Xilinx devices, specify `xilinx` .
+//
+// Default: Any manufacturer
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers() Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		if v == nil {
@@ -2461,6 +3291,22 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers()
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+// The accelerators that must be on the instance type.
+//
+// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+// - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+//
+// Default: Any accelerator
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorNames() Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem {
 		if v == nil {
@@ -2470,6 +3316,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorNames() Ec2Flee
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB() Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetAcceleratorTotalMemoryMiBRequest {
 		if v == nil {
@@ -2479,6 +3326,13 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB(
 	}).(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The accelerator types that must be on the instance type.
+//
+// - To include instance types with GPU hardware, specify `gpu` .
+// - To include instance types with FPGA hardware, specify `fpga` .
+// - To include instance types with inference hardware, specify `inference` .
+//
+// Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem {
 		if v == nil {
@@ -2488,6 +3342,15 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2Flee
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+//
+// Default: All instance types
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []string {
 		if v == nil {
@@ -2497,6 +3360,13 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pul
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
+//
+// - To include bare metal instance types, specify `included` .
+// - To require only bare metal instance types, specify `required` .
+// - To exclude bare metal instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BareMetal() Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBareMetal {
 		if v == nil {
@@ -2506,6 +3376,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BareMetal() Ec2FleetInstan
 	}).(Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps() Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		if v == nil {
@@ -2515,6 +3386,13 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps()
 	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+//
+// - To include burstable performance instance types, specify `included` .
+// - To require only burstable performance instance types, specify `required` .
+// - To exclude burstable performance instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BurstablePerformance() Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestBurstablePerformance {
 		if v == nil {
@@ -2524,6 +3402,15 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BurstablePerformance() Ec2
 	}).(Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+// The CPU manufacturers to include.
+//
+// - For instance types with Intel CPUs, specify `intel` .
+// - For instance types with AMD CPUs, specify `amd` .
+// - For instance types with AWS CPUs, specify `amazon-web-services` .
+//
+// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
+// Default: Any manufacturer
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) CpuManufacturers() Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem {
 		if v == nil {
@@ -2533,6 +3420,15 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) CpuManufacturers() Ec2Flee
 	}).(Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+// The instance types to exclude.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+//
+// Default: No excluded instance types
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []string {
 		if v == nil {
@@ -2542,6 +3438,13 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+//
+// For current generation instance types, specify `current` .
+//
+// For previous generation instance types, specify `previous` .
+//
+// Default: Current and previous generation instance types
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) InstanceGenerations() Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem {
 		if v == nil {
@@ -2551,6 +3454,13 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) InstanceGenerations() Ec2F
 	}).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+//
+// - To include instance types with instance store volumes, specify `included` .
+// - To require only instance types with instance store volumes, specify `required` .
+// - To exclude instance types with instance store volumes, specify `excluded` .
+//
+// Default: `included`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorage() Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetInstanceRequirementsRequestLocalStorage {
 		if v == nil {
@@ -2560,6 +3470,12 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorage() Ec2FleetIns
 	}).(Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+// The type of local storage that is required.
+//
+// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+//
+// Default: `hdd` and `ssd`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem {
 		if v == nil {
@@ -2569,6 +3485,13 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() Ec2Fle
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -2578,6 +3501,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOf
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryGiBPerVCpuRequest {
 		if v == nil {
@@ -2587,6 +3511,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() Ec2Flee
 	}).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryMiB() Ec2FleetMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetMemoryMiBRequest {
 		if v == nil {
@@ -2596,6 +3521,9 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryMiB() Ec2FleetMemory
 	}).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+// > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() Ec2FleetNetworkBandwidthGbpsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkBandwidthGbpsRequest {
 		if v == nil {
@@ -2605,6 +3533,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() Ec2
 	}).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces.
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() Ec2FleetNetworkInterfaceCountRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetNetworkInterfaceCountRequest {
 		if v == nil {
@@ -2614,6 +3543,17 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() Ec
 	}).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
+// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// To indicate no price protection threshold, specify a high value, such as `999999` .
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// Default: `20`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -2623,6 +3563,11 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentage
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instance types must support hibernation for On-Demand Instances.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+//
+// Default: `false`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *bool {
 		if v == nil {
@@ -2632,6 +3577,17 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+//
+// Default: `100`
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -2641,6 +3597,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOver
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() Ec2FleetTotalLocalStorageGbRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetTotalLocalStorageGbRequest {
 		if v == nil {
@@ -2650,6 +3607,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() Ec2F
 	}).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) VCpuCount() Ec2FleetVCpuCountRangeRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetVCpuCountRangeRequest {
 		if v == nil {
@@ -2660,6 +3618,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) VCpuCount() Ec2FleetVCpuCo
 }
 
 type Ec2FleetMaintenanceStrategies struct {
+	// The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 	CapacityRebalance *Ec2FleetCapacityRebalance `pulumi:"capacityRebalance"`
 }
 
@@ -2675,6 +3634,7 @@ type Ec2FleetMaintenanceStrategiesInput interface {
 }
 
 type Ec2FleetMaintenanceStrategiesArgs struct {
+	// The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 	CapacityRebalance Ec2FleetCapacityRebalancePtrInput `pulumi:"capacityRebalance"`
 }
 
@@ -2755,6 +3715,7 @@ func (o Ec2FleetMaintenanceStrategiesOutput) ToEc2FleetMaintenanceStrategiesPtrO
 	}).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
+// The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetMaintenanceStrategiesOutput) CapacityRebalance() Ec2FleetCapacityRebalancePtrOutput {
 	return o.ApplyT(func(v Ec2FleetMaintenanceStrategies) *Ec2FleetCapacityRebalance { return v.CapacityRebalance }).(Ec2FleetCapacityRebalancePtrOutput)
 }
@@ -2783,6 +3744,7 @@ func (o Ec2FleetMaintenanceStrategiesPtrOutput) Elem() Ec2FleetMaintenanceStrate
 	}).(Ec2FleetMaintenanceStrategiesOutput)
 }
 
+// The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetMaintenanceStrategiesPtrOutput) CapacityRebalance() Ec2FleetCapacityRebalancePtrOutput {
 	return o.ApplyT(func(v *Ec2FleetMaintenanceStrategies) *Ec2FleetCapacityRebalance {
 		if v == nil {
@@ -2793,7 +3755,9 @@ func (o Ec2FleetMaintenanceStrategiesPtrOutput) CapacityRebalance() Ec2FleetCapa
 }
 
 type Ec2FleetMemoryGiBPerVCpuRequest struct {
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2809,7 +3773,9 @@ type Ec2FleetMemoryGiBPerVCpuRequestInput interface {
 }
 
 type Ec2FleetMemoryGiBPerVCpuRequestArgs struct {
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2890,10 +3856,12 @@ func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) ToEc2FleetMemoryGiBPerVCpuRequest
 	}).(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -2922,6 +3890,7 @@ func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Elem() Ec2FleetMemoryGiBPerVCp
 	}).(Ec2FleetMemoryGiBPerVCpuRequestOutput)
 }
 
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Ec2FleetMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
@@ -2931,6 +3900,7 @@ func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Ec2FleetMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
@@ -2941,7 +3911,9 @@ func (o Ec2FleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput 
 }
 
 type Ec2FleetMemoryMiBRequest struct {
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 	Min *int `pulumi:"min"`
 }
 
@@ -2957,7 +3929,9 @@ type Ec2FleetMemoryMiBRequestInput interface {
 }
 
 type Ec2FleetMemoryMiBRequestArgs struct {
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3038,10 +4012,12 @@ func (o Ec2FleetMemoryMiBRequestOutput) ToEc2FleetMemoryMiBRequestPtrOutputWithC
 	}).(Ec2FleetMemoryMiBRequestPtrOutput)
 }
 
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 func (o Ec2FleetMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -3070,6 +4046,7 @@ func (o Ec2FleetMemoryMiBRequestPtrOutput) Elem() Ec2FleetMemoryMiBRequestOutput
 	}).(Ec2FleetMemoryMiBRequestOutput)
 }
 
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetMemoryMiBRequest) *int {
 		if v == nil {
@@ -3079,6 +4056,7 @@ func (o Ec2FleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 func (o Ec2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetMemoryMiBRequest) *int {
 		if v == nil {
@@ -3089,7 +4067,9 @@ func (o Ec2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type Ec2FleetNetworkBandwidthGbpsRequest struct {
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -3105,7 +4085,9 @@ type Ec2FleetNetworkBandwidthGbpsRequestInput interface {
 }
 
 type Ec2FleetNetworkBandwidthGbpsRequestArgs struct {
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -3186,10 +4168,12 @@ func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) ToEc2FleetNetworkBandwidthGbp
 	}).(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -3218,6 +4202,7 @@ func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Elem() Ec2FleetNetworkBand
 	}).(Ec2FleetNetworkBandwidthGbpsRequestOutput)
 }
 
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Ec2FleetNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
@@ -3227,6 +4212,7 @@ func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Ec2FleetNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
@@ -3237,7 +4223,9 @@ func (o Ec2FleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOut
 }
 
 type Ec2FleetNetworkInterfaceCountRequest struct {
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -3253,7 +4241,9 @@ type Ec2FleetNetworkInterfaceCountRequestInput interface {
 }
 
 type Ec2FleetNetworkInterfaceCountRequestArgs struct {
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3334,10 +4324,12 @@ func (o Ec2FleetNetworkInterfaceCountRequestOutput) ToEc2FleetNetworkInterfaceCo
 	}).(Ec2FleetNetworkInterfaceCountRequestPtrOutput)
 }
 
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetNetworkInterfaceCountRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetNetworkInterfaceCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -3366,6 +4358,7 @@ func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Elem() Ec2FleetNetworkInt
 	}).(Ec2FleetNetworkInterfaceCountRequestOutput)
 }
 
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetNetworkInterfaceCountRequest) *int {
 		if v == nil {
@@ -3375,6 +4368,7 @@ func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetNetworkInterfaceCountRequest) *int {
 		if v == nil {
@@ -3385,12 +4379,38 @@ func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput
 }
 
 type Ec2FleetOnDemandOptionsRequest struct {
-	AllocationStrategy         *string                                    `pulumi:"allocationStrategy"`
+	// The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
+	//
+	// `lowest-price` - EC2 Fleet uses price to determine the order, launching the lowest price first.
+	//
+	// `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
+	//
+	// Default: `lowest-price`
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+	//
+	// > This strategy can only be used if the EC2 Fleet is of type `instant` .
+	//
+	// For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
 	CapacityReservationOptions *Ec2FleetCapacityReservationOptionsRequest `pulumi:"capacityReservationOptions"`
-	MaxTotalPrice              *string                                    `pulumi:"maxTotalPrice"`
-	MinTargetCapacity          *int                                       `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone     *bool                                      `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType         *bool                                      `pulumi:"singleInstanceType"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+	//
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
+	MinTargetCapacity *int `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleAvailabilityZone *bool `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleInstanceType *bool `pulumi:"singleInstanceType"`
 }
 
 // Ec2FleetOnDemandOptionsRequestInput is an input type that accepts Ec2FleetOnDemandOptionsRequestArgs and Ec2FleetOnDemandOptionsRequestOutput values.
@@ -3405,12 +4425,38 @@ type Ec2FleetOnDemandOptionsRequestInput interface {
 }
 
 type Ec2FleetOnDemandOptionsRequestArgs struct {
-	AllocationStrategy         pulumi.StringPtrInput                             `pulumi:"allocationStrategy"`
+	// The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
+	//
+	// `lowest-price` - EC2 Fleet uses price to determine the order, launching the lowest price first.
+	//
+	// `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
+	//
+	// Default: `lowest-price`
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+	//
+	// > This strategy can only be used if the EC2 Fleet is of type `instant` .
+	//
+	// For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
 	CapacityReservationOptions Ec2FleetCapacityReservationOptionsRequestPtrInput `pulumi:"capacityReservationOptions"`
-	MaxTotalPrice              pulumi.StringPtrInput                             `pulumi:"maxTotalPrice"`
-	MinTargetCapacity          pulumi.IntPtrInput                                `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone     pulumi.BoolPtrInput                               `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType         pulumi.BoolPtrInput                               `pulumi:"singleInstanceType"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+	//
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
+	MinTargetCapacity pulumi.IntPtrInput `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleAvailabilityZone pulumi.BoolPtrInput `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleInstanceType pulumi.BoolPtrInput `pulumi:"singleInstanceType"`
 }
 
 func (Ec2FleetOnDemandOptionsRequestArgs) ElementType() reflect.Type {
@@ -3490,28 +4536,54 @@ func (o Ec2FleetOnDemandOptionsRequestOutput) ToEc2FleetOnDemandOptionsRequestPt
 	}).(Ec2FleetOnDemandOptionsRequestPtrOutput)
 }
 
+// The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
+//
+// `lowest-price` - EC2 Fleet uses price to determine the order, launching the lowest price first.
+//
+// `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
+//
+// Default: `lowest-price`
 func (o Ec2FleetOnDemandOptionsRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
+// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+//
+// > This strategy can only be used if the EC2 Fleet is of type `instant` .
+//
+// For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOnDemandOptionsRequestOutput) CapacityReservationOptions() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *Ec2FleetCapacityReservationOptionsRequest {
 		return v.CapacityReservationOptions
 	}).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
+// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+//
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o Ec2FleetOnDemandOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
+// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+//
+// Supported only for fleets of type `instant` .
+//
+// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetOnDemandOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetOnDemandOptionsRequestOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetOnDemandOptionsRequestOutput) SingleInstanceType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
 }
@@ -3540,6 +4612,13 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) Elem() Ec2FleetOnDemandOptionsR
 	}).(Ec2FleetOnDemandOptionsRequestOutput)
 }
 
+// The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
+//
+// `lowest-price` - EC2 Fleet uses price to determine the order, launching the lowest price first.
+//
+// `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
+//
+// Default: `lowest-price`
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *string {
 		if v == nil {
@@ -3549,6 +4628,11 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) AllocationStrategy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+//
+// > This strategy can only be used if the EC2 Fleet is of type `instant` .
+//
+// For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) CapacityReservationOptions() Ec2FleetCapacityReservationOptionsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *Ec2FleetCapacityReservationOptionsRequest {
 		if v == nil {
@@ -3558,6 +4642,9 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) CapacityReservationOptions() Ec
 	}).(Ec2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
+// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+//
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *string {
 		if v == nil {
@@ -3567,6 +4654,11 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+//
+// Supported only for fleets of type `instant` .
+//
+// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *int {
 		if v == nil {
@@ -3576,6 +4668,9 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *bool {
 		if v == nil {
@@ -3585,6 +4680,9 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *bool {
 		if v == nil {
@@ -3595,14 +4693,38 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleInstanceType() pulumi.Boo
 }
 
 type Ec2FleetPlacement struct {
-	Affinity             *string `pulumi:"affinity"`
-	AvailabilityZone     *string `pulumi:"availabilityZone"`
-	GroupName            *string `pulumi:"groupName"`
-	HostId               *string `pulumi:"hostId"`
+	// The affinity setting for the instance on the Dedicated Host.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
+	Affinity *string `pulumi:"affinity"`
+	// The Availability Zone of the instance.
+	//
+	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+	GroupName *string `pulumi:"groupName"`
+	// The ID of the Dedicated Host on which the instance resides.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
+	HostId *string `pulumi:"hostId"`
+	// The ARN of the host resource group in which to launch the instances.
+	//
+	// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
-	PartitionNumber      *int    `pulumi:"partitionNumber"`
-	SpreadDomain         *string `pulumi:"spreadDomain"`
-	Tenancy              *string `pulumi:"tenancy"`
+	// The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+	PartitionNumber *int `pulumi:"partitionNumber"`
+	// Reserved for future use.
+	SpreadDomain *string `pulumi:"spreadDomain"`
+	// The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
+	Tenancy *string `pulumi:"tenancy"`
 }
 
 // Ec2FleetPlacementInput is an input type that accepts Ec2FleetPlacementArgs and Ec2FleetPlacementOutput values.
@@ -3617,14 +4739,38 @@ type Ec2FleetPlacementInput interface {
 }
 
 type Ec2FleetPlacementArgs struct {
-	Affinity             pulumi.StringPtrInput `pulumi:"affinity"`
-	AvailabilityZone     pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	GroupName            pulumi.StringPtrInput `pulumi:"groupName"`
-	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
+	// The affinity setting for the instance on the Dedicated Host.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
+	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
+	// The Availability Zone of the instance.
+	//
+	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// The ID of the Dedicated Host on which the instance resides.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
+	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// The ARN of the host resource group in which to launch the instances.
+	//
+	// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
-	PartitionNumber      pulumi.IntPtrInput    `pulumi:"partitionNumber"`
-	SpreadDomain         pulumi.StringPtrInput `pulumi:"spreadDomain"`
-	Tenancy              pulumi.StringPtrInput `pulumi:"tenancy"`
+	// The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
+	// Reserved for future use.
+	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
+	// The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
+	//
+	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
+	Tenancy pulumi.StringPtrInput `pulumi:"tenancy"`
 }
 
 func (Ec2FleetPlacementArgs) ElementType() reflect.Type {
@@ -3704,34 +4850,58 @@ func (o Ec2FleetPlacementOutput) ToEc2FleetPlacementPtrOutputWithContext(ctx con
 	}).(Ec2FleetPlacementPtrOutput)
 }
 
+// The affinity setting for the instance on the Dedicated Host.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
 func (o Ec2FleetPlacementOutput) Affinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone of the instance.
+//
+// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
 func (o Ec2FleetPlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Dedicated Host on which the instance resides.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
 func (o Ec2FleetPlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the host resource group in which to launch the instances.
+//
+// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
 }
 
+// Reserved for future use.
 func (o Ec2FleetPlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
 func (o Ec2FleetPlacementOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
@@ -3760,6 +4930,9 @@ func (o Ec2FleetPlacementPtrOutput) Elem() Ec2FleetPlacementOutput {
 	}).(Ec2FleetPlacementOutput)
 }
 
+// The affinity setting for the instance on the Dedicated Host.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
 func (o Ec2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3769,6 +4942,11 @@ func (o Ec2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone of the instance.
+//
+// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3778,6 +4956,7 @@ func (o Ec2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
 func (o Ec2FleetPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3787,6 +4966,9 @@ func (o Ec2FleetPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Dedicated Host on which the instance resides.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
 func (o Ec2FleetPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3796,6 +4978,11 @@ func (o Ec2FleetPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the host resource group in which to launch the instances.
+//
+// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3805,6 +4992,9 @@ func (o Ec2FleetPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *int {
 		if v == nil {
@@ -3814,6 +5004,7 @@ func (o Ec2FleetPlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Reserved for future use.
 func (o Ec2FleetPlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3823,6 +5014,9 @@ func (o Ec2FleetPlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
+//
+// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
 func (o Ec2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -3833,14 +5027,44 @@ func (o Ec2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 }
 
 type Ec2FleetSpotOptionsRequest struct {
-	AllocationStrategy           *Ec2FleetSpotOptionsRequestAllocationStrategy           `pulumi:"allocationStrategy"`
+	// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+	//
+	// If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+	//
+	// If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
+	//
+	// If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
+	//
+	// *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
+	AllocationStrategy *Ec2FleetSpotOptionsRequestAllocationStrategy `pulumi:"allocationStrategy"`
+	// The behavior when a Spot Instance is interrupted.
+	//
+	// Default: `terminate`
 	InstanceInterruptionBehavior *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount      *int                                                    `pulumi:"instancePoolsToUseCount"`
-	MaintenanceStrategies        *Ec2FleetMaintenanceStrategies                          `pulumi:"maintenanceStrategies"`
-	MaxTotalPrice                *string                                                 `pulumi:"maxTotalPrice"`
-	MinTargetCapacity            *int                                                    `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone       *bool                                                   `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType           *bool                                                   `pulumi:"singleInstanceType"`
+	// The number of Spot pools across which to allocate your target Spot capacity. Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+	//
+	// Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
+	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
+	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+	MaintenanceStrategies *Ec2FleetMaintenanceStrategies `pulumi:"maintenanceStrategies"`
+	// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
+	MinTargetCapacity *int `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleAvailabilityZone *bool `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleInstanceType *bool `pulumi:"singleInstanceType"`
 }
 
 // Ec2FleetSpotOptionsRequestInput is an input type that accepts Ec2FleetSpotOptionsRequestArgs and Ec2FleetSpotOptionsRequestOutput values.
@@ -3855,14 +5079,44 @@ type Ec2FleetSpotOptionsRequestInput interface {
 }
 
 type Ec2FleetSpotOptionsRequestArgs struct {
-	AllocationStrategy           Ec2FleetSpotOptionsRequestAllocationStrategyPtrInput           `pulumi:"allocationStrategy"`
+	// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+	//
+	// If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+	//
+	// If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
+	//
+	// If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
+	//
+	// *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
+	AllocationStrategy Ec2FleetSpotOptionsRequestAllocationStrategyPtrInput `pulumi:"allocationStrategy"`
+	// The behavior when a Spot Instance is interrupted.
+	//
+	// Default: `terminate`
 	InstanceInterruptionBehavior Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount      pulumi.IntPtrInput                                             `pulumi:"instancePoolsToUseCount"`
-	MaintenanceStrategies        Ec2FleetMaintenanceStrategiesPtrInput                          `pulumi:"maintenanceStrategies"`
-	MaxTotalPrice                pulumi.StringPtrInput                                          `pulumi:"maxTotalPrice"`
-	MinTargetCapacity            pulumi.IntPtrInput                                             `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone       pulumi.BoolPtrInput                                            `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType           pulumi.BoolPtrInput                                            `pulumi:"singleInstanceType"`
+	// The number of Spot pools across which to allocate your target Spot capacity. Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+	//
+	// Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
+	InstancePoolsToUseCount pulumi.IntPtrInput `pulumi:"instancePoolsToUseCount"`
+	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+	MaintenanceStrategies Ec2FleetMaintenanceStrategiesPtrInput `pulumi:"maintenanceStrategies"`
+	// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
+	MinTargetCapacity pulumi.IntPtrInput `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleAvailabilityZone pulumi.BoolPtrInput `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+	//
+	// Supported only for fleets of type `instant` .
+	SingleInstanceType pulumi.BoolPtrInput `pulumi:"singleInstanceType"`
 }
 
 func (Ec2FleetSpotOptionsRequestArgs) ElementType() reflect.Type {
@@ -3942,38 +5196,68 @@ func (o Ec2FleetSpotOptionsRequestOutput) ToEc2FleetSpotOptionsRequestPtrOutputW
 	}).(Ec2FleetSpotOptionsRequestPtrOutput)
 }
 
+// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+//
+// If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+//
+// If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
+//
+// If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
+//
+// *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
 func (o Ec2FleetSpotOptionsRequestOutput) AllocationStrategy() Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestAllocationStrategy {
 		return v.AllocationStrategy
 	}).(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted.
+//
+// Default: `terminate`
 func (o Ec2FleetSpotOptionsRequestOutput) InstanceInterruptionBehavior() Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior {
 		return v.InstanceInterruptionBehavior
 	}).(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
+// The number of Spot pools across which to allocate your target Spot capacity. Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+//
+// Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
 func (o Ec2FleetSpotOptionsRequestOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
 }
 
+// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 func (o Ec2FleetSpotOptionsRequestOutput) MaintenanceStrategies() Ec2FleetMaintenanceStrategiesPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *Ec2FleetMaintenanceStrategies { return v.MaintenanceStrategies }).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
+// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o Ec2FleetSpotOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
+// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+//
+// Supported only for fleets of type `instant` .
+//
+// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetSpotOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetSpotOptionsRequestOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetSpotOptionsRequestOutput) SingleInstanceType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
 }
@@ -4002,6 +5286,15 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) Elem() Ec2FleetSpotOptionsRequestOu
 	}).(Ec2FleetSpotOptionsRequestOutput)
 }
 
+// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+//
+// If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+//
+// If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
+//
+// If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
+//
+// *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
 func (o Ec2FleetSpotOptionsRequestPtrOutput) AllocationStrategy() Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestAllocationStrategy {
 		if v == nil {
@@ -4011,6 +5304,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) AllocationStrategy() Ec2FleetSpotOp
 	}).(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted.
+//
+// Default: `terminate`
 func (o Ec2FleetSpotOptionsRequestPtrOutput) InstanceInterruptionBehavior() Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior {
 		if v == nil {
@@ -4020,6 +5316,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) InstanceInterruptionBehavior() Ec2F
 	}).(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
+// The number of Spot pools across which to allocate your target Spot capacity. Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+//
+// Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
 func (o Ec2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *int {
 		if v == nil {
@@ -4029,6 +5328,7 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 func (o Ec2FleetSpotOptionsRequestPtrOutput) MaintenanceStrategies() Ec2FleetMaintenanceStrategiesPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *Ec2FleetMaintenanceStrategies {
 		if v == nil {
@@ -4038,6 +5338,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) MaintenanceStrategies() Ec2FleetMai
 	}).(Ec2FleetMaintenanceStrategiesPtrOutput)
 }
 
+// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o Ec2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *string {
 		if v == nil {
@@ -4047,6 +5350,11 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+//
+// Supported only for fleets of type `instant` .
+//
+// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetSpotOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *int {
 		if v == nil {
@@ -4056,6 +5364,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *bool {
 		if v == nil {
@@ -4065,6 +5376,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleAvailabilityZone() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+//
+// Supported only for fleets of type `instant` .
 func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *bool {
 		if v == nil {
@@ -4075,7 +5389,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtr
 }
 
 type Ec2FleetTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -4091,7 +5407,9 @@ type Ec2FleetTagInput interface {
 }
 
 type Ec2FleetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4146,10 +5464,12 @@ func (o Ec2FleetTagOutput) ToEc2FleetTagOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The tag key.
 func (o Ec2FleetTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v Ec2FleetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o Ec2FleetTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v Ec2FleetTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4175,8 +5495,10 @@ func (o Ec2FleetTagArrayOutput) Index(i pulumi.IntInput) Ec2FleetTagOutput {
 }
 
 type Ec2FleetTagSpecification struct {
+	// The type of resource to tag.
 	ResourceType *Ec2FleetTagSpecificationResourceType `pulumi:"resourceType"`
-	Tags         []Ec2FleetTag                         `pulumi:"tags"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []Ec2FleetTag `pulumi:"tags"`
 }
 
 // Ec2FleetTagSpecificationInput is an input type that accepts Ec2FleetTagSpecificationArgs and Ec2FleetTagSpecificationOutput values.
@@ -4191,8 +5513,10 @@ type Ec2FleetTagSpecificationInput interface {
 }
 
 type Ec2FleetTagSpecificationArgs struct {
+	// The type of resource to tag.
 	ResourceType Ec2FleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
-	Tags         Ec2FleetTagArrayInput                        `pulumi:"tags"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags Ec2FleetTagArrayInput `pulumi:"tags"`
 }
 
 func (Ec2FleetTagSpecificationArgs) ElementType() reflect.Type {
@@ -4246,10 +5570,12 @@ func (o Ec2FleetTagSpecificationOutput) ToEc2FleetTagSpecificationOutputWithCont
 	return o
 }
 
+// The type of resource to tag.
 func (o Ec2FleetTagSpecificationOutput) ResourceType() Ec2FleetTagSpecificationResourceTypePtrOutput {
 	return o.ApplyT(func(v Ec2FleetTagSpecification) *Ec2FleetTagSpecificationResourceType { return v.ResourceType }).(Ec2FleetTagSpecificationResourceTypePtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o Ec2FleetTagSpecificationOutput) Tags() Ec2FleetTagArrayOutput {
 	return o.ApplyT(func(v Ec2FleetTagSpecification) []Ec2FleetTag { return v.Tags }).(Ec2FleetTagArrayOutput)
 }
@@ -4275,11 +5601,18 @@ func (o Ec2FleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) Ec2FleetTa
 }
 
 type Ec2FleetTargetCapacitySpecificationRequest struct {
+	// The default target capacity type.
 	DefaultTargetCapacityType *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType `pulumi:"defaultTargetCapacityType"`
-	OnDemandTargetCapacity    *int                                                                 `pulumi:"onDemandTargetCapacity"`
-	SpotTargetCapacity        *int                                                                 `pulumi:"spotTargetCapacity"`
-	TargetCapacityUnitType    *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType    `pulumi:"targetCapacityUnitType"`
-	TotalTargetCapacity       int                                                                  `pulumi:"totalTargetCapacity"`
+	// The number of On-Demand units to request.
+	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
+	// The number of Spot units to request.
+	SpotTargetCapacity *int `pulumi:"spotTargetCapacity"`
+	// The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
+	//
+	// Default: `units` (the number of instances)
+	TargetCapacityUnitType *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType `pulumi:"targetCapacityUnitType"`
+	// The number of units to request, filled using the default target capacity type.
+	TotalTargetCapacity int `pulumi:"totalTargetCapacity"`
 }
 
 // Ec2FleetTargetCapacitySpecificationRequestInput is an input type that accepts Ec2FleetTargetCapacitySpecificationRequestArgs and Ec2FleetTargetCapacitySpecificationRequestOutput values.
@@ -4294,11 +5627,18 @@ type Ec2FleetTargetCapacitySpecificationRequestInput interface {
 }
 
 type Ec2FleetTargetCapacitySpecificationRequestArgs struct {
+	// The default target capacity type.
 	DefaultTargetCapacityType Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrInput `pulumi:"defaultTargetCapacityType"`
-	OnDemandTargetCapacity    pulumi.IntPtrInput                                                          `pulumi:"onDemandTargetCapacity"`
-	SpotTargetCapacity        pulumi.IntPtrInput                                                          `pulumi:"spotTargetCapacity"`
-	TargetCapacityUnitType    Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput    `pulumi:"targetCapacityUnitType"`
-	TotalTargetCapacity       pulumi.IntInput                                                             `pulumi:"totalTargetCapacity"`
+	// The number of On-Demand units to request.
+	OnDemandTargetCapacity pulumi.IntPtrInput `pulumi:"onDemandTargetCapacity"`
+	// The number of Spot units to request.
+	SpotTargetCapacity pulumi.IntPtrInput `pulumi:"spotTargetCapacity"`
+	// The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
+	//
+	// Default: `units` (the number of instances)
+	TargetCapacityUnitType Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput `pulumi:"targetCapacityUnitType"`
+	// The number of units to request, filled using the default target capacity type.
+	TotalTargetCapacity pulumi.IntInput `pulumi:"totalTargetCapacity"`
 }
 
 func (Ec2FleetTargetCapacitySpecificationRequestArgs) ElementType() reflect.Type {
@@ -4327,26 +5667,33 @@ func (o Ec2FleetTargetCapacitySpecificationRequestOutput) ToEc2FleetTargetCapaci
 	return o
 }
 
+// The default target capacity type.
 func (o Ec2FleetTargetCapacitySpecificationRequestOutput) DefaultTargetCapacityType() Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
 	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
 		return v.DefaultTargetCapacityType
 	}).(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
+// The number of On-Demand units to request.
 func (o Ec2FleetTargetCapacitySpecificationRequestOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The number of Spot units to request.
 func (o Ec2FleetTargetCapacitySpecificationRequestOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *int { return v.SpotTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
+//
+// Default: `units` (the number of instances)
 func (o Ec2FleetTargetCapacitySpecificationRequestOutput) TargetCapacityUnitType() Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
 	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
 		return v.TargetCapacityUnitType
 	}).(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
+// The number of units to request, filled using the default target capacity type.
 func (o Ec2FleetTargetCapacitySpecificationRequestOutput) TotalTargetCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Ec2FleetTargetCapacitySpecificationRequest) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
 }
@@ -4375,6 +5722,7 @@ func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) Elem() Ec2FleetTarg
 	}).(Ec2FleetTargetCapacitySpecificationRequestOutput)
 }
 
+// The default target capacity type.
 func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
 		if v == nil {
@@ -4384,6 +5732,7 @@ func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapaci
 	}).(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
+// The number of On-Demand units to request.
 func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *int {
 		if v == nil {
@@ -4393,6 +5742,7 @@ func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapac
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of Spot units to request.
 func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *int {
 		if v == nil {
@@ -4402,6 +5752,9 @@ func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity(
 	}).(pulumi.IntPtrOutput)
 }
 
+// The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
+//
+// Default: `units` (the number of instances)
 func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) TargetCapacityUnitType() Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
 		if v == nil {
@@ -4411,6 +5764,7 @@ func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) TargetCapacityUnitT
 	}).(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
+// The number of units to request, filled using the default target capacity type.
 func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequest) *int {
 		if v == nil {
@@ -4421,7 +5775,9 @@ func (o Ec2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity
 }
 
 type Ec2FleetTotalLocalStorageGbRequest struct {
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -4437,7 +5793,9 @@ type Ec2FleetTotalLocalStorageGbRequestInput interface {
 }
 
 type Ec2FleetTotalLocalStorageGbRequestArgs struct {
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -4518,10 +5876,12 @@ func (o Ec2FleetTotalLocalStorageGbRequestOutput) ToEc2FleetTotalLocalStorageGbR
 	}).(Ec2FleetTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v Ec2FleetTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -4550,6 +5910,7 @@ func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Elem() Ec2FleetTotalLocalSt
 	}).(Ec2FleetTotalLocalStorageGbRequestOutput)
 }
 
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
@@ -4559,6 +5920,7 @@ func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Ec2FleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
@@ -4569,7 +5931,9 @@ func (o Ec2FleetTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutp
 }
 
 type Ec2FleetVCpuCountRangeRequest struct {
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 	Min *int `pulumi:"min"`
 }
 
@@ -4585,7 +5949,9 @@ type Ec2FleetVCpuCountRangeRequestInput interface {
 }
 
 type Ec2FleetVCpuCountRangeRequestArgs struct {
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -4666,10 +6032,12 @@ func (o Ec2FleetVCpuCountRangeRequestOutput) ToEc2FleetVCpuCountRangeRequestPtrO
 	}).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
 
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetVCpuCountRangeRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetVCpuCountRangeRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 func (o Ec2FleetVCpuCountRangeRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetVCpuCountRangeRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -4698,6 +6066,7 @@ func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Elem() Ec2FleetVCpuCountRangeReq
 	}).(Ec2FleetVCpuCountRangeRequestOutput)
 }
 
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetVCpuCountRangeRequest) *int {
 		if v == nil {
@@ -4707,6 +6076,7 @@ func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetVCpuCountRangeRequest) *int {
 		if v == nil {
@@ -4865,7 +6235,9 @@ func (o EnclaveOptionsPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type FlowLogTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -5119,9 +6491,19 @@ type InstanceBlockDeviceMapping struct {
 	// The device name (for example, /dev/sdh or xvdh).
 	DeviceName string `pulumi:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
-	Ebs         *InstanceEbs `pulumi:"ebs"`
-	NoDevice    interface{}  `pulumi:"noDevice"`
-	VirtualName *string      `pulumi:"virtualName"`
+	Ebs *InstanceEbs `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string.
+	//
+	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+	NoDevice interface{} `pulumi:"noDevice"`
+	// The virtual device name ( `ephemeral` N). The name must be in the form `ephemeral` *X* where *X* is a number starting from zero (0). For example, an instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+	//
+	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+	//
+	// *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+	//
+	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // InstanceBlockDeviceMappingInput is an input type that accepts InstanceBlockDeviceMappingArgs and InstanceBlockDeviceMappingOutput values.
@@ -5139,8 +6521,18 @@ type InstanceBlockDeviceMappingArgs struct {
 	// The device name (for example, /dev/sdh or xvdh).
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
-	Ebs         InstanceEbsPtrInput   `pulumi:"ebs"`
-	NoDevice    pulumi.Input          `pulumi:"noDevice"`
+	Ebs InstanceEbsPtrInput `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string.
+	//
+	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+	NoDevice pulumi.Input `pulumi:"noDevice"`
+	// The virtual device name ( `ephemeral` N). The name must be in the form `ephemeral` *X* where *X* is a number starting from zero (0). For example, an instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+	//
+	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+	//
+	// *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+	//
+	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -5205,10 +6597,20 @@ func (o InstanceBlockDeviceMappingOutput) Ebs() InstanceEbsPtrOutput {
 	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceEbs { return v.Ebs }).(InstanceEbsPtrOutput)
 }
 
+// To omit the device from the block device mapping, specify an empty string.
+//
+// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 func (o InstanceBlockDeviceMappingOutput) NoDevice() pulumi.AnyOutput {
 	return o.ApplyT(func(v InstanceBlockDeviceMapping) interface{} { return v.NoDevice }).(pulumi.AnyOutput)
 }
 
+// The virtual device name ( `ephemeral` N). The name must be in the form `ephemeral` *X* where *X* is a number starting from zero (0). For example, an instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+//
+// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+//
+// *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+//
+// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 func (o InstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -5235,7 +6637,9 @@ func (o InstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Instance
 
 // A key-value pair to associate with a resource.
 type InstanceConnectEndpointTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -6734,7 +8138,9 @@ func (o InstanceStateTypePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type InstanceTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -6954,6 +8360,7 @@ func (o IpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IpamOperatingRe
 
 // An address space to be inserted into this pool. All allocations must be made from this address space.
 type IpamPoolProvisionedCidr struct {
+	// The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -6970,6 +8377,7 @@ type IpamPoolProvisionedCidrInput interface {
 
 // An address space to be inserted into this pool. All allocations must be made from this address space.
 type IpamPoolProvisionedCidrArgs struct {
+	// The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -7025,6 +8433,7 @@ func (o IpamPoolProvisionedCidrOutput) ToIpamPoolProvisionedCidrOutputWithContex
 	return o
 }
 
+// The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
 func (o IpamPoolProvisionedCidrOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v IpamPoolProvisionedCidr) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -7051,10 +8460,14 @@ func (o IpamPoolProvisionedCidrArrayOutput) Index(i pulumi.IntInput) IpamPoolPro
 
 // The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
 type IpamPoolSourceResource struct {
-	ResourceId     string `pulumi:"resourceId"`
-	ResourceOwner  string `pulumi:"resourceOwner"`
+	// The source resource ID.
+	ResourceId string `pulumi:"resourceId"`
+	// The source resource owner.
+	ResourceOwner string `pulumi:"resourceOwner"`
+	// The source resource Region.
 	ResourceRegion string `pulumi:"resourceRegion"`
-	ResourceType   string `pulumi:"resourceType"`
+	// The source resource type.
+	ResourceType string `pulumi:"resourceType"`
 }
 
 // IpamPoolSourceResourceInput is an input type that accepts IpamPoolSourceResourceArgs and IpamPoolSourceResourceOutput values.
@@ -7070,10 +8483,14 @@ type IpamPoolSourceResourceInput interface {
 
 // The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
 type IpamPoolSourceResourceArgs struct {
-	ResourceId     pulumi.StringInput `pulumi:"resourceId"`
-	ResourceOwner  pulumi.StringInput `pulumi:"resourceOwner"`
+	// The source resource ID.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The source resource owner.
+	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
+	// The source resource Region.
 	ResourceRegion pulumi.StringInput `pulumi:"resourceRegion"`
-	ResourceType   pulumi.StringInput `pulumi:"resourceType"`
+	// The source resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 
 func (IpamPoolSourceResourceArgs) ElementType() reflect.Type {
@@ -7154,18 +8571,22 @@ func (o IpamPoolSourceResourceOutput) ToIpamPoolSourceResourcePtrOutputWithConte
 	}).(IpamPoolSourceResourcePtrOutput)
 }
 
+// The source resource ID.
 func (o IpamPoolSourceResourceOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The source resource owner.
 func (o IpamPoolSourceResourceOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
+// The source resource Region.
 func (o IpamPoolSourceResourceOutput) ResourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceRegion }).(pulumi.StringOutput)
 }
 
+// The source resource type.
 func (o IpamPoolSourceResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -7194,6 +8615,7 @@ func (o IpamPoolSourceResourcePtrOutput) Elem() IpamPoolSourceResourceOutput {
 	}).(IpamPoolSourceResourceOutput)
 }
 
+// The source resource ID.
 func (o IpamPoolSourceResourcePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
 		if v == nil {
@@ -7203,6 +8625,7 @@ func (o IpamPoolSourceResourcePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source resource owner.
 func (o IpamPoolSourceResourcePtrOutput) ResourceOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
 		if v == nil {
@@ -7212,6 +8635,7 @@ func (o IpamPoolSourceResourcePtrOutput) ResourceOwner() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source resource Region.
 func (o IpamPoolSourceResourcePtrOutput) ResourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
 		if v == nil {
@@ -7221,6 +8645,7 @@ func (o IpamPoolSourceResourcePtrOutput) ResourceRegion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source resource type.
 func (o IpamPoolSourceResourcePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
 		if v == nil {
@@ -15287,8 +16712,11 @@ type NetworkAclTag struct {
 }
 
 type NetworkInsightsAccessScopeAccessScopePathRequest struct {
-	Destination      *NetworkInsightsAccessScopePathStatementRequest              `pulumi:"destination"`
-	Source           *NetworkInsightsAccessScopePathStatementRequest              `pulumi:"source"`
+	// Describes a path statement.
+	Destination *NetworkInsightsAccessScopePathStatementRequest `pulumi:"destination"`
+	// Describes a path statement.
+	Source *NetworkInsightsAccessScopePathStatementRequest `pulumi:"source"`
+	// Describes a through resource statement.
 	ThroughResources []NetworkInsightsAccessScopeThroughResourcesStatementRequest `pulumi:"throughResources"`
 }
 
@@ -15304,8 +16732,11 @@ type NetworkInsightsAccessScopeAccessScopePathRequestInput interface {
 }
 
 type NetworkInsightsAccessScopeAccessScopePathRequestArgs struct {
-	Destination      NetworkInsightsAccessScopePathStatementRequestPtrInput               `pulumi:"destination"`
-	Source           NetworkInsightsAccessScopePathStatementRequestPtrInput               `pulumi:"source"`
+	// Describes a path statement.
+	Destination NetworkInsightsAccessScopePathStatementRequestPtrInput `pulumi:"destination"`
+	// Describes a path statement.
+	Source NetworkInsightsAccessScopePathStatementRequestPtrInput `pulumi:"source"`
+	// Describes a through resource statement.
 	ThroughResources NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput `pulumi:"throughResources"`
 }
 
@@ -15360,18 +16791,21 @@ func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) ToNetworkInsight
 	return o
 }
 
+// Describes a path statement.
 func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) Destination() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopeAccessScopePathRequest) *NetworkInsightsAccessScopePathStatementRequest {
 		return v.Destination
 	}).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
 }
 
+// Describes a path statement.
 func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) Source() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopeAccessScopePathRequest) *NetworkInsightsAccessScopePathStatementRequest {
 		return v.Source
 	}).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
 }
 
+// Describes a through resource statement.
 func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) ThroughResources() NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopeAccessScopePathRequest) []NetworkInsightsAccessScopeThroughResourcesStatementRequest {
 		return v.ThroughResources
@@ -15399,18 +16833,27 @@ func (o NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput) Index(i pul
 }
 
 type NetworkInsightsAccessScopeAnalysisTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
 type NetworkInsightsAccessScopePacketHeaderStatementRequest struct {
-	DestinationAddresses   []string                             `pulumi:"destinationAddresses"`
-	DestinationPorts       []string                             `pulumi:"destinationPorts"`
-	DestinationPrefixLists []string                             `pulumi:"destinationPrefixLists"`
-	Protocols              []NetworkInsightsAccessScopeProtocol `pulumi:"protocols"`
-	SourceAddresses        []string                             `pulumi:"sourceAddresses"`
-	SourcePorts            []string                             `pulumi:"sourcePorts"`
-	SourcePrefixLists      []string                             `pulumi:"sourcePrefixLists"`
+	// The destination addresses.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// The destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// The destination prefix lists.
+	DestinationPrefixLists []string `pulumi:"destinationPrefixLists"`
+	// The protocols.
+	Protocols []NetworkInsightsAccessScopeProtocol `pulumi:"protocols"`
+	// The source addresses.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// The source ports.
+	SourcePorts []string `pulumi:"sourcePorts"`
+	// The source prefix lists.
+	SourcePrefixLists []string `pulumi:"sourcePrefixLists"`
 }
 
 // NetworkInsightsAccessScopePacketHeaderStatementRequestInput is an input type that accepts NetworkInsightsAccessScopePacketHeaderStatementRequestArgs and NetworkInsightsAccessScopePacketHeaderStatementRequestOutput values.
@@ -15425,13 +16868,20 @@ type NetworkInsightsAccessScopePacketHeaderStatementRequestInput interface {
 }
 
 type NetworkInsightsAccessScopePacketHeaderStatementRequestArgs struct {
-	DestinationAddresses   pulumi.StringArrayInput                      `pulumi:"destinationAddresses"`
-	DestinationPorts       pulumi.StringArrayInput                      `pulumi:"destinationPorts"`
-	DestinationPrefixLists pulumi.StringArrayInput                      `pulumi:"destinationPrefixLists"`
-	Protocols              NetworkInsightsAccessScopeProtocolArrayInput `pulumi:"protocols"`
-	SourceAddresses        pulumi.StringArrayInput                      `pulumi:"sourceAddresses"`
-	SourcePorts            pulumi.StringArrayInput                      `pulumi:"sourcePorts"`
-	SourcePrefixLists      pulumi.StringArrayInput                      `pulumi:"sourcePrefixLists"`
+	// The destination addresses.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// The destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// The destination prefix lists.
+	DestinationPrefixLists pulumi.StringArrayInput `pulumi:"destinationPrefixLists"`
+	// The protocols.
+	Protocols NetworkInsightsAccessScopeProtocolArrayInput `pulumi:"protocols"`
+	// The source addresses.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// The source ports.
+	SourcePorts pulumi.StringArrayInput `pulumi:"sourcePorts"`
+	// The source prefix lists.
+	SourcePrefixLists pulumi.StringArrayInput `pulumi:"sourcePrefixLists"`
 }
 
 func (NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) ElementType() reflect.Type {
@@ -15511,34 +16961,41 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) ToNetworkI
 	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
 }
 
+// The destination addresses.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
 }
 
+// The destination ports.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) DestinationPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
 }
 
+// The destination prefix lists.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) DestinationPrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		return v.DestinationPrefixLists
 	}).(pulumi.StringArrayOutput)
 }
 
+// The protocols.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) Protocols() NetworkInsightsAccessScopeProtocolArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []NetworkInsightsAccessScopeProtocol {
 		return v.Protocols
 	}).(NetworkInsightsAccessScopeProtocolArrayOutput)
 }
 
+// The source addresses.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
 }
 
+// The source ports.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) SourcePorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.SourcePorts }).(pulumi.StringArrayOutput)
 }
 
+// The source prefix lists.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) SourcePrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.SourcePrefixLists }).(pulumi.StringArrayOutput)
 }
@@ -15567,6 +17024,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Elem() 
 	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestOutput)
 }
 
+// The destination addresses.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		if v == nil {
@@ -15576,6 +17034,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Destina
 	}).(pulumi.StringArrayOutput)
 }
 
+// The destination ports.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) DestinationPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		if v == nil {
@@ -15585,6 +17044,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Destina
 	}).(pulumi.StringArrayOutput)
 }
 
+// The destination prefix lists.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) DestinationPrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		if v == nil {
@@ -15594,6 +17054,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Destina
 	}).(pulumi.StringArrayOutput)
 }
 
+// The protocols.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Protocols() NetworkInsightsAccessScopeProtocolArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []NetworkInsightsAccessScopeProtocol {
 		if v == nil {
@@ -15603,6 +17064,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Protoco
 	}).(NetworkInsightsAccessScopeProtocolArrayOutput)
 }
 
+// The source addresses.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		if v == nil {
@@ -15612,6 +17074,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourceA
 	}).(pulumi.StringArrayOutput)
 }
 
+// The source ports.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourcePorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		if v == nil {
@@ -15621,6 +17084,7 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourceP
 	}).(pulumi.StringArrayOutput)
 }
 
+// The source prefix lists.
 func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourcePrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
 		if v == nil {
@@ -15631,8 +17095,10 @@ func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourceP
 }
 
 type NetworkInsightsAccessScopePathStatementRequest struct {
+	// Describes a packet header statement.
 	PacketHeaderStatement *NetworkInsightsAccessScopePacketHeaderStatementRequest `pulumi:"packetHeaderStatement"`
-	ResourceStatement     *NetworkInsightsAccessScopeResourceStatementRequest     `pulumi:"resourceStatement"`
+	// Describes a resource statement.
+	ResourceStatement *NetworkInsightsAccessScopeResourceStatementRequest `pulumi:"resourceStatement"`
 }
 
 // NetworkInsightsAccessScopePathStatementRequestInput is an input type that accepts NetworkInsightsAccessScopePathStatementRequestArgs and NetworkInsightsAccessScopePathStatementRequestOutput values.
@@ -15647,8 +17113,10 @@ type NetworkInsightsAccessScopePathStatementRequestInput interface {
 }
 
 type NetworkInsightsAccessScopePathStatementRequestArgs struct {
+	// Describes a packet header statement.
 	PacketHeaderStatement NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput `pulumi:"packetHeaderStatement"`
-	ResourceStatement     NetworkInsightsAccessScopeResourceStatementRequestPtrInput     `pulumi:"resourceStatement"`
+	// Describes a resource statement.
+	ResourceStatement NetworkInsightsAccessScopeResourceStatementRequestPtrInput `pulumi:"resourceStatement"`
 }
 
 func (NetworkInsightsAccessScopePathStatementRequestArgs) ElementType() reflect.Type {
@@ -15728,12 +17196,14 @@ func (o NetworkInsightsAccessScopePathStatementRequestOutput) ToNetworkInsightsA
 	}).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
 }
 
+// Describes a packet header statement.
 func (o NetworkInsightsAccessScopePathStatementRequestOutput) PacketHeaderStatement() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopePacketHeaderStatementRequest {
 		return v.PacketHeaderStatement
 	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
 }
 
+// Describes a resource statement.
 func (o NetworkInsightsAccessScopePathStatementRequestOutput) ResourceStatement() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
 		return v.ResourceStatement
@@ -15764,6 +17234,7 @@ func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) Elem() NetworkI
 	}).(NetworkInsightsAccessScopePathStatementRequestOutput)
 }
 
+// Describes a packet header statement.
 func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) PacketHeaderStatement() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopePacketHeaderStatementRequest {
 		if v == nil {
@@ -15773,6 +17244,7 @@ func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) PacketHeaderSta
 	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
 }
 
+// Describes a resource statement.
 func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) ResourceStatement() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
 		if v == nil {
@@ -15783,8 +17255,10 @@ func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) ResourceStateme
 }
 
 type NetworkInsightsAccessScopeResourceStatementRequest struct {
+	// The resource types.
 	ResourceTypes []string `pulumi:"resourceTypes"`
-	Resources     []string `pulumi:"resources"`
+	// The resources.
+	Resources []string `pulumi:"resources"`
 }
 
 // NetworkInsightsAccessScopeResourceStatementRequestInput is an input type that accepts NetworkInsightsAccessScopeResourceStatementRequestArgs and NetworkInsightsAccessScopeResourceStatementRequestOutput values.
@@ -15799,8 +17273,10 @@ type NetworkInsightsAccessScopeResourceStatementRequestInput interface {
 }
 
 type NetworkInsightsAccessScopeResourceStatementRequestArgs struct {
+	// The resource types.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	Resources     pulumi.StringArrayInput `pulumi:"resources"`
+	// The resources.
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
 }
 
 func (NetworkInsightsAccessScopeResourceStatementRequestArgs) ElementType() reflect.Type {
@@ -15880,10 +17356,12 @@ func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ToNetworkInsig
 	}).(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput)
 }
 
+// The resource types.
 func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopeResourceStatementRequest) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
+// The resources.
 func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopeResourceStatementRequest) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
@@ -15912,6 +17390,7 @@ func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) Elem() Netw
 	}).(NetworkInsightsAccessScopeResourceStatementRequestOutput)
 }
 
+// The resource types.
 func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeResourceStatementRequest) []string {
 		if v == nil {
@@ -15921,6 +17400,7 @@ func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) ResourceTyp
 	}).(pulumi.StringArrayOutput)
 }
 
+// The resources.
 func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeResourceStatementRequest) []string {
 		if v == nil {
@@ -15931,11 +17411,14 @@ func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) Resources()
 }
 
 type NetworkInsightsAccessScopeTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
 type NetworkInsightsAccessScopeThroughResourcesStatementRequest struct {
+	// Describes a resource statement.
 	ResourceStatement *NetworkInsightsAccessScopeResourceStatementRequest `pulumi:"resourceStatement"`
 }
 
@@ -15951,6 +17434,7 @@ type NetworkInsightsAccessScopeThroughResourcesStatementRequestInput interface {
 }
 
 type NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs struct {
+	// Describes a resource statement.
 	ResourceStatement NetworkInsightsAccessScopeResourceStatementRequestPtrInput `pulumi:"resourceStatement"`
 }
 
@@ -16005,6 +17489,7 @@ func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput) ToNetw
 	return o
 }
 
+// Describes a resource statement.
 func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput) ResourceStatement() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAccessScopeThroughResourcesStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
 		return v.ResourceStatement
@@ -16032,10 +17517,14 @@ func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) I
 }
 
 type NetworkInsightsAnalysisAdditionalDetail struct {
-	AdditionalDetailType *string                                    `pulumi:"additionalDetailType"`
-	Component            *NetworkInsightsAnalysisAnalysisComponent  `pulumi:"component"`
-	LoadBalancers        []NetworkInsightsAnalysisAnalysisComponent `pulumi:"loadBalancers"`
-	ServiceName          *string                                    `pulumi:"serviceName"`
+	// The additional detail code.
+	AdditionalDetailType *string `pulumi:"additionalDetailType"`
+	// Describes a path component.
+	Component *NetworkInsightsAnalysisAnalysisComponent `pulumi:"component"`
+	// Describes a path component.
+	LoadBalancers []NetworkInsightsAnalysisAnalysisComponent `pulumi:"loadBalancers"`
+	// The name of the VPC endpoint service.
+	ServiceName *string `pulumi:"serviceName"`
 }
 
 type NetworkInsightsAnalysisAdditionalDetailOutput struct{ *pulumi.OutputState }
@@ -16052,22 +17541,26 @@ func (o NetworkInsightsAnalysisAdditionalDetailOutput) ToNetworkInsightsAnalysis
 	return o
 }
 
+// The additional detail code.
 func (o NetworkInsightsAnalysisAdditionalDetailOutput) AdditionalDetailType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *string { return v.AdditionalDetailType }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisAdditionalDetailOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Component
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisAdditionalDetailOutput) LoadBalancers() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) []NetworkInsightsAnalysisAnalysisComponent {
 		return v.LoadBalancers
 	}).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
 }
 
+// The name of the VPC endpoint service.
 func (o NetworkInsightsAnalysisAdditionalDetailOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
@@ -16093,8 +17586,10 @@ func (o NetworkInsightsAnalysisAdditionalDetailArrayOutput) Index(i pulumi.IntIn
 }
 
 type NetworkInsightsAnalysisAlternatePathHint struct {
+	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn *string `pulumi:"componentArn"`
-	ComponentId  *string `pulumi:"componentId"`
+	// The ID of the component.
+	ComponentId *string `pulumi:"componentId"`
 }
 
 type NetworkInsightsAnalysisAlternatePathHintOutput struct{ *pulumi.OutputState }
@@ -16111,10 +17606,12 @@ func (o NetworkInsightsAnalysisAlternatePathHintOutput) ToNetworkInsightsAnalysi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the component.
 func (o NetworkInsightsAnalysisAlternatePathHintOutput) ComponentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAlternatePathHint) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the component.
 func (o NetworkInsightsAnalysisAlternatePathHintOutput) ComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAlternatePathHint) *string { return v.ComponentId }).(pulumi.StringPtrOutput)
 }
@@ -16140,12 +17637,18 @@ func (o NetworkInsightsAnalysisAlternatePathHintArrayOutput) Index(i pulumi.IntI
 }
 
 type NetworkInsightsAnalysisAnalysisAclRule struct {
-	Cidr       *string                           `pulumi:"cidr"`
-	Egress     *bool                             `pulumi:"egress"`
-	PortRange  *NetworkInsightsAnalysisPortRange `pulumi:"portRange"`
-	Protocol   *string                           `pulumi:"protocol"`
-	RuleAction *string                           `pulumi:"ruleAction"`
-	RuleNumber *int                              `pulumi:"ruleNumber"`
+	// The IPv4 address range, in CIDR notation.
+	Cidr *string `pulumi:"cidr"`
+	// Indicates whether the rule is an outbound rule.
+	Egress *bool `pulumi:"egress"`
+	// Describes a range of ports.
+	PortRange *NetworkInsightsAnalysisPortRange `pulumi:"portRange"`
+	// The protocol.
+	Protocol *string `pulumi:"protocol"`
+	// Indicates whether to allow or deny traffic that matches the rule.
+	RuleAction *string `pulumi:"ruleAction"`
+	// The rule number.
+	RuleNumber *int `pulumi:"ruleNumber"`
 }
 
 type NetworkInsightsAnalysisAnalysisAclRuleOutput struct{ *pulumi.OutputState }
@@ -16162,26 +17665,32 @@ func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisA
 	return o
 }
 
+// The IPv4 address range, in CIDR notation.
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the rule is an outbound rule.
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Egress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *bool { return v.Egress }).(pulumi.BoolPtrOutput)
 }
 
+// Describes a range of ports.
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *NetworkInsightsAnalysisPortRange { return v.PortRange }).(NetworkInsightsAnalysisPortRangePtrOutput)
 }
 
+// The protocol.
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to allow or deny traffic that matches the rule.
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) RuleAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *string { return v.RuleAction }).(pulumi.StringPtrOutput)
 }
 
+// The rule number.
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) RuleNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *int { return v.RuleNumber }).(pulumi.IntPtrOutput)
 }
@@ -16210,6 +17719,7 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Elem() NetworkInsightsA
 	}).(NetworkInsightsAnalysisAnalysisAclRuleOutput)
 }
 
+// The IPv4 address range, in CIDR notation.
 func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *string {
 		if v == nil {
@@ -16219,6 +17729,7 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Cidr() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the rule is an outbound rule.
 func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Egress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *bool {
 		if v == nil {
@@ -16228,6 +17739,7 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Egress() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Describes a range of ports.
 func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *NetworkInsightsAnalysisPortRange {
 		if v == nil {
@@ -16237,6 +17749,7 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) PortRange() NetworkInsi
 	}).(NetworkInsightsAnalysisPortRangePtrOutput)
 }
 
+// The protocol.
 func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *string {
 		if v == nil {
@@ -16246,6 +17759,7 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Protocol() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to allow or deny traffic that matches the rule.
 func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) RuleAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *string {
 		if v == nil {
@@ -16255,6 +17769,7 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) RuleAction() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The rule number.
 func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) RuleNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *int {
 		if v == nil {
@@ -16265,8 +17780,10 @@ func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) RuleNumber() pulumi.Int
 }
 
 type NetworkInsightsAnalysisAnalysisComponent struct {
+	// The Amazon Resource Name (ARN) of the component.
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
+	// The ID of the component.
+	Id *string `pulumi:"id"`
 }
 
 type NetworkInsightsAnalysisAnalysisComponentOutput struct{ *pulumi.OutputState }
@@ -16283,10 +17800,12 @@ func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the component.
 func (o NetworkInsightsAnalysisAnalysisComponentOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisComponent) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the component.
 func (o NetworkInsightsAnalysisAnalysisComponentOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisComponent) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -16315,6 +17834,7 @@ func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Elem() NetworkInsight
 	}).(NetworkInsightsAnalysisAnalysisComponentOutput)
 }
 
+// The Amazon Resource Name (ARN) of the component.
 func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisComponent) *string {
 		if v == nil {
@@ -16324,6 +17844,7 @@ func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Arn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the component.
 func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisComponent) *string {
 		if v == nil {
@@ -16354,7 +17875,9 @@ func (o NetworkInsightsAnalysisAnalysisComponentArrayOutput) Index(i pulumi.IntI
 }
 
 type NetworkInsightsAnalysisAnalysisLoadBalancerListener struct {
-	InstancePort     *int `pulumi:"instancePort"`
+	// [Classic Load Balancers] The back-end port for the listener.
+	InstancePort *int `pulumi:"instancePort"`
+	// The port on which the load balancer is listening.
 	LoadBalancerPort *int `pulumi:"loadBalancerPort"`
 }
 
@@ -16372,10 +17895,12 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsi
 	return o
 }
 
+// [Classic Load Balancers] The back-end port for the listener.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) InstancePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int { return v.InstancePort }).(pulumi.IntPtrOutput)
 }
 
+// The port on which the load balancer is listening.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) LoadBalancerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int { return v.LoadBalancerPort }).(pulumi.IntPtrOutput)
 }
@@ -16404,6 +17929,7 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) Elem() Net
 	}).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput)
 }
 
+// [Classic Load Balancers] The back-end port for the listener.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) InstancePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int {
 		if v == nil {
@@ -16413,6 +17939,7 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) InstancePo
 	}).(pulumi.IntPtrOutput)
 }
 
+// The port on which the load balancer is listening.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) LoadBalancerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int {
 		if v == nil {
@@ -16423,10 +17950,14 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) LoadBalanc
 }
 
 type NetworkInsightsAnalysisAnalysisLoadBalancerTarget struct {
-	Address          *string                                   `pulumi:"address"`
-	AvailabilityZone *string                                   `pulumi:"availabilityZone"`
-	Instance         *NetworkInsightsAnalysisAnalysisComponent `pulumi:"instance"`
-	Port             *int                                      `pulumi:"port"`
+	// The IP address.
+	Address *string `pulumi:"address"`
+	// The Availability Zone.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Describes a path component.
+	Instance *NetworkInsightsAnalysisAnalysisComponent `pulumi:"instance"`
+	// The port on which the target is listening.
+	Port *int `pulumi:"port"`
 }
 
 type NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput struct{ *pulumi.OutputState }
@@ -16443,20 +17974,24 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsigh
 	return o
 }
 
+// The IP address.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Instance() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Instance
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The port on which the target is listening.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -16485,6 +18020,7 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Elem() Netwo
 	}).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput)
 }
 
+// The IP address.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string {
 		if v == nil {
@@ -16494,6 +18030,7 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Address() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string {
 		if v == nil {
@@ -16503,6 +18040,7 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Availability
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Instance() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *NetworkInsightsAnalysisAnalysisComponent {
 		if v == nil {
@@ -16512,6 +18050,7 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Instance() N
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The port on which the target is listening.
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *int {
 		if v == nil {
@@ -16522,11 +18061,16 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Port() pulum
 }
 
 type NetworkInsightsAnalysisAnalysisPacketHeader struct {
-	DestinationAddresses  []string                           `pulumi:"destinationAddresses"`
+	// The destination addresses.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// The destination port ranges.
 	DestinationPortRanges []NetworkInsightsAnalysisPortRange `pulumi:"destinationPortRanges"`
-	Protocol              *string                            `pulumi:"protocol"`
-	SourceAddresses       []string                           `pulumi:"sourceAddresses"`
-	SourcePortRanges      []NetworkInsightsAnalysisPortRange `pulumi:"sourcePortRanges"`
+	// The protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The source addresses.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// The source port ranges.
+	SourcePortRanges []NetworkInsightsAnalysisPortRange `pulumi:"sourcePortRanges"`
 }
 
 type NetworkInsightsAnalysisAnalysisPacketHeaderOutput struct{ *pulumi.OutputState }
@@ -16543,24 +18087,29 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnal
 	return o
 }
 
+// The destination addresses.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
 }
 
+// The destination port ranges.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) DestinationPortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
 		return v.DestinationPortRanges
 	}).(NetworkInsightsAnalysisPortRangeArrayOutput)
 }
 
+// The protocol.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// The source addresses.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
 }
 
+// The source port ranges.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) SourcePortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
 		return v.SourcePortRanges
@@ -16591,6 +18140,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) Elem() NetworkInsi
 	}).(NetworkInsightsAnalysisAnalysisPacketHeaderOutput)
 }
 
+// The destination addresses.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []string {
 		if v == nil {
@@ -16600,6 +18150,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) DestinationAddress
 	}).(pulumi.StringArrayOutput)
 }
 
+// The destination port ranges.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) DestinationPortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
 		if v == nil {
@@ -16609,6 +18160,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) DestinationPortRan
 	}).(NetworkInsightsAnalysisPortRangeArrayOutput)
 }
 
+// The protocol.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) *string {
 		if v == nil {
@@ -16618,6 +18170,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) Protocol() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source addresses.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []string {
 		if v == nil {
@@ -16627,6 +18180,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourceAddresses() 
 	}).(pulumi.StringArrayOutput)
 }
 
+// The source port ranges.
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourcePortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
 		if v == nil {
@@ -16637,17 +18191,35 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourcePortRanges()
 }
 
 type NetworkInsightsAnalysisAnalysisRouteTableRoute struct {
-	DestinationCidr             *string `pulumi:"destinationCidr"`
-	DestinationPrefixListId     *string `pulumi:"destinationPrefixListId"`
+	// The destination IPv4 address, in CIDR notation.
+	DestinationCidr *string `pulumi:"destinationCidr"`
+	// The prefix of the AWS service .
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// The ID of an egress-only internet gateway.
 	EgressOnlyInternetGatewayId *string `pulumi:"egressOnlyInternetGatewayId"`
-	GatewayId                   *string `pulumi:"gatewayId"`
-	InstanceId                  *string `pulumi:"instanceId"`
-	NatGatewayId                *string `pulumi:"natGatewayId"`
-	NetworkInterfaceId          *string `pulumi:"networkInterfaceId"`
-	Origin                      *string `pulumi:"origin"`
-	State                       *string `pulumi:"state"`
-	TransitGatewayId            *string `pulumi:"transitGatewayId"`
-	VpcPeeringConnectionId      *string `pulumi:"vpcPeeringConnectionId"`
+	// The ID of the gateway, such as an internet gateway or virtual private gateway.
+	GatewayId *string `pulumi:"gatewayId"`
+	// The ID of the instance, such as a NAT instance.
+	InstanceId *string `pulumi:"instanceId"`
+	// The ID of a NAT gateway.
+	NatGatewayId *string `pulumi:"natGatewayId"`
+	// The ID of a network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Describes how the route was created. The following are the possible values:
+	//
+	// - CreateRouteTable - The route was automatically created when the route table was created.
+	// - CreateRoute - The route was manually added to the route table.
+	// - EnableVgwRoutePropagation - The route was propagated by route propagation.
+	Origin *string `pulumi:"origin"`
+	// The state. The following are the possible values:
+	//
+	// - active
+	// - blackhole
+	State *string `pulumi:"state"`
+	// The ID of a transit gateway.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// The ID of a VPC peering connection.
+	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
 type NetworkInsightsAnalysisAnalysisRouteTableRouteOutput struct{ *pulumi.OutputState }
@@ -16664,46 +18236,64 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsA
 	return o
 }
 
+// The destination IPv4 address, in CIDR notation.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationCidr }).(pulumi.StringPtrOutput)
 }
 
+// The prefix of the AWS service .
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an egress-only internet gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) EgressOnlyInternetGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.EgressOnlyInternetGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the gateway, such as an internet gateway or virtual private gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the instance, such as a NAT instance.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of a NAT gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of a network interface.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// Describes how the route was created. The following are the possible values:
+//
+// - CreateRouteTable - The route was automatically created when the route table was created.
+// - CreateRoute - The route was manually added to the route table.
+// - EnableVgwRoutePropagation - The route was propagated by route propagation.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) Origin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.Origin }).(pulumi.StringPtrOutput)
 }
 
+// The state. The following are the possible values:
+//
+// - active
+// - blackhole
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// The ID of a transit gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of a VPC peering connection.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.VpcPeeringConnectionId }).(pulumi.StringPtrOutput)
 }
@@ -16732,6 +18322,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) Elem() NetworkI
 	}).(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput)
 }
 
+// The destination IPv4 address, in CIDR notation.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16741,6 +18332,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationCidr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The prefix of the AWS service .
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16750,6 +18342,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationPref
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of an egress-only internet gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) EgressOnlyInternetGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16759,6 +18352,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) EgressOnlyInter
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the gateway, such as an internet gateway or virtual private gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16768,6 +18362,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) GatewayId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the instance, such as a NAT instance.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16777,6 +18372,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) InstanceId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of a NAT gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16786,6 +18382,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) NatGatewayId() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of a network interface.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16795,6 +18392,11 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) NetworkInterfac
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes how the route was created. The following are the possible values:
+//
+// - CreateRouteTable - The route was automatically created when the route table was created.
+// - CreateRoute - The route was manually added to the route table.
+// - EnableVgwRoutePropagation - The route was propagated by route propagation.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) Origin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16804,6 +18406,10 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) Origin() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The state. The following are the possible values:
+//
+// - active
+// - blackhole
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16813,6 +18419,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) State() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of a transit gateway.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16822,6 +18429,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) TransitGatewayI
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of a VPC peering connection.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {
@@ -16832,12 +18440,21 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) VpcPeeringConne
 }
 
 type NetworkInsightsAnalysisAnalysisSecurityGroupRule struct {
-	Cidr            *string                           `pulumi:"cidr"`
-	Direction       *string                           `pulumi:"direction"`
-	PortRange       *NetworkInsightsAnalysisPortRange `pulumi:"portRange"`
-	PrefixListId    *string                           `pulumi:"prefixListId"`
-	Protocol        *string                           `pulumi:"protocol"`
-	SecurityGroupId *string                           `pulumi:"securityGroupId"`
+	// The IPv4 address range, in CIDR notation.
+	Cidr *string `pulumi:"cidr"`
+	// The direction. The following are the possible values:
+	//
+	// - egress
+	// - ingress
+	Direction *string `pulumi:"direction"`
+	// Describes a range of ports.
+	PortRange *NetworkInsightsAnalysisPortRange `pulumi:"portRange"`
+	// The prefix list ID.
+	PrefixListId *string `pulumi:"prefixListId"`
+	// The protocol name.
+	Protocol *string `pulumi:"protocol"`
+	// The security group ID.
+	SecurityGroupId *string `pulumi:"securityGroupId"`
 }
 
 type NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput struct{ *pulumi.OutputState }
@@ -16854,28 +18471,37 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsight
 	return o
 }
 
+// The IPv4 address range, in CIDR notation.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
+// The direction. The following are the possible values:
+//
+// - egress
+// - ingress
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
+// Describes a range of ports.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *NetworkInsightsAnalysisPortRange {
 		return v.PortRange
 	}).(NetworkInsightsAnalysisPortRangePtrOutput)
 }
 
+// The prefix list ID.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) PrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
 }
 
+// The protocol name.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// The security group ID.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) SecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
 }
@@ -16904,6 +18530,7 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Elem() Networ
 	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput)
 }
 
+// The IPv4 address range, in CIDR notation.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
 		if v == nil {
@@ -16913,6 +18540,10 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Cidr() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The direction. The following are the possible values:
+//
+// - egress
+// - ingress
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
 		if v == nil {
@@ -16922,6 +18553,7 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Direction() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a range of ports.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *NetworkInsightsAnalysisPortRange {
 		if v == nil {
@@ -16931,6 +18563,7 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) PortRange() N
 	}).(NetworkInsightsAnalysisPortRangePtrOutput)
 }
 
+// The prefix list ID.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) PrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
 		if v == nil {
@@ -16940,6 +18573,7 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) PrefixListId(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The protocol name.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
 		if v == nil {
@@ -16949,6 +18583,7 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Protocol() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security group ID.
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) SecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
 		if v == nil {
@@ -16959,57 +18594,111 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) SecurityGroup
 }
 
 type NetworkInsightsAnalysisExplanation struct {
-	Acl                           *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"acl"`
-	AclRule                       *NetworkInsightsAnalysisAnalysisAclRule               `pulumi:"aclRule"`
-	Address                       *string                                               `pulumi:"address"`
-	Addresses                     []string                                              `pulumi:"addresses"`
-	AttachedTo                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"attachedTo"`
-	AvailabilityZones             []string                                              `pulumi:"availabilityZones"`
-	Cidrs                         []string                                              `pulumi:"cidrs"`
-	ClassicLoadBalancerListener   *NetworkInsightsAnalysisAnalysisLoadBalancerListener  `pulumi:"classicLoadBalancerListener"`
-	Component                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"component"`
-	ComponentAccount              *string                                               `pulumi:"componentAccount"`
-	ComponentRegion               *string                                               `pulumi:"componentRegion"`
-	CustomerGateway               *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"customerGateway"`
-	Destination                   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destination"`
-	DestinationVpc                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destinationVpc"`
-	Direction                     *string                                               `pulumi:"direction"`
-	ElasticLoadBalancerListener   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"elasticLoadBalancerListener"`
-	ExplanationCode               *string                                               `pulumi:"explanationCode"`
-	IngressRouteTable             *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"ingressRouteTable"`
-	InternetGateway               *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"internetGateway"`
-	LoadBalancerArn               *string                                               `pulumi:"loadBalancerArn"`
-	LoadBalancerListenerPort      *int                                                  `pulumi:"loadBalancerListenerPort"`
-	LoadBalancerTarget            *NetworkInsightsAnalysisAnalysisLoadBalancerTarget    `pulumi:"loadBalancerTarget"`
-	LoadBalancerTargetGroup       *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"loadBalancerTargetGroup"`
-	LoadBalancerTargetGroups      []NetworkInsightsAnalysisAnalysisComponent            `pulumi:"loadBalancerTargetGroups"`
-	LoadBalancerTargetPort        *int                                                  `pulumi:"loadBalancerTargetPort"`
-	MissingComponent              *string                                               `pulumi:"missingComponent"`
-	NatGateway                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"natGateway"`
-	NetworkInterface              *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"networkInterface"`
-	PacketField                   *string                                               `pulumi:"packetField"`
-	Port                          *int                                                  `pulumi:"port"`
-	PortRanges                    []NetworkInsightsAnalysisPortRange                    `pulumi:"portRanges"`
-	PrefixList                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"prefixList"`
-	Protocols                     []string                                              `pulumi:"protocols"`
-	RouteTable                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"routeTable"`
-	RouteTableRoute               *NetworkInsightsAnalysisAnalysisRouteTableRoute       `pulumi:"routeTableRoute"`
-	SecurityGroup                 *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"securityGroup"`
-	SecurityGroupRule             *NetworkInsightsAnalysisAnalysisSecurityGroupRule     `pulumi:"securityGroupRule"`
-	SecurityGroups                []NetworkInsightsAnalysisAnalysisComponent            `pulumi:"securityGroups"`
-	SourceVpc                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"sourceVpc"`
-	State                         *string                                               `pulumi:"state"`
-	Subnet                        *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnet"`
-	SubnetRouteTable              *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnetRouteTable"`
-	TransitGateway                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGateway"`
-	TransitGatewayAttachment      *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGatewayAttachment"`
-	TransitGatewayRouteTable      *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGatewayRouteTable"`
+	// Describes a path component.
+	Acl *NetworkInsightsAnalysisAnalysisComponent `pulumi:"acl"`
+	// Describes a network access control (ACL) rule.
+	AclRule *NetworkInsightsAnalysisAnalysisAclRule `pulumi:"aclRule"`
+	// The IPv4 address, in CIDR notation.
+	Address *string `pulumi:"address"`
+	// The IPv4 addresses, in CIDR notation.
+	Addresses []string `pulumi:"addresses"`
+	// Describes a path component.
+	AttachedTo *NetworkInsightsAnalysisAnalysisComponent `pulumi:"attachedTo"`
+	// The Availability Zones.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The CIDR ranges.
+	Cidrs []string `pulumi:"cidrs"`
+	// Describes a load balancer listener.
+	ClassicLoadBalancerListener *NetworkInsightsAnalysisAnalysisLoadBalancerListener `pulumi:"classicLoadBalancerListener"`
+	// Describes a path component.
+	Component *NetworkInsightsAnalysisAnalysisComponent `pulumi:"component"`
+	// The AWS account for the component.
+	ComponentAccount *string `pulumi:"componentAccount"`
+	// The Region for the component.
+	ComponentRegion *string `pulumi:"componentRegion"`
+	// Describes a path component.
+	CustomerGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"customerGateway"`
+	// Describes a path component.
+	Destination *NetworkInsightsAnalysisAnalysisComponent `pulumi:"destination"`
+	// Describes a path component.
+	DestinationVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"destinationVpc"`
+	// The direction. The following are the possible values:
+	//
+	// - egress
+	// - ingress
+	Direction *string `pulumi:"direction"`
+	// Describes a path component.
+	ElasticLoadBalancerListener *NetworkInsightsAnalysisAnalysisComponent `pulumi:"elasticLoadBalancerListener"`
+	// The explanation code.
+	ExplanationCode *string `pulumi:"explanationCode"`
+	// Describes a path component.
+	IngressRouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"ingressRouteTable"`
+	// Describes a path component.
+	InternetGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"internetGateway"`
+	// The Amazon Resource Name (ARN) of the load balancer.
+	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
+	// The listener port of the load balancer.
+	LoadBalancerListenerPort *int `pulumi:"loadBalancerListenerPort"`
+	// Describes a load balancer target.
+	LoadBalancerTarget *NetworkInsightsAnalysisAnalysisLoadBalancerTarget `pulumi:"loadBalancerTarget"`
+	// Describes a path component.
+	LoadBalancerTargetGroup *NetworkInsightsAnalysisAnalysisComponent `pulumi:"loadBalancerTargetGroup"`
+	// Describes a path component.
+	LoadBalancerTargetGroups []NetworkInsightsAnalysisAnalysisComponent `pulumi:"loadBalancerTargetGroups"`
+	// The target port.
+	LoadBalancerTargetPort *int `pulumi:"loadBalancerTargetPort"`
+	// The missing component.
+	MissingComponent *string `pulumi:"missingComponent"`
+	// Describes a path component.
+	NatGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"natGateway"`
+	// Describes a path component.
+	NetworkInterface *NetworkInsightsAnalysisAnalysisComponent `pulumi:"networkInterface"`
+	// The packet field.
+	PacketField *string `pulumi:"packetField"`
+	// The port.
+	Port *int `pulumi:"port"`
+	// Describes a range of ports.
+	PortRanges []NetworkInsightsAnalysisPortRange `pulumi:"portRanges"`
+	// Describes a path component.
+	PrefixList *NetworkInsightsAnalysisAnalysisComponent `pulumi:"prefixList"`
+	// The protocols.
+	Protocols []string `pulumi:"protocols"`
+	// Describes a path component.
+	RouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"routeTable"`
+	// Describes a route table route.
+	RouteTableRoute *NetworkInsightsAnalysisAnalysisRouteTableRoute `pulumi:"routeTableRoute"`
+	// Describes a path component.
+	SecurityGroup *NetworkInsightsAnalysisAnalysisComponent `pulumi:"securityGroup"`
+	// Describes a security group rule.
+	SecurityGroupRule *NetworkInsightsAnalysisAnalysisSecurityGroupRule `pulumi:"securityGroupRule"`
+	// The security groups.
+	SecurityGroups []NetworkInsightsAnalysisAnalysisComponent `pulumi:"securityGroups"`
+	// Describes a path component.
+	SourceVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"sourceVpc"`
+	// The state.
+	State *string `pulumi:"state"`
+	// Describes a path component.
+	Subnet *NetworkInsightsAnalysisAnalysisComponent `pulumi:"subnet"`
+	// Describes a path component.
+	SubnetRouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"subnetRouteTable"`
+	// Describes a path component.
+	TransitGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGateway"`
+	// Describes a path component.
+	TransitGatewayAttachment *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGatewayAttachment"`
+	// Describes a path component.
+	TransitGatewayRouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGatewayRouteTable"`
+	// Describes a route in a transit gateway route table.
 	TransitGatewayRouteTableRoute *NetworkInsightsAnalysisTransitGatewayRouteTableRoute `pulumi:"transitGatewayRouteTableRoute"`
-	Vpc                           *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpc"`
-	VpcEndpoint                   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpcEndpoint"`
-	VpcPeeringConnection          *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpcPeeringConnection"`
-	VpnConnection                 *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpnConnection"`
-	VpnGateway                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpnGateway"`
+	// Describes a path component.
+	Vpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpc"`
+	// Describes a path component.
+	VpcEndpoint *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpcEndpoint"`
+	// Describes a path component.
+	VpcPeeringConnection *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpcPeeringConnection"`
+	// Describes a path component.
+	VpnConnection *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpnConnection"`
+	// Describes a path component.
+	VpnGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpnGateway"`
 }
 
 type NetworkInsightsAnalysisExplanationOutput struct{ *pulumi.OutputState }
@@ -17026,264 +18715,318 @@ func (o NetworkInsightsAnalysisExplanationOutput) ToNetworkInsightsAnalysisExpla
 	return o
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) Acl() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Acl }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a network access control (ACL) rule.
 func (o NetworkInsightsAnalysisExplanationOutput) AclRule() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisAclRule { return v.AclRule }).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
 }
 
+// The IPv4 address, in CIDR notation.
 func (o NetworkInsightsAnalysisExplanationOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 addresses, in CIDR notation.
 func (o NetworkInsightsAnalysisExplanationOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) AttachedTo() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.AttachedTo
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The Availability Zones.
 func (o NetworkInsightsAnalysisExplanationOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// The CIDR ranges.
 func (o NetworkInsightsAnalysisExplanationOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
 
+// Describes a load balancer listener.
 func (o NetworkInsightsAnalysisExplanationOutput) ClassicLoadBalancerListener() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisLoadBalancerListener {
 		return v.ClassicLoadBalancerListener
 	}).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Component
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The AWS account for the component.
 func (o NetworkInsightsAnalysisExplanationOutput) ComponentAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.ComponentAccount }).(pulumi.StringPtrOutput)
 }
 
+// The Region for the component.
 func (o NetworkInsightsAnalysisExplanationOutput) ComponentRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.ComponentRegion }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) CustomerGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.CustomerGateway
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) Destination() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Destination
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) DestinationVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.DestinationVpc
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The direction. The following are the possible values:
+//
+// - egress
+// - ingress
 func (o NetworkInsightsAnalysisExplanationOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) ElasticLoadBalancerListener() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.ElasticLoadBalancerListener
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The explanation code.
 func (o NetworkInsightsAnalysisExplanationOutput) ExplanationCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.ExplanationCode }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) IngressRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.IngressRouteTable
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) InternetGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.InternetGateway
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the load balancer.
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
 }
 
+// The listener port of the load balancer.
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerListenerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.LoadBalancerListenerPort }).(pulumi.IntPtrOutput)
 }
 
+// Describes a load balancer target.
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTarget() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisLoadBalancerTarget {
 		return v.LoadBalancerTarget
 	}).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroup() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.LoadBalancerTargetGroup
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroups() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisAnalysisComponent {
 		return v.LoadBalancerTargetGroups
 	}).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
 }
 
+// The target port.
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.LoadBalancerTargetPort }).(pulumi.IntPtrOutput)
 }
 
+// The missing component.
 func (o NetworkInsightsAnalysisExplanationOutput) MissingComponent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.MissingComponent }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) NatGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.NatGateway
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) NetworkInterface() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.NetworkInterface
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The packet field.
 func (o NetworkInsightsAnalysisExplanationOutput) PacketField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.PacketField }).(pulumi.StringPtrOutput)
 }
 
+// The port.
 func (o NetworkInsightsAnalysisExplanationOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Describes a range of ports.
 func (o NetworkInsightsAnalysisExplanationOutput) PortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisPortRange { return v.PortRanges }).(NetworkInsightsAnalysisPortRangeArrayOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) PrefixList() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.PrefixList
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The protocols.
 func (o NetworkInsightsAnalysisExplanationOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) RouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.RouteTable
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a route table route.
 func (o NetworkInsightsAnalysisExplanationOutput) RouteTableRoute() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisRouteTableRoute {
 		return v.RouteTableRoute
 	}).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroup() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.SecurityGroup
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a security group rule.
 func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroupRule() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisSecurityGroupRule {
 		return v.SecurityGroupRule
 	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
 }
 
+// The security groups.
 func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroups() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisAnalysisComponent {
 		return v.SecurityGroups
 	}).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) SourceVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.SourceVpc
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// The state.
 func (o NetworkInsightsAnalysisExplanationOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) Subnet() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Subnet }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) SubnetRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.SubnetRouteTable
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) TransitGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.TransitGateway
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayAttachment() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.TransitGatewayAttachment
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.TransitGatewayRouteTable
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a route in a transit gateway route table.
 func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayRouteTableRoute() NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
 		return v.TransitGatewayRouteTableRoute
 	}).(NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) Vpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Vpc }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) VpcEndpoint() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.VpcEndpoint
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) VpcPeeringConnection() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.VpcPeeringConnection
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) VpnConnection() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.VpnConnection
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisExplanationOutput) VpnGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.VpnGateway
@@ -17311,23 +19054,40 @@ func (o NetworkInsightsAnalysisExplanationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type NetworkInsightsAnalysisPathComponent struct {
-	AclRule                       *NetworkInsightsAnalysisAnalysisAclRule               `pulumi:"aclRule"`
-	AdditionalDetails             []NetworkInsightsAnalysisAdditionalDetail             `pulumi:"additionalDetails"`
-	Component                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"component"`
-	DestinationVpc                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destinationVpc"`
-	ElasticLoadBalancerListener   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"elasticLoadBalancerListener"`
-	Explanations                  []NetworkInsightsAnalysisExplanation                  `pulumi:"explanations"`
-	InboundHeader                 *NetworkInsightsAnalysisAnalysisPacketHeader          `pulumi:"inboundHeader"`
-	OutboundHeader                *NetworkInsightsAnalysisAnalysisPacketHeader          `pulumi:"outboundHeader"`
-	RouteTableRoute               *NetworkInsightsAnalysisAnalysisRouteTableRoute       `pulumi:"routeTableRoute"`
-	SecurityGroupRule             *NetworkInsightsAnalysisAnalysisSecurityGroupRule     `pulumi:"securityGroupRule"`
-	SequenceNumber                *int                                                  `pulumi:"sequenceNumber"`
-	ServiceName                   *string                                               `pulumi:"serviceName"`
-	SourceVpc                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"sourceVpc"`
-	Subnet                        *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnet"`
-	TransitGateway                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGateway"`
+	// Describes a network access control (ACL) rule.
+	AclRule *NetworkInsightsAnalysisAnalysisAclRule `pulumi:"aclRule"`
+	// Describes an additional detail for a path analysis. For more information, see [Reachability Analyzer additional detail codes](https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html) .
+	AdditionalDetails []NetworkInsightsAnalysisAdditionalDetail `pulumi:"additionalDetails"`
+	// Describes a path component.
+	Component *NetworkInsightsAnalysisAnalysisComponent `pulumi:"component"`
+	// Describes a path component.
+	DestinationVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"destinationVpc"`
+	// Describes a path component.
+	ElasticLoadBalancerListener *NetworkInsightsAnalysisAnalysisComponent `pulumi:"elasticLoadBalancerListener"`
+	// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+	Explanations []NetworkInsightsAnalysisExplanation `pulumi:"explanations"`
+	// Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+	InboundHeader *NetworkInsightsAnalysisAnalysisPacketHeader `pulumi:"inboundHeader"`
+	// Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+	OutboundHeader *NetworkInsightsAnalysisAnalysisPacketHeader `pulumi:"outboundHeader"`
+	// Describes a route table route.
+	RouteTableRoute *NetworkInsightsAnalysisAnalysisRouteTableRoute `pulumi:"routeTableRoute"`
+	// Describes a security group rule.
+	SecurityGroupRule *NetworkInsightsAnalysisAnalysisSecurityGroupRule `pulumi:"securityGroupRule"`
+	// The sequence number.
+	SequenceNumber *int `pulumi:"sequenceNumber"`
+	// The name of the VPC endpoint service.
+	ServiceName *string `pulumi:"serviceName"`
+	// Describes a path component.
+	SourceVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"sourceVpc"`
+	// Describes a path component.
+	Subnet *NetworkInsightsAnalysisAnalysisComponent `pulumi:"subnet"`
+	// Describes a path component.
+	TransitGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGateway"`
+	// Describes a route in a transit gateway route table.
 	TransitGatewayRouteTableRoute *NetworkInsightsAnalysisTransitGatewayRouteTableRoute `pulumi:"transitGatewayRouteTableRoute"`
-	Vpc                           *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpc"`
+	// Describes a path component.
+	Vpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpc"`
 }
 
 type NetworkInsightsAnalysisPathComponentOutput struct{ *pulumi.OutputState }
@@ -17344,96 +19104,113 @@ func (o NetworkInsightsAnalysisPathComponentOutput) ToNetworkInsightsAnalysisPat
 	return o
 }
 
+// Describes a network access control (ACL) rule.
 func (o NetworkInsightsAnalysisPathComponentOutput) AclRule() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisAclRule { return v.AclRule }).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
 }
 
+// Describes an additional detail for a path analysis. For more information, see [Reachability Analyzer additional detail codes](https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html) .
 func (o NetworkInsightsAnalysisPathComponentOutput) AdditionalDetails() NetworkInsightsAnalysisAdditionalDetailArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) []NetworkInsightsAnalysisAdditionalDetail {
 		return v.AdditionalDetails
 	}).(NetworkInsightsAnalysisAdditionalDetailArrayOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Component
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) DestinationVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.DestinationVpc
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) ElasticLoadBalancerListener() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.ElasticLoadBalancerListener
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
 func (o NetworkInsightsAnalysisPathComponentOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) []NetworkInsightsAnalysisExplanation {
 		return v.Explanations
 	}).(NetworkInsightsAnalysisExplanationArrayOutput)
 }
 
+// Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
 func (o NetworkInsightsAnalysisPathComponentOutput) InboundHeader() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisPacketHeader {
 		return v.InboundHeader
 	}).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
 }
 
+// Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
 func (o NetworkInsightsAnalysisPathComponentOutput) OutboundHeader() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisPacketHeader {
 		return v.OutboundHeader
 	}).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
 }
 
+// Describes a route table route.
 func (o NetworkInsightsAnalysisPathComponentOutput) RouteTableRoute() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisRouteTableRoute {
 		return v.RouteTableRoute
 	}).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
 }
 
+// Describes a security group rule.
 func (o NetworkInsightsAnalysisPathComponentOutput) SecurityGroupRule() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisSecurityGroupRule {
 		return v.SecurityGroupRule
 	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
 }
 
+// The sequence number.
 func (o NetworkInsightsAnalysisPathComponentOutput) SequenceNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *int { return v.SequenceNumber }).(pulumi.IntPtrOutput)
 }
 
+// The name of the VPC endpoint service.
 func (o NetworkInsightsAnalysisPathComponentOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) SourceVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.SourceVpc
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) Subnet() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Subnet
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) TransitGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.TransitGateway
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+// Describes a route in a transit gateway route table.
 func (o NetworkInsightsAnalysisPathComponentOutput) TransitGatewayRouteTableRoute() NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
 		return v.TransitGatewayRouteTableRoute
 	}).(NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput)
 }
 
+// Describes a path component.
 func (o NetworkInsightsAnalysisPathComponentOutput) Vpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent { return v.Vpc }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
@@ -17459,8 +19236,10 @@ func (o NetworkInsightsAnalysisPathComponentArrayOutput) Index(i pulumi.IntInput
 }
 
 type NetworkInsightsAnalysisPortRange struct {
+	// The first port in the range.
 	From *int `pulumi:"from"`
-	To   *int `pulumi:"to"`
+	// The last port in the range.
+	To *int `pulumi:"to"`
 }
 
 type NetworkInsightsAnalysisPortRangeOutput struct{ *pulumi.OutputState }
@@ -17477,10 +19256,12 @@ func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRan
 	return o
 }
 
+// The first port in the range.
 func (o NetworkInsightsAnalysisPortRangeOutput) From() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPortRange) *int { return v.From }).(pulumi.IntPtrOutput)
 }
 
+// The last port in the range.
 func (o NetworkInsightsAnalysisPortRangeOutput) To() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPortRange) *int { return v.To }).(pulumi.IntPtrOutput)
 }
@@ -17509,6 +19290,7 @@ func (o NetworkInsightsAnalysisPortRangePtrOutput) Elem() NetworkInsightsAnalysi
 	}).(NetworkInsightsAnalysisPortRangeOutput)
 }
 
+// The first port in the range.
 func (o NetworkInsightsAnalysisPortRangePtrOutput) From() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisPortRange) *int {
 		if v == nil {
@@ -17518,6 +19300,7 @@ func (o NetworkInsightsAnalysisPortRangePtrOutput) From() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The last port in the range.
 func (o NetworkInsightsAnalysisPortRangePtrOutput) To() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisPortRange) *int {
 		if v == nil {
@@ -17548,18 +19331,30 @@ func (o NetworkInsightsAnalysisPortRangeArrayOutput) Index(i pulumi.IntInput) Ne
 }
 
 type NetworkInsightsAnalysisTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
 type NetworkInsightsAnalysisTransitGatewayRouteTableRoute struct {
-	AttachmentId    *string `pulumi:"attachmentId"`
+	// The ID of the route attachment.
+	AttachmentId *string `pulumi:"attachmentId"`
+	// The CIDR block used for destination matches.
 	DestinationCidr *string `pulumi:"destinationCidr"`
-	PrefixListId    *string `pulumi:"prefixListId"`
-	ResourceId      *string `pulumi:"resourceId"`
-	ResourceType    *string `pulumi:"resourceType"`
-	RouteOrigin     *string `pulumi:"routeOrigin"`
-	State           *string `pulumi:"state"`
+	// The ID of the prefix list.
+	PrefixListId *string `pulumi:"prefixListId"`
+	// The ID of the resource for the route attachment.
+	ResourceId *string `pulumi:"resourceId"`
+	// The resource type for the route attachment.
+	ResourceType *string `pulumi:"resourceType"`
+	// The route origin. The following are the possible values:
+	//
+	// - static
+	// - propagated
+	RouteOrigin *string `pulumi:"routeOrigin"`
+	// The state of the route.
+	State *string `pulumi:"state"`
 }
 
 type NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput struct{ *pulumi.OutputState }
@@ -17576,30 +19371,40 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ToNetworkIns
 	return o
 }
 
+// The ID of the route attachment.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) AttachmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
 }
 
+// The CIDR block used for destination matches.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) DestinationCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.DestinationCidr }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the prefix list.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) PrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the resource for the route attachment.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The resource type for the route attachment.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// The route origin. The following are the possible values:
+//
+// - static
+// - propagated
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) RouteOrigin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.RouteOrigin }).(pulumi.StringPtrOutput)
 }
 
+// The state of the route.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -17628,6 +19433,7 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) Elem() Ne
 	}).(NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput)
 }
 
+// The ID of the route attachment.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) AttachmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17637,6 +19443,7 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) Attachmen
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CIDR block used for destination matches.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) DestinationCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17646,6 +19453,7 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) Destinati
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the prefix list.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) PrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17655,6 +19463,7 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) PrefixLis
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the resource for the route attachment.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17664,6 +19473,7 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ResourceI
 	}).(pulumi.StringPtrOutput)
 }
 
+// The resource type for the route attachment.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17673,6 +19483,10 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ResourceT
 	}).(pulumi.StringPtrOutput)
 }
 
+// The route origin. The following are the possible values:
+//
+// - static
+// - propagated
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) RouteOrigin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17682,6 +19496,7 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) RouteOrig
 	}).(pulumi.StringPtrOutput)
 }
 
+// The state of the route.
 func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
 		if v == nil {
@@ -17692,8 +19507,10 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) State() p
 }
 
 type NetworkInsightsPathFilterPortRange struct {
+	// The first port in the range.
 	FromPort *int `pulumi:"fromPort"`
-	ToPort   *int `pulumi:"toPort"`
+	// The last port in the range.
+	ToPort *int `pulumi:"toPort"`
 }
 
 // NetworkInsightsPathFilterPortRangeInput is an input type that accepts NetworkInsightsPathFilterPortRangeArgs and NetworkInsightsPathFilterPortRangeOutput values.
@@ -17708,8 +19525,10 @@ type NetworkInsightsPathFilterPortRangeInput interface {
 }
 
 type NetworkInsightsPathFilterPortRangeArgs struct {
+	// The first port in the range.
 	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
-	ToPort   pulumi.IntPtrInput `pulumi:"toPort"`
+	// The last port in the range.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
 }
 
 func (NetworkInsightsPathFilterPortRangeArgs) ElementType() reflect.Type {
@@ -17789,10 +19608,12 @@ func (o NetworkInsightsPathFilterPortRangeOutput) ToNetworkInsightsPathFilterPor
 	}).(NetworkInsightsPathFilterPortRangePtrOutput)
 }
 
+// The first port in the range.
 func (o NetworkInsightsPathFilterPortRangeOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsPathFilterPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
+// The last port in the range.
 func (o NetworkInsightsPathFilterPortRangeOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsPathFilterPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
 }
@@ -17821,6 +19642,7 @@ func (o NetworkInsightsPathFilterPortRangePtrOutput) Elem() NetworkInsightsPathF
 	}).(NetworkInsightsPathFilterPortRangeOutput)
 }
 
+// The first port in the range.
 func (o NetworkInsightsPathFilterPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathFilterPortRange) *int {
 		if v == nil {
@@ -17830,6 +19652,7 @@ func (o NetworkInsightsPathFilterPortRangePtrOutput) FromPort() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The last port in the range.
 func (o NetworkInsightsPathFilterPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathFilterPortRange) *int {
 		if v == nil {
@@ -17840,10 +19663,14 @@ func (o NetworkInsightsPathFilterPortRangePtrOutput) ToPort() pulumi.IntPtrOutpu
 }
 
 type NetworkInsightsPathPathFilter struct {
-	DestinationAddress   *string                             `pulumi:"destinationAddress"`
+	// The destination IPv4 address.
+	DestinationAddress *string `pulumi:"destinationAddress"`
+	// Describes a port range.
 	DestinationPortRange *NetworkInsightsPathFilterPortRange `pulumi:"destinationPortRange"`
-	SourceAddress        *string                             `pulumi:"sourceAddress"`
-	SourcePortRange      *NetworkInsightsPathFilterPortRange `pulumi:"sourcePortRange"`
+	// The source IPv4 address.
+	SourceAddress *string `pulumi:"sourceAddress"`
+	// Describes a port range.
+	SourcePortRange *NetworkInsightsPathFilterPortRange `pulumi:"sourcePortRange"`
 }
 
 // NetworkInsightsPathPathFilterInput is an input type that accepts NetworkInsightsPathPathFilterArgs and NetworkInsightsPathPathFilterOutput values.
@@ -17858,10 +19685,14 @@ type NetworkInsightsPathPathFilterInput interface {
 }
 
 type NetworkInsightsPathPathFilterArgs struct {
-	DestinationAddress   pulumi.StringPtrInput                      `pulumi:"destinationAddress"`
+	// The destination IPv4 address.
+	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
+	// Describes a port range.
 	DestinationPortRange NetworkInsightsPathFilterPortRangePtrInput `pulumi:"destinationPortRange"`
-	SourceAddress        pulumi.StringPtrInput                      `pulumi:"sourceAddress"`
-	SourcePortRange      NetworkInsightsPathFilterPortRangePtrInput `pulumi:"sourcePortRange"`
+	// The source IPv4 address.
+	SourceAddress pulumi.StringPtrInput `pulumi:"sourceAddress"`
+	// Describes a port range.
+	SourcePortRange NetworkInsightsPathFilterPortRangePtrInput `pulumi:"sourcePortRange"`
 }
 
 func (NetworkInsightsPathPathFilterArgs) ElementType() reflect.Type {
@@ -17941,20 +19772,24 @@ func (o NetworkInsightsPathPathFilterOutput) ToNetworkInsightsPathPathFilterPtrO
 	}).(NetworkInsightsPathPathFilterPtrOutput)
 }
 
+// The destination IPv4 address.
 func (o NetworkInsightsPathPathFilterOutput) DestinationAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
 }
 
+// Describes a port range.
 func (o NetworkInsightsPathPathFilterOutput) DestinationPortRange() NetworkInsightsPathFilterPortRangePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange {
 		return v.DestinationPortRange
 	}).(NetworkInsightsPathFilterPortRangePtrOutput)
 }
 
+// The source IPv4 address.
 func (o NetworkInsightsPathPathFilterOutput) SourceAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *string { return v.SourceAddress }).(pulumi.StringPtrOutput)
 }
 
+// Describes a port range.
 func (o NetworkInsightsPathPathFilterOutput) SourcePortRange() NetworkInsightsPathFilterPortRangePtrOutput {
 	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange { return v.SourcePortRange }).(NetworkInsightsPathFilterPortRangePtrOutput)
 }
@@ -17983,6 +19818,7 @@ func (o NetworkInsightsPathPathFilterPtrOutput) Elem() NetworkInsightsPathPathFi
 	}).(NetworkInsightsPathPathFilterOutput)
 }
 
+// The destination IPv4 address.
 func (o NetworkInsightsPathPathFilterPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *string {
 		if v == nil {
@@ -17992,6 +19828,7 @@ func (o NetworkInsightsPathPathFilterPtrOutput) DestinationAddress() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a port range.
 func (o NetworkInsightsPathPathFilterPtrOutput) DestinationPortRange() NetworkInsightsPathFilterPortRangePtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange {
 		if v == nil {
@@ -18001,6 +19838,7 @@ func (o NetworkInsightsPathPathFilterPtrOutput) DestinationPortRange() NetworkIn
 	}).(NetworkInsightsPathFilterPortRangePtrOutput)
 }
 
+// The source IPv4 address.
 func (o NetworkInsightsPathPathFilterPtrOutput) SourceAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *string {
 		if v == nil {
@@ -18010,6 +19848,7 @@ func (o NetworkInsightsPathPathFilterPtrOutput) SourceAddress() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a port range.
 func (o NetworkInsightsPathPathFilterPtrOutput) SourcePortRange() NetworkInsightsPathFilterPortRangePtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange {
 		if v == nil {
@@ -18020,12 +19859,16 @@ func (o NetworkInsightsPathPathFilterPtrOutput) SourcePortRange() NetworkInsight
 }
 
 type NetworkInsightsPathTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
 type NetworkInterfaceAttachmentEnaSrdSpecification struct {
-	EnaSrdEnabled          *bool                                                                          `pulumi:"enaSrdEnabled"`
+	// Indicates whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic.
 	EnaSrdUdpSpecification *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties `pulumi:"enaSrdUdpSpecification"`
 }
 
@@ -18041,7 +19884,9 @@ type NetworkInterfaceAttachmentEnaSrdSpecificationInput interface {
 }
 
 type NetworkInterfaceAttachmentEnaSrdSpecificationArgs struct {
-	EnaSrdEnabled          pulumi.BoolPtrInput                                                                   `pulumi:"enaSrdEnabled"`
+	// Indicates whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic.
 	EnaSrdUdpSpecification NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput `pulumi:"enaSrdUdpSpecification"`
 }
 
@@ -18122,10 +19967,12 @@ func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ToNetworkInterfaceA
 	}).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
 }
 
+// Indicates whether ENA Express is enabled for the network interface.
 func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceAttachmentEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Configures ENA Express for UDP network traffic.
 func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) EnaSrdUdpSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceAttachmentEnaSrdSpecification) *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
 		return v.EnaSrdUdpSpecification
@@ -18156,6 +20003,7 @@ func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) Elem() NetworkIn
 	}).(NetworkInterfaceAttachmentEnaSrdSpecificationOutput)
 }
 
+// Indicates whether ENA Express is enabled for the network interface.
 func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecification) *bool {
 		if v == nil {
@@ -18165,6 +20013,7 @@ func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) EnaSrdEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Configures ENA Express for UDP network traffic.
 func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecification) *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
 		if v == nil {
@@ -18174,6 +20023,7 @@ func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecifi
 	}).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput)
 }
 
+// Configures ENA Express for UDP network traffic.
 type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties struct {
 	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
 }
@@ -18189,6 +20039,7 @@ type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperti
 	ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput
 }
 
+// Configures ENA Express for UDP network traffic.
 type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs struct {
 	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
 }
@@ -18246,6 +20097,7 @@ func (i *networkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput)
 }
 
+// Configures ENA Express for UDP network traffic.
 type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) ElementType() reflect.Type {
@@ -18310,9 +20162,12 @@ func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPrope
 }
 
 type NetworkInterfaceConnectionTrackingSpecification struct {
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
-	UdpStreamTimeout      *int `pulumi:"udpStreamTimeout"`
-	UdpTimeout            *int `pulumi:"udpTimeout"`
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+	UdpTimeout *int `pulumi:"udpTimeout"`
 }
 
 // NetworkInterfaceConnectionTrackingSpecificationInput is an input type that accepts NetworkInterfaceConnectionTrackingSpecificationArgs and NetworkInterfaceConnectionTrackingSpecificationOutput values.
@@ -18327,9 +20182,12 @@ type NetworkInterfaceConnectionTrackingSpecificationInput interface {
 }
 
 type NetworkInterfaceConnectionTrackingSpecificationArgs struct {
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
-	UdpStreamTimeout      pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
-	UdpTimeout            pulumi.IntPtrInput `pulumi:"udpTimeout"`
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
 }
 
 func (NetworkInterfaceConnectionTrackingSpecificationArgs) ElementType() reflect.Type {
@@ -18409,14 +20267,17 @@ func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfac
 	}).(NetworkInterfaceConnectionTrackingSpecificationPtrOutput)
 }
 
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 func (o NetworkInterfaceConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.TcpEstablishedTimeout }).(pulumi.IntPtrOutput)
 }
 
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 func (o NetworkInterfaceConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
 }
 
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 func (o NetworkInterfaceConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
 }
@@ -18445,6 +20306,7 @@ func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) Elem() Network
 	}).(NetworkInterfaceConnectionTrackingSpecificationOutput)
 }
 
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -18454,6 +20316,7 @@ func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) TcpEstablished
 	}).(pulumi.IntPtrOutput)
 }
 
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -18463,6 +20326,7 @@ func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpStreamTimeo
 	}).(pulumi.IntPtrOutput)
 }
 
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -18473,6 +20337,7 @@ func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpTimeout() p
 }
 
 type NetworkInterfaceInstanceIpv6Address struct {
+	// An IPv6 address to associate with the network interface.
 	Ipv6Address string `pulumi:"ipv6Address"`
 }
 
@@ -18488,6 +20353,7 @@ type NetworkInterfaceInstanceIpv6AddressInput interface {
 }
 
 type NetworkInterfaceInstanceIpv6AddressArgs struct {
+	// An IPv6 address to associate with the network interface.
 	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
 }
 
@@ -18542,6 +20408,7 @@ func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv
 	return o
 }
 
+// An IPv6 address to associate with the network interface.
 func (o NetworkInterfaceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
 }
@@ -18567,6 +20434,7 @@ func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput)
 }
 
 type NetworkInterfaceIpv4PrefixSpecification struct {
+	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	Ipv4Prefix string `pulumi:"ipv4Prefix"`
 }
 
@@ -18582,6 +20450,7 @@ type NetworkInterfaceIpv4PrefixSpecificationInput interface {
 }
 
 type NetworkInterfaceIpv4PrefixSpecificationArgs struct {
+	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	Ipv4Prefix pulumi.StringInput `pulumi:"ipv4Prefix"`
 }
 
@@ -18636,6 +20505,7 @@ func (o NetworkInterfaceIpv4PrefixSpecificationOutput) ToNetworkInterfaceIpv4Pre
 	return o
 }
 
+// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 func (o NetworkInterfaceIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpv4PrefixSpecification) string { return v.Ipv4Prefix }).(pulumi.StringOutput)
 }
@@ -18661,6 +20531,7 @@ func (o NetworkInterfaceIpv4PrefixSpecificationArrayOutput) Index(i pulumi.IntIn
 }
 
 type NetworkInterfaceIpv6PrefixSpecification struct {
+	// The IPv6 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	Ipv6Prefix string `pulumi:"ipv6Prefix"`
 }
 
@@ -18676,6 +20547,7 @@ type NetworkInterfaceIpv6PrefixSpecificationInput interface {
 }
 
 type NetworkInterfaceIpv6PrefixSpecificationArgs struct {
+	// The IPv6 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	Ipv6Prefix pulumi.StringInput `pulumi:"ipv6Prefix"`
 }
 
@@ -18730,6 +20602,7 @@ func (o NetworkInterfaceIpv6PrefixSpecificationOutput) ToNetworkInterfaceIpv6Pre
 	return o
 }
 
+// The IPv6 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 func (o NetworkInterfaceIpv6PrefixSpecificationOutput) Ipv6Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpv6PrefixSpecification) string { return v.Ipv6Prefix }).(pulumi.StringOutput)
 }
@@ -18755,7 +20628,9 @@ func (o NetworkInterfaceIpv6PrefixSpecificationArrayOutput) Index(i pulumi.IntIn
 }
 
 type NetworkInterfacePrivateIpAddressSpecification struct {
-	Primary          bool   `pulumi:"primary"`
+	// Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
+	Primary bool `pulumi:"primary"`
+	// The private IP address of the network interface.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 }
 
@@ -18771,7 +20646,9 @@ type NetworkInterfacePrivateIpAddressSpecificationInput interface {
 }
 
 type NetworkInterfacePrivateIpAddressSpecificationArgs struct {
-	Primary          pulumi.BoolInput   `pulumi:"primary"`
+	// Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The private IP address of the network interface.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 }
 
@@ -18826,10 +20703,12 @@ func (o NetworkInterfacePrivateIpAddressSpecificationOutput) ToNetworkInterfaceP
 	return o
 }
 
+// Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
 func (o NetworkInterfacePrivateIpAddressSpecificationOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v NetworkInterfacePrivateIpAddressSpecification) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
+// The private IP address of the network interface.
 func (o NetworkInterfacePrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfacePrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -18855,7 +20734,9 @@ func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) Index(i pulumi
 }
 
 type NetworkInterfaceTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -19046,7 +20927,11 @@ type PlacementGroupTag struct {
 }
 
 type PrefixListEntry struct {
-	Cidr        string  `pulumi:"cidr"`
+	// The CIDR block.
+	Cidr string `pulumi:"cidr"`
+	// A description for the entry.
+	//
+	// Constraints: Up to 255 characters in length.
 	Description *string `pulumi:"description"`
 }
 
@@ -19062,7 +20947,11 @@ type PrefixListEntryInput interface {
 }
 
 type PrefixListEntryArgs struct {
-	Cidr        pulumi.StringInput    `pulumi:"cidr"`
+	// The CIDR block.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// A description for the entry.
+	//
+	// Constraints: Up to 255 characters in length.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 }
 
@@ -19117,10 +21006,14 @@ func (o PrefixListEntryOutput) ToPrefixListEntryOutputWithContext(ctx context.Co
 	return o
 }
 
+// The CIDR block.
 func (o PrefixListEntryOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v PrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
+// A description for the entry.
+//
+// Constraints: Up to 255 characters in length.
 func (o PrefixListEntryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrefixListEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -19146,7 +21039,9 @@ func (o PrefixListEntryArrayOutput) Index(i pulumi.IntInput) PrefixListEntryOutp
 }
 
 type PrefixListTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
@@ -19157,9 +21052,12 @@ type PrefixListTag struct {
 //	 +  EnableResourceNameDnsARecord (true | false)
 //	 +  HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchProperties struct {
-	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
-	EnableResourceNameDnsAaaaRecord *bool   `pulumi:"enableResourceNameDnsAaaaRecord"`
-	HostnameType                    *string `pulumi:"hostnameType"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
+	HostnameType *string `pulumi:"hostnameType"`
 }
 
 // PrivateDnsNameOptionsOnLaunchPropertiesInput is an input type that accepts PrivateDnsNameOptionsOnLaunchPropertiesArgs and PrivateDnsNameOptionsOnLaunchPropertiesOutput values.
@@ -19180,9 +21078,12 @@ type PrivateDnsNameOptionsOnLaunchPropertiesInput interface {
 //	 +  EnableResourceNameDnsARecord (true | false)
 //	 +  HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchPropertiesArgs struct {
-	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
-	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAaaaRecord"`
-	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
+	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
 func (PrivateDnsNameOptionsOnLaunchPropertiesArgs) ElementType() reflect.Type {
@@ -19268,14 +21169,17 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) ToPrivateDnsNameOptionsOn
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
 func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
+// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
 func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
 }
@@ -19304,6 +21208,7 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) Elem() PrivateDnsNameO
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
 		if v == nil {
@@ -19313,6 +21218,7 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsA
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
 func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
 		if v == nil {
@@ -19322,6 +21228,7 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsA
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
 func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *string {
 		if v == nil {
@@ -19340,14 +21247,38 @@ type RouteTableTag struct {
 }
 
 type SecurityGroupEgressType struct {
-	CidrIp                     *string `pulumi:"cidrIp"`
-	CidrIpv6                   *string `pulumi:"cidrIpv6"`
-	Description                *string `pulumi:"description"`
-	DestinationPrefixListId    *string `pulumi:"destinationPrefixListId"`
+	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIp *string `pulumi:"cidrIp"`
+	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
+	// A description for the security group rule.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+	Description *string `pulumi:"description"`
+	// The prefix list IDs for the destination AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// The ID of the destination VPC security group.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
-	FromPort                   *int    `pulumi:"fromPort"`
-	IpProtocol                 string  `pulumi:"ipProtocol"`
-	ToPort                     *int    `pulumi:"toPort"`
+	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
+	FromPort *int `pulumi:"fromPort"`
+	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+	//
+	// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol string `pulumi:"ipProtocol"`
+	// If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
+	ToPort *int `pulumi:"toPort"`
 }
 
 // SecurityGroupEgressTypeInput is an input type that accepts SecurityGroupEgressTypeArgs and SecurityGroupEgressTypeOutput values.
@@ -19362,14 +21293,38 @@ type SecurityGroupEgressTypeInput interface {
 }
 
 type SecurityGroupEgressTypeArgs struct {
-	CidrIp                     pulumi.StringPtrInput `pulumi:"cidrIp"`
-	CidrIpv6                   pulumi.StringPtrInput `pulumi:"cidrIpv6"`
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	DestinationPrefixListId    pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIpv6 pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	// A description for the security group rule.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The prefix list IDs for the destination AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	// The ID of the destination VPC security group.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 	DestinationSecurityGroupId pulumi.StringPtrInput `pulumi:"destinationSecurityGroupId"`
-	FromPort                   pulumi.IntPtrInput    `pulumi:"fromPort"`
-	IpProtocol                 pulumi.StringInput    `pulumi:"ipProtocol"`
-	ToPort                     pulumi.IntPtrInput    `pulumi:"toPort"`
+	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+	//
+	// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol pulumi.StringInput `pulumi:"ipProtocol"`
+	// If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
 }
 
 func (SecurityGroupEgressTypeArgs) ElementType() reflect.Type {
@@ -19423,34 +21378,58 @@ func (o SecurityGroupEgressTypeOutput) ToSecurityGroupEgressTypeOutputWithContex
 	return o
 }
 
+// The IPv4 address range, in CIDR format.
+//
+// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+//
+// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 func (o SecurityGroupEgressTypeOutput) CidrIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
 }
 
+// The IPv6 address range, in CIDR format.
+//
+// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+//
+// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 func (o SecurityGroupEgressTypeOutput) CidrIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
 }
 
+// A description for the security group rule.
+//
+// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 func (o SecurityGroupEgressTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The prefix list IDs for the destination AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+//
+// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 func (o SecurityGroupEgressTypeOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the destination VPC security group.
+//
+// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 func (o SecurityGroupEgressTypeOutput) DestinationSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.DestinationSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 func (o SecurityGroupEgressTypeOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
+// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+//
+// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 func (o SecurityGroupEgressTypeOutput) IpProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) string { return v.IpProtocol }).(pulumi.StringOutput)
 }
 
+// If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
 func (o SecurityGroupEgressTypeOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) *int { return v.ToPort }).(pulumi.IntPtrOutput)
 }
@@ -19476,16 +21455,42 @@ func (o SecurityGroupEgressTypeArrayOutput) Index(i pulumi.IntInput) SecurityGro
 }
 
 type SecurityGroupIngressType struct {
-	CidrIp                     *string `pulumi:"cidrIp"`
-	CidrIpv6                   *string `pulumi:"cidrIpv6"`
-	Description                *string `pulumi:"description"`
-	FromPort                   *int    `pulumi:"fromPort"`
-	IpProtocol                 string  `pulumi:"ipProtocol"`
-	SourcePrefixListId         *string `pulumi:"sourcePrefixListId"`
-	SourceSecurityGroupId      *string `pulumi:"sourceSecurityGroupId"`
-	SourceSecurityGroupName    *string `pulumi:"sourceSecurityGroupName"`
+	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIp *string `pulumi:"cidrIp"`
+	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
+	// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+	Description *string `pulumi:"description"`
+	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
+	FromPort *int `pulumi:"fromPort"`
+	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+	//
+	// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol string `pulumi:"ipProtocol"`
+	// The ID of a prefix list.
+	SourcePrefixListId *string `pulumi:"sourcePrefixListId"`
+	// The ID of the security group.
+	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
+	// [Default VPC] The name of the source security group. You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
+	// For security groups in a nondefault VPC, you must specify the group ID.
+	SourceSecurityGroupName *string `pulumi:"sourceSecurityGroupName"`
+	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
+	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId *string `pulumi:"sourceSecurityGroupOwnerId"`
-	ToPort                     *int    `pulumi:"toPort"`
+	// If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
+	ToPort *int `pulumi:"toPort"`
 }
 
 // SecurityGroupIngressTypeInput is an input type that accepts SecurityGroupIngressTypeArgs and SecurityGroupIngressTypeOutput values.
@@ -19500,16 +21505,42 @@ type SecurityGroupIngressTypeInput interface {
 }
 
 type SecurityGroupIngressTypeArgs struct {
-	CidrIp                     pulumi.StringPtrInput `pulumi:"cidrIp"`
-	CidrIpv6                   pulumi.StringPtrInput `pulumi:"cidrIpv6"`
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	FromPort                   pulumi.IntPtrInput    `pulumi:"fromPort"`
-	IpProtocol                 pulumi.StringInput    `pulumi:"ipProtocol"`
-	SourcePrefixListId         pulumi.StringPtrInput `pulumi:"sourcePrefixListId"`
-	SourceSecurityGroupId      pulumi.StringPtrInput `pulumi:"sourceSecurityGroupId"`
-	SourceSecurityGroupName    pulumi.StringPtrInput `pulumi:"sourceSecurityGroupName"`
+	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+	CidrIpv6 pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+	//
+	// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol pulumi.StringInput `pulumi:"ipProtocol"`
+	// The ID of a prefix list.
+	SourcePrefixListId pulumi.StringPtrInput `pulumi:"sourcePrefixListId"`
+	// The ID of the security group.
+	SourceSecurityGroupId pulumi.StringPtrInput `pulumi:"sourceSecurityGroupId"`
+	// [Default VPC] The name of the source security group. You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
+	// For security groups in a nondefault VPC, you must specify the group ID.
+	SourceSecurityGroupName pulumi.StringPtrInput `pulumi:"sourceSecurityGroupName"`
+	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
+	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"sourceSecurityGroupOwnerId"`
-	ToPort                     pulumi.IntPtrInput    `pulumi:"toPort"`
+	// If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
 }
 
 func (SecurityGroupIngressTypeArgs) ElementType() reflect.Type {
@@ -19563,42 +21594,68 @@ func (o SecurityGroupIngressTypeOutput) ToSecurityGroupIngressTypeOutputWithCont
 	return o
 }
 
+// The IPv4 address range, in CIDR format.
+//
+// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+//
+// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 func (o SecurityGroupIngressTypeOutput) CidrIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
 }
 
+// The IPv6 address range, in CIDR format.
+//
+// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+//
+// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 func (o SecurityGroupIngressTypeOutput) CidrIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
 }
 
+// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
+//
+// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 func (o SecurityGroupIngressTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 func (o SecurityGroupIngressTypeOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
+// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+//
+// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 func (o SecurityGroupIngressTypeOutput) IpProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) string { return v.IpProtocol }).(pulumi.StringOutput)
 }
 
+// The ID of a prefix list.
 func (o SecurityGroupIngressTypeOutput) SourcePrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourcePrefixListId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the security group.
 func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// [Default VPC] The name of the source security group. You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+//
+// For security groups in a nondefault VPC, you must specify the group ID.
 func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
+// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+//
+// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
+// If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
 func (o SecurityGroupIngressTypeOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngressType) *int { return v.ToPort }).(pulumi.IntPtrOutput)
 }
@@ -19624,12 +21681,16 @@ func (o SecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) SecurityGr
 }
 
 type SecurityGroupTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type SpotFleetAcceleratorCountRequest struct {
+	// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 	Max *int `pulumi:"max"`
+	// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -19645,7 +21706,9 @@ type SpotFleetAcceleratorCountRequestInput interface {
 }
 
 type SpotFleetAcceleratorCountRequestArgs struct {
+	// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -19726,10 +21789,12 @@ func (o SpotFleetAcceleratorCountRequestOutput) ToSpotFleetAcceleratorCountReque
 	}).(SpotFleetAcceleratorCountRequestPtrOutput)
 }
 
+// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o SpotFleetAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 func (o SpotFleetAcceleratorCountRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetAcceleratorCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -19758,6 +21823,7 @@ func (o SpotFleetAcceleratorCountRequestPtrOutput) Elem() SpotFleetAcceleratorCo
 	}).(SpotFleetAcceleratorCountRequestOutput)
 }
 
+// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o SpotFleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetAcceleratorCountRequest) *int {
 		if v == nil {
@@ -19767,6 +21833,7 @@ func (o SpotFleetAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 func (o SpotFleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetAcceleratorCountRequest) *int {
 		if v == nil {
@@ -19777,7 +21844,9 @@ func (o SpotFleetAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type SpotFleetAcceleratorTotalMemoryMiBRequest struct {
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -19793,7 +21862,9 @@ type SpotFleetAcceleratorTotalMemoryMiBRequestInput interface {
 }
 
 type SpotFleetAcceleratorTotalMemoryMiBRequestArgs struct {
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -19874,10 +21945,12 @@ func (o SpotFleetAcceleratorTotalMemoryMiBRequestOutput) ToSpotFleetAcceleratorT
 	}).(SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o SpotFleetAcceleratorTotalMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetAcceleratorTotalMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -19906,6 +21979,7 @@ func (o SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() SpotFleetAcce
 	}).(SpotFleetAcceleratorTotalMemoryMiBRequestOutput)
 }
 
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
@@ -19915,6 +21989,7 @@ func (o SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
@@ -19925,7 +22000,9 @@ func (o SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrO
 }
 
 type SpotFleetBaselineEbsBandwidthMbpsRequest struct {
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -19941,7 +22018,9 @@ type SpotFleetBaselineEbsBandwidthMbpsRequestInput interface {
 }
 
 type SpotFleetBaselineEbsBandwidthMbpsRequestArgs struct {
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -20022,10 +22101,12 @@ func (o SpotFleetBaselineEbsBandwidthMbpsRequestOutput) ToSpotFleetBaselineEbsBa
 	}).(SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 func (o SpotFleetBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 func (o SpotFleetBaselineEbsBandwidthMbpsRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetBaselineEbsBandwidthMbpsRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -20054,6 +22135,7 @@ func (o SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() SpotFleetBasel
 	}).(SpotFleetBaselineEbsBandwidthMbpsRequestOutput)
 }
 
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 func (o SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
@@ -20063,6 +22145,7 @@ func (o SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 func (o SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
@@ -20073,10 +22156,18 @@ func (o SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOu
 }
 
 type SpotFleetBlockDeviceMapping struct {
-	DeviceName  string                   `pulumi:"deviceName"`
-	Ebs         *SpotFleetEbsBlockDevice `pulumi:"ebs"`
-	NoDevice    *string                  `pulumi:"noDevice"`
-	VirtualName *string                  `pulumi:"virtualName"`
+	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	DeviceName string `pulumi:"deviceName"`
+	// Describes a block device for an EBS volume.
+	Ebs *SpotFleetEbsBlockDevice `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+	NoDevice *string `pulumi:"noDevice"`
+	// The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+	//
+	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+	//
+	// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // SpotFleetBlockDeviceMappingInput is an input type that accepts SpotFleetBlockDeviceMappingArgs and SpotFleetBlockDeviceMappingOutput values.
@@ -20091,10 +22182,18 @@ type SpotFleetBlockDeviceMappingInput interface {
 }
 
 type SpotFleetBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringInput              `pulumi:"deviceName"`
-	Ebs         SpotFleetEbsBlockDevicePtrInput `pulumi:"ebs"`
-	NoDevice    pulumi.StringPtrInput           `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput           `pulumi:"virtualName"`
+	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Describes a block device for an EBS volume.
+	Ebs SpotFleetEbsBlockDevicePtrInput `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
+	// The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+	//
+	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+	//
+	// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (SpotFleetBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -20148,18 +22247,26 @@ func (o SpotFleetBlockDeviceMappingOutput) ToSpotFleetBlockDeviceMappingOutputWi
 	return o
 }
 
+// The device name (for example, `/dev/sdh` or `xvdh` ).
 func (o SpotFleetBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Describes a block device for an EBS volume.
 func (o SpotFleetBlockDeviceMappingOutput) Ebs() SpotFleetEbsBlockDevicePtrOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) *SpotFleetEbsBlockDevice { return v.Ebs }).(SpotFleetEbsBlockDevicePtrOutput)
 }
 
+// To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
 func (o SpotFleetBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
+// The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+//
+// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+//
+// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 func (o SpotFleetBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -20185,6 +22292,7 @@ func (o SpotFleetBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) SpotFle
 }
 
 type SpotFleetClassicLoadBalancer struct {
+	// The name of the load balancer.
 	Name string `pulumi:"name"`
 }
 
@@ -20200,6 +22308,7 @@ type SpotFleetClassicLoadBalancerInput interface {
 }
 
 type SpotFleetClassicLoadBalancerArgs struct {
+	// The name of the load balancer.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -20254,6 +22363,7 @@ func (o SpotFleetClassicLoadBalancerOutput) ToSpotFleetClassicLoadBalancerOutput
 	return o
 }
 
+// The name of the load balancer.
 func (o SpotFleetClassicLoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetClassicLoadBalancer) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -20279,6 +22389,7 @@ func (o SpotFleetClassicLoadBalancerArrayOutput) Index(i pulumi.IntInput) SpotFl
 }
 
 type SpotFleetClassicLoadBalancersConfig struct {
+	// Specifies a Classic Load Balancer.
 	ClassicLoadBalancers []SpotFleetClassicLoadBalancer `pulumi:"classicLoadBalancers"`
 }
 
@@ -20294,6 +22405,7 @@ type SpotFleetClassicLoadBalancersConfigInput interface {
 }
 
 type SpotFleetClassicLoadBalancersConfigArgs struct {
+	// Specifies a Classic Load Balancer.
 	ClassicLoadBalancers SpotFleetClassicLoadBalancerArrayInput `pulumi:"classicLoadBalancers"`
 }
 
@@ -20374,6 +22486,7 @@ func (o SpotFleetClassicLoadBalancersConfigOutput) ToSpotFleetClassicLoadBalance
 	}).(SpotFleetClassicLoadBalancersConfigPtrOutput)
 }
 
+// Specifies a Classic Load Balancer.
 func (o SpotFleetClassicLoadBalancersConfigOutput) ClassicLoadBalancers() SpotFleetClassicLoadBalancerArrayOutput {
 	return o.ApplyT(func(v SpotFleetClassicLoadBalancersConfig) []SpotFleetClassicLoadBalancer {
 		return v.ClassicLoadBalancers
@@ -20404,6 +22517,7 @@ func (o SpotFleetClassicLoadBalancersConfigPtrOutput) Elem() SpotFleetClassicLoa
 	}).(SpotFleetClassicLoadBalancersConfigOutput)
 }
 
+// Specifies a Classic Load Balancer.
 func (o SpotFleetClassicLoadBalancersConfigPtrOutput) ClassicLoadBalancers() SpotFleetClassicLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *SpotFleetClassicLoadBalancersConfig) []SpotFleetClassicLoadBalancer {
 		if v == nil {
@@ -20414,12 +22528,42 @@ func (o SpotFleetClassicLoadBalancersConfigPtrOutput) ClassicLoadBalancers() Spo
 }
 
 type SpotFleetEbsBlockDevice struct {
-	DeleteOnTermination *bool                              `pulumi:"deleteOnTermination"`
-	Encrypted           *bool                              `pulumi:"encrypted"`
-	Iops                *int                               `pulumi:"iops"`
-	SnapshotId          *string                            `pulumi:"snapshotId"`
-	VolumeSize          *int                               `pulumi:"volumeSize"`
-	VolumeType          *SpotFleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
+	//
+	// In no case can you remove encryption from an encrypted volume.
+	//
+	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
+	//
+	// This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//
+	// The following are the supported values for each volume type:
+	//
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
+	//
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+	//
+	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+	Iops *int `pulumi:"iops"`
+	// The ID of the snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	//
+	// The following are the supported sizes for each volume type:
+	//
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+	VolumeType *SpotFleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
 }
 
 // SpotFleetEbsBlockDeviceInput is an input type that accepts SpotFleetEbsBlockDeviceArgs and SpotFleetEbsBlockDeviceOutput values.
@@ -20434,12 +22578,42 @@ type SpotFleetEbsBlockDeviceInput interface {
 }
 
 type SpotFleetEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput                       `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolPtrInput                       `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput                        `pulumi:"iops"`
-	SnapshotId          pulumi.StringPtrInput                     `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput                        `pulumi:"volumeSize"`
-	VolumeType          SpotFleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
+	//
+	// In no case can you remove encryption from an encrypted volume.
+	//
+	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
+	//
+	// This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//
+	// The following are the supported values for each volume type:
+	//
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
+	//
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+	//
+	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The ID of the snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	//
+	// The following are the supported sizes for each volume type:
+	//
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+	VolumeType SpotFleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 func (SpotFleetEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -20519,26 +22693,56 @@ func (o SpotFleetEbsBlockDeviceOutput) ToSpotFleetEbsBlockDevicePtrOutputWithCon
 	}).(SpotFleetEbsBlockDevicePtrOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
 func (o SpotFleetEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
+//
+// In no case can you remove encryption from an encrypted volume.
+//
+// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
+//
+// This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
 func (o SpotFleetEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+// The following are the supported values for each volume type:
+//
+// - `gp3` : 3,000 - 16,000 IOPS
+// - `io1` : 100 - 64,000 IOPS
+// - `io2` : 100 - 256,000 IOPS
+//
+// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+//
+// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
 func (o SpotFleetEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o SpotFleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+//
+// The following are the supported sizes for each volume type:
+//
+// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `io1` : 4 - 16,384 GiB
+// - `io2` : 4 - 65,536 GiB
+// - `st1` and `sc1` : 125 - 16,384 GiB
+// - `standard` : 1 - 1024 GiB
 func (o SpotFleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 func (o SpotFleetEbsBlockDeviceOutput) VolumeType() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *SpotFleetEbsBlockDeviceVolumeType { return v.VolumeType }).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
@@ -20567,6 +22771,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Elem() SpotFleetEbsBlockDeviceOutput {
 	}).(SpotFleetEbsBlockDeviceOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
 func (o SpotFleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *bool {
 		if v == nil {
@@ -20576,6 +22781,13 @@ func (o SpotFleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
+//
+// In no case can you remove encryption from an encrypted volume.
+//
+// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
+//
+// This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
 func (o SpotFleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *bool {
 		if v == nil {
@@ -20585,6 +22797,17 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+// The following are the supported values for each volume type:
+//
+// - `gp3` : 3,000 - 16,000 IOPS
+// - `io1` : 100 - 64,000 IOPS
+// - `io2` : 100 - 256,000 IOPS
+//
+// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+//
+// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
 func (o SpotFleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *int {
 		if v == nil {
@@ -20594,6 +22817,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o SpotFleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *string {
 		if v == nil {
@@ -20603,6 +22827,15 @@ func (o SpotFleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+//
+// The following are the supported sizes for each volume type:
+//
+// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `io1` : 4 - 16,384 GiB
+// - `io2` : 4 - 65,536 GiB
+// - `st1` and `sc1` : 125 - 16,384 GiB
+// - `standard` : 1 - 1024 GiB
 func (o SpotFleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *int {
 		if v == nil {
@@ -20612,6 +22845,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *SpotFleetEbsBlockDeviceVolumeType {
 		if v == nil {
@@ -20622,9 +22856,18 @@ func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() SpotFleetEbsBlockDeviceVo
 }
 
 type SpotFleetFleetLaunchTemplateSpecification struct {
-	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
+	// The ID of the launch template.
+	//
+	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// The name of the launch template.
+	//
+	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	Version            string  `pulumi:"version"`
+	// The version number of the launch template.
+	//
+	// Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
+	Version string `pulumi:"version"`
 }
 
 // SpotFleetFleetLaunchTemplateSpecificationInput is an input type that accepts SpotFleetFleetLaunchTemplateSpecificationArgs and SpotFleetFleetLaunchTemplateSpecificationOutput values.
@@ -20639,9 +22882,18 @@ type SpotFleetFleetLaunchTemplateSpecificationInput interface {
 }
 
 type SpotFleetFleetLaunchTemplateSpecificationArgs struct {
-	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The ID of the launch template.
+	//
+	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The name of the launch template.
+	//
+	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	Version            pulumi.StringInput    `pulumi:"version"`
+	// The version number of the launch template.
+	//
+	// Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (SpotFleetFleetLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
@@ -20721,14 +22973,23 @@ func (o SpotFleetFleetLaunchTemplateSpecificationOutput) ToSpotFleetFleetLaunchT
 	}).(SpotFleetFleetLaunchTemplateSpecificationPtrOutput)
 }
 
+// The ID of the launch template.
+//
+// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
 func (o SpotFleetFleetLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetFleetLaunchTemplateSpecification) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 func (o SpotFleetFleetLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetFleetLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+// The version number of the launch template.
+//
+// Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
 func (o SpotFleetFleetLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetFleetLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -20757,6 +23018,9 @@ func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) Elem() SpotFleetFlee
 	}).(SpotFleetFleetLaunchTemplateSpecificationOutput)
 }
 
+// The ID of the launch template.
+//
+// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
 func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetFleetLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -20766,6 +23030,9 @@ func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
 func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetFleetLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -20775,6 +23042,9 @@ func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) LaunchTemplateName()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version number of the launch template.
+//
+// Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
 func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetFleetLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -20785,6 +23055,7 @@ func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) Version() pulumi.Str
 }
 
 type SpotFleetGroupIdentifier struct {
+	// The ID of the security group.
 	GroupId string `pulumi:"groupId"`
 }
 
@@ -20800,6 +23071,7 @@ type SpotFleetGroupIdentifierInput interface {
 }
 
 type SpotFleetGroupIdentifierArgs struct {
+	// The ID of the security group.
 	GroupId pulumi.StringInput `pulumi:"groupId"`
 }
 
@@ -20854,6 +23126,7 @@ func (o SpotFleetGroupIdentifierOutput) ToSpotFleetGroupIdentifierOutputWithCont
 	return o
 }
 
+// The ID of the security group.
 func (o SpotFleetGroupIdentifierOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetGroupIdentifier) string { return v.GroupId }).(pulumi.StringOutput)
 }
@@ -20879,6 +23152,7 @@ func (o SpotFleetGroupIdentifierArrayOutput) Index(i pulumi.IntInput) SpotFleetG
 }
 
 type SpotFleetIamInstanceProfileSpecification struct {
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -20894,6 +23168,7 @@ type SpotFleetIamInstanceProfileSpecificationInput interface {
 }
 
 type SpotFleetIamInstanceProfileSpecificationArgs struct {
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -20974,6 +23249,7 @@ func (o SpotFleetIamInstanceProfileSpecificationOutput) ToSpotFleetIamInstancePr
 	}).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o SpotFleetIamInstanceProfileSpecificationOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetIamInstanceProfileSpecification) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -21002,6 +23278,7 @@ func (o SpotFleetIamInstanceProfileSpecificationPtrOutput) Elem() SpotFleetIamIn
 	}).(SpotFleetIamInstanceProfileSpecificationOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o SpotFleetIamInstanceProfileSpecificationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetIamInstanceProfileSpecification) *string {
 		if v == nil {
@@ -21012,6 +23289,7 @@ func (o SpotFleetIamInstanceProfileSpecificationPtrOutput) Arn() pulumi.StringPt
 }
 
 type SpotFleetInstanceIpv6Address struct {
+	// The IPv6 address.
 	Ipv6Address string `pulumi:"ipv6Address"`
 }
 
@@ -21027,6 +23305,7 @@ type SpotFleetInstanceIpv6AddressInput interface {
 }
 
 type SpotFleetInstanceIpv6AddressArgs struct {
+	// The IPv6 address.
 	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
 }
 
@@ -21081,6 +23360,7 @@ func (o SpotFleetInstanceIpv6AddressOutput) ToSpotFleetInstanceIpv6AddressOutput
 	return o
 }
 
+// The IPv6 address.
 func (o SpotFleetInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
 }
@@ -21106,17 +23386,34 @@ func (o SpotFleetInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) SpotFl
 }
 
 type SpotFleetInstanceNetworkInterfaceSpecification struct {
-	AssociatePublicIpAddress       *bool                                    `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            *bool                                    `pulumi:"deleteOnTermination"`
-	Description                    *string                                  `pulumi:"description"`
-	DeviceIndex                    *int                                     `pulumi:"deviceIndex"`
-	Groups                         []string                                 `pulumi:"groups"`
-	Ipv6AddressCount               *int                                     `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  []SpotFleetInstanceIpv6Address           `pulumi:"ipv6Addresses"`
-	NetworkInterfaceId             *string                                  `pulumi:"networkInterfaceId"`
-	PrivateIpAddresses             []SpotFleetPrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount *int                                     `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       *string                                  `pulumi:"subnetId"`
+	// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is `true` .
+	//
+	// AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/) .
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// Indicates whether the network interface is deleted when the instance is terminated.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The description of the network interface. Applies only if creating a network interface when launching an instance.
+	Description *string `pulumi:"description"`
+	// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+	//
+	// If you specify a network interface when launching an instance, you must specify the device index.
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+	Groups []string `pulumi:"groups"`
+	// A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// Describes an IPv6 address.
+	Ipv6Addresses []SpotFleetInstanceIpv6Address `pulumi:"ipv6Addresses"`
+	// The ID of the network interface.
+	//
+	// If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Describes a secondary private IPv4 address for a network interface.
+	PrivateIpAddresses []SpotFleetPrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
+	// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
+	// The ID of the subnet associated with the network interface.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // SpotFleetInstanceNetworkInterfaceSpecificationInput is an input type that accepts SpotFleetInstanceNetworkInterfaceSpecificationArgs and SpotFleetInstanceNetworkInterfaceSpecificationOutput values.
@@ -21131,17 +23428,34 @@ type SpotFleetInstanceNetworkInterfaceSpecificationInput interface {
 }
 
 type SpotFleetInstanceNetworkInterfaceSpecificationArgs struct {
-	AssociatePublicIpAddress       pulumi.BoolPtrInput                              `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            pulumi.BoolPtrInput                              `pulumi:"deleteOnTermination"`
-	Description                    pulumi.StringPtrInput                            `pulumi:"description"`
-	DeviceIndex                    pulumi.IntPtrInput                               `pulumi:"deviceIndex"`
-	Groups                         pulumi.StringArrayInput                          `pulumi:"groups"`
-	Ipv6AddressCount               pulumi.IntPtrInput                               `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  SpotFleetInstanceIpv6AddressArrayInput           `pulumi:"ipv6Addresses"`
-	NetworkInterfaceId             pulumi.StringPtrInput                            `pulumi:"networkInterfaceId"`
-	PrivateIpAddresses             SpotFleetPrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                               `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       pulumi.StringPtrInput                            `pulumi:"subnetId"`
+	// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is `true` .
+	//
+	// AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/) .
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// Indicates whether the network interface is deleted when the instance is terminated.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The description of the network interface. Applies only if creating a network interface when launching an instance.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+	//
+	// If you specify a network interface when launching an instance, you must specify the device index.
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
+	// Describes an IPv6 address.
+	Ipv6Addresses SpotFleetInstanceIpv6AddressArrayInput `pulumi:"ipv6Addresses"`
+	// The ID of the network interface.
+	//
+	// If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// Describes a secondary private IPv4 address for a network interface.
+	PrivateIpAddresses SpotFleetPrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
+	// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
+	// The ID of the subnet associated with the network interface.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (SpotFleetInstanceNetworkInterfaceSpecificationArgs) ElementType() reflect.Type {
@@ -21195,50 +23509,67 @@ func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) ToSpotFleetInstanc
 	return o
 }
 
+// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is `true` .
+//
+// AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/) .
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the network interface is deleted when the instance is terminated.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The description of the network interface. Applies only if creating a network interface when launching an instance.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+//
+// If you specify a network interface when launching an instance, you must specify the device index.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
+// The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
+// Describes an IPv6 address.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Ipv6Addresses() SpotFleetInstanceIpv6AddressArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) []SpotFleetInstanceIpv6Address {
 		return v.Ipv6Addresses
 	}).(SpotFleetInstanceIpv6AddressArrayOutput)
 }
 
+// The ID of the network interface.
+//
+// If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// Describes a secondary private IPv4 address for a network interface.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) PrivateIpAddresses() SpotFleetPrivateIpAddressSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) []SpotFleetPrivateIpAddressSpecification {
 		return v.PrivateIpAddresses
 	}).(SpotFleetPrivateIpAddressSpecificationArrayOutput)
 }
 
+// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the subnet associated with the network interface.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -21264,30 +23595,168 @@ func (o SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput) Index(i pulum
 }
 
 type SpotFleetInstanceRequirementsRequest struct {
-	AcceleratorCount                               *SpotFleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                       []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                               []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                      *SpotFleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                               []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                           []string                                                           `pulumi:"allowedInstanceTypes"`
-	BareMetal                                      *SpotFleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                       *SpotFleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                           *SpotFleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
-	CpuManufacturers                               []SpotFleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                          []string                                                           `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                            []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
-	LocalStorage                                   *SpotFleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
-	LocalStorageTypes                              []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                               `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               *SpotFleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      *SpotFleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           *SpotFleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          *SpotFleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice      *int                                                               `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                        *bool                                                              `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice          *int                                                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                            *SpotFleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                      *SpotFleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
+	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+	AcceleratorCount *SpotFleetAcceleratorCountRequest `pulumi:"acceleratorCount"`
+	// Indicates whether instance types must have accelerators by specific manufacturers.
+	//
+	// - For instance types with AWS devices, specify `amazon-web-services` .
+	// - For instance types with AMD devices, specify `amd` .
+	// - For instance types with Habana devices, specify `habana` .
+	// - For instance types with NVIDIA devices, specify `nvidia` .
+	// - For instance types with Xilinx devices, specify `xilinx` .
+	//
+	// Default: Any manufacturer
+	AcceleratorManufacturers []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	// The accelerators that must be on the instance type.
+	//
+	// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+	//
+	// Default: Any accelerator
+	AcceleratorNames []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem `pulumi:"acceleratorNames"`
+	// The minimum and maximum amount of total accelerator memory, in MiB.
+	AcceleratorTotalMemoryMiB *SpotFleetAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types that must be on the instance type.
+	//
+	// - To include instance types with GPU hardware, specify `gpu` .
+	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - To include instance types with inference hardware, specify `inference` .
+	//
+	// Default: Any accelerator type
+	AcceleratorTypes []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+	//
+	// Default: All instance types
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// Indicates whether bare metal instance types must be included, excluded, or required.
+	//
+	// - To include bare metal instance types, specify `included` .
+	// - To require only bare metal instance types, specify `required` .
+	// - To exclude bare metal instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BareMetal *SpotFleetInstanceRequirementsRequestBareMetal `pulumi:"bareMetal"`
+	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+	BaselineEbsBandwidthMbps *SpotFleetBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+	//
+	// - To include burstable performance instance types, specify `included` .
+	// - To require only burstable performance instance types, specify `required` .
+	// - To exclude burstable performance instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BurstablePerformance *SpotFleetInstanceRequirementsRequestBurstablePerformance `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include.
+	//
+	// - For instance types with Intel CPUs, specify `intel` .
+	// - For instance types with AMD CPUs, specify `amd` .
+	// - For instance types with AWS CPUs, specify `amazon-web-services` .
+	//
+	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
+	// Default: Any manufacturer
+	CpuManufacturers []SpotFleetInstanceRequirementsRequestCpuManufacturersItem `pulumi:"cpuManufacturers"`
+	// The instance types to exclude.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+	//
+	// Default: No excluded instance types
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	//
+	// For current generation instance types, specify `current` .
+	//
+	// For previous generation instance types, specify `previous` .
+	//
+	// Default: Current and previous generation instance types
+	InstanceGenerations []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem `pulumi:"instanceGenerations"`
+	// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+	//
+	// - To include instance types with instance store volumes, specify `included` .
+	// - To require only instance types with instance store volumes, specify `required` .
+	// - To exclude instance types with instance store volumes, specify `excluded` .
+	//
+	// Default: `included`
+	LocalStorage *SpotFleetInstanceRequirementsRequestLocalStorage `pulumi:"localStorage"`
+	// The type of local storage that is required.
+	//
+	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+	// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+	//
+	// Default: `hdd` and `ssd`
+	LocalStorageTypes []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem `pulumi:"localStorageTypes"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU, in GiB.
+	MemoryGiBPerVCpu *SpotFleetMemoryGiBPerVCpuRequest `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory, in MiB.
+	MemoryMiB *SpotFleetMemoryMiBRequest `pulumi:"memoryMiB"`
+	// The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+	//
+	// Default: No minimum or maximum limits
+	NetworkBandwidthGbps *SpotFleetNetworkBandwidthGbpsRequest `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces.
+	NetworkInterfaceCount *SpotFleetNetworkInterfaceCountRequest `pulumi:"networkInterfaceCount"`
+	// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// To indicate no price protection threshold, specify a high value, such as `999999` .
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// Default: `20`
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+	//
+	// Default: `false`
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	//
+	// Default: `100`
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum amount of total local storage, in GB.
+	TotalLocalStorageGb *SpotFleetTotalLocalStorageGbRequest `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs.
+	VCpuCount *SpotFleetVCpuCountRangeRequest `pulumi:"vCpuCount"`
 }
 
 // SpotFleetInstanceRequirementsRequestInput is an input type that accepts SpotFleetInstanceRequirementsRequestArgs and SpotFleetInstanceRequirementsRequestOutput values.
@@ -21302,30 +23771,168 @@ type SpotFleetInstanceRequirementsRequestInput interface {
 }
 
 type SpotFleetInstanceRequirementsRequestArgs struct {
-	AcceleratorCount                               SpotFleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                       SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                               SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                      SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                               SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                           pulumi.StringArrayInput                                                    `pulumi:"allowedInstanceTypes"`
-	BareMetal                                      SpotFleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                       SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                           SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
-	CpuManufacturers                               SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                    `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                            SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
-	LocalStorage                                   SpotFleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
-	LocalStorageTypes                              SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                         `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               SpotFleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      SpotFleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           SpotFleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          SpotFleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                        pulumi.BoolPtrInput                                                        `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                            SpotFleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                      SpotFleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
+	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+	AcceleratorCount SpotFleetAcceleratorCountRequestPtrInput `pulumi:"acceleratorCount"`
+	// Indicates whether instance types must have accelerators by specific manufacturers.
+	//
+	// - For instance types with AWS devices, specify `amazon-web-services` .
+	// - For instance types with AMD devices, specify `amd` .
+	// - For instance types with Habana devices, specify `habana` .
+	// - For instance types with NVIDIA devices, specify `nvidia` .
+	// - For instance types with Xilinx devices, specify `xilinx` .
+	//
+	// Default: Any manufacturer
+	AcceleratorManufacturers SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	// The accelerators that must be on the instance type.
+	//
+	// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+	//
+	// Default: Any accelerator
+	AcceleratorNames SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput `pulumi:"acceleratorNames"`
+	// The minimum and maximum amount of total accelerator memory, in MiB.
+	AcceleratorTotalMemoryMiB SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types that must be on the instance type.
+	//
+	// - To include instance types with GPU hardware, specify `gpu` .
+	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - To include instance types with inference hardware, specify `inference` .
+	//
+	// Default: Any accelerator type
+	AcceleratorTypes SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+	//
+	// Default: All instance types
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// Indicates whether bare metal instance types must be included, excluded, or required.
+	//
+	// - To include bare metal instance types, specify `included` .
+	// - To require only bare metal instance types, specify `required` .
+	// - To exclude bare metal instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BareMetal SpotFleetInstanceRequirementsRequestBareMetalPtrInput `pulumi:"bareMetal"`
+	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+	BaselineEbsBandwidthMbps SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+	//
+	// - To include burstable performance instance types, specify `included` .
+	// - To require only burstable performance instance types, specify `required` .
+	// - To exclude burstable performance instance types, specify `excluded` .
+	//
+	// Default: `excluded`
+	BurstablePerformance SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include.
+	//
+	// - For instance types with Intel CPUs, specify `intel` .
+	// - For instance types with AMD CPUs, specify `amd` .
+	// - For instance types with AWS CPUs, specify `amazon-web-services` .
+	//
+	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
+	// Default: Any manufacturer
+	CpuManufacturers SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput `pulumi:"cpuManufacturers"`
+	// The instance types to exclude.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+	//
+	// Default: No excluded instance types
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	//
+	// For current generation instance types, specify `current` .
+	//
+	// For previous generation instance types, specify `previous` .
+	//
+	// Default: Current and previous generation instance types
+	InstanceGenerations SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput `pulumi:"instanceGenerations"`
+	// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+	//
+	// - To include instance types with instance store volumes, specify `included` .
+	// - To require only instance types with instance store volumes, specify `required` .
+	// - To exclude instance types with instance store volumes, specify `excluded` .
+	//
+	// Default: `included`
+	LocalStorage SpotFleetInstanceRequirementsRequestLocalStoragePtrInput `pulumi:"localStorage"`
+	// The type of local storage that is required.
+	//
+	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+	// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+	//
+	// Default: `hdd` and `ssd`
+	LocalStorageTypes SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput `pulumi:"localStorageTypes"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU, in GiB.
+	MemoryGiBPerVCpu SpotFleetMemoryGiBPerVCpuRequestPtrInput `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory, in MiB.
+	MemoryMiB SpotFleetMemoryMiBRequestPtrInput `pulumi:"memoryMiB"`
+	// The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+	//
+	// Default: No minimum or maximum limits
+	NetworkBandwidthGbps SpotFleetNetworkBandwidthGbpsRequestPtrInput `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces.
+	NetworkInterfaceCount SpotFleetNetworkInterfaceCountRequestPtrInput `pulumi:"networkInterfaceCount"`
+	// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// To indicate no price protection threshold, specify a high value, such as `999999` .
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// Default: `20`
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+	//
+	// Default: `false`
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+	//
+	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//
+	// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
+	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+	//
+	// Default: `100`
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum amount of total local storage, in GB.
+	TotalLocalStorageGb SpotFleetTotalLocalStorageGbRequestPtrInput `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs.
+	VCpuCount SpotFleetVCpuCountRangeRequestPtrInput `pulumi:"vCpuCount"`
 }
 
 func (SpotFleetInstanceRequirementsRequestArgs) ElementType() reflect.Type {
@@ -21405,132 +24012,270 @@ func (o SpotFleetInstanceRequirementsRequestOutput) ToSpotFleetInstanceRequireme
 	}).(SpotFleetInstanceRequirementsRequestPtrOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorCount() SpotFleetAcceleratorCountRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetAcceleratorCountRequest {
 		return v.AcceleratorCount
 	}).(SpotFleetAcceleratorCountRequestPtrOutput)
 }
 
+// Indicates whether instance types must have accelerators by specific manufacturers.
+//
+// - For instance types with AWS devices, specify `amazon-web-services` .
+// - For instance types with AMD devices, specify `amd` .
+// - For instance types with Habana devices, specify `habana` .
+// - For instance types with NVIDIA devices, specify `nvidia` .
+// - For instance types with Xilinx devices, specify `xilinx` .
+//
+// Default: Any manufacturer
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorManufacturers() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		return v.AcceleratorManufacturers
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+// The accelerators that must be on the instance type.
+//
+// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+// - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+//
+// Default: Any accelerator
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorNames() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem {
 		return v.AcceleratorNames
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetAcceleratorTotalMemoryMiBRequest {
 		return v.AcceleratorTotalMemoryMiB
 	}).(SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The accelerator types that must be on the instance type.
+//
+// - To include instance types with GPU hardware, specify `gpu` .
+// - To include instance types with FPGA hardware, specify `fpga` .
+// - To include instance types with inference hardware, specify `inference` .
+//
+// Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem {
 		return v.AcceleratorTypes
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+//
+// Default: All instance types
 func (o SpotFleetInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
+//
+// - To include bare metal instance types, specify `included` .
+// - To require only bare metal instance types, specify `required` .
+// - To exclude bare metal instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o SpotFleetInstanceRequirementsRequestOutput) BareMetal() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestBareMetal {
 		return v.BareMetal
 	}).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 func (o SpotFleetInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
 	}).(SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+//
+// - To include burstable performance instance types, specify `included` .
+// - To require only burstable performance instance types, specify `required` .
+// - To exclude burstable performance instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o SpotFleetInstanceRequirementsRequestOutput) BurstablePerformance() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestBurstablePerformance {
 		return v.BurstablePerformance
 	}).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+// The CPU manufacturers to include.
+//
+// - For instance types with Intel CPUs, specify `intel` .
+// - For instance types with AMD CPUs, specify `amd` .
+// - For instance types with AWS CPUs, specify `amazon-web-services` .
+//
+// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
+// Default: Any manufacturer
 func (o SpotFleetInstanceRequirementsRequestOutput) CpuManufacturers() SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestCpuManufacturersItem {
 		return v.CpuManufacturers
 	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+// The instance types to exclude.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+//
+// Default: No excluded instance types
 func (o SpotFleetInstanceRequirementsRequestOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+//
+// For current generation instance types, specify `current` .
+//
+// For previous generation instance types, specify `previous` .
+//
+// Default: Current and previous generation instance types
 func (o SpotFleetInstanceRequirementsRequestOutput) InstanceGenerations() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem {
 		return v.InstanceGenerations
 	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+//
+// - To include instance types with instance store volumes, specify `included` .
+// - To require only instance types with instance store volumes, specify `required` .
+// - To exclude instance types with instance store volumes, specify `excluded` .
+//
+// Default: `included`
 func (o SpotFleetInstanceRequirementsRequestOutput) LocalStorage() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestLocalStorage {
 		return v.LocalStorage
 	}).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+// The type of local storage that is required.
+//
+// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+//
+// Default: `hdd` and `ssd`
 func (o SpotFleetInstanceRequirementsRequestOutput) LocalStorageTypes() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
 		return v.LocalStorageTypes
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
 func (o SpotFleetInstanceRequirementsRequestOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 func (o SpotFleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() SpotFleetMemoryGiBPerVCpuRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetMemoryGiBPerVCpuRequest {
 		return v.MemoryGiBPerVCpu
 	}).(SpotFleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 func (o SpotFleetInstanceRequirementsRequestOutput) MemoryMiB() SpotFleetMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetMemoryMiBRequest { return v.MemoryMiB }).(SpotFleetMemoryMiBRequestPtrOutput)
 }
 
+// The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+//
+// Default: No minimum or maximum limits
 func (o SpotFleetInstanceRequirementsRequestOutput) NetworkBandwidthGbps() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetNetworkBandwidthGbpsRequest {
 		return v.NetworkBandwidthGbps
 	}).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces.
 func (o SpotFleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() SpotFleetNetworkInterfaceCountRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetNetworkInterfaceCountRequest {
 		return v.NetworkInterfaceCount
 	}).(SpotFleetNetworkInterfaceCountRequestPtrOutput)
 }
 
+// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// To indicate no price protection threshold, specify a high value, such as `999999` .
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// Default: `20`
 func (o SpotFleetInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instance types must support hibernation for On-Demand Instances.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+//
+// Default: `false`
 func (o SpotFleetInstanceRequirementsRequestOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+//
+// Default: `100`
 func (o SpotFleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 func (o SpotFleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGbRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGbRequest {
 		return v.TotalLocalStorageGb
 	}).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 func (o SpotFleetInstanceRequirementsRequestOutput) VCpuCount() SpotFleetVCpuCountRangeRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetVCpuCountRangeRequest { return v.VCpuCount }).(SpotFleetVCpuCountRangeRequestPtrOutput)
 }
@@ -21559,6 +24304,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) Elem() SpotFleetInstanceR
 	}).(SpotFleetInstanceRequirementsRequestOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorCount() SpotFleetAcceleratorCountRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetAcceleratorCountRequest {
 		if v == nil {
@@ -21568,6 +24314,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorCount() SpotFl
 	}).(SpotFleetAcceleratorCountRequestPtrOutput)
 }
 
+// Indicates whether instance types must have accelerators by specific manufacturers.
+//
+// - For instance types with AWS devices, specify `amazon-web-services` .
+// - For instance types with AMD devices, specify `amd` .
+// - For instance types with Habana devices, specify `habana` .
+// - For instance types with NVIDIA devices, specify `nvidia` .
+// - For instance types with Xilinx devices, specify `xilinx` .
+//
+// Default: Any manufacturer
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		if v == nil {
@@ -21577,6 +24332,22 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers(
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+// The accelerators that must be on the instance type.
+//
+// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+// - For instance types with NVIDIA A100 GPUs, specify `a100` .
+// - For instance types with NVIDIA H100 GPUs, specify `h100` .
+// - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+// - For instance types with NVIDIA V100 GPUs, specify `v100` .
+//
+// Default: Any accelerator
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorNames() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem {
 		if v == nil {
@@ -21586,6 +24357,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorNames() SpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB() SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetAcceleratorTotalMemoryMiBRequest {
 		if v == nil {
@@ -21595,6 +24367,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB
 	}).(SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The accelerator types that must be on the instance type.
+//
+// - To include instance types with GPU hardware, specify `gpu` .
+// - To include instance types with FPGA hardware, specify `fpga` .
+// - To include instance types with inference hardware, specify `inference` .
+//
+// Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem {
 		if v == nil {
@@ -21604,6 +24383,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+//
+// Default: All instance types
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []string {
 		if v == nil {
@@ -21613,6 +24401,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
+//
+// - To include bare metal instance types, specify `included` .
+// - To require only bare metal instance types, specify `required` .
+// - To exclude bare metal instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) BareMetal() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestBareMetal {
 		if v == nil {
@@ -21622,6 +24417,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) BareMetal() SpotFleetInst
 	}).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps() SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetBaselineEbsBandwidthMbpsRequest {
 		if v == nil {
@@ -21631,6 +24427,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps(
 	}).(SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+//
+// - To include burstable performance instance types, specify `included` .
+// - To require only burstable performance instance types, specify `required` .
+// - To exclude burstable performance instance types, specify `excluded` .
+//
+// Default: `excluded`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) BurstablePerformance() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestBurstablePerformance {
 		if v == nil {
@@ -21640,6 +24443,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) BurstablePerformance() Sp
 	}).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+// The CPU manufacturers to include.
+//
+// - For instance types with Intel CPUs, specify `intel` .
+// - For instance types with AMD CPUs, specify `amd` .
+// - For instance types with AWS CPUs, specify `amazon-web-services` .
+//
+// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
+// Default: Any manufacturer
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) CpuManufacturers() SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestCpuManufacturersItem {
 		if v == nil {
@@ -21649,6 +24461,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) CpuManufacturers() SpotFl
 	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+// The instance types to exclude.
+//
+// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+//
+// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+//
+// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
+//
+// Default: No excluded instance types
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []string {
 		if v == nil {
@@ -21658,6 +24479,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() p
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+//
+// For current generation instance types, specify `current` .
+//
+// For previous generation instance types, specify `previous` .
+//
+// Default: Current and previous generation instance types
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) InstanceGenerations() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem {
 		if v == nil {
@@ -21667,6 +24495,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) InstanceGenerations() Spo
 	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+//
+// - To include instance types with instance store volumes, specify `included` .
+// - To require only instance types with instance store volumes, specify `required` .
+// - To exclude instance types with instance store volumes, specify `excluded` .
+//
+// Default: `included`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) LocalStorage() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestLocalStorage {
 		if v == nil {
@@ -21676,6 +24511,12 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) LocalStorage() SpotFleetI
 	}).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+// The type of local storage that is required.
+//
+// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+//
+// Default: `hdd` and `ssd`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
 		if v == nil {
@@ -21685,6 +24526,13 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() SpotF
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -21694,6 +24542,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() SpotFleetMemoryGiBPerVCpuRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetMemoryGiBPerVCpuRequest {
 		if v == nil {
@@ -21703,6 +24552,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() SpotFl
 	}).(SpotFleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) MemoryMiB() SpotFleetMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetMemoryMiBRequest {
 		if v == nil {
@@ -21712,6 +24562,9 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) MemoryMiB() SpotFleetMemo
 	}).(SpotFleetMemoryMiBRequestPtrOutput)
 }
 
+// The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+//
+// Default: No minimum or maximum limits
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetNetworkBandwidthGbpsRequest {
 		if v == nil {
@@ -21721,6 +24574,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() Sp
 	}).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces.
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() SpotFleetNetworkInterfaceCountRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetNetworkInterfaceCountRequest {
 		if v == nil {
@@ -21730,6 +24584,17 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() S
 	}).(SpotFleetNetworkInterfaceCountRequestPtrOutput)
 }
 
+// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// To indicate no price protection threshold, specify a high value, such as `999999` .
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// Default: `20`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -21739,6 +24604,11 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentag
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instance types must support hibernation for On-Demand Instances.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+//
+// Default: `false`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *bool {
 		if v == nil {
@@ -21748,6 +24618,17 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) RequireHibernateSupport()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+//
+// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//
+// If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//
+// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+//
+// > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+//
+// Default: `100`
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -21757,6 +24638,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOve
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGbRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGbRequest {
 		if v == nil {
@@ -21766,6 +24648,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() Spo
 	}).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) VCpuCount() SpotFleetVCpuCountRangeRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetVCpuCountRangeRequest {
 		if v == nil {
@@ -21776,24 +24659,67 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) VCpuCount() SpotFleetVCpu
 }
 
 type SpotFleetLaunchSpecification struct {
-	BlockDeviceMappings  []SpotFleetBlockDeviceMapping                    `pulumi:"blockDeviceMappings"`
-	EbsOptimized         *bool                                            `pulumi:"ebsOptimized"`
-	IamInstanceProfile   *SpotFleetIamInstanceProfileSpecification        `pulumi:"iamInstanceProfile"`
-	ImageId              string                                           `pulumi:"imageId"`
-	InstanceRequirements *SpotFleetInstanceRequirementsRequest            `pulumi:"instanceRequirements"`
-	InstanceType         *string                                          `pulumi:"instanceType"`
-	KernelId             *string                                          `pulumi:"kernelId"`
-	KeyName              *string                                          `pulumi:"keyName"`
-	Monitoring           *SpotFleetMonitoring                             `pulumi:"monitoring"`
-	NetworkInterfaces    []SpotFleetInstanceNetworkInterfaceSpecification `pulumi:"networkInterfaces"`
-	Placement            *SpotFleetSpotPlacement                          `pulumi:"placement"`
-	RamdiskId            *string                                          `pulumi:"ramdiskId"`
-	SecurityGroups       []SpotFleetGroupIdentifier                       `pulumi:"securityGroups"`
-	SpotPrice            *string                                          `pulumi:"spotPrice"`
-	SubnetId             *string                                          `pulumi:"subnetId"`
-	TagSpecifications    []SpotFleetTagSpecification                      `pulumi:"tagSpecifications"`
-	UserData             *string                                          `pulumi:"userData"`
-	WeightedCapacity     *float64                                         `pulumi:"weightedCapacity"`
+	// Specifies a block device mapping.
+	//
+	// You can specify `Ebs` or `VirtualName` , but not both.
+	BlockDeviceMappings []SpotFleetBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+	//
+	// Default: `false`
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// Describes an IAM instance profile.
+	IamInstanceProfile *SpotFleetIamInstanceProfileSpecification `pulumi:"iamInstanceProfile"`
+	// The ID of the AMI.
+	ImageId string `pulumi:"imageId"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//
+	// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//
+	// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//
+	// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// >
+	// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+	//
+	// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
+	InstanceRequirements *SpotFleetInstanceRequirementsRequest `pulumi:"instanceRequirements"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The ID of the kernel.
+	KernelId *string `pulumi:"kernelId"`
+	// The name of the key pair.
+	KeyName *string `pulumi:"keyName"`
+	// Describes whether monitoring is enabled.
+	Monitoring *SpotFleetMonitoring `pulumi:"monitoring"`
+	// Describes a network interface.
+	NetworkInterfaces []SpotFleetInstanceNetworkInterfaceSpecification `pulumi:"networkInterfaces"`
+	// Describes Spot Instance placement.
+	Placement *SpotFleetSpotPlacement `pulumi:"placement"`
+	// The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
+	RamdiskId *string `pulumi:"ramdiskId"`
+	// Describes a security group.
+	SecurityGroups []SpotFleetGroupIdentifier `pulumi:"securityGroups"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+	//
+	// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
+	SubnetId *string `pulumi:"subnetId"`
+	// The tags for a Spot Fleet resource.
+	TagSpecifications []SpotFleetTagSpecification `pulumi:"tagSpecifications"`
+	// The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
+	UserData *string `pulumi:"userData"`
+	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+	//
+	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
 // SpotFleetLaunchSpecificationInput is an input type that accepts SpotFleetLaunchSpecificationArgs and SpotFleetLaunchSpecificationOutput values.
@@ -21808,24 +24734,67 @@ type SpotFleetLaunchSpecificationInput interface {
 }
 
 type SpotFleetLaunchSpecificationArgs struct {
-	BlockDeviceMappings  SpotFleetBlockDeviceMappingArrayInput                    `pulumi:"blockDeviceMappings"`
-	EbsOptimized         pulumi.BoolPtrInput                                      `pulumi:"ebsOptimized"`
-	IamInstanceProfile   SpotFleetIamInstanceProfileSpecificationPtrInput         `pulumi:"iamInstanceProfile"`
-	ImageId              pulumi.StringInput                                       `pulumi:"imageId"`
-	InstanceRequirements SpotFleetInstanceRequirementsRequestPtrInput             `pulumi:"instanceRequirements"`
-	InstanceType         pulumi.StringPtrInput                                    `pulumi:"instanceType"`
-	KernelId             pulumi.StringPtrInput                                    `pulumi:"kernelId"`
-	KeyName              pulumi.StringPtrInput                                    `pulumi:"keyName"`
-	Monitoring           SpotFleetMonitoringPtrInput                              `pulumi:"monitoring"`
-	NetworkInterfaces    SpotFleetInstanceNetworkInterfaceSpecificationArrayInput `pulumi:"networkInterfaces"`
-	Placement            SpotFleetSpotPlacementPtrInput                           `pulumi:"placement"`
-	RamdiskId            pulumi.StringPtrInput                                    `pulumi:"ramdiskId"`
-	SecurityGroups       SpotFleetGroupIdentifierArrayInput                       `pulumi:"securityGroups"`
-	SpotPrice            pulumi.StringPtrInput                                    `pulumi:"spotPrice"`
-	SubnetId             pulumi.StringPtrInput                                    `pulumi:"subnetId"`
-	TagSpecifications    SpotFleetTagSpecificationArrayInput                      `pulumi:"tagSpecifications"`
-	UserData             pulumi.StringPtrInput                                    `pulumi:"userData"`
-	WeightedCapacity     pulumi.Float64PtrInput                                   `pulumi:"weightedCapacity"`
+	// Specifies a block device mapping.
+	//
+	// You can specify `Ebs` or `VirtualName` , but not both.
+	BlockDeviceMappings SpotFleetBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	// Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+	//
+	// Default: `false`
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+	// Describes an IAM instance profile.
+	IamInstanceProfile SpotFleetIamInstanceProfileSpecificationPtrInput `pulumi:"iamInstanceProfile"`
+	// The ID of the AMI.
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//
+	// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//
+	// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//
+	// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// >
+	// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+	//
+	// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
+	InstanceRequirements SpotFleetInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The ID of the kernel.
+	KernelId pulumi.StringPtrInput `pulumi:"kernelId"`
+	// The name of the key pair.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Describes whether monitoring is enabled.
+	Monitoring SpotFleetMonitoringPtrInput `pulumi:"monitoring"`
+	// Describes a network interface.
+	NetworkInterfaces SpotFleetInstanceNetworkInterfaceSpecificationArrayInput `pulumi:"networkInterfaces"`
+	// Describes Spot Instance placement.
+	Placement SpotFleetSpotPlacementPtrInput `pulumi:"placement"`
+	// The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
+	RamdiskId pulumi.StringPtrInput `pulumi:"ramdiskId"`
+	// Describes a security group.
+	SecurityGroups SpotFleetGroupIdentifierArrayInput `pulumi:"securityGroups"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
+	// The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+	//
+	// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The tags for a Spot Fleet resource.
+	TagSpecifications SpotFleetTagSpecificationArrayInput `pulumi:"tagSpecifications"`
+	// The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
+	UserData pulumi.StringPtrInput `pulumi:"userData"`
+	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+	//
+	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
 }
 
 func (SpotFleetLaunchSpecificationArgs) ElementType() reflect.Type {
@@ -21879,80 +24848,123 @@ func (o SpotFleetLaunchSpecificationOutput) ToSpotFleetLaunchSpecificationOutput
 	return o
 }
 
+// Specifies a block device mapping.
+//
+// You can specify `Ebs` or `VirtualName` , but not both.
 func (o SpotFleetLaunchSpecificationOutput) BlockDeviceMappings() SpotFleetBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetBlockDeviceMapping { return v.BlockDeviceMappings }).(SpotFleetBlockDeviceMappingArrayOutput)
 }
 
+// Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+//
+// Default: `false`
 func (o SpotFleetLaunchSpecificationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
+// Describes an IAM instance profile.
 func (o SpotFleetLaunchSpecificationOutput) IamInstanceProfile() SpotFleetIamInstanceProfileSpecificationPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetIamInstanceProfileSpecification {
 		return v.IamInstanceProfile
 	}).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
 }
 
+// The ID of the AMI.
 func (o SpotFleetLaunchSpecificationOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+//
+// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//
+// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//
+// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+// >
+// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+//
+// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 func (o SpotFleetLaunchSpecificationOutput) InstanceRequirements() SpotFleetInstanceRequirementsRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetInstanceRequirementsRequest {
 		return v.InstanceRequirements
 	}).(SpotFleetInstanceRequirementsRequestPtrOutput)
 }
 
+// The instance type.
 func (o SpotFleetLaunchSpecificationOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the kernel.
 func (o SpotFleetLaunchSpecificationOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the key pair.
 func (o SpotFleetLaunchSpecificationOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// Describes whether monitoring is enabled.
 func (o SpotFleetLaunchSpecificationOutput) Monitoring() SpotFleetMonitoringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetMonitoring { return v.Monitoring }).(SpotFleetMonitoringPtrOutput)
 }
 
+// Describes a network interface.
 func (o SpotFleetLaunchSpecificationOutput) NetworkInterfaces() SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetInstanceNetworkInterfaceSpecification {
 		return v.NetworkInterfaces
 	}).(SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput)
 }
 
+// Describes Spot Instance placement.
 func (o SpotFleetLaunchSpecificationOutput) Placement() SpotFleetSpotPlacementPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetSpotPlacement { return v.Placement }).(SpotFleetSpotPlacementPtrOutput)
 }
 
+// The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
 func (o SpotFleetLaunchSpecificationOutput) RamdiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.RamdiskId }).(pulumi.StringPtrOutput)
 }
 
+// Describes a security group.
 func (o SpotFleetLaunchSpecificationOutput) SecurityGroups() SpotFleetGroupIdentifierArrayOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetGroupIdentifier { return v.SecurityGroups }).(SpotFleetGroupIdentifierArrayOutput)
 }
 
+// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 func (o SpotFleetLaunchSpecificationOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
+// The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+//
+// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
 func (o SpotFleetLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The tags for a Spot Fleet resource.
 func (o SpotFleetLaunchSpecificationOutput) TagSpecifications() SpotFleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetTagSpecification { return v.TagSpecifications }).(SpotFleetTagSpecificationArrayOutput)
 }
 
+// The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
 func (o SpotFleetLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
+// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+//
+// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 func (o SpotFleetLaunchSpecificationOutput) WeightedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -21978,8 +24990,21 @@ func (o SpotFleetLaunchSpecificationArrayOutput) Index(i pulumi.IntInput) SpotFl
 }
 
 type SpotFleetLaunchTemplateConfig struct {
+	// Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
+	//
+	// You must specify the following:
+	//
+	// - The ID or the name of the launch template, but not both.
+	// - The version of the launch template.
+	//
+	// `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
+	//
+	// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+	//
+	// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 	LaunchTemplateSpecification *SpotFleetFleetLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
-	Overrides                   []SpotFleetLaunchTemplateOverrides         `pulumi:"overrides"`
+	// Specifies overrides for a launch template.
+	Overrides []SpotFleetLaunchTemplateOverrides `pulumi:"overrides"`
 }
 
 // SpotFleetLaunchTemplateConfigInput is an input type that accepts SpotFleetLaunchTemplateConfigArgs and SpotFleetLaunchTemplateConfigOutput values.
@@ -21994,8 +25019,21 @@ type SpotFleetLaunchTemplateConfigInput interface {
 }
 
 type SpotFleetLaunchTemplateConfigArgs struct {
+	// Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
+	//
+	// You must specify the following:
+	//
+	// - The ID or the name of the launch template, but not both.
+	// - The version of the launch template.
+	//
+	// `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
+	//
+	// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+	//
+	// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 	LaunchTemplateSpecification SpotFleetFleetLaunchTemplateSpecificationPtrInput `pulumi:"launchTemplateSpecification"`
-	Overrides                   SpotFleetLaunchTemplateOverridesArrayInput        `pulumi:"overrides"`
+	// Specifies overrides for a launch template.
+	Overrides SpotFleetLaunchTemplateOverridesArrayInput `pulumi:"overrides"`
 }
 
 func (SpotFleetLaunchTemplateConfigArgs) ElementType() reflect.Type {
@@ -22049,12 +25087,25 @@ func (o SpotFleetLaunchTemplateConfigOutput) ToSpotFleetLaunchTemplateConfigOutp
 	return o
 }
 
+// Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
+//
+// You must specify the following:
+//
+// - The ID or the name of the launch template, but not both.
+// - The version of the launch template.
+//
+// `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
+//
+// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+//
+// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 func (o SpotFleetLaunchTemplateConfigOutput) LaunchTemplateSpecification() SpotFleetFleetLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateConfig) *SpotFleetFleetLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
 	}).(SpotFleetFleetLaunchTemplateSpecificationPtrOutput)
 }
 
+// Specifies overrides for a launch template.
 func (o SpotFleetLaunchTemplateConfigOutput) Overrides() SpotFleetLaunchTemplateOverridesArrayOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateConfig) []SpotFleetLaunchTemplateOverrides { return v.Overrides }).(SpotFleetLaunchTemplateOverridesArrayOutput)
 }
@@ -22080,13 +25131,45 @@ func (o SpotFleetLaunchTemplateConfigArrayOutput) Index(i pulumi.IntInput) SpotF
 }
 
 type SpotFleetLaunchTemplateOverrides struct {
-	AvailabilityZone     *string                               `pulumi:"availabilityZone"`
+	// The Availability Zone in which to launch the instances.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//
+	// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//
+	// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//
+	// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// >
+	// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+	//
+	// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 	InstanceRequirements *SpotFleetInstanceRequirementsRequest `pulumi:"instanceRequirements"`
-	InstanceType         *string                               `pulumi:"instanceType"`
-	Priority             *float64                              `pulumi:"priority"`
-	SpotPrice            *string                               `pulumi:"spotPrice"`
-	SubnetId             *string                               `pulumi:"subnetId"`
-	WeightedCapacity     *float64                              `pulumi:"weightedCapacity"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The priority for the launch template override. The highest priority is launched first.
+	//
+	// If `OnDemandAllocationStrategy` is set to `prioritized` , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+	//
+	// If the Spot `AllocationStrategy` is set to `capacityOptimizedPrioritized` , Spot Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+	//
+	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+	Priority *float64 `pulumi:"priority"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The ID of the subnet in which to launch the instances.
+	SubnetId *string `pulumi:"subnetId"`
+	// The number of units provided by the specified instance type.
+	//
+	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
 // SpotFleetLaunchTemplateOverridesInput is an input type that accepts SpotFleetLaunchTemplateOverridesArgs and SpotFleetLaunchTemplateOverridesOutput values.
@@ -22101,13 +25184,45 @@ type SpotFleetLaunchTemplateOverridesInput interface {
 }
 
 type SpotFleetLaunchTemplateOverridesArgs struct {
-	AvailabilityZone     pulumi.StringPtrInput                        `pulumi:"availabilityZone"`
+	// The Availability Zone in which to launch the instances.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//
+	// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//
+	// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//
+	// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// >
+	// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+	//
+	// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 	InstanceRequirements SpotFleetInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
-	InstanceType         pulumi.StringPtrInput                        `pulumi:"instanceType"`
-	Priority             pulumi.Float64PtrInput                       `pulumi:"priority"`
-	SpotPrice            pulumi.StringPtrInput                        `pulumi:"spotPrice"`
-	SubnetId             pulumi.StringPtrInput                        `pulumi:"subnetId"`
-	WeightedCapacity     pulumi.Float64PtrInput                       `pulumi:"weightedCapacity"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The priority for the launch template override. The highest priority is launched first.
+	//
+	// If `OnDemandAllocationStrategy` is set to `prioritized` , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+	//
+	// If the Spot `AllocationStrategy` is set to `capacityOptimizedPrioritized` , Spot Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+	//
+	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
+	// The ID of the subnet in which to launch the instances.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The number of units provided by the specified instance type.
+	//
+	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
 }
 
 func (SpotFleetLaunchTemplateOverridesArgs) ElementType() reflect.Type {
@@ -22161,32 +25276,64 @@ func (o SpotFleetLaunchTemplateOverridesOutput) ToSpotFleetLaunchTemplateOverrid
 	return o
 }
 
+// The Availability Zone in which to launch the instances.
 func (o SpotFleetLaunchTemplateOverridesOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+//
+// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//
+// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//
+// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+// >
+// > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` .
+//
+// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 func (o SpotFleetLaunchTemplateOverridesOutput) InstanceRequirements() SpotFleetInstanceRequirementsRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *SpotFleetInstanceRequirementsRequest {
 		return v.InstanceRequirements
 	}).(SpotFleetInstanceRequirementsRequestPtrOutput)
 }
 
+// The instance type.
 func (o SpotFleetLaunchTemplateOverridesOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The priority for the launch template override. The highest priority is launched first.
+//
+// If `OnDemandAllocationStrategy` is set to `prioritized` , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+//
+// If the Spot `AllocationStrategy` is set to `capacityOptimizedPrioritized` , Spot Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+//
+// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
 func (o SpotFleetLaunchTemplateOverridesOutput) Priority() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 func (o SpotFleetLaunchTemplateOverridesOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the subnet in which to launch the instances.
 func (o SpotFleetLaunchTemplateOverridesOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The number of units provided by the specified instance type.
+//
+// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 func (o SpotFleetLaunchTemplateOverridesOutput) WeightedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -22212,8 +25359,10 @@ func (o SpotFleetLaunchTemplateOverridesArrayOutput) Index(i pulumi.IntInput) Sp
 }
 
 type SpotFleetLoadBalancersConfig struct {
+	// Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 	ClassicLoadBalancersConfig *SpotFleetClassicLoadBalancersConfig `pulumi:"classicLoadBalancersConfig"`
-	TargetGroupsConfig         *SpotFleetTargetGroupsConfig         `pulumi:"targetGroupsConfig"`
+	// Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+	TargetGroupsConfig *SpotFleetTargetGroupsConfig `pulumi:"targetGroupsConfig"`
 }
 
 // SpotFleetLoadBalancersConfigInput is an input type that accepts SpotFleetLoadBalancersConfigArgs and SpotFleetLoadBalancersConfigOutput values.
@@ -22228,8 +25377,10 @@ type SpotFleetLoadBalancersConfigInput interface {
 }
 
 type SpotFleetLoadBalancersConfigArgs struct {
+	// Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 	ClassicLoadBalancersConfig SpotFleetClassicLoadBalancersConfigPtrInput `pulumi:"classicLoadBalancersConfig"`
-	TargetGroupsConfig         SpotFleetTargetGroupsConfigPtrInput         `pulumi:"targetGroupsConfig"`
+	// Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+	TargetGroupsConfig SpotFleetTargetGroupsConfigPtrInput `pulumi:"targetGroupsConfig"`
 }
 
 func (SpotFleetLoadBalancersConfigArgs) ElementType() reflect.Type {
@@ -22309,12 +25460,14 @@ func (o SpotFleetLoadBalancersConfigOutput) ToSpotFleetLoadBalancersConfigPtrOut
 	}).(SpotFleetLoadBalancersConfigPtrOutput)
 }
 
+// Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 func (o SpotFleetLoadBalancersConfigOutput) ClassicLoadBalancersConfig() SpotFleetClassicLoadBalancersConfigPtrOutput {
 	return o.ApplyT(func(v SpotFleetLoadBalancersConfig) *SpotFleetClassicLoadBalancersConfig {
 		return v.ClassicLoadBalancersConfig
 	}).(SpotFleetClassicLoadBalancersConfigPtrOutput)
 }
 
+// Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
 func (o SpotFleetLoadBalancersConfigOutput) TargetGroupsConfig() SpotFleetTargetGroupsConfigPtrOutput {
 	return o.ApplyT(func(v SpotFleetLoadBalancersConfig) *SpotFleetTargetGroupsConfig { return v.TargetGroupsConfig }).(SpotFleetTargetGroupsConfigPtrOutput)
 }
@@ -22343,6 +25496,7 @@ func (o SpotFleetLoadBalancersConfigPtrOutput) Elem() SpotFleetLoadBalancersConf
 	}).(SpotFleetLoadBalancersConfigOutput)
 }
 
+// Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 func (o SpotFleetLoadBalancersConfigPtrOutput) ClassicLoadBalancersConfig() SpotFleetClassicLoadBalancersConfigPtrOutput {
 	return o.ApplyT(func(v *SpotFleetLoadBalancersConfig) *SpotFleetClassicLoadBalancersConfig {
 		if v == nil {
@@ -22352,6 +25506,7 @@ func (o SpotFleetLoadBalancersConfigPtrOutput) ClassicLoadBalancersConfig() Spot
 	}).(SpotFleetClassicLoadBalancersConfigPtrOutput)
 }
 
+// Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
 func (o SpotFleetLoadBalancersConfigPtrOutput) TargetGroupsConfig() SpotFleetTargetGroupsConfigPtrOutput {
 	return o.ApplyT(func(v *SpotFleetLoadBalancersConfig) *SpotFleetTargetGroupsConfig {
 		if v == nil {
@@ -22362,7 +25517,9 @@ func (o SpotFleetLoadBalancersConfigPtrOutput) TargetGroupsConfig() SpotFleetTar
 }
 
 type SpotFleetMemoryGiBPerVCpuRequest struct {
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -22378,7 +25535,9 @@ type SpotFleetMemoryGiBPerVCpuRequestInput interface {
 }
 
 type SpotFleetMemoryGiBPerVCpuRequestArgs struct {
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -22459,10 +25618,12 @@ func (o SpotFleetMemoryGiBPerVCpuRequestOutput) ToSpotFleetMemoryGiBPerVCpuReque
 	}).(SpotFleetMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o SpotFleetMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -22491,6 +25652,7 @@ func (o SpotFleetMemoryGiBPerVCpuRequestPtrOutput) Elem() SpotFleetMemoryGiBPerV
 	}).(SpotFleetMemoryGiBPerVCpuRequestOutput)
 }
 
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
@@ -22500,6 +25662,7 @@ func (o SpotFleetMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o SpotFleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
@@ -22510,7 +25673,9 @@ func (o SpotFleetMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput
 }
 
 type SpotFleetMemoryMiBRequest struct {
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 	Min *int `pulumi:"min"`
 }
 
@@ -22526,7 +25691,9 @@ type SpotFleetMemoryMiBRequestInput interface {
 }
 
 type SpotFleetMemoryMiBRequestArgs struct {
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -22607,10 +25774,12 @@ func (o SpotFleetMemoryMiBRequestOutput) ToSpotFleetMemoryMiBRequestPtrOutputWit
 	}).(SpotFleetMemoryMiBRequestPtrOutput)
 }
 
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 func (o SpotFleetMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -22639,6 +25808,7 @@ func (o SpotFleetMemoryMiBRequestPtrOutput) Elem() SpotFleetMemoryMiBRequestOutp
 	}).(SpotFleetMemoryMiBRequestOutput)
 }
 
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetMemoryMiBRequest) *int {
 		if v == nil {
@@ -22648,6 +25818,7 @@ func (o SpotFleetMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
 func (o SpotFleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetMemoryMiBRequest) *int {
 		if v == nil {
@@ -22658,6 +25829,9 @@ func (o SpotFleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type SpotFleetMonitoring struct {
+	// Enables monitoring for the instance.
+	//
+	// Default: `false`
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -22673,6 +25847,9 @@ type SpotFleetMonitoringInput interface {
 }
 
 type SpotFleetMonitoringArgs struct {
+	// Enables monitoring for the instance.
+	//
+	// Default: `false`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -22753,6 +25930,9 @@ func (o SpotFleetMonitoringOutput) ToSpotFleetMonitoringPtrOutputWithContext(ctx
 	}).(SpotFleetMonitoringPtrOutput)
 }
 
+// Enables monitoring for the instance.
+//
+// Default: `false`
 func (o SpotFleetMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -22781,6 +25961,9 @@ func (o SpotFleetMonitoringPtrOutput) Elem() SpotFleetMonitoringOutput {
 	}).(SpotFleetMonitoringOutput)
 }
 
+// Enables monitoring for the instance.
+//
+// Default: `false`
 func (o SpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetMonitoring) *bool {
 		if v == nil {
@@ -22791,7 +25974,9 @@ func (o SpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type SpotFleetNetworkBandwidthGbpsRequest struct {
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -22807,7 +25992,9 @@ type SpotFleetNetworkBandwidthGbpsRequestInput interface {
 }
 
 type SpotFleetNetworkBandwidthGbpsRequestArgs struct {
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -22888,10 +26075,12 @@ func (o SpotFleetNetworkBandwidthGbpsRequestOutput) ToSpotFleetNetworkBandwidthG
 	}).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o SpotFleetNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 func (o SpotFleetNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -22920,6 +26109,7 @@ func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Elem() SpotFleetNetworkBa
 	}).(SpotFleetNetworkBandwidthGbpsRequestOutput)
 }
 
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
@@ -22929,6 +26119,7 @@ func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
@@ -22939,7 +26130,9 @@ func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOu
 }
 
 type SpotFleetNetworkInterfaceCountRequest struct {
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -22955,7 +26148,9 @@ type SpotFleetNetworkInterfaceCountRequestInput interface {
 }
 
 type SpotFleetNetworkInterfaceCountRequestArgs struct {
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -23036,10 +26231,12 @@ func (o SpotFleetNetworkInterfaceCountRequestOutput) ToSpotFleetNetworkInterface
 	}).(SpotFleetNetworkInterfaceCountRequestPtrOutput)
 }
 
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o SpotFleetNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o SpotFleetNetworkInterfaceCountRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetNetworkInterfaceCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -23068,6 +26265,7 @@ func (o SpotFleetNetworkInterfaceCountRequestPtrOutput) Elem() SpotFleetNetworkI
 	}).(SpotFleetNetworkInterfaceCountRequestOutput)
 }
 
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o SpotFleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetNetworkInterfaceCountRequest) *int {
 		if v == nil {
@@ -23077,6 +26275,7 @@ func (o SpotFleetNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o SpotFleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetNetworkInterfaceCountRequest) *int {
 		if v == nil {
@@ -23087,7 +26286,9 @@ func (o SpotFleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutpu
 }
 
 type SpotFleetPrivateIpAddressSpecification struct {
-	Primary          *bool  `pulumi:"primary"`
+	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IPv4 address.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 }
 
@@ -23103,8 +26304,10 @@ type SpotFleetPrivateIpAddressSpecificationInput interface {
 }
 
 type SpotFleetPrivateIpAddressSpecificationArgs struct {
-	Primary          pulumi.BoolPtrInput `pulumi:"primary"`
-	PrivateIpAddress pulumi.StringInput  `pulumi:"privateIpAddress"`
+	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IPv4 address.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 }
 
 func (SpotFleetPrivateIpAddressSpecificationArgs) ElementType() reflect.Type {
@@ -23158,10 +26361,12 @@ func (o SpotFleetPrivateIpAddressSpecificationOutput) ToSpotFleetPrivateIpAddres
 	return o
 }
 
+// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 func (o SpotFleetPrivateIpAddressSpecificationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetPrivateIpAddressSpecification) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IPv4 address.
 func (o SpotFleetPrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetPrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -23187,29 +26392,71 @@ func (o SpotFleetPrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInp
 }
 
 type SpotFleetRequestConfigData struct {
-	AllocationStrategy               *SpotFleetRequestConfigDataAllocationStrategy              `pulumi:"allocationStrategy"`
-	Context                          *string                                                    `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
-	IamFleetRole                     string                                                     `pulumi:"iamFleetRole"`
-	InstanceInterruptionBehavior     *SpotFleetRequestConfigDataInstanceInterruptionBehavior    `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount          *int                                                       `pulumi:"instancePoolsToUseCount"`
-	LaunchSpecifications             []SpotFleetLaunchSpecification                             `pulumi:"launchSpecifications"`
-	LaunchTemplateConfigs            []SpotFleetLaunchTemplateConfig                            `pulumi:"launchTemplateConfigs"`
-	LoadBalancersConfig              *SpotFleetLoadBalancersConfig                              `pulumi:"loadBalancersConfig"`
-	OnDemandAllocationStrategy       *string                                                    `pulumi:"onDemandAllocationStrategy"`
-	OnDemandMaxTotalPrice            *string                                                    `pulumi:"onDemandMaxTotalPrice"`
-	OnDemandTargetCapacity           *int                                                       `pulumi:"onDemandTargetCapacity"`
-	ReplaceUnhealthyInstances        *bool                                                      `pulumi:"replaceUnhealthyInstances"`
-	SpotMaintenanceStrategies        *SpotFleetSpotMaintenanceStrategies                        `pulumi:"spotMaintenanceStrategies"`
-	SpotMaxTotalPrice                *string                                                    `pulumi:"spotMaxTotalPrice"`
-	SpotPrice                        *string                                                    `pulumi:"spotPrice"`
-	TagSpecifications                []SpotFleetTagSpecification                                `pulumi:"tagSpecifications"`
-	TargetCapacity                   int                                                        `pulumi:"targetCapacity"`
-	TargetCapacityUnitType           *SpotFleetRequestConfigDataTargetCapacityUnitType          `pulumi:"targetCapacityUnitType"`
-	TerminateInstancesWithExpiration *bool                                                      `pulumi:"terminateInstancesWithExpiration"`
-	Type                             *SpotFleetRequestConfigDataType                            `pulumi:"type"`
-	ValidFrom                        *string                                                    `pulumi:"validFrom"`
-	ValidUntil                       *string                                                    `pulumi:"validUntil"`
+	// The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
+	//
+	// - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+	// - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+	// - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+	// - **lowestPrice** - Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+	//
+	// Default: `lowestPrice`
+	AllocationStrategy *SpotFleetRequestConfigDataAllocationStrategy `pulumi:"allocationStrategy"`
+	// Reserved.
+	Context *string `pulumi:"context"`
+	// Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
+	ExcessCapacityTerminationPolicy *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
+	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide for Linux Instances* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
+	IamFleetRole string `pulumi:"iamFleetRole"`
+	// The behavior when a Spot Instance is interrupted. The default is `terminate` .
+	InstanceInterruptionBehavior *SpotFleetRequestConfigDataInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
+	// The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+	//
+	// Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
+	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
+	// Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
+	LaunchSpecifications []SpotFleetLaunchSpecification `pulumi:"launchSpecifications"`
+	// Specifies a launch template and overrides.
+	LaunchTemplateConfigs []SpotFleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
+	// Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+	LoadBalancersConfig *SpotFleetLoadBalancersConfig `pulumi:"loadBalancersConfig"`
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
+	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	//
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	OnDemandMaxTotalPrice *string `pulumi:"onDemandMaxTotalPrice"`
+	// The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
+	// Indicates whether Spot Fleet should replace unhealthy instances.
+	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
+	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+	SpotMaintenanceStrategies *SpotFleetSpotMaintenanceStrategies `pulumi:"spotMaintenanceStrategies"`
+	// The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	//
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	SpotMaxTotalPrice *string `pulumi:"spotMaxTotalPrice"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The key-value pair for tagging the Spot Fleet request on creation. The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	TagSpecifications []SpotFleetTagSpecification `pulumi:"tagSpecifications"`
+	// The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
+	TargetCapacity int `pulumi:"targetCapacity"`
+	// The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
+	//
+	// Default: `units` (the number of instances)
+	TargetCapacityUnitType *SpotFleetRequestConfigDataTargetCapacityUnitType `pulumi:"targetCapacityUnitType"`
+	// Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
+	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
+	// The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
+	Type *SpotFleetRequestConfigDataType `pulumi:"type"`
+	// The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). By default, Amazon EC2 starts fulfilling the request immediately.
+	ValidFrom *string `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 // SpotFleetRequestConfigDataInput is an input type that accepts SpotFleetRequestConfigDataArgs and SpotFleetRequestConfigDataOutput values.
@@ -23224,29 +26471,71 @@ type SpotFleetRequestConfigDataInput interface {
 }
 
 type SpotFleetRequestConfigDataArgs struct {
-	AllocationStrategy               SpotFleetRequestConfigDataAllocationStrategyPtrInput              `pulumi:"allocationStrategy"`
-	Context                          pulumi.StringPtrInput                                             `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput `pulumi:"excessCapacityTerminationPolicy"`
-	IamFleetRole                     pulumi.StringInput                                                `pulumi:"iamFleetRole"`
-	InstanceInterruptionBehavior     SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput    `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount          pulumi.IntPtrInput                                                `pulumi:"instancePoolsToUseCount"`
-	LaunchSpecifications             SpotFleetLaunchSpecificationArrayInput                            `pulumi:"launchSpecifications"`
-	LaunchTemplateConfigs            SpotFleetLaunchTemplateConfigArrayInput                           `pulumi:"launchTemplateConfigs"`
-	LoadBalancersConfig              SpotFleetLoadBalancersConfigPtrInput                              `pulumi:"loadBalancersConfig"`
-	OnDemandAllocationStrategy       pulumi.StringPtrInput                                             `pulumi:"onDemandAllocationStrategy"`
-	OnDemandMaxTotalPrice            pulumi.StringPtrInput                                             `pulumi:"onDemandMaxTotalPrice"`
-	OnDemandTargetCapacity           pulumi.IntPtrInput                                                `pulumi:"onDemandTargetCapacity"`
-	ReplaceUnhealthyInstances        pulumi.BoolPtrInput                                               `pulumi:"replaceUnhealthyInstances"`
-	SpotMaintenanceStrategies        SpotFleetSpotMaintenanceStrategiesPtrInput                        `pulumi:"spotMaintenanceStrategies"`
-	SpotMaxTotalPrice                pulumi.StringPtrInput                                             `pulumi:"spotMaxTotalPrice"`
-	SpotPrice                        pulumi.StringPtrInput                                             `pulumi:"spotPrice"`
-	TagSpecifications                SpotFleetTagSpecificationArrayInput                               `pulumi:"tagSpecifications"`
-	TargetCapacity                   pulumi.IntInput                                                   `pulumi:"targetCapacity"`
-	TargetCapacityUnitType           SpotFleetRequestConfigDataTargetCapacityUnitTypePtrInput          `pulumi:"targetCapacityUnitType"`
-	TerminateInstancesWithExpiration pulumi.BoolPtrInput                                               `pulumi:"terminateInstancesWithExpiration"`
-	Type                             SpotFleetRequestConfigDataTypePtrInput                            `pulumi:"type"`
-	ValidFrom                        pulumi.StringPtrInput                                             `pulumi:"validFrom"`
-	ValidUntil                       pulumi.StringPtrInput                                             `pulumi:"validUntil"`
+	// The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
+	//
+	// - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+	// - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+	// - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+	// - **lowestPrice** - Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+	//
+	// Default: `lowestPrice`
+	AllocationStrategy SpotFleetRequestConfigDataAllocationStrategyPtrInput `pulumi:"allocationStrategy"`
+	// Reserved.
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
+	ExcessCapacityTerminationPolicy SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput `pulumi:"excessCapacityTerminationPolicy"`
+	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide for Linux Instances* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
+	IamFleetRole pulumi.StringInput `pulumi:"iamFleetRole"`
+	// The behavior when a Spot Instance is interrupted. The default is `terminate` .
+	InstanceInterruptionBehavior SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
+	// The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+	//
+	// Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
+	InstancePoolsToUseCount pulumi.IntPtrInput `pulumi:"instancePoolsToUseCount"`
+	// Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
+	LaunchSpecifications SpotFleetLaunchSpecificationArrayInput `pulumi:"launchSpecifications"`
+	// Specifies a launch template and overrides.
+	LaunchTemplateConfigs SpotFleetLaunchTemplateConfigArrayInput `pulumi:"launchTemplateConfigs"`
+	// Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+	LoadBalancersConfig SpotFleetLoadBalancersConfigPtrInput `pulumi:"loadBalancersConfig"`
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
+	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	//
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	OnDemandMaxTotalPrice pulumi.StringPtrInput `pulumi:"onDemandMaxTotalPrice"`
+	// The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity pulumi.IntPtrInput `pulumi:"onDemandTargetCapacity"`
+	// Indicates whether Spot Fleet should replace unhealthy instances.
+	ReplaceUnhealthyInstances pulumi.BoolPtrInput `pulumi:"replaceUnhealthyInstances"`
+	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+	SpotMaintenanceStrategies SpotFleetSpotMaintenanceStrategiesPtrInput `pulumi:"spotMaintenanceStrategies"`
+	// The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	//
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	SpotMaxTotalPrice pulumi.StringPtrInput `pulumi:"spotMaxTotalPrice"`
+	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
+	// The key-value pair for tagging the Spot Fleet request on creation. The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	TagSpecifications SpotFleetTagSpecificationArrayInput `pulumi:"tagSpecifications"`
+	// The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
+	TargetCapacity pulumi.IntInput `pulumi:"targetCapacity"`
+	// The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
+	//
+	// Default: `units` (the number of instances)
+	TargetCapacityUnitType SpotFleetRequestConfigDataTargetCapacityUnitTypePtrInput `pulumi:"targetCapacityUnitType"`
+	// Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
+	TerminateInstancesWithExpiration pulumi.BoolPtrInput `pulumi:"terminateInstancesWithExpiration"`
+	// The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
+	Type SpotFleetRequestConfigDataTypePtrInput `pulumi:"type"`
+	// The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). By default, Amazon EC2 starts fulfilling the request immediately.
+	ValidFrom pulumi.StringPtrInput `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
+	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
 }
 
 func (SpotFleetRequestConfigDataArgs) ElementType() reflect.Type {
@@ -23275,104 +26564,146 @@ func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataOutputWith
 	return o
 }
 
+// The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
+//
+// - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+// - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+// - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+// - **lowestPrice** - Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+//
+// Default: `lowestPrice`
 func (o SpotFleetRequestConfigDataOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataAllocationStrategy {
 		return v.AllocationStrategy
 	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
+// Reserved.
 func (o SpotFleetRequestConfigDataOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+//
+// Supported only for fleets of type `maintain` .
 func (o SpotFleetRequestConfigDataOutput) ExcessCapacityTerminationPolicy() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
 		return v.ExcessCapacityTerminationPolicy
 	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide for Linux Instances* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
 func (o SpotFleetRequestConfigDataOutput) IamFleetRole() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) string { return v.IamFleetRole }).(pulumi.StringOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. The default is `terminate` .
 func (o SpotFleetRequestConfigDataOutput) InstanceInterruptionBehavior() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
 		return v.InstanceInterruptionBehavior
 	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
+// The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+//
+// Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
 func (o SpotFleetRequestConfigDataOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
 func (o SpotFleetRequestConfigDataOutput) LaunchSpecifications() SpotFleetLaunchSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) []SpotFleetLaunchSpecification { return v.LaunchSpecifications }).(SpotFleetLaunchSpecificationArrayOutput)
 }
 
+// Specifies a launch template and overrides.
 func (o SpotFleetRequestConfigDataOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig { return v.LaunchTemplateConfigs }).(SpotFleetLaunchTemplateConfigArrayOutput)
 }
 
+// Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 func (o SpotFleetRequestConfigDataOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig { return v.LoadBalancersConfig }).(SpotFleetLoadBalancersConfigPtrOutput)
 }
 
+// The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
 func (o SpotFleetRequestConfigDataOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
+// The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+//
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o SpotFleetRequestConfigDataOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.OnDemandMaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
+// The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 func (o SpotFleetRequestConfigDataOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether Spot Fleet should replace unhealthy instances.
 func (o SpotFleetRequestConfigDataOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *bool { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
 }
 
+// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 func (o SpotFleetRequestConfigDataOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
 		return v.SpotMaintenanceStrategies
 	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
 }
 
+// The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+//
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o SpotFleetRequestConfigDataOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.SpotMaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
+// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 func (o SpotFleetRequestConfigDataOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
+// The key-value pair for tagging the Spot Fleet request on creation. The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 func (o SpotFleetRequestConfigDataOutput) TagSpecifications() SpotFleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) []SpotFleetTagSpecification { return v.TagSpecifications }).(SpotFleetTagSpecificationArrayOutput)
 }
 
+// The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 func (o SpotFleetRequestConfigDataOutput) TargetCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) int { return v.TargetCapacity }).(pulumi.IntOutput)
 }
 
+// The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
+//
+// Default: `units` (the number of instances)
 func (o SpotFleetRequestConfigDataOutput) TargetCapacityUnitType() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataTargetCapacityUnitType {
 		return v.TargetCapacityUnitType
 	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
 }
 
+// Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
 func (o SpotFleetRequestConfigDataOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *bool { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
 }
 
+// The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
 func (o SpotFleetRequestConfigDataOutput) Type() SpotFleetRequestConfigDataTypePtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataType { return v.Type }).(SpotFleetRequestConfigDataTypePtrOutput)
 }
 
+// The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). By default, Amazon EC2 starts fulfilling the request immediately.
 func (o SpotFleetRequestConfigDataOutput) ValidFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.ValidFrom }).(pulumi.StringPtrOutput)
 }
 
+// The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
 func (o SpotFleetRequestConfigDataOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
@@ -23401,6 +26732,14 @@ func (o SpotFleetRequestConfigDataPtrOutput) Elem() SpotFleetRequestConfigDataOu
 	}).(SpotFleetRequestConfigDataOutput)
 }
 
+// The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
+//
+// - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+// - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+// - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+// - **lowestPrice** - Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+//
+// Default: `lowestPrice`
 func (o SpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataAllocationStrategy {
 		if v == nil {
@@ -23410,6 +26749,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetReque
 	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
+// Reserved.
 func (o SpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23419,6 +26759,9 @@ func (o SpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+//
+// Supported only for fleets of type `maintain` .
 func (o SpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
 		if v == nil {
@@ -23428,6 +26771,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() S
 	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide for Linux Instances* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
 func (o SpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23437,6 +26781,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. The default is `terminate` .
 func (o SpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
 		if v == nil {
@@ -23446,6 +26791,9 @@ func (o SpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() Spot
 	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
+// The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+//
+// Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
 func (o SpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
 		if v == nil {
@@ -23455,6 +26803,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
 func (o SpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetLaunchSpecificationArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchSpecification {
 		if v == nil {
@@ -23464,6 +26813,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetLau
 	}).(SpotFleetLaunchSpecificationArrayOutput)
 }
 
+// Specifies a launch template and overrides.
 func (o SpotFleetRequestConfigDataPtrOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig {
 		if v == nil {
@@ -23473,6 +26823,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) LaunchTemplateConfigs() SpotFleetLa
 	}).(SpotFleetLaunchTemplateConfigArrayOutput)
 }
 
+// Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 func (o SpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig {
 		if v == nil {
@@ -23482,6 +26833,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() SpotFleetLoad
 	}).(SpotFleetLoadBalancersConfigPtrOutput)
 }
 
+// The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
 func (o SpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23491,6 +26843,9 @@ func (o SpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+//
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o SpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23500,6 +26855,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 func (o SpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
 		if v == nil {
@@ -23509,6 +26865,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether Spot Fleet should replace unhealthy instances.
 func (o SpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
 		if v == nil {
@@ -23518,6 +26875,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 func (o SpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
 		if v == nil {
@@ -23527,6 +26885,9 @@ func (o SpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFle
 	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
 }
 
+// The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+//
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
 func (o SpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23536,6 +26897,9 @@ func (o SpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 func (o SpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23545,6 +26909,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The key-value pair for tagging the Spot Fleet request on creation. The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 func (o SpotFleetRequestConfigDataPtrOutput) TagSpecifications() SpotFleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetTagSpecification {
 		if v == nil {
@@ -23554,6 +26919,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) TagSpecifications() SpotFleetTagSpe
 	}).(SpotFleetTagSpecificationArrayOutput)
 }
 
+// The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
 		if v == nil {
@@ -23563,6 +26929,9 @@ func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
+//
+// Default: `units` (the number of instances)
 func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacityUnitType() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataTargetCapacityUnitType {
 		if v == nil {
@@ -23572,6 +26941,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacityUnitType() SpotFleetR
 	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
 }
 
+// Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
 func (o SpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
 		if v == nil {
@@ -23581,6 +26951,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpiration() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
 func (o SpotFleetRequestConfigDataPtrOutput) Type() SpotFleetRequestConfigDataTypePtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataType {
 		if v == nil {
@@ -23590,6 +26961,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) Type() SpotFleetRequestConfigDataTy
 	}).(SpotFleetRequestConfigDataTypePtrOutput)
 }
 
+// The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). By default, Amazon EC2 starts fulfilling the request immediately.
 func (o SpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23599,6 +26971,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
 func (o SpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -23609,8 +26982,20 @@ func (o SpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput
 }
 
 type SpotFleetSpotCapacityRebalance struct {
+	// The replacement strategy to use. Only available for fleets of type `maintain` .
+	//
+	// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+	//
+	// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 	ReplacementStrategy *SpotFleetSpotCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
-	TerminationDelay    *int                                               `pulumi:"terminationDelay"`
+	// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+	//
+	// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+	//
+	// Not valid when `ReplacementStrategy` is set to `launch` .
+	//
+	// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+	TerminationDelay *int `pulumi:"terminationDelay"`
 }
 
 // SpotFleetSpotCapacityRebalanceInput is an input type that accepts SpotFleetSpotCapacityRebalanceArgs and SpotFleetSpotCapacityRebalanceOutput values.
@@ -23625,8 +27010,20 @@ type SpotFleetSpotCapacityRebalanceInput interface {
 }
 
 type SpotFleetSpotCapacityRebalanceArgs struct {
+	// The replacement strategy to use. Only available for fleets of type `maintain` .
+	//
+	// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+	//
+	// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 	ReplacementStrategy SpotFleetSpotCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
-	TerminationDelay    pulumi.IntPtrInput                                        `pulumi:"terminationDelay"`
+	// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+	//
+	// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+	//
+	// Not valid when `ReplacementStrategy` is set to `launch` .
+	//
+	// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+	TerminationDelay pulumi.IntPtrInput `pulumi:"terminationDelay"`
 }
 
 func (SpotFleetSpotCapacityRebalanceArgs) ElementType() reflect.Type {
@@ -23706,12 +27103,24 @@ func (o SpotFleetSpotCapacityRebalanceOutput) ToSpotFleetSpotCapacityRebalancePt
 	}).(SpotFleetSpotCapacityRebalancePtrOutput)
 }
 
+// The replacement strategy to use. Only available for fleets of type `maintain` .
+//
+// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+//
+// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 func (o SpotFleetSpotCapacityRebalanceOutput) ReplacementStrategy() SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *SpotFleetSpotCapacityRebalanceReplacementStrategy {
 		return v.ReplacementStrategy
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+//
+// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+//
+// Not valid when `ReplacementStrategy` is set to `launch` .
+//
+// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
 func (o SpotFleetSpotCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
 }
@@ -23740,6 +27149,11 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) Elem() SpotFleetSpotCapacityReb
 	}).(SpotFleetSpotCapacityRebalanceOutput)
 }
 
+// The replacement strategy to use. Only available for fleets of type `maintain` .
+//
+// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+//
+// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) *SpotFleetSpotCapacityRebalanceReplacementStrategy {
 		if v == nil {
@@ -23749,6 +27163,13 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() SpotFleet
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+//
+// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+//
+// Not valid when `ReplacementStrategy` is set to `launch` .
+//
+// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
 func (o SpotFleetSpotCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) *int {
 		if v == nil {
@@ -23759,6 +27180,7 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPt
 }
 
 type SpotFleetSpotMaintenanceStrategies struct {
+	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	CapacityRebalance *SpotFleetSpotCapacityRebalance `pulumi:"capacityRebalance"`
 }
 
@@ -23774,6 +27196,7 @@ type SpotFleetSpotMaintenanceStrategiesInput interface {
 }
 
 type SpotFleetSpotMaintenanceStrategiesArgs struct {
+	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	CapacityRebalance SpotFleetSpotCapacityRebalancePtrInput `pulumi:"capacityRebalance"`
 }
 
@@ -23854,6 +27277,7 @@ func (o SpotFleetSpotMaintenanceStrategiesOutput) ToSpotFleetSpotMaintenanceStra
 	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
 }
 
+// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
 func (o SpotFleetSpotMaintenanceStrategiesOutput) CapacityRebalance() SpotFleetSpotCapacityRebalancePtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotCapacityRebalance { return v.CapacityRebalance }).(SpotFleetSpotCapacityRebalancePtrOutput)
 }
@@ -23882,6 +27306,7 @@ func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) Elem() SpotFleetSpotMainten
 	}).(SpotFleetSpotMaintenanceStrategiesOutput)
 }
 
+// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
 func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) CapacityRebalance() SpotFleetSpotCapacityRebalancePtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotCapacityRebalance {
 		if v == nil {
@@ -23892,9 +27317,14 @@ func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) CapacityRebalance() SpotFle
 }
 
 type SpotFleetSpotPlacement struct {
-	AvailabilityZone *string                        `pulumi:"availabilityZone"`
-	GroupName        *string                        `pulumi:"groupName"`
-	Tenancy          *SpotFleetSpotPlacementTenancy `pulumi:"tenancy"`
+	// The Availability Zone.
+	//
+	// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The name of the placement group.
+	GroupName *string `pulumi:"groupName"`
+	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
+	Tenancy *SpotFleetSpotPlacementTenancy `pulumi:"tenancy"`
 }
 
 // SpotFleetSpotPlacementInput is an input type that accepts SpotFleetSpotPlacementArgs and SpotFleetSpotPlacementOutput values.
@@ -23909,9 +27339,14 @@ type SpotFleetSpotPlacementInput interface {
 }
 
 type SpotFleetSpotPlacementArgs struct {
-	AvailabilityZone pulumi.StringPtrInput                 `pulumi:"availabilityZone"`
-	GroupName        pulumi.StringPtrInput                 `pulumi:"groupName"`
-	Tenancy          SpotFleetSpotPlacementTenancyPtrInput `pulumi:"tenancy"`
+	// The Availability Zone.
+	//
+	// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The name of the placement group.
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
+	Tenancy SpotFleetSpotPlacementTenancyPtrInput `pulumi:"tenancy"`
 }
 
 func (SpotFleetSpotPlacementArgs) ElementType() reflect.Type {
@@ -23991,14 +27426,19 @@ func (o SpotFleetSpotPlacementOutput) ToSpotFleetSpotPlacementPtrOutputWithConte
 	}).(SpotFleetSpotPlacementPtrOutput)
 }
 
+// The Availability Zone.
+//
+// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 func (o SpotFleetSpotPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group.
 func (o SpotFleetSpotPlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
 func (o SpotFleetSpotPlacementOutput) Tenancy() SpotFleetSpotPlacementTenancyPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *SpotFleetSpotPlacementTenancy { return v.Tenancy }).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
@@ -24027,6 +27467,9 @@ func (o SpotFleetSpotPlacementPtrOutput) Elem() SpotFleetSpotPlacementOutput {
 	}).(SpotFleetSpotPlacementOutput)
 }
 
+// The Availability Zone.
+//
+// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 func (o SpotFleetSpotPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
 		if v == nil {
@@ -24036,6 +27479,7 @@ func (o SpotFleetSpotPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group.
 func (o SpotFleetSpotPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
 		if v == nil {
@@ -24045,6 +27489,7 @@ func (o SpotFleetSpotPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
 func (o SpotFleetSpotPlacementPtrOutput) Tenancy() SpotFleetSpotPlacementTenancyPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacement) *SpotFleetSpotPlacementTenancy {
 		if v == nil {
@@ -24055,7 +27500,9 @@ func (o SpotFleetSpotPlacementPtrOutput) Tenancy() SpotFleetSpotPlacementTenancy
 }
 
 type SpotFleetTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -24071,7 +27518,9 @@ type SpotFleetTagInput interface {
 }
 
 type SpotFleetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -24126,10 +27575,12 @@ func (o SpotFleetTagOutput) ToSpotFleetTagOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The tag key.
 func (o SpotFleetTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o SpotFleetTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -24155,8 +27606,10 @@ func (o SpotFleetTagArrayOutput) Index(i pulumi.IntInput) SpotFleetTagOutput {
 }
 
 type SpotFleetTagSpecification struct {
+	// The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
 	ResourceType *SpotFleetTagSpecificationResourceType `pulumi:"resourceType"`
-	Tags         []SpotFleetTag                         `pulumi:"tags"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []SpotFleetTag `pulumi:"tags"`
 }
 
 // SpotFleetTagSpecificationInput is an input type that accepts SpotFleetTagSpecificationArgs and SpotFleetTagSpecificationOutput values.
@@ -24171,8 +27624,10 @@ type SpotFleetTagSpecificationInput interface {
 }
 
 type SpotFleetTagSpecificationArgs struct {
+	// The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
 	ResourceType SpotFleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
-	Tags         SpotFleetTagArrayInput                        `pulumi:"tags"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags SpotFleetTagArrayInput `pulumi:"tags"`
 }
 
 func (SpotFleetTagSpecificationArgs) ElementType() reflect.Type {
@@ -24226,10 +27681,12 @@ func (o SpotFleetTagSpecificationOutput) ToSpotFleetTagSpecificationOutputWithCo
 	return o
 }
 
+// The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
 func (o SpotFleetTagSpecificationOutput) ResourceType() SpotFleetTagSpecificationResourceTypePtrOutput {
 	return o.ApplyT(func(v SpotFleetTagSpecification) *SpotFleetTagSpecificationResourceType { return v.ResourceType }).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o SpotFleetTagSpecificationOutput) Tags() SpotFleetTagArrayOutput {
 	return o.ApplyT(func(v SpotFleetTagSpecification) []SpotFleetTag { return v.Tags }).(SpotFleetTagArrayOutput)
 }
@@ -24255,6 +27712,7 @@ func (o SpotFleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) SpotFleet
 }
 
 type SpotFleetTargetGroup struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn string `pulumi:"arn"`
 }
 
@@ -24270,6 +27728,7 @@ type SpotFleetTargetGroupInput interface {
 }
 
 type SpotFleetTargetGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -24324,6 +27783,7 @@ func (o SpotFleetTargetGroupOutput) ToSpotFleetTargetGroupOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the target group.
 func (o SpotFleetTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -24349,6 +27809,7 @@ func (o SpotFleetTargetGroupArrayOutput) Index(i pulumi.IntInput) SpotFleetTarge
 }
 
 type SpotFleetTargetGroupsConfig struct {
+	// Describes a load balancer target group.
 	TargetGroups []SpotFleetTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -24364,6 +27825,7 @@ type SpotFleetTargetGroupsConfigInput interface {
 }
 
 type SpotFleetTargetGroupsConfigArgs struct {
+	// Describes a load balancer target group.
 	TargetGroups SpotFleetTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -24444,6 +27906,7 @@ func (o SpotFleetTargetGroupsConfigOutput) ToSpotFleetTargetGroupsConfigPtrOutpu
 	}).(SpotFleetTargetGroupsConfigPtrOutput)
 }
 
+// Describes a load balancer target group.
 func (o SpotFleetTargetGroupsConfigOutput) TargetGroups() SpotFleetTargetGroupArrayOutput {
 	return o.ApplyT(func(v SpotFleetTargetGroupsConfig) []SpotFleetTargetGroup { return v.TargetGroups }).(SpotFleetTargetGroupArrayOutput)
 }
@@ -24472,6 +27935,7 @@ func (o SpotFleetTargetGroupsConfigPtrOutput) Elem() SpotFleetTargetGroupsConfig
 	}).(SpotFleetTargetGroupsConfigOutput)
 }
 
+// Describes a load balancer target group.
 func (o SpotFleetTargetGroupsConfigPtrOutput) TargetGroups() SpotFleetTargetGroupArrayOutput {
 	return o.ApplyT(func(v *SpotFleetTargetGroupsConfig) []SpotFleetTargetGroup {
 		if v == nil {
@@ -24482,7 +27946,9 @@ func (o SpotFleetTargetGroupsConfigPtrOutput) TargetGroups() SpotFleetTargetGrou
 }
 
 type SpotFleetTotalLocalStorageGbRequest struct {
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -24498,7 +27964,9 @@ type SpotFleetTotalLocalStorageGbRequestInput interface {
 }
 
 type SpotFleetTotalLocalStorageGbRequestArgs struct {
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -24579,10 +28047,12 @@ func (o SpotFleetTotalLocalStorageGbRequestOutput) ToSpotFleetTotalLocalStorageG
 	}).(SpotFleetTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o SpotFleetTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -24611,6 +28081,7 @@ func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Elem() SpotFleetTotalLocal
 	}).(SpotFleetTotalLocalStorageGbRequestOutput)
 }
 
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
@@ -24620,6 +28091,7 @@ func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
@@ -24630,7 +28102,9 @@ func (o SpotFleetTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOut
 }
 
 type SpotFleetVCpuCountRangeRequest struct {
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 	Min *int `pulumi:"min"`
 }
 
@@ -24646,7 +28120,9 @@ type SpotFleetVCpuCountRangeRequestInput interface {
 }
 
 type SpotFleetVCpuCountRangeRequestArgs struct {
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -24727,10 +28203,12 @@ func (o SpotFleetVCpuCountRangeRequestOutput) ToSpotFleetVCpuCountRangeRequestPt
 	}).(SpotFleetVCpuCountRangeRequestPtrOutput)
 }
 
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o SpotFleetVCpuCountRangeRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetVCpuCountRangeRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 func (o SpotFleetVCpuCountRangeRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetVCpuCountRangeRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -24759,6 +28237,7 @@ func (o SpotFleetVCpuCountRangeRequestPtrOutput) Elem() SpotFleetVCpuCountRangeR
 	}).(SpotFleetVCpuCountRangeRequestOutput)
 }
 
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o SpotFleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetVCpuCountRangeRequest) *int {
 		if v == nil {
@@ -24768,6 +28247,7 @@ func (o SpotFleetVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
 func (o SpotFleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetVCpuCountRangeRequest) *int {
 		if v == nil {
@@ -25067,7 +28547,9 @@ func (o TagSpecificationArrayOutput) Index(i pulumi.IntInput) TagSpecificationOu
 }
 
 type TransitGatewayAttachmentTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -25227,12 +28709,16 @@ type TransitGatewayRouteTableTag struct {
 }
 
 type TransitGatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type TransitGatewayVpcAttachmentTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -27276,12 +30762,28 @@ type VpcTag struct {
 }
 
 type VpnConnectionTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type VpnConnectionVpnTunnelOptionsSpecification struct {
-	PreSharedKey     *string `pulumi:"preSharedKey"`
+	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
+	//
+	// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+	PreSharedKey *string `pulumi:"preSharedKey"`
+	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
+	//
+	// Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
+	//
+	// - `169.254.0.0/30`
+	// - `169.254.1.0/30`
+	// - `169.254.2.0/30`
+	// - `169.254.3.0/30`
+	// - `169.254.4.0/30`
+	// - `169.254.5.0/30`
+	// - `169.254.169.252/30`
 	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
 }
 
@@ -27297,7 +30799,21 @@ type VpnConnectionVpnTunnelOptionsSpecificationInput interface {
 }
 
 type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
-	PreSharedKey     pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
+	//
+	// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+	PreSharedKey pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
+	//
+	// Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
+	//
+	// - `169.254.0.0/30`
+	// - `169.254.1.0/30`
+	// - `169.254.2.0/30`
+	// - `169.254.3.0/30`
+	// - `169.254.4.0/30`
+	// - `169.254.5.0/30`
+	// - `169.254.169.252/30`
 	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
 }
 
@@ -27352,10 +30868,24 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) ToVpnConnectionVpnTunn
 	return o
 }
 
+// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
+//
+// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
 }
 
+// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
+//
+// Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
+//
+// - `169.254.0.0/30`
+// - `169.254.1.0/30`
+// - `169.254.2.0/30`
+// - `169.254.3.0/30`
+// - `169.254.4.0/30`
+// - `169.254.5.0/30`
+// - `169.254.169.252/30`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
 }
@@ -27381,7 +30911,9 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationArrayOutput) Index(i pulumi.In
 }
 
 type VpnGatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

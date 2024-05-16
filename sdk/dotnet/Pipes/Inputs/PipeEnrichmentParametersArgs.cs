@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeEnrichmentParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        /// </summary>
         [Input("httpParameters")]
         public Input<Inputs.PipeEnrichmentHttpParametersArgs>? HttpParameters { get; set; }
 
+        /// <summary>
+        /// Valid JSON text passed to the enrichment. In this case, nothing from the event itself is passed to the enrichment. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+        /// 
+        /// To remove an input template, specify an empty string.
+        /// </summary>
         [Input("inputTemplate")]
         public Input<string>? InputTemplate { get; set; }
 

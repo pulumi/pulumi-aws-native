@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisWordCloudSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of group by fields.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

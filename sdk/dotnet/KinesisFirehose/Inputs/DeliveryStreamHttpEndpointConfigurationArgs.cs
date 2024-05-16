@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamHttpEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+        /// </summary>
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
+        /// <summary>
+        /// The name of the HTTP endpoint selected as the destination.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The URL of the HTTP endpoint selected as the destination.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

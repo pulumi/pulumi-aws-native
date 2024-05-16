@@ -48,41 +48,65 @@ class GetWorkflowResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN for the workflow.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        When the workflow was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The parameter's description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The workflow's ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The workflow's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['WorkflowStatus']:
+        """
+        The workflow's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags for the workflow.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['WorkflowType']:
+        """
+        The workflow's type.
+        """
         return pulumi.get(self, "type")
 
 
@@ -106,6 +130,9 @@ def get_workflow(id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
     Definition of AWS::Omics::Workflow Resource Type
+
+
+    :param str id: The workflow's ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -128,5 +155,8 @@ def get_workflow_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Definition of AWS::Omics::Workflow Resource Type
+
+
+    :param str id: The workflow's ID.
     """
     ...

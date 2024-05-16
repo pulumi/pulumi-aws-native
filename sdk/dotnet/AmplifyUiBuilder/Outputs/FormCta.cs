@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormCta
     {
+        /// <summary>
+        /// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        /// </summary>
         public readonly Outputs.FormButton? Cancel;
+        /// <summary>
+        /// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        /// </summary>
         public readonly Outputs.FormButton? Clear;
+        /// <summary>
+        /// The position of the button.
+        /// </summary>
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.FormButtonsPosition? Position;
+        /// <summary>
+        /// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        /// </summary>
         public readonly Outputs.FormButton? Submit;
 
         [OutputConstructor]

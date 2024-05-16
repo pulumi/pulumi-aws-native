@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
+        /// <summary>
+        /// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+        /// </summary>
         [Input("transformJobDefinition", required: true)]
         public Input<Inputs.ModelPackageTransformJobDefinitionArgs> TransformJobDefinition { get; set; } = null!;
 

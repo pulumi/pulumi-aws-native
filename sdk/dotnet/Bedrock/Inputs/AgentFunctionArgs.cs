@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
         [Input("parameters")]
         private InputMap<Inputs.AgentParameterDetailArgs>? _parameters;
+
+        /// <summary>
+        /// The parameters that the agent elicits from the user to fulfill the function.
+        /// </summary>
         public InputMap<Inputs.AgentParameterDetailArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<Inputs.AgentParameterDetailArgs>());

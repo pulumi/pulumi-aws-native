@@ -15,14 +15,22 @@ import (
 type Datastore struct {
 	pulumi.CustomResourceState
 
-	CreatedAt       pulumi.StringOutput    `pulumi:"createdAt"`
-	DatastoreArn    pulumi.StringOutput    `pulumi:"datastoreArn"`
-	DatastoreId     pulumi.StringOutput    `pulumi:"datastoreId"`
-	DatastoreName   pulumi.StringPtrOutput `pulumi:"datastoreName"`
-	DatastoreStatus DatastoreStatusOutput  `pulumi:"datastoreStatus"`
-	KmsKeyArn       pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	UpdatedAt       pulumi.StringOutput    `pulumi:"updatedAt"`
+	// The timestamp when the data store was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) for the data store.
+	DatastoreArn pulumi.StringOutput `pulumi:"datastoreArn"`
+	// The data store identifier.
+	DatastoreId pulumi.StringOutput `pulumi:"datastoreId"`
+	// The data store name.
+	DatastoreName pulumi.StringPtrOutput `pulumi:"datastoreName"`
+	// The data store status.
+	DatastoreStatus DatastoreStatusOutput `pulumi:"datastoreStatus"`
+	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The tags provided when creating a data store.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The timestamp when the data store was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
@@ -71,16 +79,22 @@ func (DatastoreState) ElementType() reflect.Type {
 }
 
 type datastoreArgs struct {
-	DatastoreName *string           `pulumi:"datastoreName"`
-	KmsKeyArn     *string           `pulumi:"kmsKeyArn"`
-	Tags          map[string]string `pulumi:"tags"`
+	// The data store name.
+	DatastoreName *string `pulumi:"datastoreName"`
+	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The tags provided when creating a data store.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Datastore resource.
 type DatastoreArgs struct {
+	// The data store name.
 	DatastoreName pulumi.StringPtrInput
-	KmsKeyArn     pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+	KmsKeyArn pulumi.StringPtrInput
+	// The tags provided when creating a data store.
+	Tags pulumi.StringMapInput
 }
 
 func (DatastoreArgs) ElementType() reflect.Type {
@@ -120,34 +134,42 @@ func (o DatastoreOutput) ToDatastoreOutputWithContext(ctx context.Context) Datas
 	return o
 }
 
+// The timestamp when the data store was created.
 func (o DatastoreOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) for the data store.
 func (o DatastoreOutput) DatastoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.DatastoreArn }).(pulumi.StringOutput)
 }
 
+// The data store identifier.
 func (o DatastoreOutput) DatastoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.DatastoreId }).(pulumi.StringOutput)
 }
 
+// The data store name.
 func (o DatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringPtrOutput { return v.DatastoreName }).(pulumi.StringPtrOutput)
 }
 
+// The data store status.
 func (o DatastoreOutput) DatastoreStatus() DatastoreStatusOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreStatusOutput { return v.DatastoreStatus }).(DatastoreStatusOutput)
 }
 
+// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
 func (o DatastoreOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags provided when creating a data store.
 func (o DatastoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The timestamp when the data store was last updated.
 func (o DatastoreOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

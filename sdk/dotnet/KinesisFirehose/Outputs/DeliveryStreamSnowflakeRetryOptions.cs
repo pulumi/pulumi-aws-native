@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSnowflakeRetryOptions
     {
+        /// <summary>
+        /// the time period where Firehose will retry sending data to the chosen HTTP endpoint.
+        /// </summary>
         public readonly int? DurationInSeconds;
 
         [OutputConstructor]

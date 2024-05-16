@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Columns in this hierarchy.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Columns;
+        /// <summary>
+        /// Country code.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetGeoSpatialCountryCode? CountryCode;
         /// <summary>
         /// &lt;p&gt;A display name for the hierarchy.&lt;/p&gt;

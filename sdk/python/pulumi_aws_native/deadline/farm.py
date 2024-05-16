@@ -19,6 +19,9 @@ class FarmArgs:
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Farm resource.
+        :param pulumi.Input[str] display_name: The display name of the farm.
+        :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
+        :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
         """
         pulumi.set(__self__, "display_name", display_name)
         if description is not None:
@@ -29,6 +32,9 @@ class FarmArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the farm.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -38,6 +44,9 @@ class FarmArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the farm that helps identify what the farm is used for.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,6 +56,9 @@ class FarmArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -68,6 +80,9 @@ class Farm(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
+        :param pulumi.Input[str] display_name: The display name of the farm.
+        :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
         """
         ...
     @overload
@@ -146,25 +161,40 @@ class Farm(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned to the farm.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the farm that helps identify what the farm is used for.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The display name of the farm.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[str]:
+        """
+        The farm ID.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN for the KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 

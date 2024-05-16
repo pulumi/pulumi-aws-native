@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreSchemaDefinition
     {
+        /// <summary>
+        /// Contains information about a column that stores your data.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatastoreColumn> Columns;
 
         [OutputConstructor]

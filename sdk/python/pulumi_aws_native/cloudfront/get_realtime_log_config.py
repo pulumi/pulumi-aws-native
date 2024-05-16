@@ -36,21 +36,35 @@ class GetRealtimeLogConfigResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="endPoints")
     def end_points(self) -> Optional[Sequence['outputs.RealtimeLogConfigEndPoint']]:
+        """
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        """
         return pulumi.get(self, "end_points")
 
     @property
     @pulumi.getter
     def fields(self) -> Optional[Sequence[str]]:
+        """
+        A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
+
+        For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[float]:
+        """
+        The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
+        """
         return pulumi.get(self, "sampling_rate")
 
 
@@ -70,6 +84,9 @@ def get_realtime_log_config(arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRealtimeLogConfigResult:
     """
     Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -88,5 +105,8 @@ def get_realtime_log_config_output(arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
     Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
     """
     ...

@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDataLabelTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that specifies individual data values for labels.
+        /// </summary>
         [Input("dataPathLabelType")]
         public Input<Inputs.DashboardDataPathLabelTypeArgs>? DataPathLabelType { get; set; }
 
+        /// <summary>
+        /// The field label type.
+        /// </summary>
         [Input("fieldLabelType")]
         public Input<Inputs.DashboardFieldLabelTypeArgs>? FieldLabelType { get; set; }
 
+        /// <summary>
+        /// The maximum label of a data path label.
+        /// </summary>
         [Input("maximumLabelType")]
         public Input<Inputs.DashboardMaximumLabelTypeArgs>? MaximumLabelType { get; set; }
 
+        /// <summary>
+        /// The minimum label of a data path label.
+        /// </summary>
         [Input("minimumLabelType")]
         public Input<Inputs.DashboardMinimumLabelTypeArgs>? MinimumLabelType { get; set; }
 
+        /// <summary>
+        /// The range ends label type of a data path label.
+        /// </summary>
         [Input("rangeEndsLabelType")]
         public Input<Inputs.DashboardRangeEndsLabelTypeArgs>? RangeEndsLabelType { get; set; }
 

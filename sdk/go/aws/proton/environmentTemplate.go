@@ -23,9 +23,11 @@ type EnvironmentTemplate struct {
 	// <p>The environment template name as displayed in the developer interface.</p>
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// <p>A customer provided encryption key that Proton uses to encrypt data.</p>
-	EncryptionKey pulumi.StringPtrOutput                   `pulumi:"encryptionKey"`
-	Name          pulumi.StringPtrOutput                   `pulumi:"name"`
-	Provisioning  EnvironmentTemplateProvisioningPtrOutput `pulumi:"provisioning"`
+	EncryptionKey pulumi.StringPtrOutput `pulumi:"encryptionKey"`
+	// The name of the environment template.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+	Provisioning EnvironmentTemplateProvisioningPtrOutput `pulumi:"provisioning"`
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
@@ -83,9 +85,11 @@ type environmentTemplateArgs struct {
 	// <p>The environment template name as displayed in the developer interface.</p>
 	DisplayName *string `pulumi:"displayName"`
 	// <p>A customer provided encryption key that Proton uses to encrypt data.</p>
-	EncryptionKey *string                          `pulumi:"encryptionKey"`
-	Name          *string                          `pulumi:"name"`
-	Provisioning  *EnvironmentTemplateProvisioning `pulumi:"provisioning"`
+	EncryptionKey *string `pulumi:"encryptionKey"`
+	// The name of the environment template.
+	Name *string `pulumi:"name"`
+	// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+	Provisioning *EnvironmentTemplateProvisioning `pulumi:"provisioning"`
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
@@ -100,8 +104,10 @@ type EnvironmentTemplateArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// <p>A customer provided encryption key that Proton uses to encrypt data.</p>
 	EncryptionKey pulumi.StringPtrInput
-	Name          pulumi.StringPtrInput
-	Provisioning  EnvironmentTemplateProvisioningPtrInput
+	// The name of the environment template.
+	Name pulumi.StringPtrInput
+	// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+	Provisioning EnvironmentTemplateProvisioningPtrInput
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
@@ -165,10 +171,12 @@ func (o EnvironmentTemplateOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentTemplate) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
 
+// The name of the environment template.
 func (o EnvironmentTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
 func (o EnvironmentTemplateOutput) Provisioning() EnvironmentTemplateProvisioningPtrOutput {
 	return o.ApplyT(func(v *EnvironmentTemplate) EnvironmentTemplateProvisioningPtrOutput { return v.Provisioning }).(EnvironmentTemplateProvisioningPtrOutput)
 }

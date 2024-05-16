@@ -18,15 +18,27 @@ namespace Pulumi.AwsNative.Msk
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the setup to be used for the broker nodes in the cluster.
+        /// </summary>
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// Includes all client authentication information.
+        /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration to use for the brokers.
+        /// </summary>
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
 
@@ -36,24 +48,45 @@ namespace Pulumi.AwsNative.Msk
         [Output("currentVersion")]
         public Output<string?> CurrentVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        /// </summary>
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        /// </summary>
         [Output("enhancedMonitoring")]
         public Output<Pulumi.AwsNative.Msk.ClusterEnhancedMonitoring?> EnhancedMonitoring { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        /// </summary>
         [Output("kafkaVersion")]
         public Output<string> KafkaVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        /// </summary>
         [Output("loggingInfo")]
         public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of broker nodes in the cluster.
+        /// </summary>
         [Output("numberOfBrokerNodes")]
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
+        /// <summary>
+        /// JMX and Node monitoring for the MSK cluster.
+        /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
+        /// <summary>
+        /// This controls storage mode for supported storage tiers.
+        /// </summary>
         [Output("storageMode")]
         public Output<Pulumi.AwsNative.Msk.ClusterStorageMode?> StorageMode { get; private set; } = null!;
 
@@ -88,12 +121,7 @@ namespace Pulumi.AwsNative.Msk
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "brokerNodeGroupInfo.brokerAzDistribution",
-                    "brokerNodeGroupInfo.clientSubnets[*]",
-                    "brokerNodeGroupInfo.securityGroups[*]",
                     "clusterName",
-                    "encryptionInfo.encryptionAtRest",
-                    "encryptionInfo.encryptionInTransit.inCluster",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,15 +145,27 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the setup to be used for the broker nodes in the cluster.
+        /// </summary>
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
+        /// <summary>
+        /// Includes all client authentication information.
+        /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
 
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration to use for the brokers.
+        /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
@@ -135,24 +175,45 @@ namespace Pulumi.AwsNative.Msk
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }
 
+        /// <summary>
+        /// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
 
+        /// <summary>
+        /// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        /// </summary>
         [Input("enhancedMonitoring")]
         public Input<Pulumi.AwsNative.Msk.ClusterEnhancedMonitoring>? EnhancedMonitoring { get; set; }
 
+        /// <summary>
+        /// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        /// </summary>
         [Input("kafkaVersion", required: true)]
         public Input<string> KafkaVersion { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
 
+        /// <summary>
+        /// The number of broker nodes in the cluster.
+        /// </summary>
         [Input("numberOfBrokerNodes", required: true)]
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
+        /// <summary>
+        /// JMX and Node monitoring for the MSK cluster.
+        /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
 
+        /// <summary>
+        /// This controls storage mode for supported storage tiers.
+        /// </summary>
         [Input("storageMode")]
         public Input<Pulumi.AwsNative.Msk.ClusterStorageMode>? StorageMode { get; set; }
 

@@ -24,10 +24,12 @@ func LookupScheduledQuery(ctx *pulumi.Context, args *LookupScheduledQueryArgs, o
 }
 
 type LookupScheduledQueryArgs struct {
+	// The `ARN` of the scheduled query.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupScheduledQueryResult struct {
+	// The `ARN` of the scheduled query.
 	Arn *string `pulumi:"arn"`
 	// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 	SqErrorReportConfiguration *string `pulumi:"sqErrorReportConfiguration"`
@@ -44,8 +46,9 @@ type LookupScheduledQueryResult struct {
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
 	SqScheduledQueryExecutionRoleArn *string `pulumi:"sqScheduledQueryExecutionRoleArn"`
 	// Configuration of target store where scheduled query results are written to.
-	SqTargetConfiguration *string   `pulumi:"sqTargetConfiguration"`
-	Tags                  []aws.Tag `pulumi:"tags"`
+	SqTargetConfiguration *string `pulumi:"sqTargetConfiguration"`
+	// A list of key-value pairs to label the scheduled query.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupScheduledQueryOutput(ctx *pulumi.Context, args LookupScheduledQueryOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryResultOutput {
@@ -62,6 +65,7 @@ func LookupScheduledQueryOutput(ctx *pulumi.Context, args LookupScheduledQueryOu
 }
 
 type LookupScheduledQueryOutputArgs struct {
+	// The `ARN` of the scheduled query.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -83,6 +87,7 @@ func (o LookupScheduledQueryResultOutput) ToLookupScheduledQueryResultOutputWith
 	return o
 }
 
+// The `ARN` of the scheduled query.
 func (o LookupScheduledQueryResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -127,6 +132,7 @@ func (o LookupScheduledQueryResultOutput) SqTargetConfiguration() pulumi.StringP
 	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqTargetConfiguration }).(pulumi.StringPtrOutput)
 }
 
+// A list of key-value pairs to label the scheduled query.
 func (o LookupScheduledQueryResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupScheduledQueryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

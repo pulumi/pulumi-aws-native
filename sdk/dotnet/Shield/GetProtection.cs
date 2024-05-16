@@ -57,6 +57,11 @@ namespace Pulumi.AwsNative.Shield
     [OutputType]
     public sealed class GetProtectionResult
     {
+        /// <summary>
+        /// The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+        /// 
+        /// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+        /// </summary>
         public readonly Outputs.ProtectionApplicationLayerAutomaticResponseConfiguration? ApplicationLayerAutomaticResponseConfiguration;
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the health check to associate with the protection.

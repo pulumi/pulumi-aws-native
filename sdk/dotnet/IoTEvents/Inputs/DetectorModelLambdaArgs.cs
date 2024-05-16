@@ -18,6 +18,11 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// Information needed to configure the payload.
+        /// 
+        /// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
 

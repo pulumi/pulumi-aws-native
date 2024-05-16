@@ -26,6 +26,15 @@ class IpSetArgs:
         """
         The set of arguments for constructing a IpSet resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of IPAddresses.
+        :param pulumi.Input['IpSetIpAddressVersion'] ip_address_version: The version of the IP addresses, either `IPV4` or `IPV6` .
+        :param pulumi.Input['IpSetScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+               
+               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        :param pulumi.Input[str] description: A description of the IP set that helps with identification.
+        :param pulumi.Input[str] name: The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+               
+               You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
         """
         pulumi.set(__self__, "addresses", addresses)
         pulumi.set(__self__, "ip_address_version", ip_address_version)
@@ -52,6 +61,9 @@ class IpSetArgs:
     @property
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> pulumi.Input['IpSetIpAddressVersion']:
+        """
+        The version of the IP addresses, either `IPV4` or `IPV6` .
+        """
         return pulumi.get(self, "ip_address_version")
 
     @ip_address_version.setter
@@ -61,6 +73,11 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Input['IpSetScope']:
+        """
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+
+        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -70,6 +87,9 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the IP set that helps with identification.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -79,6 +99,9 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,6 +111,11 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+
+        You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -113,6 +141,15 @@ class IpSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of IPAddresses.
+        :param pulumi.Input[str] description: A description of the IP set that helps with identification.
+        :param pulumi.Input['IpSetIpAddressVersion'] ip_address_version: The version of the IP addresses, either `IPV4` or `IPV6` .
+        :param pulumi.Input[str] name: The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+        :param pulumi.Input['IpSetScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+               
+               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+               
+               You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
         """
         ...
     @overload
@@ -212,35 +249,60 @@ class IpSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IP set.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the IP set.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the IP set that helps with identification.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> pulumi.Output['IpSetIpAddressVersion']:
+        """
+        The version of the IP addresses, either `IPV4` or `IPV6` .
+        """
         return pulumi.get(self, "ip_address_version")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output['IpSetScope']:
+        """
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+
+        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+
+        You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+        """
         return pulumi.get(self, "tags")
 

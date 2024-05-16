@@ -68,66 +68,115 @@ class GetModelPackageResult:
     @property
     @pulumi.getter(name="additionalInferenceSpecifications")
     def additional_inference_specifications(self) -> Optional[Sequence['outputs.ModelPackageAdditionalInferenceSpecificationDefinition']]:
+        """
+        An array of additional Inference Specification objects.
+        """
         return pulumi.get(self, "additional_inference_specifications")
 
     @property
     @pulumi.getter(name="approvalDescription")
     def approval_description(self) -> Optional[str]:
+        """
+        A description provided when the model approval is set.
+        """
         return pulumi.get(self, "approval_description")
 
     @property
     @pulumi.getter(name="certifyForMarketplace")
     def certify_for_marketplace(self) -> Optional[bool]:
+        """
+        Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+        """
         return pulumi.get(self, "certify_for_marketplace")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        The time that the model package was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="customerMetadataProperties")
     def customer_metadata_properties(self) -> Optional['outputs.ModelPackageCustomerMetadataProperties']:
+        """
+        The metadata properties for the model package.
+        """
         return pulumi.get(self, "customer_metadata_properties")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The last time the model package was modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="modelApprovalStatus")
     def model_approval_status(self) -> Optional['ModelPackageModelApprovalStatus']:
+        """
+        The approval status of the model. This can be one of the following values.
+
+        - `APPROVED` - The model is approved
+        - `REJECTED` - The model is rejected.
+        - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        """
         return pulumi.get(self, "model_approval_status")
 
     @property
     @pulumi.getter(name="modelPackageArn")
     def model_package_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the model package.
+        """
         return pulumi.get(self, "model_package_arn")
 
     @property
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> Optional[str]:
+        """
+        The name of the model.
+        """
         return pulumi.get(self, "model_package_name")
 
     @property
     @pulumi.getter(name="modelPackageStatus")
     def model_package_status(self) -> Optional['ModelPackageStatus']:
+        """
+        The status of the model package. This can be one of the following values.
+
+        - `PENDING` - The model package creation is pending.
+        - `IN_PROGRESS` - The model package is in the process of being created.
+        - `COMPLETED` - The model package was successfully created.
+        - `FAILED` - The model package creation failed.
+        - `DELETING` - The model package is in the process of being deleted.
+        """
         return pulumi.get(self, "model_package_status")
 
     @property
     @pulumi.getter(name="modelPackageStatusDetails")
     def model_package_status_details(self) -> Optional['outputs.ModelPackageStatusDetails']:
+        """
+        Specifies the validation and image scan statuses of the model package.
+        """
         return pulumi.get(self, "model_package_status_details")
 
     @property
     @pulumi.getter(name="modelPackageVersion")
     def model_package_version(self) -> Optional[int]:
+        """
+        The version number of a versioned model.
+        """
         return pulumi.get(self, "model_package_version")
 
     @property
     @pulumi.getter(name="skipModelValidation")
     def skip_model_validation(self) -> Optional['ModelPackageSkipModelValidation']:
+        """
+        Indicates if you want to skip model validation.
+        """
         return pulumi.get(self, "skip_model_validation")
 
     @property
@@ -165,6 +214,9 @@ def get_model_package(model_package_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelPackageResult:
     """
     Resource Type definition for AWS::SageMaker::ModelPackage
+
+
+    :param str model_package_arn: The Amazon Resource Name (ARN) of the model package.
     """
     __args__ = dict()
     __args__['modelPackageArn'] = model_package_arn
@@ -193,5 +245,8 @@ def get_model_package_output(model_package_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelPackageResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelPackage
+
+
+    :param str model_package_arn: The Amazon Resource Name (ARN) of the model package.
     """
     ...

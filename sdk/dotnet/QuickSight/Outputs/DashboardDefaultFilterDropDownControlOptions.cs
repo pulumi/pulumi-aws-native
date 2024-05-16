@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultFilterDropDownControlOptions
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.DashboardDropDownControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// A list of selectable values that are used in a control.
+        /// </summary>
         public readonly Outputs.DashboardFilterSelectableValues? SelectableValues;
+        /// <summary>
+        /// The type of the `FilterDropDownControl` . Choose one of the following options:
+        /// 
+        /// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
+        /// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSheetControlListType? Type;
 
         [OutputConstructor]

@@ -39,11 +39,17 @@ class GetPipelineResult:
     @property
     @pulumi.getter(name="pipelineActivities")
     def pipeline_activities(self) -> Optional[Sequence['outputs.PipelineActivity']]:
+        """
+        An activity that performs a transformation on a message.
+        """
         return pulumi.get(self, "pipeline_activities")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -62,6 +68,9 @@ def get_pipeline(pipeline_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
     Resource Type definition for AWS::IoTAnalytics::Pipeline
+
+
+    :param str pipeline_name: The name of the pipeline.
     """
     __args__ = dict()
     __args__['pipelineName'] = pipeline_name
@@ -79,5 +88,8 @@ def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Pipeline
+
+
+    :param str pipeline_name: The name of the pipeline.
     """
     ...

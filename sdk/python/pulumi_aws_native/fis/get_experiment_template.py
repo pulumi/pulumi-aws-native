@@ -49,41 +49,67 @@ class GetExperimentTemplateResult:
     @property
     @pulumi.getter
     def actions(self) -> Optional[Mapping[str, 'outputs.ExperimentTemplateAction']]:
+        """
+        The actions for the experiment.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description for the experiment template.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> Optional['outputs.ExperimentTemplateExperimentOptions']:
+        """
+        Describes the experiment options for an experiment template.
+        """
         return pulumi.get(self, "experiment_options")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the experiment template.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfiguration']:
+        """
+        Specifies the configuration for experiment logging.
+
+        For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stopConditions")
     def stop_conditions(self) -> Optional[Sequence['outputs.ExperimentTemplateStopCondition']]:
+        """
+        The stop conditions for the experiment.
+        """
         return pulumi.get(self, "stop_conditions")
 
     @property
     @pulumi.getter
     def targets(self) -> Optional[Mapping[str, 'outputs.ExperimentTemplateTarget']]:
+        """
+        The targets for the experiment.
+        """
         return pulumi.get(self, "targets")
 
 
@@ -107,6 +133,9 @@ def get_experiment_template(id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentTemplateResult:
     """
     Resource schema for AWS::FIS::ExperimentTemplate
+
+
+    :param str id: The ID of the experiment template.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -129,5 +158,8 @@ def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentTemplateResult]:
     """
     Resource schema for AWS::FIS::ExperimentTemplate
+
+
+    :param str id: The ID of the experiment template.
     """
     ...

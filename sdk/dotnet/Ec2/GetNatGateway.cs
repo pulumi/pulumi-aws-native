@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNatGatewayArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the NAT gateway.
+        /// </summary>
         [Input("natGatewayId", required: true)]
         public string NatGatewayId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNatGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the NAT gateway.
+        /// </summary>
         [Input("natGatewayId", required: true)]
         public Input<string> NatGatewayId { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNatGatewayResult
     {
+        /// <summary>
+        /// The ID of the NAT gateway.
+        /// </summary>
         public readonly string? NatGatewayId;
         /// <summary>
         /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.

@@ -41,26 +41,41 @@ class GetFirewallPolicyResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the firewall policy.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="firewallPolicy")
     def firewall_policy(self) -> Optional['outputs.FirewallPolicy']:
+        """
+        The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        """
         return pulumi.get(self, "firewall_policy")
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @property
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> Optional[str]:
+        """
+        The unique ID of the `FirewallPolicy` resource.
+        """
         return pulumi.get(self, "firewall_policy_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -81,6 +96,9 @@ def get_firewall_policy(firewall_policy_arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
     Resource type definition for AWS::NetworkFirewall::FirewallPolicy
+
+
+    :param str firewall_policy_arn: The Amazon Resource Name (ARN) of the `FirewallPolicy` .
     """
     __args__ = dict()
     __args__['firewallPolicyArn'] = firewall_policy_arn
@@ -100,5 +118,8 @@ def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Resource type definition for AWS::NetworkFirewall::FirewallPolicy
+
+
+    :param str firewall_policy_arn: The Amazon Resource Name (ARN) of the `FirewallPolicy` .
     """
     ...

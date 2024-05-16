@@ -19,15 +19,36 @@ export function getNetworkInsightsPath(args: GetNetworkInsightsPathArgs, opts?: 
 }
 
 export interface GetNetworkInsightsPathArgs {
+    /**
+     * The ID of the path.
+     */
     networkInsightsPathId: string;
 }
 
 export interface GetNetworkInsightsPathResult {
+    /**
+     * The time stamp when the path was created.
+     */
     readonly createdDate?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the destination.
+     */
     readonly destinationArn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the path.
+     */
     readonly networkInsightsPathArn?: string;
+    /**
+     * The ID of the path.
+     */
     readonly networkInsightsPathId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the source.
+     */
     readonly sourceArn?: string;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +59,8 @@ export function getNetworkInsightsPathOutput(args: GetNetworkInsightsPathOutputA
 }
 
 export interface GetNetworkInsightsPathOutputArgs {
+    /**
+     * The ID of the path.
+     */
     networkInsightsPathId: pulumi.Input<string>;
 }

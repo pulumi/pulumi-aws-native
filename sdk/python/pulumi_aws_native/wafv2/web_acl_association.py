@@ -18,6 +18,17 @@ class WebAclAssociationArgs:
                  web_acl_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a WebAclAssociation resource.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+               
+               The ARN must be in one of the following formats:
+               
+               - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+               - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+               - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+               - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+               - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+               - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "web_acl_arn", web_acl_arn)
@@ -25,6 +36,18 @@ class WebAclAssociationArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+
+        The ARN must be in one of the following formats:
+
+        - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+        - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+        - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+        - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+        - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+        - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -34,6 +57,9 @@ class WebAclAssociationArgs:
     @property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+        """
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
@@ -54,6 +80,17 @@ class WebAclAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+               
+               The ARN must be in one of the following formats:
+               
+               - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+               - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+               - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+               - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+               - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+               - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
         """
         ...
     @overload
@@ -127,10 +164,25 @@ class WebAclAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+
+        The ARN must be in one of the following formats:
+
+        - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+        - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+        - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+        - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+        - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+        - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+        """
         return pulumi.get(self, "web_acl_arn")
 

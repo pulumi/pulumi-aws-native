@@ -12,58 +12,105 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentPropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// </summary>
         [Input("bindingProperties")]
         public Input<Inputs.ComponentPropertyBindingPropertiesArgs>? BindingProperties { get; set; }
 
         [Input("bindings")]
         private InputMap<Inputs.ComponentFormBindingElementArgs>? _bindings;
+
+        /// <summary>
+        /// The information to bind the component property to form data.
+        /// </summary>
         public InputMap<Inputs.ComponentFormBindingElementArgs> Bindings
         {
             get => _bindings ?? (_bindings = new InputMap<Inputs.ComponentFormBindingElementArgs>());
             set => _bindings = value;
         }
 
+        /// <summary>
+        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// </summary>
         [Input("collectionBindingProperties")]
         public Input<Inputs.ComponentPropertyBindingPropertiesArgs>? CollectionBindingProperties { get; set; }
 
+        /// <summary>
+        /// The name of the component that is affected by an event.
+        /// </summary>
         [Input("componentName")]
         public Input<string>? ComponentName { get; set; }
 
         [Input("concat")]
         private InputList<Inputs.ComponentPropertyArgs>? _concat;
+
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public InputList<Inputs.ComponentPropertyArgs> Concat
         {
             get => _concat ?? (_concat = new InputList<Inputs.ComponentPropertyArgs>());
             set => _concat = value;
         }
 
+        /// <summary>
+        /// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+        /// </summary>
         [Input("condition")]
         public Input<Inputs.ComponentConditionPropertyArgs>? Condition { get; set; }
 
+        /// <summary>
+        /// Specifies whether the user configured the property in Amplify Studio after importing it.
+        /// </summary>
         [Input("configured")]
         public Input<bool>? Configured { get; set; }
 
+        /// <summary>
+        /// The default value to assign to the component property.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
+        /// <summary>
+        /// An event that occurs in your app. Use this for workflow data binding.
+        /// </summary>
         [Input("event")]
         public Input<string>? Event { get; set; }
 
+        /// <summary>
+        /// The default value assigned to the property when the component is imported into an app.
+        /// </summary>
         [Input("importedValue")]
         public Input<string>? ImportedValue { get; set; }
 
+        /// <summary>
+        /// The data model to use to assign a value to the component property.
+        /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 
+        /// <summary>
+        /// The name of the component's property that is affected by an event.
+        /// </summary>
         [Input("property")]
         public Input<string>? Property { get; set; }
 
+        /// <summary>
+        /// The component type.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// An authenticated user attribute to use to assign a value to the component property.
+        /// </summary>
         [Input("userAttribute")]
         public Input<string>? UserAttribute { get; set; }
 
+        /// <summary>
+        /// The value to assign to the component property.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

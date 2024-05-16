@@ -20,6 +20,9 @@ export function getListenerRule(args: GetListenerRuleArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetListenerRuleArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     ruleArn: string;
 }
 
@@ -34,12 +37,18 @@ export interface GetListenerRuleResult {
      *  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
      */
     readonly conditions?: outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[];
+    /**
+     * Indicates whether this is the default rule.
+     */
     readonly isDefault?: boolean;
     /**
      * The rule priority. A listener can't have multiple rules with the same priority.
      *  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
      */
     readonly priority?: number;
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     readonly ruleArn?: string;
 }
 /**
@@ -51,5 +60,8 @@ export function getListenerRuleOutput(args: GetListenerRuleOutputArgs, opts?: pu
 }
 
 export interface GetListenerRuleOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     ruleArn: pulumi.Input<string>;
 }

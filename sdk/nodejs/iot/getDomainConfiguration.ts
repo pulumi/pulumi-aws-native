@@ -19,17 +19,48 @@ export function getDomainConfiguration(args: GetDomainConfigurationArgs, opts?: 
 }
 
 export interface GetDomainConfigurationArgs {
+    /**
+     * The name of the domain configuration. This value must be unique to a region.
+     */
     domainConfigurationName: string;
 }
 
 export interface GetDomainConfigurationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the domain configuration.
+     */
     readonly arn?: string;
+    /**
+     * An object that specifies the authorization service for a domain.
+     */
     readonly authorizerConfig?: outputs.iot.DomainConfigurationAuthorizerConfig;
+    /**
+     * The status to which the domain configuration should be updated.
+     *
+     * Valid values: `ENABLED` | `DISABLED`
+     */
     readonly domainConfigurationStatus?: enums.iot.DomainConfigurationStatus;
+    /**
+     * The type of service delivered by the domain.
+     */
     readonly domainType?: enums.iot.DomainConfigurationDomainType;
+    /**
+     * The server certificate configuration.
+     *
+     * For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+     */
     readonly serverCertificateConfig?: outputs.iot.DomainConfigurationServerCertificateConfig;
+    /**
+     * An object that contains information about a server certificate.
+     */
     readonly serverCertificates?: outputs.iot.DomainConfigurationServerCertificateSummary[];
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * An object that specifies the TLS configuration for a domain.
+     */
     readonly tlsConfig?: outputs.iot.DomainConfigurationTlsConfig;
 }
 /**
@@ -40,5 +71,8 @@ export function getDomainConfigurationOutput(args: GetDomainConfigurationOutputA
 }
 
 export interface GetDomainConfigurationOutputArgs {
+    /**
+     * The name of the domain configuration. This value must be unique to a region.
+     */
     domainConfigurationName: pulumi.Input<string>;
 }

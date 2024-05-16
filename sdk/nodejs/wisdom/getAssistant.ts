@@ -16,11 +16,20 @@ export function getAssistant(args: GetAssistantArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetAssistantArgs {
+    /**
+     * The ID of the Wisdom assistant.
+     */
     assistantId: string;
 }
 
 export interface GetAssistantResult {
+    /**
+     * The Amazon Resource Name (ARN) of the assistant.
+     */
     readonly assistantArn?: string;
+    /**
+     * The ID of the Wisdom assistant.
+     */
     readonly assistantId?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getAssistantOutput(args: GetAssistantOutputArgs, opts?: pulumi.I
 }
 
 export interface GetAssistantOutputArgs {
+    /**
+     * The ID of the Wisdom assistant.
+     */
     assistantId: pulumi.Input<string>;
 }

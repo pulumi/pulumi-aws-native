@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyNetworkAclCommonPolicy
     {
+        /// <summary>
+        /// The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+        /// </summary>
         public readonly Outputs.PolicyNetworkAclEntrySet NetworkAclEntrySet;
 
         [OutputConstructor]

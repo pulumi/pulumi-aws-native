@@ -41,23 +41,53 @@ export class Template extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) of the template.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * <p>Time when this was created.</p>
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The detailed definition of a template.
+     */
     public readonly definition!: pulumi.Output<outputs.quicksight.TemplateVersionDefinition | undefined>;
     /**
      * <p>Time when this was last updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * A display name for the template.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Permission for the resource.
+     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
+    /**
+     * The source entity of the template.
+     */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+     */
     public readonly templateId!: pulumi.Output<string>;
+    /**
+     * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+     */
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.TemplateValidationStrategy | undefined>;
+    /**
+     * A version of a template.
+     */
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateVersion>;
+    /**
+     * A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+     */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
@@ -116,13 +146,40 @@ export class Template extends pulumi.CustomResource {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
+    /**
+     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The detailed definition of a template.
+     */
     definition?: pulumi.Input<inputs.quicksight.TemplateVersionDefinitionArgs>;
+    /**
+     * A display name for the template.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Permission for the resource.
+     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
+    /**
+     * The source entity of the template.
+     */
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+     */
     templateId: pulumi.Input<string>;
+    /**
+     * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+     */
     validationStrategy?: pulumi.Input<inputs.quicksight.TemplateValidationStrategyArgs>;
+    /**
+     * A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+     */
     versionDescription?: pulumi.Input<string>;
 }

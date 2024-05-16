@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFunnelChartFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a `FunnelChartVisual` .
+        /// </summary>
         [Input("funnelChartAggregatedFieldWells")]
         public Input<Inputs.AnalysisFunnelChartAggregatedFieldWellsArgs>? FunnelChartAggregatedFieldWells { get; set; }
 

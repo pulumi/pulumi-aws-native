@@ -126,6 +126,9 @@ export const FlowFailoverConfigState = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+ */
 export type FlowFailoverConfigState = (typeof FlowFailoverConfigState)[keyof typeof FlowFailoverConfigState];
 
 export const FlowFmtpColorimetry = {

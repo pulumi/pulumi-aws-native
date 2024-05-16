@@ -15,12 +15,22 @@ import (
 type ComponentVersion struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                                 `pulumi:"arn"`
-	ComponentName    pulumi.StringOutput                                 `pulumi:"componentName"`
-	ComponentVersion pulumi.StringOutput                                 `pulumi:"componentVersion"`
-	InlineRecipe     pulumi.StringPtrOutput                              `pulumi:"inlineRecipe"`
-	LambdaFunction   ComponentVersionLambdaFunctionRecipeSourcePtrOutput `pulumi:"lambdaFunction"`
-	Tags             pulumi.StringMapOutput                              `pulumi:"tags"`
+	// The ARN of the component version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the component.
+	ComponentName pulumi.StringOutput `pulumi:"componentName"`
+	// The version of the component.
+	ComponentVersion pulumi.StringOutput `pulumi:"componentVersion"`
+	// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
+	//
+	// You must specify either `InlineRecipe` or `LambdaFunction` .
+	InlineRecipe pulumi.StringPtrOutput `pulumi:"inlineRecipe"`
+	// Contains information about an AWS Lambda function to import to create a component.
+	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrOutput `pulumi:"lambdaFunction"`
+	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewComponentVersion registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +78,30 @@ func (ComponentVersionState) ElementType() reflect.Type {
 }
 
 type componentVersionArgs struct {
-	InlineRecipe   *string                                     `pulumi:"inlineRecipe"`
+	// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
+	//
+	// You must specify either `InlineRecipe` or `LambdaFunction` .
+	InlineRecipe *string `pulumi:"inlineRecipe"`
+	// Contains information about an AWS Lambda function to import to create a component.
 	LambdaFunction *ComponentVersionLambdaFunctionRecipeSource `pulumi:"lambdaFunction"`
-	Tags           map[string]string                           `pulumi:"tags"`
+	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ComponentVersion resource.
 type ComponentVersionArgs struct {
-	InlineRecipe   pulumi.StringPtrInput
+	// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
+	//
+	// You must specify either `InlineRecipe` or `LambdaFunction` .
+	InlineRecipe pulumi.StringPtrInput
+	// Contains information about an AWS Lambda function to import to create a component.
 	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrInput
-	Tags           pulumi.StringMapInput
+	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags pulumi.StringMapInput
 }
 
 func (ComponentVersionArgs) ElementType() reflect.Type {
@@ -117,26 +141,36 @@ func (o ComponentVersionOutput) ToComponentVersionOutputWithContext(ctx context.
 	return o
 }
 
+// The ARN of the component version.
 func (o ComponentVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComponentVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the component.
 func (o ComponentVersionOutput) ComponentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComponentVersion) pulumi.StringOutput { return v.ComponentName }).(pulumi.StringOutput)
 }
 
+// The version of the component.
 func (o ComponentVersionOutput) ComponentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComponentVersion) pulumi.StringOutput { return v.ComponentVersion }).(pulumi.StringOutput)
 }
 
+// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
+//
+// You must specify either `InlineRecipe` or `LambdaFunction` .
 func (o ComponentVersionOutput) InlineRecipe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersion) pulumi.StringPtrOutput { return v.InlineRecipe }).(pulumi.StringPtrOutput)
 }
 
+// Contains information about an AWS Lambda function to import to create a component.
 func (o ComponentVersionOutput) LambdaFunction() ComponentVersionLambdaFunctionRecipeSourcePtrOutput {
 	return o.ApplyT(func(v *ComponentVersion) ComponentVersionLambdaFunctionRecipeSourcePtrOutput { return v.LambdaFunction }).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }
 
+// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+//
+// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
 func (o ComponentVersionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ComponentVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

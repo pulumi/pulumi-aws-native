@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Rekognition
     [AwsNativeResourceType("aws-native:rekognition:Collection")]
     public partial class Collection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name of the collection.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// ID for the collection that you are creating.
+        /// </summary>
         [Output("collectionId")]
         public Output<string> CollectionId { get; private set; } = null!;
 
@@ -76,6 +82,9 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class CollectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID for the collection that you are creating.
+        /// </summary>
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;
 

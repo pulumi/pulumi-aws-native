@@ -13,23 +13,102 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetLaunchSpecification
     {
+        /// <summary>
+        /// Specifies a block device mapping.
+        /// 
+        /// You can specify `Ebs` or `VirtualName` , but not both.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetBlockDeviceMapping> BlockDeviceMappings;
+        /// <summary>
+        /// Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+        /// 
+        /// Default: `false`
+        /// </summary>
         public readonly bool? EbsOptimized;
+        /// <summary>
+        /// Describes an IAM instance profile.
+        /// </summary>
         public readonly Outputs.SpotFleetIamInstanceProfileSpecification? IamInstanceProfile;
+        /// <summary>
+        /// The ID of the AMI.
+        /// </summary>
         public readonly string ImageId;
+        /// <summary>
+        /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+        /// 
+        /// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+        /// 
+        /// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+        /// 
+        /// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+        /// 
+        /// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+        /// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        /// 
+        /// &gt; If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+        /// &gt; 
+        /// &gt; Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
+        /// 
+        /// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         public readonly Outputs.SpotFleetInstanceRequirementsRequest? InstanceRequirements;
+        /// <summary>
+        /// The instance type.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// The ID of the kernel.
+        /// </summary>
         public readonly string? KernelId;
+        /// <summary>
+        /// The name of the key pair.
+        /// </summary>
         public readonly string? KeyName;
+        /// <summary>
+        /// Describes whether monitoring is enabled.
+        /// </summary>
         public readonly Outputs.SpotFleetMonitoring? Monitoring;
+        /// <summary>
+        /// Describes a network interface.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetInstanceNetworkInterfaceSpecification> NetworkInterfaces;
+        /// <summary>
+        /// Describes Spot Instance placement.
+        /// </summary>
         public readonly Outputs.SpotFleetSpotPlacement? Placement;
+        /// <summary>
+        /// The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
+        /// </summary>
         public readonly string? RamdiskId;
+        /// <summary>
+        /// Describes a security group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetGroupIdentifier> SecurityGroups;
+        /// <summary>
+        /// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+        /// 
+        /// &gt; If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+        /// </summary>
         public readonly string? SpotPrice;
+        /// <summary>
+        /// The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+        /// 
+        /// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The tags for a Spot Fleet resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetTagSpecification> TagSpecifications;
+        /// <summary>
+        /// The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
+        /// </summary>
         public readonly string? UserData;
+        /// <summary>
+        /// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+        /// 
+        /// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+        /// </summary>
         public readonly double? WeightedCapacity;
 
         [OutputConstructor]

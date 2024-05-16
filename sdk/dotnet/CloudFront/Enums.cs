@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CloudFront
 {
+    /// <summary>
+    /// The type of traffic configuration.
+    /// </summary>
     [EnumType]
     public readonly struct ContinuousDeploymentPolicyConfigType : IEquatable<ContinuousDeploymentPolicyConfigType>
     {
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.CloudFront
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of traffic configuration.
+    /// </summary>
     [EnumType]
     public readonly struct ContinuousDeploymentPolicyTrafficConfigType : IEquatable<ContinuousDeploymentPolicyTrafficConfigType>
     {
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.CloudFront
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+    /// </summary>
     [EnumType]
     public readonly struct MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus : IEquatable<MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus>
     {

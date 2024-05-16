@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGradientColor
     {
+        /// <summary>
+        /// Determines the gradient stop configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateGradientStop> Stops;
 
         [OutputConstructor]

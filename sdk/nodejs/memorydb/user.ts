@@ -45,6 +45,13 @@ export class User extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the user account.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Denotes whether the user requires a password to authenticate.
+     *
+     * *Example:*
+     *
+     * `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+     */
     public readonly authenticationMode!: pulumi.Output<outputs.memorydb.AuthenticationModeProperties | undefined>;
     /**
      * Indicates the user status. Can be "active", "modifying" or "deleting".
@@ -99,6 +106,13 @@ export interface UserArgs {
      * Access permissions string used for this user account.
      */
     accessString?: pulumi.Input<string>;
+    /**
+     * Denotes whether the user requires a password to authenticate.
+     *
+     * *Example:*
+     *
+     * `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+     */
     authenticationMode?: pulumi.Input<inputs.memorydb.AuthenticationModePropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this user.

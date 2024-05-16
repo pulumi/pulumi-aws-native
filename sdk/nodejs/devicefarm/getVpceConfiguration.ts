@@ -19,15 +19,38 @@ export function getVpceConfiguration(args: GetVpceConfigurationArgs, opts?: pulu
 }
 
 export interface GetVpceConfigurationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetVpceConfigurationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * The DNS name that Device Farm will use to map to the private service you want to access.
+     */
     readonly serviceDnsName?: string;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * An optional description that provides details about your VPC endpoint configuration.
+     */
     readonly vpceConfigurationDescription?: string;
+    /**
+     * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+     */
     readonly vpceConfigurationName?: string;
+    /**
+     * The name of the VPC endpoint service that you want to access from Device Farm.
+     *
+     * The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+     */
     readonly vpceServiceName?: string;
 }
 /**
@@ -38,5 +61,8 @@ export function getVpceConfigurationOutput(args: GetVpceConfigurationOutputArgs,
 }
 
 export interface GetVpceConfigurationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

@@ -44,9 +44,22 @@ import (
 type SecurityKey struct {
 	pulumi.CustomResourceState
 
+	// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	InstanceId    pulumi.StringOutput `pulumi:"instanceId"`
-	Key           pulumi.StringOutput `pulumi:"key"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// A valid security key in PEM format. For example:
+	//
+	// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `1024`
+	Key pulumi.StringOutput `pulumi:"key"`
 }
 
 // NewSecurityKey registers a new resource with the given unique name, arguments, and options.
@@ -100,14 +113,38 @@ func (SecurityKeyState) ElementType() reflect.Type {
 }
 
 type securityKeyArgs struct {
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
 	InstanceId string `pulumi:"instanceId"`
-	Key        string `pulumi:"key"`
+	// A valid security key in PEM format. For example:
+	//
+	// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `1024`
+	Key string `pulumi:"key"`
 }
 
 // The set of arguments for constructing a SecurityKey resource.
 type SecurityKeyArgs struct {
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
 	InstanceId pulumi.StringInput
-	Key        pulumi.StringInput
+	// A valid security key in PEM format. For example:
+	//
+	// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `1024`
+	Key pulumi.StringInput
 }
 
 func (SecurityKeyArgs) ElementType() reflect.Type {
@@ -147,14 +184,27 @@ func (o SecurityKeyOutput) ToSecurityKeyOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 func (o SecurityKeyOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityKey) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance.
+//
+// *Minimum* : `1`
+//
+// *Maximum* : `100`
 func (o SecurityKeyOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityKey) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// A valid security key in PEM format. For example:
+//
+// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+//
+// *Minimum* : `1`
+//
+// *Maximum* : `1024`
 func (o SecurityKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

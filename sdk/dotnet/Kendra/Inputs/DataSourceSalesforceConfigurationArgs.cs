@@ -12,14 +12,26 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class DataSourceSalesforceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+        /// </summary>
         [Input("chatterFeedConfiguration")]
         public Input<Inputs.DataSourceSalesforceChatterFeedConfigurationArgs>? ChatterFeedConfiguration { get; set; }
 
+        /// <summary>
+        /// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+        /// </summary>
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
         [Input("excludeAttachmentFilePatterns")]
         private InputList<string>? _excludeAttachmentFilePatterns;
+
+        /// <summary>
+        /// A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+        /// 
+        /// The pattern is applied to the name of the attached file.
+        /// </summary>
         public InputList<string> ExcludeAttachmentFilePatterns
         {
             get => _excludeAttachmentFilePatterns ?? (_excludeAttachmentFilePatterns = new InputList<string>());
@@ -28,26 +40,55 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("includeAttachmentFilePatterns")]
         private InputList<string>? _includeAttachmentFilePatterns;
+
+        /// <summary>
+        /// A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+        /// 
+        /// The pattern is applied to the name of the attached file.
+        /// </summary>
         public InputList<string> IncludeAttachmentFilePatterns
         {
             get => _includeAttachmentFilePatterns ?? (_includeAttachmentFilePatterns = new InputList<string>());
             set => _includeAttachmentFilePatterns = value;
         }
 
+        /// <summary>
+        /// Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+        /// </summary>
         [Input("knowledgeArticleConfiguration")]
         public Input<Inputs.DataSourceSalesforceKnowledgeArticleConfigurationArgs>? KnowledgeArticleConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+        /// 
+        /// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+        /// - consumerKey - The application public key generated when you created your Salesforce application.
+        /// - consumerSecret - The application private key generated when you created your Salesforce application.
+        /// - password - The password associated with the user logging in to the Salesforce instance.
+        /// - securityToken - The token associated with the user logging in to the Salesforce instance.
+        /// - username - The user name of the user logging in to the Salesforce instance.
+        /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
+        /// <summary>
+        /// The instance URL for the Salesforce site that you want to index.
+        /// </summary>
         [Input("serverUrl", required: true)]
         public Input<string> ServerUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Provides the configuration information for processing attachments to Salesforce standard objects.
+        /// </summary>
         [Input("standardObjectAttachmentConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardObjectAttachmentConfigurationArgs>? StandardObjectAttachmentConfiguration { get; set; }
 
         [Input("standardObjectConfigurations")]
         private InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>? _standardObjectConfigurations;
+
+        /// <summary>
+        /// Configuration of the Salesforce standard objects that Amazon Kendra indexes.
+        /// </summary>
         public InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs> StandardObjectConfigurations
         {
             get => _standardObjectConfigurations ?? (_standardObjectConfigurations = new InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>());

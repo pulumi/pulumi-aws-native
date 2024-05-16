@@ -53,6 +53,9 @@ export class LocationSmb extends pulumi.CustomResource {
      * The URL of the SMB location that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    /**
+     * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+     */
     public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationSmbMountOptions | undefined>;
     /**
      * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
@@ -133,6 +136,9 @@ export interface LocationSmbArgs {
      * The name of the Windows domain that the SMB server belongs to.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+     */
     mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptionsArgs>;
     /**
      * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.

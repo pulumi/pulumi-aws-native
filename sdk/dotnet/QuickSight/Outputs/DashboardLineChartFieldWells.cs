@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLineChartFieldWells
     {
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineChartAggregatedFieldWells? LineChartAggregatedFieldWells;
 
         [OutputConstructor]

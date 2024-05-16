@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class DataSourceAccessControlListConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to the AWS S3 bucket that contains the access control list files.
+        /// </summary>
         [Input("keyPath")]
         public Input<string>? KeyPath { get; set; }
 

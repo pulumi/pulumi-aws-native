@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerFilter
     {
+        /// <summary>
+        /// A "contains" condition to match for the rule.
+        /// </summary>
         public readonly ImmutableArray<string> Contains;
+        /// <summary>
+        /// An "equals" condition to match for the rule.
+        /// </summary>
         public readonly ImmutableArray<string> Eq;
+        /// <summary>
+        /// An "exists" condition to match for the rule.
+        /// </summary>
         public readonly bool? Exists;
+        /// <summary>
+        /// A "not equal" condition to match for the rule.
+        /// </summary>
         public readonly ImmutableArray<string> Neq;
+        /// <summary>
+        /// The property used to define the criteria in the filter for the rule.
+        /// </summary>
         public readonly string Property;
 
         [OutputConstructor]

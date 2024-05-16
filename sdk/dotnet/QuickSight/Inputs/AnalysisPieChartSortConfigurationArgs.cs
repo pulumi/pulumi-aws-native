@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPieChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }
 
         [Input("smallMultiplesSort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _smallMultiplesSort;
+
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> SmallMultiplesSort
         {
             get => _smallMultiplesSort ?? (_smallMultiplesSort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

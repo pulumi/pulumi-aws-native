@@ -41,6 +41,9 @@ export class Environment extends pulumi.CustomResource {
      * The description of the environment.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The target platform for the runtime environment.
+     */
     public readonly engineType!: pulumi.Output<enums.m2.EnvironmentEngineType>;
     /**
      * The version of the runtime engine for the environment.
@@ -54,6 +57,9 @@ export class Environment extends pulumi.CustomResource {
      * The unique identifier of the environment.
      */
     public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    /**
+     * Defines the details of a high availability configuration.
+     */
     public readonly highAvailabilityConfig!: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * The type of instance underlying the environment.
@@ -156,11 +162,17 @@ export interface EnvironmentArgs {
      * The description of the environment.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The target platform for the runtime environment.
+     */
     engineType: pulumi.Input<enums.m2.EnvironmentEngineType>;
     /**
      * The version of the runtime engine for the environment.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Defines the details of a high availability configuration.
+     */
     highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfigArgs>;
     /**
      * The type of instance underlying the environment.

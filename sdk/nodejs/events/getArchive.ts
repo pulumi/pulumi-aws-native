@@ -16,16 +16,30 @@ export function getArchive(args: GetArchiveArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetArchiveArgs {
+    /**
+     * The name for the archive to create.
+     */
     archiveName: string;
 }
 
 export interface GetArchiveResult {
+    /**
+     * The ARN of the archive created.
+     */
     readonly arn?: string;
+    /**
+     * A description for the archive.
+     */
     readonly description?: string;
     /**
+     * An event pattern to use to filter events sent to the archive.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
     readonly eventPattern?: any;
+    /**
+     * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+     */
     readonly retentionDays?: number;
 }
 /**
@@ -36,5 +50,8 @@ export function getArchiveOutput(args: GetArchiveOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetArchiveOutputArgs {
+    /**
+     * The name for the archive to create.
+     */
     archiveName: pulumi.Input<string>;
 }

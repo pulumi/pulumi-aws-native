@@ -91,7 +91,14 @@ type Dataset struct {
 	// The ARN of the dataset
 	DatasetArn pulumi.StringOutput `pulumi:"datasetArn"`
 	// The Amazon Resource Name (ARN) of the dataset group to add the dataset to
-	DatasetGroupArn  pulumi.StringOutput       `pulumi:"datasetGroupArn"`
+	DatasetGroupArn pulumi.StringOutput `pulumi:"datasetGroupArn"`
+	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+	//
+	// A dataset import job can be in one of the following states:
+	//
+	// - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+	//
+	// If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 	DatasetImportJob DatasetImportJobPtrOutput `pulumi:"datasetImportJob"`
 	// The type of dataset
 	DatasetType DatasetTypeOutput `pulumi:"datasetType"`
@@ -158,7 +165,14 @@ func (DatasetState) ElementType() reflect.Type {
 
 type datasetArgs struct {
 	// The Amazon Resource Name (ARN) of the dataset group to add the dataset to
-	DatasetGroupArn  string            `pulumi:"datasetGroupArn"`
+	DatasetGroupArn string `pulumi:"datasetGroupArn"`
+	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+	//
+	// A dataset import job can be in one of the following states:
+	//
+	// - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+	//
+	// If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 	DatasetImportJob *DatasetImportJob `pulumi:"datasetImportJob"`
 	// The type of dataset
 	DatasetType DatasetType `pulumi:"datasetType"`
@@ -171,7 +185,14 @@ type datasetArgs struct {
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
 	// The Amazon Resource Name (ARN) of the dataset group to add the dataset to
-	DatasetGroupArn  pulumi.StringInput
+	DatasetGroupArn pulumi.StringInput
+	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+	//
+	// A dataset import job can be in one of the following states:
+	//
+	// - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+	//
+	// If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 	DatasetImportJob DatasetImportJobPtrInput
 	// The type of dataset
 	DatasetType DatasetTypeInput
@@ -228,6 +249,13 @@ func (o DatasetOutput) DatasetGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.DatasetGroupArn }).(pulumi.StringOutput)
 }
 
+// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+//
+// A dataset import job can be in one of the following states:
+//
+// - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+//
+// If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 func (o DatasetOutput) DatasetImportJob() DatasetImportJobPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetImportJobPtrOutput { return v.DatasetImportJob }).(DatasetImportJobPtrOutput)
 }

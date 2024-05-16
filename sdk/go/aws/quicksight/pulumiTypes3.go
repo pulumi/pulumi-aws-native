@@ -14,12 +14,18 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TemplateTableVisual struct {
-	Actions               []TemplateVisualCustomAction        `pulumi:"actions"`
-	ChartConfiguration    *TemplateTableConfiguration         `pulumi:"chartConfiguration"`
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration for a `TableVisual` .
+	ChartConfiguration *TemplateTableConfiguration `pulumi:"chartConfiguration"`
+	// The conditional formatting for a `PivotTableVisual` .
 	ConditionalFormatting *TemplateTableConditionalFormatting `pulumi:"conditionalFormatting"`
-	Subtitle              *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	Title                 *TemplateVisualTitleLabelOptions    `pulumi:"title"`
-	VisualId              string                              `pulumi:"visualId"`
+	// The subtitle label options for a visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId string `pulumi:"visualId"`
 }
 
 // TemplateTableVisualInput is an input type that accepts TemplateTableVisualArgs and TemplateTableVisualOutput values.
@@ -34,12 +40,18 @@ type TemplateTableVisualInput interface {
 }
 
 type TemplateTableVisualArgs struct {
-	Actions               TemplateVisualCustomActionArrayInput       `pulumi:"actions"`
-	ChartConfiguration    TemplateTableConfigurationPtrInput         `pulumi:"chartConfiguration"`
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration for a `TableVisual` .
+	ChartConfiguration TemplateTableConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The conditional formatting for a `PivotTableVisual` .
 	ConditionalFormatting TemplateTableConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	Subtitle              TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	Title                 TemplateVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
-	VisualId              pulumi.StringInput                         `pulumi:"visualId"`
+	// The subtitle label options for a visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (TemplateTableVisualArgs) ElementType() reflect.Type {
@@ -119,26 +131,32 @@ func (o TemplateTableVisualOutput) ToTemplateTableVisualPtrOutputWithContext(ctx
 	}).(TemplateTableVisualPtrOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateTableVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v TemplateTableVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration for a `TableVisual` .
 func (o TemplateTableVisualOutput) ChartConfiguration() TemplateTableConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTableVisual) *TemplateTableConfiguration { return v.ChartConfiguration }).(TemplateTableConfigurationPtrOutput)
 }
 
+// The conditional formatting for a `PivotTableVisual` .
 func (o TemplateTableVisualOutput) ConditionalFormatting() TemplateTableConditionalFormattingPtrOutput {
 	return o.ApplyT(func(v TemplateTableVisual) *TemplateTableConditionalFormatting { return v.ConditionalFormatting }).(TemplateTableConditionalFormattingPtrOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateTableVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateTableVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 func (o TemplateTableVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTableVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -167,6 +185,7 @@ func (o TemplateTableVisualPtrOutput) Elem() TemplateTableVisualOutput {
 	}).(TemplateTableVisualOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateTableVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) []TemplateVisualCustomAction {
 		if v == nil {
@@ -176,6 +195,7 @@ func (o TemplateTableVisualPtrOutput) Actions() TemplateVisualCustomActionArrayO
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration for a `TableVisual` .
 func (o TemplateTableVisualPtrOutput) ChartConfiguration() TemplateTableConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) *TemplateTableConfiguration {
 		if v == nil {
@@ -185,6 +205,7 @@ func (o TemplateTableVisualPtrOutput) ChartConfiguration() TemplateTableConfigur
 	}).(TemplateTableConfigurationPtrOutput)
 }
 
+// The conditional formatting for a `PivotTableVisual` .
 func (o TemplateTableVisualPtrOutput) ConditionalFormatting() TemplateTableConditionalFormattingPtrOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) *TemplateTableConditionalFormatting {
 		if v == nil {
@@ -194,6 +215,7 @@ func (o TemplateTableVisualPtrOutput) ConditionalFormatting() TemplateTableCondi
 	}).(TemplateTableConditionalFormattingPtrOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateTableVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -203,6 +225,7 @@ func (o TemplateTableVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOpti
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateTableVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -212,6 +235,7 @@ func (o TemplateTableVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtr
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 func (o TemplateTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) *string {
 		if v == nil {
@@ -232,9 +256,12 @@ type TemplateTag struct {
 }
 
 type TemplateTextAreaControlDisplayOptions struct {
+	// A control to display info icons for filters and parameters.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	PlaceholderOptions   *TemplateTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
-	TitleOptions         *TemplateLabelOptions                     `pulumi:"titleOptions"`
+	// The configuration of the placeholder options in a text control.
+	PlaceholderOptions *TemplateTextControlPlaceholderOptions `pulumi:"placeholderOptions"`
+	// The share label options for the labels.
+	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
 // TemplateTextAreaControlDisplayOptionsInput is an input type that accepts TemplateTextAreaControlDisplayOptionsArgs and TemplateTextAreaControlDisplayOptionsOutput values.
@@ -249,9 +276,12 @@ type TemplateTextAreaControlDisplayOptionsInput interface {
 }
 
 type TemplateTextAreaControlDisplayOptionsArgs struct {
+	// A control to display info icons for filters and parameters.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	PlaceholderOptions   TemplateTextControlPlaceholderOptionsPtrInput    `pulumi:"placeholderOptions"`
-	TitleOptions         TemplateLabelOptionsPtrInput                     `pulumi:"titleOptions"`
+	// The configuration of the placeholder options in a text control.
+	PlaceholderOptions TemplateTextControlPlaceholderOptionsPtrInput `pulumi:"placeholderOptions"`
+	// The share label options for the labels.
+	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
 func (TemplateTextAreaControlDisplayOptionsArgs) ElementType() reflect.Type {
@@ -331,18 +361,21 @@ func (o TemplateTextAreaControlDisplayOptionsOutput) ToTemplateTextAreaControlDi
 	}).(TemplateTextAreaControlDisplayOptionsPtrOutput)
 }
 
+// A control to display info icons for filters and parameters.
 func (o TemplateTextAreaControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTextAreaControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
+// The configuration of the placeholder options in a text control.
 func (o TemplateTextAreaControlDisplayOptionsOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTextAreaControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
 		return v.PlaceholderOptions
 	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
 }
 
+// The share label options for the labels.
 func (o TemplateTextAreaControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTextAreaControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -371,6 +404,7 @@ func (o TemplateTextAreaControlDisplayOptionsPtrOutput) Elem() TemplateTextAreaC
 	}).(TemplateTextAreaControlDisplayOptionsOutput)
 }
 
+// A control to display info icons for filters and parameters.
 func (o TemplateTextAreaControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -380,6 +414,7 @@ func (o TemplateTextAreaControlDisplayOptionsPtrOutput) InfoIconLabelOptions() T
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
+// The configuration of the placeholder options in a text control.
 func (o TemplateTextAreaControlDisplayOptionsPtrOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
 		if v == nil {
@@ -389,6 +424,7 @@ func (o TemplateTextAreaControlDisplayOptionsPtrOutput) PlaceholderOptions() Tem
 	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
 }
 
+// The share label options for the labels.
 func (o TemplateTextAreaControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -399,9 +435,12 @@ func (o TemplateTextAreaControlDisplayOptionsPtrOutput) TitleOptions() TemplateL
 }
 
 type TemplateTextConditionalFormat struct {
+	// The formatting configuration for the color.
 	BackgroundColor *TemplateConditionalFormattingColor `pulumi:"backgroundColor"`
-	Icon            *TemplateConditionalFormattingIcon  `pulumi:"icon"`
-	TextColor       *TemplateConditionalFormattingColor `pulumi:"textColor"`
+	// The formatting configuration for the icon.
+	Icon *TemplateConditionalFormattingIcon `pulumi:"icon"`
+	// The formatting configuration for the color.
+	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
 }
 
 // TemplateTextConditionalFormatInput is an input type that accepts TemplateTextConditionalFormatArgs and TemplateTextConditionalFormatOutput values.
@@ -416,9 +455,12 @@ type TemplateTextConditionalFormatInput interface {
 }
 
 type TemplateTextConditionalFormatArgs struct {
+	// The formatting configuration for the color.
 	BackgroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"backgroundColor"`
-	Icon            TemplateConditionalFormattingIconPtrInput  `pulumi:"icon"`
-	TextColor       TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
+	// The formatting configuration for the icon.
+	Icon TemplateConditionalFormattingIconPtrInput `pulumi:"icon"`
+	// The formatting configuration for the color.
+	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
 func (TemplateTextConditionalFormatArgs) ElementType() reflect.Type {
@@ -498,14 +540,17 @@ func (o TemplateTextConditionalFormatOutput) ToTemplateTextConditionalFormatPtrO
 	}).(TemplateTextConditionalFormatPtrOutput)
 }
 
+// The formatting configuration for the color.
 func (o TemplateTextConditionalFormatOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateTextConditionalFormat) *TemplateConditionalFormattingColor { return v.BackgroundColor }).(TemplateConditionalFormattingColorPtrOutput)
 }
 
+// The formatting configuration for the icon.
 func (o TemplateTextConditionalFormatOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v TemplateTextConditionalFormat) *TemplateConditionalFormattingIcon { return v.Icon }).(TemplateConditionalFormattingIconPtrOutput)
 }
 
+// The formatting configuration for the color.
 func (o TemplateTextConditionalFormatOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateTextConditionalFormat) *TemplateConditionalFormattingColor { return v.TextColor }).(TemplateConditionalFormattingColorPtrOutput)
 }
@@ -534,6 +579,7 @@ func (o TemplateTextConditionalFormatPtrOutput) Elem() TemplateTextConditionalFo
 	}).(TemplateTextConditionalFormatOutput)
 }
 
+// The formatting configuration for the color.
 func (o TemplateTextConditionalFormatPtrOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateTextConditionalFormat) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -543,6 +589,7 @@ func (o TemplateTextConditionalFormatPtrOutput) BackgroundColor() TemplateCondit
 	}).(TemplateConditionalFormattingColorPtrOutput)
 }
 
+// The formatting configuration for the icon.
 func (o TemplateTextConditionalFormatPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v *TemplateTextConditionalFormat) *TemplateConditionalFormattingIcon {
 		if v == nil {
@@ -552,6 +599,7 @@ func (o TemplateTextConditionalFormatPtrOutput) Icon() TemplateConditionalFormat
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
+// The formatting configuration for the color.
 func (o TemplateTextConditionalFormatPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateTextConditionalFormat) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -562,6 +610,7 @@ func (o TemplateTextConditionalFormatPtrOutput) TextColor() TemplateConditionalF
 }
 
 type TemplateTextControlPlaceholderOptions struct {
+	// The visibility configuration of the placeholder options in a text control.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
 }
 
@@ -577,6 +626,7 @@ type TemplateTextControlPlaceholderOptionsInput interface {
 }
 
 type TemplateTextControlPlaceholderOptionsArgs struct {
+	// The visibility configuration of the placeholder options in a text control.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
 }
 
@@ -657,6 +707,7 @@ func (o TemplateTextControlPlaceholderOptionsOutput) ToTemplateTextControlPlaceh
 	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
 }
 
+// The visibility configuration of the placeholder options in a text control.
 func (o TemplateTextControlPlaceholderOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateTextControlPlaceholderOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
 }
@@ -685,6 +736,7 @@ func (o TemplateTextControlPlaceholderOptionsPtrOutput) Elem() TemplateTextContr
 	}).(TemplateTextControlPlaceholderOptionsOutput)
 }
 
+// The visibility configuration of the placeholder options in a text control.
 func (o TemplateTextControlPlaceholderOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateTextControlPlaceholderOptions) *TemplateVisibility {
 		if v == nil {
@@ -695,9 +747,12 @@ func (o TemplateTextControlPlaceholderOptionsPtrOutput) Visibility() TemplateVis
 }
 
 type TemplateTextFieldControlDisplayOptions struct {
+	// A control to display info icons for filters and parameters.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	PlaceholderOptions   *TemplateTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
-	TitleOptions         *TemplateLabelOptions                     `pulumi:"titleOptions"`
+	// The configuration of the placeholder options in a text control.
+	PlaceholderOptions *TemplateTextControlPlaceholderOptions `pulumi:"placeholderOptions"`
+	// The share label options for the labels.
+	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
 // TemplateTextFieldControlDisplayOptionsInput is an input type that accepts TemplateTextFieldControlDisplayOptionsArgs and TemplateTextFieldControlDisplayOptionsOutput values.
@@ -712,9 +767,12 @@ type TemplateTextFieldControlDisplayOptionsInput interface {
 }
 
 type TemplateTextFieldControlDisplayOptionsArgs struct {
+	// A control to display info icons for filters and parameters.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	PlaceholderOptions   TemplateTextControlPlaceholderOptionsPtrInput    `pulumi:"placeholderOptions"`
-	TitleOptions         TemplateLabelOptionsPtrInput                     `pulumi:"titleOptions"`
+	// The configuration of the placeholder options in a text control.
+	PlaceholderOptions TemplateTextControlPlaceholderOptionsPtrInput `pulumi:"placeholderOptions"`
+	// The share label options for the labels.
+	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
 func (TemplateTextFieldControlDisplayOptionsArgs) ElementType() reflect.Type {
@@ -794,18 +852,21 @@ func (o TemplateTextFieldControlDisplayOptionsOutput) ToTemplateTextFieldControl
 	}).(TemplateTextFieldControlDisplayOptionsPtrOutput)
 }
 
+// A control to display info icons for filters and parameters.
 func (o TemplateTextFieldControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTextFieldControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
+// The configuration of the placeholder options in a text control.
 func (o TemplateTextFieldControlDisplayOptionsOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTextFieldControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
 		return v.PlaceholderOptions
 	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
 }
 
+// The share label options for the labels.
 func (o TemplateTextFieldControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTextFieldControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -834,6 +895,7 @@ func (o TemplateTextFieldControlDisplayOptionsPtrOutput) Elem() TemplateTextFiel
 	}).(TemplateTextFieldControlDisplayOptionsOutput)
 }
 
+// A control to display info icons for filters and parameters.
 func (o TemplateTextFieldControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -843,6 +905,7 @@ func (o TemplateTextFieldControlDisplayOptionsPtrOutput) InfoIconLabelOptions() 
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
+// The configuration of the placeholder options in a text control.
 func (o TemplateTextFieldControlDisplayOptionsPtrOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
 		if v == nil {
@@ -852,6 +915,7 @@ func (o TemplateTextFieldControlDisplayOptionsPtrOutput) PlaceholderOptions() Te
 	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
 }
 
+// The share label options for the labels.
 func (o TemplateTextFieldControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -862,8 +926,10 @@ func (o TemplateTextFieldControlDisplayOptionsPtrOutput) TitleOptions() Template
 }
 
 type TemplateThousandSeparatorOptions struct {
-	Symbol     *TemplateNumericSeparatorSymbol `pulumi:"symbol"`
-	Visibility *TemplateVisibility             `pulumi:"visibility"`
+	// Determines the thousands separator symbol.
+	Symbol *TemplateNumericSeparatorSymbol `pulumi:"symbol"`
+	// Determines the visibility of the thousands separator.
+	Visibility *TemplateVisibility `pulumi:"visibility"`
 }
 
 // TemplateThousandSeparatorOptionsInput is an input type that accepts TemplateThousandSeparatorOptionsArgs and TemplateThousandSeparatorOptionsOutput values.
@@ -878,8 +944,10 @@ type TemplateThousandSeparatorOptionsInput interface {
 }
 
 type TemplateThousandSeparatorOptionsArgs struct {
-	Symbol     TemplateNumericSeparatorSymbolPtrInput `pulumi:"symbol"`
-	Visibility TemplateVisibilityPtrInput             `pulumi:"visibility"`
+	// Determines the thousands separator symbol.
+	Symbol TemplateNumericSeparatorSymbolPtrInput `pulumi:"symbol"`
+	// Determines the visibility of the thousands separator.
+	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
 }
 
 func (TemplateThousandSeparatorOptionsArgs) ElementType() reflect.Type {
@@ -959,10 +1027,12 @@ func (o TemplateThousandSeparatorOptionsOutput) ToTemplateThousandSeparatorOptio
 	}).(TemplateThousandSeparatorOptionsPtrOutput)
 }
 
+// Determines the thousands separator symbol.
 func (o TemplateThousandSeparatorOptionsOutput) Symbol() TemplateNumericSeparatorSymbolPtrOutput {
 	return o.ApplyT(func(v TemplateThousandSeparatorOptions) *TemplateNumericSeparatorSymbol { return v.Symbol }).(TemplateNumericSeparatorSymbolPtrOutput)
 }
 
+// Determines the visibility of the thousands separator.
 func (o TemplateThousandSeparatorOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateThousandSeparatorOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
 }
@@ -991,6 +1061,7 @@ func (o TemplateThousandSeparatorOptionsPtrOutput) Elem() TemplateThousandSepara
 	}).(TemplateThousandSeparatorOptionsOutput)
 }
 
+// Determines the thousands separator symbol.
 func (o TemplateThousandSeparatorOptionsPtrOutput) Symbol() TemplateNumericSeparatorSymbolPtrOutput {
 	return o.ApplyT(func(v *TemplateThousandSeparatorOptions) *TemplateNumericSeparatorSymbol {
 		if v == nil {
@@ -1000,6 +1071,7 @@ func (o TemplateThousandSeparatorOptionsPtrOutput) Symbol() TemplateNumericSepar
 	}).(TemplateNumericSeparatorSymbolPtrOutput)
 }
 
+// Determines the visibility of the thousands separator.
 func (o TemplateThousandSeparatorOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateThousandSeparatorOptions) *TemplateVisibility {
 		if v == nil {
@@ -1010,12 +1082,21 @@ func (o TemplateThousandSeparatorOptionsPtrOutput) Visibility() TemplateVisibili
 }
 
 type TemplateTimeBasedForecastProperties struct {
-	LowerBoundary      *float64 `pulumi:"lowerBoundary"`
-	PeriodsBackward    *float64 `pulumi:"periodsBackward"`
-	PeriodsForward     *float64 `pulumi:"periodsForward"`
+	// The lower boundary setup of a forecast computation.
+	LowerBoundary *float64 `pulumi:"lowerBoundary"`
+	// The periods backward setup of a forecast computation.
+	PeriodsBackward *float64 `pulumi:"periodsBackward"`
+	// The periods forward setup of a forecast computation.
+	PeriodsForward *float64 `pulumi:"periodsForward"`
+	// The prediction interval setup of a forecast computation.
 	PredictionInterval *float64 `pulumi:"predictionInterval"`
-	Seasonality        *float64 `pulumi:"seasonality"`
-	UpperBoundary      *float64 `pulumi:"upperBoundary"`
+	// The seasonality setup of a forecast computation. Choose one of the following options:
+	//
+	// - `NULL` : The input is set to `NULL` .
+	// - `NON_NULL` : The input is set to a custom value.
+	Seasonality *float64 `pulumi:"seasonality"`
+	// The upper boundary setup of a forecast computation.
+	UpperBoundary *float64 `pulumi:"upperBoundary"`
 }
 
 // TemplateTimeBasedForecastPropertiesInput is an input type that accepts TemplateTimeBasedForecastPropertiesArgs and TemplateTimeBasedForecastPropertiesOutput values.
@@ -1030,12 +1111,21 @@ type TemplateTimeBasedForecastPropertiesInput interface {
 }
 
 type TemplateTimeBasedForecastPropertiesArgs struct {
-	LowerBoundary      pulumi.Float64PtrInput `pulumi:"lowerBoundary"`
-	PeriodsBackward    pulumi.Float64PtrInput `pulumi:"periodsBackward"`
-	PeriodsForward     pulumi.Float64PtrInput `pulumi:"periodsForward"`
+	// The lower boundary setup of a forecast computation.
+	LowerBoundary pulumi.Float64PtrInput `pulumi:"lowerBoundary"`
+	// The periods backward setup of a forecast computation.
+	PeriodsBackward pulumi.Float64PtrInput `pulumi:"periodsBackward"`
+	// The periods forward setup of a forecast computation.
+	PeriodsForward pulumi.Float64PtrInput `pulumi:"periodsForward"`
+	// The prediction interval setup of a forecast computation.
 	PredictionInterval pulumi.Float64PtrInput `pulumi:"predictionInterval"`
-	Seasonality        pulumi.Float64PtrInput `pulumi:"seasonality"`
-	UpperBoundary      pulumi.Float64PtrInput `pulumi:"upperBoundary"`
+	// The seasonality setup of a forecast computation. Choose one of the following options:
+	//
+	// - `NULL` : The input is set to `NULL` .
+	// - `NON_NULL` : The input is set to a custom value.
+	Seasonality pulumi.Float64PtrInput `pulumi:"seasonality"`
+	// The upper boundary setup of a forecast computation.
+	UpperBoundary pulumi.Float64PtrInput `pulumi:"upperBoundary"`
 }
 
 func (TemplateTimeBasedForecastPropertiesArgs) ElementType() reflect.Type {
@@ -1115,26 +1205,35 @@ func (o TemplateTimeBasedForecastPropertiesOutput) ToTemplateTimeBasedForecastPr
 	}).(TemplateTimeBasedForecastPropertiesPtrOutput)
 }
 
+// The lower boundary setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesOutput) LowerBoundary() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTimeBasedForecastProperties) *float64 { return v.LowerBoundary }).(pulumi.Float64PtrOutput)
 }
 
+// The periods backward setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesOutput) PeriodsBackward() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTimeBasedForecastProperties) *float64 { return v.PeriodsBackward }).(pulumi.Float64PtrOutput)
 }
 
+// The periods forward setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesOutput) PeriodsForward() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTimeBasedForecastProperties) *float64 { return v.PeriodsForward }).(pulumi.Float64PtrOutput)
 }
 
+// The prediction interval setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesOutput) PredictionInterval() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTimeBasedForecastProperties) *float64 { return v.PredictionInterval }).(pulumi.Float64PtrOutput)
 }
 
+// The seasonality setup of a forecast computation. Choose one of the following options:
+//
+// - `NULL` : The input is set to `NULL` .
+// - `NON_NULL` : The input is set to a custom value.
 func (o TemplateTimeBasedForecastPropertiesOutput) Seasonality() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTimeBasedForecastProperties) *float64 { return v.Seasonality }).(pulumi.Float64PtrOutput)
 }
 
+// The upper boundary setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesOutput) UpperBoundary() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTimeBasedForecastProperties) *float64 { return v.UpperBoundary }).(pulumi.Float64PtrOutput)
 }
@@ -1163,6 +1262,7 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) Elem() TemplateTimeBasedFo
 	}).(TemplateTimeBasedForecastPropertiesOutput)
 }
 
+// The lower boundary setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesPtrOutput) LowerBoundary() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTimeBasedForecastProperties) *float64 {
 		if v == nil {
@@ -1172,6 +1272,7 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) LowerBoundary() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The periods backward setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesPtrOutput) PeriodsBackward() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTimeBasedForecastProperties) *float64 {
 		if v == nil {
@@ -1181,6 +1282,7 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) PeriodsBackward() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The periods forward setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesPtrOutput) PeriodsForward() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTimeBasedForecastProperties) *float64 {
 		if v == nil {
@@ -1190,6 +1292,7 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) PeriodsForward() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The prediction interval setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesPtrOutput) PredictionInterval() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTimeBasedForecastProperties) *float64 {
 		if v == nil {
@@ -1199,6 +1302,10 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) PredictionInterval() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The seasonality setup of a forecast computation. Choose one of the following options:
+//
+// - `NULL` : The input is set to `NULL` .
+// - `NON_NULL` : The input is set to a custom value.
 func (o TemplateTimeBasedForecastPropertiesPtrOutput) Seasonality() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTimeBasedForecastProperties) *float64 {
 		if v == nil {
@@ -1208,6 +1315,7 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) Seasonality() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The upper boundary setup of a forecast computation.
 func (o TemplateTimeBasedForecastPropertiesPtrOutput) UpperBoundary() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTimeBasedForecastProperties) *float64 {
 		if v == nil {
@@ -1218,13 +1326,24 @@ func (o TemplateTimeBasedForecastPropertiesPtrOutput) UpperBoundary() pulumi.Flo
 }
 
 type TemplateTimeEqualityFilter struct {
-	Column                            TemplateColumnIdentifier                   `pulumi:"column"`
+	// A column of a data set.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The default configuration for all dependent controls of the filter.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
-	FilterId                          string                                     `pulumi:"filterId"`
-	ParameterName                     *string                                    `pulumi:"parameterName"`
-	RollingDate                       *TemplateRollingDateConfiguration          `pulumi:"rollingDate"`
-	TimeGranularity                   *TemplateTimeGranularity                   `pulumi:"timeGranularity"`
-	Value                             *string                                    `pulumi:"value"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// The parameter whose value should be used for the filter value.
+	//
+	// This field is mutually exclusive to `Value` and `RollingDate` .
+	ParameterName *string `pulumi:"parameterName"`
+	// The rolling date configuration of a date time filter.
+	RollingDate *TemplateRollingDateConfiguration `pulumi:"rollingDate"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity *TemplateTimeGranularity `pulumi:"timeGranularity"`
+	// The value of a `TimeEquality` filter.
+	//
+	// This field is mutually exclusive to `RollingDate` and `ParameterName` .
+	Value *string `pulumi:"value"`
 }
 
 // TemplateTimeEqualityFilterInput is an input type that accepts TemplateTimeEqualityFilterArgs and TemplateTimeEqualityFilterOutput values.
@@ -1239,13 +1358,24 @@ type TemplateTimeEqualityFilterInput interface {
 }
 
 type TemplateTimeEqualityFilterArgs struct {
-	Column                            TemplateColumnIdentifierInput                     `pulumi:"column"`
+	// A column of a data set.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The default configuration for all dependent controls of the filter.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
-	FilterId                          pulumi.StringInput                                `pulumi:"filterId"`
-	ParameterName                     pulumi.StringPtrInput                             `pulumi:"parameterName"`
-	RollingDate                       TemplateRollingDateConfigurationPtrInput          `pulumi:"rollingDate"`
-	TimeGranularity                   TemplateTimeGranularityPtrInput                   `pulumi:"timeGranularity"`
-	Value                             pulumi.StringPtrInput                             `pulumi:"value"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// The parameter whose value should be used for the filter value.
+	//
+	// This field is mutually exclusive to `Value` and `RollingDate` .
+	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
+	// The rolling date configuration of a date time filter.
+	RollingDate TemplateRollingDateConfigurationPtrInput `pulumi:"rollingDate"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TemplateTimeGranularityPtrInput `pulumi:"timeGranularity"`
+	// The value of a `TimeEquality` filter.
+	//
+	// This field is mutually exclusive to `RollingDate` and `ParameterName` .
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TemplateTimeEqualityFilterArgs) ElementType() reflect.Type {
@@ -1325,32 +1455,43 @@ func (o TemplateTimeEqualityFilterOutput) ToTemplateTimeEqualityFilterPtrOutputW
 	}).(TemplateTimeEqualityFilterPtrOutput)
 }
 
+// A column of a data set.
 func (o TemplateTimeEqualityFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
+// The default configuration for all dependent controls of the filter.
 func (o TemplateTimeEqualityFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateTimeEqualityFilterOutput) FilterId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) string { return v.FilterId }).(pulumi.StringOutput)
 }
 
+// The parameter whose value should be used for the filter value.
+//
+// This field is mutually exclusive to `Value` and `RollingDate` .
 func (o TemplateTimeEqualityFilterOutput) ParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
 }
 
+// The rolling date configuration of a date time filter.
 func (o TemplateTimeEqualityFilterOutput) RollingDate() TemplateRollingDateConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) *TemplateRollingDateConfiguration { return v.RollingDate }).(TemplateRollingDateConfigurationPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTimeEqualityFilterOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) *TemplateTimeGranularity { return v.TimeGranularity }).(TemplateTimeGranularityPtrOutput)
 }
 
+// The value of a `TimeEquality` filter.
+//
+// This field is mutually exclusive to `RollingDate` and `ParameterName` .
 func (o TemplateTimeEqualityFilterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTimeEqualityFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1379,6 +1520,7 @@ func (o TemplateTimeEqualityFilterPtrOutput) Elem() TemplateTimeEqualityFilterOu
 	}).(TemplateTimeEqualityFilterOutput)
 }
 
+// A column of a data set.
 func (o TemplateTimeEqualityFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -1388,6 +1530,7 @@ func (o TemplateTimeEqualityFilterPtrOutput) Column() TemplateColumnIdentifierPt
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
+// The default configuration for all dependent controls of the filter.
 func (o TemplateTimeEqualityFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -1397,6 +1540,7 @@ func (o TemplateTimeEqualityFilterPtrOutput) DefaultFilterControlConfiguration()
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateTimeEqualityFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *string {
 		if v == nil {
@@ -1406,6 +1550,9 @@ func (o TemplateTimeEqualityFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The parameter whose value should be used for the filter value.
+//
+// This field is mutually exclusive to `Value` and `RollingDate` .
 func (o TemplateTimeEqualityFilterPtrOutput) ParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *string {
 		if v == nil {
@@ -1415,6 +1562,7 @@ func (o TemplateTimeEqualityFilterPtrOutput) ParameterName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The rolling date configuration of a date time filter.
 func (o TemplateTimeEqualityFilterPtrOutput) RollingDate() TemplateRollingDateConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *TemplateRollingDateConfiguration {
 		if v == nil {
@@ -1424,6 +1572,7 @@ func (o TemplateTimeEqualityFilterPtrOutput) RollingDate() TemplateRollingDateCo
 	}).(TemplateRollingDateConfigurationPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTimeEqualityFilterPtrOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *TemplateTimeGranularity {
 		if v == nil {
@@ -1433,6 +1582,9 @@ func (o TemplateTimeEqualityFilterPtrOutput) TimeGranularity() TemplateTimeGranu
 	}).(TemplateTimeGranularityPtrOutput)
 }
 
+// The value of a `TimeEquality` filter.
+//
+// This field is mutually exclusive to `RollingDate` and `ParameterName` .
 func (o TemplateTimeEqualityFilterPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeEqualityFilter) *string {
 		if v == nil {
@@ -1443,10 +1595,14 @@ func (o TemplateTimeEqualityFilterPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TemplateTimeRangeDrillDownFilter struct {
-	Column          TemplateColumnIdentifier `pulumi:"column"`
-	RangeMaximum    string                   `pulumi:"rangeMaximum"`
-	RangeMinimum    string                   `pulumi:"rangeMinimum"`
-	TimeGranularity TemplateTimeGranularity  `pulumi:"timeGranularity"`
+	// A column of a data set.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The maximum value for the filter value range.
+	RangeMaximum string `pulumi:"rangeMaximum"`
+	// The minimum value for the filter value range.
+	RangeMinimum string `pulumi:"rangeMinimum"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TemplateTimeGranularity `pulumi:"timeGranularity"`
 }
 
 // TemplateTimeRangeDrillDownFilterInput is an input type that accepts TemplateTimeRangeDrillDownFilterArgs and TemplateTimeRangeDrillDownFilterOutput values.
@@ -1461,10 +1617,14 @@ type TemplateTimeRangeDrillDownFilterInput interface {
 }
 
 type TemplateTimeRangeDrillDownFilterArgs struct {
-	Column          TemplateColumnIdentifierInput `pulumi:"column"`
-	RangeMaximum    pulumi.StringInput            `pulumi:"rangeMaximum"`
-	RangeMinimum    pulumi.StringInput            `pulumi:"rangeMinimum"`
-	TimeGranularity TemplateTimeGranularityInput  `pulumi:"timeGranularity"`
+	// A column of a data set.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The maximum value for the filter value range.
+	RangeMaximum pulumi.StringInput `pulumi:"rangeMaximum"`
+	// The minimum value for the filter value range.
+	RangeMinimum pulumi.StringInput `pulumi:"rangeMinimum"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TemplateTimeGranularityInput `pulumi:"timeGranularity"`
 }
 
 func (TemplateTimeRangeDrillDownFilterArgs) ElementType() reflect.Type {
@@ -1544,18 +1704,22 @@ func (o TemplateTimeRangeDrillDownFilterOutput) ToTemplateTimeRangeDrillDownFilt
 	}).(TemplateTimeRangeDrillDownFilterPtrOutput)
 }
 
+// A column of a data set.
 func (o TemplateTimeRangeDrillDownFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateTimeRangeDrillDownFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
+// The maximum value for the filter value range.
 func (o TemplateTimeRangeDrillDownFilterOutput) RangeMaximum() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTimeRangeDrillDownFilter) string { return v.RangeMaximum }).(pulumi.StringOutput)
 }
 
+// The minimum value for the filter value range.
 func (o TemplateTimeRangeDrillDownFilterOutput) RangeMinimum() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTimeRangeDrillDownFilter) string { return v.RangeMinimum }).(pulumi.StringOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTimeRangeDrillDownFilterOutput) TimeGranularity() TemplateTimeGranularityOutput {
 	return o.ApplyT(func(v TemplateTimeRangeDrillDownFilter) TemplateTimeGranularity { return v.TimeGranularity }).(TemplateTimeGranularityOutput)
 }
@@ -1584,6 +1748,7 @@ func (o TemplateTimeRangeDrillDownFilterPtrOutput) Elem() TemplateTimeRangeDrill
 	}).(TemplateTimeRangeDrillDownFilterOutput)
 }
 
+// A column of a data set.
 func (o TemplateTimeRangeDrillDownFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeDrillDownFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -1593,6 +1758,7 @@ func (o TemplateTimeRangeDrillDownFilterPtrOutput) Column() TemplateColumnIdenti
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
+// The maximum value for the filter value range.
 func (o TemplateTimeRangeDrillDownFilterPtrOutput) RangeMaximum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeDrillDownFilter) *string {
 		if v == nil {
@@ -1602,6 +1768,7 @@ func (o TemplateTimeRangeDrillDownFilterPtrOutput) RangeMaximum() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum value for the filter value range.
 func (o TemplateTimeRangeDrillDownFilterPtrOutput) RangeMinimum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeDrillDownFilter) *string {
 		if v == nil {
@@ -1611,6 +1778,7 @@ func (o TemplateTimeRangeDrillDownFilterPtrOutput) RangeMinimum() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTimeRangeDrillDownFilterPtrOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeDrillDownFilter) *TemplateTimeGranularity {
 		if v == nil {
@@ -1621,16 +1789,34 @@ func (o TemplateTimeRangeDrillDownFilterPtrOutput) TimeGranularity() TemplateTim
 }
 
 type TemplateTimeRangeFilter struct {
-	Column                            TemplateColumnIdentifier                   `pulumi:"column"`
+	// A column of a data set.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The default configuration for all dependent controls of the filter.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
-	ExcludePeriodConfiguration        *TemplateExcludePeriodConfiguration        `pulumi:"excludePeriodConfiguration"`
-	FilterId                          string                                     `pulumi:"filterId"`
-	IncludeMaximum                    *bool                                      `pulumi:"includeMaximum"`
-	IncludeMinimum                    *bool                                      `pulumi:"includeMinimum"`
-	NullOption                        TemplateFilterNullOption                   `pulumi:"nullOption"`
-	RangeMaximumValue                 *TemplateTimeRangeFilterValue              `pulumi:"rangeMaximumValue"`
-	RangeMinimumValue                 *TemplateTimeRangeFilterValue              `pulumi:"rangeMinimumValue"`
-	TimeGranularity                   *TemplateTimeGranularity                   `pulumi:"timeGranularity"`
+	// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+	ExcludePeriodConfiguration *TemplateExcludePeriodConfiguration `pulumi:"excludePeriodConfiguration"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	IncludeMaximum *bool `pulumi:"includeMaximum"`
+	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	IncludeMinimum *bool `pulumi:"includeMinimum"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	NullOption TemplateFilterNullOption `pulumi:"nullOption"`
+	// The value of a time range filter.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	RangeMaximumValue *TemplateTimeRangeFilterValue `pulumi:"rangeMaximumValue"`
+	// The value of a time range filter.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	RangeMinimumValue *TemplateTimeRangeFilterValue `pulumi:"rangeMinimumValue"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity *TemplateTimeGranularity `pulumi:"timeGranularity"`
 }
 
 // TemplateTimeRangeFilterInput is an input type that accepts TemplateTimeRangeFilterArgs and TemplateTimeRangeFilterOutput values.
@@ -1645,16 +1831,34 @@ type TemplateTimeRangeFilterInput interface {
 }
 
 type TemplateTimeRangeFilterArgs struct {
-	Column                            TemplateColumnIdentifierInput                     `pulumi:"column"`
+	// A column of a data set.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The default configuration for all dependent controls of the filter.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
-	ExcludePeriodConfiguration        TemplateExcludePeriodConfigurationPtrInput        `pulumi:"excludePeriodConfiguration"`
-	FilterId                          pulumi.StringInput                                `pulumi:"filterId"`
-	IncludeMaximum                    pulumi.BoolPtrInput                               `pulumi:"includeMaximum"`
-	IncludeMinimum                    pulumi.BoolPtrInput                               `pulumi:"includeMinimum"`
-	NullOption                        TemplateFilterNullOptionInput                     `pulumi:"nullOption"`
-	RangeMaximumValue                 TemplateTimeRangeFilterValuePtrInput              `pulumi:"rangeMaximumValue"`
-	RangeMinimumValue                 TemplateTimeRangeFilterValuePtrInput              `pulumi:"rangeMinimumValue"`
-	TimeGranularity                   TemplateTimeGranularityPtrInput                   `pulumi:"timeGranularity"`
+	// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+	ExcludePeriodConfiguration TemplateExcludePeriodConfigurationPtrInput `pulumi:"excludePeriodConfiguration"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	IncludeMaximum pulumi.BoolPtrInput `pulumi:"includeMaximum"`
+	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	IncludeMinimum pulumi.BoolPtrInput `pulumi:"includeMinimum"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	NullOption TemplateFilterNullOptionInput `pulumi:"nullOption"`
+	// The value of a time range filter.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	RangeMaximumValue TemplateTimeRangeFilterValuePtrInput `pulumi:"rangeMaximumValue"`
+	// The value of a time range filter.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	RangeMinimumValue TemplateTimeRangeFilterValuePtrInput `pulumi:"rangeMinimumValue"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TemplateTimeGranularityPtrInput `pulumi:"timeGranularity"`
 }
 
 func (TemplateTimeRangeFilterArgs) ElementType() reflect.Type {
@@ -1734,46 +1938,64 @@ func (o TemplateTimeRangeFilterOutput) ToTemplateTimeRangeFilterPtrOutputWithCon
 	}).(TemplateTimeRangeFilterPtrOutput)
 }
 
+// A column of a data set.
 func (o TemplateTimeRangeFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
+// The default configuration for all dependent controls of the filter.
 func (o TemplateTimeRangeFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
+// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
 func (o TemplateTimeRangeFilterOutput) ExcludePeriodConfiguration() TemplateExcludePeriodConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *TemplateExcludePeriodConfiguration {
 		return v.ExcludePeriodConfiguration
 	}).(TemplateExcludePeriodConfigurationPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateTimeRangeFilterOutput) FilterId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) string { return v.FilterId }).(pulumi.StringOutput)
 }
 
+// Determines whether the maximum value in the filter value range should be included in the filtered results.
 func (o TemplateTimeRangeFilterOutput) IncludeMaximum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *bool { return v.IncludeMaximum }).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether the minimum value in the filter value range should be included in the filtered results.
 func (o TemplateTimeRangeFilterOutput) IncludeMinimum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *bool { return v.IncludeMinimum }).(pulumi.BoolPtrOutput)
 }
 
+// This option determines how null values should be treated when filtering data.
+//
+// - `ALL_VALUES` : Include null values in filtered results.
+// - `NULLS_ONLY` : Only include null values in filtered results.
+// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
 func (o TemplateTimeRangeFilterOutput) NullOption() TemplateFilterNullOptionOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) TemplateFilterNullOption { return v.NullOption }).(TemplateFilterNullOptionOutput)
 }
 
+// The value of a time range filter.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateTimeRangeFilterOutput) RangeMaximumValue() TemplateTimeRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *TemplateTimeRangeFilterValue { return v.RangeMaximumValue }).(TemplateTimeRangeFilterValuePtrOutput)
 }
 
+// The value of a time range filter.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateTimeRangeFilterOutput) RangeMinimumValue() TemplateTimeRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *TemplateTimeRangeFilterValue { return v.RangeMinimumValue }).(TemplateTimeRangeFilterValuePtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTimeRangeFilterOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilter) *TemplateTimeGranularity { return v.TimeGranularity }).(TemplateTimeGranularityPtrOutput)
 }
@@ -1802,6 +2024,7 @@ func (o TemplateTimeRangeFilterPtrOutput) Elem() TemplateTimeRangeFilterOutput {
 	}).(TemplateTimeRangeFilterOutput)
 }
 
+// A column of a data set.
 func (o TemplateTimeRangeFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -1811,6 +2034,7 @@ func (o TemplateTimeRangeFilterPtrOutput) Column() TemplateColumnIdentifierPtrOu
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
+// The default configuration for all dependent controls of the filter.
 func (o TemplateTimeRangeFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -1820,6 +2044,7 @@ func (o TemplateTimeRangeFilterPtrOutput) DefaultFilterControlConfiguration() Te
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
+// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
 func (o TemplateTimeRangeFilterPtrOutput) ExcludePeriodConfiguration() TemplateExcludePeriodConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateExcludePeriodConfiguration {
 		if v == nil {
@@ -1829,6 +2054,7 @@ func (o TemplateTimeRangeFilterPtrOutput) ExcludePeriodConfiguration() TemplateE
 	}).(TemplateExcludePeriodConfigurationPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateTimeRangeFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *string {
 		if v == nil {
@@ -1838,6 +2064,7 @@ func (o TemplateTimeRangeFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the maximum value in the filter value range should be included in the filtered results.
 func (o TemplateTimeRangeFilterPtrOutput) IncludeMaximum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *bool {
 		if v == nil {
@@ -1847,6 +2074,7 @@ func (o TemplateTimeRangeFilterPtrOutput) IncludeMaximum() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether the minimum value in the filter value range should be included in the filtered results.
 func (o TemplateTimeRangeFilterPtrOutput) IncludeMinimum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *bool {
 		if v == nil {
@@ -1856,6 +2084,11 @@ func (o TemplateTimeRangeFilterPtrOutput) IncludeMinimum() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// This option determines how null values should be treated when filtering data.
+//
+// - `ALL_VALUES` : Include null values in filtered results.
+// - `NULLS_ONLY` : Only include null values in filtered results.
+// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
 func (o TemplateTimeRangeFilterPtrOutput) NullOption() TemplateFilterNullOptionPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateFilterNullOption {
 		if v == nil {
@@ -1865,6 +2098,9 @@ func (o TemplateTimeRangeFilterPtrOutput) NullOption() TemplateFilterNullOptionP
 	}).(TemplateFilterNullOptionPtrOutput)
 }
 
+// The value of a time range filter.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateTimeRangeFilterPtrOutput) RangeMaximumValue() TemplateTimeRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateTimeRangeFilterValue {
 		if v == nil {
@@ -1874,6 +2110,9 @@ func (o TemplateTimeRangeFilterPtrOutput) RangeMaximumValue() TemplateTimeRangeF
 	}).(TemplateTimeRangeFilterValuePtrOutput)
 }
 
+// The value of a time range filter.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateTimeRangeFilterPtrOutput) RangeMinimumValue() TemplateTimeRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateTimeRangeFilterValue {
 		if v == nil {
@@ -1883,6 +2122,7 @@ func (o TemplateTimeRangeFilterPtrOutput) RangeMinimumValue() TemplateTimeRangeF
 	}).(TemplateTimeRangeFilterValuePtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTimeRangeFilterPtrOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilter) *TemplateTimeGranularity {
 		if v == nil {
@@ -1893,9 +2133,12 @@ func (o TemplateTimeRangeFilterPtrOutput) TimeGranularity() TemplateTimeGranular
 }
 
 type TemplateTimeRangeFilterValue struct {
-	Parameter   *string                           `pulumi:"parameter"`
+	// The parameter type input value.
+	Parameter *string `pulumi:"parameter"`
+	// The rolling date configuration of a date time filter.
 	RollingDate *TemplateRollingDateConfiguration `pulumi:"rollingDate"`
-	StaticValue *string                           `pulumi:"staticValue"`
+	// The static input value.
+	StaticValue *string `pulumi:"staticValue"`
 }
 
 // TemplateTimeRangeFilterValueInput is an input type that accepts TemplateTimeRangeFilterValueArgs and TemplateTimeRangeFilterValueOutput values.
@@ -1910,9 +2153,12 @@ type TemplateTimeRangeFilterValueInput interface {
 }
 
 type TemplateTimeRangeFilterValueArgs struct {
-	Parameter   pulumi.StringPtrInput                    `pulumi:"parameter"`
+	// The parameter type input value.
+	Parameter pulumi.StringPtrInput `pulumi:"parameter"`
+	// The rolling date configuration of a date time filter.
 	RollingDate TemplateRollingDateConfigurationPtrInput `pulumi:"rollingDate"`
-	StaticValue pulumi.StringPtrInput                    `pulumi:"staticValue"`
+	// The static input value.
+	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
 }
 
 func (TemplateTimeRangeFilterValueArgs) ElementType() reflect.Type {
@@ -1992,14 +2238,17 @@ func (o TemplateTimeRangeFilterValueOutput) ToTemplateTimeRangeFilterValuePtrOut
 	}).(TemplateTimeRangeFilterValuePtrOutput)
 }
 
+// The parameter type input value.
 func (o TemplateTimeRangeFilterValueOutput) Parameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilterValue) *string { return v.Parameter }).(pulumi.StringPtrOutput)
 }
 
+// The rolling date configuration of a date time filter.
 func (o TemplateTimeRangeFilterValueOutput) RollingDate() TemplateRollingDateConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilterValue) *TemplateRollingDateConfiguration { return v.RollingDate }).(TemplateRollingDateConfigurationPtrOutput)
 }
 
+// The static input value.
 func (o TemplateTimeRangeFilterValueOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTimeRangeFilterValue) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
 }
@@ -2028,6 +2277,7 @@ func (o TemplateTimeRangeFilterValuePtrOutput) Elem() TemplateTimeRangeFilterVal
 	}).(TemplateTimeRangeFilterValueOutput)
 }
 
+// The parameter type input value.
 func (o TemplateTimeRangeFilterValuePtrOutput) Parameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilterValue) *string {
 		if v == nil {
@@ -2037,6 +2287,7 @@ func (o TemplateTimeRangeFilterValuePtrOutput) Parameter() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The rolling date configuration of a date time filter.
 func (o TemplateTimeRangeFilterValuePtrOutput) RollingDate() TemplateRollingDateConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilterValue) *TemplateRollingDateConfiguration {
 		if v == nil {
@@ -2046,6 +2297,7 @@ func (o TemplateTimeRangeFilterValuePtrOutput) RollingDate() TemplateRollingDate
 	}).(TemplateRollingDateConfigurationPtrOutput)
 }
 
+// The static input value.
 func (o TemplateTimeRangeFilterValuePtrOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTimeRangeFilterValue) *string {
 		if v == nil {
@@ -2056,8 +2308,10 @@ func (o TemplateTimeRangeFilterValuePtrOutput) StaticValue() pulumi.StringPtrOut
 }
 
 type TemplateTooltipItem struct {
+	// The tooltip item for the columns that are not part of a field well.
 	ColumnTooltipItem *TemplateColumnTooltipItem `pulumi:"columnTooltipItem"`
-	FieldTooltipItem  *TemplateFieldTooltipItem  `pulumi:"fieldTooltipItem"`
+	// The tooltip item for the fields.
+	FieldTooltipItem *TemplateFieldTooltipItem `pulumi:"fieldTooltipItem"`
 }
 
 // TemplateTooltipItemInput is an input type that accepts TemplateTooltipItemArgs and TemplateTooltipItemOutput values.
@@ -2072,8 +2326,10 @@ type TemplateTooltipItemInput interface {
 }
 
 type TemplateTooltipItemArgs struct {
+	// The tooltip item for the columns that are not part of a field well.
 	ColumnTooltipItem TemplateColumnTooltipItemPtrInput `pulumi:"columnTooltipItem"`
-	FieldTooltipItem  TemplateFieldTooltipItemPtrInput  `pulumi:"fieldTooltipItem"`
+	// The tooltip item for the fields.
+	FieldTooltipItem TemplateFieldTooltipItemPtrInput `pulumi:"fieldTooltipItem"`
 }
 
 func (TemplateTooltipItemArgs) ElementType() reflect.Type {
@@ -2127,10 +2383,12 @@ func (o TemplateTooltipItemOutput) ToTemplateTooltipItemOutputWithContext(ctx co
 	return o
 }
 
+// The tooltip item for the columns that are not part of a field well.
 func (o TemplateTooltipItemOutput) ColumnTooltipItem() TemplateColumnTooltipItemPtrOutput {
 	return o.ApplyT(func(v TemplateTooltipItem) *TemplateColumnTooltipItem { return v.ColumnTooltipItem }).(TemplateColumnTooltipItemPtrOutput)
 }
 
+// The tooltip item for the fields.
 func (o TemplateTooltipItemOutput) FieldTooltipItem() TemplateFieldTooltipItemPtrOutput {
 	return o.ApplyT(func(v TemplateTooltipItem) *TemplateFieldTooltipItem { return v.FieldTooltipItem }).(TemplateFieldTooltipItemPtrOutput)
 }
@@ -2156,9 +2414,15 @@ func (o TemplateTooltipItemArrayOutput) Index(i pulumi.IntInput) TemplateTooltip
 }
 
 type TemplateTooltipOptions struct {
-	FieldBasedTooltip   *TemplateFieldBasedTooltip   `pulumi:"fieldBasedTooltip"`
+	// The setup for the detailed tooltip.
+	FieldBasedTooltip *TemplateFieldBasedTooltip `pulumi:"fieldBasedTooltip"`
+	// The selected type for the tooltip. Choose one of the following options:
+	//
+	// - `BASIC` : A basic tooltip.
+	// - `DETAILED` : A detailed tooltip.
 	SelectedTooltipType *TemplateSelectedTooltipType `pulumi:"selectedTooltipType"`
-	TooltipVisibility   *TemplateVisibility          `pulumi:"tooltipVisibility"`
+	// Determines whether or not the tooltip is visible.
+	TooltipVisibility *TemplateVisibility `pulumi:"tooltipVisibility"`
 }
 
 // TemplateTooltipOptionsInput is an input type that accepts TemplateTooltipOptionsArgs and TemplateTooltipOptionsOutput values.
@@ -2173,9 +2437,15 @@ type TemplateTooltipOptionsInput interface {
 }
 
 type TemplateTooltipOptionsArgs struct {
-	FieldBasedTooltip   TemplateFieldBasedTooltipPtrInput   `pulumi:"fieldBasedTooltip"`
+	// The setup for the detailed tooltip.
+	FieldBasedTooltip TemplateFieldBasedTooltipPtrInput `pulumi:"fieldBasedTooltip"`
+	// The selected type for the tooltip. Choose one of the following options:
+	//
+	// - `BASIC` : A basic tooltip.
+	// - `DETAILED` : A detailed tooltip.
 	SelectedTooltipType TemplateSelectedTooltipTypePtrInput `pulumi:"selectedTooltipType"`
-	TooltipVisibility   TemplateVisibilityPtrInput          `pulumi:"tooltipVisibility"`
+	// Determines whether or not the tooltip is visible.
+	TooltipVisibility TemplateVisibilityPtrInput `pulumi:"tooltipVisibility"`
 }
 
 func (TemplateTooltipOptionsArgs) ElementType() reflect.Type {
@@ -2255,14 +2525,20 @@ func (o TemplateTooltipOptionsOutput) ToTemplateTooltipOptionsPtrOutputWithConte
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
+// The setup for the detailed tooltip.
 func (o TemplateTooltipOptionsOutput) FieldBasedTooltip() TemplateFieldBasedTooltipPtrOutput {
 	return o.ApplyT(func(v TemplateTooltipOptions) *TemplateFieldBasedTooltip { return v.FieldBasedTooltip }).(TemplateFieldBasedTooltipPtrOutput)
 }
 
+// The selected type for the tooltip. Choose one of the following options:
+//
+// - `BASIC` : A basic tooltip.
+// - `DETAILED` : A detailed tooltip.
 func (o TemplateTooltipOptionsOutput) SelectedTooltipType() TemplateSelectedTooltipTypePtrOutput {
 	return o.ApplyT(func(v TemplateTooltipOptions) *TemplateSelectedTooltipType { return v.SelectedTooltipType }).(TemplateSelectedTooltipTypePtrOutput)
 }
 
+// Determines whether or not the tooltip is visible.
 func (o TemplateTooltipOptionsOutput) TooltipVisibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateTooltipOptions) *TemplateVisibility { return v.TooltipVisibility }).(TemplateVisibilityPtrOutput)
 }
@@ -2291,6 +2567,7 @@ func (o TemplateTooltipOptionsPtrOutput) Elem() TemplateTooltipOptionsOutput {
 	}).(TemplateTooltipOptionsOutput)
 }
 
+// The setup for the detailed tooltip.
 func (o TemplateTooltipOptionsPtrOutput) FieldBasedTooltip() TemplateFieldBasedTooltipPtrOutput {
 	return o.ApplyT(func(v *TemplateTooltipOptions) *TemplateFieldBasedTooltip {
 		if v == nil {
@@ -2300,6 +2577,10 @@ func (o TemplateTooltipOptionsPtrOutput) FieldBasedTooltip() TemplateFieldBasedT
 	}).(TemplateFieldBasedTooltipPtrOutput)
 }
 
+// The selected type for the tooltip. Choose one of the following options:
+//
+// - `BASIC` : A basic tooltip.
+// - `DETAILED` : A detailed tooltip.
 func (o TemplateTooltipOptionsPtrOutput) SelectedTooltipType() TemplateSelectedTooltipTypePtrOutput {
 	return o.ApplyT(func(v *TemplateTooltipOptions) *TemplateSelectedTooltipType {
 		if v == nil {
@@ -2309,6 +2590,7 @@ func (o TemplateTooltipOptionsPtrOutput) SelectedTooltipType() TemplateSelectedT
 	}).(TemplateSelectedTooltipTypePtrOutput)
 }
 
+// Determines whether or not the tooltip is visible.
 func (o TemplateTooltipOptionsPtrOutput) TooltipVisibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateTooltipOptions) *TemplateVisibility {
 		if v == nil {
@@ -2319,13 +2601,20 @@ func (o TemplateTooltipOptionsPtrOutput) TooltipVisibility() TemplateVisibilityP
 }
 
 type TemplateTopBottomFilter struct {
-	AggregationSortConfigurations     []TemplateAggregationSortConfiguration     `pulumi:"aggregationSortConfigurations"`
-	Column                            TemplateColumnIdentifier                   `pulumi:"column"`
+	// The configuration options to sort aggregated values.
+	AggregationSortConfigurations []TemplateAggregationSortConfiguration `pulumi:"aggregationSortConfigurations"`
+	// A column of a data set.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The default configuration for all dependent controls of the filter.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
-	FilterId                          string                                     `pulumi:"filterId"`
-	Limit                             *float64                                   `pulumi:"limit"`
-	ParameterName                     *string                                    `pulumi:"parameterName"`
-	TimeGranularity                   *TemplateTimeGranularity                   `pulumi:"timeGranularity"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// The number of items to include in the top bottom filter results.
+	Limit *float64 `pulumi:"limit"`
+	// The parameter whose value should be used for the filter value.
+	ParameterName *string `pulumi:"parameterName"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity *TemplateTimeGranularity `pulumi:"timeGranularity"`
 }
 
 // TemplateTopBottomFilterInput is an input type that accepts TemplateTopBottomFilterArgs and TemplateTopBottomFilterOutput values.
@@ -2340,13 +2629,20 @@ type TemplateTopBottomFilterInput interface {
 }
 
 type TemplateTopBottomFilterArgs struct {
-	AggregationSortConfigurations     TemplateAggregationSortConfigurationArrayInput    `pulumi:"aggregationSortConfigurations"`
-	Column                            TemplateColumnIdentifierInput                     `pulumi:"column"`
+	// The configuration options to sort aggregated values.
+	AggregationSortConfigurations TemplateAggregationSortConfigurationArrayInput `pulumi:"aggregationSortConfigurations"`
+	// A column of a data set.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The default configuration for all dependent controls of the filter.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
-	FilterId                          pulumi.StringInput                                `pulumi:"filterId"`
-	Limit                             pulumi.Float64PtrInput                            `pulumi:"limit"`
-	ParameterName                     pulumi.StringPtrInput                             `pulumi:"parameterName"`
-	TimeGranularity                   TemplateTimeGranularityPtrInput                   `pulumi:"timeGranularity"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// The number of items to include in the top bottom filter results.
+	Limit pulumi.Float64PtrInput `pulumi:"limit"`
+	// The parameter whose value should be used for the filter value.
+	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TemplateTimeGranularityPtrInput `pulumi:"timeGranularity"`
 }
 
 func (TemplateTopBottomFilterArgs) ElementType() reflect.Type {
@@ -2426,34 +2722,41 @@ func (o TemplateTopBottomFilterOutput) ToTemplateTopBottomFilterPtrOutputWithCon
 	}).(TemplateTopBottomFilterPtrOutput)
 }
 
+// The configuration options to sort aggregated values.
 func (o TemplateTopBottomFilterOutput) AggregationSortConfigurations() TemplateAggregationSortConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) []TemplateAggregationSortConfiguration {
 		return v.AggregationSortConfigurations
 	}).(TemplateAggregationSortConfigurationArrayOutput)
 }
 
+// A column of a data set.
 func (o TemplateTopBottomFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
+// The default configuration for all dependent controls of the filter.
 func (o TemplateTopBottomFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateTopBottomFilterOutput) FilterId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) string { return v.FilterId }).(pulumi.StringOutput)
 }
 
+// The number of items to include in the top bottom filter results.
 func (o TemplateTopBottomFilterOutput) Limit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) *float64 { return v.Limit }).(pulumi.Float64PtrOutput)
 }
 
+// The parameter whose value should be used for the filter value.
 func (o TemplateTopBottomFilterOutput) ParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTopBottomFilterOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomFilter) *TemplateTimeGranularity { return v.TimeGranularity }).(TemplateTimeGranularityPtrOutput)
 }
@@ -2482,6 +2785,7 @@ func (o TemplateTopBottomFilterPtrOutput) Elem() TemplateTopBottomFilterOutput {
 	}).(TemplateTopBottomFilterOutput)
 }
 
+// The configuration options to sort aggregated values.
 func (o TemplateTopBottomFilterPtrOutput) AggregationSortConfigurations() TemplateAggregationSortConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) []TemplateAggregationSortConfiguration {
 		if v == nil {
@@ -2491,6 +2795,7 @@ func (o TemplateTopBottomFilterPtrOutput) AggregationSortConfigurations() Templa
 	}).(TemplateAggregationSortConfigurationArrayOutput)
 }
 
+// A column of a data set.
 func (o TemplateTopBottomFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -2500,6 +2805,7 @@ func (o TemplateTopBottomFilterPtrOutput) Column() TemplateColumnIdentifierPtrOu
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
+// The default configuration for all dependent controls of the filter.
 func (o TemplateTopBottomFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -2509,6 +2815,7 @@ func (o TemplateTopBottomFilterPtrOutput) DefaultFilterControlConfiguration() Te
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateTopBottomFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) *string {
 		if v == nil {
@@ -2518,6 +2825,7 @@ func (o TemplateTopBottomFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of items to include in the top bottom filter results.
 func (o TemplateTopBottomFilterPtrOutput) Limit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) *float64 {
 		if v == nil {
@@ -2527,6 +2835,7 @@ func (o TemplateTopBottomFilterPtrOutput) Limit() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The parameter whose value should be used for the filter value.
 func (o TemplateTopBottomFilterPtrOutput) ParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) *string {
 		if v == nil {
@@ -2536,6 +2845,7 @@ func (o TemplateTopBottomFilterPtrOutput) ParameterName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TemplateTopBottomFilterPtrOutput) TimeGranularity() TemplateTimeGranularityPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomFilter) *TemplateTimeGranularity {
 		if v == nil {
@@ -2546,14 +2856,25 @@ func (o TemplateTopBottomFilterPtrOutput) TimeGranularity() TemplateTimeGranular
 }
 
 type TemplateTopBottomMoversComputation struct {
-	Category      *TemplateDimensionField          `pulumi:"category"`
-	ComputationId string                           `pulumi:"computationId"`
-	MoverSize     *float64                         `pulumi:"moverSize"`
-	Name          *string                          `pulumi:"name"`
-	SortOrder     *TemplateTopBottomSortOrder      `pulumi:"sortOrder"`
-	Time          *TemplateDimensionField          `pulumi:"time"`
-	Type          TemplateTopBottomComputationType `pulumi:"type"`
-	Value         *TemplateMeasureField            `pulumi:"value"`
+	// The dimension type field.
+	Category *TemplateDimensionField `pulumi:"category"`
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The mover size setup of the top and bottom movers computation.
+	MoverSize *float64 `pulumi:"moverSize"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
+	// The sort order setup of the top and bottom movers computation.
+	SortOrder *TemplateTopBottomSortOrder `pulumi:"sortOrder"`
+	// The dimension type field.
+	Time *TemplateDimensionField `pulumi:"time"`
+	// The computation type. Choose from the following options:
+	//
+	// - TOP: Top movers computation.
+	// - BOTTOM: Bottom movers computation.
+	Type TemplateTopBottomComputationType `pulumi:"type"`
+	// The measure (metric) type field.
+	Value *TemplateMeasureField `pulumi:"value"`
 }
 
 // TemplateTopBottomMoversComputationInput is an input type that accepts TemplateTopBottomMoversComputationArgs and TemplateTopBottomMoversComputationOutput values.
@@ -2568,14 +2889,25 @@ type TemplateTopBottomMoversComputationInput interface {
 }
 
 type TemplateTopBottomMoversComputationArgs struct {
-	Category      TemplateDimensionFieldPtrInput        `pulumi:"category"`
-	ComputationId pulumi.StringInput                    `pulumi:"computationId"`
-	MoverSize     pulumi.Float64PtrInput                `pulumi:"moverSize"`
-	Name          pulumi.StringPtrInput                 `pulumi:"name"`
-	SortOrder     TemplateTopBottomSortOrderPtrInput    `pulumi:"sortOrder"`
-	Time          TemplateDimensionFieldPtrInput        `pulumi:"time"`
-	Type          TemplateTopBottomComputationTypeInput `pulumi:"type"`
-	Value         TemplateMeasureFieldPtrInput          `pulumi:"value"`
+	// The dimension type field.
+	Category TemplateDimensionFieldPtrInput `pulumi:"category"`
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The mover size setup of the top and bottom movers computation.
+	MoverSize pulumi.Float64PtrInput `pulumi:"moverSize"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sort order setup of the top and bottom movers computation.
+	SortOrder TemplateTopBottomSortOrderPtrInput `pulumi:"sortOrder"`
+	// The dimension type field.
+	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
+	// The computation type. Choose from the following options:
+	//
+	// - TOP: Top movers computation.
+	// - BOTTOM: Bottom movers computation.
+	Type TemplateTopBottomComputationTypeInput `pulumi:"type"`
+	// The measure (metric) type field.
+	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
 func (TemplateTopBottomMoversComputationArgs) ElementType() reflect.Type {
@@ -2655,34 +2987,45 @@ func (o TemplateTopBottomMoversComputationOutput) ToTemplateTopBottomMoversCompu
 	}).(TemplateTopBottomMoversComputationPtrOutput)
 }
 
+// The dimension type field.
 func (o TemplateTopBottomMoversComputationOutput) Category() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) *TemplateDimensionField { return v.Category }).(TemplateDimensionFieldPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateTopBottomMoversComputationOutput) ComputationId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) string { return v.ComputationId }).(pulumi.StringOutput)
 }
 
+// The mover size setup of the top and bottom movers computation.
 func (o TemplateTopBottomMoversComputationOutput) MoverSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) *float64 { return v.MoverSize }).(pulumi.Float64PtrOutput)
 }
 
+// The name of a computation.
 func (o TemplateTopBottomMoversComputationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The sort order setup of the top and bottom movers computation.
 func (o TemplateTopBottomMoversComputationOutput) SortOrder() TemplateTopBottomSortOrderPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) *TemplateTopBottomSortOrder { return v.SortOrder }).(TemplateTopBottomSortOrderPtrOutput)
 }
 
+// The dimension type field.
 func (o TemplateTopBottomMoversComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
 
+// The computation type. Choose from the following options:
+//
+// - TOP: Top movers computation.
+// - BOTTOM: Bottom movers computation.
 func (o TemplateTopBottomMoversComputationOutput) Type() TemplateTopBottomComputationTypeOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) TemplateTopBottomComputationType { return v.Type }).(TemplateTopBottomComputationTypeOutput)
 }
 
+// The measure (metric) type field.
 func (o TemplateTopBottomMoversComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomMoversComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -2711,6 +3054,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) Elem() TemplateTopBottomMov
 	}).(TemplateTopBottomMoversComputationOutput)
 }
 
+// The dimension type field.
 func (o TemplateTopBottomMoversComputationPtrOutput) Category() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *TemplateDimensionField {
 		if v == nil {
@@ -2720,6 +3064,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) Category() TemplateDimensio
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateTopBottomMoversComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *string {
 		if v == nil {
@@ -2729,6 +3074,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) ComputationId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The mover size setup of the top and bottom movers computation.
 func (o TemplateTopBottomMoversComputationPtrOutput) MoverSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *float64 {
 		if v == nil {
@@ -2738,6 +3084,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) MoverSize() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The name of a computation.
 func (o TemplateTopBottomMoversComputationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *string {
 		if v == nil {
@@ -2747,6 +3094,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The sort order setup of the top and bottom movers computation.
 func (o TemplateTopBottomMoversComputationPtrOutput) SortOrder() TemplateTopBottomSortOrderPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *TemplateTopBottomSortOrder {
 		if v == nil {
@@ -2756,6 +3104,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) SortOrder() TemplateTopBott
 	}).(TemplateTopBottomSortOrderPtrOutput)
 }
 
+// The dimension type field.
 func (o TemplateTopBottomMoversComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *TemplateDimensionField {
 		if v == nil {
@@ -2765,6 +3114,10 @@ func (o TemplateTopBottomMoversComputationPtrOutput) Time() TemplateDimensionFie
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
+// The computation type. Choose from the following options:
+//
+// - TOP: Top movers computation.
+// - BOTTOM: Bottom movers computation.
 func (o TemplateTopBottomMoversComputationPtrOutput) Type() TemplateTopBottomComputationTypePtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *TemplateTopBottomComputationType {
 		if v == nil {
@@ -2774,6 +3127,7 @@ func (o TemplateTopBottomMoversComputationPtrOutput) Type() TemplateTopBottomCom
 	}).(TemplateTopBottomComputationTypePtrOutput)
 }
 
+// The measure (metric) type field.
 func (o TemplateTopBottomMoversComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomMoversComputation) *TemplateMeasureField {
 		if v == nil {
@@ -2784,12 +3138,21 @@ func (o TemplateTopBottomMoversComputationPtrOutput) Value() TemplateMeasureFiel
 }
 
 type TemplateTopBottomRankedComputation struct {
-	Category      *TemplateDimensionField          `pulumi:"category"`
-	ComputationId string                           `pulumi:"computationId"`
-	Name          *string                          `pulumi:"name"`
-	ResultSize    *float64                         `pulumi:"resultSize"`
-	Type          TemplateTopBottomComputationType `pulumi:"type"`
-	Value         *TemplateMeasureField            `pulumi:"value"`
+	// The dimension type field.
+	Category *TemplateDimensionField `pulumi:"category"`
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
+	// The result size of a top and bottom ranked computation.
+	ResultSize *float64 `pulumi:"resultSize"`
+	// The computation type. Choose one of the following options:
+	//
+	// - TOP: A top ranked computation.
+	// - BOTTOM: A bottom ranked computation.
+	Type TemplateTopBottomComputationType `pulumi:"type"`
+	// The measure (metric) type field.
+	Value *TemplateMeasureField `pulumi:"value"`
 }
 
 // TemplateTopBottomRankedComputationInput is an input type that accepts TemplateTopBottomRankedComputationArgs and TemplateTopBottomRankedComputationOutput values.
@@ -2804,12 +3167,21 @@ type TemplateTopBottomRankedComputationInput interface {
 }
 
 type TemplateTopBottomRankedComputationArgs struct {
-	Category      TemplateDimensionFieldPtrInput        `pulumi:"category"`
-	ComputationId pulumi.StringInput                    `pulumi:"computationId"`
-	Name          pulumi.StringPtrInput                 `pulumi:"name"`
-	ResultSize    pulumi.Float64PtrInput                `pulumi:"resultSize"`
-	Type          TemplateTopBottomComputationTypeInput `pulumi:"type"`
-	Value         TemplateMeasureFieldPtrInput          `pulumi:"value"`
+	// The dimension type field.
+	Category TemplateDimensionFieldPtrInput `pulumi:"category"`
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The result size of a top and bottom ranked computation.
+	ResultSize pulumi.Float64PtrInput `pulumi:"resultSize"`
+	// The computation type. Choose one of the following options:
+	//
+	// - TOP: A top ranked computation.
+	// - BOTTOM: A bottom ranked computation.
+	Type TemplateTopBottomComputationTypeInput `pulumi:"type"`
+	// The measure (metric) type field.
+	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
 func (TemplateTopBottomRankedComputationArgs) ElementType() reflect.Type {
@@ -2889,26 +3261,35 @@ func (o TemplateTopBottomRankedComputationOutput) ToTemplateTopBottomRankedCompu
 	}).(TemplateTopBottomRankedComputationPtrOutput)
 }
 
+// The dimension type field.
 func (o TemplateTopBottomRankedComputationOutput) Category() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomRankedComputation) *TemplateDimensionField { return v.Category }).(TemplateDimensionFieldPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateTopBottomRankedComputationOutput) ComputationId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTopBottomRankedComputation) string { return v.ComputationId }).(pulumi.StringOutput)
 }
 
+// The name of a computation.
 func (o TemplateTopBottomRankedComputationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomRankedComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The result size of a top and bottom ranked computation.
 func (o TemplateTopBottomRankedComputationOutput) ResultSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomRankedComputation) *float64 { return v.ResultSize }).(pulumi.Float64PtrOutput)
 }
 
+// The computation type. Choose one of the following options:
+//
+// - TOP: A top ranked computation.
+// - BOTTOM: A bottom ranked computation.
 func (o TemplateTopBottomRankedComputationOutput) Type() TemplateTopBottomComputationTypeOutput {
 	return o.ApplyT(func(v TemplateTopBottomRankedComputation) TemplateTopBottomComputationType { return v.Type }).(TemplateTopBottomComputationTypeOutput)
 }
 
+// The measure (metric) type field.
 func (o TemplateTopBottomRankedComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateTopBottomRankedComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -2937,6 +3318,7 @@ func (o TemplateTopBottomRankedComputationPtrOutput) Elem() TemplateTopBottomRan
 	}).(TemplateTopBottomRankedComputationOutput)
 }
 
+// The dimension type field.
 func (o TemplateTopBottomRankedComputationPtrOutput) Category() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomRankedComputation) *TemplateDimensionField {
 		if v == nil {
@@ -2946,6 +3328,7 @@ func (o TemplateTopBottomRankedComputationPtrOutput) Category() TemplateDimensio
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateTopBottomRankedComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomRankedComputation) *string {
 		if v == nil {
@@ -2955,6 +3338,7 @@ func (o TemplateTopBottomRankedComputationPtrOutput) ComputationId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of a computation.
 func (o TemplateTopBottomRankedComputationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomRankedComputation) *string {
 		if v == nil {
@@ -2964,6 +3348,7 @@ func (o TemplateTopBottomRankedComputationPtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The result size of a top and bottom ranked computation.
 func (o TemplateTopBottomRankedComputationPtrOutput) ResultSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomRankedComputation) *float64 {
 		if v == nil {
@@ -2973,6 +3358,10 @@ func (o TemplateTopBottomRankedComputationPtrOutput) ResultSize() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The computation type. Choose one of the following options:
+//
+// - TOP: A top ranked computation.
+// - BOTTOM: A bottom ranked computation.
 func (o TemplateTopBottomRankedComputationPtrOutput) Type() TemplateTopBottomComputationTypePtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomRankedComputation) *TemplateTopBottomComputationType {
 		if v == nil {
@@ -2982,6 +3371,7 @@ func (o TemplateTopBottomRankedComputationPtrOutput) Type() TemplateTopBottomCom
 	}).(TemplateTopBottomComputationTypePtrOutput)
 }
 
+// The measure (metric) type field.
 func (o TemplateTopBottomRankedComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateTopBottomRankedComputation) *TemplateMeasureField {
 		if v == nil {
@@ -2992,9 +3382,12 @@ func (o TemplateTopBottomRankedComputationPtrOutput) Value() TemplateMeasureFiel
 }
 
 type TemplateTotalAggregationComputation struct {
-	ComputationId string                `pulumi:"computationId"`
-	Name          *string               `pulumi:"name"`
-	Value         *TemplateMeasureField `pulumi:"value"`
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
+	// The measure (metric) type field.
+	Value *TemplateMeasureField `pulumi:"value"`
 }
 
 // TemplateTotalAggregationComputationInput is an input type that accepts TemplateTotalAggregationComputationArgs and TemplateTotalAggregationComputationOutput values.
@@ -3009,9 +3402,12 @@ type TemplateTotalAggregationComputationInput interface {
 }
 
 type TemplateTotalAggregationComputationArgs struct {
-	ComputationId pulumi.StringInput           `pulumi:"computationId"`
-	Name          pulumi.StringPtrInput        `pulumi:"name"`
-	Value         TemplateMeasureFieldPtrInput `pulumi:"value"`
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The measure (metric) type field.
+	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
 func (TemplateTotalAggregationComputationArgs) ElementType() reflect.Type {
@@ -3091,14 +3487,17 @@ func (o TemplateTotalAggregationComputationOutput) ToTemplateTotalAggregationCom
 	}).(TemplateTotalAggregationComputationPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateTotalAggregationComputationOutput) ComputationId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTotalAggregationComputation) string { return v.ComputationId }).(pulumi.StringOutput)
 }
 
+// The name of a computation.
 func (o TemplateTotalAggregationComputationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTotalAggregationComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The measure (metric) type field.
 func (o TemplateTotalAggregationComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateTotalAggregationComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -3127,6 +3526,7 @@ func (o TemplateTotalAggregationComputationPtrOutput) Elem() TemplateTotalAggreg
 	}).(TemplateTotalAggregationComputationOutput)
 }
 
+// The ID for a computation.
 func (o TemplateTotalAggregationComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalAggregationComputation) *string {
 		if v == nil {
@@ -3136,6 +3536,7 @@ func (o TemplateTotalAggregationComputationPtrOutput) ComputationId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of a computation.
 func (o TemplateTotalAggregationComputationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalAggregationComputation) *string {
 		if v == nil {
@@ -3145,6 +3546,7 @@ func (o TemplateTotalAggregationComputationPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The measure (metric) type field.
 func (o TemplateTotalAggregationComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalAggregationComputation) *TemplateMeasureField {
 		if v == nil {
@@ -3155,6 +3557,7 @@ func (o TemplateTotalAggregationComputationPtrOutput) Value() TemplateMeasureFie
 }
 
 type TemplateTotalAggregationFunction struct {
+	// A built in aggregation function for total values.
 	SimpleTotalAggregationFunction *TemplateSimpleTotalAggregationFunction `pulumi:"simpleTotalAggregationFunction"`
 }
 
@@ -3170,6 +3573,7 @@ type TemplateTotalAggregationFunctionInput interface {
 }
 
 type TemplateTotalAggregationFunctionArgs struct {
+	// A built in aggregation function for total values.
 	SimpleTotalAggregationFunction TemplateSimpleTotalAggregationFunctionPtrInput `pulumi:"simpleTotalAggregationFunction"`
 }
 
@@ -3199,6 +3603,7 @@ func (o TemplateTotalAggregationFunctionOutput) ToTemplateTotalAggregationFuncti
 	return o
 }
 
+// A built in aggregation function for total values.
 func (o TemplateTotalAggregationFunctionOutput) SimpleTotalAggregationFunction() TemplateSimpleTotalAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateTotalAggregationFunction) *TemplateSimpleTotalAggregationFunction {
 		return v.SimpleTotalAggregationFunction
@@ -3206,7 +3611,9 @@ func (o TemplateTotalAggregationFunctionOutput) SimpleTotalAggregationFunction()
 }
 
 type TemplateTotalAggregationOption struct {
-	FieldId                  string                           `pulumi:"fieldId"`
+	// The field id that's associated with the total aggregation option.
+	FieldId string `pulumi:"fieldId"`
+	// An aggregation function that aggregates the total values of a measure.
 	TotalAggregationFunction TemplateTotalAggregationFunction `pulumi:"totalAggregationFunction"`
 }
 
@@ -3222,7 +3629,9 @@ type TemplateTotalAggregationOptionInput interface {
 }
 
 type TemplateTotalAggregationOptionArgs struct {
-	FieldId                  pulumi.StringInput                    `pulumi:"fieldId"`
+	// The field id that's associated with the total aggregation option.
+	FieldId pulumi.StringInput `pulumi:"fieldId"`
+	// An aggregation function that aggregates the total values of a measure.
 	TotalAggregationFunction TemplateTotalAggregationFunctionInput `pulumi:"totalAggregationFunction"`
 }
 
@@ -3277,10 +3686,12 @@ func (o TemplateTotalAggregationOptionOutput) ToTemplateTotalAggregationOptionOu
 	return o
 }
 
+// The field id that's associated with the total aggregation option.
 func (o TemplateTotalAggregationOptionOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTotalAggregationOption) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
+// An aggregation function that aggregates the total values of a measure.
 func (o TemplateTotalAggregationOptionOutput) TotalAggregationFunction() TemplateTotalAggregationFunctionOutput {
 	return o.ApplyT(func(v TemplateTotalAggregationOption) TemplateTotalAggregationFunction {
 		return v.TotalAggregationFunction
@@ -3308,12 +3719,18 @@ func (o TemplateTotalAggregationOptionArrayOutput) Index(i pulumi.IntInput) Temp
 }
 
 type TemplateTotalOptions struct {
-	CustomLabel             *string                          `pulumi:"customLabel"`
-	Placement               *TemplateTableTotalsPlacement    `pulumi:"placement"`
-	ScrollStatus            *TemplateTableTotalsScrollStatus `pulumi:"scrollStatus"`
+	// The custom label string for the total cells.
+	CustomLabel *string `pulumi:"customLabel"`
+	// The placement (start, end) for the total cells.
+	Placement *TemplateTableTotalsPlacement `pulumi:"placement"`
+	// The scroll status (pinned, scrolled) for the total cells.
+	ScrollStatus *TemplateTableTotalsScrollStatus `pulumi:"scrollStatus"`
+	// The total aggregation settings for each value field.
 	TotalAggregationOptions []TemplateTotalAggregationOption `pulumi:"totalAggregationOptions"`
-	TotalCellStyle          *TemplateTableCellStyle          `pulumi:"totalCellStyle"`
-	TotalsVisibility        *TemplateVisibility              `pulumi:"totalsVisibility"`
+	// The table cell style for a cell in pivot table or table visual.
+	TotalCellStyle *TemplateTableCellStyle `pulumi:"totalCellStyle"`
+	// The visibility configuration for the total cells.
+	TotalsVisibility *TemplateVisibility `pulumi:"totalsVisibility"`
 }
 
 // TemplateTotalOptionsInput is an input type that accepts TemplateTotalOptionsArgs and TemplateTotalOptionsOutput values.
@@ -3328,12 +3745,18 @@ type TemplateTotalOptionsInput interface {
 }
 
 type TemplateTotalOptionsArgs struct {
-	CustomLabel             pulumi.StringPtrInput                    `pulumi:"customLabel"`
-	Placement               TemplateTableTotalsPlacementPtrInput     `pulumi:"placement"`
-	ScrollStatus            TemplateTableTotalsScrollStatusPtrInput  `pulumi:"scrollStatus"`
+	// The custom label string for the total cells.
+	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
+	// The placement (start, end) for the total cells.
+	Placement TemplateTableTotalsPlacementPtrInput `pulumi:"placement"`
+	// The scroll status (pinned, scrolled) for the total cells.
+	ScrollStatus TemplateTableTotalsScrollStatusPtrInput `pulumi:"scrollStatus"`
+	// The total aggregation settings for each value field.
 	TotalAggregationOptions TemplateTotalAggregationOptionArrayInput `pulumi:"totalAggregationOptions"`
-	TotalCellStyle          TemplateTableCellStylePtrInput           `pulumi:"totalCellStyle"`
-	TotalsVisibility        TemplateVisibilityPtrInput               `pulumi:"totalsVisibility"`
+	// The table cell style for a cell in pivot table or table visual.
+	TotalCellStyle TemplateTableCellStylePtrInput `pulumi:"totalCellStyle"`
+	// The visibility configuration for the total cells.
+	TotalsVisibility TemplateVisibilityPtrInput `pulumi:"totalsVisibility"`
 }
 
 func (TemplateTotalOptionsArgs) ElementType() reflect.Type {
@@ -3413,26 +3836,32 @@ func (o TemplateTotalOptionsOutput) ToTemplateTotalOptionsPtrOutputWithContext(c
 	}).(TemplateTotalOptionsPtrOutput)
 }
 
+// The custom label string for the total cells.
 func (o TemplateTotalOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTotalOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
 }
 
+// The placement (start, end) for the total cells.
 func (o TemplateTotalOptionsOutput) Placement() TemplateTableTotalsPlacementPtrOutput {
 	return o.ApplyT(func(v TemplateTotalOptions) *TemplateTableTotalsPlacement { return v.Placement }).(TemplateTableTotalsPlacementPtrOutput)
 }
 
+// The scroll status (pinned, scrolled) for the total cells.
 func (o TemplateTotalOptionsOutput) ScrollStatus() TemplateTableTotalsScrollStatusPtrOutput {
 	return o.ApplyT(func(v TemplateTotalOptions) *TemplateTableTotalsScrollStatus { return v.ScrollStatus }).(TemplateTableTotalsScrollStatusPtrOutput)
 }
 
+// The total aggregation settings for each value field.
 func (o TemplateTotalOptionsOutput) TotalAggregationOptions() TemplateTotalAggregationOptionArrayOutput {
 	return o.ApplyT(func(v TemplateTotalOptions) []TemplateTotalAggregationOption { return v.TotalAggregationOptions }).(TemplateTotalAggregationOptionArrayOutput)
 }
 
+// The table cell style for a cell in pivot table or table visual.
 func (o TemplateTotalOptionsOutput) TotalCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplateTotalOptions) *TemplateTableCellStyle { return v.TotalCellStyle }).(TemplateTableCellStylePtrOutput)
 }
 
+// The visibility configuration for the total cells.
 func (o TemplateTotalOptionsOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateTotalOptions) *TemplateVisibility { return v.TotalsVisibility }).(TemplateVisibilityPtrOutput)
 }
@@ -3461,6 +3890,7 @@ func (o TemplateTotalOptionsPtrOutput) Elem() TemplateTotalOptionsOutput {
 	}).(TemplateTotalOptionsOutput)
 }
 
+// The custom label string for the total cells.
 func (o TemplateTotalOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalOptions) *string {
 		if v == nil {
@@ -3470,6 +3900,7 @@ func (o TemplateTotalOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The placement (start, end) for the total cells.
 func (o TemplateTotalOptionsPtrOutput) Placement() TemplateTableTotalsPlacementPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalOptions) *TemplateTableTotalsPlacement {
 		if v == nil {
@@ -3479,6 +3910,7 @@ func (o TemplateTotalOptionsPtrOutput) Placement() TemplateTableTotalsPlacementP
 	}).(TemplateTableTotalsPlacementPtrOutput)
 }
 
+// The scroll status (pinned, scrolled) for the total cells.
 func (o TemplateTotalOptionsPtrOutput) ScrollStatus() TemplateTableTotalsScrollStatusPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalOptions) *TemplateTableTotalsScrollStatus {
 		if v == nil {
@@ -3488,6 +3920,7 @@ func (o TemplateTotalOptionsPtrOutput) ScrollStatus() TemplateTableTotalsScrollS
 	}).(TemplateTableTotalsScrollStatusPtrOutput)
 }
 
+// The total aggregation settings for each value field.
 func (o TemplateTotalOptionsPtrOutput) TotalAggregationOptions() TemplateTotalAggregationOptionArrayOutput {
 	return o.ApplyT(func(v *TemplateTotalOptions) []TemplateTotalAggregationOption {
 		if v == nil {
@@ -3497,6 +3930,7 @@ func (o TemplateTotalOptionsPtrOutput) TotalAggregationOptions() TemplateTotalAg
 	}).(TemplateTotalAggregationOptionArrayOutput)
 }
 
+// The table cell style for a cell in pivot table or table visual.
 func (o TemplateTotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplateTotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -3506,6 +3940,7 @@ func (o TemplateTotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellStylePt
 	}).(TemplateTableCellStylePtrOutput)
 }
 
+// The visibility configuration for the total cells.
 func (o TemplateTotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateTotalOptions) *TemplateVisibility {
 		if v == nil {
@@ -3516,9 +3951,12 @@ func (o TemplateTotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilityPtrO
 }
 
 type TemplateTreeMapAggregatedFieldWells struct {
-	Colors []TemplateMeasureField   `pulumi:"colors"`
+	// The color field well of a tree map. Values are grouped by aggregations based on group by fields.
+	Colors []TemplateMeasureField `pulumi:"colors"`
+	// The group by field well of a tree map. Values are grouped based on group by fields.
 	Groups []TemplateDimensionField `pulumi:"groups"`
-	Sizes  []TemplateMeasureField   `pulumi:"sizes"`
+	// The size field well of a tree map. Values are aggregated based on group by fields.
+	Sizes []TemplateMeasureField `pulumi:"sizes"`
 }
 
 // TemplateTreeMapAggregatedFieldWellsInput is an input type that accepts TemplateTreeMapAggregatedFieldWellsArgs and TemplateTreeMapAggregatedFieldWellsOutput values.
@@ -3533,9 +3971,12 @@ type TemplateTreeMapAggregatedFieldWellsInput interface {
 }
 
 type TemplateTreeMapAggregatedFieldWellsArgs struct {
-	Colors TemplateMeasureFieldArrayInput   `pulumi:"colors"`
+	// The color field well of a tree map. Values are grouped by aggregations based on group by fields.
+	Colors TemplateMeasureFieldArrayInput `pulumi:"colors"`
+	// The group by field well of a tree map. Values are grouped based on group by fields.
 	Groups TemplateDimensionFieldArrayInput `pulumi:"groups"`
-	Sizes  TemplateMeasureFieldArrayInput   `pulumi:"sizes"`
+	// The size field well of a tree map. Values are aggregated based on group by fields.
+	Sizes TemplateMeasureFieldArrayInput `pulumi:"sizes"`
 }
 
 func (TemplateTreeMapAggregatedFieldWellsArgs) ElementType() reflect.Type {
@@ -3615,14 +4056,17 @@ func (o TemplateTreeMapAggregatedFieldWellsOutput) ToTemplateTreeMapAggregatedFi
 	}).(TemplateTreeMapAggregatedFieldWellsPtrOutput)
 }
 
+// The color field well of a tree map. Values are grouped by aggregations based on group by fields.
 func (o TemplateTreeMapAggregatedFieldWellsOutput) Colors() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v TemplateTreeMapAggregatedFieldWells) []TemplateMeasureField { return v.Colors }).(TemplateMeasureFieldArrayOutput)
 }
 
+// The group by field well of a tree map. Values are grouped based on group by fields.
 func (o TemplateTreeMapAggregatedFieldWellsOutput) Groups() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v TemplateTreeMapAggregatedFieldWells) []TemplateDimensionField { return v.Groups }).(TemplateDimensionFieldArrayOutput)
 }
 
+// The size field well of a tree map. Values are aggregated based on group by fields.
 func (o TemplateTreeMapAggregatedFieldWellsOutput) Sizes() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v TemplateTreeMapAggregatedFieldWells) []TemplateMeasureField { return v.Sizes }).(TemplateMeasureFieldArrayOutput)
 }
@@ -3651,6 +4095,7 @@ func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Elem() TemplateTreeMapAggr
 	}).(TemplateTreeMapAggregatedFieldWellsOutput)
 }
 
+// The color field well of a tree map. Values are grouped by aggregations based on group by fields.
 func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Colors() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateTreeMapAggregatedFieldWells) []TemplateMeasureField {
 		if v == nil {
@@ -3660,6 +4105,7 @@ func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Colors() TemplateMeasureFi
 	}).(TemplateMeasureFieldArrayOutput)
 }
 
+// The group by field well of a tree map. Values are grouped based on group by fields.
 func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Groups() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateTreeMapAggregatedFieldWells) []TemplateDimensionField {
 		if v == nil {
@@ -3669,6 +4115,7 @@ func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Groups() TemplateDimension
 	}).(TemplateDimensionFieldArrayOutput)
 }
 
+// The size field well of a tree map. Values are aggregated based on group by fields.
 func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Sizes() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateTreeMapAggregatedFieldWells) []TemplateMeasureField {
 		if v == nil {
@@ -3679,15 +4126,26 @@ func (o TemplateTreeMapAggregatedFieldWellsPtrOutput) Sizes() TemplateMeasureFie
 }
 
 type TemplateTreeMapConfiguration struct {
-	ColorLabelOptions *TemplateChartAxisLabelOptions    `pulumi:"colorLabelOptions"`
-	ColorScale        *TemplateColorScale               `pulumi:"colorScale"`
-	DataLabels        *TemplateDataLabelOptions         `pulumi:"dataLabels"`
-	FieldWells        *TemplateTreeMapFieldWells        `pulumi:"fieldWells"`
-	GroupLabelOptions *TemplateChartAxisLabelOptions    `pulumi:"groupLabelOptions"`
-	Legend            *TemplateLegendOptions            `pulumi:"legend"`
-	SizeLabelOptions  *TemplateChartAxisLabelOptions    `pulumi:"sizeLabelOptions"`
+	// The label options for an axis on a chart.
+	ColorLabelOptions *TemplateChartAxisLabelOptions `pulumi:"colorLabelOptions"`
+	// Determines the color scale that is applied to the visual.
+	ColorScale *TemplateColorScale `pulumi:"colorScale"`
+	// The options that determine the presentation of the data labels.
+	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
+	// The field wells of a tree map.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	FieldWells *TemplateTreeMapFieldWells `pulumi:"fieldWells"`
+	// The label options for an axis on a chart.
+	GroupLabelOptions *TemplateChartAxisLabelOptions `pulumi:"groupLabelOptions"`
+	// The options for the legend setup of a visual.
+	Legend *TemplateLegendOptions `pulumi:"legend"`
+	// The label options for an axis on a chart.
+	SizeLabelOptions *TemplateChartAxisLabelOptions `pulumi:"sizeLabelOptions"`
+	// The sort configuration of a tree map.
 	SortConfiguration *TemplateTreeMapSortConfiguration `pulumi:"sortConfiguration"`
-	Tooltip           *TemplateTooltipOptions           `pulumi:"tooltip"`
+	// The display options for the visual tooltip.
+	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
 }
 
 // TemplateTreeMapConfigurationInput is an input type that accepts TemplateTreeMapConfigurationArgs and TemplateTreeMapConfigurationOutput values.
@@ -3702,15 +4160,26 @@ type TemplateTreeMapConfigurationInput interface {
 }
 
 type TemplateTreeMapConfigurationArgs struct {
-	ColorLabelOptions TemplateChartAxisLabelOptionsPtrInput    `pulumi:"colorLabelOptions"`
-	ColorScale        TemplateColorScalePtrInput               `pulumi:"colorScale"`
-	DataLabels        TemplateDataLabelOptionsPtrInput         `pulumi:"dataLabels"`
-	FieldWells        TemplateTreeMapFieldWellsPtrInput        `pulumi:"fieldWells"`
-	GroupLabelOptions TemplateChartAxisLabelOptionsPtrInput    `pulumi:"groupLabelOptions"`
-	Legend            TemplateLegendOptionsPtrInput            `pulumi:"legend"`
-	SizeLabelOptions  TemplateChartAxisLabelOptionsPtrInput    `pulumi:"sizeLabelOptions"`
+	// The label options for an axis on a chart.
+	ColorLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
+	// Determines the color scale that is applied to the visual.
+	ColorScale TemplateColorScalePtrInput `pulumi:"colorScale"`
+	// The options that determine the presentation of the data labels.
+	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
+	// The field wells of a tree map.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	FieldWells TemplateTreeMapFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The label options for an axis on a chart.
+	GroupLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"groupLabelOptions"`
+	// The options for the legend setup of a visual.
+	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
+	// The label options for an axis on a chart.
+	SizeLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"sizeLabelOptions"`
+	// The sort configuration of a tree map.
 	SortConfiguration TemplateTreeMapSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	Tooltip           TemplateTooltipOptionsPtrInput           `pulumi:"tooltip"`
+	// The display options for the visual tooltip.
+	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
 }
 
 func (TemplateTreeMapConfigurationArgs) ElementType() reflect.Type {
@@ -3790,38 +4259,49 @@ func (o TemplateTreeMapConfigurationOutput) ToTemplateTreeMapConfigurationPtrOut
 	}).(TemplateTreeMapConfigurationPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateTreeMapConfigurationOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions { return v.ColorLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// Determines the color scale that is applied to the visual.
 func (o TemplateTreeMapConfigurationOutput) ColorScale() TemplateColorScalePtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateColorScale { return v.ColorScale }).(TemplateColorScalePtrOutput)
 }
 
+// The options that determine the presentation of the data labels.
 func (o TemplateTreeMapConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
+// The field wells of a tree map.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateTreeMapConfigurationOutput) FieldWells() TemplateTreeMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateTreeMapFieldWells { return v.FieldWells }).(TemplateTreeMapFieldWellsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateTreeMapConfigurationOutput) GroupLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions { return v.GroupLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The options for the legend setup of a visual.
 func (o TemplateTreeMapConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateTreeMapConfigurationOutput) SizeLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions { return v.SizeLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The sort configuration of a tree map.
 func (o TemplateTreeMapConfigurationOutput) SortConfiguration() TemplateTreeMapSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateTreeMapSortConfiguration { return v.SortConfiguration }).(TemplateTreeMapSortConfigurationPtrOutput)
 }
 
+// The display options for the visual tooltip.
 func (o TemplateTreeMapConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
@@ -3850,6 +4330,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) Elem() TemplateTreeMapConfigurati
 	}).(TemplateTreeMapConfigurationOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateTreeMapConfigurationPtrOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -3859,6 +4340,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) ColorLabelOptions() TemplateChart
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// Determines the color scale that is applied to the visual.
 func (o TemplateTreeMapConfigurationPtrOutput) ColorScale() TemplateColorScalePtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateColorScale {
 		if v == nil {
@@ -3868,6 +4350,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) ColorScale() TemplateColorScalePt
 	}).(TemplateColorScalePtrOutput)
 }
 
+// The options that determine the presentation of the data labels.
 func (o TemplateTreeMapConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -3877,6 +4360,9 @@ func (o TemplateTreeMapConfigurationPtrOutput) DataLabels() TemplateDataLabelOpt
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
+// The field wells of a tree map.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateTreeMapConfigurationPtrOutput) FieldWells() TemplateTreeMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateTreeMapFieldWells {
 		if v == nil {
@@ -3886,6 +4372,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) FieldWells() TemplateTreeMapField
 	}).(TemplateTreeMapFieldWellsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateTreeMapConfigurationPtrOutput) GroupLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -3895,6 +4382,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) GroupLabelOptions() TemplateChart
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The options for the legend setup of a visual.
 func (o TemplateTreeMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -3904,6 +4392,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtr
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateTreeMapConfigurationPtrOutput) SizeLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -3913,6 +4402,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) SizeLabelOptions() TemplateChartA
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The sort configuration of a tree map.
 func (o TemplateTreeMapConfigurationPtrOutput) SortConfiguration() TemplateTreeMapSortConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateTreeMapSortConfiguration {
 		if v == nil {
@@ -3922,6 +4412,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) SortConfiguration() TemplateTreeM
 	}).(TemplateTreeMapSortConfigurationPtrOutput)
 }
 
+// The display options for the visual tooltip.
 func (o TemplateTreeMapConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -3932,6 +4423,7 @@ func (o TemplateTreeMapConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsP
 }
 
 type TemplateTreeMapFieldWells struct {
+	// Aggregated field wells of a tree map.
 	TreeMapAggregatedFieldWells *TemplateTreeMapAggregatedFieldWells `pulumi:"treeMapAggregatedFieldWells"`
 }
 
@@ -3947,6 +4439,7 @@ type TemplateTreeMapFieldWellsInput interface {
 }
 
 type TemplateTreeMapFieldWellsArgs struct {
+	// Aggregated field wells of a tree map.
 	TreeMapAggregatedFieldWells TemplateTreeMapAggregatedFieldWellsPtrInput `pulumi:"treeMapAggregatedFieldWells"`
 }
 
@@ -4027,6 +4520,7 @@ func (o TemplateTreeMapFieldWellsOutput) ToTemplateTreeMapFieldWellsPtrOutputWit
 	}).(TemplateTreeMapFieldWellsPtrOutput)
 }
 
+// Aggregated field wells of a tree map.
 func (o TemplateTreeMapFieldWellsOutput) TreeMapAggregatedFieldWells() TemplateTreeMapAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapFieldWells) *TemplateTreeMapAggregatedFieldWells {
 		return v.TreeMapAggregatedFieldWells
@@ -4057,6 +4551,7 @@ func (o TemplateTreeMapFieldWellsPtrOutput) Elem() TemplateTreeMapFieldWellsOutp
 	}).(TemplateTreeMapFieldWellsOutput)
 }
 
+// Aggregated field wells of a tree map.
 func (o TemplateTreeMapFieldWellsPtrOutput) TreeMapAggregatedFieldWells() TemplateTreeMapAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapFieldWells) *TemplateTreeMapAggregatedFieldWells {
 		if v == nil {
@@ -4067,8 +4562,10 @@ func (o TemplateTreeMapFieldWellsPtrOutput) TreeMapAggregatedFieldWells() Templa
 }
 
 type TemplateTreeMapSortConfiguration struct {
+	// The limit configuration of the visual display for an axis.
 	TreeMapGroupItemsLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"treeMapGroupItemsLimitConfiguration"`
-	TreeMapSort                         []TemplateFieldSortOptions       `pulumi:"treeMapSort"`
+	// The sort configuration of group by fields.
+	TreeMapSort []TemplateFieldSortOptions `pulumi:"treeMapSort"`
 }
 
 // TemplateTreeMapSortConfigurationInput is an input type that accepts TemplateTreeMapSortConfigurationArgs and TemplateTreeMapSortConfigurationOutput values.
@@ -4083,8 +4580,10 @@ type TemplateTreeMapSortConfigurationInput interface {
 }
 
 type TemplateTreeMapSortConfigurationArgs struct {
+	// The limit configuration of the visual display for an axis.
 	TreeMapGroupItemsLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"treeMapGroupItemsLimitConfiguration"`
-	TreeMapSort                         TemplateFieldSortOptionsArrayInput      `pulumi:"treeMapSort"`
+	// The sort configuration of group by fields.
+	TreeMapSort TemplateFieldSortOptionsArrayInput `pulumi:"treeMapSort"`
 }
 
 func (TemplateTreeMapSortConfigurationArgs) ElementType() reflect.Type {
@@ -4164,12 +4663,14 @@ func (o TemplateTreeMapSortConfigurationOutput) ToTemplateTreeMapSortConfigurati
 	}).(TemplateTreeMapSortConfigurationPtrOutput)
 }
 
+// The limit configuration of the visual display for an axis.
 func (o TemplateTreeMapSortConfigurationOutput) TreeMapGroupItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.TreeMapGroupItemsLimitConfiguration
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
+// The sort configuration of group by fields.
 func (o TemplateTreeMapSortConfigurationOutput) TreeMapSort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v TemplateTreeMapSortConfiguration) []TemplateFieldSortOptions { return v.TreeMapSort }).(TemplateFieldSortOptionsArrayOutput)
 }
@@ -4198,6 +4699,7 @@ func (o TemplateTreeMapSortConfigurationPtrOutput) Elem() TemplateTreeMapSortCon
 	}).(TemplateTreeMapSortConfigurationOutput)
 }
 
+// The limit configuration of the visual display for an axis.
 func (o TemplateTreeMapSortConfigurationPtrOutput) TreeMapGroupItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -4207,6 +4709,7 @@ func (o TemplateTreeMapSortConfigurationPtrOutput) TreeMapGroupItemsLimitConfigu
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
+// The sort configuration of group by fields.
 func (o TemplateTreeMapSortConfigurationPtrOutput) TreeMapSort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplateTreeMapSortConfiguration) []TemplateFieldSortOptions {
 		if v == nil {
@@ -4217,12 +4720,18 @@ func (o TemplateTreeMapSortConfigurationPtrOutput) TreeMapSort() TemplateFieldSo
 }
 
 type TemplateTreeMapVisual struct {
-	Actions            []TemplateVisualCustomAction        `pulumi:"actions"`
-	ChartConfiguration *TemplateTreeMapConfiguration       `pulumi:"chartConfiguration"`
-	ColumnHierarchies  []TemplateColumnHierarchy           `pulumi:"columnHierarchies"`
-	Subtitle           *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	Title              *TemplateVisualTitleLabelOptions    `pulumi:"title"`
-	VisualId           string                              `pulumi:"visualId"`
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration of a tree map.
+	ChartConfiguration *TemplateTreeMapConfiguration `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle label options for a visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId string `pulumi:"visualId"`
 }
 
 // TemplateTreeMapVisualInput is an input type that accepts TemplateTreeMapVisualArgs and TemplateTreeMapVisualOutput values.
@@ -4237,12 +4746,18 @@ type TemplateTreeMapVisualInput interface {
 }
 
 type TemplateTreeMapVisualArgs struct {
-	Actions            TemplateVisualCustomActionArrayInput       `pulumi:"actions"`
-	ChartConfiguration TemplateTreeMapConfigurationPtrInput       `pulumi:"chartConfiguration"`
-	ColumnHierarchies  TemplateColumnHierarchyArrayInput          `pulumi:"columnHierarchies"`
-	Subtitle           TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	Title              TemplateVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
-	VisualId           pulumi.StringInput                         `pulumi:"visualId"`
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration of a tree map.
+	ChartConfiguration TemplateTreeMapConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle label options for a visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (TemplateTreeMapVisualArgs) ElementType() reflect.Type {
@@ -4322,26 +4837,32 @@ func (o TemplateTreeMapVisualOutput) ToTemplateTreeMapVisualPtrOutputWithContext
 	}).(TemplateTreeMapVisualPtrOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateTreeMapVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration of a tree map.
 func (o TemplateTreeMapVisualOutput) ChartConfiguration() TemplateTreeMapConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) *TemplateTreeMapConfiguration { return v.ChartConfiguration }).(TemplateTreeMapConfigurationPtrOutput)
 }
 
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateTreeMapVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateTreeMapVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateTreeMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 func (o TemplateTreeMapVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -4370,6 +4891,7 @@ func (o TemplateTreeMapVisualPtrOutput) Elem() TemplateTreeMapVisualOutput {
 	}).(TemplateTreeMapVisualOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateTreeMapVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) []TemplateVisualCustomAction {
 		if v == nil {
@@ -4379,6 +4901,7 @@ func (o TemplateTreeMapVisualPtrOutput) Actions() TemplateVisualCustomActionArra
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration of a tree map.
 func (o TemplateTreeMapVisualPtrOutput) ChartConfiguration() TemplateTreeMapConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) *TemplateTreeMapConfiguration {
 		if v == nil {
@@ -4388,6 +4911,7 @@ func (o TemplateTreeMapVisualPtrOutput) ChartConfiguration() TemplateTreeMapConf
 	}).(TemplateTreeMapConfigurationPtrOutput)
 }
 
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateTreeMapVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) []TemplateColumnHierarchy {
 		if v == nil {
@@ -4397,6 +4921,7 @@ func (o TemplateTreeMapVisualPtrOutput) ColumnHierarchies() TemplateColumnHierar
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateTreeMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -4406,6 +4931,7 @@ func (o TemplateTreeMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOp
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateTreeMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -4415,6 +4941,7 @@ func (o TemplateTreeMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsP
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 func (o TemplateTreeMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) *string {
 		if v == nil {
@@ -4425,6 +4952,7 @@ func (o TemplateTreeMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateTrendArrowOptions struct {
+	// The visibility of the trend arrows.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
 }
 
@@ -4440,6 +4968,7 @@ type TemplateTrendArrowOptionsInput interface {
 }
 
 type TemplateTrendArrowOptionsArgs struct {
+	// The visibility of the trend arrows.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
 }
 
@@ -4520,6 +5049,7 @@ func (o TemplateTrendArrowOptionsOutput) ToTemplateTrendArrowOptionsPtrOutputWit
 	}).(TemplateTrendArrowOptionsPtrOutput)
 }
 
+// The visibility of the trend arrows.
 func (o TemplateTrendArrowOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateTrendArrowOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
 }
@@ -4548,6 +5078,7 @@ func (o TemplateTrendArrowOptionsPtrOutput) Elem() TemplateTrendArrowOptionsOutp
 	}).(TemplateTrendArrowOptionsOutput)
 }
 
+// The visibility of the trend arrows.
 func (o TemplateTrendArrowOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateTrendArrowOptions) *TemplateVisibility {
 		if v == nil {
@@ -4558,8 +5089,11 @@ func (o TemplateTrendArrowOptionsPtrOutput) Visibility() TemplateVisibilityPtrOu
 }
 
 type TemplateUnaggregatedField struct {
-	Column              TemplateColumnIdentifier     `pulumi:"column"`
-	FieldId             string                       `pulumi:"fieldId"`
+	// A column of a data set.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The custom field ID.
+	FieldId string `pulumi:"fieldId"`
+	// The formatting configuration for all types of field.
 	FormatConfiguration *TemplateFormatConfiguration `pulumi:"formatConfiguration"`
 }
 
@@ -4575,8 +5109,11 @@ type TemplateUnaggregatedFieldInput interface {
 }
 
 type TemplateUnaggregatedFieldArgs struct {
-	Column              TemplateColumnIdentifierInput       `pulumi:"column"`
-	FieldId             pulumi.StringInput                  `pulumi:"fieldId"`
+	// A column of a data set.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The custom field ID.
+	FieldId pulumi.StringInput `pulumi:"fieldId"`
+	// The formatting configuration for all types of field.
 	FormatConfiguration TemplateFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 }
 
@@ -4631,14 +5168,17 @@ func (o TemplateUnaggregatedFieldOutput) ToTemplateUnaggregatedFieldOutputWithCo
 	return o
 }
 
+// A column of a data set.
 func (o TemplateUnaggregatedFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateUnaggregatedField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
+// The custom field ID.
 func (o TemplateUnaggregatedFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateUnaggregatedField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
+// The formatting configuration for all types of field.
 func (o TemplateUnaggregatedFieldOutput) FormatConfiguration() TemplateFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateUnaggregatedField) *TemplateFormatConfiguration { return v.FormatConfiguration }).(TemplateFormatConfigurationPtrOutput)
 }
@@ -4664,9 +5204,12 @@ func (o TemplateUnaggregatedFieldArrayOutput) Index(i pulumi.IntInput) TemplateU
 }
 
 type TemplateUniqueValuesComputation struct {
-	Category      *TemplateDimensionField `pulumi:"category"`
-	ComputationId string                  `pulumi:"computationId"`
-	Name          *string                 `pulumi:"name"`
+	// The dimension type field.
+	Category *TemplateDimensionField `pulumi:"category"`
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
 }
 
 // TemplateUniqueValuesComputationInput is an input type that accepts TemplateUniqueValuesComputationArgs and TemplateUniqueValuesComputationOutput values.
@@ -4681,9 +5224,12 @@ type TemplateUniqueValuesComputationInput interface {
 }
 
 type TemplateUniqueValuesComputationArgs struct {
-	Category      TemplateDimensionFieldPtrInput `pulumi:"category"`
-	ComputationId pulumi.StringInput             `pulumi:"computationId"`
-	Name          pulumi.StringPtrInput          `pulumi:"name"`
+	// The dimension type field.
+	Category TemplateDimensionFieldPtrInput `pulumi:"category"`
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (TemplateUniqueValuesComputationArgs) ElementType() reflect.Type {
@@ -4763,14 +5309,17 @@ func (o TemplateUniqueValuesComputationOutput) ToTemplateUniqueValuesComputation
 	}).(TemplateUniqueValuesComputationPtrOutput)
 }
 
+// The dimension type field.
 func (o TemplateUniqueValuesComputationOutput) Category() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateUniqueValuesComputation) *TemplateDimensionField { return v.Category }).(TemplateDimensionFieldPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateUniqueValuesComputationOutput) ComputationId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateUniqueValuesComputation) string { return v.ComputationId }).(pulumi.StringOutput)
 }
 
+// The name of a computation.
 func (o TemplateUniqueValuesComputationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateUniqueValuesComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4799,6 +5348,7 @@ func (o TemplateUniqueValuesComputationPtrOutput) Elem() TemplateUniqueValuesCom
 	}).(TemplateUniqueValuesComputationOutput)
 }
 
+// The dimension type field.
 func (o TemplateUniqueValuesComputationPtrOutput) Category() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateUniqueValuesComputation) *TemplateDimensionField {
 		if v == nil {
@@ -4808,6 +5358,7 @@ func (o TemplateUniqueValuesComputationPtrOutput) Category() TemplateDimensionFi
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
+// The ID for a computation.
 func (o TemplateUniqueValuesComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateUniqueValuesComputation) *string {
 		if v == nil {
@@ -4817,6 +5368,7 @@ func (o TemplateUniqueValuesComputationPtrOutput) ComputationId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of a computation.
 func (o TemplateUniqueValuesComputationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateUniqueValuesComputation) *string {
 		if v == nil {
@@ -4828,6 +5380,7 @@ func (o TemplateUniqueValuesComputationPtrOutput) Name() pulumi.StringPtrOutput 
 
 // <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type TemplateValidationStrategy struct {
+	// The mode of validation for the asset to be created or updated. When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
 	Mode TemplateValidationStrategyMode `pulumi:"mode"`
 }
 
@@ -4844,6 +5397,7 @@ type TemplateValidationStrategyInput interface {
 
 // <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type TemplateValidationStrategyArgs struct {
+	// The mode of validation for the asset to be created or updated. When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
 	Mode TemplateValidationStrategyModeInput `pulumi:"mode"`
 }
 
@@ -4925,6 +5479,7 @@ func (o TemplateValidationStrategyOutput) ToTemplateValidationStrategyPtrOutputW
 	}).(TemplateValidationStrategyPtrOutput)
 }
 
+// The mode of validation for the asset to be created or updated. When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
 func (o TemplateValidationStrategyOutput) Mode() TemplateValidationStrategyModeOutput {
 	return o.ApplyT(func(v TemplateValidationStrategy) TemplateValidationStrategyMode { return v.Mode }).(TemplateValidationStrategyModeOutput)
 }
@@ -4953,6 +5508,7 @@ func (o TemplateValidationStrategyPtrOutput) Elem() TemplateValidationStrategyOu
 	}).(TemplateValidationStrategyOutput)
 }
 
+// The mode of validation for the asset to be created or updated. When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
 func (o TemplateValidationStrategyPtrOutput) Mode() TemplateValidationStrategyModePtrOutput {
 	return o.ApplyT(func(v *TemplateValidationStrategy) *TemplateValidationStrategyMode {
 		if v == nil {
@@ -4978,8 +5534,17 @@ type TemplateVersion struct {
 	Sheets []TemplateSheet `pulumi:"sheets"`
 	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
 	//             template.</p>
-	SourceEntityArn *string                 `pulumi:"sourceEntityArn"`
-	Status          *TemplateResourceStatus `pulumi:"status"`
+	SourceEntityArn *string `pulumi:"sourceEntityArn"`
+	// The status that is associated with the template.
+	//
+	// - `CREATION_IN_PROGRESS`
+	// - `CREATION_SUCCESSFUL`
+	// - `CREATION_FAILED`
+	// - `UPDATE_IN_PROGRESS`
+	// - `UPDATE_SUCCESSFUL`
+	// - `UPDATE_FAILED`
+	// - `DELETED`
+	Status *TemplateResourceStatus `pulumi:"status"`
 	// <p>The ARN of the theme associated with this version of the template.</p>
 	ThemeArn *string `pulumi:"themeArn"`
 	// <p>The version number of the template version.</p>
@@ -5036,6 +5601,15 @@ func (o TemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
 
+// The status that is associated with the template.
+//
+// - `CREATION_IN_PROGRESS`
+// - `CREATION_SUCCESSFUL`
+// - `CREATION_FAILED`
+// - `UPDATE_IN_PROGRESS`
+// - `UPDATE_SUCCESSFUL`
+// - `UPDATE_FAILED`
+// - `DELETED`
 func (o TemplateVersionOutput) Status() TemplateResourceStatusPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *TemplateResourceStatus { return v.Status }).(TemplateResourceStatusPtrOutput)
 }
@@ -5139,6 +5713,15 @@ func (o TemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status that is associated with the template.
+//
+// - `CREATION_IN_PROGRESS`
+// - `CREATION_SUCCESSFUL`
+// - `CREATION_FAILED`
+// - `UPDATE_IN_PROGRESS`
+// - `UPDATE_SUCCESSFUL`
+// - `UPDATE_FAILED`
+// - `DELETED`
 func (o TemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutput {
 	return o.ApplyT(func(v *TemplateVersion) *TemplateResourceStatus {
 		if v == nil {
@@ -5169,14 +5752,28 @@ func (o TemplateVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 }
 
 type TemplateVersionDefinition struct {
-	AnalysisDefaults      *TemplateAnalysisDefaults      `pulumi:"analysisDefaults"`
-	CalculatedFields      []TemplateCalculatedField      `pulumi:"calculatedFields"`
-	ColumnConfigurations  []TemplateColumnConfiguration  `pulumi:"columnConfigurations"`
+	// The configuration for default analysis settings.
+	AnalysisDefaults *TemplateAnalysisDefaults `pulumi:"analysisDefaults"`
+	// The calculated field of an analysis.
+	CalculatedFields []TemplateCalculatedField `pulumi:"calculatedFields"`
+	// The general configuration of a column.
+	ColumnConfigurations []TemplateColumnConfiguration `pulumi:"columnConfigurations"`
+	// Dataset configuration.
 	DataSetConfigurations []TemplateDataSetConfiguration `pulumi:"dataSetConfigurations"`
-	FilterGroups          []TemplateFilterGroup          `pulumi:"filterGroups"`
-	Options               *TemplateAssetOptions          `pulumi:"options"`
+	// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+	//
+	// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+	FilterGroups []TemplateFilterGroup `pulumi:"filterGroups"`
+	// An array of analysis level configurations.
+	Options *TemplateAssetOptions `pulumi:"options"`
+	// The declaration definition of a parameter.
+	//
+	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ParameterDeclarations []TemplateParameterDeclaration `pulumi:"parameterDeclarations"`
-	Sheets                []TemplateSheetDefinition      `pulumi:"sheets"`
+	// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
+	Sheets []TemplateSheetDefinition `pulumi:"sheets"`
 }
 
 // TemplateVersionDefinitionInput is an input type that accepts TemplateVersionDefinitionArgs and TemplateVersionDefinitionOutput values.
@@ -5191,14 +5788,28 @@ type TemplateVersionDefinitionInput interface {
 }
 
 type TemplateVersionDefinitionArgs struct {
-	AnalysisDefaults      TemplateAnalysisDefaultsPtrInput       `pulumi:"analysisDefaults"`
-	CalculatedFields      TemplateCalculatedFieldArrayInput      `pulumi:"calculatedFields"`
-	ColumnConfigurations  TemplateColumnConfigurationArrayInput  `pulumi:"columnConfigurations"`
+	// The configuration for default analysis settings.
+	AnalysisDefaults TemplateAnalysisDefaultsPtrInput `pulumi:"analysisDefaults"`
+	// The calculated field of an analysis.
+	CalculatedFields TemplateCalculatedFieldArrayInput `pulumi:"calculatedFields"`
+	// The general configuration of a column.
+	ColumnConfigurations TemplateColumnConfigurationArrayInput `pulumi:"columnConfigurations"`
+	// Dataset configuration.
 	DataSetConfigurations TemplateDataSetConfigurationArrayInput `pulumi:"dataSetConfigurations"`
-	FilterGroups          TemplateFilterGroupArrayInput          `pulumi:"filterGroups"`
-	Options               TemplateAssetOptionsPtrInput           `pulumi:"options"`
+	// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+	//
+	// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+	FilterGroups TemplateFilterGroupArrayInput `pulumi:"filterGroups"`
+	// An array of analysis level configurations.
+	Options TemplateAssetOptionsPtrInput `pulumi:"options"`
+	// The declaration definition of a parameter.
+	//
+	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ParameterDeclarations TemplateParameterDeclarationArrayInput `pulumi:"parameterDeclarations"`
-	Sheets                TemplateSheetDefinitionArrayInput      `pulumi:"sheets"`
+	// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
+	Sheets TemplateSheetDefinitionArrayInput `pulumi:"sheets"`
 }
 
 func (TemplateVersionDefinitionArgs) ElementType() reflect.Type {
@@ -5278,34 +5889,48 @@ func (o TemplateVersionDefinitionOutput) ToTemplateVersionDefinitionPtrOutputWit
 	}).(TemplateVersionDefinitionPtrOutput)
 }
 
+// The configuration for default analysis settings.
 func (o TemplateVersionDefinitionOutput) AnalysisDefaults() TemplateAnalysisDefaultsPtrOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) *TemplateAnalysisDefaults { return v.AnalysisDefaults }).(TemplateAnalysisDefaultsPtrOutput)
 }
 
+// The calculated field of an analysis.
 func (o TemplateVersionDefinitionOutput) CalculatedFields() TemplateCalculatedFieldArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateCalculatedField { return v.CalculatedFields }).(TemplateCalculatedFieldArrayOutput)
 }
 
+// The general configuration of a column.
 func (o TemplateVersionDefinitionOutput) ColumnConfigurations() TemplateColumnConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateColumnConfiguration { return v.ColumnConfigurations }).(TemplateColumnConfigurationArrayOutput)
 }
 
+// Dataset configuration.
 func (o TemplateVersionDefinitionOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateDataSetConfiguration { return v.DataSetConfigurations }).(TemplateDataSetConfigurationArrayOutput)
 }
 
+// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+//
+// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVersionDefinitionOutput) FilterGroups() TemplateFilterGroupArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateFilterGroup { return v.FilterGroups }).(TemplateFilterGroupArrayOutput)
 }
 
+// An array of analysis level configurations.
 func (o TemplateVersionDefinitionOutput) Options() TemplateAssetOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) *TemplateAssetOptions { return v.Options }).(TemplateAssetOptionsPtrOutput)
 }
 
+// The declaration definition of a parameter.
+//
+// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVersionDefinitionOutput) ParameterDeclarations() TemplateParameterDeclarationArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateParameterDeclaration { return v.ParameterDeclarations }).(TemplateParameterDeclarationArrayOutput)
 }
 
+// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
 func (o TemplateVersionDefinitionOutput) Sheets() TemplateSheetDefinitionArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateSheetDefinition { return v.Sheets }).(TemplateSheetDefinitionArrayOutput)
 }
@@ -5334,6 +5959,7 @@ func (o TemplateVersionDefinitionPtrOutput) Elem() TemplateVersionDefinitionOutp
 	}).(TemplateVersionDefinitionOutput)
 }
 
+// The configuration for default analysis settings.
 func (o TemplateVersionDefinitionPtrOutput) AnalysisDefaults() TemplateAnalysisDefaultsPtrOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) *TemplateAnalysisDefaults {
 		if v == nil {
@@ -5343,6 +5969,7 @@ func (o TemplateVersionDefinitionPtrOutput) AnalysisDefaults() TemplateAnalysisD
 	}).(TemplateAnalysisDefaultsPtrOutput)
 }
 
+// The calculated field of an analysis.
 func (o TemplateVersionDefinitionPtrOutput) CalculatedFields() TemplateCalculatedFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateCalculatedField {
 		if v == nil {
@@ -5352,6 +5979,7 @@ func (o TemplateVersionDefinitionPtrOutput) CalculatedFields() TemplateCalculate
 	}).(TemplateCalculatedFieldArrayOutput)
 }
 
+// The general configuration of a column.
 func (o TemplateVersionDefinitionPtrOutput) ColumnConfigurations() TemplateColumnConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateColumnConfiguration {
 		if v == nil {
@@ -5361,6 +5989,7 @@ func (o TemplateVersionDefinitionPtrOutput) ColumnConfigurations() TemplateColum
 	}).(TemplateColumnConfigurationArrayOutput)
 }
 
+// Dataset configuration.
 func (o TemplateVersionDefinitionPtrOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateDataSetConfiguration {
 		if v == nil {
@@ -5370,6 +5999,9 @@ func (o TemplateVersionDefinitionPtrOutput) DataSetConfigurations() TemplateData
 	}).(TemplateDataSetConfigurationArrayOutput)
 }
 
+// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+//
+// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVersionDefinitionPtrOutput) FilterGroups() TemplateFilterGroupArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateFilterGroup {
 		if v == nil {
@@ -5379,6 +6011,7 @@ func (o TemplateVersionDefinitionPtrOutput) FilterGroups() TemplateFilterGroupAr
 	}).(TemplateFilterGroupArrayOutput)
 }
 
+// An array of analysis level configurations.
 func (o TemplateVersionDefinitionPtrOutput) Options() TemplateAssetOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) *TemplateAssetOptions {
 		if v == nil {
@@ -5388,6 +6021,11 @@ func (o TemplateVersionDefinitionPtrOutput) Options() TemplateAssetOptionsPtrOut
 	}).(TemplateAssetOptionsPtrOutput)
 }
 
+// The declaration definition of a parameter.
+//
+// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVersionDefinitionPtrOutput) ParameterDeclarations() TemplateParameterDeclarationArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateParameterDeclaration {
 		if v == nil {
@@ -5397,6 +6035,7 @@ func (o TemplateVersionDefinitionPtrOutput) ParameterDeclarations() TemplatePara
 	}).(TemplateParameterDeclarationArrayOutput)
 }
 
+// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
 func (o TemplateVersionDefinitionPtrOutput) Sheets() TemplateSheetDefinitionArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateSheetDefinition {
 		if v == nil {
@@ -5407,6 +6046,7 @@ func (o TemplateVersionDefinitionPtrOutput) Sheets() TemplateSheetDefinitionArra
 }
 
 type TemplateVisibleRangeOptions struct {
+	// The percent range in the visible range.
 	PercentRange *TemplatePercentVisibleRange `pulumi:"percentRange"`
 }
 
@@ -5422,6 +6062,7 @@ type TemplateVisibleRangeOptionsInput interface {
 }
 
 type TemplateVisibleRangeOptionsArgs struct {
+	// The percent range in the visible range.
 	PercentRange TemplatePercentVisibleRangePtrInput `pulumi:"percentRange"`
 }
 
@@ -5502,6 +6143,7 @@ func (o TemplateVisibleRangeOptionsOutput) ToTemplateVisibleRangeOptionsPtrOutpu
 	}).(TemplateVisibleRangeOptionsPtrOutput)
 }
 
+// The percent range in the visible range.
 func (o TemplateVisibleRangeOptionsOutput) PercentRange() TemplatePercentVisibleRangePtrOutput {
 	return o.ApplyT(func(v TemplateVisibleRangeOptions) *TemplatePercentVisibleRange { return v.PercentRange }).(TemplatePercentVisibleRangePtrOutput)
 }
@@ -5530,6 +6172,7 @@ func (o TemplateVisibleRangeOptionsPtrOutput) Elem() TemplateVisibleRangeOptions
 	}).(TemplateVisibleRangeOptionsOutput)
 }
 
+// The percent range in the visible range.
 func (o TemplateVisibleRangeOptionsPtrOutput) PercentRange() TemplatePercentVisibleRangePtrOutput {
 	return o.ApplyT(func(v *TemplateVisibleRangeOptions) *TemplatePercentVisibleRange {
 		if v == nil {
@@ -5540,29 +6183,116 @@ func (o TemplateVisibleRangeOptionsPtrOutput) PercentRange() TemplatePercentVisi
 }
 
 type TemplateVisual struct {
-	BarChartVisual      *TemplateBarChartVisual      `pulumi:"barChartVisual"`
-	BoxPlotVisual       *TemplateBoxPlotVisual       `pulumi:"boxPlotVisual"`
-	ComboChartVisual    *TemplateComboChartVisual    `pulumi:"comboChartVisual"`
+	// A bar chart.
+	//
+	// The `BarChartVisual` structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:
+	//
+	// - Horizontal bar chart
+	// - Vertical bar chart
+	// - Horizontal stacked bar chart
+	// - Vertical stacked bar chart
+	// - Horizontal stacked 100% bar chart
+	// - Vertical stacked 100% bar chart
+	//
+	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+	BarChartVisual *TemplateBarChartVisual `pulumi:"barChartVisual"`
+	// A box plot.
+	//
+	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+	BoxPlotVisual *TemplateBoxPlotVisual `pulumi:"boxPlotVisual"`
+	// A combo chart.
+	//
+	// The `ComboChartVisual` includes stacked bar combo charts and clustered bar combo charts
+	//
+	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+	ComboChartVisual *TemplateComboChartVisual `pulumi:"comboChartVisual"`
+	// A visual that contains custom content.
+	//
+	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
 	CustomContentVisual *TemplateCustomContentVisual `pulumi:"customContentVisual"`
-	EmptyVisual         *TemplateEmptyVisual         `pulumi:"emptyVisual"`
-	FilledMapVisual     *TemplateFilledMapVisual     `pulumi:"filledMapVisual"`
-	FunnelChartVisual   *TemplateFunnelChartVisual   `pulumi:"funnelChartVisual"`
-	GaugeChartVisual    *TemplateGaugeChartVisual    `pulumi:"gaugeChartVisual"`
+	// An empty visual.
+	//
+	// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an `EmptyVisual` until a visual type is selected.
+	EmptyVisual *TemplateEmptyVisual `pulumi:"emptyVisual"`
+	// A filled map.
+	//
+	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+	FilledMapVisual *TemplateFilledMapVisual `pulumi:"filledMapVisual"`
+	// A funnel chart.
+	//
+	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+	FunnelChartVisual *TemplateFunnelChartVisual `pulumi:"funnelChartVisual"`
+	// A gauge chart.
+	//
+	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+	GaugeChartVisual *TemplateGaugeChartVisual `pulumi:"gaugeChartVisual"`
+	// A geospatial map or a points on map visual.
+	//
+	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
 	GeospatialMapVisual *TemplateGeospatialMapVisual `pulumi:"geospatialMapVisual"`
-	HeatMapVisual       *TemplateHeatMapVisual       `pulumi:"heatMapVisual"`
-	HistogramVisual     *TemplateHistogramVisual     `pulumi:"histogramVisual"`
-	InsightVisual       *TemplateInsightVisual       `pulumi:"insightVisual"`
-	KpiVisual           *TemplateKpiVisual           `pulumi:"kpiVisual"`
-	LineChartVisual     *TemplateLineChartVisual     `pulumi:"lineChartVisual"`
-	PieChartVisual      *TemplatePieChartVisual      `pulumi:"pieChartVisual"`
-	PivotTableVisual    *TemplatePivotTableVisual    `pulumi:"pivotTableVisual"`
-	RadarChartVisual    *TemplateRadarChartVisual    `pulumi:"radarChartVisual"`
+	// A heat map.
+	//
+	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+	HeatMapVisual *TemplateHeatMapVisual `pulumi:"heatMapVisual"`
+	// A histogram.
+	//
+	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+	HistogramVisual *TemplateHistogramVisual `pulumi:"histogramVisual"`
+	// An insight visual.
+	//
+	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+	InsightVisual *TemplateInsightVisual `pulumi:"insightVisual"`
+	// A key performance indicator (KPI).
+	//
+	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+	KpiVisual *TemplateKpiVisual `pulumi:"kpiVisual"`
+	// A line chart.
+	//
+	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+	LineChartVisual *TemplateLineChartVisual `pulumi:"lineChartVisual"`
+	// A pie or donut chart.
+	//
+	// The `PieChartVisual` structure describes a visual that is a member of the pie chart family.
+	//
+	// The following charts can be described by using this structure:
+	//
+	// - Pie charts
+	// - Donut charts
+	//
+	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+	//
+	// For more information, see [Using donut charts](https://docs.aws.amazon.com/quicksight/latest/user/donut-chart.html) in the *Amazon QuickSight User Guide* .
+	PieChartVisual *TemplatePieChartVisual `pulumi:"pieChartVisual"`
+	// A pivot table.
+	//
+	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+	PivotTableVisual *TemplatePivotTableVisual `pulumi:"pivotTableVisual"`
+	// A radar chart visual.
+	RadarChartVisual *TemplateRadarChartVisual `pulumi:"radarChartVisual"`
+	// A sankey diagram.
+	//
+	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
 	SankeyDiagramVisual *TemplateSankeyDiagramVisual `pulumi:"sankeyDiagramVisual"`
-	ScatterPlotVisual   *TemplateScatterPlotVisual   `pulumi:"scatterPlotVisual"`
-	TableVisual         *TemplateTableVisual         `pulumi:"tableVisual"`
-	TreeMapVisual       *TemplateTreeMapVisual       `pulumi:"treeMapVisual"`
-	WaterfallVisual     *TemplateWaterfallVisual     `pulumi:"waterfallVisual"`
-	WordCloudVisual     *TemplateWordCloudVisual     `pulumi:"wordCloudVisual"`
+	// A scatter plot.
+	//
+	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+	ScatterPlotVisual *TemplateScatterPlotVisual `pulumi:"scatterPlotVisual"`
+	// A table visual.
+	//
+	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+	TableVisual *TemplateTableVisual `pulumi:"tableVisual"`
+	// A tree map.
+	//
+	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+	TreeMapVisual *TemplateTreeMapVisual `pulumi:"treeMapVisual"`
+	// A waterfall chart.
+	//
+	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+	WaterfallVisual *TemplateWaterfallVisual `pulumi:"waterfallVisual"`
+	// A word cloud.
+	//
+	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+	WordCloudVisual *TemplateWordCloudVisual `pulumi:"wordCloudVisual"`
 }
 
 // TemplateVisualInput is an input type that accepts TemplateVisualArgs and TemplateVisualOutput values.
@@ -5577,29 +6307,116 @@ type TemplateVisualInput interface {
 }
 
 type TemplateVisualArgs struct {
-	BarChartVisual      TemplateBarChartVisualPtrInput      `pulumi:"barChartVisual"`
-	BoxPlotVisual       TemplateBoxPlotVisualPtrInput       `pulumi:"boxPlotVisual"`
-	ComboChartVisual    TemplateComboChartVisualPtrInput    `pulumi:"comboChartVisual"`
+	// A bar chart.
+	//
+	// The `BarChartVisual` structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:
+	//
+	// - Horizontal bar chart
+	// - Vertical bar chart
+	// - Horizontal stacked bar chart
+	// - Vertical stacked bar chart
+	// - Horizontal stacked 100% bar chart
+	// - Vertical stacked 100% bar chart
+	//
+	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+	BarChartVisual TemplateBarChartVisualPtrInput `pulumi:"barChartVisual"`
+	// A box plot.
+	//
+	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+	BoxPlotVisual TemplateBoxPlotVisualPtrInput `pulumi:"boxPlotVisual"`
+	// A combo chart.
+	//
+	// The `ComboChartVisual` includes stacked bar combo charts and clustered bar combo charts
+	//
+	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+	ComboChartVisual TemplateComboChartVisualPtrInput `pulumi:"comboChartVisual"`
+	// A visual that contains custom content.
+	//
+	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
 	CustomContentVisual TemplateCustomContentVisualPtrInput `pulumi:"customContentVisual"`
-	EmptyVisual         TemplateEmptyVisualPtrInput         `pulumi:"emptyVisual"`
-	FilledMapVisual     TemplateFilledMapVisualPtrInput     `pulumi:"filledMapVisual"`
-	FunnelChartVisual   TemplateFunnelChartVisualPtrInput   `pulumi:"funnelChartVisual"`
-	GaugeChartVisual    TemplateGaugeChartVisualPtrInput    `pulumi:"gaugeChartVisual"`
+	// An empty visual.
+	//
+	// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an `EmptyVisual` until a visual type is selected.
+	EmptyVisual TemplateEmptyVisualPtrInput `pulumi:"emptyVisual"`
+	// A filled map.
+	//
+	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+	FilledMapVisual TemplateFilledMapVisualPtrInput `pulumi:"filledMapVisual"`
+	// A funnel chart.
+	//
+	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+	FunnelChartVisual TemplateFunnelChartVisualPtrInput `pulumi:"funnelChartVisual"`
+	// A gauge chart.
+	//
+	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+	GaugeChartVisual TemplateGaugeChartVisualPtrInput `pulumi:"gaugeChartVisual"`
+	// A geospatial map or a points on map visual.
+	//
+	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
 	GeospatialMapVisual TemplateGeospatialMapVisualPtrInput `pulumi:"geospatialMapVisual"`
-	HeatMapVisual       TemplateHeatMapVisualPtrInput       `pulumi:"heatMapVisual"`
-	HistogramVisual     TemplateHistogramVisualPtrInput     `pulumi:"histogramVisual"`
-	InsightVisual       TemplateInsightVisualPtrInput       `pulumi:"insightVisual"`
-	KpiVisual           TemplateKpiVisualPtrInput           `pulumi:"kpiVisual"`
-	LineChartVisual     TemplateLineChartVisualPtrInput     `pulumi:"lineChartVisual"`
-	PieChartVisual      TemplatePieChartVisualPtrInput      `pulumi:"pieChartVisual"`
-	PivotTableVisual    TemplatePivotTableVisualPtrInput    `pulumi:"pivotTableVisual"`
-	RadarChartVisual    TemplateRadarChartVisualPtrInput    `pulumi:"radarChartVisual"`
+	// A heat map.
+	//
+	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+	HeatMapVisual TemplateHeatMapVisualPtrInput `pulumi:"heatMapVisual"`
+	// A histogram.
+	//
+	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+	HistogramVisual TemplateHistogramVisualPtrInput `pulumi:"histogramVisual"`
+	// An insight visual.
+	//
+	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+	InsightVisual TemplateInsightVisualPtrInput `pulumi:"insightVisual"`
+	// A key performance indicator (KPI).
+	//
+	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+	KpiVisual TemplateKpiVisualPtrInput `pulumi:"kpiVisual"`
+	// A line chart.
+	//
+	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+	LineChartVisual TemplateLineChartVisualPtrInput `pulumi:"lineChartVisual"`
+	// A pie or donut chart.
+	//
+	// The `PieChartVisual` structure describes a visual that is a member of the pie chart family.
+	//
+	// The following charts can be described by using this structure:
+	//
+	// - Pie charts
+	// - Donut charts
+	//
+	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+	//
+	// For more information, see [Using donut charts](https://docs.aws.amazon.com/quicksight/latest/user/donut-chart.html) in the *Amazon QuickSight User Guide* .
+	PieChartVisual TemplatePieChartVisualPtrInput `pulumi:"pieChartVisual"`
+	// A pivot table.
+	//
+	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+	PivotTableVisual TemplatePivotTableVisualPtrInput `pulumi:"pivotTableVisual"`
+	// A radar chart visual.
+	RadarChartVisual TemplateRadarChartVisualPtrInput `pulumi:"radarChartVisual"`
+	// A sankey diagram.
+	//
+	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
 	SankeyDiagramVisual TemplateSankeyDiagramVisualPtrInput `pulumi:"sankeyDiagramVisual"`
-	ScatterPlotVisual   TemplateScatterPlotVisualPtrInput   `pulumi:"scatterPlotVisual"`
-	TableVisual         TemplateTableVisualPtrInput         `pulumi:"tableVisual"`
-	TreeMapVisual       TemplateTreeMapVisualPtrInput       `pulumi:"treeMapVisual"`
-	WaterfallVisual     TemplateWaterfallVisualPtrInput     `pulumi:"waterfallVisual"`
-	WordCloudVisual     TemplateWordCloudVisualPtrInput     `pulumi:"wordCloudVisual"`
+	// A scatter plot.
+	//
+	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+	ScatterPlotVisual TemplateScatterPlotVisualPtrInput `pulumi:"scatterPlotVisual"`
+	// A table visual.
+	//
+	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+	TableVisual TemplateTableVisualPtrInput `pulumi:"tableVisual"`
+	// A tree map.
+	//
+	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+	TreeMapVisual TemplateTreeMapVisualPtrInput `pulumi:"treeMapVisual"`
+	// A waterfall chart.
+	//
+	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+	WaterfallVisual TemplateWaterfallVisualPtrInput `pulumi:"waterfallVisual"`
+	// A word cloud.
+	//
+	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+	WordCloudVisual TemplateWordCloudVisualPtrInput `pulumi:"wordCloudVisual"`
 }
 
 func (TemplateVisualArgs) ElementType() reflect.Type {
@@ -5653,94 +6470,181 @@ func (o TemplateVisualOutput) ToTemplateVisualOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A bar chart.
+//
+// The `BarChartVisual` structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:
+//
+// - Horizontal bar chart
+// - Vertical bar chart
+// - Horizontal stacked bar chart
+// - Vertical stacked bar chart
+// - Horizontal stacked 100% bar chart
+// - Vertical stacked 100% bar chart
+//
+// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) BarChartVisual() TemplateBarChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateBarChartVisual { return v.BarChartVisual }).(TemplateBarChartVisualPtrOutput)
 }
 
+// A box plot.
+//
+// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) BoxPlotVisual() TemplateBoxPlotVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateBoxPlotVisual { return v.BoxPlotVisual }).(TemplateBoxPlotVisualPtrOutput)
 }
 
+// A combo chart.
+//
+// # The `ComboChartVisual` includes stacked bar combo charts and clustered bar combo charts
+//
+// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) ComboChartVisual() TemplateComboChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateComboChartVisual { return v.ComboChartVisual }).(TemplateComboChartVisualPtrOutput)
 }
 
+// A visual that contains custom content.
+//
+// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) CustomContentVisual() TemplateCustomContentVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateCustomContentVisual { return v.CustomContentVisual }).(TemplateCustomContentVisualPtrOutput)
 }
 
+// An empty visual.
+//
+// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an `EmptyVisual` until a visual type is selected.
 func (o TemplateVisualOutput) EmptyVisual() TemplateEmptyVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateEmptyVisual { return v.EmptyVisual }).(TemplateEmptyVisualPtrOutput)
 }
 
+// A filled map.
+//
+// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) FilledMapVisual() TemplateFilledMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateFilledMapVisual { return v.FilledMapVisual }).(TemplateFilledMapVisualPtrOutput)
 }
 
+// A funnel chart.
+//
+// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) FunnelChartVisual() TemplateFunnelChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateFunnelChartVisual { return v.FunnelChartVisual }).(TemplateFunnelChartVisualPtrOutput)
 }
 
+// A gauge chart.
+//
+// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) GaugeChartVisual() TemplateGaugeChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateGaugeChartVisual { return v.GaugeChartVisual }).(TemplateGaugeChartVisualPtrOutput)
 }
 
+// A geospatial map or a points on map visual.
+//
+// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) GeospatialMapVisual() TemplateGeospatialMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateGeospatialMapVisual { return v.GeospatialMapVisual }).(TemplateGeospatialMapVisualPtrOutput)
 }
 
+// A heat map.
+//
+// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) HeatMapVisual() TemplateHeatMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateHeatMapVisual { return v.HeatMapVisual }).(TemplateHeatMapVisualPtrOutput)
 }
 
+// A histogram.
+//
+// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) HistogramVisual() TemplateHistogramVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateHistogramVisual { return v.HistogramVisual }).(TemplateHistogramVisualPtrOutput)
 }
 
+// An insight visual.
+//
+// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) InsightVisual() TemplateInsightVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateInsightVisual { return v.InsightVisual }).(TemplateInsightVisualPtrOutput)
 }
 
+// A key performance indicator (KPI).
+//
+// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) KpiVisual() TemplateKpiVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateKpiVisual { return v.KpiVisual }).(TemplateKpiVisualPtrOutput)
 }
 
+// A line chart.
+//
+// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) LineChartVisual() TemplateLineChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateLineChartVisual { return v.LineChartVisual }).(TemplateLineChartVisualPtrOutput)
 }
 
+// A pie or donut chart.
+//
+// The `PieChartVisual` structure describes a visual that is a member of the pie chart family.
+//
+// The following charts can be described by using this structure:
+//
+// - Pie charts
+// - Donut charts
+//
+// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+//
+// For more information, see [Using donut charts](https://docs.aws.amazon.com/quicksight/latest/user/donut-chart.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) PieChartVisual() TemplatePieChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplatePieChartVisual { return v.PieChartVisual }).(TemplatePieChartVisualPtrOutput)
 }
 
+// A pivot table.
+//
+// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) PivotTableVisual() TemplatePivotTableVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplatePivotTableVisual { return v.PivotTableVisual }).(TemplatePivotTableVisualPtrOutput)
 }
 
+// A radar chart visual.
 func (o TemplateVisualOutput) RadarChartVisual() TemplateRadarChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateRadarChartVisual { return v.RadarChartVisual }).(TemplateRadarChartVisualPtrOutput)
 }
 
+// A sankey diagram.
+//
+// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) SankeyDiagramVisual() TemplateSankeyDiagramVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateSankeyDiagramVisual { return v.SankeyDiagramVisual }).(TemplateSankeyDiagramVisualPtrOutput)
 }
 
+// A scatter plot.
+//
+// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) ScatterPlotVisual() TemplateScatterPlotVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateScatterPlotVisual { return v.ScatterPlotVisual }).(TemplateScatterPlotVisualPtrOutput)
 }
 
+// A table visual.
+//
+// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) TableVisual() TemplateTableVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateTableVisual { return v.TableVisual }).(TemplateTableVisualPtrOutput)
 }
 
+// A tree map.
+//
+// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) TreeMapVisual() TemplateTreeMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateTreeMapVisual { return v.TreeMapVisual }).(TemplateTreeMapVisualPtrOutput)
 }
 
+// A waterfall chart.
+//
+// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) WaterfallVisual() TemplateWaterfallVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateWaterfallVisual { return v.WaterfallVisual }).(TemplateWaterfallVisualPtrOutput)
 }
 
+// A word cloud.
+//
+// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateVisualOutput) WordCloudVisual() TemplateWordCloudVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateWordCloudVisual { return v.WordCloudVisual }).(TemplateWordCloudVisualPtrOutput)
 }
@@ -5766,11 +6670,23 @@ func (o TemplateVisualArrayOutput) Index(i pulumi.IntInput) TemplateVisualOutput
 }
 
 type TemplateVisualCustomAction struct {
+	// The operation that is defined by the custom action.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations []TemplateVisualCustomActionOperation `pulumi:"actionOperations"`
-	CustomActionId   string                                `pulumi:"customActionId"`
-	Name             string                                `pulumi:"name"`
-	Status           *TemplateWidgetStatus                 `pulumi:"status"`
-	Trigger          TemplateVisualCustomActionTrigger     `pulumi:"trigger"`
+	// The ID of the `VisualCustomAction` .
+	CustomActionId string `pulumi:"customActionId"`
+	// The name of the `VisualCustomAction` .
+	Name string `pulumi:"name"`
+	// The status of the `VisualCustomAction` .
+	Status *TemplateWidgetStatus `pulumi:"status"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger TemplateVisualCustomActionTrigger `pulumi:"trigger"`
 }
 
 // TemplateVisualCustomActionInput is an input type that accepts TemplateVisualCustomActionArgs and TemplateVisualCustomActionOutput values.
@@ -5785,11 +6701,23 @@ type TemplateVisualCustomActionInput interface {
 }
 
 type TemplateVisualCustomActionArgs struct {
+	// The operation that is defined by the custom action.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations TemplateVisualCustomActionOperationArrayInput `pulumi:"actionOperations"`
-	CustomActionId   pulumi.StringInput                            `pulumi:"customActionId"`
-	Name             pulumi.StringInput                            `pulumi:"name"`
-	Status           TemplateWidgetStatusPtrInput                  `pulumi:"status"`
-	Trigger          TemplateVisualCustomActionTriggerInput        `pulumi:"trigger"`
+	// The ID of the `VisualCustomAction` .
+	CustomActionId pulumi.StringInput `pulumi:"customActionId"`
+	// The name of the `VisualCustomAction` .
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the `VisualCustomAction` .
+	Status TemplateWidgetStatusPtrInput `pulumi:"status"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger TemplateVisualCustomActionTriggerInput `pulumi:"trigger"`
 }
 
 func (TemplateVisualCustomActionArgs) ElementType() reflect.Type {
@@ -5843,22 +6771,34 @@ func (o TemplateVisualCustomActionOutput) ToTemplateVisualCustomActionOutputWith
 	return o
 }
 
+// The operation that is defined by the custom action.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVisualCustomActionOutput) ActionOperations() TemplateVisualCustomActionOperationArrayOutput {
 	return o.ApplyT(func(v TemplateVisualCustomAction) []TemplateVisualCustomActionOperation { return v.ActionOperations }).(TemplateVisualCustomActionOperationArrayOutput)
 }
 
+// The ID of the `VisualCustomAction` .
 func (o TemplateVisualCustomActionOutput) CustomActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateVisualCustomAction) string { return v.CustomActionId }).(pulumi.StringOutput)
 }
 
+// The name of the `VisualCustomAction` .
 func (o TemplateVisualCustomActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateVisualCustomAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the `VisualCustomAction` .
 func (o TemplateVisualCustomActionOutput) Status() TemplateWidgetStatusPtrOutput {
 	return o.ApplyT(func(v TemplateVisualCustomAction) *TemplateWidgetStatus { return v.Status }).(TemplateWidgetStatusPtrOutput)
 }
 
+// The trigger of the `VisualCustomAction` .
+//
+// Valid values are defined as follows:
+//
+// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
 func (o TemplateVisualCustomActionOutput) Trigger() TemplateVisualCustomActionTriggerOutput {
 	return o.ApplyT(func(v TemplateVisualCustomAction) TemplateVisualCustomActionTrigger { return v.Trigger }).(TemplateVisualCustomActionTriggerOutput)
 }
@@ -5884,10 +6824,16 @@ func (o TemplateVisualCustomActionArrayOutput) Index(i pulumi.IntInput) Template
 }
 
 type TemplateVisualCustomActionOperation struct {
-	FilterOperation        *TemplateCustomActionFilterOperation        `pulumi:"filterOperation"`
-	NavigationOperation    *TemplateCustomActionNavigationOperation    `pulumi:"navigationOperation"`
+	// The filter operation that filters data included in a visual or in an entire sheet.
+	FilterOperation *TemplateCustomActionFilterOperation `pulumi:"filterOperation"`
+	// The navigation operation that navigates between different sheets in the same analysis.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	NavigationOperation *TemplateCustomActionNavigationOperation `pulumi:"navigationOperation"`
+	// The set parameter operation that sets parameters in custom action.
 	SetParametersOperation *TemplateCustomActionSetParametersOperation `pulumi:"setParametersOperation"`
-	UrlOperation           *TemplateCustomActionUrlOperation           `pulumi:"urlOperation"`
+	// The URL operation that opens a link to another webpage.
+	UrlOperation *TemplateCustomActionUrlOperation `pulumi:"urlOperation"`
 }
 
 // TemplateVisualCustomActionOperationInput is an input type that accepts TemplateVisualCustomActionOperationArgs and TemplateVisualCustomActionOperationOutput values.
@@ -5902,10 +6848,16 @@ type TemplateVisualCustomActionOperationInput interface {
 }
 
 type TemplateVisualCustomActionOperationArgs struct {
-	FilterOperation        TemplateCustomActionFilterOperationPtrInput        `pulumi:"filterOperation"`
-	NavigationOperation    TemplateCustomActionNavigationOperationPtrInput    `pulumi:"navigationOperation"`
+	// The filter operation that filters data included in a visual or in an entire sheet.
+	FilterOperation TemplateCustomActionFilterOperationPtrInput `pulumi:"filterOperation"`
+	// The navigation operation that navigates between different sheets in the same analysis.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	NavigationOperation TemplateCustomActionNavigationOperationPtrInput `pulumi:"navigationOperation"`
+	// The set parameter operation that sets parameters in custom action.
 	SetParametersOperation TemplateCustomActionSetParametersOperationPtrInput `pulumi:"setParametersOperation"`
-	UrlOperation           TemplateCustomActionUrlOperationPtrInput           `pulumi:"urlOperation"`
+	// The URL operation that opens a link to another webpage.
+	UrlOperation TemplateCustomActionUrlOperationPtrInput `pulumi:"urlOperation"`
 }
 
 func (TemplateVisualCustomActionOperationArgs) ElementType() reflect.Type {
@@ -5959,24 +6911,30 @@ func (o TemplateVisualCustomActionOperationOutput) ToTemplateVisualCustomActionO
 	return o
 }
 
+// The filter operation that filters data included in a visual or in an entire sheet.
 func (o TemplateVisualCustomActionOperationOutput) FilterOperation() TemplateCustomActionFilterOperationPtrOutput {
 	return o.ApplyT(func(v TemplateVisualCustomActionOperation) *TemplateCustomActionFilterOperation {
 		return v.FilterOperation
 	}).(TemplateCustomActionFilterOperationPtrOutput)
 }
 
+// The navigation operation that navigates between different sheets in the same analysis.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVisualCustomActionOperationOutput) NavigationOperation() TemplateCustomActionNavigationOperationPtrOutput {
 	return o.ApplyT(func(v TemplateVisualCustomActionOperation) *TemplateCustomActionNavigationOperation {
 		return v.NavigationOperation
 	}).(TemplateCustomActionNavigationOperationPtrOutput)
 }
 
+// The set parameter operation that sets parameters in custom action.
 func (o TemplateVisualCustomActionOperationOutput) SetParametersOperation() TemplateCustomActionSetParametersOperationPtrOutput {
 	return o.ApplyT(func(v TemplateVisualCustomActionOperation) *TemplateCustomActionSetParametersOperation {
 		return v.SetParametersOperation
 	}).(TemplateCustomActionSetParametersOperationPtrOutput)
 }
 
+// The URL operation that opens a link to another webpage.
 func (o TemplateVisualCustomActionOperationOutput) UrlOperation() TemplateCustomActionUrlOperationPtrOutput {
 	return o.ApplyT(func(v TemplateVisualCustomActionOperation) *TemplateCustomActionUrlOperation { return v.UrlOperation }).(TemplateCustomActionUrlOperationPtrOutput)
 }
@@ -6002,8 +6960,10 @@ func (o TemplateVisualCustomActionOperationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type TemplateVisualPalette struct {
-	ChartColor *string                 `pulumi:"chartColor"`
-	ColorMap   []TemplateDataPathColor `pulumi:"colorMap"`
+	// The chart color options for the visual palette.
+	ChartColor *string `pulumi:"chartColor"`
+	// The color map that determines the color options for a particular element.
+	ColorMap []TemplateDataPathColor `pulumi:"colorMap"`
 }
 
 // TemplateVisualPaletteInput is an input type that accepts TemplateVisualPaletteArgs and TemplateVisualPaletteOutput values.
@@ -6018,8 +6978,10 @@ type TemplateVisualPaletteInput interface {
 }
 
 type TemplateVisualPaletteArgs struct {
-	ChartColor pulumi.StringPtrInput           `pulumi:"chartColor"`
-	ColorMap   TemplateDataPathColorArrayInput `pulumi:"colorMap"`
+	// The chart color options for the visual palette.
+	ChartColor pulumi.StringPtrInput `pulumi:"chartColor"`
+	// The color map that determines the color options for a particular element.
+	ColorMap TemplateDataPathColorArrayInput `pulumi:"colorMap"`
 }
 
 func (TemplateVisualPaletteArgs) ElementType() reflect.Type {
@@ -6099,10 +7061,12 @@ func (o TemplateVisualPaletteOutput) ToTemplateVisualPalettePtrOutputWithContext
 	}).(TemplateVisualPalettePtrOutput)
 }
 
+// The chart color options for the visual palette.
 func (o TemplateVisualPaletteOutput) ChartColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVisualPalette) *string { return v.ChartColor }).(pulumi.StringPtrOutput)
 }
 
+// The color map that determines the color options for a particular element.
 func (o TemplateVisualPaletteOutput) ColorMap() TemplateDataPathColorArrayOutput {
 	return o.ApplyT(func(v TemplateVisualPalette) []TemplateDataPathColor { return v.ColorMap }).(TemplateDataPathColorArrayOutput)
 }
@@ -6131,6 +7095,7 @@ func (o TemplateVisualPalettePtrOutput) Elem() TemplateVisualPaletteOutput {
 	}).(TemplateVisualPaletteOutput)
 }
 
+// The chart color options for the visual palette.
 func (o TemplateVisualPalettePtrOutput) ChartColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateVisualPalette) *string {
 		if v == nil {
@@ -6140,6 +7105,7 @@ func (o TemplateVisualPalettePtrOutput) ChartColor() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color map that determines the color options for a particular element.
 func (o TemplateVisualPalettePtrOutput) ColorMap() TemplateDataPathColorArrayOutput {
 	return o.ApplyT(func(v *TemplateVisualPalette) []TemplateDataPathColor {
 		if v == nil {
@@ -6150,8 +7116,12 @@ func (o TemplateVisualPalettePtrOutput) ColorMap() TemplateDataPathColorArrayOut
 }
 
 type TemplateVisualSubtitleLabelOptions struct {
+	// The text format for a subtitle.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FormatText *TemplateLongFormatText `pulumi:"formatText"`
-	Visibility *TemplateVisibility     `pulumi:"visibility"`
+	// The visibility of the subtitle label.
+	Visibility *TemplateVisibility `pulumi:"visibility"`
 }
 
 // TemplateVisualSubtitleLabelOptionsInput is an input type that accepts TemplateVisualSubtitleLabelOptionsArgs and TemplateVisualSubtitleLabelOptionsOutput values.
@@ -6166,8 +7136,12 @@ type TemplateVisualSubtitleLabelOptionsInput interface {
 }
 
 type TemplateVisualSubtitleLabelOptionsArgs struct {
+	// The text format for a subtitle.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FormatText TemplateLongFormatTextPtrInput `pulumi:"formatText"`
-	Visibility TemplateVisibilityPtrInput     `pulumi:"visibility"`
+	// The visibility of the subtitle label.
+	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
 }
 
 func (TemplateVisualSubtitleLabelOptionsArgs) ElementType() reflect.Type {
@@ -6247,10 +7221,14 @@ func (o TemplateVisualSubtitleLabelOptionsOutput) ToTemplateVisualSubtitleLabelO
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The text format for a subtitle.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVisualSubtitleLabelOptionsOutput) FormatText() TemplateLongFormatTextPtrOutput {
 	return o.ApplyT(func(v TemplateVisualSubtitleLabelOptions) *TemplateLongFormatText { return v.FormatText }).(TemplateLongFormatTextPtrOutput)
 }
 
+// The visibility of the subtitle label.
 func (o TemplateVisualSubtitleLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateVisualSubtitleLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
 }
@@ -6279,6 +7257,9 @@ func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Elem() TemplateVisualSubtit
 	}).(TemplateVisualSubtitleLabelOptionsOutput)
 }
 
+// The text format for a subtitle.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVisualSubtitleLabelOptionsPtrOutput) FormatText() TemplateLongFormatTextPtrOutput {
 	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) *TemplateLongFormatText {
 		if v == nil {
@@ -6288,6 +7269,7 @@ func (o TemplateVisualSubtitleLabelOptionsPtrOutput) FormatText() TemplateLongFo
 	}).(TemplateLongFormatTextPtrOutput)
 }
 
+// The visibility of the subtitle label.
 func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) *TemplateVisibility {
 		if v == nil {
@@ -6298,8 +7280,12 @@ func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Visibility() TemplateVisibi
 }
 
 type TemplateVisualTitleLabelOptions struct {
+	// The text format for the title.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FormatText *TemplateShortFormatText `pulumi:"formatText"`
-	Visibility *TemplateVisibility      `pulumi:"visibility"`
+	// The visibility of the title label.
+	Visibility *TemplateVisibility `pulumi:"visibility"`
 }
 
 // TemplateVisualTitleLabelOptionsInput is an input type that accepts TemplateVisualTitleLabelOptionsArgs and TemplateVisualTitleLabelOptionsOutput values.
@@ -6314,8 +7300,12 @@ type TemplateVisualTitleLabelOptionsInput interface {
 }
 
 type TemplateVisualTitleLabelOptionsArgs struct {
+	// The text format for the title.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FormatText TemplateShortFormatTextPtrInput `pulumi:"formatText"`
-	Visibility TemplateVisibilityPtrInput      `pulumi:"visibility"`
+	// The visibility of the title label.
+	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
 }
 
 func (TemplateVisualTitleLabelOptionsArgs) ElementType() reflect.Type {
@@ -6395,10 +7385,14 @@ func (o TemplateVisualTitleLabelOptionsOutput) ToTemplateVisualTitleLabelOptions
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The text format for the title.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVisualTitleLabelOptionsOutput) FormatText() TemplateShortFormatTextPtrOutput {
 	return o.ApplyT(func(v TemplateVisualTitleLabelOptions) *TemplateShortFormatText { return v.FormatText }).(TemplateShortFormatTextPtrOutput)
 }
 
+// The visibility of the title label.
 func (o TemplateVisualTitleLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v TemplateVisualTitleLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
 }
@@ -6427,6 +7421,9 @@ func (o TemplateVisualTitleLabelOptionsPtrOutput) Elem() TemplateVisualTitleLabe
 	}).(TemplateVisualTitleLabelOptionsOutput)
 }
 
+// The text format for the title.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateVisualTitleLabelOptionsPtrOutput) FormatText() TemplateShortFormatTextPtrOutput {
 	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) *TemplateShortFormatText {
 		if v == nil {
@@ -6436,6 +7433,7 @@ func (o TemplateVisualTitleLabelOptionsPtrOutput) FormatText() TemplateShortForm
 	}).(TemplateShortFormatTextPtrOutput)
 }
 
+// The visibility of the title label.
 func (o TemplateVisualTitleLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
 	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) *TemplateVisibility {
 		if v == nil {
@@ -6446,9 +7444,12 @@ func (o TemplateVisualTitleLabelOptionsPtrOutput) Visibility() TemplateVisibilit
 }
 
 type TemplateWaterfallChartAggregatedFieldWells struct {
+	// The breakdown field wells of a waterfall visual.
 	Breakdowns []TemplateDimensionField `pulumi:"breakdowns"`
+	// The category field wells of a waterfall visual.
 	Categories []TemplateDimensionField `pulumi:"categories"`
-	Values     []TemplateMeasureField   `pulumi:"values"`
+	// The value field wells of a waterfall visual.
+	Values []TemplateMeasureField `pulumi:"values"`
 }
 
 // TemplateWaterfallChartAggregatedFieldWellsInput is an input type that accepts TemplateWaterfallChartAggregatedFieldWellsArgs and TemplateWaterfallChartAggregatedFieldWellsOutput values.
@@ -6463,9 +7464,12 @@ type TemplateWaterfallChartAggregatedFieldWellsInput interface {
 }
 
 type TemplateWaterfallChartAggregatedFieldWellsArgs struct {
+	// The breakdown field wells of a waterfall visual.
 	Breakdowns TemplateDimensionFieldArrayInput `pulumi:"breakdowns"`
+	// The category field wells of a waterfall visual.
 	Categories TemplateDimensionFieldArrayInput `pulumi:"categories"`
-	Values     TemplateMeasureFieldArrayInput   `pulumi:"values"`
+	// The value field wells of a waterfall visual.
+	Values TemplateMeasureFieldArrayInput `pulumi:"values"`
 }
 
 func (TemplateWaterfallChartAggregatedFieldWellsArgs) ElementType() reflect.Type {
@@ -6545,14 +7549,17 @@ func (o TemplateWaterfallChartAggregatedFieldWellsOutput) ToTemplateWaterfallCha
 	}).(TemplateWaterfallChartAggregatedFieldWellsPtrOutput)
 }
 
+// The breakdown field wells of a waterfall visual.
 func (o TemplateWaterfallChartAggregatedFieldWellsOutput) Breakdowns() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField { return v.Breakdowns }).(TemplateDimensionFieldArrayOutput)
 }
 
+// The category field wells of a waterfall visual.
 func (o TemplateWaterfallChartAggregatedFieldWellsOutput) Categories() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField { return v.Categories }).(TemplateDimensionFieldArrayOutput)
 }
 
+// The value field wells of a waterfall visual.
 func (o TemplateWaterfallChartAggregatedFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartAggregatedFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
 }
@@ -6581,6 +7588,7 @@ func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Elem() TemplateWate
 	}).(TemplateWaterfallChartAggregatedFieldWellsOutput)
 }
 
+// The breakdown field wells of a waterfall visual.
 func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Breakdowns() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField {
 		if v == nil {
@@ -6590,6 +7598,7 @@ func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Breakdowns() Templa
 	}).(TemplateDimensionFieldArrayOutput)
 }
 
+// The category field wells of a waterfall visual.
 func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Categories() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField {
 		if v == nil {
@@ -6599,6 +7608,7 @@ func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Categories() Templa
 	}).(TemplateDimensionFieldArrayOutput)
 }
 
+// The value field wells of a waterfall visual.
 func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) []TemplateMeasureField {
 		if v == nil {
@@ -6609,6 +7619,7 @@ func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Values() TemplateMe
 }
 
 type TemplateWaterfallChartColorConfiguration struct {
+	// The color configuration for individual groups within a waterfall visual.
 	GroupColorConfiguration *TemplateWaterfallChartGroupColorConfiguration `pulumi:"groupColorConfiguration"`
 }
 
@@ -6624,6 +7635,7 @@ type TemplateWaterfallChartColorConfigurationInput interface {
 }
 
 type TemplateWaterfallChartColorConfigurationArgs struct {
+	// The color configuration for individual groups within a waterfall visual.
 	GroupColorConfiguration TemplateWaterfallChartGroupColorConfigurationPtrInput `pulumi:"groupColorConfiguration"`
 }
 
@@ -6704,6 +7716,7 @@ func (o TemplateWaterfallChartColorConfigurationOutput) ToTemplateWaterfallChart
 	}).(TemplateWaterfallChartColorConfigurationPtrOutput)
 }
 
+// The color configuration for individual groups within a waterfall visual.
 func (o TemplateWaterfallChartColorConfigurationOutput) GroupColorConfiguration() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartColorConfiguration) *TemplateWaterfallChartGroupColorConfiguration {
 		return v.GroupColorConfiguration
@@ -6734,6 +7747,7 @@ func (o TemplateWaterfallChartColorConfigurationPtrOutput) Elem() TemplateWaterf
 	}).(TemplateWaterfallChartColorConfigurationOutput)
 }
 
+// The color configuration for individual groups within a waterfall visual.
 func (o TemplateWaterfallChartColorConfigurationPtrOutput) GroupColorConfiguration() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartColorConfiguration) *TemplateWaterfallChartGroupColorConfiguration {
 		if v == nil {
@@ -6744,17 +7758,28 @@ func (o TemplateWaterfallChartColorConfigurationPtrOutput) GroupColorConfigurati
 }
 
 type TemplateWaterfallChartConfiguration struct {
-	CategoryAxisDisplayOptions *TemplateAxisDisplayOptions               `pulumi:"categoryAxisDisplayOptions"`
-	CategoryAxisLabelOptions   *TemplateChartAxisLabelOptions            `pulumi:"categoryAxisLabelOptions"`
-	ColorConfiguration         *TemplateWaterfallChartColorConfiguration `pulumi:"colorConfiguration"`
-	DataLabels                 *TemplateDataLabelOptions                 `pulumi:"dataLabels"`
-	FieldWells                 *TemplateWaterfallChartFieldWells         `pulumi:"fieldWells"`
-	Legend                     *TemplateLegendOptions                    `pulumi:"legend"`
-	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions               `pulumi:"primaryYAxisDisplayOptions"`
-	PrimaryYAxisLabelOptions   *TemplateChartAxisLabelOptions            `pulumi:"primaryYAxisLabelOptions"`
-	SortConfiguration          *TemplateWaterfallChartSortConfiguration  `pulumi:"sortConfiguration"`
-	VisualPalette              *TemplateVisualPalette                    `pulumi:"visualPalette"`
-	WaterfallChartOptions      *TemplateWaterfallChartOptions            `pulumi:"waterfallChartOptions"`
+	// The display options for the axis label.
+	CategoryAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"categoryAxisDisplayOptions"`
+	// The label options for an axis on a chart.
+	CategoryAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryAxisLabelOptions"`
+	// The color configuration of a waterfall visual.
+	ColorConfiguration *TemplateWaterfallChartColorConfiguration `pulumi:"colorConfiguration"`
+	// The options that determine the presentation of the data labels.
+	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
+	// The field well configuration of a waterfall visual.
+	FieldWells *TemplateWaterfallChartFieldWells `pulumi:"fieldWells"`
+	// The options for the legend setup of a visual.
+	Legend *TemplateLegendOptions `pulumi:"legend"`
+	// The display options for the axis label.
+	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"primaryYAxisDisplayOptions"`
+	// The label options for an axis on a chart.
+	PrimaryYAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"primaryYAxisLabelOptions"`
+	// The sort configuration of a waterfall visual.
+	SortConfiguration *TemplateWaterfallChartSortConfiguration `pulumi:"sortConfiguration"`
+	// The visual display options for the visual palette.
+	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
+	// The options that determine the presentation of a waterfall visual.
+	WaterfallChartOptions *TemplateWaterfallChartOptions `pulumi:"waterfallChartOptions"`
 }
 
 // TemplateWaterfallChartConfigurationInput is an input type that accepts TemplateWaterfallChartConfigurationArgs and TemplateWaterfallChartConfigurationOutput values.
@@ -6769,17 +7794,28 @@ type TemplateWaterfallChartConfigurationInput interface {
 }
 
 type TemplateWaterfallChartConfigurationArgs struct {
-	CategoryAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput               `pulumi:"categoryAxisDisplayOptions"`
-	CategoryAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput            `pulumi:"categoryAxisLabelOptions"`
-	ColorConfiguration         TemplateWaterfallChartColorConfigurationPtrInput `pulumi:"colorConfiguration"`
-	DataLabels                 TemplateDataLabelOptionsPtrInput                 `pulumi:"dataLabels"`
-	FieldWells                 TemplateWaterfallChartFieldWellsPtrInput         `pulumi:"fieldWells"`
-	Legend                     TemplateLegendOptionsPtrInput                    `pulumi:"legend"`
-	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput               `pulumi:"primaryYAxisDisplayOptions"`
-	PrimaryYAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput            `pulumi:"primaryYAxisLabelOptions"`
-	SortConfiguration          TemplateWaterfallChartSortConfigurationPtrInput  `pulumi:"sortConfiguration"`
-	VisualPalette              TemplateVisualPalettePtrInput                    `pulumi:"visualPalette"`
-	WaterfallChartOptions      TemplateWaterfallChartOptionsPtrInput            `pulumi:"waterfallChartOptions"`
+	// The display options for the axis label.
+	CategoryAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"categoryAxisDisplayOptions"`
+	// The label options for an axis on a chart.
+	CategoryAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryAxisLabelOptions"`
+	// The color configuration of a waterfall visual.
+	ColorConfiguration TemplateWaterfallChartColorConfigurationPtrInput `pulumi:"colorConfiguration"`
+	// The options that determine the presentation of the data labels.
+	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
+	// The field well configuration of a waterfall visual.
+	FieldWells TemplateWaterfallChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The options for the legend setup of a visual.
+	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
+	// The display options for the axis label.
+	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"primaryYAxisDisplayOptions"`
+	// The label options for an axis on a chart.
+	PrimaryYAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"primaryYAxisLabelOptions"`
+	// The sort configuration of a waterfall visual.
+	SortConfiguration TemplateWaterfallChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	// The visual display options for the visual palette.
+	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
+	// The options that determine the presentation of a waterfall visual.
+	WaterfallChartOptions TemplateWaterfallChartOptionsPtrInput `pulumi:"waterfallChartOptions"`
 }
 
 func (TemplateWaterfallChartConfigurationArgs) ElementType() reflect.Type {
@@ -6859,58 +7895,69 @@ func (o TemplateWaterfallChartConfigurationOutput) ToTemplateWaterfallChartConfi
 	}).(TemplateWaterfallChartConfigurationPtrOutput)
 }
 
+// The display options for the axis label.
 func (o TemplateWaterfallChartConfigurationOutput) CategoryAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
 		return v.CategoryAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateWaterfallChartConfigurationOutput) CategoryAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.CategoryAxisLabelOptions
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The color configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationOutput) ColorConfiguration() TemplateWaterfallChartColorConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartColorConfiguration {
 		return v.ColorConfiguration
 	}).(TemplateWaterfallChartColorConfigurationPtrOutput)
 }
 
+// The options that determine the presentation of the data labels.
 func (o TemplateWaterfallChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
+// The field well configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationOutput) FieldWells() TemplateWaterfallChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartFieldWells { return v.FieldWells }).(TemplateWaterfallChartFieldWellsPtrOutput)
 }
 
+// The options for the legend setup of a visual.
 func (o TemplateWaterfallChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
+// The display options for the axis label.
 func (o TemplateWaterfallChartConfigurationOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
 		return v.PrimaryYAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateWaterfallChartConfigurationOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.PrimaryYAxisLabelOptions
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The sort configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationOutput) SortConfiguration() TemplateWaterfallChartSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartSortConfiguration {
 		return v.SortConfiguration
 	}).(TemplateWaterfallChartSortConfigurationPtrOutput)
 }
 
+// The visual display options for the visual palette.
 func (o TemplateWaterfallChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
 
+// The options that determine the presentation of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationOutput) WaterfallChartOptions() TemplateWaterfallChartOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartOptions {
 		return v.WaterfallChartOptions
@@ -6941,6 +7988,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) Elem() TemplateWaterfallCh
 	}).(TemplateWaterfallChartConfigurationOutput)
 }
 
+// The display options for the axis label.
 func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -6950,6 +7998,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -6959,6 +8008,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisLabelOptions()
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The color configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationPtrOutput) ColorConfiguration() TemplateWaterfallChartColorConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartColorConfiguration {
 		if v == nil {
@@ -6968,6 +8018,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) ColorConfiguration() Templ
 	}).(TemplateWaterfallChartColorConfigurationPtrOutput)
 }
 
+// The options that determine the presentation of the data labels.
 func (o TemplateWaterfallChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -6977,6 +8028,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) DataLabels() TemplateDataL
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
+// The field well configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationPtrOutput) FieldWells() TemplateWaterfallChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartFieldWells {
 		if v == nil {
@@ -6986,6 +8038,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) FieldWells() TemplateWater
 	}).(TemplateWaterfallChartFieldWellsPtrOutput)
 }
 
+// The options for the legend setup of a visual.
 func (o TemplateWaterfallChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -6995,6 +8048,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) Legend() TemplateLegendOpt
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
+// The display options for the axis label.
 func (o TemplateWaterfallChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -7004,6 +8058,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateWaterfallChartConfigurationPtrOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -7013,6 +8068,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) PrimaryYAxisLabelOptions()
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The sort configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationPtrOutput) SortConfiguration() TemplateWaterfallChartSortConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartSortConfiguration {
 		if v == nil {
@@ -7022,6 +8078,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) SortConfiguration() Templa
 	}).(TemplateWaterfallChartSortConfigurationPtrOutput)
 }
 
+// The visual display options for the visual palette.
 func (o TemplateWaterfallChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -7031,6 +8088,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) VisualPalette() TemplateVi
 	}).(TemplateVisualPalettePtrOutput)
 }
 
+// The options that determine the presentation of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationPtrOutput) WaterfallChartOptions() TemplateWaterfallChartOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartOptions {
 		if v == nil {
@@ -7041,6 +8099,7 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) WaterfallChartOptions() Te
 }
 
 type TemplateWaterfallChartFieldWells struct {
+	// The field well configuration of a waterfall visual.
 	WaterfallChartAggregatedFieldWells *TemplateWaterfallChartAggregatedFieldWells `pulumi:"waterfallChartAggregatedFieldWells"`
 }
 
@@ -7056,6 +8115,7 @@ type TemplateWaterfallChartFieldWellsInput interface {
 }
 
 type TemplateWaterfallChartFieldWellsArgs struct {
+	// The field well configuration of a waterfall visual.
 	WaterfallChartAggregatedFieldWells TemplateWaterfallChartAggregatedFieldWellsPtrInput `pulumi:"waterfallChartAggregatedFieldWells"`
 }
 
@@ -7136,6 +8196,7 @@ func (o TemplateWaterfallChartFieldWellsOutput) ToTemplateWaterfallChartFieldWel
 	}).(TemplateWaterfallChartFieldWellsPtrOutput)
 }
 
+// The field well configuration of a waterfall visual.
 func (o TemplateWaterfallChartFieldWellsOutput) WaterfallChartAggregatedFieldWells() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartFieldWells) *TemplateWaterfallChartAggregatedFieldWells {
 		return v.WaterfallChartAggregatedFieldWells
@@ -7166,6 +8227,7 @@ func (o TemplateWaterfallChartFieldWellsPtrOutput) Elem() TemplateWaterfallChart
 	}).(TemplateWaterfallChartFieldWellsOutput)
 }
 
+// The field well configuration of a waterfall visual.
 func (o TemplateWaterfallChartFieldWellsPtrOutput) WaterfallChartAggregatedFieldWells() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartFieldWells) *TemplateWaterfallChartAggregatedFieldWells {
 		if v == nil {
@@ -7176,9 +8238,12 @@ func (o TemplateWaterfallChartFieldWellsPtrOutput) WaterfallChartAggregatedField
 }
 
 type TemplateWaterfallChartGroupColorConfiguration struct {
+	// Defines the color for the negative bars of a waterfall chart.
 	NegativeBarColor *string `pulumi:"negativeBarColor"`
+	// Defines the color for the positive bars of a waterfall chart.
 	PositiveBarColor *string `pulumi:"positiveBarColor"`
-	TotalBarColor    *string `pulumi:"totalBarColor"`
+	// Defines the color for the total bars of a waterfall chart.
+	TotalBarColor *string `pulumi:"totalBarColor"`
 }
 
 // TemplateWaterfallChartGroupColorConfigurationInput is an input type that accepts TemplateWaterfallChartGroupColorConfigurationArgs and TemplateWaterfallChartGroupColorConfigurationOutput values.
@@ -7193,9 +8258,12 @@ type TemplateWaterfallChartGroupColorConfigurationInput interface {
 }
 
 type TemplateWaterfallChartGroupColorConfigurationArgs struct {
+	// Defines the color for the negative bars of a waterfall chart.
 	NegativeBarColor pulumi.StringPtrInput `pulumi:"negativeBarColor"`
+	// Defines the color for the positive bars of a waterfall chart.
 	PositiveBarColor pulumi.StringPtrInput `pulumi:"positiveBarColor"`
-	TotalBarColor    pulumi.StringPtrInput `pulumi:"totalBarColor"`
+	// Defines the color for the total bars of a waterfall chart.
+	TotalBarColor pulumi.StringPtrInput `pulumi:"totalBarColor"`
 }
 
 func (TemplateWaterfallChartGroupColorConfigurationArgs) ElementType() reflect.Type {
@@ -7275,14 +8343,17 @@ func (o TemplateWaterfallChartGroupColorConfigurationOutput) ToTemplateWaterfall
 	}).(TemplateWaterfallChartGroupColorConfigurationPtrOutput)
 }
 
+// Defines the color for the negative bars of a waterfall chart.
 func (o TemplateWaterfallChartGroupColorConfigurationOutput) NegativeBarColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartGroupColorConfiguration) *string { return v.NegativeBarColor }).(pulumi.StringPtrOutput)
 }
 
+// Defines the color for the positive bars of a waterfall chart.
 func (o TemplateWaterfallChartGroupColorConfigurationOutput) PositiveBarColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartGroupColorConfiguration) *string { return v.PositiveBarColor }).(pulumi.StringPtrOutput)
 }
 
+// Defines the color for the total bars of a waterfall chart.
 func (o TemplateWaterfallChartGroupColorConfigurationOutput) TotalBarColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartGroupColorConfiguration) *string { return v.TotalBarColor }).(pulumi.StringPtrOutput)
 }
@@ -7311,6 +8382,7 @@ func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) Elem() TemplateW
 	}).(TemplateWaterfallChartGroupColorConfigurationOutput)
 }
 
+// Defines the color for the negative bars of a waterfall chart.
 func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) NegativeBarColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) *string {
 		if v == nil {
@@ -7320,6 +8392,7 @@ func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) NegativeBarColor
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the color for the positive bars of a waterfall chart.
 func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) PositiveBarColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) *string {
 		if v == nil {
@@ -7329,6 +8402,7 @@ func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) PositiveBarColor
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the color for the total bars of a waterfall chart.
 func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) TotalBarColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) *string {
 		if v == nil {
@@ -7339,6 +8413,7 @@ func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) TotalBarColor() 
 }
 
 type TemplateWaterfallChartOptions struct {
+	// This option determines the total bar label of a waterfall visual.
 	TotalBarLabel *string `pulumi:"totalBarLabel"`
 }
 
@@ -7354,6 +8429,7 @@ type TemplateWaterfallChartOptionsInput interface {
 }
 
 type TemplateWaterfallChartOptionsArgs struct {
+	// This option determines the total bar label of a waterfall visual.
 	TotalBarLabel pulumi.StringPtrInput `pulumi:"totalBarLabel"`
 }
 
@@ -7434,6 +8510,7 @@ func (o TemplateWaterfallChartOptionsOutput) ToTemplateWaterfallChartOptionsPtrO
 	}).(TemplateWaterfallChartOptionsPtrOutput)
 }
 
+// This option determines the total bar label of a waterfall visual.
 func (o TemplateWaterfallChartOptionsOutput) TotalBarLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartOptions) *string { return v.TotalBarLabel }).(pulumi.StringPtrOutput)
 }
@@ -7462,6 +8539,7 @@ func (o TemplateWaterfallChartOptionsPtrOutput) Elem() TemplateWaterfallChartOpt
 	}).(TemplateWaterfallChartOptionsOutput)
 }
 
+// This option determines the total bar label of a waterfall visual.
 func (o TemplateWaterfallChartOptionsPtrOutput) TotalBarLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartOptions) *string {
 		if v == nil {
@@ -7472,8 +8550,10 @@ func (o TemplateWaterfallChartOptionsPtrOutput) TotalBarLabel() pulumi.StringPtr
 }
 
 type TemplateWaterfallChartSortConfiguration struct {
+	// The limit configuration of the visual display for an axis.
 	BreakdownItemsLimit *TemplateItemsLimitConfiguration `pulumi:"breakdownItemsLimit"`
-	CategorySort        []TemplateFieldSortOptions       `pulumi:"categorySort"`
+	// The sort configuration of the category fields.
+	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
 }
 
 // TemplateWaterfallChartSortConfigurationInput is an input type that accepts TemplateWaterfallChartSortConfigurationArgs and TemplateWaterfallChartSortConfigurationOutput values.
@@ -7488,8 +8568,10 @@ type TemplateWaterfallChartSortConfigurationInput interface {
 }
 
 type TemplateWaterfallChartSortConfigurationArgs struct {
+	// The limit configuration of the visual display for an axis.
 	BreakdownItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"breakdownItemsLimit"`
-	CategorySort        TemplateFieldSortOptionsArrayInput      `pulumi:"categorySort"`
+	// The sort configuration of the category fields.
+	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
 }
 
 func (TemplateWaterfallChartSortConfigurationArgs) ElementType() reflect.Type {
@@ -7569,12 +8651,14 @@ func (o TemplateWaterfallChartSortConfigurationOutput) ToTemplateWaterfallChartS
 	}).(TemplateWaterfallChartSortConfigurationPtrOutput)
 }
 
+// The limit configuration of the visual display for an axis.
 func (o TemplateWaterfallChartSortConfigurationOutput) BreakdownItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.BreakdownItemsLimit
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
+// The sort configuration of the category fields.
 func (o TemplateWaterfallChartSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
@@ -7603,6 +8687,7 @@ func (o TemplateWaterfallChartSortConfigurationPtrOutput) Elem() TemplateWaterfa
 	}).(TemplateWaterfallChartSortConfigurationOutput)
 }
 
+// The limit configuration of the visual display for an axis.
 func (o TemplateWaterfallChartSortConfigurationPtrOutput) BreakdownItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -7612,6 +8697,7 @@ func (o TemplateWaterfallChartSortConfigurationPtrOutput) BreakdownItemsLimit() 
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
+// The sort configuration of the category fields.
 func (o TemplateWaterfallChartSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplateWaterfallChartSortConfiguration) []TemplateFieldSortOptions {
 		if v == nil {
@@ -7622,12 +8708,18 @@ func (o TemplateWaterfallChartSortConfigurationPtrOutput) CategorySort() Templat
 }
 
 type TemplateWaterfallVisual struct {
-	Actions            []TemplateVisualCustomAction         `pulumi:"actions"`
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration for a waterfall visual.
 	ChartConfiguration *TemplateWaterfallChartConfiguration `pulumi:"chartConfiguration"`
-	ColumnHierarchies  []TemplateColumnHierarchy            `pulumi:"columnHierarchies"`
-	Subtitle           *TemplateVisualSubtitleLabelOptions  `pulumi:"subtitle"`
-	Title              *TemplateVisualTitleLabelOptions     `pulumi:"title"`
-	VisualId           string                               `pulumi:"visualId"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle label options for a visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId string `pulumi:"visualId"`
 }
 
 // TemplateWaterfallVisualInput is an input type that accepts TemplateWaterfallVisualArgs and TemplateWaterfallVisualOutput values.
@@ -7642,12 +8734,18 @@ type TemplateWaterfallVisualInput interface {
 }
 
 type TemplateWaterfallVisualArgs struct {
-	Actions            TemplateVisualCustomActionArrayInput        `pulumi:"actions"`
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration for a waterfall visual.
 	ChartConfiguration TemplateWaterfallChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	ColumnHierarchies  TemplateColumnHierarchyArrayInput           `pulumi:"columnHierarchies"`
-	Subtitle           TemplateVisualSubtitleLabelOptionsPtrInput  `pulumi:"subtitle"`
-	Title              TemplateVisualTitleLabelOptionsPtrInput     `pulumi:"title"`
-	VisualId           pulumi.StringInput                          `pulumi:"visualId"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle label options for a visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (TemplateWaterfallVisualArgs) ElementType() reflect.Type {
@@ -7727,26 +8825,32 @@ func (o TemplateWaterfallVisualOutput) ToTemplateWaterfallVisualPtrOutputWithCon
 	}).(TemplateWaterfallVisualPtrOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateWaterfallVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration for a waterfall visual.
 func (o TemplateWaterfallVisualOutput) ChartConfiguration() TemplateWaterfallChartConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateWaterfallChartConfiguration { return v.ChartConfiguration }).(TemplateWaterfallChartConfigurationPtrOutput)
 }
 
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateWaterfallVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateWaterfallVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateWaterfallVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 func (o TemplateWaterfallVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -7775,6 +8879,7 @@ func (o TemplateWaterfallVisualPtrOutput) Elem() TemplateWaterfallVisualOutput {
 	}).(TemplateWaterfallVisualOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateWaterfallVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) []TemplateVisualCustomAction {
 		if v == nil {
@@ -7784,6 +8889,7 @@ func (o TemplateWaterfallVisualPtrOutput) Actions() TemplateVisualCustomActionAr
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration for a waterfall visual.
 func (o TemplateWaterfallVisualPtrOutput) ChartConfiguration() TemplateWaterfallChartConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) *TemplateWaterfallChartConfiguration {
 		if v == nil {
@@ -7793,6 +8899,7 @@ func (o TemplateWaterfallVisualPtrOutput) ChartConfiguration() TemplateWaterfall
 	}).(TemplateWaterfallChartConfigurationPtrOutput)
 }
 
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateWaterfallVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) []TemplateColumnHierarchy {
 		if v == nil {
@@ -7802,6 +8909,7 @@ func (o TemplateWaterfallVisualPtrOutput) ColumnHierarchies() TemplateColumnHier
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateWaterfallVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -7811,6 +8919,7 @@ func (o TemplateWaterfallVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabel
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateWaterfallVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -7820,6 +8929,7 @@ func (o TemplateWaterfallVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 func (o TemplateWaterfallVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) *string {
 		if v == nil {
@@ -7830,7 +8940,9 @@ func (o TemplateWaterfallVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateWhatIfPointScenario struct {
-	Date  string  `pulumi:"date"`
+	// The date that you need the forecast results for.
+	Date string `pulumi:"date"`
+	// The target value that you want to meet for the provided date.
 	Value float64 `pulumi:"value"`
 }
 
@@ -7846,7 +8958,9 @@ type TemplateWhatIfPointScenarioInput interface {
 }
 
 type TemplateWhatIfPointScenarioArgs struct {
-	Date  pulumi.StringInput  `pulumi:"date"`
+	// The date that you need the forecast results for.
+	Date pulumi.StringInput `pulumi:"date"`
+	// The target value that you want to meet for the provided date.
 	Value pulumi.Float64Input `pulumi:"value"`
 }
 
@@ -7927,10 +9041,12 @@ func (o TemplateWhatIfPointScenarioOutput) ToTemplateWhatIfPointScenarioPtrOutpu
 	}).(TemplateWhatIfPointScenarioPtrOutput)
 }
 
+// The date that you need the forecast results for.
 func (o TemplateWhatIfPointScenarioOutput) Date() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateWhatIfPointScenario) string { return v.Date }).(pulumi.StringOutput)
 }
 
+// The target value that you want to meet for the provided date.
 func (o TemplateWhatIfPointScenarioOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v TemplateWhatIfPointScenario) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -7959,6 +9075,7 @@ func (o TemplateWhatIfPointScenarioPtrOutput) Elem() TemplateWhatIfPointScenario
 	}).(TemplateWhatIfPointScenarioOutput)
 }
 
+// The date that you need the forecast results for.
 func (o TemplateWhatIfPointScenarioPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWhatIfPointScenario) *string {
 		if v == nil {
@@ -7968,6 +9085,7 @@ func (o TemplateWhatIfPointScenarioPtrOutput) Date() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The target value that you want to meet for the provided date.
 func (o TemplateWhatIfPointScenarioPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateWhatIfPointScenario) *float64 {
 		if v == nil {
@@ -7978,9 +9096,12 @@ func (o TemplateWhatIfPointScenarioPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type TemplateWhatIfRangeScenario struct {
-	EndDate   string  `pulumi:"endDate"`
-	StartDate string  `pulumi:"startDate"`
-	Value     float64 `pulumi:"value"`
+	// The end date in the date range that you need the forecast results for.
+	EndDate string `pulumi:"endDate"`
+	// The start date in the date range that you need the forecast results for.
+	StartDate string `pulumi:"startDate"`
+	// The target value that you want to meet for the provided date range.
+	Value float64 `pulumi:"value"`
 }
 
 // TemplateWhatIfRangeScenarioInput is an input type that accepts TemplateWhatIfRangeScenarioArgs and TemplateWhatIfRangeScenarioOutput values.
@@ -7995,9 +9116,12 @@ type TemplateWhatIfRangeScenarioInput interface {
 }
 
 type TemplateWhatIfRangeScenarioArgs struct {
-	EndDate   pulumi.StringInput  `pulumi:"endDate"`
-	StartDate pulumi.StringInput  `pulumi:"startDate"`
-	Value     pulumi.Float64Input `pulumi:"value"`
+	// The end date in the date range that you need the forecast results for.
+	EndDate pulumi.StringInput `pulumi:"endDate"`
+	// The start date in the date range that you need the forecast results for.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+	// The target value that you want to meet for the provided date range.
+	Value pulumi.Float64Input `pulumi:"value"`
 }
 
 func (TemplateWhatIfRangeScenarioArgs) ElementType() reflect.Type {
@@ -8077,14 +9201,17 @@ func (o TemplateWhatIfRangeScenarioOutput) ToTemplateWhatIfRangeScenarioPtrOutpu
 	}).(TemplateWhatIfRangeScenarioPtrOutput)
 }
 
+// The end date in the date range that you need the forecast results for.
 func (o TemplateWhatIfRangeScenarioOutput) EndDate() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateWhatIfRangeScenario) string { return v.EndDate }).(pulumi.StringOutput)
 }
 
+// The start date in the date range that you need the forecast results for.
 func (o TemplateWhatIfRangeScenarioOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateWhatIfRangeScenario) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
+// The target value that you want to meet for the provided date range.
 func (o TemplateWhatIfRangeScenarioOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v TemplateWhatIfRangeScenario) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -8113,6 +9240,7 @@ func (o TemplateWhatIfRangeScenarioPtrOutput) Elem() TemplateWhatIfRangeScenario
 	}).(TemplateWhatIfRangeScenarioOutput)
 }
 
+// The end date in the date range that you need the forecast results for.
 func (o TemplateWhatIfRangeScenarioPtrOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) *string {
 		if v == nil {
@@ -8122,6 +9250,7 @@ func (o TemplateWhatIfRangeScenarioPtrOutput) EndDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The start date in the date range that you need the forecast results for.
 func (o TemplateWhatIfRangeScenarioPtrOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) *string {
 		if v == nil {
@@ -8131,6 +9260,7 @@ func (o TemplateWhatIfRangeScenarioPtrOutput) StartDate() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The target value that you want to meet for the provided date range.
 func (o TemplateWhatIfRangeScenarioPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) *float64 {
 		if v == nil {
@@ -8141,8 +9271,10 @@ func (o TemplateWhatIfRangeScenarioPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type TemplateWordCloudAggregatedFieldWells struct {
+	// The group by field well of a word cloud. Values are grouped by group by fields.
 	GroupBy []TemplateDimensionField `pulumi:"groupBy"`
-	Size    []TemplateMeasureField   `pulumi:"size"`
+	// The size field well of a word cloud. Values are aggregated based on group by fields.
+	Size []TemplateMeasureField `pulumi:"size"`
 }
 
 // TemplateWordCloudAggregatedFieldWellsInput is an input type that accepts TemplateWordCloudAggregatedFieldWellsArgs and TemplateWordCloudAggregatedFieldWellsOutput values.
@@ -8157,8 +9289,10 @@ type TemplateWordCloudAggregatedFieldWellsInput interface {
 }
 
 type TemplateWordCloudAggregatedFieldWellsArgs struct {
+	// The group by field well of a word cloud. Values are grouped by group by fields.
 	GroupBy TemplateDimensionFieldArrayInput `pulumi:"groupBy"`
-	Size    TemplateMeasureFieldArrayInput   `pulumi:"size"`
+	// The size field well of a word cloud. Values are aggregated based on group by fields.
+	Size TemplateMeasureFieldArrayInput `pulumi:"size"`
 }
 
 func (TemplateWordCloudAggregatedFieldWellsArgs) ElementType() reflect.Type {
@@ -8238,10 +9372,12 @@ func (o TemplateWordCloudAggregatedFieldWellsOutput) ToTemplateWordCloudAggregat
 	}).(TemplateWordCloudAggregatedFieldWellsPtrOutput)
 }
 
+// The group by field well of a word cloud. Values are grouped by group by fields.
 func (o TemplateWordCloudAggregatedFieldWellsOutput) GroupBy() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v TemplateWordCloudAggregatedFieldWells) []TemplateDimensionField { return v.GroupBy }).(TemplateDimensionFieldArrayOutput)
 }
 
+// The size field well of a word cloud. Values are aggregated based on group by fields.
 func (o TemplateWordCloudAggregatedFieldWellsOutput) Size() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v TemplateWordCloudAggregatedFieldWells) []TemplateMeasureField { return v.Size }).(TemplateMeasureFieldArrayOutput)
 }
@@ -8270,6 +9406,7 @@ func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) Elem() TemplateWordCloud
 	}).(TemplateWordCloudAggregatedFieldWellsOutput)
 }
 
+// The group by field well of a word cloud. Values are grouped by group by fields.
 func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) GroupBy() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateWordCloudAggregatedFieldWells) []TemplateDimensionField {
 		if v == nil {
@@ -8279,6 +9416,7 @@ func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) GroupBy() TemplateDimens
 	}).(TemplateDimensionFieldArrayOutput)
 }
 
+// The size field well of a word cloud. Values are aggregated based on group by fields.
 func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) Size() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateWordCloudAggregatedFieldWells) []TemplateMeasureField {
 		if v == nil {
@@ -8289,10 +9427,16 @@ func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) Size() TemplateMeasureFi
 }
 
 type TemplateWordCloudChartConfiguration struct {
-	CategoryLabelOptions *TemplateChartAxisLabelOptions      `pulumi:"categoryLabelOptions"`
-	FieldWells           *TemplateWordCloudFieldWells        `pulumi:"fieldWells"`
-	SortConfiguration    *TemplateWordCloudSortConfiguration `pulumi:"sortConfiguration"`
-	WordCloudOptions     *TemplateWordCloudOptions           `pulumi:"wordCloudOptions"`
+	// The label options for an axis on a chart.
+	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
+	// The field wells of a word cloud visual.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	FieldWells *TemplateWordCloudFieldWells `pulumi:"fieldWells"`
+	// The sort configuration of a word cloud visual.
+	SortConfiguration *TemplateWordCloudSortConfiguration `pulumi:"sortConfiguration"`
+	// The word cloud options for a word cloud visual.
+	WordCloudOptions *TemplateWordCloudOptions `pulumi:"wordCloudOptions"`
 }
 
 // TemplateWordCloudChartConfigurationInput is an input type that accepts TemplateWordCloudChartConfigurationArgs and TemplateWordCloudChartConfigurationOutput values.
@@ -8307,10 +9451,16 @@ type TemplateWordCloudChartConfigurationInput interface {
 }
 
 type TemplateWordCloudChartConfigurationArgs struct {
-	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput      `pulumi:"categoryLabelOptions"`
-	FieldWells           TemplateWordCloudFieldWellsPtrInput        `pulumi:"fieldWells"`
-	SortConfiguration    TemplateWordCloudSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	WordCloudOptions     TemplateWordCloudOptionsPtrInput           `pulumi:"wordCloudOptions"`
+	// The label options for an axis on a chart.
+	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
+	// The field wells of a word cloud visual.
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	FieldWells TemplateWordCloudFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The sort configuration of a word cloud visual.
+	SortConfiguration TemplateWordCloudSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	// The word cloud options for a word cloud visual.
+	WordCloudOptions TemplateWordCloudOptionsPtrInput `pulumi:"wordCloudOptions"`
 }
 
 func (TemplateWordCloudChartConfigurationArgs) ElementType() reflect.Type {
@@ -8390,22 +9540,28 @@ func (o TemplateWordCloudChartConfigurationOutput) ToTemplateWordCloudChartConfi
 	}).(TemplateWordCloudChartConfigurationPtrOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateWordCloudChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.CategoryLabelOptions
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The field wells of a word cloud visual.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateWordCloudChartConfigurationOutput) FieldWells() TemplateWordCloudFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudFieldWells { return v.FieldWells }).(TemplateWordCloudFieldWellsPtrOutput)
 }
 
+// The sort configuration of a word cloud visual.
 func (o TemplateWordCloudChartConfigurationOutput) SortConfiguration() TemplateWordCloudSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudSortConfiguration {
 		return v.SortConfiguration
 	}).(TemplateWordCloudSortConfigurationPtrOutput)
 }
 
+// The word cloud options for a word cloud visual.
 func (o TemplateWordCloudChartConfigurationOutput) WordCloudOptions() TemplateWordCloudOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudOptions { return v.WordCloudOptions }).(TemplateWordCloudOptionsPtrOutput)
 }
@@ -8434,6 +9590,7 @@ func (o TemplateWordCloudChartConfigurationPtrOutput) Elem() TemplateWordCloudCh
 	}).(TemplateWordCloudChartConfigurationOutput)
 }
 
+// The label options for an axis on a chart.
 func (o TemplateWordCloudChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -8443,6 +9600,9 @@ func (o TemplateWordCloudChartConfigurationPtrOutput) CategoryLabelOptions() Tem
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The field wells of a word cloud visual.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateWordCloudChartConfigurationPtrOutput) FieldWells() TemplateWordCloudFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateWordCloudFieldWells {
 		if v == nil {
@@ -8452,6 +9612,7 @@ func (o TemplateWordCloudChartConfigurationPtrOutput) FieldWells() TemplateWordC
 	}).(TemplateWordCloudFieldWellsPtrOutput)
 }
 
+// The sort configuration of a word cloud visual.
 func (o TemplateWordCloudChartConfigurationPtrOutput) SortConfiguration() TemplateWordCloudSortConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateWordCloudSortConfiguration {
 		if v == nil {
@@ -8461,6 +9622,7 @@ func (o TemplateWordCloudChartConfigurationPtrOutput) SortConfiguration() Templa
 	}).(TemplateWordCloudSortConfigurationPtrOutput)
 }
 
+// The word cloud options for a word cloud visual.
 func (o TemplateWordCloudChartConfigurationPtrOutput) WordCloudOptions() TemplateWordCloudOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateWordCloudOptions {
 		if v == nil {
@@ -8471,6 +9633,7 @@ func (o TemplateWordCloudChartConfigurationPtrOutput) WordCloudOptions() Templat
 }
 
 type TemplateWordCloudFieldWells struct {
+	// The aggregated field wells of a word cloud.
 	WordCloudAggregatedFieldWells *TemplateWordCloudAggregatedFieldWells `pulumi:"wordCloudAggregatedFieldWells"`
 }
 
@@ -8486,6 +9649,7 @@ type TemplateWordCloudFieldWellsInput interface {
 }
 
 type TemplateWordCloudFieldWellsArgs struct {
+	// The aggregated field wells of a word cloud.
 	WordCloudAggregatedFieldWells TemplateWordCloudAggregatedFieldWellsPtrInput `pulumi:"wordCloudAggregatedFieldWells"`
 }
 
@@ -8566,6 +9730,7 @@ func (o TemplateWordCloudFieldWellsOutput) ToTemplateWordCloudFieldWellsPtrOutpu
 	}).(TemplateWordCloudFieldWellsPtrOutput)
 }
 
+// The aggregated field wells of a word cloud.
 func (o TemplateWordCloudFieldWellsOutput) WordCloudAggregatedFieldWells() TemplateWordCloudAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudFieldWells) *TemplateWordCloudAggregatedFieldWells {
 		return v.WordCloudAggregatedFieldWells
@@ -8596,6 +9761,7 @@ func (o TemplateWordCloudFieldWellsPtrOutput) Elem() TemplateWordCloudFieldWells
 	}).(TemplateWordCloudFieldWellsOutput)
 }
 
+// The aggregated field wells of a word cloud.
 func (o TemplateWordCloudFieldWellsPtrOutput) WordCloudAggregatedFieldWells() TemplateWordCloudAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudFieldWells) *TemplateWordCloudAggregatedFieldWells {
 		if v == nil {
@@ -8606,12 +9772,18 @@ func (o TemplateWordCloudFieldWellsPtrOutput) WordCloudAggregatedFieldWells() Te
 }
 
 type TemplateWordCloudOptions struct {
-	CloudLayout         *TemplateWordCloudCloudLayout     `pulumi:"cloudLayout"`
-	MaximumStringLength *float64                          `pulumi:"maximumStringLength"`
-	WordCasing          *TemplateWordCloudWordCasing      `pulumi:"wordCasing"`
-	WordOrientation     *TemplateWordCloudWordOrientation `pulumi:"wordOrientation"`
-	WordPadding         *TemplateWordCloudWordPadding     `pulumi:"wordPadding"`
-	WordScaling         *TemplateWordCloudWordScaling     `pulumi:"wordScaling"`
+	// The cloud layout options (fluid, normal) of a word cloud.
+	CloudLayout *TemplateWordCloudCloudLayout `pulumi:"cloudLayout"`
+	// The length limit of each word from 1-100.
+	MaximumStringLength *float64 `pulumi:"maximumStringLength"`
+	// The word casing options (lower_case, existing_case) for the words in a word cloud.
+	WordCasing *TemplateWordCloudWordCasing `pulumi:"wordCasing"`
+	// The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.
+	WordOrientation *TemplateWordCloudWordOrientation `pulumi:"wordOrientation"`
+	// The word padding options (none, small, medium, large) for the words in a word cloud.
+	WordPadding *TemplateWordCloudWordPadding `pulumi:"wordPadding"`
+	// The word scaling options (emphasize, normal) for the words in a word cloud.
+	WordScaling *TemplateWordCloudWordScaling `pulumi:"wordScaling"`
 }
 
 // TemplateWordCloudOptionsInput is an input type that accepts TemplateWordCloudOptionsArgs and TemplateWordCloudOptionsOutput values.
@@ -8626,12 +9798,18 @@ type TemplateWordCloudOptionsInput interface {
 }
 
 type TemplateWordCloudOptionsArgs struct {
-	CloudLayout         TemplateWordCloudCloudLayoutPtrInput     `pulumi:"cloudLayout"`
-	MaximumStringLength pulumi.Float64PtrInput                   `pulumi:"maximumStringLength"`
-	WordCasing          TemplateWordCloudWordCasingPtrInput      `pulumi:"wordCasing"`
-	WordOrientation     TemplateWordCloudWordOrientationPtrInput `pulumi:"wordOrientation"`
-	WordPadding         TemplateWordCloudWordPaddingPtrInput     `pulumi:"wordPadding"`
-	WordScaling         TemplateWordCloudWordScalingPtrInput     `pulumi:"wordScaling"`
+	// The cloud layout options (fluid, normal) of a word cloud.
+	CloudLayout TemplateWordCloudCloudLayoutPtrInput `pulumi:"cloudLayout"`
+	// The length limit of each word from 1-100.
+	MaximumStringLength pulumi.Float64PtrInput `pulumi:"maximumStringLength"`
+	// The word casing options (lower_case, existing_case) for the words in a word cloud.
+	WordCasing TemplateWordCloudWordCasingPtrInput `pulumi:"wordCasing"`
+	// The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.
+	WordOrientation TemplateWordCloudWordOrientationPtrInput `pulumi:"wordOrientation"`
+	// The word padding options (none, small, medium, large) for the words in a word cloud.
+	WordPadding TemplateWordCloudWordPaddingPtrInput `pulumi:"wordPadding"`
+	// The word scaling options (emphasize, normal) for the words in a word cloud.
+	WordScaling TemplateWordCloudWordScalingPtrInput `pulumi:"wordScaling"`
 }
 
 func (TemplateWordCloudOptionsArgs) ElementType() reflect.Type {
@@ -8711,26 +9889,32 @@ func (o TemplateWordCloudOptionsOutput) ToTemplateWordCloudOptionsPtrOutputWithC
 	}).(TemplateWordCloudOptionsPtrOutput)
 }
 
+// The cloud layout options (fluid, normal) of a word cloud.
 func (o TemplateWordCloudOptionsOutput) CloudLayout() TemplateWordCloudCloudLayoutPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudCloudLayout { return v.CloudLayout }).(TemplateWordCloudCloudLayoutPtrOutput)
 }
 
+// The length limit of each word from 1-100.
 func (o TemplateWordCloudOptionsOutput) MaximumStringLength() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudOptions) *float64 { return v.MaximumStringLength }).(pulumi.Float64PtrOutput)
 }
 
+// The word casing options (lower_case, existing_case) for the words in a word cloud.
 func (o TemplateWordCloudOptionsOutput) WordCasing() TemplateWordCloudWordCasingPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordCasing { return v.WordCasing }).(TemplateWordCloudWordCasingPtrOutput)
 }
 
+// The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.
 func (o TemplateWordCloudOptionsOutput) WordOrientation() TemplateWordCloudWordOrientationPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordOrientation { return v.WordOrientation }).(TemplateWordCloudWordOrientationPtrOutput)
 }
 
+// The word padding options (none, small, medium, large) for the words in a word cloud.
 func (o TemplateWordCloudOptionsOutput) WordPadding() TemplateWordCloudWordPaddingPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordPadding { return v.WordPadding }).(TemplateWordCloudWordPaddingPtrOutput)
 }
 
+// The word scaling options (emphasize, normal) for the words in a word cloud.
 func (o TemplateWordCloudOptionsOutput) WordScaling() TemplateWordCloudWordScalingPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordScaling { return v.WordScaling }).(TemplateWordCloudWordScalingPtrOutput)
 }
@@ -8759,6 +9943,7 @@ func (o TemplateWordCloudOptionsPtrOutput) Elem() TemplateWordCloudOptionsOutput
 	}).(TemplateWordCloudOptionsOutput)
 }
 
+// The cloud layout options (fluid, normal) of a word cloud.
 func (o TemplateWordCloudOptionsPtrOutput) CloudLayout() TemplateWordCloudCloudLayoutPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudCloudLayout {
 		if v == nil {
@@ -8768,6 +9953,7 @@ func (o TemplateWordCloudOptionsPtrOutput) CloudLayout() TemplateWordCloudCloudL
 	}).(TemplateWordCloudCloudLayoutPtrOutput)
 }
 
+// The length limit of each word from 1-100.
 func (o TemplateWordCloudOptionsPtrOutput) MaximumStringLength() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudOptions) *float64 {
 		if v == nil {
@@ -8777,6 +9963,7 @@ func (o TemplateWordCloudOptionsPtrOutput) MaximumStringLength() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The word casing options (lower_case, existing_case) for the words in a word cloud.
 func (o TemplateWordCloudOptionsPtrOutput) WordCasing() TemplateWordCloudWordCasingPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordCasing {
 		if v == nil {
@@ -8786,6 +9973,7 @@ func (o TemplateWordCloudOptionsPtrOutput) WordCasing() TemplateWordCloudWordCas
 	}).(TemplateWordCloudWordCasingPtrOutput)
 }
 
+// The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.
 func (o TemplateWordCloudOptionsPtrOutput) WordOrientation() TemplateWordCloudWordOrientationPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordOrientation {
 		if v == nil {
@@ -8795,6 +9983,7 @@ func (o TemplateWordCloudOptionsPtrOutput) WordOrientation() TemplateWordCloudWo
 	}).(TemplateWordCloudWordOrientationPtrOutput)
 }
 
+// The word padding options (none, small, medium, large) for the words in a word cloud.
 func (o TemplateWordCloudOptionsPtrOutput) WordPadding() TemplateWordCloudWordPaddingPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordPadding {
 		if v == nil {
@@ -8804,6 +9993,7 @@ func (o TemplateWordCloudOptionsPtrOutput) WordPadding() TemplateWordCloudWordPa
 	}).(TemplateWordCloudWordPaddingPtrOutput)
 }
 
+// The word scaling options (emphasize, normal) for the words in a word cloud.
 func (o TemplateWordCloudOptionsPtrOutput) WordScaling() TemplateWordCloudWordScalingPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordScaling {
 		if v == nil {
@@ -8814,8 +10004,10 @@ func (o TemplateWordCloudOptionsPtrOutput) WordScaling() TemplateWordCloudWordSc
 }
 
 type TemplateWordCloudSortConfiguration struct {
+	// The limit configuration of the visual display for an axis.
 	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
-	CategorySort       []TemplateFieldSortOptions       `pulumi:"categorySort"`
+	// The sort configuration of group by fields.
+	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
 }
 
 // TemplateWordCloudSortConfigurationInput is an input type that accepts TemplateWordCloudSortConfigurationArgs and TemplateWordCloudSortConfigurationOutput values.
@@ -8830,8 +10022,10 @@ type TemplateWordCloudSortConfigurationInput interface {
 }
 
 type TemplateWordCloudSortConfigurationArgs struct {
+	// The limit configuration of the visual display for an axis.
 	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
-	CategorySort       TemplateFieldSortOptionsArrayInput      `pulumi:"categorySort"`
+	// The sort configuration of group by fields.
+	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
 }
 
 func (TemplateWordCloudSortConfigurationArgs) ElementType() reflect.Type {
@@ -8911,12 +10105,14 @@ func (o TemplateWordCloudSortConfigurationOutput) ToTemplateWordCloudSortConfigu
 	}).(TemplateWordCloudSortConfigurationPtrOutput)
 }
 
+// The limit configuration of the visual display for an axis.
 func (o TemplateWordCloudSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimit
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
+// The sort configuration of group by fields.
 func (o TemplateWordCloudSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v TemplateWordCloudSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
@@ -8945,6 +10141,7 @@ func (o TemplateWordCloudSortConfigurationPtrOutput) Elem() TemplateWordCloudSor
 	}).(TemplateWordCloudSortConfigurationOutput)
 }
 
+// The limit configuration of the visual display for an axis.
 func (o TemplateWordCloudSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -8954,6 +10151,7 @@ func (o TemplateWordCloudSortConfigurationPtrOutput) CategoryItemsLimit() Templa
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
+// The sort configuration of group by fields.
 func (o TemplateWordCloudSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplateWordCloudSortConfiguration) []TemplateFieldSortOptions {
 		if v == nil {
@@ -8964,12 +10162,18 @@ func (o TemplateWordCloudSortConfigurationPtrOutput) CategorySort() TemplateFiel
 }
 
 type TemplateWordCloudVisual struct {
-	Actions            []TemplateVisualCustomAction         `pulumi:"actions"`
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration of a word cloud visual.
 	ChartConfiguration *TemplateWordCloudChartConfiguration `pulumi:"chartConfiguration"`
-	ColumnHierarchies  []TemplateColumnHierarchy            `pulumi:"columnHierarchies"`
-	Subtitle           *TemplateVisualSubtitleLabelOptions  `pulumi:"subtitle"`
-	Title              *TemplateVisualTitleLabelOptions     `pulumi:"title"`
-	VisualId           string                               `pulumi:"visualId"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle label options for a visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId string `pulumi:"visualId"`
 }
 
 // TemplateWordCloudVisualInput is an input type that accepts TemplateWordCloudVisualArgs and TemplateWordCloudVisualOutput values.
@@ -8984,12 +10188,18 @@ type TemplateWordCloudVisualInput interface {
 }
 
 type TemplateWordCloudVisualArgs struct {
-	Actions            TemplateVisualCustomActionArrayInput        `pulumi:"actions"`
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration of a word cloud visual.
 	ChartConfiguration TemplateWordCloudChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	ColumnHierarchies  TemplateColumnHierarchyArrayInput           `pulumi:"columnHierarchies"`
-	Subtitle           TemplateVisualSubtitleLabelOptionsPtrInput  `pulumi:"subtitle"`
-	Title              TemplateVisualTitleLabelOptionsPtrInput     `pulumi:"title"`
-	VisualId           pulumi.StringInput                          `pulumi:"visualId"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle label options for a visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title label options for a visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (TemplateWordCloudVisualArgs) ElementType() reflect.Type {
@@ -9069,26 +10279,32 @@ func (o TemplateWordCloudVisualOutput) ToTemplateWordCloudVisualPtrOutputWithCon
 	}).(TemplateWordCloudVisualPtrOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateWordCloudVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration of a word cloud visual.
 func (o TemplateWordCloudVisualOutput) ChartConfiguration() TemplateWordCloudChartConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateWordCloudChartConfiguration { return v.ChartConfiguration }).(TemplateWordCloudChartConfigurationPtrOutput)
 }
 
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateWordCloudVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateWordCloudVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateWordCloudVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 func (o TemplateWordCloudVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -9117,6 +10333,7 @@ func (o TemplateWordCloudVisualPtrOutput) Elem() TemplateWordCloudVisualOutput {
 	}).(TemplateWordCloudVisualOutput)
 }
 
+// The list of custom actions that are configured for a visual.
 func (o TemplateWordCloudVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) []TemplateVisualCustomAction {
 		if v == nil {
@@ -9126,6 +10343,7 @@ func (o TemplateWordCloudVisualPtrOutput) Actions() TemplateVisualCustomActionAr
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
+// The configuration of a word cloud visual.
 func (o TemplateWordCloudVisualPtrOutput) ChartConfiguration() TemplateWordCloudChartConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) *TemplateWordCloudChartConfiguration {
 		if v == nil {
@@ -9135,6 +10353,7 @@ func (o TemplateWordCloudVisualPtrOutput) ChartConfiguration() TemplateWordCloud
 	}).(TemplateWordCloudChartConfigurationPtrOutput)
 }
 
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateWordCloudVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) []TemplateColumnHierarchy {
 		if v == nil {
@@ -9144,6 +10363,7 @@ func (o TemplateWordCloudVisualPtrOutput) ColumnHierarchies() TemplateColumnHier
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
+// The subtitle label options for a visual.
 func (o TemplateWordCloudVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -9153,6 +10373,7 @@ func (o TemplateWordCloudVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabel
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
+// The title label options for a visual.
 func (o TemplateWordCloudVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -9162,6 +10383,7 @@ func (o TemplateWordCloudVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 func (o TemplateWordCloudVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) *string {
 		if v == nil {
@@ -9315,10 +10537,14 @@ func (o ThemeBorderStylePtrOutput) Show() pulumi.BoolPtrOutput {
 //
 //	a theme.</p>
 type ThemeConfiguration struct {
+	// The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
 	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
-	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
-	Typography       *ThemeTypography       `pulumi:"typography"`
-	UiColorPalette   *ThemeUiColorPalette   `pulumi:"uiColorPalette"`
+	// The theme display options for sheets.
+	Sheet *ThemeSheetStyle `pulumi:"sheet"`
+	// Determines the typography options.
+	Typography *ThemeTypography `pulumi:"typography"`
+	// The theme colors that apply to UI and to charts, excluding data colors. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
+	UiColorPalette *ThemeUiColorPalette `pulumi:"uiColorPalette"`
 }
 
 // ThemeConfigurationInput is an input type that accepts ThemeConfigurationArgs and ThemeConfigurationOutput values.
@@ -9336,10 +10562,14 @@ type ThemeConfigurationInput interface {
 //
 //	a theme.</p>
 type ThemeConfigurationArgs struct {
+	// The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
 	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
-	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
-	Typography       ThemeTypographyPtrInput       `pulumi:"typography"`
-	UiColorPalette   ThemeUiColorPalettePtrInput   `pulumi:"uiColorPalette"`
+	// The theme display options for sheets.
+	Sheet ThemeSheetStylePtrInput `pulumi:"sheet"`
+	// Determines the typography options.
+	Typography ThemeTypographyPtrInput `pulumi:"typography"`
+	// The theme colors that apply to UI and to charts, excluding data colors. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
+	UiColorPalette ThemeUiColorPalettePtrInput `pulumi:"uiColorPalette"`
 }
 
 func (ThemeConfigurationArgs) ElementType() reflect.Type {
@@ -9371,18 +10601,22 @@ func (o ThemeConfigurationOutput) ToThemeConfigurationOutputWithContext(ctx cont
 	return o
 }
 
+// The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
 func (o ThemeConfigurationOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeDataColorPalette { return v.DataColorPalette }).(ThemeDataColorPalettePtrOutput)
 }
 
+// The theme display options for sheets.
 func (o ThemeConfigurationOutput) Sheet() ThemeSheetStylePtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeSheetStyle { return v.Sheet }).(ThemeSheetStylePtrOutput)
 }
 
+// Determines the typography options.
 func (o ThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
 }
 
+// The theme colors that apply to UI and to charts, excluding data colors. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
 func (o ThemeConfigurationOutput) UiColorPalette() ThemeUiColorPalettePtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeUiColorPalette { return v.UiColorPalette }).(ThemeUiColorPalettePtrOutput)
 }
@@ -9411,6 +10645,7 @@ func (o ThemeConfigurationPtrOutput) Elem() ThemeConfigurationOutput {
 	}).(ThemeConfigurationOutput)
 }
 
+// The theme colors that are used for data colors in charts. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
 func (o ThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeDataColorPalette {
 		if v == nil {
@@ -9420,6 +10655,7 @@ func (o ThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalettePtr
 	}).(ThemeDataColorPalettePtrOutput)
 }
 
+// The theme display options for sheets.
 func (o ThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeSheetStyle {
 		if v == nil {
@@ -9429,6 +10665,7 @@ func (o ThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
 	}).(ThemeSheetStylePtrOutput)
 }
 
+// Determines the typography options.
 func (o ThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeTypography {
 		if v == nil {
@@ -9438,6 +10675,7 @@ func (o ThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
 	}).(ThemeTypographyPtrOutput)
 }
 
+// The theme colors that apply to UI and to charts, excluding data colors. The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
 func (o ThemeConfigurationPtrOutput) UiColorPalette() ThemeUiColorPalettePtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeUiColorPalette {
 		if v == nil {
@@ -9643,8 +10881,9 @@ func (o ThemeDataColorPalettePtrOutput) MinMaxGradient() pulumi.StringArrayOutpu
 // <p>Theme error.</p>
 type ThemeError struct {
 	// <p>The error message.</p>
-	Message *string         `pulumi:"message"`
-	Type    *ThemeErrorType `pulumi:"type"`
+	Message *string `pulumi:"message"`
+	// The type of error.
+	Type *ThemeErrorType `pulumi:"type"`
 }
 
 // <p>Theme error.</p>
@@ -9667,6 +10906,7 @@ func (o ThemeErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+// The type of error.
 func (o ThemeErrorOutput) Type() ThemeErrorTypePtrOutput {
 	return o.ApplyT(func(v ThemeError) *ThemeErrorType { return v.Type }).(ThemeErrorTypePtrOutput)
 }
@@ -9692,6 +10932,7 @@ func (o ThemeErrorArrayOutput) Index(i pulumi.IntInput) ThemeErrorOutput {
 }
 
 type ThemeFont struct {
+	// Determines the font family settings.
 	FontFamily *string `pulumi:"fontFamily"`
 }
 
@@ -9707,6 +10948,7 @@ type ThemeFontInput interface {
 }
 
 type ThemeFontArgs struct {
+	// Determines the font family settings.
 	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
 }
 
@@ -9761,6 +11003,7 @@ func (o ThemeFontOutput) ToThemeFontOutputWithContext(ctx context.Context) Theme
 	return o
 }
 
+// Determines the font family settings.
 func (o ThemeFontOutput) FontFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeFont) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
 }
@@ -10225,7 +11468,9 @@ func (o ThemeResourcePermissionArrayOutput) Index(i pulumi.IntInput) ThemeResour
 
 // <p>The theme display options for sheets. </p>
 type ThemeSheetStyle struct {
-	Tile       *ThemeTileStyle       `pulumi:"tile"`
+	// Display options related to tiles on a sheet.
+	Tile *ThemeTileStyle `pulumi:"tile"`
+	// The display options for the layout of tiles on a sheet.
 	TileLayout *ThemeTileLayoutStyle `pulumi:"tileLayout"`
 }
 
@@ -10242,7 +11487,9 @@ type ThemeSheetStyleInput interface {
 
 // <p>The theme display options for sheets. </p>
 type ThemeSheetStyleArgs struct {
-	Tile       ThemeTileStylePtrInput       `pulumi:"tile"`
+	// Display options related to tiles on a sheet.
+	Tile ThemeTileStylePtrInput `pulumi:"tile"`
+	// The display options for the layout of tiles on a sheet.
 	TileLayout ThemeTileLayoutStylePtrInput `pulumi:"tileLayout"`
 }
 
@@ -10324,10 +11571,12 @@ func (o ThemeSheetStyleOutput) ToThemeSheetStylePtrOutputWithContext(ctx context
 	}).(ThemeSheetStylePtrOutput)
 }
 
+// Display options related to tiles on a sheet.
 func (o ThemeSheetStyleOutput) Tile() ThemeTileStylePtrOutput {
 	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileStyle { return v.Tile }).(ThemeTileStylePtrOutput)
 }
 
+// The display options for the layout of tiles on a sheet.
 func (o ThemeSheetStyleOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
 	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileLayoutStyle { return v.TileLayout }).(ThemeTileLayoutStylePtrOutput)
 }
@@ -10356,6 +11605,7 @@ func (o ThemeSheetStylePtrOutput) Elem() ThemeSheetStyleOutput {
 	}).(ThemeSheetStyleOutput)
 }
 
+// Display options related to tiles on a sheet.
 func (o ThemeSheetStylePtrOutput) Tile() ThemeTileStylePtrOutput {
 	return o.ApplyT(func(v *ThemeSheetStyle) *ThemeTileStyle {
 		if v == nil {
@@ -10365,6 +11615,7 @@ func (o ThemeSheetStylePtrOutput) Tile() ThemeTileStylePtrOutput {
 	}).(ThemeTileStylePtrOutput)
 }
 
+// The display options for the layout of tiles on a sheet.
 func (o ThemeSheetStylePtrOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
 	return o.ApplyT(func(v *ThemeSheetStyle) *ThemeTileLayoutStyle {
 		if v == nil {
@@ -10386,7 +11637,9 @@ type ThemeTag struct {
 
 // <p>The display options for the layout of tiles on a sheet.</p>
 type ThemeTileLayoutStyle struct {
+	// The display options for gutter spacing between tiles on a sheet.
 	Gutter *ThemeGutterStyle `pulumi:"gutter"`
+	// The display options for margins around the outside edge of sheets.
 	Margin *ThemeMarginStyle `pulumi:"margin"`
 }
 
@@ -10403,7 +11656,9 @@ type ThemeTileLayoutStyleInput interface {
 
 // <p>The display options for the layout of tiles on a sheet.</p>
 type ThemeTileLayoutStyleArgs struct {
+	// The display options for gutter spacing between tiles on a sheet.
 	Gutter ThemeGutterStylePtrInput `pulumi:"gutter"`
+	// The display options for margins around the outside edge of sheets.
 	Margin ThemeMarginStylePtrInput `pulumi:"margin"`
 }
 
@@ -10485,10 +11740,12 @@ func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStylePtrOutputWithContext(c
 	}).(ThemeTileLayoutStylePtrOutput)
 }
 
+// The display options for gutter spacing between tiles on a sheet.
 func (o ThemeTileLayoutStyleOutput) Gutter() ThemeGutterStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeGutterStyle { return v.Gutter }).(ThemeGutterStylePtrOutput)
 }
 
+// The display options for margins around the outside edge of sheets.
 func (o ThemeTileLayoutStyleOutput) Margin() ThemeMarginStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeMarginStyle { return v.Margin }).(ThemeMarginStylePtrOutput)
 }
@@ -10517,6 +11774,7 @@ func (o ThemeTileLayoutStylePtrOutput) Elem() ThemeTileLayoutStyleOutput {
 	}).(ThemeTileLayoutStyleOutput)
 }
 
+// The display options for gutter spacing between tiles on a sheet.
 func (o ThemeTileLayoutStylePtrOutput) Gutter() ThemeGutterStylePtrOutput {
 	return o.ApplyT(func(v *ThemeTileLayoutStyle) *ThemeGutterStyle {
 		if v == nil {
@@ -10526,6 +11784,7 @@ func (o ThemeTileLayoutStylePtrOutput) Gutter() ThemeGutterStylePtrOutput {
 	}).(ThemeGutterStylePtrOutput)
 }
 
+// The display options for margins around the outside edge of sheets.
 func (o ThemeTileLayoutStylePtrOutput) Margin() ThemeMarginStylePtrOutput {
 	return o.ApplyT(func(v *ThemeTileLayoutStyle) *ThemeMarginStyle {
 		if v == nil {
@@ -10537,6 +11796,7 @@ func (o ThemeTileLayoutStylePtrOutput) Margin() ThemeMarginStylePtrOutput {
 
 // <p>Display options related to tiles on a sheet.</p>
 type ThemeTileStyle struct {
+	// The display options for tile borders for visuals.
 	Border *ThemeBorderStyle `pulumi:"border"`
 }
 
@@ -10553,6 +11813,7 @@ type ThemeTileStyleInput interface {
 
 // <p>Display options related to tiles on a sheet.</p>
 type ThemeTileStyleArgs struct {
+	// The display options for tile borders for visuals.
 	Border ThemeBorderStylePtrInput `pulumi:"border"`
 }
 
@@ -10634,6 +11895,7 @@ func (o ThemeTileStyleOutput) ToThemeTileStylePtrOutputWithContext(ctx context.C
 	}).(ThemeTileStylePtrOutput)
 }
 
+// The display options for tile borders for visuals.
 func (o ThemeTileStyleOutput) Border() ThemeBorderStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileStyle) *ThemeBorderStyle { return v.Border }).(ThemeBorderStylePtrOutput)
 }
@@ -10662,6 +11924,7 @@ func (o ThemeTileStylePtrOutput) Elem() ThemeTileStyleOutput {
 	}).(ThemeTileStyleOutput)
 }
 
+// The display options for tile borders for visuals.
 func (o ThemeTileStylePtrOutput) Border() ThemeBorderStylePtrOutput {
 	return o.ApplyT(func(v *ThemeTileStyle) *ThemeBorderStyle {
 		if v == nil {
@@ -10672,6 +11935,7 @@ func (o ThemeTileStylePtrOutput) Border() ThemeBorderStylePtrOutput {
 }
 
 type ThemeTypography struct {
+	// Determines the font settings.
 	FontFamilies []ThemeFont `pulumi:"fontFamilies"`
 }
 
@@ -10687,6 +11951,7 @@ type ThemeTypographyInput interface {
 }
 
 type ThemeTypographyArgs struct {
+	// Determines the font settings.
 	FontFamilies ThemeFontArrayInput `pulumi:"fontFamilies"`
 }
 
@@ -10767,6 +12032,7 @@ func (o ThemeTypographyOutput) ToThemeTypographyPtrOutputWithContext(ctx context
 	}).(ThemeTypographyPtrOutput)
 }
 
+// Determines the font settings.
 func (o ThemeTypographyOutput) FontFamilies() ThemeFontArrayOutput {
 	return o.ApplyT(func(v ThemeTypography) []ThemeFont { return v.FontFamilies }).(ThemeFontArrayOutput)
 }
@@ -10795,6 +12061,7 @@ func (o ThemeTypographyPtrOutput) Elem() ThemeTypographyOutput {
 	}).(ThemeTypographyOutput)
 }
 
+// Determines the font settings.
 func (o ThemeTypographyPtrOutput) FontFamilies() ThemeFontArrayOutput {
 	return o.ApplyT(func(v *ThemeTypography) []ThemeFont {
 		if v == nil {
@@ -11310,14 +12577,16 @@ type ThemeVersion struct {
 	Arn *string `pulumi:"arn"`
 	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
 	//             themes initially inherit from a default Amazon QuickSight theme.</p>
-	BaseThemeId   *string             `pulumi:"baseThemeId"`
+	BaseThemeId *string `pulumi:"baseThemeId"`
+	// The theme configuration. This configuration contains all of the display properties for a theme.
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// <p>The date and time that this theme version was created.</p>
 	CreatedTime *string `pulumi:"createdTime"`
 	// <p>The description of the theme.</p>
 	Description *string `pulumi:"description"`
 	// <p>Errors associated with the theme.</p>
-	Errors []ThemeError         `pulumi:"errors"`
+	Errors []ThemeError `pulumi:"errors"`
+	// The status of the theme version.
 	Status *ThemeResourceStatus `pulumi:"status"`
 	// <p>The version number of the theme.</p>
 	VersionNumber *float64 `pulumi:"versionNumber"`
@@ -11350,6 +12619,7 @@ func (o ThemeVersionOutput) BaseThemeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
 }
 
+// The theme configuration. This configuration contains all of the display properties for a theme.
 func (o ThemeVersionOutput) Configuration() ThemeConfigurationPtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *ThemeConfiguration { return v.Configuration }).(ThemeConfigurationPtrOutput)
 }
@@ -11369,6 +12639,7 @@ func (o ThemeVersionOutput) Errors() ThemeErrorArrayOutput {
 	return o.ApplyT(func(v ThemeVersion) []ThemeError { return v.Errors }).(ThemeErrorArrayOutput)
 }
 
+// The status of the theme version.
 func (o ThemeVersionOutput) Status() ThemeResourceStatusPtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *ThemeResourceStatus { return v.Status }).(ThemeResourceStatusPtrOutput)
 }
@@ -11424,6 +12695,7 @@ func (o ThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The theme configuration. This configuration contains all of the display properties for a theme.
 func (o ThemeVersionPtrOutput) Configuration() ThemeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ThemeVersion) *ThemeConfiguration {
 		if v == nil {
@@ -11463,6 +12735,7 @@ func (o ThemeVersionPtrOutput) Errors() ThemeErrorArrayOutput {
 	}).(ThemeErrorArrayOutput)
 }
 
+// The status of the theme version.
 func (o ThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
 	return o.ApplyT(func(v *ThemeVersion) *ThemeResourceStatus {
 		if v == nil {
@@ -11483,23 +12756,40 @@ func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 }
 
 type TopicCalculatedField struct {
-	Aggregation                *TopicDefaultAggregation          `pulumi:"aggregation"`
-	AllowedAggregations        []TopicAuthorSpecifiedAggregation `pulumi:"allowedAggregations"`
-	CalculatedFieldDescription *string                           `pulumi:"calculatedFieldDescription"`
-	CalculatedFieldName        string                            `pulumi:"calculatedFieldName"`
-	CalculatedFieldSynonyms    []string                          `pulumi:"calculatedFieldSynonyms"`
-	CellValueSynonyms          []TopicCellValueSynonym           `pulumi:"cellValueSynonyms"`
-	ColumnDataRole             *TopicColumnDataRole              `pulumi:"columnDataRole"`
-	ComparativeOrder           *TopicComparativeOrder            `pulumi:"comparativeOrder"`
-	DefaultFormatting          *TopicDefaultFormatting           `pulumi:"defaultFormatting"`
-	DisableIndexing            *bool                             `pulumi:"disableIndexing"`
-	Expression                 string                            `pulumi:"expression"`
-	IsIncludedInTopic          *bool                             `pulumi:"isIncludedInTopic"`
-	NeverAggregateInFilter     *bool                             `pulumi:"neverAggregateInFilter"`
-	NonAdditive                *bool                             `pulumi:"nonAdditive"`
-	NotAllowedAggregations     []TopicAuthorSpecifiedAggregation `pulumi:"notAllowedAggregations"`
-	SemanticType               *TopicSemanticType                `pulumi:"semanticType"`
-	TimeGranularity            *TopicTimeGranularity             `pulumi:"timeGranularity"`
+	// The default aggregation. Valid values for this structure are `SUM` , `MAX` , `MIN` , `COUNT` , `DISTINCT_COUNT` , and `AVERAGE` .
+	Aggregation *TopicDefaultAggregation `pulumi:"aggregation"`
+	// The list of aggregation types that are allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+	AllowedAggregations []TopicAuthorSpecifiedAggregation `pulumi:"allowedAggregations"`
+	// The calculated field description.
+	CalculatedFieldDescription *string `pulumi:"calculatedFieldDescription"`
+	// The calculated field name.
+	CalculatedFieldName string `pulumi:"calculatedFieldName"`
+	// The other names or aliases for the calculated field.
+	CalculatedFieldSynonyms []string `pulumi:"calculatedFieldSynonyms"`
+	// A structure that represents the cell value synonym.
+	CellValueSynonyms []TopicCellValueSynonym `pulumi:"cellValueSynonyms"`
+	// The column data role for a calculated field. Valid values for this structure are `DIMENSION` and `MEASURE` .
+	ColumnDataRole *TopicColumnDataRole `pulumi:"columnDataRole"`
+	// The order in which data is displayed for the column when it's used in a comparative context.
+	ComparativeOrder *TopicComparativeOrder `pulumi:"comparativeOrder"`
+	// A structure that represents a default formatting definition.
+	DefaultFormatting *TopicDefaultFormatting `pulumi:"defaultFormatting"`
+	// A Boolean value that indicates if a calculated field is visible in the autocomplete.
+	DisableIndexing *bool `pulumi:"disableIndexing"`
+	// The calculated field expression.
+	Expression string `pulumi:"expression"`
+	// A boolean value that indicates if a calculated field is included in the topic.
+	IsIncludedInTopic *bool `pulumi:"isIncludedInTopic"`
+	// A Boolean value that indicates whether to never aggregate calculated field in filters.
+	NeverAggregateInFilter *bool `pulumi:"neverAggregateInFilter"`
+	// The non additive for the table style target.
+	NonAdditive *bool `pulumi:"nonAdditive"`
+	// The list of aggregation types that are not allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+	NotAllowedAggregations []TopicAuthorSpecifiedAggregation `pulumi:"notAllowedAggregations"`
+	// A structure that represents a semantic type.
+	SemanticType *TopicSemanticType `pulumi:"semanticType"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity *TopicTimeGranularity `pulumi:"timeGranularity"`
 }
 
 // TopicCalculatedFieldInput is an input type that accepts TopicCalculatedFieldArgs and TopicCalculatedFieldOutput values.
@@ -11514,23 +12804,40 @@ type TopicCalculatedFieldInput interface {
 }
 
 type TopicCalculatedFieldArgs struct {
-	Aggregation                TopicDefaultAggregationPtrInput           `pulumi:"aggregation"`
-	AllowedAggregations        TopicAuthorSpecifiedAggregationArrayInput `pulumi:"allowedAggregations"`
-	CalculatedFieldDescription pulumi.StringPtrInput                     `pulumi:"calculatedFieldDescription"`
-	CalculatedFieldName        pulumi.StringInput                        `pulumi:"calculatedFieldName"`
-	CalculatedFieldSynonyms    pulumi.StringArrayInput                   `pulumi:"calculatedFieldSynonyms"`
-	CellValueSynonyms          TopicCellValueSynonymArrayInput           `pulumi:"cellValueSynonyms"`
-	ColumnDataRole             TopicColumnDataRolePtrInput               `pulumi:"columnDataRole"`
-	ComparativeOrder           TopicComparativeOrderPtrInput             `pulumi:"comparativeOrder"`
-	DefaultFormatting          TopicDefaultFormattingPtrInput            `pulumi:"defaultFormatting"`
-	DisableIndexing            pulumi.BoolPtrInput                       `pulumi:"disableIndexing"`
-	Expression                 pulumi.StringInput                        `pulumi:"expression"`
-	IsIncludedInTopic          pulumi.BoolPtrInput                       `pulumi:"isIncludedInTopic"`
-	NeverAggregateInFilter     pulumi.BoolPtrInput                       `pulumi:"neverAggregateInFilter"`
-	NonAdditive                pulumi.BoolPtrInput                       `pulumi:"nonAdditive"`
-	NotAllowedAggregations     TopicAuthorSpecifiedAggregationArrayInput `pulumi:"notAllowedAggregations"`
-	SemanticType               TopicSemanticTypePtrInput                 `pulumi:"semanticType"`
-	TimeGranularity            TopicTimeGranularityPtrInput              `pulumi:"timeGranularity"`
+	// The default aggregation. Valid values for this structure are `SUM` , `MAX` , `MIN` , `COUNT` , `DISTINCT_COUNT` , and `AVERAGE` .
+	Aggregation TopicDefaultAggregationPtrInput `pulumi:"aggregation"`
+	// The list of aggregation types that are allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+	AllowedAggregations TopicAuthorSpecifiedAggregationArrayInput `pulumi:"allowedAggregations"`
+	// The calculated field description.
+	CalculatedFieldDescription pulumi.StringPtrInput `pulumi:"calculatedFieldDescription"`
+	// The calculated field name.
+	CalculatedFieldName pulumi.StringInput `pulumi:"calculatedFieldName"`
+	// The other names or aliases for the calculated field.
+	CalculatedFieldSynonyms pulumi.StringArrayInput `pulumi:"calculatedFieldSynonyms"`
+	// A structure that represents the cell value synonym.
+	CellValueSynonyms TopicCellValueSynonymArrayInput `pulumi:"cellValueSynonyms"`
+	// The column data role for a calculated field. Valid values for this structure are `DIMENSION` and `MEASURE` .
+	ColumnDataRole TopicColumnDataRolePtrInput `pulumi:"columnDataRole"`
+	// The order in which data is displayed for the column when it's used in a comparative context.
+	ComparativeOrder TopicComparativeOrderPtrInput `pulumi:"comparativeOrder"`
+	// A structure that represents a default formatting definition.
+	DefaultFormatting TopicDefaultFormattingPtrInput `pulumi:"defaultFormatting"`
+	// A Boolean value that indicates if a calculated field is visible in the autocomplete.
+	DisableIndexing pulumi.BoolPtrInput `pulumi:"disableIndexing"`
+	// The calculated field expression.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// A boolean value that indicates if a calculated field is included in the topic.
+	IsIncludedInTopic pulumi.BoolPtrInput `pulumi:"isIncludedInTopic"`
+	// A Boolean value that indicates whether to never aggregate calculated field in filters.
+	NeverAggregateInFilter pulumi.BoolPtrInput `pulumi:"neverAggregateInFilter"`
+	// The non additive for the table style target.
+	NonAdditive pulumi.BoolPtrInput `pulumi:"nonAdditive"`
+	// The list of aggregation types that are not allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+	NotAllowedAggregations TopicAuthorSpecifiedAggregationArrayInput `pulumi:"notAllowedAggregations"`
+	// A structure that represents a semantic type.
+	SemanticType TopicSemanticTypePtrInput `pulumi:"semanticType"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TopicTimeGranularityPtrInput `pulumi:"timeGranularity"`
 }
 
 func (TopicCalculatedFieldArgs) ElementType() reflect.Type {
@@ -11584,70 +12891,87 @@ func (o TopicCalculatedFieldOutput) ToTopicCalculatedFieldOutputWithContext(ctx 
 	return o
 }
 
+// The default aggregation. Valid values for this structure are `SUM` , `MAX` , `MIN` , `COUNT` , `DISTINCT_COUNT` , and `AVERAGE` .
 func (o TopicCalculatedFieldOutput) Aggregation() TopicDefaultAggregationPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicDefaultAggregation { return v.Aggregation }).(TopicDefaultAggregationPtrOutput)
 }
 
+// The list of aggregation types that are allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
 func (o TopicCalculatedFieldOutput) AllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {
 	return o.ApplyT(func(v TopicCalculatedField) []TopicAuthorSpecifiedAggregation { return v.AllowedAggregations }).(TopicAuthorSpecifiedAggregationArrayOutput)
 }
 
+// The calculated field description.
 func (o TopicCalculatedFieldOutput) CalculatedFieldDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *string { return v.CalculatedFieldDescription }).(pulumi.StringPtrOutput)
 }
 
+// The calculated field name.
 func (o TopicCalculatedFieldOutput) CalculatedFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicCalculatedField) string { return v.CalculatedFieldName }).(pulumi.StringOutput)
 }
 
+// The other names or aliases for the calculated field.
 func (o TopicCalculatedFieldOutput) CalculatedFieldSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicCalculatedField) []string { return v.CalculatedFieldSynonyms }).(pulumi.StringArrayOutput)
 }
 
+// A structure that represents the cell value synonym.
 func (o TopicCalculatedFieldOutput) CellValueSynonyms() TopicCellValueSynonymArrayOutput {
 	return o.ApplyT(func(v TopicCalculatedField) []TopicCellValueSynonym { return v.CellValueSynonyms }).(TopicCellValueSynonymArrayOutput)
 }
 
+// The column data role for a calculated field. Valid values for this structure are `DIMENSION` and `MEASURE` .
 func (o TopicCalculatedFieldOutput) ColumnDataRole() TopicColumnDataRolePtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicColumnDataRole { return v.ColumnDataRole }).(TopicColumnDataRolePtrOutput)
 }
 
+// The order in which data is displayed for the column when it's used in a comparative context.
 func (o TopicCalculatedFieldOutput) ComparativeOrder() TopicComparativeOrderPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicComparativeOrder { return v.ComparativeOrder }).(TopicComparativeOrderPtrOutput)
 }
 
+// A structure that represents a default formatting definition.
 func (o TopicCalculatedFieldOutput) DefaultFormatting() TopicDefaultFormattingPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicDefaultFormatting { return v.DefaultFormatting }).(TopicDefaultFormattingPtrOutput)
 }
 
+// A Boolean value that indicates if a calculated field is visible in the autocomplete.
 func (o TopicCalculatedFieldOutput) DisableIndexing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.DisableIndexing }).(pulumi.BoolPtrOutput)
 }
 
+// The calculated field expression.
 func (o TopicCalculatedFieldOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicCalculatedField) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// A boolean value that indicates if a calculated field is included in the topic.
 func (o TopicCalculatedFieldOutput) IsIncludedInTopic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.IsIncludedInTopic }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean value that indicates whether to never aggregate calculated field in filters.
 func (o TopicCalculatedFieldOutput) NeverAggregateInFilter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.NeverAggregateInFilter }).(pulumi.BoolPtrOutput)
 }
 
+// The non additive for the table style target.
 func (o TopicCalculatedFieldOutput) NonAdditive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.NonAdditive }).(pulumi.BoolPtrOutput)
 }
 
+// The list of aggregation types that are not allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
 func (o TopicCalculatedFieldOutput) NotAllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {
 	return o.ApplyT(func(v TopicCalculatedField) []TopicAuthorSpecifiedAggregation { return v.NotAllowedAggregations }).(TopicAuthorSpecifiedAggregationArrayOutput)
 }
 
+// A structure that represents a semantic type.
 func (o TopicCalculatedFieldOutput) SemanticType() TopicSemanticTypePtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicSemanticType { return v.SemanticType }).(TopicSemanticTypePtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TopicCalculatedFieldOutput) TimeGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicTimeGranularity { return v.TimeGranularity }).(TopicTimeGranularityPtrOutput)
 }
@@ -11673,10 +12997,14 @@ func (o TopicCalculatedFieldArrayOutput) Index(i pulumi.IntInput) TopicCalculate
 }
 
 type TopicCategoryFilter struct {
+	// The category filter function. Valid values for this structure are `EXACT` and `CONTAINS` .
 	CategoryFilterFunction *TopicCategoryFilterFunction `pulumi:"categoryFilterFunction"`
-	CategoryFilterType     *TopicCategoryFilterType     `pulumi:"categoryFilterType"`
-	Constant               *TopicCategoryFilterConstant `pulumi:"constant"`
-	Inverse                *bool                        `pulumi:"inverse"`
+	// The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.
+	CategoryFilterType *TopicCategoryFilterType `pulumi:"categoryFilterType"`
+	// A constant used in a category filter.
+	Constant *TopicCategoryFilterConstant `pulumi:"constant"`
+	// A Boolean value that indicates if the filter is inverse.
+	Inverse *bool `pulumi:"inverse"`
 }
 
 // TopicCategoryFilterInput is an input type that accepts TopicCategoryFilterArgs and TopicCategoryFilterOutput values.
@@ -11691,10 +13019,14 @@ type TopicCategoryFilterInput interface {
 }
 
 type TopicCategoryFilterArgs struct {
+	// The category filter function. Valid values for this structure are `EXACT` and `CONTAINS` .
 	CategoryFilterFunction TopicCategoryFilterFunctionPtrInput `pulumi:"categoryFilterFunction"`
-	CategoryFilterType     TopicCategoryFilterTypePtrInput     `pulumi:"categoryFilterType"`
-	Constant               TopicCategoryFilterConstantPtrInput `pulumi:"constant"`
-	Inverse                pulumi.BoolPtrInput                 `pulumi:"inverse"`
+	// The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.
+	CategoryFilterType TopicCategoryFilterTypePtrInput `pulumi:"categoryFilterType"`
+	// A constant used in a category filter.
+	Constant TopicCategoryFilterConstantPtrInput `pulumi:"constant"`
+	// A Boolean value that indicates if the filter is inverse.
+	Inverse pulumi.BoolPtrInput `pulumi:"inverse"`
 }
 
 func (TopicCategoryFilterArgs) ElementType() reflect.Type {
@@ -11774,18 +13106,22 @@ func (o TopicCategoryFilterOutput) ToTopicCategoryFilterPtrOutputWithContext(ctx
 	}).(TopicCategoryFilterPtrOutput)
 }
 
+// The category filter function. Valid values for this structure are `EXACT` and `CONTAINS` .
 func (o TopicCategoryFilterOutput) CategoryFilterFunction() TopicCategoryFilterFunctionPtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilter) *TopicCategoryFilterFunction { return v.CategoryFilterFunction }).(TopicCategoryFilterFunctionPtrOutput)
 }
 
+// The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.
 func (o TopicCategoryFilterOutput) CategoryFilterType() TopicCategoryFilterTypePtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilter) *TopicCategoryFilterType { return v.CategoryFilterType }).(TopicCategoryFilterTypePtrOutput)
 }
 
+// A constant used in a category filter.
 func (o TopicCategoryFilterOutput) Constant() TopicCategoryFilterConstantPtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilter) *TopicCategoryFilterConstant { return v.Constant }).(TopicCategoryFilterConstantPtrOutput)
 }
 
+// A Boolean value that indicates if the filter is inverse.
 func (o TopicCategoryFilterOutput) Inverse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilter) *bool { return v.Inverse }).(pulumi.BoolPtrOutput)
 }
@@ -11814,6 +13150,7 @@ func (o TopicCategoryFilterPtrOutput) Elem() TopicCategoryFilterOutput {
 	}).(TopicCategoryFilterOutput)
 }
 
+// The category filter function. Valid values for this structure are `EXACT` and `CONTAINS` .
 func (o TopicCategoryFilterPtrOutput) CategoryFilterFunction() TopicCategoryFilterFunctionPtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilter) *TopicCategoryFilterFunction {
 		if v == nil {
@@ -11823,6 +13160,7 @@ func (o TopicCategoryFilterPtrOutput) CategoryFilterFunction() TopicCategoryFilt
 	}).(TopicCategoryFilterFunctionPtrOutput)
 }
 
+// The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.
 func (o TopicCategoryFilterPtrOutput) CategoryFilterType() TopicCategoryFilterTypePtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilter) *TopicCategoryFilterType {
 		if v == nil {
@@ -11832,6 +13170,7 @@ func (o TopicCategoryFilterPtrOutput) CategoryFilterType() TopicCategoryFilterTy
 	}).(TopicCategoryFilterTypePtrOutput)
 }
 
+// A constant used in a category filter.
 func (o TopicCategoryFilterPtrOutput) Constant() TopicCategoryFilterConstantPtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilter) *TopicCategoryFilterConstant {
 		if v == nil {
@@ -11841,6 +13180,7 @@ func (o TopicCategoryFilterPtrOutput) Constant() TopicCategoryFilterConstantPtrO
 	}).(TopicCategoryFilterConstantPtrOutput)
 }
 
+// A Boolean value that indicates if the filter is inverse.
 func (o TopicCategoryFilterPtrOutput) Inverse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilter) *bool {
 		if v == nil {
@@ -11851,9 +13191,12 @@ func (o TopicCategoryFilterPtrOutput) Inverse() pulumi.BoolPtrOutput {
 }
 
 type TopicCategoryFilterConstant struct {
+	// A structure that represents a collective constant.
 	CollectiveConstant *TopicCollectiveConstant `pulumi:"collectiveConstant"`
-	ConstantType       *TopicConstantType       `pulumi:"constantType"`
-	SingularConstant   *string                  `pulumi:"singularConstant"`
+	// The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are `SINGULAR` and `COLLECTIVE` .
+	ConstantType *TopicConstantType `pulumi:"constantType"`
+	// A singular constant used in a category filter. This element is used to specify a single value for the constant.
+	SingularConstant *string `pulumi:"singularConstant"`
 }
 
 // TopicCategoryFilterConstantInput is an input type that accepts TopicCategoryFilterConstantArgs and TopicCategoryFilterConstantOutput values.
@@ -11868,9 +13211,12 @@ type TopicCategoryFilterConstantInput interface {
 }
 
 type TopicCategoryFilterConstantArgs struct {
+	// A structure that represents a collective constant.
 	CollectiveConstant TopicCollectiveConstantPtrInput `pulumi:"collectiveConstant"`
-	ConstantType       TopicConstantTypePtrInput       `pulumi:"constantType"`
-	SingularConstant   pulumi.StringPtrInput           `pulumi:"singularConstant"`
+	// The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are `SINGULAR` and `COLLECTIVE` .
+	ConstantType TopicConstantTypePtrInput `pulumi:"constantType"`
+	// A singular constant used in a category filter. This element is used to specify a single value for the constant.
+	SingularConstant pulumi.StringPtrInput `pulumi:"singularConstant"`
 }
 
 func (TopicCategoryFilterConstantArgs) ElementType() reflect.Type {
@@ -11950,14 +13296,17 @@ func (o TopicCategoryFilterConstantOutput) ToTopicCategoryFilterConstantPtrOutpu
 	}).(TopicCategoryFilterConstantPtrOutput)
 }
 
+// A structure that represents a collective constant.
 func (o TopicCategoryFilterConstantOutput) CollectiveConstant() TopicCollectiveConstantPtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilterConstant) *TopicCollectiveConstant { return v.CollectiveConstant }).(TopicCollectiveConstantPtrOutput)
 }
 
+// The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are `SINGULAR` and `COLLECTIVE` .
 func (o TopicCategoryFilterConstantOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilterConstant) *TopicConstantType { return v.ConstantType }).(TopicConstantTypePtrOutput)
 }
 
+// A singular constant used in a category filter. This element is used to specify a single value for the constant.
 func (o TopicCategoryFilterConstantOutput) SingularConstant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicCategoryFilterConstant) *string { return v.SingularConstant }).(pulumi.StringPtrOutput)
 }
@@ -11986,6 +13335,7 @@ func (o TopicCategoryFilterConstantPtrOutput) Elem() TopicCategoryFilterConstant
 	}).(TopicCategoryFilterConstantOutput)
 }
 
+// A structure that represents a collective constant.
 func (o TopicCategoryFilterConstantPtrOutput) CollectiveConstant() TopicCollectiveConstantPtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilterConstant) *TopicCollectiveConstant {
 		if v == nil {
@@ -11995,6 +13345,7 @@ func (o TopicCategoryFilterConstantPtrOutput) CollectiveConstant() TopicCollecti
 	}).(TopicCollectiveConstantPtrOutput)
 }
 
+// The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are `SINGULAR` and `COLLECTIVE` .
 func (o TopicCategoryFilterConstantPtrOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilterConstant) *TopicConstantType {
 		if v == nil {
@@ -12004,6 +13355,7 @@ func (o TopicCategoryFilterConstantPtrOutput) ConstantType() TopicConstantTypePt
 	}).(TopicConstantTypePtrOutput)
 }
 
+// A singular constant used in a category filter. This element is used to specify a single value for the constant.
 func (o TopicCategoryFilterConstantPtrOutput) SingularConstant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicCategoryFilterConstant) *string {
 		if v == nil {
@@ -12014,8 +13366,10 @@ func (o TopicCategoryFilterConstantPtrOutput) SingularConstant() pulumi.StringPt
 }
 
 type TopicCellValueSynonym struct {
-	CellValue *string  `pulumi:"cellValue"`
-	Synonyms  []string `pulumi:"synonyms"`
+	// The cell value.
+	CellValue *string `pulumi:"cellValue"`
+	// Other names or aliases for the cell value.
+	Synonyms []string `pulumi:"synonyms"`
 }
 
 // TopicCellValueSynonymInput is an input type that accepts TopicCellValueSynonymArgs and TopicCellValueSynonymOutput values.
@@ -12030,8 +13384,10 @@ type TopicCellValueSynonymInput interface {
 }
 
 type TopicCellValueSynonymArgs struct {
-	CellValue pulumi.StringPtrInput   `pulumi:"cellValue"`
-	Synonyms  pulumi.StringArrayInput `pulumi:"synonyms"`
+	// The cell value.
+	CellValue pulumi.StringPtrInput `pulumi:"cellValue"`
+	// Other names or aliases for the cell value.
+	Synonyms pulumi.StringArrayInput `pulumi:"synonyms"`
 }
 
 func (TopicCellValueSynonymArgs) ElementType() reflect.Type {
@@ -12085,10 +13441,12 @@ func (o TopicCellValueSynonymOutput) ToTopicCellValueSynonymOutputWithContext(ct
 	return o
 }
 
+// The cell value.
 func (o TopicCellValueSynonymOutput) CellValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicCellValueSynonym) *string { return v.CellValue }).(pulumi.StringPtrOutput)
 }
 
+// Other names or aliases for the cell value.
 func (o TopicCellValueSynonymOutput) Synonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicCellValueSynonym) []string { return v.Synonyms }).(pulumi.StringArrayOutput)
 }
@@ -12114,6 +13472,7 @@ func (o TopicCellValueSynonymArrayOutput) Index(i pulumi.IntInput) TopicCellValu
 }
 
 type TopicCollectiveConstant struct {
+	// A list of values for the collective constant.
 	ValueList []string `pulumi:"valueList"`
 }
 
@@ -12129,6 +13488,7 @@ type TopicCollectiveConstantInput interface {
 }
 
 type TopicCollectiveConstantArgs struct {
+	// A list of values for the collective constant.
 	ValueList pulumi.StringArrayInput `pulumi:"valueList"`
 }
 
@@ -12209,6 +13569,7 @@ func (o TopicCollectiveConstantOutput) ToTopicCollectiveConstantPtrOutputWithCon
 	}).(TopicCollectiveConstantPtrOutput)
 }
 
+// A list of values for the collective constant.
 func (o TopicCollectiveConstantOutput) ValueList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicCollectiveConstant) []string { return v.ValueList }).(pulumi.StringArrayOutput)
 }
@@ -12237,6 +13598,7 @@ func (o TopicCollectiveConstantPtrOutput) Elem() TopicCollectiveConstantOutput {
 	}).(TopicCollectiveConstantOutput)
 }
 
+// A list of values for the collective constant.
 func (o TopicCollectiveConstantPtrOutput) ValueList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicCollectiveConstant) []string {
 		if v == nil {
@@ -12247,23 +13609,40 @@ func (o TopicCollectiveConstantPtrOutput) ValueList() pulumi.StringArrayOutput {
 }
 
 type TopicColumn struct {
-	Aggregation            *TopicDefaultAggregation          `pulumi:"aggregation"`
-	AllowedAggregations    []TopicAuthorSpecifiedAggregation `pulumi:"allowedAggregations"`
-	CellValueSynonyms      []TopicCellValueSynonym           `pulumi:"cellValueSynonyms"`
-	ColumnDataRole         *TopicColumnDataRole              `pulumi:"columnDataRole"`
-	ColumnDescription      *string                           `pulumi:"columnDescription"`
-	ColumnFriendlyName     *string                           `pulumi:"columnFriendlyName"`
-	ColumnName             string                            `pulumi:"columnName"`
-	ColumnSynonyms         []string                          `pulumi:"columnSynonyms"`
-	ComparativeOrder       *TopicComparativeOrder            `pulumi:"comparativeOrder"`
-	DefaultFormatting      *TopicDefaultFormatting           `pulumi:"defaultFormatting"`
-	DisableIndexing        *bool                             `pulumi:"disableIndexing"`
-	IsIncludedInTopic      *bool                             `pulumi:"isIncludedInTopic"`
-	NeverAggregateInFilter *bool                             `pulumi:"neverAggregateInFilter"`
-	NonAdditive            *bool                             `pulumi:"nonAdditive"`
+	// The type of aggregation that is performed on the column data when it's queried.
+	Aggregation *TopicDefaultAggregation `pulumi:"aggregation"`
+	// The list of aggregation types that are allowed for the column. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+	AllowedAggregations []TopicAuthorSpecifiedAggregation `pulumi:"allowedAggregations"`
+	// The other names or aliases for the column cell value.
+	CellValueSynonyms []TopicCellValueSynonym `pulumi:"cellValueSynonyms"`
+	// The role of the column in the data. Valid values are `DIMENSION` and `MEASURE` .
+	ColumnDataRole *TopicColumnDataRole `pulumi:"columnDataRole"`
+	// A description of the column and its contents.
+	ColumnDescription *string `pulumi:"columnDescription"`
+	// A user-friendly name for the column.
+	ColumnFriendlyName *string `pulumi:"columnFriendlyName"`
+	// The name of the column.
+	ColumnName string `pulumi:"columnName"`
+	// The other names or aliases for the column.
+	ColumnSynonyms []string `pulumi:"columnSynonyms"`
+	// The order in which data is displayed for the column when it's used in a comparative context.
+	ComparativeOrder *TopicComparativeOrder `pulumi:"comparativeOrder"`
+	// A structure that represents a default formatting definition.
+	DefaultFormatting *TopicDefaultFormatting `pulumi:"defaultFormatting"`
+	// A Boolean value that indicates whether the column shows in the autocomplete functionality.
+	DisableIndexing *bool `pulumi:"disableIndexing"`
+	// A Boolean value that indicates whether the column is included in the query results.
+	IsIncludedInTopic *bool `pulumi:"isIncludedInTopic"`
+	// A Boolean value that indicates whether to aggregate the column data when it's used in a filter context.
+	NeverAggregateInFilter *bool `pulumi:"neverAggregateInFilter"`
+	// The non additive value for the column.
+	NonAdditive *bool `pulumi:"nonAdditive"`
+	// The list of aggregation types that are not allowed for the column. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
 	NotAllowedAggregations []TopicAuthorSpecifiedAggregation `pulumi:"notAllowedAggregations"`
-	SemanticType           *TopicSemanticType                `pulumi:"semanticType"`
-	TimeGranularity        *TopicTimeGranularity             `pulumi:"timeGranularity"`
+	// A structure that represents a semantic type.
+	SemanticType *TopicSemanticType `pulumi:"semanticType"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity *TopicTimeGranularity `pulumi:"timeGranularity"`
 }
 
 // TopicColumnInput is an input type that accepts TopicColumnArgs and TopicColumnOutput values.
@@ -12278,23 +13657,40 @@ type TopicColumnInput interface {
 }
 
 type TopicColumnArgs struct {
-	Aggregation            TopicDefaultAggregationPtrInput           `pulumi:"aggregation"`
-	AllowedAggregations    TopicAuthorSpecifiedAggregationArrayInput `pulumi:"allowedAggregations"`
-	CellValueSynonyms      TopicCellValueSynonymArrayInput           `pulumi:"cellValueSynonyms"`
-	ColumnDataRole         TopicColumnDataRolePtrInput               `pulumi:"columnDataRole"`
-	ColumnDescription      pulumi.StringPtrInput                     `pulumi:"columnDescription"`
-	ColumnFriendlyName     pulumi.StringPtrInput                     `pulumi:"columnFriendlyName"`
-	ColumnName             pulumi.StringInput                        `pulumi:"columnName"`
-	ColumnSynonyms         pulumi.StringArrayInput                   `pulumi:"columnSynonyms"`
-	ComparativeOrder       TopicComparativeOrderPtrInput             `pulumi:"comparativeOrder"`
-	DefaultFormatting      TopicDefaultFormattingPtrInput            `pulumi:"defaultFormatting"`
-	DisableIndexing        pulumi.BoolPtrInput                       `pulumi:"disableIndexing"`
-	IsIncludedInTopic      pulumi.BoolPtrInput                       `pulumi:"isIncludedInTopic"`
-	NeverAggregateInFilter pulumi.BoolPtrInput                       `pulumi:"neverAggregateInFilter"`
-	NonAdditive            pulumi.BoolPtrInput                       `pulumi:"nonAdditive"`
+	// The type of aggregation that is performed on the column data when it's queried.
+	Aggregation TopicDefaultAggregationPtrInput `pulumi:"aggregation"`
+	// The list of aggregation types that are allowed for the column. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+	AllowedAggregations TopicAuthorSpecifiedAggregationArrayInput `pulumi:"allowedAggregations"`
+	// The other names or aliases for the column cell value.
+	CellValueSynonyms TopicCellValueSynonymArrayInput `pulumi:"cellValueSynonyms"`
+	// The role of the column in the data. Valid values are `DIMENSION` and `MEASURE` .
+	ColumnDataRole TopicColumnDataRolePtrInput `pulumi:"columnDataRole"`
+	// A description of the column and its contents.
+	ColumnDescription pulumi.StringPtrInput `pulumi:"columnDescription"`
+	// A user-friendly name for the column.
+	ColumnFriendlyName pulumi.StringPtrInput `pulumi:"columnFriendlyName"`
+	// The name of the column.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The other names or aliases for the column.
+	ColumnSynonyms pulumi.StringArrayInput `pulumi:"columnSynonyms"`
+	// The order in which data is displayed for the column when it's used in a comparative context.
+	ComparativeOrder TopicComparativeOrderPtrInput `pulumi:"comparativeOrder"`
+	// A structure that represents a default formatting definition.
+	DefaultFormatting TopicDefaultFormattingPtrInput `pulumi:"defaultFormatting"`
+	// A Boolean value that indicates whether the column shows in the autocomplete functionality.
+	DisableIndexing pulumi.BoolPtrInput `pulumi:"disableIndexing"`
+	// A Boolean value that indicates whether the column is included in the query results.
+	IsIncludedInTopic pulumi.BoolPtrInput `pulumi:"isIncludedInTopic"`
+	// A Boolean value that indicates whether to aggregate the column data when it's used in a filter context.
+	NeverAggregateInFilter pulumi.BoolPtrInput `pulumi:"neverAggregateInFilter"`
+	// The non additive value for the column.
+	NonAdditive pulumi.BoolPtrInput `pulumi:"nonAdditive"`
+	// The list of aggregation types that are not allowed for the column. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
 	NotAllowedAggregations TopicAuthorSpecifiedAggregationArrayInput `pulumi:"notAllowedAggregations"`
-	SemanticType           TopicSemanticTypePtrInput                 `pulumi:"semanticType"`
-	TimeGranularity        TopicTimeGranularityPtrInput              `pulumi:"timeGranularity"`
+	// A structure that represents a semantic type.
+	SemanticType TopicSemanticTypePtrInput `pulumi:"semanticType"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TopicTimeGranularityPtrInput `pulumi:"timeGranularity"`
 }
 
 func (TopicColumnArgs) ElementType() reflect.Type {
@@ -12348,70 +13744,87 @@ func (o TopicColumnOutput) ToTopicColumnOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The type of aggregation that is performed on the column data when it's queried.
 func (o TopicColumnOutput) Aggregation() TopicDefaultAggregationPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicDefaultAggregation { return v.Aggregation }).(TopicDefaultAggregationPtrOutput)
 }
 
+// The list of aggregation types that are allowed for the column. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
 func (o TopicColumnOutput) AllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {
 	return o.ApplyT(func(v TopicColumn) []TopicAuthorSpecifiedAggregation { return v.AllowedAggregations }).(TopicAuthorSpecifiedAggregationArrayOutput)
 }
 
+// The other names or aliases for the column cell value.
 func (o TopicColumnOutput) CellValueSynonyms() TopicCellValueSynonymArrayOutput {
 	return o.ApplyT(func(v TopicColumn) []TopicCellValueSynonym { return v.CellValueSynonyms }).(TopicCellValueSynonymArrayOutput)
 }
 
+// The role of the column in the data. Valid values are `DIMENSION` and `MEASURE` .
 func (o TopicColumnOutput) ColumnDataRole() TopicColumnDataRolePtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicColumnDataRole { return v.ColumnDataRole }).(TopicColumnDataRolePtrOutput)
 }
 
+// A description of the column and its contents.
 func (o TopicColumnOutput) ColumnDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *string { return v.ColumnDescription }).(pulumi.StringPtrOutput)
 }
 
+// A user-friendly name for the column.
 func (o TopicColumnOutput) ColumnFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *string { return v.ColumnFriendlyName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the column.
 func (o TopicColumnOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicColumn) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
+// The other names or aliases for the column.
 func (o TopicColumnOutput) ColumnSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicColumn) []string { return v.ColumnSynonyms }).(pulumi.StringArrayOutput)
 }
 
+// The order in which data is displayed for the column when it's used in a comparative context.
 func (o TopicColumnOutput) ComparativeOrder() TopicComparativeOrderPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicComparativeOrder { return v.ComparativeOrder }).(TopicComparativeOrderPtrOutput)
 }
 
+// A structure that represents a default formatting definition.
 func (o TopicColumnOutput) DefaultFormatting() TopicDefaultFormattingPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicDefaultFormatting { return v.DefaultFormatting }).(TopicDefaultFormattingPtrOutput)
 }
 
+// A Boolean value that indicates whether the column shows in the autocomplete functionality.
 func (o TopicColumnOutput) DisableIndexing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *bool { return v.DisableIndexing }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean value that indicates whether the column is included in the query results.
 func (o TopicColumnOutput) IsIncludedInTopic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *bool { return v.IsIncludedInTopic }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean value that indicates whether to aggregate the column data when it's used in a filter context.
 func (o TopicColumnOutput) NeverAggregateInFilter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *bool { return v.NeverAggregateInFilter }).(pulumi.BoolPtrOutput)
 }
 
+// The non additive value for the column.
 func (o TopicColumnOutput) NonAdditive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *bool { return v.NonAdditive }).(pulumi.BoolPtrOutput)
 }
 
+// The list of aggregation types that are not allowed for the column. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
 func (o TopicColumnOutput) NotAllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {
 	return o.ApplyT(func(v TopicColumn) []TopicAuthorSpecifiedAggregation { return v.NotAllowedAggregations }).(TopicAuthorSpecifiedAggregationArrayOutput)
 }
 
+// A structure that represents a semantic type.
 func (o TopicColumnOutput) SemanticType() TopicSemanticTypePtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicSemanticType { return v.SemanticType }).(TopicSemanticTypePtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TopicColumnOutput) TimeGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicTimeGranularity { return v.TimeGranularity }).(TopicTimeGranularityPtrOutput)
 }
@@ -12437,9 +13850,12 @@ func (o TopicColumnArrayOutput) Index(i pulumi.IntInput) TopicColumnOutput {
 }
 
 type TopicComparativeOrder struct {
-	SpecifedOrder                 []string                          `pulumi:"specifedOrder"`
+	// The list of columns to be used in the ordering.
+	SpecifedOrder []string `pulumi:"specifedOrder"`
+	// The treat of undefined specified values. Valid values for this structure are `LEAST` and `MOST` .
 	TreatUndefinedSpecifiedValues *TopicUndefinedSpecifiedValueType `pulumi:"treatUndefinedSpecifiedValues"`
-	UseOrdering                   *TopicColumnOrderingType          `pulumi:"useOrdering"`
+	// The ordering type for a column. Valid values for this structure are `GREATER_IS_BETTER` , `LESSER_IS_BETTER` and `SPECIFIED` .
+	UseOrdering *TopicColumnOrderingType `pulumi:"useOrdering"`
 }
 
 // TopicComparativeOrderInput is an input type that accepts TopicComparativeOrderArgs and TopicComparativeOrderOutput values.
@@ -12454,9 +13870,12 @@ type TopicComparativeOrderInput interface {
 }
 
 type TopicComparativeOrderArgs struct {
-	SpecifedOrder                 pulumi.StringArrayInput                  `pulumi:"specifedOrder"`
+	// The list of columns to be used in the ordering.
+	SpecifedOrder pulumi.StringArrayInput `pulumi:"specifedOrder"`
+	// The treat of undefined specified values. Valid values for this structure are `LEAST` and `MOST` .
 	TreatUndefinedSpecifiedValues TopicUndefinedSpecifiedValueTypePtrInput `pulumi:"treatUndefinedSpecifiedValues"`
-	UseOrdering                   TopicColumnOrderingTypePtrInput          `pulumi:"useOrdering"`
+	// The ordering type for a column. Valid values for this structure are `GREATER_IS_BETTER` , `LESSER_IS_BETTER` and `SPECIFIED` .
+	UseOrdering TopicColumnOrderingTypePtrInput `pulumi:"useOrdering"`
 }
 
 func (TopicComparativeOrderArgs) ElementType() reflect.Type {
@@ -12536,16 +13955,19 @@ func (o TopicComparativeOrderOutput) ToTopicComparativeOrderPtrOutputWithContext
 	}).(TopicComparativeOrderPtrOutput)
 }
 
+// The list of columns to be used in the ordering.
 func (o TopicComparativeOrderOutput) SpecifedOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicComparativeOrder) []string { return v.SpecifedOrder }).(pulumi.StringArrayOutput)
 }
 
+// The treat of undefined specified values. Valid values for this structure are `LEAST` and `MOST` .
 func (o TopicComparativeOrderOutput) TreatUndefinedSpecifiedValues() TopicUndefinedSpecifiedValueTypePtrOutput {
 	return o.ApplyT(func(v TopicComparativeOrder) *TopicUndefinedSpecifiedValueType {
 		return v.TreatUndefinedSpecifiedValues
 	}).(TopicUndefinedSpecifiedValueTypePtrOutput)
 }
 
+// The ordering type for a column. Valid values for this structure are `GREATER_IS_BETTER` , `LESSER_IS_BETTER` and `SPECIFIED` .
 func (o TopicComparativeOrderOutput) UseOrdering() TopicColumnOrderingTypePtrOutput {
 	return o.ApplyT(func(v TopicComparativeOrder) *TopicColumnOrderingType { return v.UseOrdering }).(TopicColumnOrderingTypePtrOutput)
 }
@@ -12574,6 +13996,7 @@ func (o TopicComparativeOrderPtrOutput) Elem() TopicComparativeOrderOutput {
 	}).(TopicComparativeOrderOutput)
 }
 
+// The list of columns to be used in the ordering.
 func (o TopicComparativeOrderPtrOutput) SpecifedOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicComparativeOrder) []string {
 		if v == nil {
@@ -12583,6 +14006,7 @@ func (o TopicComparativeOrderPtrOutput) SpecifedOrder() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The treat of undefined specified values. Valid values for this structure are `LEAST` and `MOST` .
 func (o TopicComparativeOrderPtrOutput) TreatUndefinedSpecifiedValues() TopicUndefinedSpecifiedValueTypePtrOutput {
 	return o.ApplyT(func(v *TopicComparativeOrder) *TopicUndefinedSpecifiedValueType {
 		if v == nil {
@@ -12592,6 +14016,7 @@ func (o TopicComparativeOrderPtrOutput) TreatUndefinedSpecifiedValues() TopicUnd
 	}).(TopicUndefinedSpecifiedValueTypePtrOutput)
 }
 
+// The ordering type for a column. Valid values for this structure are `GREATER_IS_BETTER` , `LESSER_IS_BETTER` and `SPECIFIED` .
 func (o TopicComparativeOrderPtrOutput) UseOrdering() TopicColumnOrderingTypePtrOutput {
 	return o.ApplyT(func(v *TopicComparativeOrder) *TopicColumnOrderingType {
 		if v == nil {
@@ -12602,8 +14027,10 @@ func (o TopicComparativeOrderPtrOutput) UseOrdering() TopicColumnOrderingTypePtr
 }
 
 type TopicDataAggregation struct {
+	// The level of time precision that is used to aggregate `DateTime` values.
 	DatasetRowDateGranularity *TopicTimeGranularity `pulumi:"datasetRowDateGranularity"`
-	DefaultDateColumnName     *string               `pulumi:"defaultDateColumnName"`
+	// The column name for the default date.
+	DefaultDateColumnName *string `pulumi:"defaultDateColumnName"`
 }
 
 // TopicDataAggregationInput is an input type that accepts TopicDataAggregationArgs and TopicDataAggregationOutput values.
@@ -12618,8 +14045,10 @@ type TopicDataAggregationInput interface {
 }
 
 type TopicDataAggregationArgs struct {
+	// The level of time precision that is used to aggregate `DateTime` values.
 	DatasetRowDateGranularity TopicTimeGranularityPtrInput `pulumi:"datasetRowDateGranularity"`
-	DefaultDateColumnName     pulumi.StringPtrInput        `pulumi:"defaultDateColumnName"`
+	// The column name for the default date.
+	DefaultDateColumnName pulumi.StringPtrInput `pulumi:"defaultDateColumnName"`
 }
 
 func (TopicDataAggregationArgs) ElementType() reflect.Type {
@@ -12699,10 +14128,12 @@ func (o TopicDataAggregationOutput) ToTopicDataAggregationPtrOutputWithContext(c
 	}).(TopicDataAggregationPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TopicDataAggregationOutput) DatasetRowDateGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TopicDataAggregation) *TopicTimeGranularity { return v.DatasetRowDateGranularity }).(TopicTimeGranularityPtrOutput)
 }
 
+// The column name for the default date.
 func (o TopicDataAggregationOutput) DefaultDateColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDataAggregation) *string { return v.DefaultDateColumnName }).(pulumi.StringPtrOutput)
 }
@@ -12731,6 +14162,7 @@ func (o TopicDataAggregationPtrOutput) Elem() TopicDataAggregationOutput {
 	}).(TopicDataAggregationOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TopicDataAggregationPtrOutput) DatasetRowDateGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v *TopicDataAggregation) *TopicTimeGranularity {
 		if v == nil {
@@ -12740,6 +14172,7 @@ func (o TopicDataAggregationPtrOutput) DatasetRowDateGranularity() TopicTimeGran
 	}).(TopicTimeGranularityPtrOutput)
 }
 
+// The column name for the default date.
 func (o TopicDataAggregationPtrOutput) DefaultDateColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDataAggregation) *string {
 		if v == nil {
@@ -12750,14 +14183,22 @@ func (o TopicDataAggregationPtrOutput) DefaultDateColumnName() pulumi.StringPtrO
 }
 
 type TopicDatasetMetadata struct {
-	CalculatedFields   []TopicCalculatedField `pulumi:"calculatedFields"`
-	Columns            []TopicColumn          `pulumi:"columns"`
-	DataAggregation    *TopicDataAggregation  `pulumi:"dataAggregation"`
-	DatasetArn         string                 `pulumi:"datasetArn"`
-	DatasetDescription *string                `pulumi:"datasetDescription"`
-	DatasetName        *string                `pulumi:"datasetName"`
-	Filters            []TopicFilter          `pulumi:"filters"`
-	NamedEntities      []TopicNamedEntity     `pulumi:"namedEntities"`
+	// A structure that represents a calculated field.
+	CalculatedFields []TopicCalculatedField `pulumi:"calculatedFields"`
+	// Represents a column in a dataset.
+	Columns []TopicColumn `pulumi:"columns"`
+	// The definition of a data aggregation.
+	DataAggregation *TopicDataAggregation `pulumi:"dataAggregation"`
+	// The Amazon Resource Name (ARN) of the dataset.
+	DatasetArn string `pulumi:"datasetArn"`
+	// The description of the dataset.
+	DatasetDescription *string `pulumi:"datasetDescription"`
+	// The name of the dataset.
+	DatasetName *string `pulumi:"datasetName"`
+	// A structure that represents a filter used to select items for a topic.
+	Filters []TopicFilter `pulumi:"filters"`
+	// A structure that represents a named entity.
+	NamedEntities []TopicNamedEntity `pulumi:"namedEntities"`
 }
 
 // TopicDatasetMetadataInput is an input type that accepts TopicDatasetMetadataArgs and TopicDatasetMetadataOutput values.
@@ -12772,14 +14213,22 @@ type TopicDatasetMetadataInput interface {
 }
 
 type TopicDatasetMetadataArgs struct {
-	CalculatedFields   TopicCalculatedFieldArrayInput `pulumi:"calculatedFields"`
-	Columns            TopicColumnArrayInput          `pulumi:"columns"`
-	DataAggregation    TopicDataAggregationPtrInput   `pulumi:"dataAggregation"`
-	DatasetArn         pulumi.StringInput             `pulumi:"datasetArn"`
-	DatasetDescription pulumi.StringPtrInput          `pulumi:"datasetDescription"`
-	DatasetName        pulumi.StringPtrInput          `pulumi:"datasetName"`
-	Filters            TopicFilterArrayInput          `pulumi:"filters"`
-	NamedEntities      TopicNamedEntityArrayInput     `pulumi:"namedEntities"`
+	// A structure that represents a calculated field.
+	CalculatedFields TopicCalculatedFieldArrayInput `pulumi:"calculatedFields"`
+	// Represents a column in a dataset.
+	Columns TopicColumnArrayInput `pulumi:"columns"`
+	// The definition of a data aggregation.
+	DataAggregation TopicDataAggregationPtrInput `pulumi:"dataAggregation"`
+	// The Amazon Resource Name (ARN) of the dataset.
+	DatasetArn pulumi.StringInput `pulumi:"datasetArn"`
+	// The description of the dataset.
+	DatasetDescription pulumi.StringPtrInput `pulumi:"datasetDescription"`
+	// The name of the dataset.
+	DatasetName pulumi.StringPtrInput `pulumi:"datasetName"`
+	// A structure that represents a filter used to select items for a topic.
+	Filters TopicFilterArrayInput `pulumi:"filters"`
+	// A structure that represents a named entity.
+	NamedEntities TopicNamedEntityArrayInput `pulumi:"namedEntities"`
 }
 
 func (TopicDatasetMetadataArgs) ElementType() reflect.Type {
@@ -12833,34 +14282,42 @@ func (o TopicDatasetMetadataOutput) ToTopicDatasetMetadataOutputWithContext(ctx 
 	return o
 }
 
+// A structure that represents a calculated field.
 func (o TopicDatasetMetadataOutput) CalculatedFields() TopicCalculatedFieldArrayOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) []TopicCalculatedField { return v.CalculatedFields }).(TopicCalculatedFieldArrayOutput)
 }
 
+// Represents a column in a dataset.
 func (o TopicDatasetMetadataOutput) Columns() TopicColumnArrayOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) []TopicColumn { return v.Columns }).(TopicColumnArrayOutput)
 }
 
+// The definition of a data aggregation.
 func (o TopicDatasetMetadataOutput) DataAggregation() TopicDataAggregationPtrOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) *TopicDataAggregation { return v.DataAggregation }).(TopicDataAggregationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the dataset.
 func (o TopicDatasetMetadataOutput) DatasetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) string { return v.DatasetArn }).(pulumi.StringOutput)
 }
 
+// The description of the dataset.
 func (o TopicDatasetMetadataOutput) DatasetDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) *string { return v.DatasetDescription }).(pulumi.StringPtrOutput)
 }
 
+// The name of the dataset.
 func (o TopicDatasetMetadataOutput) DatasetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) *string { return v.DatasetName }).(pulumi.StringPtrOutput)
 }
 
+// A structure that represents a filter used to select items for a topic.
 func (o TopicDatasetMetadataOutput) Filters() TopicFilterArrayOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) []TopicFilter { return v.Filters }).(TopicFilterArrayOutput)
 }
 
+// A structure that represents a named entity.
 func (o TopicDatasetMetadataOutput) NamedEntities() TopicNamedEntityArrayOutput {
 	return o.ApplyT(func(v TopicDatasetMetadata) []TopicNamedEntity { return v.NamedEntities }).(TopicNamedEntityArrayOutput)
 }
@@ -12886,8 +14343,10 @@ func (o TopicDatasetMetadataArrayOutput) Index(i pulumi.IntInput) TopicDatasetMe
 }
 
 type TopicDateRangeFilter struct {
-	Constant  *TopicRangeFilterConstant `pulumi:"constant"`
-	Inclusive *bool                     `pulumi:"inclusive"`
+	// A constant value that is used in a range filter to specify the endpoints of the range.
+	Constant *TopicRangeFilterConstant `pulumi:"constant"`
+	// A Boolean value that indicates whether the date range filter should include the boundary values. If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.
+	Inclusive *bool `pulumi:"inclusive"`
 }
 
 // TopicDateRangeFilterInput is an input type that accepts TopicDateRangeFilterArgs and TopicDateRangeFilterOutput values.
@@ -12902,8 +14361,10 @@ type TopicDateRangeFilterInput interface {
 }
 
 type TopicDateRangeFilterArgs struct {
-	Constant  TopicRangeFilterConstantPtrInput `pulumi:"constant"`
-	Inclusive pulumi.BoolPtrInput              `pulumi:"inclusive"`
+	// A constant value that is used in a range filter to specify the endpoints of the range.
+	Constant TopicRangeFilterConstantPtrInput `pulumi:"constant"`
+	// A Boolean value that indicates whether the date range filter should include the boundary values. If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.
+	Inclusive pulumi.BoolPtrInput `pulumi:"inclusive"`
 }
 
 func (TopicDateRangeFilterArgs) ElementType() reflect.Type {
@@ -12983,10 +14444,12 @@ func (o TopicDateRangeFilterOutput) ToTopicDateRangeFilterPtrOutputWithContext(c
 	}).(TopicDateRangeFilterPtrOutput)
 }
 
+// A constant value that is used in a range filter to specify the endpoints of the range.
 func (o TopicDateRangeFilterOutput) Constant() TopicRangeFilterConstantPtrOutput {
 	return o.ApplyT(func(v TopicDateRangeFilter) *TopicRangeFilterConstant { return v.Constant }).(TopicRangeFilterConstantPtrOutput)
 }
 
+// A Boolean value that indicates whether the date range filter should include the boundary values. If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.
 func (o TopicDateRangeFilterOutput) Inclusive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicDateRangeFilter) *bool { return v.Inclusive }).(pulumi.BoolPtrOutput)
 }
@@ -13015,6 +14478,7 @@ func (o TopicDateRangeFilterPtrOutput) Elem() TopicDateRangeFilterOutput {
 	}).(TopicDateRangeFilterOutput)
 }
 
+// A constant value that is used in a range filter to specify the endpoints of the range.
 func (o TopicDateRangeFilterPtrOutput) Constant() TopicRangeFilterConstantPtrOutput {
 	return o.ApplyT(func(v *TopicDateRangeFilter) *TopicRangeFilterConstant {
 		if v == nil {
@@ -13024,6 +14488,7 @@ func (o TopicDateRangeFilterPtrOutput) Constant() TopicRangeFilterConstantPtrOut
 	}).(TopicRangeFilterConstantPtrOutput)
 }
 
+// A Boolean value that indicates whether the date range filter should include the boundary values. If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.
 func (o TopicDateRangeFilterPtrOutput) Inclusive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicDateRangeFilter) *bool {
 		if v == nil {
@@ -13034,7 +14499,9 @@ func (o TopicDateRangeFilterPtrOutput) Inclusive() pulumi.BoolPtrOutput {
 }
 
 type TopicDefaultFormatting struct {
-	DisplayFormat        *TopicDisplayFormat        `pulumi:"displayFormat"`
+	// The display format. Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
+	DisplayFormat *TopicDisplayFormat `pulumi:"displayFormat"`
+	// A structure that represents additional options for display formatting.
 	DisplayFormatOptions *TopicDisplayFormatOptions `pulumi:"displayFormatOptions"`
 }
 
@@ -13050,7 +14517,9 @@ type TopicDefaultFormattingInput interface {
 }
 
 type TopicDefaultFormattingArgs struct {
-	DisplayFormat        TopicDisplayFormatPtrInput        `pulumi:"displayFormat"`
+	// The display format. Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
+	DisplayFormat TopicDisplayFormatPtrInput `pulumi:"displayFormat"`
+	// A structure that represents additional options for display formatting.
 	DisplayFormatOptions TopicDisplayFormatOptionsPtrInput `pulumi:"displayFormatOptions"`
 }
 
@@ -13131,10 +14600,12 @@ func (o TopicDefaultFormattingOutput) ToTopicDefaultFormattingPtrOutputWithConte
 	}).(TopicDefaultFormattingPtrOutput)
 }
 
+// The display format. Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
 func (o TopicDefaultFormattingOutput) DisplayFormat() TopicDisplayFormatPtrOutput {
 	return o.ApplyT(func(v TopicDefaultFormatting) *TopicDisplayFormat { return v.DisplayFormat }).(TopicDisplayFormatPtrOutput)
 }
 
+// A structure that represents additional options for display formatting.
 func (o TopicDefaultFormattingOutput) DisplayFormatOptions() TopicDisplayFormatOptionsPtrOutput {
 	return o.ApplyT(func(v TopicDefaultFormatting) *TopicDisplayFormatOptions { return v.DisplayFormatOptions }).(TopicDisplayFormatOptionsPtrOutput)
 }
@@ -13163,6 +14634,7 @@ func (o TopicDefaultFormattingPtrOutput) Elem() TopicDefaultFormattingOutput {
 	}).(TopicDefaultFormattingOutput)
 }
 
+// The display format. Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
 func (o TopicDefaultFormattingPtrOutput) DisplayFormat() TopicDisplayFormatPtrOutput {
 	return o.ApplyT(func(v *TopicDefaultFormatting) *TopicDisplayFormat {
 		if v == nil {
@@ -13172,6 +14644,7 @@ func (o TopicDefaultFormattingPtrOutput) DisplayFormat() TopicDisplayFormatPtrOu
 	}).(TopicDisplayFormatPtrOutput)
 }
 
+// A structure that represents additional options for display formatting.
 func (o TopicDefaultFormattingPtrOutput) DisplayFormatOptions() TopicDisplayFormatOptionsPtrOutput {
 	return o.ApplyT(func(v *TopicDefaultFormatting) *TopicDisplayFormatOptions {
 		if v == nil {
@@ -13182,18 +14655,30 @@ func (o TopicDefaultFormattingPtrOutput) DisplayFormatOptions() TopicDisplayForm
 }
 
 type TopicDisplayFormatOptions struct {
-	BlankCellFormat    *string                      `pulumi:"blankCellFormat"`
-	CurrencySymbol     *string                      `pulumi:"currencySymbol"`
-	DateFormat         *string                      `pulumi:"dateFormat"`
-	DecimalSeparator   *TopicNumericSeparatorSymbol `pulumi:"decimalSeparator"`
-	FractionDigits     *float64                     `pulumi:"fractionDigits"`
-	GroupingSeparator  *string                      `pulumi:"groupingSeparator"`
-	NegativeFormat     *TopicNegativeFormat         `pulumi:"negativeFormat"`
-	Prefix             *string                      `pulumi:"prefix"`
-	Suffix             *string                      `pulumi:"suffix"`
-	UnitScaler         *TopicNumberScale            `pulumi:"unitScaler"`
-	UseBlankCellFormat *bool                        `pulumi:"useBlankCellFormat"`
-	UseGrouping        *bool                        `pulumi:"useGrouping"`
+	// Determines the blank cell format.
+	BlankCellFormat *string `pulumi:"blankCellFormat"`
+	// The currency symbol, such as `USD` .
+	CurrencySymbol *string `pulumi:"currencySymbol"`
+	// Determines the `DateTime` format.
+	DateFormat *string `pulumi:"dateFormat"`
+	// Determines the decimal separator.
+	DecimalSeparator *TopicNumericSeparatorSymbol `pulumi:"decimalSeparator"`
+	// Determines the number of fraction digits.
+	FractionDigits *float64 `pulumi:"fractionDigits"`
+	// Determines the grouping separator.
+	GroupingSeparator *string `pulumi:"groupingSeparator"`
+	// A structure that represents a negative format.
+	NegativeFormat *TopicNegativeFormat `pulumi:"negativeFormat"`
+	// The prefix value for a display format.
+	Prefix *string `pulumi:"prefix"`
+	// The suffix value for a display format.
+	Suffix *string `pulumi:"suffix"`
+	// The unit scaler. Valid values for this structure are: `NONE` , `AUTO` , `THOUSANDS` , `MILLIONS` , `BILLIONS` , and `TRILLIONS` .
+	UnitScaler *TopicNumberScale `pulumi:"unitScaler"`
+	// A Boolean value that indicates whether to use blank cell format.
+	UseBlankCellFormat *bool `pulumi:"useBlankCellFormat"`
+	// A Boolean value that indicates whether to use grouping.
+	UseGrouping *bool `pulumi:"useGrouping"`
 }
 
 // TopicDisplayFormatOptionsInput is an input type that accepts TopicDisplayFormatOptionsArgs and TopicDisplayFormatOptionsOutput values.
@@ -13208,18 +14693,30 @@ type TopicDisplayFormatOptionsInput interface {
 }
 
 type TopicDisplayFormatOptionsArgs struct {
-	BlankCellFormat    pulumi.StringPtrInput               `pulumi:"blankCellFormat"`
-	CurrencySymbol     pulumi.StringPtrInput               `pulumi:"currencySymbol"`
-	DateFormat         pulumi.StringPtrInput               `pulumi:"dateFormat"`
-	DecimalSeparator   TopicNumericSeparatorSymbolPtrInput `pulumi:"decimalSeparator"`
-	FractionDigits     pulumi.Float64PtrInput              `pulumi:"fractionDigits"`
-	GroupingSeparator  pulumi.StringPtrInput               `pulumi:"groupingSeparator"`
-	NegativeFormat     TopicNegativeFormatPtrInput         `pulumi:"negativeFormat"`
-	Prefix             pulumi.StringPtrInput               `pulumi:"prefix"`
-	Suffix             pulumi.StringPtrInput               `pulumi:"suffix"`
-	UnitScaler         TopicNumberScalePtrInput            `pulumi:"unitScaler"`
-	UseBlankCellFormat pulumi.BoolPtrInput                 `pulumi:"useBlankCellFormat"`
-	UseGrouping        pulumi.BoolPtrInput                 `pulumi:"useGrouping"`
+	// Determines the blank cell format.
+	BlankCellFormat pulumi.StringPtrInput `pulumi:"blankCellFormat"`
+	// The currency symbol, such as `USD` .
+	CurrencySymbol pulumi.StringPtrInput `pulumi:"currencySymbol"`
+	// Determines the `DateTime` format.
+	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
+	// Determines the decimal separator.
+	DecimalSeparator TopicNumericSeparatorSymbolPtrInput `pulumi:"decimalSeparator"`
+	// Determines the number of fraction digits.
+	FractionDigits pulumi.Float64PtrInput `pulumi:"fractionDigits"`
+	// Determines the grouping separator.
+	GroupingSeparator pulumi.StringPtrInput `pulumi:"groupingSeparator"`
+	// A structure that represents a negative format.
+	NegativeFormat TopicNegativeFormatPtrInput `pulumi:"negativeFormat"`
+	// The prefix value for a display format.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The suffix value for a display format.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+	// The unit scaler. Valid values for this structure are: `NONE` , `AUTO` , `THOUSANDS` , `MILLIONS` , `BILLIONS` , and `TRILLIONS` .
+	UnitScaler TopicNumberScalePtrInput `pulumi:"unitScaler"`
+	// A Boolean value that indicates whether to use blank cell format.
+	UseBlankCellFormat pulumi.BoolPtrInput `pulumi:"useBlankCellFormat"`
+	// A Boolean value that indicates whether to use grouping.
+	UseGrouping pulumi.BoolPtrInput `pulumi:"useGrouping"`
 }
 
 func (TopicDisplayFormatOptionsArgs) ElementType() reflect.Type {
@@ -13299,50 +14796,62 @@ func (o TopicDisplayFormatOptionsOutput) ToTopicDisplayFormatOptionsPtrOutputWit
 	}).(TopicDisplayFormatOptionsPtrOutput)
 }
 
+// Determines the blank cell format.
 func (o TopicDisplayFormatOptionsOutput) BlankCellFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *string { return v.BlankCellFormat }).(pulumi.StringPtrOutput)
 }
 
+// The currency symbol, such as `USD` .
 func (o TopicDisplayFormatOptionsOutput) CurrencySymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *string { return v.CurrencySymbol }).(pulumi.StringPtrOutput)
 }
 
+// Determines the `DateTime` format.
 func (o TopicDisplayFormatOptionsOutput) DateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
 }
 
+// Determines the decimal separator.
 func (o TopicDisplayFormatOptionsOutput) DecimalSeparator() TopicNumericSeparatorSymbolPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *TopicNumericSeparatorSymbol { return v.DecimalSeparator }).(TopicNumericSeparatorSymbolPtrOutput)
 }
 
+// Determines the number of fraction digits.
 func (o TopicDisplayFormatOptionsOutput) FractionDigits() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *float64 { return v.FractionDigits }).(pulumi.Float64PtrOutput)
 }
 
+// Determines the grouping separator.
 func (o TopicDisplayFormatOptionsOutput) GroupingSeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *string { return v.GroupingSeparator }).(pulumi.StringPtrOutput)
 }
 
+// A structure that represents a negative format.
 func (o TopicDisplayFormatOptionsOutput) NegativeFormat() TopicNegativeFormatPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *TopicNegativeFormat { return v.NegativeFormat }).(TopicNegativeFormatPtrOutput)
 }
 
+// The prefix value for a display format.
 func (o TopicDisplayFormatOptionsOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// The suffix value for a display format.
 func (o TopicDisplayFormatOptionsOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
+// The unit scaler. Valid values for this structure are: `NONE` , `AUTO` , `THOUSANDS` , `MILLIONS` , `BILLIONS` , and `TRILLIONS` .
 func (o TopicDisplayFormatOptionsOutput) UnitScaler() TopicNumberScalePtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *TopicNumberScale { return v.UnitScaler }).(TopicNumberScalePtrOutput)
 }
 
+// A Boolean value that indicates whether to use blank cell format.
 func (o TopicDisplayFormatOptionsOutput) UseBlankCellFormat() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *bool { return v.UseBlankCellFormat }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean value that indicates whether to use grouping.
 func (o TopicDisplayFormatOptionsOutput) UseGrouping() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicDisplayFormatOptions) *bool { return v.UseGrouping }).(pulumi.BoolPtrOutput)
 }
@@ -13371,6 +14880,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) Elem() TopicDisplayFormatOptionsOutp
 	}).(TopicDisplayFormatOptionsOutput)
 }
 
+// Determines the blank cell format.
 func (o TopicDisplayFormatOptionsPtrOutput) BlankCellFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *string {
 		if v == nil {
@@ -13380,6 +14890,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) BlankCellFormat() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The currency symbol, such as `USD` .
 func (o TopicDisplayFormatOptionsPtrOutput) CurrencySymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *string {
 		if v == nil {
@@ -13389,6 +14900,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) CurrencySymbol() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines the `DateTime` format.
 func (o TopicDisplayFormatOptionsPtrOutput) DateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *string {
 		if v == nil {
@@ -13398,6 +14910,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) DateFormat() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines the decimal separator.
 func (o TopicDisplayFormatOptionsPtrOutput) DecimalSeparator() TopicNumericSeparatorSymbolPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *TopicNumericSeparatorSymbol {
 		if v == nil {
@@ -13407,6 +14920,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) DecimalSeparator() TopicNumericSepar
 	}).(TopicNumericSeparatorSymbolPtrOutput)
 }
 
+// Determines the number of fraction digits.
 func (o TopicDisplayFormatOptionsPtrOutput) FractionDigits() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *float64 {
 		if v == nil {
@@ -13416,6 +14930,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) FractionDigits() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Determines the grouping separator.
 func (o TopicDisplayFormatOptionsPtrOutput) GroupingSeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *string {
 		if v == nil {
@@ -13425,6 +14940,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) GroupingSeparator() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A structure that represents a negative format.
 func (o TopicDisplayFormatOptionsPtrOutput) NegativeFormat() TopicNegativeFormatPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *TopicNegativeFormat {
 		if v == nil {
@@ -13434,6 +14950,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) NegativeFormat() TopicNegativeFormat
 	}).(TopicNegativeFormatPtrOutput)
 }
 
+// The prefix value for a display format.
 func (o TopicDisplayFormatOptionsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *string {
 		if v == nil {
@@ -13443,6 +14960,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The suffix value for a display format.
 func (o TopicDisplayFormatOptionsPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *string {
 		if v == nil {
@@ -13452,6 +14970,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) Suffix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unit scaler. Valid values for this structure are: `NONE` , `AUTO` , `THOUSANDS` , `MILLIONS` , `BILLIONS` , and `TRILLIONS` .
 func (o TopicDisplayFormatOptionsPtrOutput) UnitScaler() TopicNumberScalePtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *TopicNumberScale {
 		if v == nil {
@@ -13461,6 +14980,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) UnitScaler() TopicNumberScalePtrOutp
 	}).(TopicNumberScalePtrOutput)
 }
 
+// A Boolean value that indicates whether to use blank cell format.
 func (o TopicDisplayFormatOptionsPtrOutput) UseBlankCellFormat() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *bool {
 		if v == nil {
@@ -13470,6 +14990,7 @@ func (o TopicDisplayFormatOptionsPtrOutput) UseBlankCellFormat() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean value that indicates whether to use grouping.
 func (o TopicDisplayFormatOptionsPtrOutput) UseGrouping() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicDisplayFormatOptions) *bool {
 		if v == nil {
@@ -13480,17 +15001,28 @@ func (o TopicDisplayFormatOptionsPtrOutput) UseGrouping() pulumi.BoolPtrOutput {
 }
 
 type TopicFilter struct {
-	CategoryFilter        *TopicCategoryFilter        `pulumi:"categoryFilter"`
-	DateRangeFilter       *TopicDateRangeFilter       `pulumi:"dateRangeFilter"`
-	FilterClass           *TopicFilterClass           `pulumi:"filterClass"`
-	FilterDescription     *string                     `pulumi:"filterDescription"`
-	FilterName            string                      `pulumi:"filterName"`
-	FilterSynonyms        []string                    `pulumi:"filterSynonyms"`
-	FilterType            *TopicNamedFilterType       `pulumi:"filterType"`
+	// A structure that represents a category filter.
+	CategoryFilter *TopicCategoryFilter `pulumi:"categoryFilter"`
+	// A filter used to restrict data based on a range of dates or times.
+	DateRangeFilter *TopicDateRangeFilter `pulumi:"dateRangeFilter"`
+	// The class of the filter. Valid values for this structure are `ENFORCED_VALUE_FILTER` , `CONDITIONAL_VALUE_FILTER` , and `NAMED_VALUE_FILTER` .
+	FilterClass *TopicFilterClass `pulumi:"filterClass"`
+	// A description of the filter used to select items for a topic.
+	FilterDescription *string `pulumi:"filterDescription"`
+	// The name of the filter.
+	FilterName string `pulumi:"filterName"`
+	// The other names or aliases for the filter.
+	FilterSynonyms []string `pulumi:"filterSynonyms"`
+	// The type of the filter. Valid values for this structure are `CATEGORY_FILTER` , `NUMERIC_EQUALITY_FILTER` , `NUMERIC_RANGE_FILTER` , `DATE_RANGE_FILTER` , and `RELATIVE_DATE_FILTER` .
+	FilterType *TopicNamedFilterType `pulumi:"filterType"`
+	// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.
 	NumericEqualityFilter *TopicNumericEqualityFilter `pulumi:"numericEqualityFilter"`
-	NumericRangeFilter    *TopicNumericRangeFilter    `pulumi:"numericRangeFilter"`
-	OperandFieldName      string                      `pulumi:"operandFieldName"`
-	RelativeDateFilter    *TopicRelativeDateFilter    `pulumi:"relativeDateFilter"`
+	// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.
+	NumericRangeFilter *TopicNumericRangeFilter `pulumi:"numericRangeFilter"`
+	// The name of the field that the filter operates on.
+	OperandFieldName string `pulumi:"operandFieldName"`
+	// A structure that represents a relative date filter.
+	RelativeDateFilter *TopicRelativeDateFilter `pulumi:"relativeDateFilter"`
 }
 
 // TopicFilterInput is an input type that accepts TopicFilterArgs and TopicFilterOutput values.
@@ -13505,17 +15037,28 @@ type TopicFilterInput interface {
 }
 
 type TopicFilterArgs struct {
-	CategoryFilter        TopicCategoryFilterPtrInput        `pulumi:"categoryFilter"`
-	DateRangeFilter       TopicDateRangeFilterPtrInput       `pulumi:"dateRangeFilter"`
-	FilterClass           TopicFilterClassPtrInput           `pulumi:"filterClass"`
-	FilterDescription     pulumi.StringPtrInput              `pulumi:"filterDescription"`
-	FilterName            pulumi.StringInput                 `pulumi:"filterName"`
-	FilterSynonyms        pulumi.StringArrayInput            `pulumi:"filterSynonyms"`
-	FilterType            TopicNamedFilterTypePtrInput       `pulumi:"filterType"`
+	// A structure that represents a category filter.
+	CategoryFilter TopicCategoryFilterPtrInput `pulumi:"categoryFilter"`
+	// A filter used to restrict data based on a range of dates or times.
+	DateRangeFilter TopicDateRangeFilterPtrInput `pulumi:"dateRangeFilter"`
+	// The class of the filter. Valid values for this structure are `ENFORCED_VALUE_FILTER` , `CONDITIONAL_VALUE_FILTER` , and `NAMED_VALUE_FILTER` .
+	FilterClass TopicFilterClassPtrInput `pulumi:"filterClass"`
+	// A description of the filter used to select items for a topic.
+	FilterDescription pulumi.StringPtrInput `pulumi:"filterDescription"`
+	// The name of the filter.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// The other names or aliases for the filter.
+	FilterSynonyms pulumi.StringArrayInput `pulumi:"filterSynonyms"`
+	// The type of the filter. Valid values for this structure are `CATEGORY_FILTER` , `NUMERIC_EQUALITY_FILTER` , `NUMERIC_RANGE_FILTER` , `DATE_RANGE_FILTER` , and `RELATIVE_DATE_FILTER` .
+	FilterType TopicNamedFilterTypePtrInput `pulumi:"filterType"`
+	// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.
 	NumericEqualityFilter TopicNumericEqualityFilterPtrInput `pulumi:"numericEqualityFilter"`
-	NumericRangeFilter    TopicNumericRangeFilterPtrInput    `pulumi:"numericRangeFilter"`
-	OperandFieldName      pulumi.StringInput                 `pulumi:"operandFieldName"`
-	RelativeDateFilter    TopicRelativeDateFilterPtrInput    `pulumi:"relativeDateFilter"`
+	// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.
+	NumericRangeFilter TopicNumericRangeFilterPtrInput `pulumi:"numericRangeFilter"`
+	// The name of the field that the filter operates on.
+	OperandFieldName pulumi.StringInput `pulumi:"operandFieldName"`
+	// A structure that represents a relative date filter.
+	RelativeDateFilter TopicRelativeDateFilterPtrInput `pulumi:"relativeDateFilter"`
 }
 
 func (TopicFilterArgs) ElementType() reflect.Type {
@@ -13569,46 +15112,57 @@ func (o TopicFilterOutput) ToTopicFilterOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// A structure that represents a category filter.
 func (o TopicFilterOutput) CategoryFilter() TopicCategoryFilterPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicCategoryFilter { return v.CategoryFilter }).(TopicCategoryFilterPtrOutput)
 }
 
+// A filter used to restrict data based on a range of dates or times.
 func (o TopicFilterOutput) DateRangeFilter() TopicDateRangeFilterPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicDateRangeFilter { return v.DateRangeFilter }).(TopicDateRangeFilterPtrOutput)
 }
 
+// The class of the filter. Valid values for this structure are `ENFORCED_VALUE_FILTER` , `CONDITIONAL_VALUE_FILTER` , and `NAMED_VALUE_FILTER` .
 func (o TopicFilterOutput) FilterClass() TopicFilterClassPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicFilterClass { return v.FilterClass }).(TopicFilterClassPtrOutput)
 }
 
+// A description of the filter used to select items for a topic.
 func (o TopicFilterOutput) FilterDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *string { return v.FilterDescription }).(pulumi.StringPtrOutput)
 }
 
+// The name of the filter.
 func (o TopicFilterOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicFilter) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
+// The other names or aliases for the filter.
 func (o TopicFilterOutput) FilterSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicFilter) []string { return v.FilterSynonyms }).(pulumi.StringArrayOutput)
 }
 
+// The type of the filter. Valid values for this structure are `CATEGORY_FILTER` , `NUMERIC_EQUALITY_FILTER` , `NUMERIC_RANGE_FILTER` , `DATE_RANGE_FILTER` , and `RELATIVE_DATE_FILTER` .
 func (o TopicFilterOutput) FilterType() TopicNamedFilterTypePtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicNamedFilterType { return v.FilterType }).(TopicNamedFilterTypePtrOutput)
 }
 
+// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.
 func (o TopicFilterOutput) NumericEqualityFilter() TopicNumericEqualityFilterPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicNumericEqualityFilter { return v.NumericEqualityFilter }).(TopicNumericEqualityFilterPtrOutput)
 }
 
+// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.
 func (o TopicFilterOutput) NumericRangeFilter() TopicNumericRangeFilterPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicNumericRangeFilter { return v.NumericRangeFilter }).(TopicNumericRangeFilterPtrOutput)
 }
 
+// The name of the field that the filter operates on.
 func (o TopicFilterOutput) OperandFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicFilter) string { return v.OperandFieldName }).(pulumi.StringOutput)
 }
 
+// A structure that represents a relative date filter.
 func (o TopicFilterOutput) RelativeDateFilter() TopicRelativeDateFilterPtrOutput {
 	return o.ApplyT(func(v TopicFilter) *TopicRelativeDateFilter { return v.RelativeDateFilter }).(TopicRelativeDateFilterPtrOutput)
 }
@@ -13634,11 +15188,16 @@ func (o TopicFilterArrayOutput) Index(i pulumi.IntInput) TopicFilterOutput {
 }
 
 type TopicNamedEntity struct {
-	Definition         []TopicNamedEntityDefinition `pulumi:"definition"`
-	EntityDescription  *string                      `pulumi:"entityDescription"`
-	EntityName         string                       `pulumi:"entityName"`
-	EntitySynonyms     []string                     `pulumi:"entitySynonyms"`
-	SemanticEntityType *TopicSemanticEntityType     `pulumi:"semanticEntityType"`
+	// A structure that represents a named entity.
+	Definition []TopicNamedEntityDefinition `pulumi:"definition"`
+	// The description of the named entity.
+	EntityDescription *string `pulumi:"entityDescription"`
+	// The name of the named entity.
+	EntityName string `pulumi:"entityName"`
+	// The other names or aliases for the named entity.
+	EntitySynonyms []string `pulumi:"entitySynonyms"`
+	// A structure that represents a semantic entity type.
+	SemanticEntityType *TopicSemanticEntityType `pulumi:"semanticEntityType"`
 }
 
 // TopicNamedEntityInput is an input type that accepts TopicNamedEntityArgs and TopicNamedEntityOutput values.
@@ -13653,11 +15212,16 @@ type TopicNamedEntityInput interface {
 }
 
 type TopicNamedEntityArgs struct {
-	Definition         TopicNamedEntityDefinitionArrayInput `pulumi:"definition"`
-	EntityDescription  pulumi.StringPtrInput                `pulumi:"entityDescription"`
-	EntityName         pulumi.StringInput                   `pulumi:"entityName"`
-	EntitySynonyms     pulumi.StringArrayInput              `pulumi:"entitySynonyms"`
-	SemanticEntityType TopicSemanticEntityTypePtrInput      `pulumi:"semanticEntityType"`
+	// A structure that represents a named entity.
+	Definition TopicNamedEntityDefinitionArrayInput `pulumi:"definition"`
+	// The description of the named entity.
+	EntityDescription pulumi.StringPtrInput `pulumi:"entityDescription"`
+	// The name of the named entity.
+	EntityName pulumi.StringInput `pulumi:"entityName"`
+	// The other names or aliases for the named entity.
+	EntitySynonyms pulumi.StringArrayInput `pulumi:"entitySynonyms"`
+	// A structure that represents a semantic entity type.
+	SemanticEntityType TopicSemanticEntityTypePtrInput `pulumi:"semanticEntityType"`
 }
 
 func (TopicNamedEntityArgs) ElementType() reflect.Type {
@@ -13711,22 +15275,27 @@ func (o TopicNamedEntityOutput) ToTopicNamedEntityOutputWithContext(ctx context.
 	return o
 }
 
+// A structure that represents a named entity.
 func (o TopicNamedEntityOutput) Definition() TopicNamedEntityDefinitionArrayOutput {
 	return o.ApplyT(func(v TopicNamedEntity) []TopicNamedEntityDefinition { return v.Definition }).(TopicNamedEntityDefinitionArrayOutput)
 }
 
+// The description of the named entity.
 func (o TopicNamedEntityOutput) EntityDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicNamedEntity) *string { return v.EntityDescription }).(pulumi.StringPtrOutput)
 }
 
+// The name of the named entity.
 func (o TopicNamedEntityOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicNamedEntity) string { return v.EntityName }).(pulumi.StringOutput)
 }
 
+// The other names or aliases for the named entity.
 func (o TopicNamedEntityOutput) EntitySynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicNamedEntity) []string { return v.EntitySynonyms }).(pulumi.StringArrayOutput)
 }
 
+// A structure that represents a semantic entity type.
 func (o TopicNamedEntityOutput) SemanticEntityType() TopicSemanticEntityTypePtrOutput {
 	return o.ApplyT(func(v TopicNamedEntity) *TopicSemanticEntityType { return v.SemanticEntityType }).(TopicSemanticEntityTypePtrOutput)
 }
@@ -13752,11 +15321,16 @@ func (o TopicNamedEntityArrayOutput) Index(i pulumi.IntInput) TopicNamedEntityOu
 }
 
 type TopicNamedEntityDefinition struct {
-	FieldName     *string                           `pulumi:"fieldName"`
-	Metric        *TopicNamedEntityDefinitionMetric `pulumi:"metric"`
-	PropertyName  *string                           `pulumi:"propertyName"`
-	PropertyRole  *TopicPropertyRole                `pulumi:"propertyRole"`
-	PropertyUsage *TopicPropertyUsage               `pulumi:"propertyUsage"`
+	// The name of the entity.
+	FieldName *string `pulumi:"fieldName"`
+	// A structure that represents a metric.
+	Metric *TopicNamedEntityDefinitionMetric `pulumi:"metric"`
+	// The property name to be used for the named entity.
+	PropertyName *string `pulumi:"propertyName"`
+	// The property role. Valid values for this structure are `PRIMARY` and `ID` .
+	PropertyRole *TopicPropertyRole `pulumi:"propertyRole"`
+	// The property usage. Valid values for this structure are `INHERIT` , `DIMENSION` , and `MEASURE` .
+	PropertyUsage *TopicPropertyUsage `pulumi:"propertyUsage"`
 }
 
 // TopicNamedEntityDefinitionInput is an input type that accepts TopicNamedEntityDefinitionArgs and TopicNamedEntityDefinitionOutput values.
@@ -13771,11 +15345,16 @@ type TopicNamedEntityDefinitionInput interface {
 }
 
 type TopicNamedEntityDefinitionArgs struct {
-	FieldName     pulumi.StringPtrInput                    `pulumi:"fieldName"`
-	Metric        TopicNamedEntityDefinitionMetricPtrInput `pulumi:"metric"`
-	PropertyName  pulumi.StringPtrInput                    `pulumi:"propertyName"`
-	PropertyRole  TopicPropertyRolePtrInput                `pulumi:"propertyRole"`
-	PropertyUsage TopicPropertyUsagePtrInput               `pulumi:"propertyUsage"`
+	// The name of the entity.
+	FieldName pulumi.StringPtrInput `pulumi:"fieldName"`
+	// A structure that represents a metric.
+	Metric TopicNamedEntityDefinitionMetricPtrInput `pulumi:"metric"`
+	// The property name to be used for the named entity.
+	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
+	// The property role. Valid values for this structure are `PRIMARY` and `ID` .
+	PropertyRole TopicPropertyRolePtrInput `pulumi:"propertyRole"`
+	// The property usage. Valid values for this structure are `INHERIT` , `DIMENSION` , and `MEASURE` .
+	PropertyUsage TopicPropertyUsagePtrInput `pulumi:"propertyUsage"`
 }
 
 func (TopicNamedEntityDefinitionArgs) ElementType() reflect.Type {
@@ -13829,22 +15408,27 @@ func (o TopicNamedEntityDefinitionOutput) ToTopicNamedEntityDefinitionOutputWith
 	return o
 }
 
+// The name of the entity.
 func (o TopicNamedEntityDefinitionOutput) FieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinition) *string { return v.FieldName }).(pulumi.StringPtrOutput)
 }
 
+// A structure that represents a metric.
 func (o TopicNamedEntityDefinitionOutput) Metric() TopicNamedEntityDefinitionMetricPtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinition) *TopicNamedEntityDefinitionMetric { return v.Metric }).(TopicNamedEntityDefinitionMetricPtrOutput)
 }
 
+// The property name to be used for the named entity.
 func (o TopicNamedEntityDefinitionOutput) PropertyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinition) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
 }
 
+// The property role. Valid values for this structure are `PRIMARY` and `ID` .
 func (o TopicNamedEntityDefinitionOutput) PropertyRole() TopicPropertyRolePtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinition) *TopicPropertyRole { return v.PropertyRole }).(TopicPropertyRolePtrOutput)
 }
 
+// The property usage. Valid values for this structure are `INHERIT` , `DIMENSION` , and `MEASURE` .
 func (o TopicNamedEntityDefinitionOutput) PropertyUsage() TopicPropertyUsagePtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinition) *TopicPropertyUsage { return v.PropertyUsage }).(TopicPropertyUsagePtrOutput)
 }
@@ -13870,8 +15454,10 @@ func (o TopicNamedEntityDefinitionArrayOutput) Index(i pulumi.IntInput) TopicNam
 }
 
 type TopicNamedEntityDefinitionMetric struct {
-	Aggregation                   *TopicNamedEntityAggType `pulumi:"aggregation"`
-	AggregationFunctionParameters map[string]string        `pulumi:"aggregationFunctionParameters"`
+	// The aggregation of a named entity. Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
+	Aggregation *TopicNamedEntityAggType `pulumi:"aggregation"`
+	// The additional parameters for an aggregation function.
+	AggregationFunctionParameters map[string]string `pulumi:"aggregationFunctionParameters"`
 }
 
 // TopicNamedEntityDefinitionMetricInput is an input type that accepts TopicNamedEntityDefinitionMetricArgs and TopicNamedEntityDefinitionMetricOutput values.
@@ -13886,8 +15472,10 @@ type TopicNamedEntityDefinitionMetricInput interface {
 }
 
 type TopicNamedEntityDefinitionMetricArgs struct {
-	Aggregation                   TopicNamedEntityAggTypePtrInput `pulumi:"aggregation"`
-	AggregationFunctionParameters pulumi.StringMapInput           `pulumi:"aggregationFunctionParameters"`
+	// The aggregation of a named entity. Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
+	Aggregation TopicNamedEntityAggTypePtrInput `pulumi:"aggregation"`
+	// The additional parameters for an aggregation function.
+	AggregationFunctionParameters pulumi.StringMapInput `pulumi:"aggregationFunctionParameters"`
 }
 
 func (TopicNamedEntityDefinitionMetricArgs) ElementType() reflect.Type {
@@ -13967,10 +15555,12 @@ func (o TopicNamedEntityDefinitionMetricOutput) ToTopicNamedEntityDefinitionMetr
 	}).(TopicNamedEntityDefinitionMetricPtrOutput)
 }
 
+// The aggregation of a named entity. Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
 func (o TopicNamedEntityDefinitionMetricOutput) Aggregation() TopicNamedEntityAggTypePtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinitionMetric) *TopicNamedEntityAggType { return v.Aggregation }).(TopicNamedEntityAggTypePtrOutput)
 }
 
+// The additional parameters for an aggregation function.
 func (o TopicNamedEntityDefinitionMetricOutput) AggregationFunctionParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinitionMetric) map[string]string { return v.AggregationFunctionParameters }).(pulumi.StringMapOutput)
 }
@@ -13999,6 +15589,7 @@ func (o TopicNamedEntityDefinitionMetricPtrOutput) Elem() TopicNamedEntityDefini
 	}).(TopicNamedEntityDefinitionMetricOutput)
 }
 
+// The aggregation of a named entity. Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
 func (o TopicNamedEntityDefinitionMetricPtrOutput) Aggregation() TopicNamedEntityAggTypePtrOutput {
 	return o.ApplyT(func(v *TopicNamedEntityDefinitionMetric) *TopicNamedEntityAggType {
 		if v == nil {
@@ -14008,6 +15599,7 @@ func (o TopicNamedEntityDefinitionMetricPtrOutput) Aggregation() TopicNamedEntit
 	}).(TopicNamedEntityAggTypePtrOutput)
 }
 
+// The additional parameters for an aggregation function.
 func (o TopicNamedEntityDefinitionMetricPtrOutput) AggregationFunctionParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicNamedEntityDefinitionMetric) map[string]string {
 		if v == nil {
@@ -14018,7 +15610,9 @@ func (o TopicNamedEntityDefinitionMetricPtrOutput) AggregationFunctionParameters
 }
 
 type TopicNegativeFormat struct {
+	// The prefix for a negative format.
 	Prefix *string `pulumi:"prefix"`
+	// The suffix for a negative format.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -14034,7 +15628,9 @@ type TopicNegativeFormatInput interface {
 }
 
 type TopicNegativeFormatArgs struct {
+	// The prefix for a negative format.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The suffix for a negative format.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -14115,10 +15711,12 @@ func (o TopicNegativeFormatOutput) ToTopicNegativeFormatPtrOutputWithContext(ctx
 	}).(TopicNegativeFormatPtrOutput)
 }
 
+// The prefix for a negative format.
 func (o TopicNegativeFormatOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicNegativeFormat) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// The suffix for a negative format.
 func (o TopicNegativeFormatOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicNegativeFormat) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -14147,6 +15745,7 @@ func (o TopicNegativeFormatPtrOutput) Elem() TopicNegativeFormatOutput {
 	}).(TopicNegativeFormatOutput)
 }
 
+// The prefix for a negative format.
 func (o TopicNegativeFormatPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicNegativeFormat) *string {
 		if v == nil {
@@ -14156,6 +15755,7 @@ func (o TopicNegativeFormatPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The suffix for a negative format.
 func (o TopicNegativeFormatPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicNegativeFormat) *string {
 		if v == nil {
@@ -14166,8 +15766,10 @@ func (o TopicNegativeFormatPtrOutput) Suffix() pulumi.StringPtrOutput {
 }
 
 type TopicNumericEqualityFilter struct {
-	Aggregation *TopicNamedFilterAggType     `pulumi:"aggregation"`
-	Constant    *TopicSingularFilterConstant `pulumi:"constant"`
+	// An aggregation function that specifies how to calculate the value of a numeric field for a topic. Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+	Aggregation *TopicNamedFilterAggType `pulumi:"aggregation"`
+	// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+	Constant *TopicSingularFilterConstant `pulumi:"constant"`
 }
 
 // TopicNumericEqualityFilterInput is an input type that accepts TopicNumericEqualityFilterArgs and TopicNumericEqualityFilterOutput values.
@@ -14182,8 +15784,10 @@ type TopicNumericEqualityFilterInput interface {
 }
 
 type TopicNumericEqualityFilterArgs struct {
-	Aggregation TopicNamedFilterAggTypePtrInput     `pulumi:"aggregation"`
-	Constant    TopicSingularFilterConstantPtrInput `pulumi:"constant"`
+	// An aggregation function that specifies how to calculate the value of a numeric field for a topic. Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+	Aggregation TopicNamedFilterAggTypePtrInput `pulumi:"aggregation"`
+	// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+	Constant TopicSingularFilterConstantPtrInput `pulumi:"constant"`
 }
 
 func (TopicNumericEqualityFilterArgs) ElementType() reflect.Type {
@@ -14263,10 +15867,12 @@ func (o TopicNumericEqualityFilterOutput) ToTopicNumericEqualityFilterPtrOutputW
 	}).(TopicNumericEqualityFilterPtrOutput)
 }
 
+// An aggregation function that specifies how to calculate the value of a numeric field for a topic. Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
 func (o TopicNumericEqualityFilterOutput) Aggregation() TopicNamedFilterAggTypePtrOutput {
 	return o.ApplyT(func(v TopicNumericEqualityFilter) *TopicNamedFilterAggType { return v.Aggregation }).(TopicNamedFilterAggTypePtrOutput)
 }
 
+// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
 func (o TopicNumericEqualityFilterOutput) Constant() TopicSingularFilterConstantPtrOutput {
 	return o.ApplyT(func(v TopicNumericEqualityFilter) *TopicSingularFilterConstant { return v.Constant }).(TopicSingularFilterConstantPtrOutput)
 }
@@ -14295,6 +15901,7 @@ func (o TopicNumericEqualityFilterPtrOutput) Elem() TopicNumericEqualityFilterOu
 	}).(TopicNumericEqualityFilterOutput)
 }
 
+// An aggregation function that specifies how to calculate the value of a numeric field for a topic. Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
 func (o TopicNumericEqualityFilterPtrOutput) Aggregation() TopicNamedFilterAggTypePtrOutput {
 	return o.ApplyT(func(v *TopicNumericEqualityFilter) *TopicNamedFilterAggType {
 		if v == nil {
@@ -14304,6 +15911,7 @@ func (o TopicNumericEqualityFilterPtrOutput) Aggregation() TopicNamedFilterAggTy
 	}).(TopicNamedFilterAggTypePtrOutput)
 }
 
+// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
 func (o TopicNumericEqualityFilterPtrOutput) Constant() TopicSingularFilterConstantPtrOutput {
 	return o.ApplyT(func(v *TopicNumericEqualityFilter) *TopicSingularFilterConstant {
 		if v == nil {
@@ -14314,9 +15922,12 @@ func (o TopicNumericEqualityFilterPtrOutput) Constant() TopicSingularFilterConst
 }
 
 type TopicNumericRangeFilter struct {
-	Aggregation *TopicNamedFilterAggType  `pulumi:"aggregation"`
-	Constant    *TopicRangeFilterConstant `pulumi:"constant"`
-	Inclusive   *bool                     `pulumi:"inclusive"`
+	// An aggregation function that specifies how to calculate the value of a numeric field for a topic, Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+	Aggregation *TopicNamedFilterAggType `pulumi:"aggregation"`
+	// A constant value that is used in a range filter to specify the endpoints of the range.
+	Constant *TopicRangeFilterConstant `pulumi:"constant"`
+	// A Boolean value that indicates whether the endpoints of the numeric range are included in the filter. If set to true, topics whose numeric field value is equal to the endpoint values will be included in the filter. If set to false, topics whose numeric field value is equal to the endpoint values will be excluded from the filter.
+	Inclusive *bool `pulumi:"inclusive"`
 }
 
 // TopicNumericRangeFilterInput is an input type that accepts TopicNumericRangeFilterArgs and TopicNumericRangeFilterOutput values.
@@ -14331,9 +15942,12 @@ type TopicNumericRangeFilterInput interface {
 }
 
 type TopicNumericRangeFilterArgs struct {
-	Aggregation TopicNamedFilterAggTypePtrInput  `pulumi:"aggregation"`
-	Constant    TopicRangeFilterConstantPtrInput `pulumi:"constant"`
-	Inclusive   pulumi.BoolPtrInput              `pulumi:"inclusive"`
+	// An aggregation function that specifies how to calculate the value of a numeric field for a topic, Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+	Aggregation TopicNamedFilterAggTypePtrInput `pulumi:"aggregation"`
+	// A constant value that is used in a range filter to specify the endpoints of the range.
+	Constant TopicRangeFilterConstantPtrInput `pulumi:"constant"`
+	// A Boolean value that indicates whether the endpoints of the numeric range are included in the filter. If set to true, topics whose numeric field value is equal to the endpoint values will be included in the filter. If set to false, topics whose numeric field value is equal to the endpoint values will be excluded from the filter.
+	Inclusive pulumi.BoolPtrInput `pulumi:"inclusive"`
 }
 
 func (TopicNumericRangeFilterArgs) ElementType() reflect.Type {
@@ -14413,14 +16027,17 @@ func (o TopicNumericRangeFilterOutput) ToTopicNumericRangeFilterPtrOutputWithCon
 	}).(TopicNumericRangeFilterPtrOutput)
 }
 
+// An aggregation function that specifies how to calculate the value of a numeric field for a topic, Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
 func (o TopicNumericRangeFilterOutput) Aggregation() TopicNamedFilterAggTypePtrOutput {
 	return o.ApplyT(func(v TopicNumericRangeFilter) *TopicNamedFilterAggType { return v.Aggregation }).(TopicNamedFilterAggTypePtrOutput)
 }
 
+// A constant value that is used in a range filter to specify the endpoints of the range.
 func (o TopicNumericRangeFilterOutput) Constant() TopicRangeFilterConstantPtrOutput {
 	return o.ApplyT(func(v TopicNumericRangeFilter) *TopicRangeFilterConstant { return v.Constant }).(TopicRangeFilterConstantPtrOutput)
 }
 
+// A Boolean value that indicates whether the endpoints of the numeric range are included in the filter. If set to true, topics whose numeric field value is equal to the endpoint values will be included in the filter. If set to false, topics whose numeric field value is equal to the endpoint values will be excluded from the filter.
 func (o TopicNumericRangeFilterOutput) Inclusive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicNumericRangeFilter) *bool { return v.Inclusive }).(pulumi.BoolPtrOutput)
 }
@@ -14449,6 +16066,7 @@ func (o TopicNumericRangeFilterPtrOutput) Elem() TopicNumericRangeFilterOutput {
 	}).(TopicNumericRangeFilterOutput)
 }
 
+// An aggregation function that specifies how to calculate the value of a numeric field for a topic, Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
 func (o TopicNumericRangeFilterPtrOutput) Aggregation() TopicNamedFilterAggTypePtrOutput {
 	return o.ApplyT(func(v *TopicNumericRangeFilter) *TopicNamedFilterAggType {
 		if v == nil {
@@ -14458,6 +16076,7 @@ func (o TopicNumericRangeFilterPtrOutput) Aggregation() TopicNamedFilterAggTypeP
 	}).(TopicNamedFilterAggTypePtrOutput)
 }
 
+// A constant value that is used in a range filter to specify the endpoints of the range.
 func (o TopicNumericRangeFilterPtrOutput) Constant() TopicRangeFilterConstantPtrOutput {
 	return o.ApplyT(func(v *TopicNumericRangeFilter) *TopicRangeFilterConstant {
 		if v == nil {
@@ -14467,6 +16086,7 @@ func (o TopicNumericRangeFilterPtrOutput) Constant() TopicRangeFilterConstantPtr
 	}).(TopicRangeFilterConstantPtrOutput)
 }
 
+// A Boolean value that indicates whether the endpoints of the numeric range are included in the filter. If set to true, topics whose numeric field value is equal to the endpoint values will be included in the filter. If set to false, topics whose numeric field value is equal to the endpoint values will be excluded from the filter.
 func (o TopicNumericRangeFilterPtrOutput) Inclusive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicNumericRangeFilter) *bool {
 		if v == nil {
@@ -14477,7 +16097,9 @@ func (o TopicNumericRangeFilterPtrOutput) Inclusive() pulumi.BoolPtrOutput {
 }
 
 type TopicRangeConstant struct {
+	// The maximum value for a range constant.
 	Maximum *string `pulumi:"maximum"`
+	// The minimum value for a range constant.
 	Minimum *string `pulumi:"minimum"`
 }
 
@@ -14493,7 +16115,9 @@ type TopicRangeConstantInput interface {
 }
 
 type TopicRangeConstantArgs struct {
+	// The maximum value for a range constant.
 	Maximum pulumi.StringPtrInput `pulumi:"maximum"`
+	// The minimum value for a range constant.
 	Minimum pulumi.StringPtrInput `pulumi:"minimum"`
 }
 
@@ -14574,10 +16198,12 @@ func (o TopicRangeConstantOutput) ToTopicRangeConstantPtrOutputWithContext(ctx c
 	}).(TopicRangeConstantPtrOutput)
 }
 
+// The maximum value for a range constant.
 func (o TopicRangeConstantOutput) Maximum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRangeConstant) *string { return v.Maximum }).(pulumi.StringPtrOutput)
 }
 
+// The minimum value for a range constant.
 func (o TopicRangeConstantOutput) Minimum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRangeConstant) *string { return v.Minimum }).(pulumi.StringPtrOutput)
 }
@@ -14606,6 +16232,7 @@ func (o TopicRangeConstantPtrOutput) Elem() TopicRangeConstantOutput {
 	}).(TopicRangeConstantOutput)
 }
 
+// The maximum value for a range constant.
 func (o TopicRangeConstantPtrOutput) Maximum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRangeConstant) *string {
 		if v == nil {
@@ -14615,6 +16242,7 @@ func (o TopicRangeConstantPtrOutput) Maximum() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum value for a range constant.
 func (o TopicRangeConstantPtrOutput) Minimum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRangeConstant) *string {
 		if v == nil {
@@ -14625,7 +16253,9 @@ func (o TopicRangeConstantPtrOutput) Minimum() pulumi.StringPtrOutput {
 }
 
 type TopicRangeFilterConstant struct {
-	ConstantType  *TopicConstantType  `pulumi:"constantType"`
+	// The data type of the constant value that is used in a range filter. Valid values for this structure are `RANGE` .
+	ConstantType *TopicConstantType `pulumi:"constantType"`
+	// The value of the constant that is used to specify the endpoints of a range filter.
 	RangeConstant *TopicRangeConstant `pulumi:"rangeConstant"`
 }
 
@@ -14641,7 +16271,9 @@ type TopicRangeFilterConstantInput interface {
 }
 
 type TopicRangeFilterConstantArgs struct {
-	ConstantType  TopicConstantTypePtrInput  `pulumi:"constantType"`
+	// The data type of the constant value that is used in a range filter. Valid values for this structure are `RANGE` .
+	ConstantType TopicConstantTypePtrInput `pulumi:"constantType"`
+	// The value of the constant that is used to specify the endpoints of a range filter.
 	RangeConstant TopicRangeConstantPtrInput `pulumi:"rangeConstant"`
 }
 
@@ -14722,10 +16354,12 @@ func (o TopicRangeFilterConstantOutput) ToTopicRangeFilterConstantPtrOutputWithC
 	}).(TopicRangeFilterConstantPtrOutput)
 }
 
+// The data type of the constant value that is used in a range filter. Valid values for this structure are `RANGE` .
 func (o TopicRangeFilterConstantOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v TopicRangeFilterConstant) *TopicConstantType { return v.ConstantType }).(TopicConstantTypePtrOutput)
 }
 
+// The value of the constant that is used to specify the endpoints of a range filter.
 func (o TopicRangeFilterConstantOutput) RangeConstant() TopicRangeConstantPtrOutput {
 	return o.ApplyT(func(v TopicRangeFilterConstant) *TopicRangeConstant { return v.RangeConstant }).(TopicRangeConstantPtrOutput)
 }
@@ -14754,6 +16388,7 @@ func (o TopicRangeFilterConstantPtrOutput) Elem() TopicRangeFilterConstantOutput
 	}).(TopicRangeFilterConstantOutput)
 }
 
+// The data type of the constant value that is used in a range filter. Valid values for this structure are `RANGE` .
 func (o TopicRangeFilterConstantPtrOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v *TopicRangeFilterConstant) *TopicConstantType {
 		if v == nil {
@@ -14763,6 +16398,7 @@ func (o TopicRangeFilterConstantPtrOutput) ConstantType() TopicConstantTypePtrOu
 	}).(TopicConstantTypePtrOutput)
 }
 
+// The value of the constant that is used to specify the endpoints of a range filter.
 func (o TopicRangeFilterConstantPtrOutput) RangeConstant() TopicRangeConstantPtrOutput {
 	return o.ApplyT(func(v *TopicRangeFilterConstant) *TopicRangeConstant {
 		if v == nil {
@@ -14773,9 +16409,12 @@ func (o TopicRangeFilterConstantPtrOutput) RangeConstant() TopicRangeConstantPtr
 }
 
 type TopicRelativeDateFilter struct {
-	Constant                   *TopicSingularFilterConstant     `pulumi:"constant"`
+	// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+	Constant *TopicSingularFilterConstant `pulumi:"constant"`
+	// The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are `BEFORE` , `AFTER` , and `BETWEEN` .
 	RelativeDateFilterFunction *TopicRelativeDateFilterFunction `pulumi:"relativeDateFilterFunction"`
-	TimeGranularity            *TopicTimeGranularity            `pulumi:"timeGranularity"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity *TopicTimeGranularity `pulumi:"timeGranularity"`
 }
 
 // TopicRelativeDateFilterInput is an input type that accepts TopicRelativeDateFilterArgs and TopicRelativeDateFilterOutput values.
@@ -14790,9 +16429,12 @@ type TopicRelativeDateFilterInput interface {
 }
 
 type TopicRelativeDateFilterArgs struct {
-	Constant                   TopicSingularFilterConstantPtrInput     `pulumi:"constant"`
+	// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+	Constant TopicSingularFilterConstantPtrInput `pulumi:"constant"`
+	// The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are `BEFORE` , `AFTER` , and `BETWEEN` .
 	RelativeDateFilterFunction TopicRelativeDateFilterFunctionPtrInput `pulumi:"relativeDateFilterFunction"`
-	TimeGranularity            TopicTimeGranularityPtrInput            `pulumi:"timeGranularity"`
+	// The level of time precision that is used to aggregate `DateTime` values.
+	TimeGranularity TopicTimeGranularityPtrInput `pulumi:"timeGranularity"`
 }
 
 func (TopicRelativeDateFilterArgs) ElementType() reflect.Type {
@@ -14872,14 +16514,17 @@ func (o TopicRelativeDateFilterOutput) ToTopicRelativeDateFilterPtrOutputWithCon
 	}).(TopicRelativeDateFilterPtrOutput)
 }
 
+// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
 func (o TopicRelativeDateFilterOutput) Constant() TopicSingularFilterConstantPtrOutput {
 	return o.ApplyT(func(v TopicRelativeDateFilter) *TopicSingularFilterConstant { return v.Constant }).(TopicSingularFilterConstantPtrOutput)
 }
 
+// The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are `BEFORE` , `AFTER` , and `BETWEEN` .
 func (o TopicRelativeDateFilterOutput) RelativeDateFilterFunction() TopicRelativeDateFilterFunctionPtrOutput {
 	return o.ApplyT(func(v TopicRelativeDateFilter) *TopicRelativeDateFilterFunction { return v.RelativeDateFilterFunction }).(TopicRelativeDateFilterFunctionPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TopicRelativeDateFilterOutput) TimeGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TopicRelativeDateFilter) *TopicTimeGranularity { return v.TimeGranularity }).(TopicTimeGranularityPtrOutput)
 }
@@ -14908,6 +16553,7 @@ func (o TopicRelativeDateFilterPtrOutput) Elem() TopicRelativeDateFilterOutput {
 	}).(TopicRelativeDateFilterOutput)
 }
 
+// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
 func (o TopicRelativeDateFilterPtrOutput) Constant() TopicSingularFilterConstantPtrOutput {
 	return o.ApplyT(func(v *TopicRelativeDateFilter) *TopicSingularFilterConstant {
 		if v == nil {
@@ -14917,6 +16563,7 @@ func (o TopicRelativeDateFilterPtrOutput) Constant() TopicSingularFilterConstant
 	}).(TopicSingularFilterConstantPtrOutput)
 }
 
+// The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are `BEFORE` , `AFTER` , and `BETWEEN` .
 func (o TopicRelativeDateFilterPtrOutput) RelativeDateFilterFunction() TopicRelativeDateFilterFunctionPtrOutput {
 	return o.ApplyT(func(v *TopicRelativeDateFilter) *TopicRelativeDateFilterFunction {
 		if v == nil {
@@ -14926,6 +16573,7 @@ func (o TopicRelativeDateFilterPtrOutput) RelativeDateFilterFunction() TopicRela
 	}).(TopicRelativeDateFilterFunctionPtrOutput)
 }
 
+// The level of time precision that is used to aggregate `DateTime` values.
 func (o TopicRelativeDateFilterPtrOutput) TimeGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v *TopicRelativeDateFilter) *TopicTimeGranularity {
 		if v == nil {
@@ -14936,8 +16584,11 @@ func (o TopicRelativeDateFilterPtrOutput) TimeGranularity() TopicTimeGranularity
 }
 
 type TopicSemanticEntityType struct {
-	SubTypeName    *string           `pulumi:"subTypeName"`
-	TypeName       *string           `pulumi:"typeName"`
+	// The semantic entity sub type name.
+	SubTypeName *string `pulumi:"subTypeName"`
+	// The semantic entity type name.
+	TypeName *string `pulumi:"typeName"`
+	// The semantic entity type parameters.
 	TypeParameters map[string]string `pulumi:"typeParameters"`
 }
 
@@ -14953,8 +16604,11 @@ type TopicSemanticEntityTypeInput interface {
 }
 
 type TopicSemanticEntityTypeArgs struct {
-	SubTypeName    pulumi.StringPtrInput `pulumi:"subTypeName"`
-	TypeName       pulumi.StringPtrInput `pulumi:"typeName"`
+	// The semantic entity sub type name.
+	SubTypeName pulumi.StringPtrInput `pulumi:"subTypeName"`
+	// The semantic entity type name.
+	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
+	// The semantic entity type parameters.
 	TypeParameters pulumi.StringMapInput `pulumi:"typeParameters"`
 }
 
@@ -15035,14 +16689,17 @@ func (o TopicSemanticEntityTypeOutput) ToTopicSemanticEntityTypePtrOutputWithCon
 	}).(TopicSemanticEntityTypePtrOutput)
 }
 
+// The semantic entity sub type name.
 func (o TopicSemanticEntityTypeOutput) SubTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticEntityType) *string { return v.SubTypeName }).(pulumi.StringPtrOutput)
 }
 
+// The semantic entity type name.
 func (o TopicSemanticEntityTypeOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticEntityType) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
+// The semantic entity type parameters.
 func (o TopicSemanticEntityTypeOutput) TypeParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicSemanticEntityType) map[string]string { return v.TypeParameters }).(pulumi.StringMapOutput)
 }
@@ -15071,6 +16728,7 @@ func (o TopicSemanticEntityTypePtrOutput) Elem() TopicSemanticEntityTypeOutput {
 	}).(TopicSemanticEntityTypeOutput)
 }
 
+// The semantic entity sub type name.
 func (o TopicSemanticEntityTypePtrOutput) SubTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSemanticEntityType) *string {
 		if v == nil {
@@ -15080,6 +16738,7 @@ func (o TopicSemanticEntityTypePtrOutput) SubTypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The semantic entity type name.
 func (o TopicSemanticEntityTypePtrOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSemanticEntityType) *string {
 		if v == nil {
@@ -15089,6 +16748,7 @@ func (o TopicSemanticEntityTypePtrOutput) TypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The semantic entity type parameters.
 func (o TopicSemanticEntityTypePtrOutput) TypeParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicSemanticEntityType) map[string]string {
 		if v == nil {
@@ -15099,13 +16759,20 @@ func (o TopicSemanticEntityTypePtrOutput) TypeParameters() pulumi.StringMapOutpu
 }
 
 type TopicSemanticType struct {
-	FalseyCellValue         *string           `pulumi:"falseyCellValue"`
-	FalseyCellValueSynonyms []string          `pulumi:"falseyCellValueSynonyms"`
-	SubTypeName             *string           `pulumi:"subTypeName"`
-	TruthyCellValue         *string           `pulumi:"truthyCellValue"`
-	TruthyCellValueSynonyms []string          `pulumi:"truthyCellValueSynonyms"`
-	TypeName                *string           `pulumi:"typeName"`
-	TypeParameters          map[string]string `pulumi:"typeParameters"`
+	// The semantic type falsey cell value.
+	FalseyCellValue *string `pulumi:"falseyCellValue"`
+	// The other names or aliases for the false cell value.
+	FalseyCellValueSynonyms []string `pulumi:"falseyCellValueSynonyms"`
+	// The semantic type sub type name.
+	SubTypeName *string `pulumi:"subTypeName"`
+	// The semantic type truthy cell value.
+	TruthyCellValue *string `pulumi:"truthyCellValue"`
+	// The other names or aliases for the true cell value.
+	TruthyCellValueSynonyms []string `pulumi:"truthyCellValueSynonyms"`
+	// The semantic type name.
+	TypeName *string `pulumi:"typeName"`
+	// The semantic type parameters.
+	TypeParameters map[string]string `pulumi:"typeParameters"`
 }
 
 // TopicSemanticTypeInput is an input type that accepts TopicSemanticTypeArgs and TopicSemanticTypeOutput values.
@@ -15120,13 +16787,20 @@ type TopicSemanticTypeInput interface {
 }
 
 type TopicSemanticTypeArgs struct {
-	FalseyCellValue         pulumi.StringPtrInput   `pulumi:"falseyCellValue"`
+	// The semantic type falsey cell value.
+	FalseyCellValue pulumi.StringPtrInput `pulumi:"falseyCellValue"`
+	// The other names or aliases for the false cell value.
 	FalseyCellValueSynonyms pulumi.StringArrayInput `pulumi:"falseyCellValueSynonyms"`
-	SubTypeName             pulumi.StringPtrInput   `pulumi:"subTypeName"`
-	TruthyCellValue         pulumi.StringPtrInput   `pulumi:"truthyCellValue"`
+	// The semantic type sub type name.
+	SubTypeName pulumi.StringPtrInput `pulumi:"subTypeName"`
+	// The semantic type truthy cell value.
+	TruthyCellValue pulumi.StringPtrInput `pulumi:"truthyCellValue"`
+	// The other names or aliases for the true cell value.
 	TruthyCellValueSynonyms pulumi.StringArrayInput `pulumi:"truthyCellValueSynonyms"`
-	TypeName                pulumi.StringPtrInput   `pulumi:"typeName"`
-	TypeParameters          pulumi.StringMapInput   `pulumi:"typeParameters"`
+	// The semantic type name.
+	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
+	// The semantic type parameters.
+	TypeParameters pulumi.StringMapInput `pulumi:"typeParameters"`
 }
 
 func (TopicSemanticTypeArgs) ElementType() reflect.Type {
@@ -15206,30 +16880,37 @@ func (o TopicSemanticTypeOutput) ToTopicSemanticTypePtrOutputWithContext(ctx con
 	}).(TopicSemanticTypePtrOutput)
 }
 
+// The semantic type falsey cell value.
 func (o TopicSemanticTypeOutput) FalseyCellValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticType) *string { return v.FalseyCellValue }).(pulumi.StringPtrOutput)
 }
 
+// The other names or aliases for the false cell value.
 func (o TopicSemanticTypeOutput) FalseyCellValueSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicSemanticType) []string { return v.FalseyCellValueSynonyms }).(pulumi.StringArrayOutput)
 }
 
+// The semantic type sub type name.
 func (o TopicSemanticTypeOutput) SubTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticType) *string { return v.SubTypeName }).(pulumi.StringPtrOutput)
 }
 
+// The semantic type truthy cell value.
 func (o TopicSemanticTypeOutput) TruthyCellValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticType) *string { return v.TruthyCellValue }).(pulumi.StringPtrOutput)
 }
 
+// The other names or aliases for the true cell value.
 func (o TopicSemanticTypeOutput) TruthyCellValueSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicSemanticType) []string { return v.TruthyCellValueSynonyms }).(pulumi.StringArrayOutput)
 }
 
+// The semantic type name.
 func (o TopicSemanticTypeOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticType) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
+// The semantic type parameters.
 func (o TopicSemanticTypeOutput) TypeParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicSemanticType) map[string]string { return v.TypeParameters }).(pulumi.StringMapOutput)
 }
@@ -15258,6 +16939,7 @@ func (o TopicSemanticTypePtrOutput) Elem() TopicSemanticTypeOutput {
 	}).(TopicSemanticTypeOutput)
 }
 
+// The semantic type falsey cell value.
 func (o TopicSemanticTypePtrOutput) FalseyCellValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSemanticType) *string {
 		if v == nil {
@@ -15267,6 +16949,7 @@ func (o TopicSemanticTypePtrOutput) FalseyCellValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The other names or aliases for the false cell value.
 func (o TopicSemanticTypePtrOutput) FalseyCellValueSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicSemanticType) []string {
 		if v == nil {
@@ -15276,6 +16959,7 @@ func (o TopicSemanticTypePtrOutput) FalseyCellValueSynonyms() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The semantic type sub type name.
 func (o TopicSemanticTypePtrOutput) SubTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSemanticType) *string {
 		if v == nil {
@@ -15285,6 +16969,7 @@ func (o TopicSemanticTypePtrOutput) SubTypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The semantic type truthy cell value.
 func (o TopicSemanticTypePtrOutput) TruthyCellValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSemanticType) *string {
 		if v == nil {
@@ -15294,6 +16979,7 @@ func (o TopicSemanticTypePtrOutput) TruthyCellValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The other names or aliases for the true cell value.
 func (o TopicSemanticTypePtrOutput) TruthyCellValueSynonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicSemanticType) []string {
 		if v == nil {
@@ -15303,6 +16989,7 @@ func (o TopicSemanticTypePtrOutput) TruthyCellValueSynonyms() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The semantic type name.
 func (o TopicSemanticTypePtrOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSemanticType) *string {
 		if v == nil {
@@ -15312,6 +16999,7 @@ func (o TopicSemanticTypePtrOutput) TypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The semantic type parameters.
 func (o TopicSemanticTypePtrOutput) TypeParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicSemanticType) map[string]string {
 		if v == nil {
@@ -15322,8 +17010,10 @@ func (o TopicSemanticTypePtrOutput) TypeParameters() pulumi.StringMapOutput {
 }
 
 type TopicSingularFilterConstant struct {
-	ConstantType     *TopicConstantType `pulumi:"constantType"`
-	SingularConstant *string            `pulumi:"singularConstant"`
+	// The type of the singular filter constant. Valid values for this structure are `SINGULAR` .
+	ConstantType *TopicConstantType `pulumi:"constantType"`
+	// The value of the singular filter constant.
+	SingularConstant *string `pulumi:"singularConstant"`
 }
 
 // TopicSingularFilterConstantInput is an input type that accepts TopicSingularFilterConstantArgs and TopicSingularFilterConstantOutput values.
@@ -15338,8 +17028,10 @@ type TopicSingularFilterConstantInput interface {
 }
 
 type TopicSingularFilterConstantArgs struct {
-	ConstantType     TopicConstantTypePtrInput `pulumi:"constantType"`
-	SingularConstant pulumi.StringPtrInput     `pulumi:"singularConstant"`
+	// The type of the singular filter constant. Valid values for this structure are `SINGULAR` .
+	ConstantType TopicConstantTypePtrInput `pulumi:"constantType"`
+	// The value of the singular filter constant.
+	SingularConstant pulumi.StringPtrInput `pulumi:"singularConstant"`
 }
 
 func (TopicSingularFilterConstantArgs) ElementType() reflect.Type {
@@ -15419,10 +17111,12 @@ func (o TopicSingularFilterConstantOutput) ToTopicSingularFilterConstantPtrOutpu
 	}).(TopicSingularFilterConstantPtrOutput)
 }
 
+// The type of the singular filter constant. Valid values for this structure are `SINGULAR` .
 func (o TopicSingularFilterConstantOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v TopicSingularFilterConstant) *TopicConstantType { return v.ConstantType }).(TopicConstantTypePtrOutput)
 }
 
+// The value of the singular filter constant.
 func (o TopicSingularFilterConstantOutput) SingularConstant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSingularFilterConstant) *string { return v.SingularConstant }).(pulumi.StringPtrOutput)
 }
@@ -15451,6 +17145,7 @@ func (o TopicSingularFilterConstantPtrOutput) Elem() TopicSingularFilterConstant
 	}).(TopicSingularFilterConstantOutput)
 }
 
+// The type of the singular filter constant. Valid values for this structure are `SINGULAR` .
 func (o TopicSingularFilterConstantPtrOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v *TopicSingularFilterConstant) *TopicConstantType {
 		if v == nil {
@@ -15460,6 +17155,7 @@ func (o TopicSingularFilterConstantPtrOutput) ConstantType() TopicConstantTypePt
 	}).(TopicConstantTypePtrOutput)
 }
 
+// The value of the singular filter constant.
 func (o TopicSingularFilterConstantPtrOutput) SingularConstant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSingularFilterConstant) *string {
 		if v == nil {
@@ -15476,8 +17172,9 @@ type VpcConnectionNetworkInterface struct {
 	// <p>An error message.</p>
 	ErrorMessage *string `pulumi:"errorMessage"`
 	// <p>The network interface ID.</p>
-	NetworkInterfaceId *string                              `pulumi:"networkInterfaceId"`
-	Status             *VpcConnectionNetworkInterfaceStatus `pulumi:"status"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The status of the network interface.
+	Status *VpcConnectionNetworkInterfaceStatus `pulumi:"status"`
 	// <p>The subnet ID associated with the network interface.</p>
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -15512,6 +17209,7 @@ func (o VpcConnectionNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringP
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The status of the network interface.
 func (o VpcConnectionNetworkInterfaceOutput) Status() VpcConnectionNetworkInterfaceStatusPtrOutput {
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *VpcConnectionNetworkInterfaceStatus { return v.Status }).(VpcConnectionNetworkInterfaceStatusPtrOutput)
 }

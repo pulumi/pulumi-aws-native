@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Fms
     [AwsNativeResourceType("aws-native:fms:NotificationChannel")]
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+        /// </summary>
         [Output("snsRoleName")]
         public Output<string> SnsRoleName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+        /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
@@ -66,9 +72,15 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+        /// </summary>
         [Input("snsRoleName", required: true)]
         public Input<string> SnsRoleName { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+        /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 

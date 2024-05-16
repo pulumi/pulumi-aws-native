@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("applicationTagValue")]
         public Output<string> ApplicationTagValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the application across services.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value pairs you can use to associate with the application.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -113,6 +122,10 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pairs you can use to associate with the application.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

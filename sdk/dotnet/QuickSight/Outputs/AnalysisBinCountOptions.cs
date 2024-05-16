@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisBinCountOptions
     {
+        /// <summary>
+        /// The options that determine the bin count value.
+        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

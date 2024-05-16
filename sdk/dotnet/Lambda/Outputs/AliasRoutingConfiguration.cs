@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class AliasRoutingConfiguration
     {
+        /// <summary>
+        /// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AliasVersionWeight> AdditionalVersionWeights;
 
         [OutputConstructor]

@@ -19,19 +19,40 @@ export function getLaunch(args: GetLaunchArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetLaunchArgs {
+    /**
+     * The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+     */
     arn: string;
 }
 
 export interface GetLaunchResult {
+    /**
+     * The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+     */
     readonly arn?: string;
+    /**
+     * An optional description for the launch.
+     */
     readonly description?: string;
     /**
      * Start or Stop Launch Launch. Default is not started.
      */
     readonly executionStatus?: outputs.evidently.LaunchExecutionStatusObject;
+    /**
+     * A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+     */
     readonly groups?: outputs.evidently.LaunchGroupObject[];
+    /**
+     * This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+     */
     readonly metricMonitors?: outputs.evidently.LaunchMetricDefinitionObject[];
+    /**
+     * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+     */
     readonly randomizationSalt?: string;
+    /**
+     * A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+     */
     readonly scheduledSplitsConfig?: outputs.evidently.LaunchStepConfig[];
     /**
      * An array of key-value pairs to apply to this resource.
@@ -46,5 +67,8 @@ export function getLaunchOutput(args: GetLaunchOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetLaunchOutputArgs {
+    /**
+     * The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+     */
     arn: pulumi.Input<string>;
 }

@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFieldSortArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The sort direction. Choose one of the following options:
+        /// 
+        /// - `ASC` : Ascending
+        /// - `DESC` : Descending
+        /// </summary>
         [Input("direction", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSortDirection> Direction { get; set; } = null!;
 
+        /// <summary>
+        /// The sort configuration target field.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 

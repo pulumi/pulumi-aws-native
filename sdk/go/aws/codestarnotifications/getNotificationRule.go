@@ -23,18 +23,27 @@ func LookupNotificationRule(ctx *pulumi.Context, args *LookupNotificationRuleArg
 }
 
 type LookupNotificationRuleArgs struct {
+	// The Amazon Resource Name (ARN) of the notification rule.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupNotificationRuleResult struct {
-	Arn          *string                     `pulumi:"arn"`
-	CreatedBy    *string                     `pulumi:"createdBy"`
-	DetailType   *NotificationRuleDetailType `pulumi:"detailType"`
-	EventTypeIds []string                    `pulumi:"eventTypeIds"`
-	Name         *string                     `pulumi:"name"`
-	Status       *NotificationRuleStatus     `pulumi:"status"`
-	Tags         map[string]string           `pulumi:"tags"`
-	Targets      []NotificationRuleTarget    `pulumi:"targets"`
+	// The Amazon Resource Name (ARN) of the notification rule.
+	Arn *string `pulumi:"arn"`
+	// The name or email alias of the person who created the notification rule.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+	DetailType *NotificationRuleDetailType `pulumi:"detailType"`
+	// A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+	EventTypeIds []string `pulumi:"eventTypeIds"`
+	// The name for the notification rule. Notification rule names must be unique in your AWS account .
+	Name *string `pulumi:"name"`
+	// The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+	Status *NotificationRuleStatus `pulumi:"status"`
+	// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
+	Tags map[string]string `pulumi:"tags"`
+	// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+	Targets []NotificationRuleTarget `pulumi:"targets"`
 }
 
 func LookupNotificationRuleOutput(ctx *pulumi.Context, args LookupNotificationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationRuleResultOutput {
@@ -51,6 +60,7 @@ func LookupNotificationRuleOutput(ctx *pulumi.Context, args LookupNotificationRu
 }
 
 type LookupNotificationRuleOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the notification rule.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -72,34 +82,42 @@ func (o LookupNotificationRuleResultOutput) ToLookupNotificationRuleResultOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the notification rule.
 func (o LookupNotificationRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The name or email alias of the person who created the notification rule.
 func (o LookupNotificationRuleResultOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
+// The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
 func (o LookupNotificationRuleResultOutput) DetailType() NotificationRuleDetailTypePtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *NotificationRuleDetailType { return v.DetailType }).(NotificationRuleDetailTypePtrOutput)
 }
 
+// A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
 func (o LookupNotificationRuleResultOutput) EventTypeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) []string { return v.EventTypeIds }).(pulumi.StringArrayOutput)
 }
 
+// The name for the notification rule. Notification rule names must be unique in your AWS account .
 func (o LookupNotificationRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
 func (o LookupNotificationRuleResultOutput) Status() NotificationRuleStatusPtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *NotificationRuleStatus { return v.Status }).(NotificationRuleStatusPtrOutput)
 }
 
+// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
 func (o LookupNotificationRuleResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
 func (o LookupNotificationRuleResultOutput) Targets() NotificationRuleTargetArrayOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) []NotificationRuleTarget { return v.Targets }).(NotificationRuleTargetArrayOutput)
 }

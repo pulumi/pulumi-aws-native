@@ -29,6 +29,7 @@ type LookupReplicationConfigArgs struct {
 }
 
 type LookupReplicationConfigResult struct {
+	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig *ReplicationConfigComputeConfig `pulumi:"computeConfig"`
 	// The Amazon Resource Name (ARN) of the Replication Config
 	ReplicationConfigArn *string `pulumi:"replicationConfigArn"`
@@ -92,6 +93,7 @@ func (o LookupReplicationConfigResultOutput) ToLookupReplicationConfigResultOutp
 	return o
 }
 
+// Configuration parameters for provisioning an AWS DMS Serverless replication.
 func (o LookupReplicationConfigResultOutput) ComputeConfig() ReplicationConfigComputeConfigPtrOutput {
 	return o.ApplyT(func(v LookupReplicationConfigResult) *ReplicationConfigComputeConfig { return v.ComputeConfig }).(ReplicationConfigComputeConfigPtrOutput)
 }

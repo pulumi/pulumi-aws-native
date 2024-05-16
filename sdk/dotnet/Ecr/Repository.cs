@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.Ecr
     [AwsNativeResourceType("aws-native:ecr:Repository")]
     public partial class Repository : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -128,6 +131,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("repositoryPolicyText")]
         public Output<object?> RepositoryPolicyText { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+        /// </summary>
         [Output("repositoryUri")]
         public Output<string> RepositoryUri { get; private set; } = null!;
 

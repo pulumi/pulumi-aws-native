@@ -14,20 +14,34 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     {
         [Input("columnStatisticsConfigurations")]
         private InputList<Inputs.JobColumnStatisticsConfigurationArgs>? _columnStatisticsConfigurations;
+
+        /// <summary>
+        /// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+        /// </summary>
         public InputList<Inputs.JobColumnStatisticsConfigurationArgs> ColumnStatisticsConfigurations
         {
             get => _columnStatisticsConfigurations ?? (_columnStatisticsConfigurations = new InputList<Inputs.JobColumnStatisticsConfigurationArgs>());
             set => _columnStatisticsConfigurations = value;
         }
 
+        /// <summary>
+        /// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        /// </summary>
         [Input("datasetStatisticsConfiguration")]
         public Input<Inputs.JobStatisticsConfigurationArgs>? DatasetStatisticsConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
+        /// </summary>
         [Input("entityDetectorConfiguration")]
         public Input<Inputs.JobEntityDetectorConfigurationArgs>? EntityDetectorConfiguration { get; set; }
 
         [Input("profileColumns")]
         private InputList<Inputs.JobColumnSelectorArgs>? _profileColumns;
+
+        /// <summary>
+        /// List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
+        /// </summary>
         public InputList<Inputs.JobColumnSelectorArgs> ProfileColumns
         {
             get => _profileColumns ?? (_profileColumns = new InputList<Inputs.JobColumnSelectorArgs>());

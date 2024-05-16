@@ -23,14 +23,23 @@ func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.Invoke
 }
 
 type LookupViewArgs struct {
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 	ViewArn string `pulumi:"viewArn"`
 }
 
 type LookupViewResult struct {
-	Filters            *ViewSearchFilter      `pulumi:"filters"`
+	// A search filter defines which resources can be part of a search query result set.
+	Filters *ViewSearchFilter `pulumi:"filters"`
+	// Information about an additional property that describes a resource, that you can optionally include in a view.
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
-	Tags               map[string]string      `pulumi:"tags"`
-	ViewArn            *string                `pulumi:"viewArn"`
+	// Tag key and value pairs that are attached to the view.
+	Tags map[string]string `pulumi:"tags"`
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+	ViewArn *string `pulumi:"viewArn"`
 }
 
 func LookupViewOutput(ctx *pulumi.Context, args LookupViewOutputArgs, opts ...pulumi.InvokeOption) LookupViewResultOutput {
@@ -47,6 +56,9 @@ func LookupViewOutput(ctx *pulumi.Context, args LookupViewOutputArgs, opts ...pu
 }
 
 type LookupViewOutputArgs struct {
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 	ViewArn pulumi.StringInput `pulumi:"viewArn"`
 }
 
@@ -68,18 +80,24 @@ func (o LookupViewResultOutput) ToLookupViewResultOutputWithContext(ctx context.
 	return o
 }
 
+// A search filter defines which resources can be part of a search query result set.
 func (o LookupViewResultOutput) Filters() ViewSearchFilterPtrOutput {
 	return o.ApplyT(func(v LookupViewResult) *ViewSearchFilter { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
+// Information about an additional property that describes a resource, that you can optionally include in a view.
 func (o LookupViewResultOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 	return o.ApplyT(func(v LookupViewResult) []ViewIncludedProperty { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
 }
 
+// Tag key and value pairs that are attached to the view.
 func (o LookupViewResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupViewResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the new view. For example:
+//
+// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 func (o LookupViewResultOutput) ViewArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupViewResult) *string { return v.ViewArn }).(pulumi.StringPtrOutput)
 }

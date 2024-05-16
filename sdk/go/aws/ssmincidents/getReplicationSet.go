@@ -30,8 +30,9 @@ type LookupReplicationSetArgs struct {
 
 type LookupReplicationSetResult struct {
 	// The ARN of the ReplicationSet.
-	Arn               *string `pulumi:"arn"`
-	DeletionProtected *bool   `pulumi:"deletionProtected"`
+	Arn *string `pulumi:"arn"`
+	// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+	DeletionProtected *bool `pulumi:"deletionProtected"`
 	// The ReplicationSet configuration.
 	Regions []ReplicationSetReplicationRegion `pulumi:"regions"`
 	// The tags to apply to the replication set.
@@ -79,6 +80,7 @@ func (o LookupReplicationSetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
 func (o LookupReplicationSetResultOutput) DeletionProtected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) *bool { return v.DeletionProtected }).(pulumi.BoolPtrOutput)
 }

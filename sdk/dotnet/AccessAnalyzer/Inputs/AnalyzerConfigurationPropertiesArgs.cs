@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     /// </summary>
     public sealed class AnalyzerConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about an unused access analyzer.
+        /// </summary>
         [Input("unusedAccessConfiguration")]
         public Input<Inputs.AnalyzerUnusedAccessConfigurationArgs>? UnusedAccessConfiguration { get; set; }
 

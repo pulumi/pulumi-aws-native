@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class AccessPolicyIdentity
     {
+        /// <summary>
+        /// Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly Outputs.AccessPolicyIamRole? IamRole;
+        /// <summary>
+        /// Contains information about an AWS Identity and Access Management user.
+        /// </summary>
         public readonly Outputs.AccessPolicyIamUser? IamUser;
+        /// <summary>
+        /// Contains information for a user identity in an access policy.
+        /// </summary>
         public readonly Outputs.AccessPolicyUser? User;
 
         [OutputConstructor]

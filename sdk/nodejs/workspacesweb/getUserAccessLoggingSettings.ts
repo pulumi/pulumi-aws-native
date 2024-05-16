@@ -19,16 +19,28 @@ export function getUserAccessLoggingSettings(args: GetUserAccessLoggingSettingsA
 }
 
 export interface GetUserAccessLoggingSettingsArgs {
+    /**
+     * The ARN of the user access logging settings.
+     */
     userAccessLoggingSettingsArn: string;
 }
 
 export interface GetUserAccessLoggingSettingsResult {
+    /**
+     * A list of web portal ARNs that this user access logging settings is associated with.
+     */
     readonly associatedPortalArns?: string[];
     /**
      * Kinesis stream ARN to which log events are published.
      */
     readonly kinesisStreamArn?: string;
+    /**
+     * The tag.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of the user access logging settings.
+     */
     readonly userAccessLoggingSettingsArn?: string;
 }
 /**
@@ -39,5 +51,8 @@ export function getUserAccessLoggingSettingsOutput(args: GetUserAccessLoggingSet
 }
 
 export interface GetUserAccessLoggingSettingsOutputArgs {
+    /**
+     * The ARN of the user access logging settings.
+     */
     userAccessLoggingSettingsArn: pulumi.Input<string>;
 }

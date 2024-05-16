@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateLoadingAnimationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility configuration of `LoadingAnimation` .
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

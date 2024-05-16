@@ -22,17 +22,29 @@ export function getEip(args: GetEipArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetEipArgs {
+    /**
+     * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+     */
     allocationId: string;
+    /**
+     * The Elastic IP address.
+     */
     publicIp: string;
 }
 
 export interface GetEipResult {
+    /**
+     * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+     */
     readonly allocationId?: string;
     /**
      * The ID of the instance.
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
     readonly instanceId?: string;
+    /**
+     * The Elastic IP address.
+     */
     readonly publicIp?: string;
     /**
      * The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
@@ -55,6 +67,12 @@ export function getEipOutput(args: GetEipOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetEipOutputArgs {
+    /**
+     * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+     */
     allocationId: pulumi.Input<string>;
+    /**
+     * The Elastic IP address.
+     */
     publicIp: pulumi.Input<string>;
 }

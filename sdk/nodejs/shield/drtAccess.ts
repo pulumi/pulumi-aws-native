@@ -34,6 +34,9 @@ export class DrtAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === DrtAccess.__pulumiType;
     }
 
+    /**
+     * The ID of the account that submitted the template.
+     */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
      * Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.

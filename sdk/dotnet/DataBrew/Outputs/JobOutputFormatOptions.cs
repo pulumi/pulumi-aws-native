@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobOutputFormatOptions
     {
+        /// <summary>
+        /// Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+        /// </summary>
         public readonly Outputs.JobCsvOutputOptions? Csv;
 
         [OutputConstructor]

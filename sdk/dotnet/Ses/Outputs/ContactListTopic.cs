@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ses.Outputs
     [OutputType]
     public sealed class ContactListTopic
     {
+        /// <summary>
+        /// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        /// </summary>
         public readonly string DefaultSubscriptionStatus;
         /// <summary>
         /// The description of the topic.

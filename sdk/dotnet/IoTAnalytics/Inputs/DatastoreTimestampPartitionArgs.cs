@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastoreTimestampPartitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The attribute name of the partition defined by a timestamp.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
+        /// </summary>
         [Input("timestampFormat")]
         public Input<string>? TimestampFormat { get; set; }
 

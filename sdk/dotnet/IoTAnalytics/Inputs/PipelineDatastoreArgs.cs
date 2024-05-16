@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineDatastoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the data store where processed messages are stored.
+        /// </summary>
         [Input("datastoreName", required: true)]
         public Input<string> DatastoreName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the datastore activity.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

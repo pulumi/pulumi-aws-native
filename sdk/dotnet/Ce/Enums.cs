@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.Ce
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The possible type values.
+    /// </summary>
     [EnumType]
     public readonly struct AnomalyMonitorMonitorType : IEquatable<AnomalyMonitorMonitorType>
     {
@@ -97,6 +100,9 @@ namespace Pulumi.AwsNative.Ce
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates if the subscriber accepts the notifications.
+    /// </summary>
     [EnumType]
     public readonly struct AnomalySubscriptionSubscriberStatus : IEquatable<AnomalySubscriptionSubscriberStatus>
     {
@@ -125,6 +131,9 @@ namespace Pulumi.AwsNative.Ce
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The notification delivery channel.
+    /// </summary>
     [EnumType]
     public readonly struct AnomalySubscriptionSubscriberType : IEquatable<AnomalySubscriptionSubscriberType>
     {
@@ -153,6 +162,9 @@ namespace Pulumi.AwsNative.Ce
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The rule schema version in this particular Cost Category.
+    /// </summary>
     [EnumType]
     public readonly struct CostCategoryRuleVersion : IEquatable<CostCategoryRuleVersion>
     {

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisKpiSparklineOptions
     {
+        /// <summary>
+        /// The color of the sparkline.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The tooltip visibility of the sparkline.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? TooltipVisibility;
+        /// <summary>
+        /// The type of the sparkline.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisKpiSparklineType Type;
+        /// <summary>
+        /// The visibility of the sparkline.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateVisibleRangeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The percent range in the visible range.
+        /// </summary>
         [Input("percentRange")]
         public Input<Inputs.TemplatePercentVisibleRangeArgs>? PercentRange { get; set; }
 

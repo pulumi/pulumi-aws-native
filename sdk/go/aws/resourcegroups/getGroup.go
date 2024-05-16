@@ -30,13 +30,30 @@ type LookupGroupArgs struct {
 
 type LookupGroupResult struct {
 	// The Resource Group ARN.
-	Arn           *string                  `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+	//
+	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 	Configuration []GroupConfigurationItem `pulumi:"configuration"`
 	// The description of the resource group
-	Description   *string             `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
 	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
-	Resources     []string            `pulumi:"resources"`
-	Tags          []aws.Tag           `pulumi:"tags"`
+	// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+	//
+	// > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+	// > - You can include a `Resources` property only if you also specify a `Configuration` property.
+	Resources []string `pulumi:"resources"`
+	// Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+	//
+	// > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.
+	//
+	// *Minimum permissions*
+	//
+	// To run this command, you must have the following permissions:
+	//
+	// - `resource-groups:Tag`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -80,6 +97,9 @@ func (o LookupGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+//
+// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 func (o LookupGroupResultOutput) Configuration() GroupConfigurationItemArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GroupConfigurationItem { return v.Configuration }).(GroupConfigurationItemArrayOutput)
 }
@@ -89,14 +109,28 @@ func (o LookupGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
 func (o LookupGroupResultOutput) ResourceQuery() GroupResourceQueryPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *GroupResourceQuery { return v.ResourceQuery }).(GroupResourceQueryPtrOutput)
 }
 
+// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+//
+// > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+// > - You can include a `Resources` property only if you also specify a `Configuration` property.
 func (o LookupGroupResultOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
+// Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+//
+// > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.
+//
+// *Minimum permissions*
+//
+// To run this command, you must have the following permissions:
+//
+// - `resource-groups:Tag`
 func (o LookupGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

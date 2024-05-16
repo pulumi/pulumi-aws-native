@@ -61,61 +61,106 @@ class GetGlobalTableResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> Optional[Sequence['outputs.GlobalTableAttributeDefinition']]:
+        """
+        Represents an attribute for describing the schema for the table and indexes.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[str]:
+        """
+        Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+
+        - `PAY_PER_REQUEST`
+        - `PROVISIONED`
+
+        All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        """
         return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[Sequence['outputs.GlobalTableGlobalSecondaryIndex']]:
+        """
+        Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
     @pulumi.getter
     def replicas(self) -> Optional[Sequence['outputs.GlobalTableReplicaSpecification']]:
+        """
+        Defines settings specific to a single replica of a global table.
+        """
         return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional['outputs.GlobalTableSseSpecification']:
+        """
+        Represents the settings used to enable server-side encryption.
+        """
         return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[str]:
+        """
+        The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+
+        > You must specify the `StreamSpecification` property to use this attribute.
+        """
         return pulumi.get(self, "stream_arn")
 
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional['outputs.GlobalTableStreamSpecification']:
+        """
+        Represents the DynamoDB Streams configuration for a table in DynamoDB.
+
+        You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        """
         return pulumi.get(self, "stream_specification")
 
     @property
     @pulumi.getter(name="tableId")
     def table_id(self) -> Optional[str]:
+        """
+        Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
+        """
         return pulumi.get(self, "table_id")
 
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional['outputs.GlobalTableTimeToLiveSpecification']:
+        """
+        Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        """
         return pulumi.get(self, "time_to_live_specification")
 
     @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']:
+        """
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional['outputs.GlobalTableWriteProvisionedThroughputSettings']:
+        """
+        Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
 
@@ -143,6 +188,11 @@ def get_global_table(table_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalTableResult:
     """
     Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
+
+
+    :param str table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+           
+           > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
     __args__ = dict()
     __args__['tableName'] = table_name
@@ -169,5 +219,10 @@ def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalTableResult]:
     """
     Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
+
+
+    :param str table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+           
+           > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
     ...

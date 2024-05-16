@@ -16,6 +16,7 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType WorkspaceAccountAccessTypeOutput `pulumi:"accountAccessType"`
 	// List of authentication providers to enable.
 	AuthenticationProviders WorkspaceAuthenticationProviderTypesArrayOutput `pulumi:"authenticationProviders"`
@@ -36,26 +37,60 @@ type Workspace struct {
 	// Timestamp when the workspace was last modified
 	ModificationTimestamp pulumi.StringOutput `pulumi:"modificationTimestamp"`
 	// The user friendly name of a workspace.
-	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The configuration settings for in-bound network access to your workspace.
+	//
+	// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
+	//
+	// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
+	//
+	// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
+	//
+	// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
+	// >
+	// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrOutput `pulumi:"networkAccessControl"`
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations WorkspaceNotificationDestinationTypeArrayOutput `pulumi:"notificationDestinations"`
 	// The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
 	OrganizationRoleName pulumi.StringPtrOutput `pulumi:"organizationRoleName"`
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
-	OrganizationalUnits pulumi.StringArrayOutput      `pulumi:"organizationalUnits"`
-	PermissionType      WorkspacePermissionTypeOutput `pulumi:"permissionType"`
+	OrganizationalUnits pulumi.StringArrayOutput `pulumi:"organizationalUnits"`
+	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+	//
+	// If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+	//
+	// If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+	//
+	// For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	PermissionType WorkspacePermissionTypeOutput `pulumi:"permissionType"`
 	// Allow workspace admins to install plugins
 	PluginAdminEnabled pulumi.BoolPtrOutput `pulumi:"pluginAdminEnabled"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
-	RoleArn                 pulumi.StringPtrOutput                 `pulumi:"roleArn"`
-	SamlConfiguration       WorkspaceSamlConfigurationPtrOutput    `pulumi:"samlConfiguration"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// A structure containing information about how this workspace works with SAML.
+	SamlConfiguration WorkspaceSamlConfigurationPtrOutput `pulumi:"samlConfiguration"`
+	// Specifies whether the workspace's SAML configuration is complete.
+	//
+	// Valid values: `CONFIGURED | NOT_CONFIGURED`
+	//
+	// Type: String
 	SamlConfigurationStatus WorkspaceSamlConfigurationStatusOutput `pulumi:"samlConfigurationStatus"`
 	// The client ID of the AWS SSO Managed Application.
 	SsoClientId pulumi.StringOutput `pulumi:"ssoClientId"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName     pulumi.StringPtrOutput             `pulumi:"stackSetName"`
-	Status           WorkspaceStatusOutput              `pulumi:"status"`
+	StackSetName pulumi.StringPtrOutput `pulumi:"stackSetName"`
+	// The current status of the workspace.
+	//
+	// Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+	//
+	// Type: String
+	Status WorkspaceStatusOutput `pulumi:"status"`
+	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+	//
+	// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
+	// >
+	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration WorkspaceVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
 
@@ -112,6 +147,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType WorkspaceAccountAccessType `pulumi:"accountAccessType"`
 	// List of authentication providers to enable.
 	AuthenticationProviders []WorkspaceAuthenticationProviderTypes `pulumi:"authenticationProviders"`
@@ -124,27 +160,52 @@ type workspaceArgs struct {
 	// The version of Grafana to support in your workspace.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The user friendly name of a workspace.
-	Name                 *string                        `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The configuration settings for in-bound network access to your workspace.
+	//
+	// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
+	//
+	// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
+	//
+	// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
+	//
+	// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
+	// >
+	// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
 	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations []WorkspaceNotificationDestinationType `pulumi:"notificationDestinations"`
 	// The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
 	OrganizationRoleName *string `pulumi:"organizationRoleName"`
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
-	OrganizationalUnits []string                `pulumi:"organizationalUnits"`
-	PermissionType      WorkspacePermissionType `pulumi:"permissionType"`
+	OrganizationalUnits []string `pulumi:"organizationalUnits"`
+	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+	//
+	// If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+	//
+	// If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+	//
+	// For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	PermissionType WorkspacePermissionType `pulumi:"permissionType"`
 	// Allow workspace admins to install plugins
 	PluginAdminEnabled *bool `pulumi:"pluginAdminEnabled"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
-	RoleArn           *string                     `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
+	// A structure containing information about how this workspace works with SAML.
 	SamlConfiguration *WorkspaceSamlConfiguration `pulumi:"samlConfiguration"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName     *string                    `pulumi:"stackSetName"`
+	StackSetName *string `pulumi:"stackSetName"`
+	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+	//
+	// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
+	// >
+	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration *WorkspaceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType WorkspaceAccountAccessTypeInput
 	// List of authentication providers to enable.
 	AuthenticationProviders WorkspaceAuthenticationProviderTypesArrayInput
@@ -157,7 +218,18 @@ type WorkspaceArgs struct {
 	// The version of Grafana to support in your workspace.
 	GrafanaVersion pulumi.StringPtrInput
 	// The user friendly name of a workspace.
-	Name                 pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The configuration settings for in-bound network access to your workspace.
+	//
+	// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
+	//
+	// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
+	//
+	// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
+	//
+	// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
+	// >
+	// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations WorkspaceNotificationDestinationTypeArrayInput
@@ -165,14 +237,27 @@ type WorkspaceArgs struct {
 	OrganizationRoleName pulumi.StringPtrInput
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
 	OrganizationalUnits pulumi.StringArrayInput
-	PermissionType      WorkspacePermissionTypeInput
+	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+	//
+	// If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+	//
+	// If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+	//
+	// For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	PermissionType WorkspacePermissionTypeInput
 	// Allow workspace admins to install plugins
 	PluginAdminEnabled pulumi.BoolPtrInput
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
-	RoleArn           pulumi.StringPtrInput
+	RoleArn pulumi.StringPtrInput
+	// A structure containing information about how this workspace works with SAML.
 	SamlConfiguration WorkspaceSamlConfigurationPtrInput
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName     pulumi.StringPtrInput
+	StackSetName pulumi.StringPtrInput
+	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+	//
+	// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
+	// >
+	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration WorkspaceVpcConfigurationPtrInput
 }
 
@@ -213,6 +298,7 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
 func (o WorkspaceOutput) AccountAccessType() WorkspaceAccountAccessTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAccountAccessTypeOutput { return v.AccountAccessType }).(WorkspaceAccountAccessTypeOutput)
 }
@@ -267,6 +353,17 @@ func (o WorkspaceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings for in-bound network access to your workspace.
+//
+// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
+//
+// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
+//
+// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
+//
+// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
+// >
+// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
 func (o WorkspaceOutput) NetworkAccessControl() WorkspaceNetworkAccessControlPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceNetworkAccessControlPtrOutput { return v.NetworkAccessControl }).(WorkspaceNetworkAccessControlPtrOutput)
 }
@@ -286,6 +383,13 @@ func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
 
+// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+//
+// If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+//
+// If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+//
+// For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
 func (o WorkspaceOutput) PermissionType() WorkspacePermissionTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspacePermissionTypeOutput { return v.PermissionType }).(WorkspacePermissionTypeOutput)
 }
@@ -300,10 +404,16 @@ func (o WorkspaceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// A structure containing information about how this workspace works with SAML.
 func (o WorkspaceOutput) SamlConfiguration() WorkspaceSamlConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceSamlConfigurationPtrOutput { return v.SamlConfiguration }).(WorkspaceSamlConfigurationPtrOutput)
 }
 
+// Specifies whether the workspace's SAML configuration is complete.
+//
+// Valid values: `CONFIGURED | NOT_CONFIGURED`
+//
+// Type: String
 func (o WorkspaceOutput) SamlConfigurationStatus() WorkspaceSamlConfigurationStatusOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceSamlConfigurationStatusOutput { return v.SamlConfigurationStatus }).(WorkspaceSamlConfigurationStatusOutput)
 }
@@ -318,10 +428,20 @@ func (o WorkspaceOutput) StackSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.StackSetName }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the workspace.
+//
+// Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+//
+// Type: String
 func (o WorkspaceOutput) Status() WorkspaceStatusOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceStatusOutput { return v.Status }).(WorkspaceStatusOutput)
 }
 
+// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+//
+// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
+// >
+// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 func (o WorkspaceOutput) VpcConfiguration() WorkspaceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceVpcConfigurationPtrOutput { return v.VpcConfiguration }).(WorkspaceVpcConfigurationPtrOutput)
 }

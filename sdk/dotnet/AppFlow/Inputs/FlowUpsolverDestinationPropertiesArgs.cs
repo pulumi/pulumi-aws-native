@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowUpsolverDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+        /// </summary>
         [Input("s3OutputFormatConfig", required: true)]
         public Input<Inputs.FlowUpsolverS3OutputFormatConfigArgs> S3OutputFormatConfig { get; set; } = null!;
 

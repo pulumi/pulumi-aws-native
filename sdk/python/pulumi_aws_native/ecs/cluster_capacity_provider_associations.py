@@ -22,6 +22,9 @@ class ClusterCapacityProviderAssociationsArgs:
                  default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]):
         """
         The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]] capacity_providers: The capacity providers to associate with the cluster.
+        :param pulumi.Input[str] cluster: The cluster the capacity provider association is the target of.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
         """
         pulumi.set(__self__, "capacity_providers", capacity_providers)
         pulumi.set(__self__, "cluster", cluster)
@@ -30,6 +33,9 @@ class ClusterCapacityProviderAssociationsArgs:
     @property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]:
+        """
+        The capacity providers to associate with the cluster.
+        """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -39,6 +45,9 @@ class ClusterCapacityProviderAssociationsArgs:
     @property
     @pulumi.getter
     def cluster(self) -> pulumi.Input[str]:
+        """
+        The cluster the capacity provider association is the target of.
+        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -48,6 +57,9 @@ class ClusterCapacityProviderAssociationsArgs:
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]:
+        """
+        The default capacity provider strategy to associate with the cluster.
+        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @default_capacity_provider_strategy.setter
@@ -127,6 +139,9 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]] capacity_providers: The capacity providers to associate with the cluster.
+        :param pulumi.Input[str] cluster: The cluster the capacity provider association is the target of.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
         """
         ...
     @overload
@@ -263,15 +278,24 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
     @property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The capacity providers to associate with the cluster.
+        """
         return pulumi.get(self, "capacity_providers")
 
     @property
     @pulumi.getter
     def cluster(self) -> pulumi.Output[str]:
+        """
+        The cluster the capacity provider association is the target of.
+        """
         return pulumi.get(self, "cluster")
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Output[Sequence['outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy']]:
+        """
+        The default capacity provider strategy to associate with the cluster.
+        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 

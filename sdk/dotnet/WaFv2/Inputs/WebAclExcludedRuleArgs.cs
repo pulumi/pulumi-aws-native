@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclExcludedRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the rule whose action you want to override to `Count` .
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

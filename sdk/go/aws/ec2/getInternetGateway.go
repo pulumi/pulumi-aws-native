@@ -24,10 +24,12 @@ func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs,
 }
 
 type LookupInternetGatewayArgs struct {
+	// The ID of the internet gateway.
 	InternetGatewayId string `pulumi:"internetGatewayId"`
 }
 
 type LookupInternetGatewayResult struct {
+	// The ID of the internet gateway.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
 	// Any tags to assign to the internet gateway.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -47,6 +49,7 @@ func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGateway
 }
 
 type LookupInternetGatewayOutputArgs struct {
+	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringInput `pulumi:"internetGatewayId"`
 }
 
@@ -68,6 +71,7 @@ func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutputWi
 	return o
 }
 
+// The ID of the internet gateway.
 func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInternetGatewayResult) *string { return v.InternetGatewayId }).(pulumi.StringPtrOutput)
 }

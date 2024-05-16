@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [AwsNativeResourceType("aws-native:pcaconnectorad:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate authority being used.
+        /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Output("connectorArn")]
         public Output<string> ConnectorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Active Directory.
+        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata assigned to a connector consisting of a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about your VPC and security groups used with the connector.
+        /// </summary>
         [Output("vpcInformation")]
         public Output<Outputs.ConnectorVpcInformation> VpcInformation { get; private set; } = null!;
 
@@ -81,20 +96,33 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate authority being used.
+        /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Active Directory.
+        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata assigned to a connector consisting of a key-value pair.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Information about your VPC and security groups used with the connector.
+        /// </summary>
         [Input("vpcInformation", required: true)]
         public Input<Inputs.ConnectorVpcInformationArgs> VpcInformation { get; set; } = null!;
 

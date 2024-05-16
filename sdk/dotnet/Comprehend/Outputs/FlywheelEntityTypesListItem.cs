@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     [OutputType]
     public sealed class FlywheelEntityTypesListItem
     {
+        /// <summary>
+        /// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+        /// 
+        /// Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

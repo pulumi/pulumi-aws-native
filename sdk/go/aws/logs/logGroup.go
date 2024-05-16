@@ -21,6 +21,7 @@ import (
 type LogGroup struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
 	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
@@ -183,6 +184,7 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 	return o
 }
 
+// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
 func (o LogGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

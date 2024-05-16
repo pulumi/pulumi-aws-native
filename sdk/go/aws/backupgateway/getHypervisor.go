@@ -23,11 +23,14 @@ func LookupHypervisor(ctx *pulumi.Context, args *LookupHypervisorArgs, opts ...p
 }
 
 type LookupHypervisorArgs struct {
+	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
 	HypervisorArn string `pulumi:"hypervisorArn"`
 }
 
 type LookupHypervisorResult struct {
-	Host          *string `pulumi:"host"`
+	// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+	Host *string `pulumi:"host"`
+	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
 	HypervisorArn *string `pulumi:"hypervisorArn"`
 }
 
@@ -45,6 +48,7 @@ func LookupHypervisorOutput(ctx *pulumi.Context, args LookupHypervisorOutputArgs
 }
 
 type LookupHypervisorOutputArgs struct {
+	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
 	HypervisorArn pulumi.StringInput `pulumi:"hypervisorArn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupHypervisorResultOutput) ToLookupHypervisorResultOutputWithContext(
 	return o
 }
 
+// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
 func (o LookupHypervisorResultOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHypervisorResult) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
 func (o LookupHypervisorResultOutput) HypervisorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHypervisorResult) *string { return v.HypervisorArn }).(pulumi.StringPtrOutput)
 }

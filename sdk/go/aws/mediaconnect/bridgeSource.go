@@ -17,10 +17,12 @@ type BridgeSource struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Number (ARN) of the bridge.
-	BridgeArn  pulumi.StringOutput                   `pulumi:"bridgeArn"`
+	BridgeArn pulumi.StringOutput `pulumi:"bridgeArn"`
+	// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 	FlowSource BridgeSourceBridgeFlowSourcePtrOutput `pulumi:"flowSource"`
 	// The name of the source.
-	Name          pulumi.StringOutput                      `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The source of the bridge. A network source originates at your premises.
 	NetworkSource BridgeSourceBridgeNetworkSourcePtrOutput `pulumi:"networkSource"`
 }
 
@@ -73,20 +75,24 @@ func (BridgeSourceState) ElementType() reflect.Type {
 
 type bridgeSourceArgs struct {
 	// The Amazon Resource Number (ARN) of the bridge.
-	BridgeArn  string                        `pulumi:"bridgeArn"`
+	BridgeArn string `pulumi:"bridgeArn"`
+	// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 	FlowSource *BridgeSourceBridgeFlowSource `pulumi:"flowSource"`
 	// The name of the source.
-	Name          *string                          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The source of the bridge. A network source originates at your premises.
 	NetworkSource *BridgeSourceBridgeNetworkSource `pulumi:"networkSource"`
 }
 
 // The set of arguments for constructing a BridgeSource resource.
 type BridgeSourceArgs struct {
 	// The Amazon Resource Number (ARN) of the bridge.
-	BridgeArn  pulumi.StringInput
+	BridgeArn pulumi.StringInput
+	// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 	FlowSource BridgeSourceBridgeFlowSourcePtrInput
 	// The name of the source.
-	Name          pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The source of the bridge. A network source originates at your premises.
 	NetworkSource BridgeSourceBridgeNetworkSourcePtrInput
 }
 
@@ -132,6 +138,7 @@ func (o BridgeSourceOutput) BridgeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BridgeSource) pulumi.StringOutput { return v.BridgeArn }).(pulumi.StringOutput)
 }
 
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 func (o BridgeSourceOutput) FlowSource() BridgeSourceBridgeFlowSourcePtrOutput {
 	return o.ApplyT(func(v *BridgeSource) BridgeSourceBridgeFlowSourcePtrOutput { return v.FlowSource }).(BridgeSourceBridgeFlowSourcePtrOutput)
 }
@@ -141,6 +148,7 @@ func (o BridgeSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BridgeSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The source of the bridge. A network source originates at your premises.
 func (o BridgeSourceOutput) NetworkSource() BridgeSourceBridgeNetworkSourcePtrOutput {
 	return o.ApplyT(func(v *BridgeSource) BridgeSourceBridgeNetworkSourcePtrOutput { return v.NetworkSource }).(BridgeSourceBridgeNetworkSourcePtrOutput)
 }

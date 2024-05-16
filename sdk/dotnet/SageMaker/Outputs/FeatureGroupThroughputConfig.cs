@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
         /// </summary>
         public readonly int? ProvisionedWriteCapacityUnits;
+        /// <summary>
+        /// The mode used for your feature group throughput: `ON_DEMAND` or `PROVISIONED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.FeatureGroupThroughputMode ThroughputMode;
 
         [OutputConstructor]

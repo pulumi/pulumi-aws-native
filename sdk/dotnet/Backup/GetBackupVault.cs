@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupVaultArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        /// </summary>
         [Input("backupVaultName", required: true)]
         public string BackupVaultName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        /// </summary>
         [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
 
@@ -52,12 +58,26 @@ namespace Pulumi.AwsNative.Backup
     public sealed class GetBackupVaultResult
     {
         /// <summary>
+        /// A resource-based policy that is used to manage access permissions on the target backup vault.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? AccessPolicy;
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+        /// </summary>
         public readonly string? BackupVaultArn;
+        /// <summary>
+        /// The tags to assign to the backup vault.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? BackupVaultTags;
+        /// <summary>
+        /// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        /// </summary>
         public readonly Outputs.BackupVaultLockConfigurationType? LockConfiguration;
+        /// <summary>
+        /// Specifies an object containing SNS event notification properties for the target backup vault.
+        /// </summary>
         public readonly Outputs.BackupVaultNotificationObjectType? Notifications;
 
         [OutputConstructor]

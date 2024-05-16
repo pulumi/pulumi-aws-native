@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleTimestreamTimestamp
     {
+        /// <summary>
+        /// The precision of the timestamp value that results from the expression described in `value` .
+        /// </summary>
         public readonly string Unit;
+        /// <summary>
+        /// An expression that returns a long epoch time value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

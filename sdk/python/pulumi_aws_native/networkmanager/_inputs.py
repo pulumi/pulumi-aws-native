@@ -151,6 +151,7 @@ class ConnectPeerBgpOptionsArgs:
                  peer_asn: Optional[pulumi.Input[float]] = None):
         """
         Bgp options
+        :param pulumi.Input[float] peer_asn: The Peer ASN of the BGP.
         """
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
@@ -158,6 +159,9 @@ class ConnectPeerBgpOptionsArgs:
     @property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> Optional[pulumi.Input[float]]:
+        """
+        The Peer ASN of the BGP.
+        """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter

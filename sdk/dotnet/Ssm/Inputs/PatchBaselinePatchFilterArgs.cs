@@ -15,11 +15,22 @@ namespace Pulumi.AwsNative.Ssm.Inputs
     /// </summary>
     public sealed class PatchBaselinePatchFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key for the filter.
+        /// 
+        /// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        /// </summary>
         [Input("key")]
         public Input<Pulumi.AwsNative.Ssm.PatchBaselinePatchFilterKey>? Key { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The value for the filter key.
+        /// 
+        /// For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

@@ -14,12 +14,21 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("attachmentFieldMappings")]
         private InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>? _attachmentFieldMappings;
+
+        /// <summary>
+        /// Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+        /// 
+        /// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
+        /// </summary>
         public InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs> AttachmentFieldMappings
         {
             get => _attachmentFieldMappings ?? (_attachmentFieldMappings = new InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>());
             set => _attachmentFieldMappings = value;
         }
 
+        /// <summary>
+        /// `TRUE` to index attachments of pages and blogs in Confluence.
+        /// </summary>
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 

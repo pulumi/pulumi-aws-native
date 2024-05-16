@@ -15,9 +15,19 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:OriginAccessControl")]
     public partial class OriginAccessControl : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+        /// 
+        /// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+        /// 
+        /// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         [Output("originAccessControlConfig")]
         public Output<Outputs.OriginAccessControlConfig> OriginAccessControlConfig { get; private set; } = null!;
 
@@ -66,6 +76,13 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class OriginAccessControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+        /// 
+        /// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+        /// 
+        /// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         [Input("originAccessControlConfig", required: true)]
         public Input<Inputs.OriginAccessControlConfigArgs> OriginAccessControlConfig { get; set; } = null!;
 

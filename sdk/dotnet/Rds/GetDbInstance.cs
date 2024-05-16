@@ -210,6 +210,9 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Can't be the identifier of an Aurora DB cluster snapshot.
         /// </summary>
         public readonly string? DbClusterSnapshotIdentifier;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB instance.
+        /// </summary>
         public readonly string? DbInstanceArn;
         /// <summary>
         /// The compute and memory capacity of the DB instance, for example ``db.m5.large``. Not all DB instance classes are available in all AWS-Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide*.
@@ -255,6 +258,9 @@ namespace Pulumi.AwsNative.Rds
         /// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
         /// </summary>
         public readonly string? DbSystemId;
+        /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        /// </summary>
         public readonly string? DbiResourceId;
         /// <summary>
         /// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.

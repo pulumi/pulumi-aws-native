@@ -39,6 +39,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("agentAliasName")]
         public Output<string> AgentAliasName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+        /// 
+        /// - CREATING – The agent alias is being created.
+        /// - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+        /// - FAILED – The agent alias API operation failed.
+        /// - UPDATING – The agent alias is being updated.
+        /// - DELETING – The agent alias is being deleted.
+        /// </summary>
         [Output("agentAliasStatus")]
         public Output<Pulumi.AwsNative.Bedrock.AgentAliasStatus> AgentAliasStatus { get; private set; } = null!;
 
@@ -66,6 +75,12 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("routingConfiguration")]
         public Output<ImmutableArray<Outputs.AgentAliasRoutingConfigurationListItem>> RoutingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -156,6 +171,13 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

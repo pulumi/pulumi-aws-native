@@ -454,13 +454,16 @@ type AnomalyMonitor struct {
 	LastEvaluatedDate pulumi.StringOutput `pulumi:"lastEvaluatedDate"`
 	// The date when the monitor was last updated.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	MonitorArn      pulumi.StringOutput `pulumi:"monitorArn"`
+	// The Amazon Resource Name (ARN) value for the monitor.
+	MonitorArn pulumi.StringOutput `pulumi:"monitorArn"`
 	// The dimensions to evaluate
 	MonitorDimension AnomalyMonitorMonitorDimensionPtrOutput `pulumi:"monitorDimension"`
 	// The name of the monitor.
-	MonitorName          pulumi.StringOutput             `pulumi:"monitorName"`
-	MonitorSpecification pulumi.StringPtrOutput          `pulumi:"monitorSpecification"`
-	MonitorType          AnomalyMonitorMonitorTypeOutput `pulumi:"monitorType"`
+	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
+	// The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+	MonitorSpecification pulumi.StringPtrOutput `pulumi:"monitorSpecification"`
+	// The possible type values.
+	MonitorType AnomalyMonitorMonitorTypeOutput `pulumi:"monitorType"`
 	// Tags to assign to monitor.
 	ResourceTags AnomalyMonitorResourceTagArrayOutput `pulumi:"resourceTags"`
 }
@@ -518,9 +521,11 @@ type anomalyMonitorArgs struct {
 	// The dimensions to evaluate
 	MonitorDimension *AnomalyMonitorMonitorDimension `pulumi:"monitorDimension"`
 	// The name of the monitor.
-	MonitorName          *string                   `pulumi:"monitorName"`
-	MonitorSpecification *string                   `pulumi:"monitorSpecification"`
-	MonitorType          AnomalyMonitorMonitorType `pulumi:"monitorType"`
+	MonitorName *string `pulumi:"monitorName"`
+	// The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+	MonitorSpecification *string `pulumi:"monitorSpecification"`
+	// The possible type values.
+	MonitorType AnomalyMonitorMonitorType `pulumi:"monitorType"`
 	// Tags to assign to monitor.
 	ResourceTags []AnomalyMonitorResourceTag `pulumi:"resourceTags"`
 }
@@ -530,9 +535,11 @@ type AnomalyMonitorArgs struct {
 	// The dimensions to evaluate
 	MonitorDimension AnomalyMonitorMonitorDimensionPtrInput
 	// The name of the monitor.
-	MonitorName          pulumi.StringPtrInput
+	MonitorName pulumi.StringPtrInput
+	// The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
 	MonitorSpecification pulumi.StringPtrInput
-	MonitorType          AnomalyMonitorMonitorTypeInput
+	// The possible type values.
+	MonitorType AnomalyMonitorMonitorTypeInput
 	// Tags to assign to monitor.
 	ResourceTags AnomalyMonitorResourceTagArrayInput
 }
@@ -594,6 +601,7 @@ func (o AnomalyMonitorOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) value for the monitor.
 func (o AnomalyMonitorOutput) MonitorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.MonitorArn }).(pulumi.StringOutput)
 }
@@ -608,10 +616,12 @@ func (o AnomalyMonitorOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
+// The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
 func (o AnomalyMonitorOutput) MonitorSpecification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringPtrOutput { return v.MonitorSpecification }).(pulumi.StringPtrOutput)
 }
 
+// The possible type values.
 func (o AnomalyMonitorOutput) MonitorType() AnomalyMonitorMonitorTypeOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) AnomalyMonitorMonitorTypeOutput { return v.MonitorType }).(AnomalyMonitorMonitorTypeOutput)
 }

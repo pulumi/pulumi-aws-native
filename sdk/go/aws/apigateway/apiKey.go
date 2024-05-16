@@ -82,6 +82,7 @@ import (
 type ApiKey struct {
 	pulumi.CustomResourceState
 
+	// The ID for the API key. For example: `abc123` .
 	ApiKeyId pulumi.StringOutput `pulumi:"apiKeyId"`
 	// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId pulumi.StringPtrOutput `pulumi:"customerId"`
@@ -225,6 +226,7 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
+// The ID for the API key. For example: `abc123` .
 func (o ApiKeyOutput) ApiKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKeyId }).(pulumi.StringOutput)
 }

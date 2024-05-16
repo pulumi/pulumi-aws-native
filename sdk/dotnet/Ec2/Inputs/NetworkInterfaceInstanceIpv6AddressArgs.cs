@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class NetworkInterfaceInstanceIpv6AddressArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An IPv6 address to associate with the network interface.
+        /// </summary>
         [Input("ipv6Address", required: true)]
         public Input<string> Ipv6Address { get; set; } = null!;
 

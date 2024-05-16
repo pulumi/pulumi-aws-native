@@ -49,6 +49,9 @@ export class Ipam extends pulumi.CustomResource {
      * The Id of the default resource discovery, created with this IPAM.
      */
     public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
+    /**
+     * The description for the IPAM.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Id of the IPAM.
@@ -129,6 +132,9 @@ export class Ipam extends pulumi.CustomResource {
  * The set of arguments for constructing a Ipam resource.
  */
 export interface IpamArgs {
+    /**
+     * The description for the IPAM.
+     */
     description?: pulumi.Input<string>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring

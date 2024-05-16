@@ -19,18 +19,48 @@ export function getApplicationInstance(args: GetApplicationInstanceArgs, opts?: 
 }
 
 export interface GetApplicationInstanceArgs {
+    /**
+     * The application instance's ID.
+     */
     applicationInstanceId: string;
 }
 
 export interface GetApplicationInstanceResult {
+    /**
+     * The application instance's ID.
+     */
     readonly applicationInstanceId?: string;
+    /**
+     * The application instance's ARN.
+     */
     readonly arn?: string;
+    /**
+     * The application instance's created time.
+     */
     readonly createdTime?: number;
+    /**
+     * The application instance's default runtime context device name.
+     */
     readonly defaultRuntimeContextDeviceName?: string;
+    /**
+     * The application instance's health status.
+     */
     readonly healthStatus?: enums.panorama.ApplicationInstanceHealthStatus;
+    /**
+     * The application instance's last updated time.
+     */
     readonly lastUpdatedTime?: number;
+    /**
+     * The application instance's status.
+     */
     readonly status?: enums.panorama.ApplicationInstanceStatus;
+    /**
+     * The application instance's status description.
+     */
     readonly statusDescription?: string;
+    /**
+     * Tags for the application instance.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -41,5 +71,8 @@ export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputA
 }
 
 export interface GetApplicationInstanceOutputArgs {
+    /**
+     * The application instance's ID.
+     */
     applicationInstanceId: pulumi.Input<string>;
 }

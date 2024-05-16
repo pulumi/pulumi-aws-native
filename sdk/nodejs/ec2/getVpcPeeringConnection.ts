@@ -19,11 +19,20 @@ export function getVpcPeeringConnection(args: GetVpcPeeringConnectionArgs, opts?
 }
 
 export interface GetVpcPeeringConnectionArgs {
+    /**
+     * The ID of the peering connection.
+     */
     id: string;
 }
 
 export interface GetVpcPeeringConnectionResult {
+    /**
+     * The ID of the peering connection.
+     */
     readonly id?: string;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -34,5 +43,8 @@ export function getVpcPeeringConnectionOutput(args: GetVpcPeeringConnectionOutpu
 }
 
 export interface GetVpcPeeringConnectionOutputArgs {
+    /**
+     * The ID of the peering connection.
+     */
     id: pulumi.Input<string>;
 }

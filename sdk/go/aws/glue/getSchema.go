@@ -30,7 +30,8 @@ type LookupSchemaArgs struct {
 
 type LookupSchemaResult struct {
 	// Amazon Resource Name for the Schema.
-	Arn               *string            `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Specifies the version of a schema.
 	CheckpointVersion *SchemaVersionType `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility *SchemaCompatibility `pulumi:"compatibility"`
@@ -83,6 +84,7 @@ func (o LookupSchemaResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of a schema.
 func (o LookupSchemaResultOutput) CheckpointVersion() SchemaVersionTypePtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *SchemaVersionType { return v.CheckpointVersion }).(SchemaVersionTypePtrOutput)
 }

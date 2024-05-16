@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateColumnTooltipItem
     {
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateAggregationFunction? Aggregation;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The label of the tooltip item.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The visibility of the tooltip item.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

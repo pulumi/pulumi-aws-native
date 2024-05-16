@@ -37,7 +37,10 @@ type LookupFleetResult struct {
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
 	Ec2InboundPermissions []FleetIpPermission `pulumi:"ec2InboundPermissions"`
 	// Unique fleet ID
-	FleetId   *string                      `pulumi:"fleetId"`
+	FleetId *string `pulumi:"fleetId"`
+	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// A remote location where a multi-location fleet can deploy game servers for game hosting.
 	Locations []FleetLocationConfiguration `pulumi:"locations"`
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize *int `pulumi:"maxSize"`
@@ -120,6 +123,9 @@ func (o LookupFleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
+// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+//
+// A remote location where a multi-location fleet can deploy game servers for game hosting.
 func (o LookupFleetResultOutput) Locations() FleetLocationConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupFleetResult) []FleetLocationConfiguration { return v.Locations }).(FleetLocationConfigurationArrayOutput)
 }

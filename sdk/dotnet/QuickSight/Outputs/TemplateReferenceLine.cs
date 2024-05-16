@@ -13,9 +13,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateReferenceLine
     {
+        /// <summary>
+        /// The data configuration of the reference line.
+        /// </summary>
         public readonly Outputs.TemplateReferenceLineDataConfiguration DataConfiguration;
+        /// <summary>
+        /// The label configuration of a reference line.
+        /// </summary>
         public readonly Outputs.TemplateReferenceLineLabelConfiguration? LabelConfiguration;
+        /// <summary>
+        /// The status of the reference line. Choose one of the following options:
+        /// 
+        /// - `ENABLE`
+        /// - `DISABLE`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? Status;
+        /// <summary>
+        /// The style configuration of the reference line.
+        /// </summary>
         public readonly Outputs.TemplateReferenceLineStyleConfiguration? StyleConfiguration;
 
         [OutputConstructor]

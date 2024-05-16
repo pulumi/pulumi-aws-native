@@ -17,12 +17,18 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	Description        pulumi.StringPtrOutput   `pulumi:"description"`
-	FirewallPolicy     FirewallPolicyTypeOutput `pulumi:"firewallPolicy"`
-	FirewallPolicyArn  pulumi.StringOutput      `pulumi:"firewallPolicyArn"`
-	FirewallPolicyId   pulumi.StringOutput      `pulumi:"firewallPolicyId"`
-	FirewallPolicyName pulumi.StringOutput      `pulumi:"firewallPolicyName"`
-	Tags               aws.TagArrayOutput       `pulumi:"tags"`
+	// A description of the firewall policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+	FirewallPolicy FirewallPolicyTypeOutput `pulumi:"firewallPolicy"`
+	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
+	// The unique ID of the `FirewallPolicy` resource.
+	FirewallPolicyId pulumi.StringOutput `pulumi:"firewallPolicyId"`
+	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+	FirewallPolicyName pulumi.StringOutput `pulumi:"firewallPolicyName"`
+	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +78,26 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	Description        *string            `pulumi:"description"`
-	FirewallPolicy     FirewallPolicyType `pulumi:"firewallPolicy"`
-	FirewallPolicyName *string            `pulumi:"firewallPolicyName"`
-	Tags               []aws.Tag          `pulumi:"tags"`
+	// A description of the firewall policy.
+	Description *string `pulumi:"description"`
+	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+	FirewallPolicy FirewallPolicyType `pulumi:"firewallPolicy"`
+	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+	FirewallPolicyName *string `pulumi:"firewallPolicyName"`
+	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	Description        pulumi.StringPtrInput
-	FirewallPolicy     FirewallPolicyTypeInput
+	// A description of the firewall policy.
+	Description pulumi.StringPtrInput
+	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+	FirewallPolicy FirewallPolicyTypeInput
+	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName pulumi.StringPtrInput
-	Tags               aws.TagArrayInput
+	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags aws.TagArrayInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
@@ -123,26 +137,32 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A description of the firewall policy.
 func (o FirewallPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 func (o FirewallPolicyOutput) FirewallPolicy() FirewallPolicyTypeOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyTypeOutput { return v.FirewallPolicy }).(FirewallPolicyTypeOutput)
 }
 
+// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
 func (o FirewallPolicyOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
 
+// The unique ID of the `FirewallPolicy` resource.
 func (o FirewallPolicyOutput) FirewallPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyId }).(pulumi.StringOutput)
 }
 
+// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
 func (o FirewallPolicyOutput) FirewallPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyName }).(pulumi.StringOutput)
 }
 
+// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 func (o FirewallPolicyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

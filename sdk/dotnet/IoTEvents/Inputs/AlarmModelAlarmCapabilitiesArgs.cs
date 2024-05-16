@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// </summary>
     public sealed class AlarmModelAlarmCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether to get notified for alarm state changes.
+        /// </summary>
         [Input("acknowledgeFlow")]
         public Input<Inputs.AlarmModelAcknowledgeFlowArgs>? AcknowledgeFlow { get; set; }
 
+        /// <summary>
+        /// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
+        /// </summary>
         [Input("initializationConfiguration")]
         public Input<Inputs.AlarmModelInitializationConfigurationArgs>? InitializationConfiguration { get; set; }
 

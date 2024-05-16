@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public string VpcId { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -55,8 +61,17 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcResult
     {
+        /// <summary>
+        /// The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
+        /// </summary>
         public readonly ImmutableArray<string> CidrBlockAssociations;
+        /// <summary>
+        /// The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+        /// </summary>
         public readonly string? DefaultNetworkAcl;
+        /// <summary>
+        /// The ID of the default security group for the VPC. For example, sg-b178e0d3.
+        /// </summary>
         public readonly string? DefaultSecurityGroup;
         /// <summary>
         /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
@@ -75,11 +90,17 @@ namespace Pulumi.AwsNative.Ec2
         ///  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
         /// </summary>
         public readonly string? InstanceTenancy;
+        /// <summary>
+        /// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+        /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         /// <summary>
         /// The tags for the VPC.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

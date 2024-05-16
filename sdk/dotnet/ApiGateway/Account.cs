@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID for the account. For example: `abc123` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainCustomFileSystemConfig
     {
+        /// <summary>
+        /// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+        /// </summary>
         public readonly Outputs.DomainEfsFileSystemConfig? EfsFileSystemConfig;
 
         [OutputConstructor]

@@ -12,22 +12,45 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains variables that you can use to override default Suricata settings in your firewall policy.
+        /// </summary>
         [Input("policyVariables")]
         public Input<Inputs.FirewallPolicyPolicyVariablesPropertiesArgs>? PolicyVariables { get; set; }
 
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
+
+        /// <summary>
+        /// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
+        /// 
+        /// Valid values of the stateful default action:
+        /// 
+        /// - aws:drop_strict
+        /// - aws:drop_established
+        /// - aws:alert_strict
+        /// - aws:alert_established
+        /// 
+        /// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+        /// </summary>
         public InputList<string> StatefulDefaultActions
         {
             get => _statefulDefaultActions ?? (_statefulDefaultActions = new InputList<string>());
             set => _statefulDefaultActions = value;
         }
 
+        /// <summary>
+        /// Configuration settings for the handling of the stateful rule groups in a firewall policy.
+        /// </summary>
         [Input("statefulEngineOptions")]
         public Input<Inputs.FirewallPolicyStatefulEngineOptionsArgs>? StatefulEngineOptions { get; set; }
 
         [Input("statefulRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>? _statefulRuleGroupReferences;
+
+        /// <summary>
+        /// Identifier for a single stateful rule group, used in a firewall policy to refer to a rule group.
+        /// </summary>
         public InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs> StatefulRuleGroupReferences
         {
             get => _statefulRuleGroupReferences ?? (_statefulRuleGroupReferences = new InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>());
@@ -36,6 +59,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessCustomActions")]
         private InputList<Inputs.FirewallPolicyCustomActionArgs>? _statelessCustomActions;
+
+        /// <summary>
+        /// An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
+        /// 
+        /// You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
+        /// 
+        /// You can use custom actions in the following places:
+        /// 
+        /// - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
+        /// - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
+        /// </summary>
         public InputList<Inputs.FirewallPolicyCustomActionArgs> StatelessCustomActions
         {
             get => _statelessCustomActions ?? (_statelessCustomActions = new InputList<Inputs.FirewallPolicyCustomActionArgs>());
@@ -44,6 +78,14 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessDefaultActions", required: true)]
         private InputList<string>? _statelessDefaultActions;
+
+        /// <summary>
+        /// The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+        /// 
+        /// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+        /// 
+        /// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+        /// </summary>
         public InputList<string> StatelessDefaultActions
         {
             get => _statelessDefaultActions ?? (_statelessDefaultActions = new InputList<string>());
@@ -52,6 +94,14 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessFragmentDefaultActions", required: true)]
         private InputList<string>? _statelessFragmentDefaultActions;
+
+        /// <summary>
+        /// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+        /// 
+        /// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+        /// 
+        /// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+        /// </summary>
         public InputList<string> StatelessFragmentDefaultActions
         {
             get => _statelessFragmentDefaultActions ?? (_statelessFragmentDefaultActions = new InputList<string>());
@@ -60,12 +110,19 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs>? _statelessRuleGroupReferences;
+
+        /// <summary>
+        /// Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
+        /// </summary>
         public InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs> StatelessRuleGroupReferences
         {
             get => _statelessRuleGroupReferences ?? (_statelessRuleGroupReferences = new InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs>());
             set => _statelessRuleGroupReferences = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the TLS inspection configuration.
+        /// </summary>
         [Input("tlsInspectionConfigurationArn")]
         public Input<string>? TlsInspectionConfigurationArn { get; set; }
 

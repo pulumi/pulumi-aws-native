@@ -20,12 +20,16 @@ class ContinuousDeploymentPolicyArgs:
                  continuous_deployment_policy_config: pulumi.Input['ContinuousDeploymentPolicyConfigArgs']):
         """
         The set of arguments for constructing a ContinuousDeploymentPolicy resource.
+        :param pulumi.Input['ContinuousDeploymentPolicyConfigArgs'] continuous_deployment_policy_config: Contains the configuration for a continuous deployment policy.
         """
         pulumi.set(__self__, "continuous_deployment_policy_config", continuous_deployment_policy_config)
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyConfig")
     def continuous_deployment_policy_config(self) -> pulumi.Input['ContinuousDeploymentPolicyConfigArgs']:
+        """
+        Contains the configuration for a continuous deployment policy.
+        """
         return pulumi.get(self, "continuous_deployment_policy_config")
 
     @continuous_deployment_policy_config.setter
@@ -45,6 +49,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyConfigArgs']] continuous_deployment_policy_config: Contains the configuration for a continuous deployment policy.
         """
         ...
     @overload
@@ -115,15 +120,24 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the cotinuous deployment policy.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyConfig")
     def continuous_deployment_policy_config(self) -> pulumi.Output['outputs.ContinuousDeploymentPolicyConfig']:
+        """
+        Contains the configuration for a continuous deployment policy.
+        """
         return pulumi.get(self, "continuous_deployment_policy_config")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the continuous deployment policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 

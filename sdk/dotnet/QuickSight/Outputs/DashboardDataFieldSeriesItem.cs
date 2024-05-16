@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataFieldSeriesItem
     {
+        /// <summary>
+        /// The axis that you are binding the field to.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardAxisBinding AxisBinding;
+        /// <summary>
+        /// The field ID of the field that you are setting the axis binding to.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The field value of the field that you are setting the axis binding to.
+        /// </summary>
         public readonly string? FieldValue;
+        /// <summary>
+        /// The options that determine the presentation of a line series in the visual
+        /// </summary>
         public readonly Outputs.DashboardLineChartSeriesSettings? Settings;
 
         [OutputConstructor]

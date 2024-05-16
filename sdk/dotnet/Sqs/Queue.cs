@@ -219,6 +219,9 @@ namespace Pulumi.AwsNative.Sqs
     [AwsNativeResourceType("aws-native:sqs:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -291,6 +294,9 @@ namespace Pulumi.AwsNative.Sqs
         [Output("queueName")]
         public Output<string?> QueueName { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the URLs of the queues from the policy.
+        /// </summary>
         [Output("queueUrl")]
         public Output<string> QueueUrl { get; private set; } = null!;
 

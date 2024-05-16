@@ -13,19 +13,65 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleEcsParameters
     {
+        /// <summary>
+        /// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleCapacityProviderStrategyItem> CapacityProviderStrategy;
+        /// <summary>
+        /// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         public readonly bool? EnableEcsManagedTags;
+        /// <summary>
+        /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        /// </summary>
         public readonly bool? EnableExecuteCommand;
+        /// <summary>
+        /// Specifies an ECS task group for the task. The maximum length is 255 characters.
+        /// </summary>
         public readonly string? Group;
+        /// <summary>
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         public readonly string? LaunchType;
+        /// <summary>
+        /// This structure specifies the network configuration for an ECS task.
+        /// </summary>
         public readonly Outputs.RuleNetworkConfiguration? NetworkConfiguration;
+        /// <summary>
+        /// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RulePlacementConstraint> PlacementConstraints;
+        /// <summary>
+        /// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RulePlacementStrategy> PlacementStrategies;
+        /// <summary>
+        /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
+        /// 
+        /// This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         public readonly string? PlatformVersion;
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
+        /// </summary>
         public readonly string? PropagateTags;
+        /// <summary>
+        /// The reference ID to use for the task.
+        /// </summary>
         public readonly string? ReferenceId;
+        /// <summary>
+        /// A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
+        /// 
+        /// &gt; Currently, tags are only available when using ECS with EventBridge .
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleTag> TagList;
+        /// <summary>
+        /// The number of tasks to create based on `TaskDefinition` . The default is 1.
+        /// </summary>
         public readonly int? TaskCount;
+        /// <summary>
+        /// The ARN of the task definition to use if the event target is an Amazon ECS task.
+        /// </summary>
         public readonly string TaskDefinitionArn;
 
         [OutputConstructor]

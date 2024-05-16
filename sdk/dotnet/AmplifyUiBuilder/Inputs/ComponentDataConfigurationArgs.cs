@@ -14,20 +14,34 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     {
         [Input("identifiers")]
         private InputList<string>? _identifiers;
+
+        /// <summary>
+        /// A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+        /// </summary>
         public InputList<string> Identifiers
         {
             get => _identifiers ?? (_identifiers = new InputList<string>());
             set => _identifiers = value;
         }
 
+        /// <summary>
+        /// The name of the data model to use to bind data to a component.
+        /// </summary>
         [Input("model", required: true)]
         public Input<string> Model { get; set; } = null!;
 
+        /// <summary>
+        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// </summary>
         [Input("predicate")]
         public Input<Inputs.ComponentPredicateArgs>? Predicate { get; set; }
 
         [Input("sort")]
         private InputList<Inputs.ComponentSortPropertyArgs>? _sort;
+
+        /// <summary>
+        /// The `SortProperty` property specifies how to sort the data that you bind to a component.
+        /// </summary>
         public InputList<Inputs.ComponentSortPropertyArgs> Sort
         {
             get => _sort ?? (_sort = new InputList<Inputs.ComponentSortPropertyArgs>());

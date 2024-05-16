@@ -19,17 +19,44 @@ export function getNotificationRule(args: GetNotificationRuleArgs, opts?: pulumi
 }
 
 export interface GetNotificationRuleArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the notification rule.
+     */
     arn: string;
 }
 
 export interface GetNotificationRuleResult {
+    /**
+     * The Amazon Resource Name (ARN) of the notification rule.
+     */
     readonly arn?: string;
+    /**
+     * The name or email alias of the person who created the notification rule.
+     */
     readonly createdBy?: string;
+    /**
+     * The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+     */
     readonly detailType?: enums.codestarnotifications.NotificationRuleDetailType;
+    /**
+     * A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+     */
     readonly eventTypeIds?: string[];
+    /**
+     * The name for the notification rule. Notification rule names must be unique in your AWS account .
+     */
     readonly name?: string;
+    /**
+     * The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+     */
     readonly status?: enums.codestarnotifications.NotificationRuleStatus;
+    /**
+     * A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+     */
     readonly targets?: outputs.codestarnotifications.NotificationRuleTarget[];
 }
 /**
@@ -40,5 +67,8 @@ export function getNotificationRuleOutput(args: GetNotificationRuleOutputArgs, o
 }
 
 export interface GetNotificationRuleOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the notification rule.
+     */
     arn: pulumi.Input<string>;
 }

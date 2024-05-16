@@ -15,14 +15,45 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclSqliMatchStatementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a web request component to be used in a rule match statement or in a logging configuration.
+        /// 
+        /// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
+        /// 
+        /// Example JSON for a `QueryString` field to match:
+        /// 
+        /// `"FieldToMatch": { "QueryString": {} }`
+        /// 
+        /// Example JSON for a `Method` field to match specification:
+        /// 
+        /// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
+        /// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
+        /// 
+        /// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
+        /// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
+        /// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+        /// </summary>
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebAclFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
+        /// <summary>
+        /// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
+        /// 
+        /// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
+        /// 
+        /// `LOW` is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives.
+        /// 
+        /// Default: `LOW`
+        /// </summary>
         [Input("sensitivityLevel")]
         public Input<Pulumi.AwsNative.WaFv2.WebAclSensitivityLevel>? SensitivityLevel { get; set; }
 
         [Input("textTransformations", required: true)]
         private InputList<Inputs.WebAclTextTransformationArgs>? _textTransformations;
+
+        /// <summary>
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+        /// </summary>
         public InputList<Inputs.WebAclTextTransformationArgs> TextTransformations
         {
             get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebAclTextTransformationArgs>());

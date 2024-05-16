@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardColumnHierarchy
     {
+        /// <summary>
+        /// The option that determines the hierarchy of any `DateTime` fields.
+        /// </summary>
         public readonly Outputs.DashboardDateTimeHierarchy? DateTimeHierarchy;
+        /// <summary>
+        /// The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.
+        /// </summary>
         public readonly Outputs.DashboardExplicitHierarchy? ExplicitHierarchy;
+        /// <summary>
+        /// The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.
+        /// </summary>
         public readonly Outputs.DashboardPredefinedHierarchy? PredefinedHierarchy;
 
         [OutputConstructor]

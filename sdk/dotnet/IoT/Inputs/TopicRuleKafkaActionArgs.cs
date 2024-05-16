@@ -14,29 +14,49 @@ namespace Pulumi.AwsNative.IoT.Inputs
     {
         [Input("clientProperties", required: true)]
         private InputMap<string>? _clientProperties;
+
+        /// <summary>
+        /// Properties of the Apache Kafka producer client.
+        /// </summary>
         public InputMap<string> ClientProperties
         {
             get => _clientProperties ?? (_clientProperties = new InputMap<string>());
             set => _clientProperties = value;
         }
 
+        /// <summary>
+        /// The ARN of Kafka action's VPC `TopicRuleDestination` .
+        /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
         [Input("headers")]
         private InputList<Inputs.TopicRuleKafkaActionHeaderArgs>? _headers;
+
+        /// <summary>
+        /// Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+        /// </summary>
         public InputList<Inputs.TopicRuleKafkaActionHeaderArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.TopicRuleKafkaActionHeaderArgs>());
             set => _headers = value;
         }
 
+        /// <summary>
+        /// The Kafka message key.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The Kafka message partition.
+        /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
+        /// <summary>
+        /// The Kafka topic for messages to be sent to the Kafka broker.
+        /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
 

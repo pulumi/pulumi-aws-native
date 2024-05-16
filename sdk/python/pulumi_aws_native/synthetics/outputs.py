@@ -138,6 +138,14 @@ class CanaryCode(dict):
                  s3_object_version: Optional[str] = None,
                  script: Optional[str] = None,
                  source_location_arn: Optional[str] = None):
+        """
+        :param str handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        :param str s3_bucket: If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
+        :param str s3_key: The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        :param str s3_object_version: The S3 version ID of your script.
+        :param str script: If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
+        :param str source_location_arn: The ARN of the Lambda layer where Synthetics stores the canary script code.
+        """
         pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -153,31 +161,49 @@ class CanaryCode(dict):
     @property
     @pulumi.getter
     def handler(self) -> str:
+        """
+        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        """
         return pulumi.get(self, "handler")
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[str]:
+        """
+        If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[str]:
+        """
+        The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        """
         return pulumi.get(self, "s3_key")
 
     @property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
+        """
+        The S3 version ID of your script.
+        """
         return pulumi.get(self, "s3_object_version")
 
     @property
     @pulumi.getter
     def script(self) -> Optional[str]:
+        """
+        If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
+        """
         return pulumi.get(self, "script")
 
     @property
     @pulumi.getter(name="sourceLocationArn")
     def source_location_arn(self) -> Optional[str]:
+        """
+        The ARN of the Lambda layer where Synthetics stores the canary script code.
+        """
         return pulumi.get(self, "source_location_arn")
 
 
@@ -331,6 +357,18 @@ class CanarySchedule(dict):
     def __init__(__self__, *,
                  expression: str,
                  duration_in_seconds: Optional[str] = None):
+        """
+        :param str expression: A `rate` expression or a `cron` expression that defines how often the canary is to run.
+               
+               For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+               
+               For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+               
+               Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+               
+               Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+        :param str duration_in_seconds: How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
+        """
         pulumi.set(__self__, "expression", expression)
         if duration_in_seconds is not None:
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
@@ -338,11 +376,25 @@ class CanarySchedule(dict):
     @property
     @pulumi.getter
     def expression(self) -> str:
+        """
+        A `rate` expression or a `cron` expression that defines how often the canary is to run.
+
+        For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+
+        For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+
+        Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+
+        Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[str]:
+        """
+        How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
+        """
         return pulumi.get(self, "duration_in_seconds")
 
 
@@ -422,6 +474,11 @@ class CanaryVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
                  vpc_id: Optional[str] = None):
+        """
+        :param Sequence[str] security_group_ids: The IDs of the security groups for this canary.
+        :param Sequence[str] subnet_ids: The IDs of the subnets where this canary is to run.
+        :param str vpc_id: The ID of the VPC where this canary is to run.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
@@ -430,16 +487,25 @@ class CanaryVpcConfig(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
+        """
+        The IDs of the security groups for this canary.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
+        """
+        The IDs of the subnets where this canary is to run.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
+        """
+        The ID of the VPC where this canary is to run.
+        """
         return pulumi.get(self, "vpc_id")
 
 

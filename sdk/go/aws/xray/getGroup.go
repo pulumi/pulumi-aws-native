@@ -34,9 +34,11 @@ type LookupGroupResult struct {
 	// The ARN of the group that was generated on creation.
 	GroupArn *string `pulumi:"groupArn"`
 	// The case-sensitive name of the new group. Names must be unique.
-	GroupName             *string                     `pulumi:"groupName"`
+	GroupName *string `pulumi:"groupName"`
+	// The structure containing configurations related to insights.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []aws.Tag                   `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -90,10 +92,12 @@ func (o LookupGroupResultOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// The structure containing configurations related to insights.
 func (o LookupGroupResultOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *GroupInsightsConfiguration { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LookupGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

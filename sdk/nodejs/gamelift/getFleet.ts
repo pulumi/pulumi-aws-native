@@ -46,6 +46,11 @@ export interface GetFleetResult {
      * Unique fleet ID
      */
     readonly fleetId?: string;
+    /**
+     * *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * A remote location where a multi-location fleet can deploy game servers for game hosting.
+     */
     readonly locations?: outputs.gamelift.FleetLocationConfiguration[];
     /**
      * [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.

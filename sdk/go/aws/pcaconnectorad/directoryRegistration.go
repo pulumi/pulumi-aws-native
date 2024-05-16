@@ -16,9 +16,12 @@ import (
 type DirectoryRegistration struct {
 	pulumi.CustomResourceState
 
-	DirectoryId              pulumi.StringOutput    `pulumi:"directoryId"`
-	DirectoryRegistrationArn pulumi.StringOutput    `pulumi:"directoryRegistrationArn"`
-	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
+	// The identifier of the Active Directory.
+	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+	DirectoryRegistrationArn pulumi.StringOutput `pulumi:"directoryRegistrationArn"`
+	// Metadata assigned to a directory registration consisting of a key-value pair.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDirectoryRegistration registers a new resource with the given unique name, arguments, and options.
@@ -68,14 +71,18 @@ func (DirectoryRegistrationState) ElementType() reflect.Type {
 }
 
 type directoryRegistrationArgs struct {
-	DirectoryId string            `pulumi:"directoryId"`
-	Tags        map[string]string `pulumi:"tags"`
+	// The identifier of the Active Directory.
+	DirectoryId string `pulumi:"directoryId"`
+	// Metadata assigned to a directory registration consisting of a key-value pair.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DirectoryRegistration resource.
 type DirectoryRegistrationArgs struct {
+	// The identifier of the Active Directory.
 	DirectoryId pulumi.StringInput
-	Tags        pulumi.StringMapInput
+	// Metadata assigned to a directory registration consisting of a key-value pair.
+	Tags pulumi.StringMapInput
 }
 
 func (DirectoryRegistrationArgs) ElementType() reflect.Type {
@@ -115,14 +122,17 @@ func (o DirectoryRegistrationOutput) ToDirectoryRegistrationOutputWithContext(ct
 	return o
 }
 
+// The identifier of the Active Directory.
 func (o DirectoryRegistrationOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryRegistration) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 func (o DirectoryRegistrationOutput) DirectoryRegistrationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryRegistration) pulumi.StringOutput { return v.DirectoryRegistrationArn }).(pulumi.StringOutput)
 }
 
+// Metadata assigned to a directory registration consisting of a key-value pair.
 func (o DirectoryRegistrationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DirectoryRegistration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

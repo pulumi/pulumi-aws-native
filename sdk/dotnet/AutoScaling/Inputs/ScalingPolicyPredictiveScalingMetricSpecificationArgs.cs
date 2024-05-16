@@ -12,24 +12,53 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     public sealed class ScalingPolicyPredictiveScalingMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// </summary>
         [Input("customizedCapacityMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs>? CustomizedCapacityMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// </summary>
         [Input("customizedLoadMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs>? CustomizedLoadMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// </summary>
         [Input("customizedScalingMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs>? CustomizedScalingMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// 
+        /// &gt; Does not apply to policies that use a *metric pair* for the metric specification.
+        /// </summary>
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs>? PredefinedLoadMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// 
+        /// For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        /// </summary>
         [Input("predefinedMetricPairSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedMetricPairArgs>? PredefinedMetricPairSpecification { get; set; }
 
+        /// <summary>
+        /// Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// 
+        /// &gt; Does not apply to policies that use a *metric pair* for the metric specification.
+        /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs>? PredefinedScalingMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Specifies the target utilization.
+        /// 
+        /// &gt; Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
+        /// </summary>
         [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;
 

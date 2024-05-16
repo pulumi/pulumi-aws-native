@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class AlarmModelAlarmCapabilities
     {
+        /// <summary>
+        /// Specifies whether to get notified for alarm state changes.
+        /// </summary>
         public readonly Outputs.AlarmModelAcknowledgeFlow? AcknowledgeFlow;
+        /// <summary>
+        /// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
+        /// </summary>
         public readonly Outputs.AlarmModelInitializationConfiguration? InitializationConfiguration;
 
         [OutputConstructor]

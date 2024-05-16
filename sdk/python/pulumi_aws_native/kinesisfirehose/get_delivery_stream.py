@@ -62,61 +62,97 @@ class GetDeliveryStreamResult:
     @property
     @pulumi.getter(name="amazonOpenSearchServerlessDestinationConfiguration")
     def amazon_open_search_serverless_destination_configuration(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration']:
+        """
+        Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+        """
         return pulumi.get(self, "amazon_open_search_serverless_destination_configuration")
 
     @property
     @pulumi.getter(name="amazonopensearchserviceDestinationConfiguration")
     def amazonopensearchservice_destination_configuration(self) -> Optional['outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration']:
+        """
+        Describes the configuration of a destination in Amazon OpenSearch Service.
+        """
         return pulumi.get(self, "amazonopensearchservice_destination_configuration")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deliveryStreamEncryptionConfigurationInput")
     def delivery_stream_encryption_configuration_input(self) -> Optional['outputs.DeliveryStreamEncryptionConfigurationInput']:
+        """
+        Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+        """
         return pulumi.get(self, "delivery_stream_encryption_configuration_input")
 
     @property
     @pulumi.getter(name="elasticsearchDestinationConfiguration")
     def elasticsearch_destination_configuration(self) -> Optional['outputs.DeliveryStreamElasticsearchDestinationConfiguration']:
+        """
+        The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+        """
         return pulumi.get(self, "elasticsearch_destination_configuration")
 
     @property
     @pulumi.getter(name="extendedS3DestinationConfiguration")
     def extended_s3_destination_configuration(self) -> Optional['outputs.DeliveryStreamExtendedS3DestinationConfiguration']:
+        """
+        The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+        """
         return pulumi.get(self, "extended_s3_destination_configuration")
 
     @property
     @pulumi.getter(name="httpEndpointDestinationConfiguration")
     def http_endpoint_destination_configuration(self) -> Optional['outputs.DeliveryStreamHttpEndpointDestinationConfiguration']:
+        """
+        Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        """
         return pulumi.get(self, "http_endpoint_destination_configuration")
 
     @property
     @pulumi.getter(name="redshiftDestinationConfiguration")
     def redshift_destination_configuration(self) -> Optional['outputs.DeliveryStreamRedshiftDestinationConfiguration']:
+        """
+        The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        """
         return pulumi.get(self, "redshift_destination_configuration")
 
     @property
     @pulumi.getter(name="s3DestinationConfiguration")
     def s3_destination_configuration(self) -> Optional['outputs.DeliveryStreamS3DestinationConfiguration']:
+        """
+        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        """
         return pulumi.get(self, "s3_destination_configuration")
 
     @property
     @pulumi.getter(name="snowflakeDestinationConfiguration")
     def snowflake_destination_configuration(self) -> Optional['outputs.DeliveryStreamSnowflakeDestinationConfiguration']:
+        """
+        Configure Snowflake destination
+        """
         return pulumi.get(self, "snowflake_destination_configuration")
 
     @property
     @pulumi.getter(name="splunkDestinationConfiguration")
     def splunk_destination_configuration(self) -> Optional['outputs.DeliveryStreamSplunkDestinationConfiguration']:
+        """
+        The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+        """
         return pulumi.get(self, "splunk_destination_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -144,6 +180,9 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeliveryStreamResult:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
+
+
+    :param str delivery_stream_name: The name of the delivery stream.
     """
     __args__ = dict()
     __args__['deliveryStreamName'] = delivery_stream_name
@@ -170,5 +209,8 @@ def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryStreamResult]:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
+
+
+    :param str delivery_stream_name: The name of the delivery stream.
     """
     ...

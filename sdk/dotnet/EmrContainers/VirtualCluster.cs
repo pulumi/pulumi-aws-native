@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.EmrContainers
     [AwsNativeResourceType("aws-native:emrcontainers:VirtualCluster")]
     public partial class VirtualCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

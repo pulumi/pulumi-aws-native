@@ -24,25 +24,41 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupAppArgs struct {
+	// ARN for the Amplify App.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupAppResult struct {
-	AppId                    *string                  `pulumi:"appId"`
-	AppName                  *string                  `pulumi:"appName"`
-	Arn                      *string                  `pulumi:"arn"`
-	BuildSpec                *string                  `pulumi:"buildSpec"`
-	CustomHeaders            *string                  `pulumi:"customHeaders"`
-	CustomRules              []AppCustomRule          `pulumi:"customRules"`
-	DefaultDomain            *string                  `pulumi:"defaultDomain"`
-	Description              *string                  `pulumi:"description"`
-	EnableBranchAutoDeletion *bool                    `pulumi:"enableBranchAutoDeletion"`
-	EnvironmentVariables     []AppEnvironmentVariable `pulumi:"environmentVariables"`
-	IamServiceRole           *string                  `pulumi:"iamServiceRole"`
-	Name                     *string                  `pulumi:"name"`
-	Platform                 *AppPlatform             `pulumi:"platform"`
-	Repository               *string                  `pulumi:"repository"`
-	Tags                     []aws.Tag                `pulumi:"tags"`
+	// Unique Id for the Amplify App.
+	AppId *string `pulumi:"appId"`
+	// Name for the Amplify App.
+	AppName *string `pulumi:"appName"`
+	// ARN for the Amplify App.
+	Arn *string `pulumi:"arn"`
+	// The build specification (build spec) for an Amplify app.
+	BuildSpec *string `pulumi:"buildSpec"`
+	// The custom HTTP headers for an Amplify app.
+	CustomHeaders *string `pulumi:"customHeaders"`
+	// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+	CustomRules []AppCustomRule `pulumi:"customRules"`
+	// Default domain for the Amplify App.
+	DefaultDomain *string `pulumi:"defaultDomain"`
+	// The description of the Amplify app.
+	Description *string `pulumi:"description"`
+	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+	EnableBranchAutoDeletion *bool `pulumi:"enableBranchAutoDeletion"`
+	// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
+	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
+	IamServiceRole *string `pulumi:"iamServiceRole"`
+	// The name of the Amplify app.
+	Name *string `pulumi:"name"`
+	// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+	Platform *AppPlatform `pulumi:"platform"`
+	// The Git repository for the Amplify app.
+	Repository *string `pulumi:"repository"`
+	// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -59,6 +75,7 @@ func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulu
 }
 
 type LookupAppOutputArgs struct {
+	// ARN for the Amplify App.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -80,62 +97,77 @@ func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// Unique Id for the Amplify App.
 func (o LookupAppResultOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+// Name for the Amplify App.
 func (o LookupAppResultOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
+// ARN for the Amplify App.
 func (o LookupAppResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The build specification (build spec) for an Amplify app.
 func (o LookupAppResultOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+// The custom HTTP headers for an Amplify app.
 func (o LookupAppResultOutput) CustomHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.CustomHeaders }).(pulumi.StringPtrOutput)
 }
 
+// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
 func (o LookupAppResultOutput) CustomRules() AppCustomRuleArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []AppCustomRule { return v.CustomRules }).(AppCustomRuleArrayOutput)
 }
 
+// Default domain for the Amplify App.
 func (o LookupAppResultOutput) DefaultDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.DefaultDomain }).(pulumi.StringPtrOutput)
 }
 
+// The description of the Amplify app.
 func (o LookupAppResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 func (o LookupAppResultOutput) EnableBranchAutoDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *bool { return v.EnableBranchAutoDeletion }).(pulumi.BoolPtrOutput)
 }
 
+// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
 func (o LookupAppResultOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
 
+// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 func (o LookupAppResultOutput) IamServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.IamServiceRole }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amplify app.
 func (o LookupAppResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
 func (o LookupAppResultOutput) Platform() AppPlatformPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *AppPlatform { return v.Platform }).(AppPlatformPtrOutput)
 }
 
+// The Git repository for the Amplify app.
 func (o LookupAppResultOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
+// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
 func (o LookupAppResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

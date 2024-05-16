@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
     {
         [Input("audioLogSettings")]
         private InputList<Inputs.BotAliasAudioLogSettingArgs>? _audioLogSettings;
+
+        /// <summary>
+        /// The Amazon S3 settings for logging audio to an S3 bucket.
+        /// </summary>
         public InputList<Inputs.BotAliasAudioLogSettingArgs> AudioLogSettings
         {
             get => _audioLogSettings ?? (_audioLogSettings = new InputList<Inputs.BotAliasAudioLogSettingArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("textLogSettings")]
         private InputList<Inputs.BotAliasTextLogSettingArgs>? _textLogSettings;
+
+        /// <summary>
+        /// The Amazon CloudWatch Logs settings for logging text and metadata.
+        /// </summary>
         public InputList<Inputs.BotAliasTextLogSettingArgs> TextLogSettings
         {
             get => _textLogSettings ?? (_textLogSettings = new InputList<Inputs.BotAliasTextLogSettingArgs>());

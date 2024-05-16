@@ -19,6 +19,9 @@ export function getModelPackageGroup(args: GetModelPackageGroupArgs, opts?: pulu
 }
 
 export interface GetModelPackageGroupArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the model group.
+     */
     modelPackageGroupArn: string;
 }
 
@@ -27,8 +30,13 @@ export interface GetModelPackageGroupResult {
      * The time at which the model package group was created.
      */
     readonly creationTime?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the model group.
+     */
     readonly modelPackageGroupArn?: string;
     /**
+     * A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
      */
     readonly modelPackageGroupPolicy?: any;
@@ -49,5 +57,8 @@ export function getModelPackageGroupOutput(args: GetModelPackageGroupOutputArgs,
 }
 
 export interface GetModelPackageGroupOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the model group.
+     */
     modelPackageGroupArn: pulumi.Input<string>;
 }

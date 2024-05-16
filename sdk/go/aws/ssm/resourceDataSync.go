@@ -303,15 +303,24 @@ import (
 type ResourceDataSync struct {
 	pulumi.CustomResourceState
 
-	BucketName    pulumi.StringPtrOutput                 `pulumi:"bucketName"`
-	BucketPrefix  pulumi.StringPtrOutput                 `pulumi:"bucketPrefix"`
-	BucketRegion  pulumi.StringPtrOutput                 `pulumi:"bucketRegion"`
-	KmsKeyArn     pulumi.StringPtrOutput                 `pulumi:"kmsKeyArn"`
+	// The name of the S3 bucket where the aggregated data is stored.
+	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
+	// An Amazon S3 prefix for the bucket.
+	BucketPrefix pulumi.StringPtrOutput `pulumi:"bucketPrefix"`
+	// The AWS Region with the S3 bucket targeted by the resource data sync.
+	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
+	// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// Information about the target S3 bucket for the resource data sync.
 	S3Destination ResourceDataSyncS3DestinationPtrOutput `pulumi:"s3Destination"`
-	SyncFormat    pulumi.StringPtrOutput                 `pulumi:"syncFormat"`
-	SyncName      pulumi.StringOutput                    `pulumi:"syncName"`
-	SyncSource    ResourceDataSyncSyncSourcePtrOutput    `pulumi:"syncSource"`
-	SyncType      pulumi.StringPtrOutput                 `pulumi:"syncType"`
+	// A supported sync format. The following format is currently supported: JsonSerDe
+	SyncFormat pulumi.StringPtrOutput `pulumi:"syncFormat"`
+	// The name of the resource data sync.
+	SyncName pulumi.StringOutput `pulumi:"syncName"`
+	// Information about the source of the data included in the resource data sync.
+	SyncSource ResourceDataSyncSyncSourcePtrOutput `pulumi:"syncSource"`
+	// The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+	SyncType pulumi.StringPtrOutput `pulumi:"syncType"`
 }
 
 // NewResourceDataSync registers a new resource with the given unique name, arguments, and options.
@@ -365,28 +374,46 @@ func (ResourceDataSyncState) ElementType() reflect.Type {
 }
 
 type resourceDataSyncArgs struct {
-	BucketName    *string                        `pulumi:"bucketName"`
-	BucketPrefix  *string                        `pulumi:"bucketPrefix"`
-	BucketRegion  *string                        `pulumi:"bucketRegion"`
-	KmsKeyArn     *string                        `pulumi:"kmsKeyArn"`
+	// The name of the S3 bucket where the aggregated data is stored.
+	BucketName *string `pulumi:"bucketName"`
+	// An Amazon S3 prefix for the bucket.
+	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// The AWS Region with the S3 bucket targeted by the resource data sync.
+	BucketRegion *string `pulumi:"bucketRegion"`
+	// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Information about the target S3 bucket for the resource data sync.
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
-	SyncFormat    *string                        `pulumi:"syncFormat"`
-	SyncName      *string                        `pulumi:"syncName"`
-	SyncSource    *ResourceDataSyncSyncSource    `pulumi:"syncSource"`
-	SyncType      *string                        `pulumi:"syncType"`
+	// A supported sync format. The following format is currently supported: JsonSerDe
+	SyncFormat *string `pulumi:"syncFormat"`
+	// The name of the resource data sync.
+	SyncName *string `pulumi:"syncName"`
+	// Information about the source of the data included in the resource data sync.
+	SyncSource *ResourceDataSyncSyncSource `pulumi:"syncSource"`
+	// The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+	SyncType *string `pulumi:"syncType"`
 }
 
 // The set of arguments for constructing a ResourceDataSync resource.
 type ResourceDataSyncArgs struct {
-	BucketName    pulumi.StringPtrInput
-	BucketPrefix  pulumi.StringPtrInput
-	BucketRegion  pulumi.StringPtrInput
-	KmsKeyArn     pulumi.StringPtrInput
+	// The name of the S3 bucket where the aggregated data is stored.
+	BucketName pulumi.StringPtrInput
+	// An Amazon S3 prefix for the bucket.
+	BucketPrefix pulumi.StringPtrInput
+	// The AWS Region with the S3 bucket targeted by the resource data sync.
+	BucketRegion pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+	KmsKeyArn pulumi.StringPtrInput
+	// Information about the target S3 bucket for the resource data sync.
 	S3Destination ResourceDataSyncS3DestinationPtrInput
-	SyncFormat    pulumi.StringPtrInput
-	SyncName      pulumi.StringPtrInput
-	SyncSource    ResourceDataSyncSyncSourcePtrInput
-	SyncType      pulumi.StringPtrInput
+	// A supported sync format. The following format is currently supported: JsonSerDe
+	SyncFormat pulumi.StringPtrInput
+	// The name of the resource data sync.
+	SyncName pulumi.StringPtrInput
+	// Information about the source of the data included in the resource data sync.
+	SyncSource ResourceDataSyncSyncSourcePtrInput
+	// The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+	SyncType pulumi.StringPtrInput
 }
 
 func (ResourceDataSyncArgs) ElementType() reflect.Type {
@@ -426,38 +453,47 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.
 	return o
 }
 
+// The name of the S3 bucket where the aggregated data is stored.
 func (o ResourceDataSyncOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// An Amazon S3 prefix for the bucket.
 func (o ResourceDataSyncOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region with the S3 bucket targeted by the resource data sync.
 func (o ResourceDataSyncOutput) BucketRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketRegion }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
 func (o ResourceDataSyncOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// Information about the target S3 bucket for the resource data sync.
 func (o ResourceDataSyncOutput) S3Destination() ResourceDataSyncS3DestinationPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) ResourceDataSyncS3DestinationPtrOutput { return v.S3Destination }).(ResourceDataSyncS3DestinationPtrOutput)
 }
 
+// A supported sync format. The following format is currently supported: JsonSerDe
 func (o ResourceDataSyncOutput) SyncFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.SyncFormat }).(pulumi.StringPtrOutput)
 }
 
+// The name of the resource data sync.
 func (o ResourceDataSyncOutput) SyncName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.SyncName }).(pulumi.StringOutput)
 }
 
+// Information about the source of the data included in the resource data sync.
 func (o ResourceDataSyncOutput) SyncSource() ResourceDataSyncSyncSourcePtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) ResourceDataSyncSyncSourcePtrOutput { return v.SyncSource }).(ResourceDataSyncSyncSourcePtrOutput)
 }
 
+// The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
 func (o ResourceDataSyncOutput) SyncType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.SyncType }).(pulumi.StringPtrOutput)
 }

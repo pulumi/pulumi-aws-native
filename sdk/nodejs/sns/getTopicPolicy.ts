@@ -16,10 +16,16 @@ export function getTopicPolicy(args: GetTopicPolicyArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTopicPolicyArgs {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     id: string;
 }
 
 export interface GetTopicPolicyResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     readonly id?: string;
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
@@ -40,5 +46,8 @@ export function getTopicPolicyOutput(args: GetTopicPolicyOutputArgs, opts?: pulu
 }
 
 export interface GetTopicPolicyOutputArgs {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     id: pulumi.Input<string>;
 }

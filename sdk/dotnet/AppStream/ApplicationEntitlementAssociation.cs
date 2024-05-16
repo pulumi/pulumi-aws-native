@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:ApplicationEntitlementAssociation")]
     public partial class ApplicationEntitlementAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the entitlement.
+        /// </summary>
         [Output("entitlementName")]
         public Output<string> EntitlementName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
 
@@ -75,12 +84,21 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class ApplicationEntitlementAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the entitlement.
+        /// </summary>
         [Input("entitlementName", required: true)]
         public Input<string> EntitlementName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;
 

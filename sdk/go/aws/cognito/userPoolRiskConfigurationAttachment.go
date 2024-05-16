@@ -16,11 +16,16 @@ import (
 type UserPoolRiskConfigurationAttachment struct {
 	pulumi.CustomResourceState
 
-	AccountTakeoverRiskConfiguration        UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput        `pulumi:"accountTakeoverRiskConfiguration"`
-	ClientId                                pulumi.StringOutput                                                                     `pulumi:"clientId"`
+	// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+	AccountTakeoverRiskConfiguration UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput `pulumi:"accountTakeoverRiskConfiguration"`
+	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// The compromised credentials risk configuration type.
 	CompromisedCredentialsRiskConfiguration UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput `pulumi:"compromisedCredentialsRiskConfiguration"`
-	RiskExceptionConfiguration              UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput              `pulumi:"riskExceptionConfiguration"`
-	UserPoolId                              pulumi.StringOutput                                                                     `pulumi:"userPoolId"`
+	// The type of the configuration to override the risk decision.
+	RiskExceptionConfiguration UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput `pulumi:"riskExceptionConfiguration"`
+	// The user pool ID.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserPoolRiskConfigurationAttachment registers a new resource with the given unique name, arguments, and options.
@@ -74,20 +79,30 @@ func (UserPoolRiskConfigurationAttachmentState) ElementType() reflect.Type {
 }
 
 type userPoolRiskConfigurationAttachmentArgs struct {
-	AccountTakeoverRiskConfiguration        *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType        `pulumi:"accountTakeoverRiskConfiguration"`
-	ClientId                                string                                                                          `pulumi:"clientId"`
+	// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+	AccountTakeoverRiskConfiguration *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType `pulumi:"accountTakeoverRiskConfiguration"`
+	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	ClientId string `pulumi:"clientId"`
+	// The compromised credentials risk configuration type.
 	CompromisedCredentialsRiskConfiguration *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType `pulumi:"compromisedCredentialsRiskConfiguration"`
-	RiskExceptionConfiguration              *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType              `pulumi:"riskExceptionConfiguration"`
-	UserPoolId                              string                                                                          `pulumi:"userPoolId"`
+	// The type of the configuration to override the risk decision.
+	RiskExceptionConfiguration *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType `pulumi:"riskExceptionConfiguration"`
+	// The user pool ID.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
 type UserPoolRiskConfigurationAttachmentArgs struct {
-	AccountTakeoverRiskConfiguration        UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrInput
-	ClientId                                pulumi.StringInput
+	// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+	AccountTakeoverRiskConfiguration UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrInput
+	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	ClientId pulumi.StringInput
+	// The compromised credentials risk configuration type.
 	CompromisedCredentialsRiskConfiguration UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrInput
-	RiskExceptionConfiguration              UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrInput
-	UserPoolId                              pulumi.StringInput
+	// The type of the configuration to override the risk decision.
+	RiskExceptionConfiguration UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrInput
+	// The user pool ID.
+	UserPoolId pulumi.StringInput
 }
 
 func (UserPoolRiskConfigurationAttachmentArgs) ElementType() reflect.Type {
@@ -127,28 +142,33 @@ func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAt
 	return o
 }
 
+// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
 func (o UserPoolRiskConfigurationAttachmentOutput) AccountTakeoverRiskConfiguration() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
 		return v.AccountTakeoverRiskConfiguration
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
+// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
 func (o UserPoolRiskConfigurationAttachmentOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The compromised credentials risk configuration type.
 func (o UserPoolRiskConfigurationAttachmentOutput) CompromisedCredentialsRiskConfiguration() UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
 		return v.CompromisedCredentialsRiskConfiguration
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
 }
 
+// The type of the configuration to override the risk decision.
 func (o UserPoolRiskConfigurationAttachmentOutput) RiskExceptionConfiguration() UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
 		return v.RiskExceptionConfiguration
 	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput)
 }
 
+// The user pool ID.
 func (o UserPoolRiskConfigurationAttachmentOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

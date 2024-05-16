@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class EndpointPrimary
     {
+        /// <summary>
+        /// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        /// </summary>
         public readonly string HealthCheck;
 
         [OutputConstructor]

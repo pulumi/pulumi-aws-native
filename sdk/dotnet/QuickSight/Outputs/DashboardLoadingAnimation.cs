@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLoadingAnimation
     {
+        /// <summary>
+        /// The visibility configuration of `LoadingAnimation` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

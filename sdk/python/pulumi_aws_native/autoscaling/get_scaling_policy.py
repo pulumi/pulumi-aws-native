@@ -108,6 +108,9 @@ class GetScalingPolicyResult:
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[str]:
+        """
+        Returns the name of a scaling policy.
+        """
         return pulumi.get(self, "policy_name")
 
     @property

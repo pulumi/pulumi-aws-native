@@ -157,6 +157,9 @@ namespace Pulumi.AwsNative.Redshift
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a connection endpoint.
+        /// </summary>
         [Output("endpoint")]
         public Output<Outputs.ClusterEndpoint?> Endpoint { get; private set; } = null!;
 
@@ -194,6 +197,9 @@ namespace Pulumi.AwsNative.Redshift
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        /// </summary>
         [Output("loggingProperties")]
         public Output<Outputs.ClusterLoggingProperties?> LoggingProperties { get; private set; } = null!;
 
@@ -267,6 +273,9 @@ namespace Pulumi.AwsNative.Redshift
         [Output("numberOfNodes")]
         public Output<int?> NumberOfNodes { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+        /// </summary>
         [Output("ownerAccount")]
         public Output<string?> OwnerAccount { get; private set; } = null!;
 
@@ -543,6 +552,9 @@ namespace Pulumi.AwsNative.Redshift
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Describes a connection endpoint.
+        /// </summary>
         [Input("endpoint")]
         public Input<Inputs.ClusterEndpointArgs>? Endpoint { get; set; }
 
@@ -586,6 +598,9 @@ namespace Pulumi.AwsNative.Redshift
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        /// </summary>
         [Input("loggingProperties")]
         public Input<Inputs.ClusterLoggingPropertiesArgs>? LoggingProperties { get; set; }
 
@@ -653,6 +668,9 @@ namespace Pulumi.AwsNative.Redshift
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
 
+        /// <summary>
+        /// The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+        /// </summary>
         [Input("ownerAccount")]
         public Input<string>? OwnerAccount { get; set; }
 

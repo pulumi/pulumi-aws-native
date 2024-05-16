@@ -13,16 +13,56 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaExecutionParameters
     {
+        /// <summary>
+        /// The map of environment variables that are available to the Lambda function when it runs.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
+        /// <summary>
+        /// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaEventSource> EventSources;
+        /// <summary>
+        /// The list of arguments to pass to the Lambda function when it runs.
+        /// </summary>
         public readonly ImmutableArray<string> ExecArgs;
+        /// <summary>
+        /// The encoding type that the Lambda function supports.
+        /// 
+        /// Default: `json`
+        /// </summary>
         public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType? InputPayloadEncodingType;
+        /// <summary>
+        /// Contains parameters for a Linux process that contains an AWS Lambda function.
+        /// </summary>
         public readonly Outputs.ComponentVersionLambdaLinuxProcessParams? LinuxProcessParams;
+        /// <summary>
+        /// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
+        /// </summary>
         public readonly int? MaxIdleTimeInSeconds;
+        /// <summary>
+        /// The maximum number of instances that a non-pinned Lambda function can run at the same time.
+        /// </summary>
         public readonly int? MaxInstancesCount;
+        /// <summary>
+        /// The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
+        /// </summary>
         public readonly int? MaxQueueSize;
+        /// <summary>
+        /// Whether or not the Lambda function is pinned, or long-lived.
+        /// 
+        /// - A pinned Lambda function starts when the AWS IoT Greengrass Core starts and keeps running in its own container.
+        /// - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.
+        /// 
+        /// Default: `true`
+        /// </summary>
         public readonly bool? Pinned;
+        /// <summary>
+        /// The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
+        /// </summary>
         public readonly int? StatusTimeoutInSeconds;
+        /// <summary>
+        /// The maximum amount of time in seconds that the Lambda function can process a work item.
+        /// </summary>
         public readonly int? TimeoutInSeconds;
 
         [OutputConstructor]

@@ -34,10 +34,25 @@ export class ProfilePermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProfilePermission.__pulumiType;
     }
 
+    /**
+     * The AWS Signer action permitted as part of cross-account permissions.
+     */
     public readonly action!: pulumi.Output<string>;
+    /**
+     * The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+     */
     public readonly principal!: pulumi.Output<string>;
+    /**
+     * The human-readable name of the signing profile.
+     */
     public readonly profileName!: pulumi.Output<string>;
+    /**
+     * The version of the signing profile.
+     */
     public readonly profileVersion!: pulumi.Output<string | undefined>;
+    /**
+     * A unique identifier for the cross-account permission statement.
+     */
     public readonly statementId!: pulumi.Output<string>;
 
     /**
@@ -86,9 +101,24 @@ export class ProfilePermission extends pulumi.CustomResource {
  * The set of arguments for constructing a ProfilePermission resource.
  */
 export interface ProfilePermissionArgs {
+    /**
+     * The AWS Signer action permitted as part of cross-account permissions.
+     */
     action: pulumi.Input<string>;
+    /**
+     * The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+     */
     principal: pulumi.Input<string>;
+    /**
+     * The human-readable name of the signing profile.
+     */
     profileName: pulumi.Input<string>;
+    /**
+     * The version of the signing profile.
+     */
     profileVersion?: pulumi.Input<string>;
+    /**
+     * A unique identifier for the cross-account permission statement.
+     */
     statementId: pulumi.Input<string>;
 }

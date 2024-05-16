@@ -16,10 +16,16 @@ export function getLogAnomalyDetectionIntegration(args: GetLogAnomalyDetectionIn
 }
 
 export interface GetLogAnomalyDetectionIntegrationArgs {
+    /**
+     * The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+     */
     accountId: string;
 }
 
 export interface GetLogAnomalyDetectionIntegrationResult {
+    /**
+     * The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+     */
     readonly accountId?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getLogAnomalyDetectionIntegrationOutput(args: GetLogAnomalyDetec
 }
 
 export interface GetLogAnomalyDetectionIntegrationOutputArgs {
+    /**
+     * The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+     */
     accountId: pulumi.Input<string>;
 }

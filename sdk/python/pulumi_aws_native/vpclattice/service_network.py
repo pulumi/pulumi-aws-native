@@ -22,6 +22,14 @@ class ServiceNetworkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetwork resource.
+        :param pulumi.Input['ServiceNetworkAuthType'] auth_type: The type of IAM policy.
+               
+               - `NONE` : The resource does not use an IAM policy. This is the default.
+               - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        :param pulumi.Input[str] name: The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the service network.
         """
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
@@ -33,6 +41,12 @@ class ServiceNetworkArgs:
     @property
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[pulumi.Input['ServiceNetworkAuthType']]:
+        """
+        The type of IAM policy.
+
+        - `NONE` : The resource does not use an IAM policy. This is the default.
+        - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
@@ -42,6 +56,11 @@ class ServiceNetworkArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -51,6 +70,9 @@ class ServiceNetworkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the service network.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -72,6 +94,14 @@ class ServiceNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ServiceNetworkAuthType'] auth_type: The type of IAM policy.
+               
+               - `NONE` : The resource does not use an IAM policy. This is the default.
+               - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        :param pulumi.Input[str] name: The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the service network.
         """
         ...
     @overload
@@ -152,35 +182,61 @@ class ServiceNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the service network.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[Optional['ServiceNetworkAuthType']]:
+        """
+        The type of IAM policy.
+
+        - `NONE` : The resource does not use an IAM policy. This is the default.
+        - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        """
         return pulumi.get(self, "auth_type")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service network.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time that the service network was created, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[str]:
+        """
+        The date and time of the last update, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the service network.
+        """
         return pulumi.get(self, "tags")
 

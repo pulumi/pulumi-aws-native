@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCustomerGatewayArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the customer gateway.
+        /// </summary>
         [Input("customerGatewayId", required: true)]
         public string CustomerGatewayId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCustomerGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the customer gateway.
+        /// </summary>
         [Input("customerGatewayId", required: true)]
         public Input<string> CustomerGatewayId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetCustomerGatewayResult
     {
+        /// <summary>
+        /// The ID of the customer gateway.
+        /// </summary>
         public readonly string? CustomerGatewayId;
         /// <summary>
         /// One or more tags for the customer gateway.

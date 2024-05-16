@@ -30,7 +30,8 @@ type LookupCustomPluginArgs struct {
 
 type LookupCustomPluginResult struct {
 	// The Amazon Resource Name (ARN) of the custom plugin to use.
-	CustomPluginArn *string                      `pulumi:"customPluginArn"`
+	CustomPluginArn *string `pulumi:"customPluginArn"`
+	// Details about a custom plugin file.
 	FileDescription *CustomPluginFileDescription `pulumi:"fileDescription"`
 	// The revision of the custom plugin.
 	Revision *int `pulumi:"revision"`
@@ -79,6 +80,7 @@ func (o LookupCustomPluginResultOutput) CustomPluginArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupCustomPluginResult) *string { return v.CustomPluginArn }).(pulumi.StringPtrOutput)
 }
 
+// Details about a custom plugin file.
 func (o LookupCustomPluginResultOutput) FileDescription() CustomPluginFileDescriptionPtrOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) *CustomPluginFileDescription { return v.FileDescription }).(CustomPluginFileDescriptionPtrOutput)
 }

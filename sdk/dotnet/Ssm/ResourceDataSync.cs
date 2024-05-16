@@ -267,30 +267,57 @@ namespace Pulumi.AwsNative.Ssm
     [AwsNativeResourceType("aws-native:ssm:ResourceDataSync")]
     public partial class ResourceDataSync : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the S3 bucket where the aggregated data is stored.
+        /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
 
+        /// <summary>
+        /// An Amazon S3 prefix for the bucket.
+        /// </summary>
         [Output("bucketPrefix")]
         public Output<string?> BucketPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region with the S3 bucket targeted by the resource data sync.
+        /// </summary>
         [Output("bucketRegion")]
         public Output<string?> BucketRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the target S3 bucket for the resource data sync.
+        /// </summary>
         [Output("s3Destination")]
         public Output<Outputs.ResourceDataSyncS3Destination?> S3Destination { get; private set; } = null!;
 
+        /// <summary>
+        /// A supported sync format. The following format is currently supported: JsonSerDe
+        /// </summary>
         [Output("syncFormat")]
         public Output<string?> SyncFormat { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the resource data sync.
+        /// </summary>
         [Output("syncName")]
         public Output<string> SyncName { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the source of the data included in the resource data sync.
+        /// </summary>
         [Output("syncSource")]
         public Output<Outputs.ResourceDataSyncSyncSource?> SyncSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+        /// </summary>
         [Output("syncType")]
         public Output<string?> SyncType { get; private set; } = null!;
 
@@ -350,30 +377,57 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class ResourceDataSyncArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket where the aggregated data is stored.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// An Amazon S3 prefix for the bucket.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// The AWS Region with the S3 bucket targeted by the resource data sync.
+        /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// Information about the target S3 bucket for the resource data sync.
+        /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ResourceDataSyncS3DestinationArgs>? S3Destination { get; set; }
 
+        /// <summary>
+        /// A supported sync format. The following format is currently supported: JsonSerDe
+        /// </summary>
         [Input("syncFormat")]
         public Input<string>? SyncFormat { get; set; }
 
+        /// <summary>
+        /// The name of the resource data sync.
+        /// </summary>
         [Input("syncName")]
         public Input<string>? SyncName { get; set; }
 
+        /// <summary>
+        /// Information about the source of the data included in the resource data sync.
+        /// </summary>
         [Input("syncSource")]
         public Input<Inputs.ResourceDataSyncSyncSourceArgs>? SyncSource { get; set; }
 
+        /// <summary>
+        /// The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+        /// </summary>
         [Input("syncType")]
         public Input<string>? SyncType { get; set; }
 

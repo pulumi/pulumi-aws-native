@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicNamedEntityDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the entity.
+        /// </summary>
         [Input("fieldName")]
         public Input<string>? FieldName { get; set; }
 
+        /// <summary>
+        /// A structure that represents a metric.
+        /// </summary>
         [Input("metric")]
         public Input<Inputs.TopicNamedEntityDefinitionMetricArgs>? Metric { get; set; }
 
+        /// <summary>
+        /// The property name to be used for the named entity.
+        /// </summary>
         [Input("propertyName")]
         public Input<string>? PropertyName { get; set; }
 
+        /// <summary>
+        /// The property role. Valid values for this structure are `PRIMARY` and `ID` .
+        /// </summary>
         [Input("propertyRole")]
         public Input<Pulumi.AwsNative.QuickSight.TopicPropertyRole>? PropertyRole { get; set; }
 
+        /// <summary>
+        /// The property usage. Valid values for this structure are `INHERIT` , `DIMENSION` , and `MEASURE` .
+        /// </summary>
         [Input("propertyUsage")]
         public Input<Pulumi.AwsNative.QuickSight.TopicPropertyUsage>? PropertyUsage { get; set; }
 

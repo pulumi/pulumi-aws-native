@@ -16,6 +16,7 @@ import (
 type DocumentationPart struct {
 	pulumi.CustomResourceState
 
+	// The ID for the documentation part.
 	DocumentationPartId pulumi.StringOutput `pulumi:"documentationPartId"`
 	// The location of the targeted API entity of the to-be-created documentation part.
 	Location DocumentationPartLocationOutput `pulumi:"location"`
@@ -134,6 +135,7 @@ func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx contex
 	return o
 }
 
+// The ID for the documentation part.
 func (o DocumentationPartOutput) DocumentationPartId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.DocumentationPartId }).(pulumi.StringOutput)
 }

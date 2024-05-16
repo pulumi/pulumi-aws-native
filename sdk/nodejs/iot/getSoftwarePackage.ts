@@ -24,6 +24,9 @@ export interface GetSoftwarePackageArgs {
 
 export interface GetSoftwarePackageResult {
     readonly description?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the package.
+     */
     readonly packageArn?: string;
     /**
      * An array of key-value pairs to apply to this resource.

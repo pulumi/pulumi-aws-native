@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamDataFormatConversionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defaults to `true` . Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+        /// </summary>
         [Input("inputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamInputFormatConfigurationArgs>? InputFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        /// </summary>
         [Input("outputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamOutputFormatConfigurationArgs>? OutputFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        /// </summary>
         [Input("schemaConfiguration")]
         public Input<Inputs.DeliveryStreamSchemaConfigurationArgs>? SchemaConfiguration { get; set; }
 

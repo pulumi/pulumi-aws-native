@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class GetDeploymentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the deployment.
+        /// </summary>
         [Input("deploymentId", required: true)]
         public string DeploymentId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class GetDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the deployment.
+        /// </summary>
         [Input("deploymentId", required: true)]
         public Input<string> DeploymentId { get; set; } = null!;
 
@@ -51,7 +57,20 @@ namespace Pulumi.AwsNative.GreengrassV2
     [OutputType]
     public sealed class GetDeploymentResult
     {
+        /// <summary>
+        /// The ID of the deployment.
+        /// </summary>
         public readonly string? DeploymentId;
+        /// <summary>
+        /// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// 
+        /// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+        /// 
+        /// ```json
+        /// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        /// }
+        /// ```
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

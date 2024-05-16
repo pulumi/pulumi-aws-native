@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Input("listenerArn", required: true)]
         public string ListenerArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
@@ -65,6 +71,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         ///  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerAction> DefaultActions;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         public readonly string? ListenerArn;
         /// <summary>
         /// The mutual authentication configuration information.

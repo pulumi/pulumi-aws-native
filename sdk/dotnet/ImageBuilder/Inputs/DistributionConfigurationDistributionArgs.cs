@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class DistributionConfigurationDistributionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Define and configure the output AMIs of the pipeline.
+        /// </summary>
         [Input("amiDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationAmiDistributionConfigurationArgs>? AmiDistributionConfiguration { get; set; }
 
+        /// <summary>
+        /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
+        /// </summary>
         [Input("containerDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationContainerDistributionConfigurationArgs>? ContainerDistributionConfiguration { get; set; }
 

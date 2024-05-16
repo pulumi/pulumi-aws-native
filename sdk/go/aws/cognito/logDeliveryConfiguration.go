@@ -16,9 +16,12 @@ import (
 type LogDeliveryConfiguration struct {
 	pulumi.CustomResourceState
 
-	AwsId             pulumi.StringOutput                                 `pulumi:"awsId"`
+	// A user pool ID, for example `us-east-1_EXAMPLE` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The detailed activity logging destination of a user pool.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayOutput `pulumi:"logConfigurations"`
-	UserPoolId        pulumi.StringOutput                                 `pulumi:"userPoolId"`
+	// The ID of the user pool where you configured detailed activity logging.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewLogDeliveryConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -68,14 +71,18 @@ func (LogDeliveryConfigurationState) ElementType() reflect.Type {
 }
 
 type logDeliveryConfigurationArgs struct {
+	// The detailed activity logging destination of a user pool.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`
-	UserPoolId        string                                     `pulumi:"userPoolId"`
+	// The ID of the user pool where you configured detailed activity logging.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a LogDeliveryConfiguration resource.
 type LogDeliveryConfigurationArgs struct {
+	// The detailed activity logging destination of a user pool.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayInput
-	UserPoolId        pulumi.StringInput
+	// The ID of the user pool where you configured detailed activity logging.
+	UserPoolId pulumi.StringInput
 }
 
 func (LogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -115,16 +122,19 @@ func (o LogDeliveryConfigurationOutput) ToLogDeliveryConfigurationOutputWithCont
 	return o
 }
 
+// A user pool ID, for example `us-east-1_EXAMPLE` .
 func (o LogDeliveryConfigurationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The detailed activity logging destination of a user pool.
 func (o LogDeliveryConfigurationOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) LogDeliveryConfigurationLogConfigurationArrayOutput {
 		return v.LogConfigurations
 	}).(LogDeliveryConfigurationLogConfigurationArrayOutput)
 }
 
+// The ID of the user pool where you configured detailed activity logging.
 func (o LogDeliveryConfigurationOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

@@ -49,6 +49,12 @@ def get_ipam_allocation(cidr: Optional[str] = None,
     Resource Schema of AWS::EC2::IPAMAllocation Type
 
 
+    :param str cidr: The CIDR you would like to allocate from the IPAM pool. Note the following:
+           
+           - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+           - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+           
+           Possible values: Any available IPv4 or IPv6 CIDR.
     :param str ipam_pool_allocation_id: Id of the allocation.
     :param str ipam_pool_id: Id of the IPAM Pool.
     """
@@ -72,6 +78,12 @@ def get_ipam_allocation_output(cidr: Optional[pulumi.Input[str]] = None,
     Resource Schema of AWS::EC2::IPAMAllocation Type
 
 
+    :param str cidr: The CIDR you would like to allocate from the IPAM pool. Note the following:
+           
+           - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+           - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+           
+           Possible values: Any available IPv4 or IPv6 CIDR.
     :param str ipam_pool_allocation_id: Id of the allocation.
     :param str ipam_pool_id: Id of the IPAM Pool.
     """

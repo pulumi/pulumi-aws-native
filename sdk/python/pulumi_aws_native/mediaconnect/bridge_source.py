@@ -24,7 +24,9 @@ class BridgeSourceInitArgs:
         """
         The set of arguments for constructing a BridgeSource resource.
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
+        :param pulumi.Input['BridgeSourceBridgeFlowSourceArgs'] flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
         :param pulumi.Input[str] name: The name of the source.
+        :param pulumi.Input['BridgeSourceBridgeNetworkSourceArgs'] network_source: The source of the bridge. A network source originates at your premises.
         """
         pulumi.set(__self__, "bridge_arn", bridge_arn)
         if flow_source is not None:
@@ -49,6 +51,9 @@ class BridgeSourceInitArgs:
     @property
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']]:
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        """
         return pulumi.get(self, "flow_source")
 
     @flow_source.setter
@@ -70,6 +75,9 @@ class BridgeSourceInitArgs:
     @property
     @pulumi.getter(name="networkSource")
     def network_source(self) -> Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']]:
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
         return pulumi.get(self, "network_source")
 
     @network_source.setter
@@ -93,7 +101,9 @@ class BridgeSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
+        :param pulumi.Input[pulumi.InputType['BridgeSourceBridgeFlowSourceArgs']] flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
         :param pulumi.Input[str] name: The name of the source.
+        :param pulumi.Input[pulumi.InputType['BridgeSourceBridgeNetworkSourceArgs']] network_source: The source of the bridge. A network source originates at your premises.
         """
         ...
     @overload
@@ -179,6 +189,9 @@ class BridgeSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> pulumi.Output[Optional['outputs.BridgeSourceBridgeFlowSource']]:
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        """
         return pulumi.get(self, "flow_source")
 
     @property
@@ -192,5 +205,8 @@ class BridgeSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkSource")
     def network_source(self) -> pulumi.Output[Optional['outputs.BridgeSourceBridgeNetworkSource']]:
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
         return pulumi.get(self, "network_source")
 

@@ -17,15 +17,31 @@ import (
 type ScheduledQuery struct {
 	pulumi.CustomResourceState
 
-	Arn                            pulumi.StringOutput                           `pulumi:"arn"`
-	ClientToken                    pulumi.StringPtrOutput                        `pulumi:"clientToken"`
-	ErrorReportConfiguration       ScheduledQueryErrorReportConfigurationOutput  `pulumi:"errorReportConfiguration"`
-	KmsKeyId                       pulumi.StringPtrOutput                        `pulumi:"kmsKeyId"`
-	NotificationConfiguration      ScheduledQueryNotificationConfigurationOutput `pulumi:"notificationConfiguration"`
-	QueryString                    pulumi.StringOutput                           `pulumi:"queryString"`
-	ScheduleConfiguration          ScheduledQueryScheduleConfigurationOutput     `pulumi:"scheduleConfiguration"`
-	ScheduledQueryExecutionRoleArn pulumi.StringOutput                           `pulumi:"scheduledQueryExecutionRoleArn"`
-	ScheduledQueryName             pulumi.StringPtrOutput                        `pulumi:"scheduledQueryName"`
+	// The `ARN` of the scheduled query.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+	//
+	// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+	// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
+	// Configuration required for error reporting.
+	ErrorReportConfiguration ScheduledQueryErrorReportConfigurationOutput `pulumi:"errorReportConfiguration"`
+	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+	//
+	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+	NotificationConfiguration ScheduledQueryNotificationConfigurationOutput `pulumi:"notificationConfiguration"`
+	// The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+	//
+	// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	QueryString pulumi.StringOutput `pulumi:"queryString"`
+	// Configuration of the schedule of the query.
+	ScheduleConfiguration ScheduledQueryScheduleConfigurationOutput `pulumi:"scheduleConfiguration"`
+	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
+	ScheduledQueryExecutionRoleArn pulumi.StringOutput `pulumi:"scheduledQueryExecutionRoleArn"`
+	// A name for the query. Scheduled query names must be unique within each Region.
+	ScheduledQueryName pulumi.StringPtrOutput `pulumi:"scheduledQueryName"`
 	// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 	SqErrorReportConfiguration pulumi.StringOutput `pulumi:"sqErrorReportConfiguration"`
 	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
@@ -41,9 +57,11 @@ type ScheduledQuery struct {
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
 	SqScheduledQueryExecutionRoleArn pulumi.StringOutput `pulumi:"sqScheduledQueryExecutionRoleArn"`
 	// Configuration of target store where scheduled query results are written to.
-	SqTargetConfiguration pulumi.StringOutput                        `pulumi:"sqTargetConfiguration"`
-	Tags                  aws.TagArrayOutput                         `pulumi:"tags"`
-	TargetConfiguration   ScheduledQueryTargetConfigurationPtrOutput `pulumi:"targetConfiguration"`
+	SqTargetConfiguration pulumi.StringOutput `pulumi:"sqTargetConfiguration"`
+	// A list of key-value pairs to label the scheduled query.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Configuration used for writing the output of a query.
+	TargetConfiguration ScheduledQueryTargetConfigurationPtrOutput `pulumi:"targetConfiguration"`
 }
 
 // NewScheduledQuery registers a new resource with the given unique name, arguments, and options.
@@ -113,30 +131,64 @@ func (ScheduledQueryState) ElementType() reflect.Type {
 }
 
 type scheduledQueryArgs struct {
-	ClientToken                    *string                                 `pulumi:"clientToken"`
-	ErrorReportConfiguration       ScheduledQueryErrorReportConfiguration  `pulumi:"errorReportConfiguration"`
-	KmsKeyId                       *string                                 `pulumi:"kmsKeyId"`
-	NotificationConfiguration      ScheduledQueryNotificationConfiguration `pulumi:"notificationConfiguration"`
-	QueryString                    string                                  `pulumi:"queryString"`
-	ScheduleConfiguration          ScheduledQueryScheduleConfiguration     `pulumi:"scheduleConfiguration"`
-	ScheduledQueryExecutionRoleArn string                                  `pulumi:"scheduledQueryExecutionRoleArn"`
-	ScheduledQueryName             *string                                 `pulumi:"scheduledQueryName"`
-	Tags                           []aws.Tag                               `pulumi:"tags"`
-	TargetConfiguration            *ScheduledQueryTargetConfiguration      `pulumi:"targetConfiguration"`
+	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+	//
+	// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+	// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+	ClientToken *string `pulumi:"clientToken"`
+	// Configuration required for error reporting.
+	ErrorReportConfiguration ScheduledQueryErrorReportConfiguration `pulumi:"errorReportConfiguration"`
+	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+	//
+	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+	NotificationConfiguration ScheduledQueryNotificationConfiguration `pulumi:"notificationConfiguration"`
+	// The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+	//
+	// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	QueryString string `pulumi:"queryString"`
+	// Configuration of the schedule of the query.
+	ScheduleConfiguration ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
+	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
+	ScheduledQueryExecutionRoleArn string `pulumi:"scheduledQueryExecutionRoleArn"`
+	// A name for the query. Scheduled query names must be unique within each Region.
+	ScheduledQueryName *string `pulumi:"scheduledQueryName"`
+	// A list of key-value pairs to label the scheduled query.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Configuration used for writing the output of a query.
+	TargetConfiguration *ScheduledQueryTargetConfiguration `pulumi:"targetConfiguration"`
 }
 
 // The set of arguments for constructing a ScheduledQuery resource.
 type ScheduledQueryArgs struct {
-	ClientToken                    pulumi.StringPtrInput
-	ErrorReportConfiguration       ScheduledQueryErrorReportConfigurationInput
-	KmsKeyId                       pulumi.StringPtrInput
-	NotificationConfiguration      ScheduledQueryNotificationConfigurationInput
-	QueryString                    pulumi.StringInput
-	ScheduleConfiguration          ScheduledQueryScheduleConfigurationInput
+	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+	//
+	// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+	// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+	ClientToken pulumi.StringPtrInput
+	// Configuration required for error reporting.
+	ErrorReportConfiguration ScheduledQueryErrorReportConfigurationInput
+	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+	//
+	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+	KmsKeyId pulumi.StringPtrInput
+	// Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+	NotificationConfiguration ScheduledQueryNotificationConfigurationInput
+	// The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+	//
+	// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	QueryString pulumi.StringInput
+	// Configuration of the schedule of the query.
+	ScheduleConfiguration ScheduledQueryScheduleConfigurationInput
+	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
 	ScheduledQueryExecutionRoleArn pulumi.StringInput
-	ScheduledQueryName             pulumi.StringPtrInput
-	Tags                           aws.TagArrayInput
-	TargetConfiguration            ScheduledQueryTargetConfigurationPtrInput
+	// A name for the query. Scheduled query names must be unique within each Region.
+	ScheduledQueryName pulumi.StringPtrInput
+	// A list of key-value pairs to label the scheduled query.
+	Tags aws.TagArrayInput
+	// Configuration used for writing the output of a query.
+	TargetConfiguration ScheduledQueryTargetConfigurationPtrInput
 }
 
 func (ScheduledQueryArgs) ElementType() reflect.Type {
@@ -176,42 +228,58 @@ func (o ScheduledQueryOutput) ToScheduledQueryOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The `ARN` of the scheduled query.
 func (o ScheduledQueryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+//
+// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
 func (o ScheduledQueryOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
+// Configuration required for error reporting.
 func (o ScheduledQueryOutput) ErrorReportConfiguration() ScheduledQueryErrorReportConfigurationOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryErrorReportConfigurationOutput {
 		return v.ErrorReportConfiguration
 	}).(ScheduledQueryErrorReportConfigurationOutput)
 }
 
+// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+//
+// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
 func (o ScheduledQueryOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
 func (o ScheduledQueryOutput) NotificationConfiguration() ScheduledQueryNotificationConfigurationOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryNotificationConfigurationOutput {
 		return v.NotificationConfiguration
 	}).(ScheduledQueryNotificationConfigurationOutput)
 }
 
+// The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+//
+// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 func (o ScheduledQueryOutput) QueryString() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
 }
 
+// Configuration of the schedule of the query.
 func (o ScheduledQueryOutput) ScheduleConfiguration() ScheduledQueryScheduleConfigurationOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryScheduleConfigurationOutput { return v.ScheduleConfiguration }).(ScheduledQueryScheduleConfigurationOutput)
 }
 
+// The ARN for the IAM role that Timestream will assume when running the scheduled query.
 func (o ScheduledQueryOutput) ScheduledQueryExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.ScheduledQueryExecutionRoleArn }).(pulumi.StringOutput)
 }
 
+// A name for the query. Scheduled query names must be unique within each Region.
 func (o ScheduledQueryOutput) ScheduledQueryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringPtrOutput { return v.ScheduledQueryName }).(pulumi.StringPtrOutput)
 }
@@ -256,10 +324,12 @@ func (o ScheduledQueryOutput) SqTargetConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.SqTargetConfiguration }).(pulumi.StringOutput)
 }
 
+// A list of key-value pairs to label the scheduled query.
 func (o ScheduledQueryOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ScheduledQuery) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Configuration used for writing the output of a query.
 func (o ScheduledQueryOutput) TargetConfiguration() ScheduledQueryTargetConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryTargetConfigurationPtrOutput { return v.TargetConfiguration }).(ScheduledQueryTargetConfigurationPtrOutput)
 }

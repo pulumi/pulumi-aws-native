@@ -21,6 +21,7 @@ class ScheduleGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduleGroup resource.
+        :param pulumi.Input[str] name: The name of the schedule group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags to associate with the schedule group.
         """
         if name is not None:
@@ -31,6 +32,9 @@ class ScheduleGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schedule group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +67,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the schedule group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags to associate with the schedule group.
         """
         ...
@@ -165,11 +170,19 @@ class ScheduleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the schedule group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output['ScheduleGroupState']:
+        """
+        Specifies the state of the schedule group.
+
+        *Allowed Values* : `ACTIVE` | `DELETING`
+        """
         return pulumi.get(self, "state")
 
     @property

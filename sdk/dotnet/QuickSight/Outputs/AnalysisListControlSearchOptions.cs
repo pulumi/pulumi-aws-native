@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisListControlSearchOptions
     {
+        /// <summary>
+        /// The visibility configuration of the search options in a list control.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

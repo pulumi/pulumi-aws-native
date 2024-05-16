@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionImagePullSecret
     {
+        /// <summary>
+        /// Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

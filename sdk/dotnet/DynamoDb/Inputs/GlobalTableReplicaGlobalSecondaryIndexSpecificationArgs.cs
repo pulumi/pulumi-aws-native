@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures contributor insights settings for a replica or one of its indexes.
+        /// </summary>
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.GlobalTableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
 
+        /// <summary>
+        /// The name of the global secondary index. The name must be unique among all other indexes on this table.
+        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
+        /// <summary>
+        /// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// </summary>
         [Input("readOnDemandThroughputSettings")]
         public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
 
+        /// <summary>
+        /// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+        /// </summary>
         [Input("readProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }
 

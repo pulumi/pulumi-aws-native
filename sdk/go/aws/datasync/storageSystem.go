@@ -26,9 +26,13 @@ type StorageSystem struct {
 	// A familiar name for the on-premises storage system.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ARN of a secret stored by AWS Secrets Manager.
-	SecretsManagerArn   pulumi.StringOutput                     `pulumi:"secretsManagerArn"`
-	ServerConfiguration StorageSystemServerConfigurationOutput  `pulumi:"serverConfiguration"`
-	ServerCredentials   StorageSystemServerCredentialsPtrOutput `pulumi:"serverCredentials"`
+	SecretsManagerArn pulumi.StringOutput `pulumi:"secretsManagerArn"`
+	// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+	ServerConfiguration StorageSystemServerConfigurationOutput `pulumi:"serverConfiguration"`
+	// The credentials that provide DataSync Discovery read access to your on-premises storage system's management interface.
+	//
+	// DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) . For more information, see [Accessing your on-premises storage system](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html) .
+	ServerCredentials StorageSystemServerCredentialsPtrOutput `pulumi:"serverCredentials"`
 	// The ARN of the on-premises storage system added to DataSync Discovery.
 	StorageSystemArn pulumi.StringOutput `pulumi:"storageSystemArn"`
 	// The type of on-premises storage system that DataSync Discovery will analyze.
@@ -91,9 +95,13 @@ type storageSystemArgs struct {
 	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
 	// A familiar name for the on-premises storage system.
-	Name                *string                          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
 	ServerConfiguration StorageSystemServerConfiguration `pulumi:"serverConfiguration"`
-	ServerCredentials   *StorageSystemServerCredentials  `pulumi:"serverCredentials"`
+	// The credentials that provide DataSync Discovery read access to your on-premises storage system's management interface.
+	//
+	// DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) . For more information, see [Accessing your on-premises storage system](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html) .
+	ServerCredentials *StorageSystemServerCredentials `pulumi:"serverCredentials"`
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemType `pulumi:"systemType"`
 	// An array of key-value pairs to apply to this resource.
@@ -107,9 +115,13 @@ type StorageSystemArgs struct {
 	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
 	CloudWatchLogGroupArn pulumi.StringPtrInput
 	// A familiar name for the on-premises storage system.
-	Name                pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
 	ServerConfiguration StorageSystemServerConfigurationInput
-	ServerCredentials   StorageSystemServerCredentialsPtrInput
+	// The credentials that provide DataSync Discovery read access to your on-premises storage system's management interface.
+	//
+	// DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) . For more information, see [Accessing your on-premises storage system](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html) .
+	ServerCredentials StorageSystemServerCredentialsPtrInput
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemTypeInput
 	// An array of key-value pairs to apply to this resource.
@@ -178,10 +190,14 @@ func (o StorageSystemOutput) SecretsManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.SecretsManagerArn }).(pulumi.StringOutput)
 }
 
+// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
 func (o StorageSystemOutput) ServerConfiguration() StorageSystemServerConfigurationOutput {
 	return o.ApplyT(func(v *StorageSystem) StorageSystemServerConfigurationOutput { return v.ServerConfiguration }).(StorageSystemServerConfigurationOutput)
 }
 
+// The credentials that provide DataSync Discovery read access to your on-premises storage system's management interface.
+//
+// DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) . For more information, see [Accessing your on-premises storage system](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html) .
 func (o StorageSystemOutput) ServerCredentials() StorageSystemServerCredentialsPtrOutput {
 	return o.ApplyT(func(v *StorageSystem) StorageSystemServerCredentialsPtrOutput { return v.ServerCredentials }).(StorageSystemServerCredentialsPtrOutput)
 }

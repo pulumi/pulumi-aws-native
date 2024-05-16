@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScrollBarOptions
     {
+        /// <summary>
+        /// The visibility of the data zoom scroll bar.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
+        /// <summary>
+        /// The range options for the data zoom scroll bar.
+        /// </summary>
         public readonly Outputs.AnalysisVisibleRangeOptions? VisibleRange;
 
         [OutputConstructor]

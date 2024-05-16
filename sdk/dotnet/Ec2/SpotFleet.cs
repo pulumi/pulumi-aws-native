@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:SpotFleet")]
     public partial class SpotFleet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the Spot Fleet.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+        /// 
+        /// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+        /// </summary>
         [Output("spotFleetRequestConfigData")]
         public Output<Outputs.SpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
 
@@ -88,6 +96,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class SpotFleetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+        /// 
+        /// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+        /// </summary>
         [Input("spotFleetRequestConfigData", required: true)]
         public Input<Inputs.SpotFleetRequestConfigDataArgs> SpotFleetRequestConfigData { get; set; } = null!;
 

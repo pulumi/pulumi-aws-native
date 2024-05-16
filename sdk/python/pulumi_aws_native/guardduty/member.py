@@ -22,6 +22,12 @@ class MemberArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Member resource.
+        :param pulumi.Input[str] email: The email address associated with the member account.
+        :param pulumi.Input[str] detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
+        :param pulumi.Input[bool] disable_email_notification: Specifies whether or not to disable email notification for the member account that you invite.
+        :param pulumi.Input[str] member_id: The AWS account ID of the account to designate as a member.
+        :param pulumi.Input[str] message: The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+        :param pulumi.Input[str] status: You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
         """
         pulumi.set(__self__, "email", email)
         if detector_id is not None:
@@ -38,6 +44,9 @@ class MemberArgs:
     @property
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
+        """
+        The email address associated with the member account.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -47,6 +56,9 @@ class MemberArgs:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the detector associated with the GuardDuty service to add the member to.
+        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -56,6 +68,9 @@ class MemberArgs:
     @property
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not to disable email notification for the member account that you invite.
+        """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
@@ -65,6 +80,9 @@ class MemberArgs:
     @property
     @pulumi.getter(name="memberId")
     def member_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the account to designate as a member.
+        """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
@@ -74,6 +92,9 @@ class MemberArgs:
     @property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -83,6 +104,9 @@ class MemberArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -107,6 +131,12 @@ class Member(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
+        :param pulumi.Input[bool] disable_email_notification: Specifies whether or not to disable email notification for the member account that you invite.
+        :param pulumi.Input[str] email: The email address associated with the member account.
+        :param pulumi.Input[str] member_id: The AWS account ID of the account to designate as a member.
+        :param pulumi.Input[str] message: The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+        :param pulumi.Input[str] status: You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
         """
         ...
     @overload
@@ -190,30 +220,48 @@ class Member(pulumi.CustomResource):
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the detector associated with the GuardDuty service to add the member to.
+        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether or not to disable email notification for the member account that you invite.
+        """
         return pulumi.get(self, "disable_email_notification")
 
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
+        """
+        The email address associated with the member account.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account ID of the account to designate as a member.
+        """
         return pulumi.get(self, "member_id")
 
     @property
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
+        """
+        The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+        """
         return pulumi.get(self, "status")
 

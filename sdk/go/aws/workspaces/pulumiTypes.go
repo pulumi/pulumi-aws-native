@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConnectionAliasAssociation struct {
-	AssociatedAccountId  *string                                      `pulumi:"associatedAccountId"`
-	AssociationStatus    *ConnectionAliasAssociationAssociationStatus `pulumi:"associationStatus"`
-	ConnectionIdentifier *string                                      `pulumi:"connectionIdentifier"`
-	ResourceId           *string                                      `pulumi:"resourceId"`
+	// The identifier of the AWS account that associated the connection alias with a directory.
+	AssociatedAccountId *string `pulumi:"associatedAccountId"`
+	// The association status of the connection alias.
+	AssociationStatus *ConnectionAliasAssociationAssociationStatus `pulumi:"associationStatus"`
+	// The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
+	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
+	// The identifier of the directory associated with a connection alias.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 type ConnectionAliasAssociationOutput struct{ *pulumi.OutputState }
@@ -34,20 +38,24 @@ func (o ConnectionAliasAssociationOutput) ToConnectionAliasAssociationOutputWith
 	return o
 }
 
+// The identifier of the AWS account that associated the connection alias with a directory.
 func (o ConnectionAliasAssociationOutput) AssociatedAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionAliasAssociation) *string { return v.AssociatedAccountId }).(pulumi.StringPtrOutput)
 }
 
+// The association status of the connection alias.
 func (o ConnectionAliasAssociationOutput) AssociationStatus() ConnectionAliasAssociationAssociationStatusPtrOutput {
 	return o.ApplyT(func(v ConnectionAliasAssociation) *ConnectionAliasAssociationAssociationStatus {
 		return v.AssociationStatus
 	}).(ConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
+// The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
 func (o ConnectionAliasAssociationOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionAliasAssociation) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the directory associated with a connection alias.
 func (o ConnectionAliasAssociationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionAliasAssociation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -73,7 +81,9 @@ func (o ConnectionAliasAssociationArrayOutput) Index(i pulumi.IntInput) Connecti
 }
 
 type ConnectionAliasTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

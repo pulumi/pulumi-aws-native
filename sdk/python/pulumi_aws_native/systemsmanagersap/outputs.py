@@ -41,6 +41,11 @@ class ApplicationCredential(dict):
                  credential_type: Optional['ApplicationCredentialCredentialType'] = None,
                  database_name: Optional[str] = None,
                  secret_id: Optional[str] = None):
+        """
+        :param 'ApplicationCredentialCredentialType' credential_type: The type of the application credentials.
+        :param str database_name: The name of the SAP HANA database.
+        :param str secret_id: The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+        """
         if credential_type is not None:
             pulumi.set(__self__, "credential_type", credential_type)
         if database_name is not None:
@@ -51,16 +56,25 @@ class ApplicationCredential(dict):
     @property
     @pulumi.getter(name="credentialType")
     def credential_type(self) -> Optional['ApplicationCredentialCredentialType']:
+        """
+        The type of the application credentials.
+        """
         return pulumi.get(self, "credential_type")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
+        """
+        The name of the SAP HANA database.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> Optional[str]:
+        """
+        The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+        """
         return pulumi.get(self, "secret_id")
 
 

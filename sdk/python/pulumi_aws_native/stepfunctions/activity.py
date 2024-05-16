@@ -20,6 +20,18 @@ class ActivityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Activity resource.
+        :param pulumi.Input[str] name: The name of the activity.
+               
+               A name must *not* contain:
+               
+               - white space
+               - brackets `< > { } [ ]`
+               - wildcard characters `? *`
+               - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+               - control characters ( `U+0000-001F` , `U+007F-009F` )
+               
+               To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The `TagsEntry` property specifies *tags* to identify an activity.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -29,6 +41,19 @@ class ActivityArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the activity.
+
+        A name must *not* contain:
+
+        - white space
+        - brackets `< > { } [ ]`
+        - wildcard characters `? *`
+        - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+        - control characters ( `U+0000-001F` , `U+007F-009F` )
+
+        To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -38,6 +63,9 @@ class ActivityArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The `TagsEntry` property specifies *tags* to identify an activity.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -100,6 +128,18 @@ class Activity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the activity.
+               
+               A name must *not* contain:
+               
+               - white space
+               - brackets `< > { } [ ]`
+               - wildcard characters `? *`
+               - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+               - control characters ( `U+0000-001F` , `U+007F-009F` )
+               
+               To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The `TagsEntry` property specifies *tags* to identify an activity.
         """
         ...
     @overload
@@ -213,15 +253,34 @@ class Activity(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the ARN of the resource.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the activity.
+
+        A name must *not* contain:
+
+        - white space
+        - brackets `< > { } [ ]`
+        - wildcard characters `? *`
+        - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+        - control characters ( `U+0000-001F` , `U+007F-009F` )
+
+        To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The `TagsEntry` property specifies *tags* to identify an activity.
+        """
         return pulumi.get(self, "tags")
 

@@ -10,7 +10,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type HypervisorTag struct {
-	Key   string `pulumi:"key"`
+	// The key part of a tag's key-value pair. The key can't start with `aws:` .
+	Key string `pulumi:"key"`
+	// The value part of a tag's key-value pair.
 	Value string `pulumi:"value"`
 }
 

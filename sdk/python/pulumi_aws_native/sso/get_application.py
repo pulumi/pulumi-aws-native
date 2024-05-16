@@ -84,6 +84,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies tags to be attached to the application
+        """
         return pulumi.get(self, "tags")
 
 

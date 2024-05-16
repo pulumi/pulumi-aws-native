@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisListControlDisplayOptions
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         public readonly Outputs.AnalysisSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The configuration of the search options in a list control.
+        /// </summary>
         public readonly Outputs.AnalysisListControlSearchOptions? SearchOptions;
+        /// <summary>
+        /// The configuration of the `Select all` options in a list control.
+        /// </summary>
         public readonly Outputs.AnalysisListControlSelectAllOptions? SelectAllOptions;
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         public readonly Outputs.AnalysisLabelOptions? TitleOptions;
 
         [OutputConstructor]

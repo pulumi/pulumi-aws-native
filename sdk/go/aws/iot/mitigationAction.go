@@ -18,11 +18,15 @@ type MitigationAction struct {
 	pulumi.CustomResourceState
 
 	// A unique identifier for the mitigation action.
-	ActionName          pulumi.StringPtrOutput             `pulumi:"actionName"`
-	ActionParams        MitigationActionActionParamsOutput `pulumi:"actionParams"`
-	MitigationActionArn pulumi.StringOutput                `pulumi:"mitigationActionArn"`
-	MitigationActionId  pulumi.StringOutput                `pulumi:"mitigationActionId"`
-	RoleArn             pulumi.StringOutput                `pulumi:"roleArn"`
+	ActionName pulumi.StringPtrOutput `pulumi:"actionName"`
+	// Defines the type of action and the parameters for that action.
+	ActionParams MitigationActionActionParamsOutput `pulumi:"actionParams"`
+	// The Amazon Resource Name (ARN) of the mitigation action.
+	MitigationActionArn pulumi.StringOutput `pulumi:"mitigationActionArn"`
+	// The ID of the mitigation action.
+	MitigationActionId pulumi.StringOutput `pulumi:"mitigationActionId"`
+	// The IAM role ARN used to apply this mitigation action.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -78,9 +82,11 @@ func (MitigationActionState) ElementType() reflect.Type {
 
 type mitigationActionArgs struct {
 	// A unique identifier for the mitigation action.
-	ActionName   *string                      `pulumi:"actionName"`
+	ActionName *string `pulumi:"actionName"`
+	// Defines the type of action and the parameters for that action.
 	ActionParams MitigationActionActionParams `pulumi:"actionParams"`
-	RoleArn      string                       `pulumi:"roleArn"`
+	// The IAM role ARN used to apply this mitigation action.
+	RoleArn string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -88,9 +94,11 @@ type mitigationActionArgs struct {
 // The set of arguments for constructing a MitigationAction resource.
 type MitigationActionArgs struct {
 	// A unique identifier for the mitigation action.
-	ActionName   pulumi.StringPtrInput
+	ActionName pulumi.StringPtrInput
+	// Defines the type of action and the parameters for that action.
 	ActionParams MitigationActionActionParamsInput
-	RoleArn      pulumi.StringInput
+	// The IAM role ARN used to apply this mitigation action.
+	RoleArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -137,18 +145,22 @@ func (o MitigationActionOutput) ActionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationAction) pulumi.StringPtrOutput { return v.ActionName }).(pulumi.StringPtrOutput)
 }
 
+// Defines the type of action and the parameters for that action.
 func (o MitigationActionOutput) ActionParams() MitigationActionActionParamsOutput {
 	return o.ApplyT(func(v *MitigationAction) MitigationActionActionParamsOutput { return v.ActionParams }).(MitigationActionActionParamsOutput)
 }
 
+// The Amazon Resource Name (ARN) of the mitigation action.
 func (o MitigationActionOutput) MitigationActionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MitigationAction) pulumi.StringOutput { return v.MitigationActionArn }).(pulumi.StringOutput)
 }
 
+// The ID of the mitigation action.
 func (o MitigationActionOutput) MitigationActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MitigationAction) pulumi.StringOutput { return v.MitigationActionId }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN used to apply this mitigation action.
 func (o MitigationActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MitigationAction) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

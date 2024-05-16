@@ -17,10 +17,20 @@ import (
 type CertificateProvider struct {
 	pulumi.CustomResourceState
 
+	// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 	AccountDefaultForOperations CertificateProviderOperationArrayOutput `pulumi:"accountDefaultForOperations"`
-	Arn                         pulumi.StringOutput                     `pulumi:"arn"`
-	CertificateProviderName     pulumi.StringPtrOutput                  `pulumi:"certificateProviderName"`
-	LambdaFunctionArn           pulumi.StringOutput                     `pulumi:"lambdaFunctionArn"`
+	// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+	//
+	// `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+	//
+	// A value similar to the following is returned:
+	//
+	// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the certificate provider.
+	CertificateProviderName pulumi.StringPtrOutput `pulumi:"certificateProviderName"`
+	// The ARN of the Lambda function.
+	LambdaFunctionArn pulumi.StringOutput `pulumi:"lambdaFunctionArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -75,18 +85,24 @@ func (CertificateProviderState) ElementType() reflect.Type {
 }
 
 type certificateProviderArgs struct {
+	// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 	AccountDefaultForOperations []CertificateProviderOperation `pulumi:"accountDefaultForOperations"`
-	CertificateProviderName     *string                        `pulumi:"certificateProviderName"`
-	LambdaFunctionArn           string                         `pulumi:"lambdaFunctionArn"`
+	// The name of the certificate provider.
+	CertificateProviderName *string `pulumi:"certificateProviderName"`
+	// The ARN of the Lambda function.
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CertificateProvider resource.
 type CertificateProviderArgs struct {
+	// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 	AccountDefaultForOperations CertificateProviderOperationArrayInput
-	CertificateProviderName     pulumi.StringPtrInput
-	LambdaFunctionArn           pulumi.StringInput
+	// The name of the certificate provider.
+	CertificateProviderName pulumi.StringPtrInput
+	// The ARN of the Lambda function.
+	LambdaFunctionArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -128,20 +144,30 @@ func (o CertificateProviderOutput) ToCertificateProviderOutputWithContext(ctx co
 	return o
 }
 
+// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 func (o CertificateProviderOutput) AccountDefaultForOperations() CertificateProviderOperationArrayOutput {
 	return o.ApplyT(func(v *CertificateProvider) CertificateProviderOperationArrayOutput {
 		return v.AccountDefaultForOperations
 	}).(CertificateProviderOperationArrayOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+//
+// `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+//
+// A value similar to the following is returned:
+//
+// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
 func (o CertificateProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the certificate provider.
 func (o CertificateProviderOutput) CertificateProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProvider) pulumi.StringPtrOutput { return v.CertificateProviderName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Lambda function.
 func (o CertificateProviderOutput) LambdaFunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateProvider) pulumi.StringOutput { return v.LambdaFunctionArn }).(pulumi.StringOutput)
 }

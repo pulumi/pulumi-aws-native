@@ -54,51 +54,83 @@ class GetAppBlockBuilderResult:
     @property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[Sequence['outputs.AppBlockBuilderAccessEndpoint']]:
+        """
+        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        """
         return pulumi.get(self, "access_endpoints")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the app block builder.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        The time when the app block builder was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the app block builder.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the app block builder.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[bool]:
+        """
+        Indicates whether default internet access is enabled for the app block builder.
+        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role that is applied to the app block builder.
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
+        """
+        The instance type of the app block builder.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter
     def platform(self) -> Optional[str]:
+        """
+        The platform of the app block builder.
+
+        *Allowed values* : `WINDOWS_SERVER_2019`
+        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.AppBlockBuilderVpcConfig']:
+        """
+        Describes VPC configuration information for fleets and image builders.
+        """
         return pulumi.get(self, "vpc_config")
 
 
@@ -124,6 +156,9 @@ def get_app_block_builder(name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppBlockBuilderResult:
     """
     Resource Type definition for AWS::AppStream::AppBlockBuilder.
+
+
+    :param str name: The name of the app block builder.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -148,5 +183,8 @@ def get_app_block_builder_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppBlockBuilderResult]:
     """
     Resource Type definition for AWS::AppStream::AppBlockBuilder.
+
+
+    :param str name: The name of the app block builder.
     """
     ...

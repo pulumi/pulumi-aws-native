@@ -13,9 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAggregationFunction
     {
+        /// <summary>
+        /// Aggregation for attributes.
+        /// </summary>
         public readonly Outputs.AnalysisAttributeAggregationFunction? AttributeAggregationFunction;
+        /// <summary>
+        /// Aggregation for categorical values.
+        /// 
+        /// - `COUNT` : Aggregate by the total number of values, including duplicates.
+        /// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisCategoricalAggregationFunction? CategoricalAggregationFunction;
+        /// <summary>
+        /// Aggregation for date values.
+        /// 
+        /// - `COUNT` : Aggregate by the total number of values, including duplicates.
+        /// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+        /// - `MIN` : Select the smallest date value.
+        /// - `MAX` : Select the largest date value.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDateAggregationFunction? DateAggregationFunction;
+        /// <summary>
+        /// Aggregation for numerical values.
+        /// </summary>
         public readonly Outputs.AnalysisNumericalAggregationFunction? NumericalAggregationFunction;
 
         [OutputConstructor]

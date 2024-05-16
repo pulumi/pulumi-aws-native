@@ -31,8 +31,19 @@ class AssessmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+        :param pulumi.Input['AssessmentReportsDestinationArgs'] assessment_reports_destination: The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        :param pulumi.Input['AssessmentAwsAccountArgs'] aws_account: The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]] delegations: The list of delegations.
+        :param pulumi.Input[str] description: The description of the assessment.
+        :param pulumi.Input[str] framework_id: The unique identifier for the framework.
+        :param pulumi.Input[str] name: The name of the assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: The list of roles for the specified assessment.
+        :param pulumi.Input['AssessmentScopeArgs'] scope: The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        :param pulumi.Input['AssessmentStatus'] status: The overall status of the assessment.
+               
+               When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+               
+               After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the assessment.
         """
         if assessment_reports_destination is not None:
@@ -59,6 +70,9 @@ class AssessmentArgs:
     @property
     @pulumi.getter(name="assessmentReportsDestination")
     def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentReportsDestinationArgs']]:
+        """
+        The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        """
         return pulumi.get(self, "assessment_reports_destination")
 
     @assessment_reports_destination.setter
@@ -68,6 +82,9 @@ class AssessmentArgs:
     @property
     @pulumi.getter(name="awsAccount")
     def aws_account(self) -> Optional[pulumi.Input['AssessmentAwsAccountArgs']]:
+        """
+        The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        """
         return pulumi.get(self, "aws_account")
 
     @aws_account.setter
@@ -89,6 +106,9 @@ class AssessmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the assessment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,6 +118,9 @@ class AssessmentArgs:
     @property
     @pulumi.getter(name="frameworkId")
     def framework_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier for the framework.
+        """
         return pulumi.get(self, "framework_id")
 
     @framework_id.setter
@@ -107,6 +130,9 @@ class AssessmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assessment.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,6 +154,9 @@ class AssessmentArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['AssessmentScopeArgs']]:
+        """
+        The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -137,6 +166,13 @@ class AssessmentArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['AssessmentStatus']]:
+        """
+        The overall status of the assessment.
+
+        When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+
+        After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -177,8 +213,19 @@ class Assessment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']] assessment_reports_destination: The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        :param pulumi.Input[pulumi.InputType['AssessmentAwsAccountArgs']] aws_account: The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]] delegations: The list of delegations.
+        :param pulumi.Input[str] description: The description of the assessment.
+        :param pulumi.Input[str] framework_id: The unique identifier for the framework.
+        :param pulumi.Input[str] name: The name of the assessment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]] roles: The list of roles for the specified assessment.
+        :param pulumi.Input[pulumi.InputType['AssessmentScopeArgs']] scope: The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        :param pulumi.Input['AssessmentStatus'] status: The overall status of the assessment.
+               
+               When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+               
+               After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with the assessment.
         """
         ...
@@ -279,26 +326,41 @@ class Assessment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the assessment.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the assessment.
+        """
         return pulumi.get(self, "assessment_id")
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
     def assessment_reports_destination(self) -> pulumi.Output[Optional['outputs.AssessmentReportsDestination']]:
+        """
+        The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        """
         return pulumi.get(self, "assessment_reports_destination")
 
     @property
     @pulumi.getter(name="awsAccount")
     def aws_account(self) -> pulumi.Output[Optional['outputs.AssessmentAwsAccount']]:
+        """
+        The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        """
         return pulumi.get(self, "aws_account")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[float]:
+        """
+        Specifies when the assessment was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
@@ -312,16 +374,25 @@ class Assessment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the assessment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="frameworkId")
     def framework_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique identifier for the framework.
+        """
         return pulumi.get(self, "framework_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the assessment.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -335,11 +406,21 @@ class Assessment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional['outputs.AssessmentScope']]:
+        """
+        The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['AssessmentStatus']]:
+        """
+        The overall status of the assessment.
+
+        When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+
+        After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @property

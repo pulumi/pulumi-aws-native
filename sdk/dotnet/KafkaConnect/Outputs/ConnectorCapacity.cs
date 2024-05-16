@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class ConnectorCapacity
     {
+        /// <summary>
+        /// Specifies how the connector scales.
+        /// </summary>
         public readonly Outputs.ConnectorAutoScaling? AutoScaling;
+        /// <summary>
+        /// Details about a connector's provisioned capacity.
+        /// </summary>
         public readonly Outputs.ConnectorProvisionedCapacity? ProvisionedCapacity;
 
         [OutputConstructor]

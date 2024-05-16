@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisColorScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color fill type.
+        /// </summary>
         [Input("colorFillType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisColorFillType> ColorFillType { get; set; } = null!;
 
         [Input("colors", required: true)]
         private InputList<Inputs.AnalysisDataColorArgs>? _colors;
+
+        /// <summary>
+        /// Determines the color that is applied to a particular data value.
+        /// </summary>
         public InputList<Inputs.AnalysisDataColorArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.AnalysisDataColorArgs>());
             set => _colors = value;
         }
 
+        /// <summary>
+        /// Determines the color that is applied to a particular data value.
+        /// </summary>
         [Input("nullValueColor")]
         public Input<Inputs.AnalysisDataColorArgs>? NullValueColor { get; set; }
 

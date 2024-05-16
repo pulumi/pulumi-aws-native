@@ -49,26 +49,41 @@ class GetFhirDatastoreResult:
     @property
     @pulumi.getter(name="datastoreArn")
     def datastore_arn(self) -> Optional[str]:
+        """
+        The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+        """
         return pulumi.get(self, "datastore_arn")
 
     @property
     @pulumi.getter(name="datastoreEndpoint")
     def datastore_endpoint(self) -> Optional[str]:
+        """
+        The endpoint for the created Data Store.
+        """
         return pulumi.get(self, "datastore_endpoint")
 
     @property
     @pulumi.getter(name="datastoreId")
     def datastore_id(self) -> Optional[str]:
+        """
+        The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        """
         return pulumi.get(self, "datastore_id")
 
     @property
     @pulumi.getter(name="datastoreStatus")
     def datastore_status(self) -> Optional['FhirDatastoreDatastoreStatus']:
+        """
+        The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+        """
         return pulumi.get(self, "datastore_status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        """
         return pulumi.get(self, "tags")
 
 
@@ -90,6 +105,9 @@ def get_fhir_datastore(datastore_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirDatastoreResult:
     """
     HealthLake FHIR Datastore
+
+
+    :param str datastore_id: The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
     """
     __args__ = dict()
     __args__['datastoreId'] = datastore_id
@@ -110,5 +128,8 @@ def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirDatastoreResult]:
     """
     HealthLake FHIR Datastore
+
+
+    :param str datastore_id: The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
     """
     ...

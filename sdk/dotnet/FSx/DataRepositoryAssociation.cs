@@ -78,6 +78,11 @@ namespace Pulumi.AwsNative.FSx
     [AwsNativeResourceType("aws-native:fsx:DataRepositoryAssociation")]
     public partial class DataRepositoryAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the data repository association's system generated Association ID.
+        /// 
+        /// Example: `dra-abcdef0123456789d`
+        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
@@ -114,6 +119,11 @@ namespace Pulumi.AwsNative.FSx
         [Output("importedFileChunkSize")]
         public Output<int?> ImportedFileChunkSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the data repository association's Amazon Resource Name (ARN).
+        /// 
+        /// Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 

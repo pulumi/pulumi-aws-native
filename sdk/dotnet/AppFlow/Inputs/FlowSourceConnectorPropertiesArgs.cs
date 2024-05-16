@@ -15,54 +15,105 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class FlowSourceConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The properties that are applied when Amplitude is being used as a source.
+        /// </summary>
         [Input("amplitude")]
         public Input<Inputs.FlowAmplitudeSourcePropertiesArgs>? Amplitude { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when the custom connector is being used as a source.
+        /// </summary>
         [Input("customConnector")]
         public Input<Inputs.FlowCustomConnectorSourcePropertiesArgs>? CustomConnector { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Datadog is being used as a source.
+        /// </summary>
         [Input("datadog")]
         public Input<Inputs.FlowDatadogSourcePropertiesArgs>? Datadog { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Dynatrace is being used as a source.
+        /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.FlowDynatraceSourcePropertiesArgs>? Dynatrace { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Google Analytics is being used as a source.
+        /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.FlowGoogleAnalyticsSourcePropertiesArgs>? GoogleAnalytics { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Infor Nexus is being used as a source.
+        /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.FlowInforNexusSourcePropertiesArgs>? InforNexus { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Marketo is being used as a source.
+        /// </summary>
         [Input("marketo")]
         public Input<Inputs.FlowMarketoSourcePropertiesArgs>? Marketo { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Salesforce Pardot is being used as a source.
+        /// </summary>
         [Input("pardot")]
         public Input<Inputs.FlowPardotSourcePropertiesArgs>? Pardot { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Amazon S3 is being used as the flow source.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.FlowS3SourcePropertiesArgs>? S3 { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Salesforce is being used as a source.
+        /// </summary>
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceSourcePropertiesArgs>? Salesforce { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when using SAPOData as a flow source.
+        /// </summary>
         [Input("sapoData")]
         public Input<Inputs.FlowSapoDataSourcePropertiesArgs>? SapoData { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when ServiceNow is being used as a source.
+        /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.FlowServiceNowSourcePropertiesArgs>? ServiceNow { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Singular is being used as a source.
+        /// </summary>
         [Input("singular")]
         public Input<Inputs.FlowSingularSourcePropertiesArgs>? Singular { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when Slack is being used as a source.
+        /// </summary>
         [Input("slack")]
         public Input<Inputs.FlowSlackSourcePropertiesArgs>? Slack { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when using Trend Micro as a flow source.
+        /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.FlowTrendmicroSourcePropertiesArgs>? Trendmicro { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when using Veeva as a flow source.
+        /// </summary>
         [Input("veeva")]
         public Input<Inputs.FlowVeevaSourcePropertiesArgs>? Veeva { get; set; }
 
+        /// <summary>
+        /// The properties that are applied when using Zendesk as a flow source.
+        /// </summary>
         [Input("zendesk")]
         public Input<Inputs.FlowZendeskSourcePropertiesArgs>? Zendesk { get; set; }
 

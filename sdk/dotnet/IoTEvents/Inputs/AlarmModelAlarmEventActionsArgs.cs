@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     {
         [Input("alarmActions")]
         private InputList<Inputs.AlarmModelAlarmActionArgs>? _alarmActions;
+
+        /// <summary>
+        /// Specifies one or more supported actions to receive notifications when the alarm state changes.
+        /// </summary>
         public InputList<Inputs.AlarmModelAlarmActionArgs> AlarmActions
         {
             get => _alarmActions ?? (_alarmActions = new InputList<Inputs.AlarmModelAlarmActionArgs>());

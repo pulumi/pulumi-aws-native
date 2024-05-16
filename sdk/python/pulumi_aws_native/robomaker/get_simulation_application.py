@@ -43,6 +43,9 @@ class GetSimulationApplicationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the simulation application.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -80,6 +83,9 @@ class GetSimulationApplicationResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map that contains tag keys and tag values that are attached to the simulation application.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -101,6 +107,9 @@ def get_simulation_application(arn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimulationApplicationResult:
     """
     This schema is for testing purpose only.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the simulation application.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -121,5 +130,8 @@ def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
     This schema is for testing purpose only.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the simulation application.
     """
     ...

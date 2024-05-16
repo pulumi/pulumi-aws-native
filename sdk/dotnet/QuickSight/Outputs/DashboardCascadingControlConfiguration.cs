@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCascadingControlConfiguration
     {
+        /// <summary>
+        /// The source controls that are used in a `CascadingControlConfiguration` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardCascadingControlSource> SourceControls;
 
         [OutputConstructor]

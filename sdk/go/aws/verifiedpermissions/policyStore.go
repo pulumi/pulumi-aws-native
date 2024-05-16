@@ -48,11 +48,16 @@ import (
 type PolicyStore struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                  `pulumi:"arn"`
-	Description        pulumi.StringPtrOutput               `pulumi:"description"`
-	PolicyStoreId      pulumi.StringOutput                  `pulumi:"policyStoreId"`
-	Schema             PolicyStoreSchemaDefinitionPtrOutput `pulumi:"schema"`
-	ValidationSettings PolicyStoreValidationSettingsOutput  `pulumi:"validationSettings"`
+	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Descriptive text that you can provide to help with identification of the current policy store.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique ID of the new or updated policy store.
+	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+	Schema PolicyStoreSchemaDefinitionPtrOutput `pulumi:"schema"`
+	// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+	ValidationSettings PolicyStoreValidationSettingsOutput `pulumi:"validationSettings"`
 }
 
 // NewPolicyStore registers a new resource with the given unique name, arguments, and options.
@@ -98,15 +103,21 @@ func (PolicyStoreState) ElementType() reflect.Type {
 }
 
 type policyStoreArgs struct {
-	Description        *string                       `pulumi:"description"`
-	Schema             *PolicyStoreSchemaDefinition  `pulumi:"schema"`
+	// Descriptive text that you can provide to help with identification of the current policy store.
+	Description *string `pulumi:"description"`
+	// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+	Schema *PolicyStoreSchemaDefinition `pulumi:"schema"`
+	// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
 	ValidationSettings PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
 
 // The set of arguments for constructing a PolicyStore resource.
 type PolicyStoreArgs struct {
-	Description        pulumi.StringPtrInput
-	Schema             PolicyStoreSchemaDefinitionPtrInput
+	// Descriptive text that you can provide to help with identification of the current policy store.
+	Description pulumi.StringPtrInput
+	// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+	Schema PolicyStoreSchemaDefinitionPtrInput
+	// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
 	ValidationSettings PolicyStoreValidationSettingsInput
 }
 
@@ -147,22 +158,27 @@ func (o PolicyStoreOutput) ToPolicyStoreOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
 func (o PolicyStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Descriptive text that you can provide to help with identification of the current policy store.
 func (o PolicyStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the new or updated policy store.
 func (o PolicyStoreOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
+// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
 func (o PolicyStoreOutput) Schema() PolicyStoreSchemaDefinitionPtrOutput {
 	return o.ApplyT(func(v *PolicyStore) PolicyStoreSchemaDefinitionPtrOutput { return v.Schema }).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
 func (o PolicyStoreOutput) ValidationSettings() PolicyStoreValidationSettingsOutput {
 	return o.ApplyT(func(v *PolicyStore) PolicyStoreValidationSettingsOutput { return v.ValidationSettings }).(PolicyStoreValidationSettingsOutput)
 }

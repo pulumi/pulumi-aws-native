@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePercentVisibleRange
     {
+        /// <summary>
+        /// The lower bound of the range.
+        /// </summary>
         public readonly double? From;
+        /// <summary>
+        /// The top bound of the range.
+        /// </summary>
         public readonly double? To;
 
         [OutputConstructor]

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     {
         [Input("messageTypes")]
         private InputList<Pulumi.AwsNative.DevOpsGuru.NotificationChannelNotificationMessageType>? _messageTypes;
+
+        /// <summary>
+        /// The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
+        /// </summary>
         public InputList<Pulumi.AwsNative.DevOpsGuru.NotificationChannelNotificationMessageType> MessageTypes
         {
             get => _messageTypes ?? (_messageTypes = new InputList<Pulumi.AwsNative.DevOpsGuru.NotificationChannelNotificationMessageType>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
 
         [Input("severities")]
         private InputList<Pulumi.AwsNative.DevOpsGuru.NotificationChannelInsightSeverity>? _severities;
+
+        /// <summary>
+        /// The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.DevOpsGuru.NotificationChannelInsightSeverity> Severities
         {
             get => _severities ?? (_severities = new InputList<Pulumi.AwsNative.DevOpsGuru.NotificationChannelInsightSeverity>());

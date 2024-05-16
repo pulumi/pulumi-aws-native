@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         [Input("bootstrapServers", required: true)]
         public Input<string> BootstrapServers { get; set; } = null!;
 
+        /// <summary>
+        /// Information about the VPC in which the connector resides.
+        /// </summary>
         [Input("vpc", required: true)]
         public Input<Inputs.ConnectorVpcArgs> Vpc { get; set; } = null!;
 

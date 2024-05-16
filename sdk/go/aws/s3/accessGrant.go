@@ -35,7 +35,8 @@ type AccessGrant struct {
 	Permission AccessGrantPermissionOutput `pulumi:"permission"`
 	// The type of S3SubPrefix.
 	S3PrefixType AccessGrantS3PrefixTypePtrOutput `pulumi:"s3PrefixType"`
-	Tags         aws.CreateOnlyTagArrayOutput     `pulumi:"tags"`
+	// A container of a key value name pair.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessGrant registers a new resource with the given unique name, arguments, and options.
@@ -104,7 +105,8 @@ type accessGrantArgs struct {
 	Permission AccessGrantPermission `pulumi:"permission"`
 	// The type of S3SubPrefix.
 	S3PrefixType *AccessGrantS3PrefixType `pulumi:"s3PrefixType"`
-	Tags         []aws.CreateOnlyTag      `pulumi:"tags"`
+	// A container of a key value name pair.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrant resource.
@@ -121,7 +123,8 @@ type AccessGrantArgs struct {
 	Permission AccessGrantPermissionInput
 	// The type of S3SubPrefix.
 	S3PrefixType AccessGrantS3PrefixTypePtrInput
-	Tags         aws.CreateOnlyTagArrayInput
+	// A container of a key value name pair.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AccessGrantArgs) ElementType() reflect.Type {
@@ -208,6 +211,7 @@ func (o AccessGrantOutput) S3PrefixType() AccessGrantS3PrefixTypePtrOutput {
 	return o.ApplyT(func(v *AccessGrant) AccessGrantS3PrefixTypePtrOutput { return v.S3PrefixType }).(AccessGrantS3PrefixTypePtrOutput)
 }
 
+// A container of a key value name pair.
 func (o AccessGrantOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AccessGrant) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

@@ -163,6 +163,9 @@ namespace Pulumi.AwsNative.RoboMaker
     [AwsNativeResourceType("aws-native:robomaker:SimulationApplication")]
     public partial class SimulationApplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the simulation application.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -208,6 +211,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("sources")]
         public Output<ImmutableArray<Outputs.SimulationApplicationSourceConfig>> Sources { get; private set; } = null!;
 
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the simulation application.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -310,6 +316,10 @@ namespace Pulumi.AwsNative.RoboMaker
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the simulation application.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

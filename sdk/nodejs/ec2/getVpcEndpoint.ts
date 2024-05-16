@@ -18,13 +18,34 @@ export function getVpcEndpoint(args: GetVpcEndpointArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetVpcEndpointArgs {
+    /**
+     * The ID of the VPC endpoint.
+     */
     id: string;
 }
 
 export interface GetVpcEndpointResult {
+    /**
+     * The date and time the VPC endpoint was created. For example: `Fri Sep 28 23:34:36 UTC 2018.`
+     */
     readonly creationTimestamp?: string;
+    /**
+     * (Interface endpoints) The DNS entries for the endpoint. Each entry is a combination of the hosted zone ID and the DNS name. The entries are ordered as follows: regional public DNS, zonal public DNS, private DNS, and wildcard DNS. This order is not enforced for AWS Marketplace services.
+     *
+     * The following is an example. In the first entry, the hosted zone ID is Z1HUB23UULQXV and the DNS name is vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com.
+     *
+     * ["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com", "Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com", "Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
+     *
+     * If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
+     */
     readonly dnsEntries?: string[];
+    /**
+     * The ID of the VPC endpoint.
+     */
     readonly id?: string;
+    /**
+     * (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
+     */
     readonly networkInterfaceIds?: string[];
     /**
      * An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
@@ -63,5 +84,8 @@ export function getVpcEndpointOutput(args: GetVpcEndpointOutputArgs, opts?: pulu
 }
 
 export interface GetVpcEndpointOutputArgs {
+    /**
+     * The ID of the VPC endpoint.
+     */
     id: pulumi.Input<string>;
 }

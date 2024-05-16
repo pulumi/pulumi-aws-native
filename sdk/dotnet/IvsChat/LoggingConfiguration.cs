@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IvsChat
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.LoggingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
@@ -93,6 +96,9 @@ namespace Pulumi.AwsNative.IvsChat
 
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+        /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 

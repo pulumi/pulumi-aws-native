@@ -23,21 +23,45 @@ func LookupGlobalTable(ctx *pulumi.Context, args *LookupGlobalTableArgs, opts ..
 }
 
 type LookupGlobalTableArgs struct {
+	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName string `pulumi:"tableName"`
 }
 
 type LookupGlobalTableResult struct {
-	Arn                                *string                                        `pulumi:"arn"`
-	AttributeDefinitions               []GlobalTableAttributeDefinition               `pulumi:"attributeDefinitions"`
-	BillingMode                        *string                                        `pulumi:"billingMode"`
-	GlobalSecondaryIndexes             []GlobalTableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
-	Replicas                           []GlobalTableReplicaSpecification              `pulumi:"replicas"`
-	SseSpecification                   *GlobalTableSseSpecification                   `pulumi:"sseSpecification"`
-	StreamArn                          *string                                        `pulumi:"streamArn"`
-	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
-	TableId                            *string                                        `pulumi:"tableId"`
-	TimeToLiveSpecification            *GlobalTableTimeToLiveSpecification            `pulumi:"timeToLiveSpecification"`
-	WriteOnDemandThroughputSettings    *GlobalTableWriteOnDemandThroughputSettings    `pulumi:"writeOnDemandThroughputSettings"`
+	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
+	Arn *string `pulumi:"arn"`
+	// Represents an attribute for describing the schema for the table and indexes.
+	AttributeDefinitions []GlobalTableAttributeDefinition `pulumi:"attributeDefinitions"`
+	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+	//
+	// - `PAY_PER_REQUEST`
+	// - `PROVISIONED`
+	//
+	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+	BillingMode *string `pulumi:"billingMode"`
+	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	// Defines settings specific to a single replica of a global table.
+	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
+	// Represents the settings used to enable server-side encryption.
+	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
+	// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+	//
+	// > You must specify the `StreamSpecification` property to use this attribute.
+	StreamArn *string `pulumi:"streamArn"`
+	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+	//
+	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
+	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
+	TableId *string `pulumi:"tableId"`
+	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
+	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -55,6 +79,9 @@ func LookupGlobalTableOutput(ctx *pulumi.Context, args LookupGlobalTableOutputAr
 }
 
 type LookupGlobalTableOutputArgs struct {
+	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -76,52 +103,73 @@ func (o LookupGlobalTableResultOutput) ToLookupGlobalTableResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
 func (o LookupGlobalTableResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Represents an attribute for describing the schema for the table and indexes.
 func (o LookupGlobalTableResultOutput) AttributeDefinitions() GlobalTableAttributeDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableAttributeDefinition { return v.AttributeDefinitions }).(GlobalTableAttributeDefinitionArrayOutput)
 }
 
+// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+//
+// - `PAY_PER_REQUEST`
+// - `PROVISIONED`
+//
+// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
 func (o LookupGlobalTableResultOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
+// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
 func (o LookupGlobalTableResultOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
+// Defines settings specific to a single replica of a global table.
 func (o LookupGlobalTableResultOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableReplicaSpecification { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
+// Represents the settings used to enable server-side encryption.
 func (o LookupGlobalTableResultOutput) SseSpecification() GlobalTableSseSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableSseSpecification { return v.SseSpecification }).(GlobalTableSseSpecificationPtrOutput)
 }
 
+// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+//
+// > You must specify the `StreamSpecification` property to use this attribute.
 func (o LookupGlobalTableResultOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+//
+// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
 func (o LookupGlobalTableResultOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableStreamSpecification { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
 }
 
+// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
 func (o LookupGlobalTableResultOutput) TableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.TableId }).(pulumi.StringPtrOutput)
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
 func (o LookupGlobalTableResultOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
+// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o LookupGlobalTableResultOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWriteOnDemandThroughputSettings {
 		return v.WriteOnDemandThroughputSettings
 	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
+// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 func (o LookupGlobalTableResultOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWriteProvisionedThroughputSettings {
 		return v.WriteProvisionedThroughputSettings

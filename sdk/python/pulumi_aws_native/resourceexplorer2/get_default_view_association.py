@@ -37,6 +37,9 @@ class GetDefaultViewAssociationResult:
     @property
     @pulumi.getter(name="viewArn")
     def view_arn(self) -> Optional[str]:
+        """
+        The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+        """
         return pulumi.get(self, "view_arn")
 
 

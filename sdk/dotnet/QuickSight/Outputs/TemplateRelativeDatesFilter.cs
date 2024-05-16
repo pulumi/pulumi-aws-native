@@ -13,16 +13,59 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateRelativeDatesFilter
     {
+        /// <summary>
+        /// The date configuration of the filter.
+        /// </summary>
         public readonly Outputs.TemplateAnchorDateConfiguration AnchorDateConfiguration;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// </summary>
         public readonly Outputs.TemplateExcludePeriodConfiguration? ExcludePeriodConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The minimum granularity (period granularity) of the relative dates filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? MinimumGranularity;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterNullOption NullOption;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// The range date type of the filter. Choose one of the options below:
+        /// 
+        /// - `PREVIOUS`
+        /// - `THIS`
+        /// - `LAST`
+        /// - `NOW`
+        /// - `NEXT`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateRelativeDateType RelativeDateType;
+        /// <summary>
+        /// The date value of the filter.
+        /// </summary>
         public readonly double? RelativeDateValue;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity TimeGranularity;
 
         [OutputConstructor]

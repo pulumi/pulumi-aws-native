@@ -16,8 +16,21 @@ namespace Pulumi.AwsNative.Eks.Outputs
     [OutputType]
     public sealed class NodegroupLaunchTemplateSpecification
     {
+        /// <summary>
+        /// The ID of the launch template.
+        /// 
+        /// You must specify either the launch template ID or the launch template name in the request, but not both.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The name of the launch template.
+        /// 
+        /// You must specify either the launch template name or the launch template ID in the request, but not both.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSheetVisualScopingConfiguration
     {
+        /// <summary>
+        /// The scope of the applied entities. Choose one of the following options:
+        /// 
+        /// - `ALL_VISUALS`
+        /// - `SELECTED_VISUALS`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterVisualScope Scope;
+        /// <summary>
+        /// The selected sheet that the filter is applied to.
+        /// </summary>
         public readonly string SheetId;
+        /// <summary>
+        /// The selected visuals that the filter is applied to.
+        /// </summary>
         public readonly ImmutableArray<string> VisualIds;
 
         [OutputConstructor]

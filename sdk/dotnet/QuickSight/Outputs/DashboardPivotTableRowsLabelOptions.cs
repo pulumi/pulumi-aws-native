@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableRowsLabelOptions
     {
+        /// <summary>
+        /// The custom label string for the rows label.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The visibility of the rows label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

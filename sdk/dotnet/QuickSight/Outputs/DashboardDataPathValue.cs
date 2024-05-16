@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataPathValue
     {
+        /// <summary>
+        /// The type of the data path value.
+        /// </summary>
         public readonly Outputs.DashboardDataPathType? DataPathType;
+        /// <summary>
+        /// The field ID of the field that needs to be sorted.
+        /// </summary>
         public readonly string? FieldId;
+        /// <summary>
+        /// The actual value of the field that needs to be sorted.
+        /// </summary>
         public readonly string? FieldValue;
 
         [OutputConstructor]

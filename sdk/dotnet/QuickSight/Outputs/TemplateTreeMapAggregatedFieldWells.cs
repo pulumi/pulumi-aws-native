@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTreeMapAggregatedFieldWells
     {
+        /// <summary>
+        /// The color field well of a tree map. Values are grouped by aggregations based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Colors;
+        /// <summary>
+        /// The group by field well of a tree map. Values are grouped based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Groups;
+        /// <summary>
+        /// The size field well of a tree map. Values are aggregated based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Sizes;
 
         [OutputConstructor]

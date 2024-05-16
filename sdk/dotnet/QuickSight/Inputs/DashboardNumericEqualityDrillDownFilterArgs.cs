@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardNumericEqualityDrillDownFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the double input numeric drill down filter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

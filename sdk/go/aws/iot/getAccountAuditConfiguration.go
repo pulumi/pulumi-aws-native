@@ -28,7 +28,9 @@ type LookupAccountAuditConfigurationArgs struct {
 }
 
 type LookupAccountAuditConfigurationResult struct {
-	AuditCheckConfigurations              *AccountAuditConfigurationAuditCheckConfigurations              `pulumi:"auditCheckConfigurations"`
+	// The types of audit checks that can be performed.
+	AuditCheckConfigurations *AccountAuditConfigurationAuditCheckConfigurations `pulumi:"auditCheckConfigurations"`
+	// The configuration of the audit notification target.
 	AuditNotificationTargetConfigurations *AccountAuditConfigurationAuditNotificationTargetConfigurations `pulumi:"auditNotificationTargetConfigurations"`
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn *string `pulumi:"roleArn"`
@@ -70,12 +72,14 @@ func (o LookupAccountAuditConfigurationResultOutput) ToLookupAccountAuditConfigu
 	return o
 }
 
+// The types of audit checks that can be performed.
 func (o LookupAccountAuditConfigurationResultOutput) AuditCheckConfigurations() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
 	return o.ApplyT(func(v LookupAccountAuditConfigurationResult) *AccountAuditConfigurationAuditCheckConfigurations {
 		return v.AuditCheckConfigurations
 	}).(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput)
 }
 
+// The configuration of the audit notification target.
 func (o LookupAccountAuditConfigurationResultOutput) AuditNotificationTargetConfigurations() AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
 	return o.ApplyT(func(v LookupAccountAuditConfigurationResult) *AccountAuditConfigurationAuditNotificationTargetConfigurations {
 		return v.AuditNotificationTargetConfigurations

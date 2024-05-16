@@ -12,21 +12,39 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class DataSourceDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides information about the column that should be used for filtering the query response by groups.
+        /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.DataSourceAclConfigurationArgs>? AclConfiguration { get; set; }
 
+        /// <summary>
+        /// Provides information about how Amazon Kendra should use the columns of a database in an index.
+        /// </summary>
         [Input("columnConfiguration", required: true)]
         public Input<Inputs.DataSourceColumnConfigurationArgs> ColumnConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// Provides the configuration information that's required to connect to a database.
+        /// </summary>
         [Input("connectionConfiguration", required: true)]
         public Input<Inputs.DataSourceConnectionConfigurationArgs> ConnectionConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The type of database engine that runs the database.
+        /// </summary>
         [Input("databaseEngineType", required: true)]
         public Input<Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType> DatabaseEngineType { get; set; } = null!;
 
+        /// <summary>
+        /// Provides information that configures Amazon Kendra to use a SQL database.
+        /// </summary>
         [Input("sqlConfiguration")]
         public Input<Inputs.DataSourceSqlConfigurationArgs>? SqlConfiguration { get; set; }
 
+        /// <summary>
+        /// Provides the configuration information to connect to an Amazon VPC.
+        /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 

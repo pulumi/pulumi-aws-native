@@ -33,6 +33,34 @@ class DocumentClassifierArgs:
                  vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a DocumentClassifier resource.
+        :param pulumi.Input[str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+        :param pulumi.Input['DocumentClassifierInputDataConfigArgs'] input_data_config: The input properties for training a document classifier.
+               
+               For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+        :param pulumi.Input['DocumentClassifierLanguageCode'] language_code: The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+        :param pulumi.Input[str] document_classifier_name: The name of the document classifier.
+        :param pulumi.Input['DocumentClassifierMode'] mode: Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+        :param pulumi.Input[str] model_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+               
+               - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+               - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        :param pulumi.Input[str] model_policy: The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+               
+               Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+               
+               `"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}"`
+               
+               To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+               
+               `'{"attribute": "value", "attribute": ["value"]}'`
+        :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        :param pulumi.Input[str] version_name: The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+        :param pulumi.Input[str] volume_kms_key_id: ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+               
+               - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+               - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        :param pulumi.Input['DocumentClassifierVpcConfigArgs'] vpc_config: Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "input_data_config", input_data_config)
@@ -59,6 +87,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
@@ -68,6 +99,11 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> pulumi.Input['DocumentClassifierInputDataConfigArgs']:
+        """
+        The input properties for training a document classifier.
+
+        For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+        """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
@@ -77,6 +113,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input['DocumentClassifierLanguageCode']:
+        """
+        The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -86,6 +125,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="documentClassifierName")
     def document_classifier_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the document classifier.
+        """
         return pulumi.get(self, "document_classifier_name")
 
     @document_classifier_name.setter
@@ -95,6 +137,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input['DocumentClassifierMode']]:
+        """
+        Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -104,6 +149,12 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+
+        - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+        - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        """
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
@@ -113,6 +164,17 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="modelPolicy")
     def model_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+
+        Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+
+        `"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}"`
+
+        To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+
+        `'{"attribute": "value", "attribute": ["value"]}'`
+        """
         return pulumi.get(self, "model_policy")
 
     @model_policy.setter
@@ -122,6 +184,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]:
+        """
+        Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+        """
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
@@ -131,6 +196,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -140,6 +208,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -149,6 +220,12 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+
+        - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+        - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        """
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
@@ -158,6 +235,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]:
+        """
+        Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -188,6 +268,34 @@ class DocumentClassifier(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+        :param pulumi.Input[str] document_classifier_name: The name of the document classifier.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']] input_data_config: The input properties for training a document classifier.
+               
+               For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+        :param pulumi.Input['DocumentClassifierLanguageCode'] language_code: The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+        :param pulumi.Input['DocumentClassifierMode'] mode: Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+        :param pulumi.Input[str] model_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+               
+               - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+               - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        :param pulumi.Input[str] model_policy: The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+               
+               Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+               
+               `"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}"`
+               
+               To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+               
+               `'{"attribute": "value", "attribute": ["value"]}'`
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        :param pulumi.Input[str] version_name: The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+        :param pulumi.Input[str] volume_kms_key_id: ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+               
+               - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+               - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']] vpc_config: Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         """
         ...
     @overload
@@ -295,65 +403,120 @@ class DocumentClassifier(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the document classifier.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @property
     @pulumi.getter(name="documentClassifierName")
     def document_classifier_name(self) -> pulumi.Output[str]:
+        """
+        The name of the document classifier.
+        """
         return pulumi.get(self, "document_classifier_name")
 
     @property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> pulumi.Output['outputs.DocumentClassifierInputDataConfig']:
+        """
+        The input properties for training a document classifier.
+
+        For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+        """
         return pulumi.get(self, "input_data_config")
 
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output['DocumentClassifierLanguageCode']:
+        """
+        The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+        """
         return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional['DocumentClassifierMode']]:
+        """
+        Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+        """
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+
+        - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+        - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        """
         return pulumi.get(self, "model_kms_key_id")
 
     @property
     @pulumi.getter(name="modelPolicy")
     def model_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+
+        Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+
+        `"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}"`
+
+        To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+
+        `'{"attribute": "value", "attribute": ["value"]}'`
+        """
         return pulumi.get(self, "model_policy")
 
     @property
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> pulumi.Output[Optional['outputs.DocumentClassifierOutputDataConfig']]:
+        """
+        Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+        """
         return pulumi.get(self, "output_data_config")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+        """
         return pulumi.get(self, "version_name")
 
     @property
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+
+        - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+        - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+        """
         return pulumi.get(self, "volume_kms_key_id")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.DocumentClassifierVpcConfig']]:
+        """
+        Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+        """
         return pulumi.get(self, "vpc_config")
 

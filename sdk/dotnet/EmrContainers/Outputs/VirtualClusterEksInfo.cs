@@ -13,6 +13,15 @@ namespace Pulumi.AwsNative.EmrContainers.Outputs
     [OutputType]
     public sealed class VirtualClusterEksInfo
     {
+        /// <summary>
+        /// The namespaces of the EKS cluster.
+        /// 
+        /// *Minimum* : 1
+        /// 
+        /// *Maximum* : 63
+        /// 
+        /// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

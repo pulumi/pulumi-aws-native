@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The description of the alarm.
         /// </summary>
         public readonly string? AlarmDescription;
+        /// <summary>
+        /// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
@@ -138,6 +141,9 @@ namespace Pulumi.AwsNative.CloudWatch
         ///  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
         /// </summary>
         public readonly string? Statistic;
+        /// <summary>
+        /// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The value to compare with the specified statistic.

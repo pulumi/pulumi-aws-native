@@ -16,22 +16,73 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceConnectorProperties
     {
+        /// <summary>
+        /// The properties that are applied when Amplitude is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowAmplitudeSourceProperties? Amplitude;
+        /// <summary>
+        /// The properties that are applied when the custom connector is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowCustomConnectorSourceProperties? CustomConnector;
+        /// <summary>
+        /// The properties that are applied when Datadog is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowDatadogSourceProperties? Datadog;
+        /// <summary>
+        /// The properties that are applied when Dynatrace is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowDynatraceSourceProperties? Dynatrace;
+        /// <summary>
+        /// The properties that are applied when Google Analytics is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowGoogleAnalyticsSourceProperties? GoogleAnalytics;
+        /// <summary>
+        /// The properties that are applied when Infor Nexus is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowInforNexusSourceProperties? InforNexus;
+        /// <summary>
+        /// The properties that are applied when Marketo is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowMarketoSourceProperties? Marketo;
+        /// <summary>
+        /// The properties that are applied when Salesforce Pardot is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowPardotSourceProperties? Pardot;
+        /// <summary>
+        /// The properties that are applied when Amazon S3 is being used as the flow source.
+        /// </summary>
         public readonly Outputs.FlowS3SourceProperties? S3;
+        /// <summary>
+        /// The properties that are applied when Salesforce is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowSalesforceSourceProperties? Salesforce;
+        /// <summary>
+        /// The properties that are applied when using SAPOData as a flow source.
+        /// </summary>
         public readonly Outputs.FlowSapoDataSourceProperties? SapoData;
+        /// <summary>
+        /// The properties that are applied when ServiceNow is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowServiceNowSourceProperties? ServiceNow;
+        /// <summary>
+        /// The properties that are applied when Singular is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowSingularSourceProperties? Singular;
+        /// <summary>
+        /// The properties that are applied when Slack is being used as a source.
+        /// </summary>
         public readonly Outputs.FlowSlackSourceProperties? Slack;
+        /// <summary>
+        /// The properties that are applied when using Trend Micro as a flow source.
+        /// </summary>
         public readonly Outputs.FlowTrendmicroSourceProperties? Trendmicro;
+        /// <summary>
+        /// The properties that are applied when using Veeva as a flow source.
+        /// </summary>
         public readonly Outputs.FlowVeevaSourceProperties? Veeva;
+        /// <summary>
+        /// The properties that are applied when using Zendesk as a flow source.
+        /// </summary>
         public readonly Outputs.FlowZendeskSourceProperties? Zendesk;
 
         [OutputConstructor]

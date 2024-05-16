@@ -62,6 +62,7 @@ def get_access_policy(name: Optional[str] = None,
 
 
     :param str name: The name of the policy
+    :param 'AccessPolicyType' type: The type of access policy. Currently the only option is `data` .
     """
     __args__ = dict()
     __args__['name'] = name
@@ -83,5 +84,6 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of the policy
+    :param 'AccessPolicyType' type: The type of access policy. Currently the only option is `data` .
     """
     ...

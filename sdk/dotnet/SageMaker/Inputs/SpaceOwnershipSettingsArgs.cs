@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class SpaceOwnershipSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user profile who is the owner of the space.
+        /// </summary>
         [Input("ownerUserProfileName", required: true)]
         public Input<string> OwnerUserProfileName { get; set; } = null!;
 

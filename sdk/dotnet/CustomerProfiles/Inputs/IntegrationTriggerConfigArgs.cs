@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationTriggerConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the configuration details that control the trigger for a flow. Currently, these settings only apply to the Scheduled trigger type.
+        /// </summary>
         [Input("triggerProperties")]
         public Input<Inputs.IntegrationTriggerPropertiesArgs>? TriggerProperties { get; set; }
 
+        /// <summary>
+        /// Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+        /// </summary>
         [Input("triggerType", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationTriggerType> TriggerType { get; set; } = null!;
 

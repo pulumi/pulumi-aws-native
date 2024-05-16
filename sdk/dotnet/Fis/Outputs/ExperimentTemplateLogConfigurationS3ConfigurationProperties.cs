@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Fis.Outputs
 {
 
+    /// <summary>
+    /// The configuration for experiment logging to Amazon S3 .
+    /// </summary>
     [OutputType]
     public sealed class ExperimentTemplateLogConfigurationS3ConfigurationProperties
     {

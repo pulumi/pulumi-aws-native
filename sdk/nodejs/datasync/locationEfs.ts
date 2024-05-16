@@ -41,6 +41,9 @@ export class LocationEfs extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
      */
     public readonly accessPointArn!: pulumi.Output<string | undefined>;
+    /**
+     * The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system.
+     */
     public readonly ec2Config!: pulumi.Output<outputs.datasync.LocationEfsEc2Config>;
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS file system.
@@ -120,6 +123,9 @@ export interface LocationEfsArgs {
      * The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
      */
     accessPointArn?: pulumi.Input<string>;
+    /**
+     * The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system.
+     */
     ec2Config: pulumi.Input<inputs.datasync.LocationEfsEc2ConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS file system.

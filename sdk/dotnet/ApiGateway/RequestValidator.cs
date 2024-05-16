@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the request validator. For example: `abc123` .
+        /// </summary>
         [Output("requestValidatorId")]
         public Output<string> RequestValidatorId { get; private set; } = null!;
 

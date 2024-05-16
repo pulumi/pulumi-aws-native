@@ -15,15 +15,35 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclResponseInspectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         [Input("bodyContains")]
         public Input<Inputs.WebAclResponseInspectionBodyContainsArgs>? BodyContains { get; set; }
 
+        /// <summary>
+        /// Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         [Input("header")]
         public Input<Inputs.WebAclResponseInspectionHeaderArgs>? Header { get; set; }
 
+        /// <summary>
+        /// Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         [Input("json")]
         public Input<Inputs.WebAclResponseInspectionJsonArgs>? Json { get; set; }
 
+        /// <summary>
+        /// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+        /// </summary>
         [Input("statusCode")]
         public Input<Inputs.WebAclResponseInspectionStatusCodeArgs>? StatusCode { get; set; }
 

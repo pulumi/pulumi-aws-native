@@ -12,30 +12,59 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisScatterPlotConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a scatter plot.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisScatterPlotFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("yAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? YAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("yAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? YAxisLabelOptions { get; set; }
 

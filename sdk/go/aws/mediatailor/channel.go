@@ -20,16 +20,26 @@ type Channel struct {
 	// <p>The ARN of the channel.</p>
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// <p>The list of audiences defined in channel.</p>
-	Audiences        pulumi.StringArrayOutput                   `pulumi:"audiences"`
-	ChannelName      pulumi.StringOutput                        `pulumi:"channelName"`
-	FillerSlate      ChannelSlateSourcePtrOutput                `pulumi:"fillerSlate"`
+	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
+	// The name of the channel.
+	ChannelName pulumi.StringOutput `pulumi:"channelName"`
+	// Slate VOD source configuration.
+	FillerSlate ChannelSlateSourcePtrOutput `pulumi:"fillerSlate"`
+	// The log configuration for the channel.
 	LogConfiguration ChannelLogConfigurationForChannelPtrOutput `pulumi:"logConfiguration"`
 	// <p>The channel's output properties.</p>
-	Outputs      ChannelRequestOutputItemArrayOutput `pulumi:"outputs"`
-	PlaybackMode ChannelPlaybackModeOutput           `pulumi:"playbackMode"`
+	Outputs ChannelRequestOutputItemArrayOutput `pulumi:"outputs"`
+	// The type of playback mode for this channel.
+	//
+	// `LINEAR` - Programs play back-to-back only once.
+	//
+	// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+	PlaybackMode ChannelPlaybackModeOutput `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags                   aws.TagArrayOutput                     `pulumi:"tags"`
-	Tier                   ChannelTierPtrOutput                   `pulumi:"tier"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tier for this channel. STANDARD tier channels can contain live programs.
+	Tier ChannelTierPtrOutput `pulumi:"tier"`
+	// The configuration for time-shifted viewing.
 	TimeShiftConfiguration ChannelTimeShiftConfigurationPtrOutput `pulumi:"timeShiftConfiguration"`
 }
 
@@ -85,32 +95,52 @@ func (ChannelState) ElementType() reflect.Type {
 
 type channelArgs struct {
 	// <p>The list of audiences defined in channel.</p>
-	Audiences        []string                           `pulumi:"audiences"`
-	ChannelName      *string                            `pulumi:"channelName"`
-	FillerSlate      *ChannelSlateSource                `pulumi:"fillerSlate"`
+	Audiences []string `pulumi:"audiences"`
+	// The name of the channel.
+	ChannelName *string `pulumi:"channelName"`
+	// Slate VOD source configuration.
+	FillerSlate *ChannelSlateSource `pulumi:"fillerSlate"`
+	// The log configuration for the channel.
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
 	// <p>The channel's output properties.</p>
-	Outputs      []ChannelRequestOutputItem `pulumi:"outputs"`
-	PlaybackMode ChannelPlaybackMode        `pulumi:"playbackMode"`
+	Outputs []ChannelRequestOutputItem `pulumi:"outputs"`
+	// The type of playback mode for this channel.
+	//
+	// `LINEAR` - Programs play back-to-back only once.
+	//
+	// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+	PlaybackMode ChannelPlaybackMode `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags                   []aws.Tag                      `pulumi:"tags"`
-	Tier                   *ChannelTier                   `pulumi:"tier"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The tier for this channel. STANDARD tier channels can contain live programs.
+	Tier *ChannelTier `pulumi:"tier"`
+	// The configuration for time-shifted viewing.
 	TimeShiftConfiguration *ChannelTimeShiftConfiguration `pulumi:"timeShiftConfiguration"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
 	// <p>The list of audiences defined in channel.</p>
-	Audiences        pulumi.StringArrayInput
-	ChannelName      pulumi.StringPtrInput
-	FillerSlate      ChannelSlateSourcePtrInput
+	Audiences pulumi.StringArrayInput
+	// The name of the channel.
+	ChannelName pulumi.StringPtrInput
+	// Slate VOD source configuration.
+	FillerSlate ChannelSlateSourcePtrInput
+	// The log configuration for the channel.
 	LogConfiguration ChannelLogConfigurationForChannelPtrInput
 	// <p>The channel's output properties.</p>
-	Outputs      ChannelRequestOutputItemArrayInput
+	Outputs ChannelRequestOutputItemArrayInput
+	// The type of playback mode for this channel.
+	//
+	// `LINEAR` - Programs play back-to-back only once.
+	//
+	// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
 	PlaybackMode ChannelPlaybackModeInput
 	// The tags to assign to the channel.
-	Tags                   aws.TagArrayInput
-	Tier                   ChannelTierPtrInput
+	Tags aws.TagArrayInput
+	// The tier for this channel. STANDARD tier channels can contain live programs.
+	Tier ChannelTierPtrInput
+	// The configuration for time-shifted viewing.
 	TimeShiftConfiguration ChannelTimeShiftConfigurationPtrInput
 }
 
@@ -161,14 +191,17 @@ func (o ChannelOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
+// The name of the channel.
 func (o ChannelOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// Slate VOD source configuration.
 func (o ChannelOutput) FillerSlate() ChannelSlateSourcePtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelSlateSourcePtrOutput { return v.FillerSlate }).(ChannelSlateSourcePtrOutput)
 }
 
+// The log configuration for the channel.
 func (o ChannelOutput) LogConfiguration() ChannelLogConfigurationForChannelPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelLogConfigurationForChannelPtrOutput { return v.LogConfiguration }).(ChannelLogConfigurationForChannelPtrOutput)
 }
@@ -178,6 +211,11 @@ func (o ChannelOutput) Outputs() ChannelRequestOutputItemArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelRequestOutputItemArrayOutput { return v.Outputs }).(ChannelRequestOutputItemArrayOutput)
 }
 
+// The type of playback mode for this channel.
+//
+// `LINEAR` - Programs play back-to-back only once.
+//
+// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
 func (o ChannelOutput) PlaybackMode() ChannelPlaybackModeOutput {
 	return o.ApplyT(func(v *Channel) ChannelPlaybackModeOutput { return v.PlaybackMode }).(ChannelPlaybackModeOutput)
 }
@@ -187,10 +225,12 @@ func (o ChannelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The tier for this channel. STANDARD tier channels can contain live programs.
 func (o ChannelOutput) Tier() ChannelTierPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelTierPtrOutput { return v.Tier }).(ChannelTierPtrOutput)
 }
 
+// The configuration for time-shifted viewing.
 func (o ChannelOutput) TimeShiftConfiguration() ChannelTimeShiftConfigurationPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelTimeShiftConfigurationPtrOutput { return v.TimeShiftConfiguration }).(ChannelTimeShiftConfigurationPtrOutput)
 }

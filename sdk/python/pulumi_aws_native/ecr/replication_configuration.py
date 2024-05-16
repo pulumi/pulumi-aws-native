@@ -20,12 +20,16 @@ class ReplicationConfigurationInitArgs:
                  replication_configuration: pulumi.Input['ReplicationConfigurationArgs']):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
+        :param pulumi.Input['ReplicationConfigurationArgs'] replication_configuration: The replication configuration for a registry.
         """
         pulumi.set(__self__, "replication_configuration", replication_configuration)
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Input['ReplicationConfigurationArgs']:
+        """
+        The replication configuration for a registry.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
@@ -69,6 +73,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationArgs']] replication_configuration: The replication configuration for a registry.
         """
         ...
     @overload
@@ -169,5 +174,8 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Output['outputs.ReplicationConfiguration']:
+        """
+        The replication configuration for a registry.
+        """
         return pulumi.get(self, "replication_configuration")
 

@@ -17,15 +17,25 @@ namespace Pulumi.AwsNative.Lex.Inputs
     {
         [Input("botAliasLocaleSettings")]
         private InputList<Inputs.BotAliasLocaleSettingsItemArgs>? _botAliasLocaleSettings;
+
+        /// <summary>
+        /// Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
+        /// </summary>
         public InputList<Inputs.BotAliasLocaleSettingsItemArgs> BotAliasLocaleSettings
         {
             get => _botAliasLocaleSettings ?? (_botAliasLocaleSettings = new InputList<Inputs.BotAliasLocaleSettingsItemArgs>());
             set => _botAliasLocaleSettings = value;
         }
 
+        /// <summary>
+        /// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        /// </summary>
         [Input("conversationLogSettings")]
         public Input<Inputs.BotConversationLogSettingsArgs>? ConversationLogSettings { get; set; }
 
+        /// <summary>
+        /// Specifies a description for the test bot alias.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

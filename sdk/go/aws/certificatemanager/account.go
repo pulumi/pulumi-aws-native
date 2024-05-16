@@ -16,7 +16,9 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	AccountId                 pulumi.StringOutput                    `pulumi:"accountId"`
+	// ID of the AWS account that owns the certificate.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 	ExpiryEventsConfiguration AccountExpiryEventsConfigurationOutput `pulumi:"expiryEventsConfiguration"`
 }
 
@@ -63,11 +65,13 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 	ExpiryEventsConfiguration AccountExpiryEventsConfiguration `pulumi:"expiryEventsConfiguration"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 	ExpiryEventsConfiguration AccountExpiryEventsConfigurationInput
 }
 
@@ -108,10 +112,12 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// ID of the AWS account that owns the certificate.
 func (o AccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 func (o AccountOutput) ExpiryEventsConfiguration() AccountExpiryEventsConfigurationOutput {
 	return o.ApplyT(func(v *Account) AccountExpiryEventsConfigurationOutput { return v.ExpiryEventsConfiguration }).(AccountExpiryEventsConfigurationOutput)
 }

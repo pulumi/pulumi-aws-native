@@ -65,7 +65,13 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the NFS location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        /// <summary>
+        /// Specifies the options that DataSync can use to mount your NFS file server.
+        /// </summary>
         public readonly Outputs.LocationNfsMountOptions? MountOptions;
+        /// <summary>
+        /// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        /// </summary>
         public readonly Outputs.LocationNfsOnPremConfig? OnPremConfig;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

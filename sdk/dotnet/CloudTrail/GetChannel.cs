@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudTrail
 
     public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+        /// </summary>
         [Input("channelArn", required: true)]
         public string ChannelArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudTrail
 
     public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+        /// </summary>
         [Input("channelArn", required: true)]
         public Input<string> ChannelArn { get; set; } = null!;
 
@@ -51,11 +57,17 @@ namespace Pulumi.AwsNative.CloudTrail
     [OutputType]
     public sealed class GetChannelResult
     {
+        /// <summary>
+        /// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+        /// </summary>
         public readonly string? ChannelArn;
         /// <summary>
         /// One or more resources to which events arriving through a channel are logged and stored.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelDestination> Destinations;
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

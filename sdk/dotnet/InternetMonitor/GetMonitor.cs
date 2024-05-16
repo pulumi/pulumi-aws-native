@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.InternetMonitor
 
     public sealed class GetMonitorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+        /// </summary>
         [Input("monitorName", required: true)]
         public string MonitorName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.InternetMonitor
 
     public sealed class GetMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+        /// </summary>
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
 
@@ -51,17 +57,59 @@ namespace Pulumi.AwsNative.InternetMonitor
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// The time when the monitor was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Define the health event threshold percentages for the performance score and availability score for your application's monitor. Amazon CloudWatch Internet Monitor creates a health event when there's an internet issue that affects your application end users where a health score percentage is at or below a set threshold.
+        /// 
+        /// If you don't set a health event threshold, the default value is 95%.
+        /// </summary>
         public readonly Outputs.MonitorHealthEventsConfig? HealthEventsConfig;
+        /// <summary>
+        /// Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.
+        /// </summary>
         public readonly Outputs.MonitorInternetMeasurementsLogDelivery? InternetMeasurementsLogDelivery;
+        /// <summary>
+        /// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+        /// 
+        /// For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+        /// </summary>
         public readonly int? MaxCityNetworksToMonitor;
+        /// <summary>
+        /// The last time that the monitor was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the monitor.
+        /// </summary>
         public readonly string? MonitorArn;
+        /// <summary>
+        /// The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
+        /// </summary>
         public readonly Pulumi.AwsNative.InternetMonitor.MonitorProcessingStatusCode? ProcessingStatus;
+        /// <summary>
+        /// Additional information about the health of the data processing for the monitor.
+        /// </summary>
         public readonly string? ProcessingStatusInfo;
+        /// <summary>
+        /// The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+        /// 
+        /// &gt; Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+        /// </summary>
         public readonly ImmutableArray<string> Resources;
+        /// <summary>
+        /// The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.InternetMonitor.MonitorConfigState? Status;
+        /// <summary>
+        /// The tags for a monitor, listed as a set of *key:value* pairs.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+        /// </summary>
         public readonly int? TrafficPercentageToMonitor;
 
         [OutputConstructor]

@@ -17,12 +17,24 @@ export function getPrincipalPermissions(args: GetPrincipalPermissionsArgs, opts?
 }
 
 export interface GetPrincipalPermissionsArgs {
+    /**
+     * Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+     */
     principalIdentifier: string;
+    /**
+     * Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+     */
     resourceIdentifier: string;
 }
 
 export interface GetPrincipalPermissionsResult {
+    /**
+     * Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+     */
     readonly principalIdentifier?: string;
+    /**
+     * Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+     */
     readonly resourceIdentifier?: string;
 }
 /**
@@ -33,6 +45,12 @@ export function getPrincipalPermissionsOutput(args: GetPrincipalPermissionsOutpu
 }
 
 export interface GetPrincipalPermissionsOutputArgs {
+    /**
+     * Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+     */
     principalIdentifier: pulumi.Input<string>;
+    /**
+     * Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+     */
     resourceIdentifier: pulumi.Input<string>;
 }

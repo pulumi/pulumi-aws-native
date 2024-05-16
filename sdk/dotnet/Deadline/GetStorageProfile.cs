@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetStorageProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the farm that contains the storage profile.
+        /// </summary>
         [Input("farmId", required: true)]
         public string FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The storage profile ID.
+        /// </summary>
         [Input("storageProfileId", required: true)]
         public string StorageProfileId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetStorageProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the farm that contains the storage profile.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The storage profile ID.
+        /// </summary>
         [Input("storageProfileId", required: true)]
         public Input<string> StorageProfileId { get; set; } = null!;
 
@@ -57,9 +69,21 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetStorageProfileResult
     {
+        /// <summary>
+        /// The display name of the storage profile summary to update.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The details of the file system location for the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.StorageProfileFileSystemLocation> FileSystemLocations;
+        /// <summary>
+        /// The operating system (OS) family.
+        /// </summary>
         public readonly Pulumi.AwsNative.Deadline.StorageProfileOperatingSystemFamily? OsFamily;
+        /// <summary>
+        /// The storage profile ID.
+        /// </summary>
         public readonly string? StorageProfileId;
 
         [OutputConstructor]

@@ -19,13 +19,28 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetProjectArgs {
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     arn: string;
 }
 
 export interface GetProjectResult {
+    /**
+     * This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+     */
     readonly appConfigResource?: outputs.evidently.ProjectAppConfigResourceObject;
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     readonly arn?: string;
+    /**
+     * A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+     */
     readonly dataDelivery?: outputs.evidently.ProjectDataDeliveryObject;
+    /**
+     * An optional description of the project.
+     */
     readonly description?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -40,5 +55,8 @@ export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetProjectOutputArgs {
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     arn: pulumi.Input<string>;
 }

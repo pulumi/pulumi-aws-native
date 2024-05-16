@@ -37,14 +37,43 @@ export class Authorizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Authorizer.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the authorizer.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The authorizer's Lambda function ARN.
+     */
     public readonly authorizerFunctionArn!: pulumi.Output<string>;
+    /**
+     * The authorizer name.
+     */
     public readonly authorizerName!: pulumi.Output<string | undefined>;
+    /**
+     * When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+     */
     public readonly enableCachingForHttp!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether AWS IoT validates the token signature in an authorization request.
+     */
     public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The status of the authorizer.
+     *
+     * Valid values: `ACTIVE` | `INACTIVE`
+     */
     public readonly status!: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The key used to extract the token from the HTTP headers.
+     */
     public readonly tokenKeyName!: pulumi.Output<string | undefined>;
+    /**
+     * The public keys used to validate the token signature returned by your custom authentication service.
+     */
     public readonly tokenSigningPublicKeys!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -92,12 +121,38 @@ export class Authorizer extends pulumi.CustomResource {
  * The set of arguments for constructing a Authorizer resource.
  */
 export interface AuthorizerArgs {
+    /**
+     * The authorizer's Lambda function ARN.
+     */
     authorizerFunctionArn: pulumi.Input<string>;
+    /**
+     * The authorizer name.
+     */
     authorizerName?: pulumi.Input<string>;
+    /**
+     * When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+     */
     enableCachingForHttp?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether AWS IoT validates the token signature in an authorization request.
+     */
     signingDisabled?: pulumi.Input<boolean>;
+    /**
+     * The status of the authorizer.
+     *
+     * Valid values: `ACTIVE` | `INACTIVE`
+     */
     status?: pulumi.Input<enums.iot.AuthorizerStatus>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The key used to extract the token from the HTTP headers.
+     */
     tokenKeyName?: pulumi.Input<string>;
+    /**
+     * The public keys used to validate the token signature returned by your custom authentication service.
+     */
     tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

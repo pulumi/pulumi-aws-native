@@ -37,6 +37,9 @@ export class DetectorModel extends pulumi.CustomResource {
         return obj['__pulumiType'] === DetectorModel.__pulumiType;
     }
 
+    /**
+     * Information that defines how a detector operates.
+     */
     public readonly detectorModelDefinition!: pulumi.Output<outputs.iotevents.DetectorModelDefinition>;
     /**
      * A brief description of the detector model.
@@ -111,6 +114,9 @@ export class DetectorModel extends pulumi.CustomResource {
  * The set of arguments for constructing a DetectorModel resource.
  */
 export interface DetectorModelArgs {
+    /**
+     * Information that defines how a detector operates.
+     */
     detectorModelDefinition: pulumi.Input<inputs.iotevents.DetectorModelDefinitionArgs>;
     /**
      * A brief description of the detector model.

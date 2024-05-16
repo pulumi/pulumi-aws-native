@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
     {
         [Input("labels")]
         private InputList<string>? _labels;
+
+        /// <summary>
+        /// One or more labels to associate with the custom classifier.
+        /// </summary>
         public InputList<string> Labels
         {
             get => _labels ?? (_labels = new InputList<string>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+        /// </summary>
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Comprehend.FlywheelDocumentClassificationConfigMode> Mode { get; set; } = null!;
 

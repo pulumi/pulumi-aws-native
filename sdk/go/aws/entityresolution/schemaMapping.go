@@ -26,8 +26,9 @@ type SchemaMapping struct {
 	SchemaArn         pulumi.StringOutput                          `pulumi:"schemaArn"`
 	// The name of the SchemaMapping
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
-	UpdatedAt  pulumi.StringOutput `pulumi:"updatedAt"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags      aws.TagArrayOutput  `pulumi:"tags"`
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewSchemaMapping registers a new resource with the given unique name, arguments, and options.
@@ -85,8 +86,9 @@ type schemaMappingArgs struct {
 	// The SchemaMapping attributes input
 	MappedInputFields []SchemaMappingSchemaInputAttribute `pulumi:"mappedInputFields"`
 	// The name of the SchemaMapping
-	SchemaName string    `pulumi:"schemaName"`
-	Tags       []aws.Tag `pulumi:"tags"`
+	SchemaName string `pulumi:"schemaName"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SchemaMapping resource.
@@ -97,7 +99,8 @@ type SchemaMappingArgs struct {
 	MappedInputFields SchemaMappingSchemaInputAttributeArrayInput
 	// The name of the SchemaMapping
 	SchemaName pulumi.StringInput
-	Tags       aws.TagArrayInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayInput
 }
 
 func (SchemaMappingArgs) ElementType() reflect.Type {
@@ -164,6 +167,7 @@ func (o SchemaMappingOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaMapping) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o SchemaMappingOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *SchemaMapping) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

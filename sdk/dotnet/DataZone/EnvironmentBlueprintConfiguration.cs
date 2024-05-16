@@ -15,33 +15,65 @@ namespace Pulumi.AwsNative.DataZone
     [AwsNativeResourceType("aws-native:datazone:EnvironmentBlueprintConfiguration")]
     public partial class EnvironmentBlueprintConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The timestamp of when an environment blueprint was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The enabled AWS Regions specified in a blueprint configuration.
+        /// </summary>
         [Output("enabledRegions")]
         public Output<ImmutableArray<string>> EnabledRegions { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+        /// </summary>
         [Output("environmentBlueprintId")]
         public Output<string> EnvironmentBlueprintId { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the environment blueprint.
+        /// 
+        /// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        /// </summary>
         [Output("environmentBlueprintIdentifier")]
         public Output<string> EnvironmentBlueprintIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the manage access role.
+        /// </summary>
         [Output("manageAccessRoleArn")]
         public Output<string?> ManageAccessRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the provisioning role.
+        /// </summary>
         [Output("provisioningRoleArn")]
         public Output<string?> ProvisioningRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The regional parameters in the environment blueprint.
+        /// </summary>
         [Output("regionalParameters")]
         public Output<ImmutableArray<Outputs.EnvironmentBlueprintConfigurationRegionalParameter>> RegionalParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp of when the environment blueprint was updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -95,28 +127,50 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class EnvironmentBlueprintConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
         [Input("enabledRegions", required: true)]
         private InputList<string>? _enabledRegions;
+
+        /// <summary>
+        /// The enabled AWS Regions specified in a blueprint configuration.
+        /// </summary>
         public InputList<string> EnabledRegions
         {
             get => _enabledRegions ?? (_enabledRegions = new InputList<string>());
             set => _enabledRegions = value;
         }
 
+        /// <summary>
+        /// The identifier of the environment blueprint.
+        /// 
+        /// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        /// </summary>
         [Input("environmentBlueprintIdentifier", required: true)]
         public Input<string> EnvironmentBlueprintIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the manage access role.
+        /// </summary>
         [Input("manageAccessRoleArn")]
         public Input<string>? ManageAccessRoleArn { get; set; }
 
+        /// <summary>
+        /// The ARN of the provisioning role.
+        /// </summary>
         [Input("provisioningRoleArn")]
         public Input<string>? ProvisioningRoleArn { get; set; }
 
         [Input("regionalParameters")]
         private InputList<Inputs.EnvironmentBlueprintConfigurationRegionalParameterArgs>? _regionalParameters;
+
+        /// <summary>
+        /// The regional parameters in the environment blueprint.
+        /// </summary>
         public InputList<Inputs.EnvironmentBlueprintConfigurationRegionalParameterArgs> RegionalParameters
         {
             get => _regionalParameters ?? (_regionalParameters = new InputList<Inputs.EnvironmentBlueprintConfigurationRegionalParameterArgs>());

@@ -37,18 +37,35 @@ export class Subscriber extends pulumi.CustomResource {
         return obj['__pulumiType'] === Subscriber.__pulumiType;
     }
 
+    /**
+     * You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+     *
+     * Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
+     */
     public readonly accessTypes!: pulumi.Output<enums.securitylake.SubscriberAccessTypesItem[]>;
     /**
      * The ARN for the data lake.
      */
     public readonly dataLakeArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
+     */
     public /*out*/ readonly resourceShareArn!: pulumi.Output<string>;
+    /**
+     * The ARN name of the Amazon Security Lake subscriber.
+     */
     public /*out*/ readonly resourceShareName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the S3 bucket.
+     */
     public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
     /**
      * The supported AWS services from which logs and events are collected.
      */
     public readonly sources!: pulumi.Output<(outputs.securitylake.SubscriberSource0Properties | outputs.securitylake.SubscriberSource1Properties)[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the Security Lake subscriber.
+     */
     public /*out*/ readonly subscriberArn!: pulumi.Output<string>;
     /**
      * The description for your subscriber account in Security Lake.
@@ -62,6 +79,9 @@ export class Subscriber extends pulumi.CustomResource {
      * The name of your Security Lake subscriber account.
      */
     public readonly subscriberName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
+     */
     public /*out*/ readonly subscriberRoleArn!: pulumi.Output<string>;
     /**
      * An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
@@ -128,6 +148,11 @@ export class Subscriber extends pulumi.CustomResource {
  * The set of arguments for constructing a Subscriber resource.
  */
 export interface SubscriberArgs {
+    /**
+     * You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+     *
+     * Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
+     */
     accessTypes: pulumi.Input<pulumi.Input<enums.securitylake.SubscriberAccessTypesItem>[]>;
     /**
      * The ARN for the data lake.

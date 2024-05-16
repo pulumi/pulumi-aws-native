@@ -20,12 +20,16 @@ class ResourceCollectionArgs:
                  resource_collection_filter: pulumi.Input['ResourceCollectionFilterArgs']):
         """
         The set of arguments for constructing a ResourceCollection resource.
+        :param pulumi.Input['ResourceCollectionFilterArgs'] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
 
     @property
     @pulumi.getter(name="resourceCollectionFilter")
     def resource_collection_filter(self) -> pulumi.Input['ResourceCollectionFilterArgs']:
+        """
+        Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        """
         return pulumi.get(self, "resource_collection_filter")
 
     @resource_collection_filter.setter
@@ -105,6 +109,7 @@ class ResourceCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ResourceCollectionFilterArgs']] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         ...
     @overload
@@ -233,6 +238,9 @@ class ResourceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceCollectionFilter")
     def resource_collection_filter(self) -> pulumi.Output['outputs.ResourceCollectionFilter']:
+        """
+        Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        """
         return pulumi.get(self, "resource_collection_filter")
 
     @property

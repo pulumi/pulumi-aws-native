@@ -281,10 +281,13 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	AwsId              pulumi.StringOutput         `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// An activity that performs a transformation on a message.
 	PipelineActivities PipelineActivityArrayOutput `pulumi:"pipelineActivities"`
-	PipelineName       pulumi.StringPtrOutput      `pulumi:"pipelineName"`
-	Tags               aws.TagArrayOutput          `pulumi:"tags"`
+	// The name of the pipeline.
+	PipelineName pulumi.StringPtrOutput `pulumi:"pipelineName"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -334,16 +337,22 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
+	// An activity that performs a transformation on a message.
 	PipelineActivities []PipelineActivity `pulumi:"pipelineActivities"`
-	PipelineName       *string            `pulumi:"pipelineName"`
-	Tags               []aws.Tag          `pulumi:"tags"`
+	// The name of the pipeline.
+	PipelineName *string `pulumi:"pipelineName"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
+	// An activity that performs a transformation on a message.
 	PipelineActivities PipelineActivityArrayInput
-	PipelineName       pulumi.StringPtrInput
-	Tags               aws.TagArrayInput
+	// The name of the pipeline.
+	PipelineName pulumi.StringPtrInput
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -387,14 +396,17 @@ func (o PipelineOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// An activity that performs a transformation on a message.
 func (o PipelineOutput) PipelineActivities() PipelineActivityArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineActivityArrayOutput { return v.PipelineActivities }).(PipelineActivityArrayOutput)
 }
 
+// The name of the pipeline.
 func (o PipelineOutput) PipelineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineName }).(pulumi.StringPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource.
 func (o PipelineOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

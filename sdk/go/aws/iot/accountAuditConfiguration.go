@@ -17,8 +17,10 @@ type AccountAuditConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId                             pulumi.StringOutput                                                     `pulumi:"accountId"`
-	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurationsOutput                 `pulumi:"auditCheckConfigurations"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The types of audit checks that can be performed.
+	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsOutput `pulumi:"auditCheckConfigurations"`
+	// The configuration of the audit notification target.
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput `pulumi:"auditNotificationTargetConfigurations"`
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -78,8 +80,10 @@ func (AccountAuditConfigurationState) ElementType() reflect.Type {
 
 type accountAuditConfigurationArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId                             string                                                          `pulumi:"accountId"`
-	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurations               `pulumi:"auditCheckConfigurations"`
+	AccountId string `pulumi:"accountId"`
+	// The types of audit checks that can be performed.
+	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurations `pulumi:"auditCheckConfigurations"`
+	// The configuration of the audit notification target.
 	AuditNotificationTargetConfigurations *AccountAuditConfigurationAuditNotificationTargetConfigurations `pulumi:"auditNotificationTargetConfigurations"`
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn string `pulumi:"roleArn"`
@@ -88,8 +92,10 @@ type accountAuditConfigurationArgs struct {
 // The set of arguments for constructing a AccountAuditConfiguration resource.
 type AccountAuditConfigurationArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId                             pulumi.StringInput
-	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurationsInput
+	AccountId pulumi.StringInput
+	// The types of audit checks that can be performed.
+	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsInput
+	// The configuration of the audit notification target.
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn pulumi.StringInput
@@ -137,12 +143,14 @@ func (o AccountAuditConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The types of audit checks that can be performed.
 func (o AccountAuditConfigurationOutput) AuditCheckConfigurations() AccountAuditConfigurationAuditCheckConfigurationsOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditCheckConfigurationsOutput {
 		return v.AuditCheckConfigurations
 	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
 }
 
+// The configuration of the audit notification target.
 func (o AccountAuditConfigurationOutput) AuditNotificationTargetConfigurations() AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
 		return v.AuditNotificationTargetConfigurations

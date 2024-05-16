@@ -28,8 +28,19 @@ class AppMonitorArgs:
         """
         The set of arguments for constructing a AppMonitor resource.
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
+        :param pulumi.Input['AppMonitorConfigurationArgs'] app_monitor_configuration: This structure contains much of the configuration data for the app monitor.
+        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: This structure specifies whether this app monitor allows the web client to define and send custom events.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] name: A name for the app monitor
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
+               
+               Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+               
+               Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+               
+               You can associate as many as 50 tags with an app monitor.
+               
+               For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
         """
         pulumi.set(__self__, "domain", domain)
         if app_monitor_configuration is not None:
@@ -58,6 +69,9 @@ class AppMonitorArgs:
     @property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional[pulumi.Input['AppMonitorConfigurationArgs']]:
+        """
+        This structure contains much of the configuration data for the app monitor.
+        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @app_monitor_configuration.setter
@@ -67,6 +81,9 @@ class AppMonitorArgs:
     @property
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
+        """
+        This structure specifies whether this app monitor allows the web client to define and send custom events.
+        """
         return pulumi.get(self, "custom_events")
 
     @custom_events.setter
@@ -100,6 +117,17 @@ class AppMonitorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Assigns one or more tags (key-value pairs) to the app monitor.
+
+        Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+
+        Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+
+        You can associate as many as 50 tags with an app monitor.
+
+        For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,9 +152,20 @@ class AppMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']] app_monitor_configuration: This structure contains much of the configuration data for the app monitor.
+        :param pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']] custom_events: This structure specifies whether this app monitor allows the web client to define and send custom events.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: A name for the app monitor
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
+               
+               Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+               
+               Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+               
+               You can associate as many as 50 tags with an app monitor.
+               
+               For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
         """
         ...
     @overload
@@ -212,6 +251,9 @@ class AppMonitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output[Optional['outputs.AppMonitorConfiguration']]:
+        """
+        This structure contains much of the configuration data for the app monitor.
+        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @property
@@ -225,6 +267,9 @@ class AppMonitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> pulumi.Output[Optional['outputs.AppMonitorCustomEvents']]:
+        """
+        This structure specifies whether this app monitor allows the web client to define and send custom events.
+        """
         return pulumi.get(self, "custom_events")
 
     @property
@@ -254,5 +299,16 @@ class AppMonitor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Assigns one or more tags (key-value pairs) to the app monitor.
+
+        Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+
+        Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+
+        You can associate as many as 50 tags with an app monitor.
+
+        For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+        """
         return pulumi.get(self, "tags")
 

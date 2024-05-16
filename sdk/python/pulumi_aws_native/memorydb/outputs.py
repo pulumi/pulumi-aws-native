@@ -17,10 +17,22 @@ __all__ = [
 
 @pulumi.output_type
 class AuthenticationModeProperties(dict):
+    """
+    Denotes whether the user requires a password to authenticate.
+
+    *Example:*
+
+    `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+    """
     def __init__(__self__, *,
                  passwords: Optional[Sequence[str]] = None,
                  type: Optional['UserAuthenticationModePropertiesType'] = None):
         """
+        Denotes whether the user requires a password to authenticate.
+
+        *Example:*
+
+        `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
         :param Sequence[str] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         :param 'UserAuthenticationModePropertiesType' type: Type of authentication strategy for this user.
         """

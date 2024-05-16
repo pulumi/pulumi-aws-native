@@ -16,10 +16,14 @@ import (
 type TemplateGroupAccessControlEntry struct {
 	pulumi.CustomResourceState
 
-	AccessRights            TemplateGroupAccessControlEntryAccessRightsOutput `pulumi:"accessRights"`
-	GroupDisplayName        pulumi.StringOutput                               `pulumi:"groupDisplayName"`
-	GroupSecurityIdentifier pulumi.StringPtrOutput                            `pulumi:"groupSecurityIdentifier"`
-	TemplateArn             pulumi.StringPtrOutput                            `pulumi:"templateArn"`
+	// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+	AccessRights TemplateGroupAccessControlEntryAccessRightsOutput `pulumi:"accessRights"`
+	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+	GroupDisplayName pulumi.StringOutput `pulumi:"groupDisplayName"`
+	// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+	GroupSecurityIdentifier pulumi.StringPtrOutput `pulumi:"groupSecurityIdentifier"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+	TemplateArn pulumi.StringPtrOutput `pulumi:"templateArn"`
 }
 
 // NewTemplateGroupAccessControlEntry registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +77,26 @@ func (TemplateGroupAccessControlEntryState) ElementType() reflect.Type {
 }
 
 type templateGroupAccessControlEntryArgs struct {
-	AccessRights            TemplateGroupAccessControlEntryAccessRights `pulumi:"accessRights"`
-	GroupDisplayName        string                                      `pulumi:"groupDisplayName"`
-	GroupSecurityIdentifier *string                                     `pulumi:"groupSecurityIdentifier"`
-	TemplateArn             *string                                     `pulumi:"templateArn"`
+	// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+	AccessRights TemplateGroupAccessControlEntryAccessRights `pulumi:"accessRights"`
+	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+	GroupDisplayName string `pulumi:"groupDisplayName"`
+	// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+	GroupSecurityIdentifier *string `pulumi:"groupSecurityIdentifier"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+	TemplateArn *string `pulumi:"templateArn"`
 }
 
 // The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
 type TemplateGroupAccessControlEntryArgs struct {
-	AccessRights            TemplateGroupAccessControlEntryAccessRightsInput
-	GroupDisplayName        pulumi.StringInput
+	// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+	AccessRights TemplateGroupAccessControlEntryAccessRightsInput
+	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+	GroupDisplayName pulumi.StringInput
+	// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
 	GroupSecurityIdentifier pulumi.StringPtrInput
-	TemplateArn             pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+	TemplateArn pulumi.StringPtrInput
 }
 
 func (TemplateGroupAccessControlEntryArgs) ElementType() reflect.Type {
@@ -124,20 +136,24 @@ func (o TemplateGroupAccessControlEntryOutput) ToTemplateGroupAccessControlEntry
 	return o
 }
 
+// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
 func (o TemplateGroupAccessControlEntryOutput) AccessRights() TemplateGroupAccessControlEntryAccessRightsOutput {
 	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) TemplateGroupAccessControlEntryAccessRightsOutput {
 		return v.AccessRights
 	}).(TemplateGroupAccessControlEntryAccessRightsOutput)
 }
 
+// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 func (o TemplateGroupAccessControlEntryOutput) GroupDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringOutput { return v.GroupDisplayName }).(pulumi.StringOutput)
 }
 
+// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
 func (o TemplateGroupAccessControlEntryOutput) GroupSecurityIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringPtrOutput { return v.GroupSecurityIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 func (o TemplateGroupAccessControlEntryOutput) TemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringPtrOutput { return v.TemplateArn }).(pulumi.StringPtrOutput)
 }

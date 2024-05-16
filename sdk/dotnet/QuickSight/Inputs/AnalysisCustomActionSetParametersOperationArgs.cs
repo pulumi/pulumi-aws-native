@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("parameterValueConfigurations", required: true)]
         private InputList<Inputs.AnalysisSetParameterValueConfigurationArgs>? _parameterValueConfigurations;
+
+        /// <summary>
+        /// The configuration of adding parameters in action.
+        /// </summary>
         public InputList<Inputs.AnalysisSetParameterValueConfigurationArgs> ParameterValueConfigurations
         {
             get => _parameterValueConfigurations ?? (_parameterValueConfigurations = new InputList<Inputs.AnalysisSetParameterValueConfigurationArgs>());

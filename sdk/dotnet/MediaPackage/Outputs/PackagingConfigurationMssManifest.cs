@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationMssManifest
     {
+        /// <summary>
+        /// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+        /// </summary>
         public readonly string? ManifestName;
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationStreamSelection? StreamSelection;
 
         [OutputConstructor]

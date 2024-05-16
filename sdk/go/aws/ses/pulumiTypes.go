@@ -920,6 +920,9 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) Iam
 
 // An object that contains SNS topic ARN associated event destination.
 type ConfigurationSetEventDestinationSnsDestination struct {
+	// The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+	//
+	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -936,6 +939,9 @@ type ConfigurationSetEventDestinationSnsDestinationInput interface {
 
 // An object that contains SNS topic ARN associated event destination.
 type ConfigurationSetEventDestinationSnsDestinationArgs struct {
+	// The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+	//
+	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1017,6 +1023,9 @@ func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSet
 	}).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
 }
 
+// The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+//
+// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
 func (o ConfigurationSetEventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1045,6 +1054,9 @@ func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) Elem() Configur
 	}).(ConfigurationSetEventDestinationSnsDestinationOutput)
 }
 
+// The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+//
+// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
 func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationSnsDestination) *string {
 		if v == nil {
@@ -1336,6 +1348,7 @@ func (o ConfigurationSetReputationOptionsPtrOutput) ReputationMetricsEnabled() p
 
 // An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 type ConfigurationSetSendingOptions struct {
+	// If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
 	SendingEnabled *bool `pulumi:"sendingEnabled"`
 }
 
@@ -1352,6 +1365,7 @@ type ConfigurationSetSendingOptionsInput interface {
 
 // An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 type ConfigurationSetSendingOptionsArgs struct {
+	// If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
 	SendingEnabled pulumi.BoolPtrInput `pulumi:"sendingEnabled"`
 }
 
@@ -1433,6 +1447,7 @@ func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsPt
 	}).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
+// If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
 func (o ConfigurationSetSendingOptionsOutput) SendingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetSendingOptions) *bool { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1461,6 +1476,7 @@ func (o ConfigurationSetSendingOptionsPtrOutput) Elem() ConfigurationSetSendingO
 	}).(ConfigurationSetSendingOptionsOutput)
 }
 
+// If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
 func (o ConfigurationSetSendingOptionsPtrOutput) SendingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetSendingOptions) *bool {
 		if v == nil {
@@ -1752,8 +1768,10 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 
 // An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
 type ConfigurationSetVdmOptions struct {
+	// Settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions *ConfigurationSetDashboardOptions `pulumi:"dashboardOptions"`
-	GuardianOptions  *ConfigurationSetGuardianOptions  `pulumi:"guardianOptions"`
+	// Settings for your VDM configuration as applicable to the Guardian.
+	GuardianOptions *ConfigurationSetGuardianOptions `pulumi:"guardianOptions"`
 }
 
 // ConfigurationSetVdmOptionsInput is an input type that accepts ConfigurationSetVdmOptionsArgs and ConfigurationSetVdmOptionsOutput values.
@@ -1769,8 +1787,10 @@ type ConfigurationSetVdmOptionsInput interface {
 
 // An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
 type ConfigurationSetVdmOptionsArgs struct {
+	// Settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions ConfigurationSetDashboardOptionsPtrInput `pulumi:"dashboardOptions"`
-	GuardianOptions  ConfigurationSetGuardianOptionsPtrInput  `pulumi:"guardianOptions"`
+	// Settings for your VDM configuration as applicable to the Guardian.
+	GuardianOptions ConfigurationSetGuardianOptionsPtrInput `pulumi:"guardianOptions"`
 }
 
 func (ConfigurationSetVdmOptionsArgs) ElementType() reflect.Type {
@@ -1851,10 +1871,12 @@ func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputW
 	}).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
+// Settings for your VDM configuration as applicable to the Dashboard.
 func (o ConfigurationSetVdmOptionsOutput) DashboardOptions() ConfigurationSetDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetDashboardOptions { return v.DashboardOptions }).(ConfigurationSetDashboardOptionsPtrOutput)
 }
 
+// Settings for your VDM configuration as applicable to the Guardian.
 func (o ConfigurationSetVdmOptionsOutput) GuardianOptions() ConfigurationSetGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetGuardianOptions { return v.GuardianOptions }).(ConfigurationSetGuardianOptionsPtrOutput)
 }
@@ -1883,6 +1905,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOu
 	}).(ConfigurationSetVdmOptionsOutput)
 }
 
+// Settings for your VDM configuration as applicable to the Dashboard.
 func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSetDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetDashboardOptions {
 		if v == nil {
@@ -1892,6 +1915,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSet
 	}).(ConfigurationSetDashboardOptionsPtrOutput)
 }
 
+// Settings for your VDM configuration as applicable to the Guardian.
 func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetGuardianOptions {
 		if v == nil {
@@ -1907,6 +1931,7 @@ type ContactListTag struct {
 }
 
 type ContactListTopic struct {
+	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
 	DefaultSubscriptionStatus string `pulumi:"defaultSubscriptionStatus"`
 	// The description of the topic.
 	Description *string `pulumi:"description"`
@@ -1928,6 +1953,7 @@ type ContactListTopicInput interface {
 }
 
 type ContactListTopicArgs struct {
+	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
 	DefaultSubscriptionStatus pulumi.StringInput `pulumi:"defaultSubscriptionStatus"`
 	// The description of the topic.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1988,6 +2014,7 @@ func (o ContactListTopicOutput) ToContactListTopicOutputWithContext(ctx context.
 	return o
 }
 
+// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
 func (o ContactListTopicOutput) DefaultSubscriptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactListTopic) string { return v.DefaultSubscriptionStatus }).(pulumi.StringOutput)
 }

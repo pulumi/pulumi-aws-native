@@ -26,6 +26,9 @@ export interface GetConnectorArgs {
 }
 
 export interface GetConnectorResult {
+    /**
+     * Information about the capacity of the connector, whether it is auto scaled or provisioned.
+     */
     readonly capacity?: outputs.kafkaconnect.ConnectorCapacity;
     /**
      * Amazon Resource Name for the created Connector.

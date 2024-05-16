@@ -16,9 +16,12 @@ import (
 type ServiceActionAssociation struct {
 	pulumi.CustomResourceState
 
-	ProductId              pulumi.StringOutput `pulumi:"productId"`
+	// The product identifier. For example, `prod-abcdzk7xy33qa` .
+	ProductId pulumi.StringOutput `pulumi:"productId"`
+	// The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
 	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
-	ServiceActionId        pulumi.StringOutput `pulumi:"serviceActionId"`
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+	ServiceActionId pulumi.StringOutput `pulumi:"serviceActionId"`
 }
 
 // NewServiceActionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -76,16 +79,22 @@ func (ServiceActionAssociationState) ElementType() reflect.Type {
 }
 
 type serviceActionAssociationArgs struct {
-	ProductId              string `pulumi:"productId"`
+	// The product identifier. For example, `prod-abcdzk7xy33qa` .
+	ProductId string `pulumi:"productId"`
+	// The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
 	ProvisioningArtifactId string `pulumi:"provisioningArtifactId"`
-	ServiceActionId        string `pulumi:"serviceActionId"`
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+	ServiceActionId string `pulumi:"serviceActionId"`
 }
 
 // The set of arguments for constructing a ServiceActionAssociation resource.
 type ServiceActionAssociationArgs struct {
-	ProductId              pulumi.StringInput
+	// The product identifier. For example, `prod-abcdzk7xy33qa` .
+	ProductId pulumi.StringInput
+	// The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
 	ProvisioningArtifactId pulumi.StringInput
-	ServiceActionId        pulumi.StringInput
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+	ServiceActionId pulumi.StringInput
 }
 
 func (ServiceActionAssociationArgs) ElementType() reflect.Type {
@@ -125,14 +134,17 @@ func (o ServiceActionAssociationOutput) ToServiceActionAssociationOutputWithCont
 	return o
 }
 
+// The product identifier. For example, `prod-abcdzk7xy33qa` .
 func (o ServiceActionAssociationOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceActionAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }
 
+// The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
 func (o ServiceActionAssociationOutput) ProvisioningArtifactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceActionAssociation) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
 }
 
+// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
 func (o ServiceActionAssociationOutput) ServiceActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceActionAssociation) pulumi.StringOutput { return v.ServiceActionId }).(pulumi.StringOutput)
 }

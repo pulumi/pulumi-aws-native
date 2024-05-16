@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetJobTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        /// </summary>
         [Input("jobTemplateId", required: true)]
         public string JobTemplateId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetJobTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        /// </summary>
         [Input("jobTemplateId", required: true)]
         public Input<string> JobTemplateId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetJobTemplateResult
     {
+        /// <summary>
+        /// The ARN of the job to use as the basis for the job template.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

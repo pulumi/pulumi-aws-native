@@ -16,11 +16,16 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
+	// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
 	AppConfigResource ProjectAppConfigResourceObjectPtrOutput `pulumi:"appConfigResource"`
-	Arn               pulumi.StringOutput                     `pulumi:"arn"`
-	DataDelivery      ProjectDataDeliveryObjectPtrOutput      `pulumi:"dataDelivery"`
-	Description       pulumi.StringPtrOutput                  `pulumi:"description"`
-	Name              pulumi.StringOutput                     `pulumi:"name"`
+	// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+	DataDelivery ProjectDataDeliveryObjectPtrOutput `pulumi:"dataDelivery"`
+	// An optional description of the project.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name for the project. It can include up to 127 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -69,20 +74,28 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
 	AppConfigResource *ProjectAppConfigResourceObject `pulumi:"appConfigResource"`
-	DataDelivery      *ProjectDataDeliveryObject      `pulumi:"dataDelivery"`
-	Description       *string                         `pulumi:"description"`
-	Name              *string                         `pulumi:"name"`
+	// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+	DataDelivery *ProjectDataDeliveryObject `pulumi:"dataDelivery"`
+	// An optional description of the project.
+	Description *string `pulumi:"description"`
+	// The name for the project. It can include up to 127 characters.
+	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
 	AppConfigResource ProjectAppConfigResourceObjectPtrInput
-	DataDelivery      ProjectDataDeliveryObjectPtrInput
-	Description       pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
+	// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+	DataDelivery ProjectDataDeliveryObjectPtrInput
+	// An optional description of the project.
+	Description pulumi.StringPtrInput
+	// The name for the project. It can include up to 127 characters.
+	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -124,22 +137,27 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
 func (o ProjectOutput) AppConfigResource() ProjectAppConfigResourceObjectPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectAppConfigResourceObjectPtrOutput { return v.AppConfigResource }).(ProjectAppConfigResourceObjectPtrOutput)
 }
 
+// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
 func (o ProjectOutput) DataDelivery() ProjectDataDeliveryObjectPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectDataDeliveryObjectPtrOutput { return v.DataDelivery }).(ProjectDataDeliveryObjectPtrOutput)
 }
 
+// An optional description of the project.
 func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name for the project. It can include up to 127 characters.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

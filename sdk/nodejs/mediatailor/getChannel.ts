@@ -19,6 +19,9 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetChannelArgs {
+    /**
+     * The name of the channel.
+     */
     channelName: string;
 }
 
@@ -31,13 +34,29 @@ export interface GetChannelResult {
      * <p>The list of audiences defined in channel.</p>
      */
     readonly audiences?: string[];
+    /**
+     * Slate VOD source configuration.
+     */
     readonly fillerSlate?: outputs.mediatailor.ChannelSlateSource;
+    /**
+     * The log configuration for the channel.
+     */
     readonly logConfiguration?: outputs.mediatailor.ChannelLogConfigurationForChannel;
+    /**
+     * The type of playback mode for this channel.
+     *
+     * `LINEAR` - Programs play back-to-back only once.
+     *
+     * `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+     */
     readonly playbackMode?: enums.mediatailor.ChannelPlaybackMode;
     /**
      * The tags to assign to the channel.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The configuration for time-shifted viewing.
+     */
     readonly timeShiftConfiguration?: outputs.mediatailor.ChannelTimeShiftConfiguration;
 }
 /**
@@ -48,5 +67,8 @@ export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetChannelOutputArgs {
+    /**
+     * The name of the channel.
+     */
     channelName: pulumi.Input<string>;
 }

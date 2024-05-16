@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.M2.Inputs
     /// </summary>
     public sealed class EnvironmentHighAvailabilityConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
+        /// </summary>
         [Input("desiredCapacity", required: true)]
         public Input<int> DesiredCapacity { get; set; } = null!;
 

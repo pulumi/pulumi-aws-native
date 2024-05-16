@@ -13,14 +13,43 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTreeMapConfiguration
     {
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ColorLabelOptions;
+        /// <summary>
+        /// Determines the color scale that is applied to the visual.
+        /// </summary>
         public readonly Outputs.TemplateColorScale? ColorScale;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field wells of a tree map.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateTreeMapFieldWells? FieldWells;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? GroupLabelOptions;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? SizeLabelOptions;
+        /// <summary>
+        /// The sort configuration of a tree map.
+        /// </summary>
         public readonly Outputs.TemplateTreeMapSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
 
         [OutputConstructor]

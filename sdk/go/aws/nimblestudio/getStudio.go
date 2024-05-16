@@ -23,6 +23,7 @@ func LookupStudio(ctx *pulumi.Context, args *LookupStudioArgs, opts ...pulumi.In
 }
 
 type LookupStudioArgs struct {
+	// The unique identifier for the studio resource.
 	StudioId string `pulumi:"studioId"`
 }
 
@@ -34,9 +35,11 @@ type LookupStudioResult struct {
 	// <p>The Amazon Web Services Region where the studio resource is located.</p>
 	HomeRegion *string `pulumi:"homeRegion"`
 	// <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
-	SsoClientId                   *string                        `pulumi:"ssoClientId"`
+	SsoClientId *string `pulumi:"ssoClientId"`
+	// Configuration of the encryption method that is used for the studio.
 	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
-	StudioId                      *string                        `pulumi:"studioId"`
+	// The unique identifier for the studio resource.
+	StudioId *string `pulumi:"studioId"`
 	// <p>The address of the web page for the studio.</p>
 	StudioUrl *string `pulumi:"studioUrl"`
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
@@ -57,6 +60,7 @@ func LookupStudioOutput(ctx *pulumi.Context, args LookupStudioOutputArgs, opts .
 }
 
 type LookupStudioOutputArgs struct {
+	// The unique identifier for the studio resource.
 	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
@@ -98,10 +102,12 @@ func (o LookupStudioResultOutput) SsoClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.SsoClientId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration of the encryption method that is used for the studio.
 func (o LookupStudioResultOutput) StudioEncryptionConfiguration() StudioEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *StudioEncryptionConfiguration { return v.StudioEncryptionConfiguration }).(StudioEncryptionConfigurationPtrOutput)
 }
 
+// The unique identifier for the studio resource.
 func (o LookupStudioResultOutput) StudioId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.StudioId }).(pulumi.StringPtrOutput)
 }

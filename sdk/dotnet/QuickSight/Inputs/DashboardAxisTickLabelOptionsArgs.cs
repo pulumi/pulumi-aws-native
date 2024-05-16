@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAxisTickLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         [Input("labelOptions")]
         public Input<Inputs.DashboardLabelOptionsArgs>? LabelOptions { get; set; }
 
+        /// <summary>
+        /// The rotation angle of the axis tick labels.
+        /// </summary>
         [Input("rotationAngle")]
         public Input<double>? RotationAngle { get; set; }
 

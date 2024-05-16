@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetInferenceComponentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the inference component.
+        /// </summary>
         [Input("inferenceComponentArn", required: true)]
         public string InferenceComponentArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetInferenceComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the inference component.
+        /// </summary>
         [Input("inferenceComponentArn", required: true)]
         public Input<string> InferenceComponentArn { get; set; } = null!;
 
@@ -51,17 +57,47 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetInferenceComponentResult
     {
+        /// <summary>
+        /// The time when the inference component was created.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+        /// </summary>
         public readonly string? EndpointArn;
+        /// <summary>
+        /// The name of the endpoint that hosts the inference component.
+        /// </summary>
         public readonly string? EndpointName;
         public readonly string? FailureReason;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the inference component.
+        /// </summary>
         public readonly string? InferenceComponentArn;
+        /// <summary>
+        /// The name of the inference component.
+        /// </summary>
         public readonly string? InferenceComponentName;
+        /// <summary>
+        /// The status of the inference component.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.InferenceComponentStatus? InferenceComponentStatus;
+        /// <summary>
+        /// The time when the inference component was last updated.
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// Runtime settings for a model that is deployed with an inference component.
+        /// </summary>
         public readonly Outputs.InferenceComponentRuntimeConfig? RuntimeConfig;
+        /// <summary>
+        /// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
+        /// </summary>
         public readonly Outputs.InferenceComponentSpecification? Specification;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The name of the production variant that hosts the inference component.
+        /// </summary>
         public readonly string? VariantName;
 
         [OutputConstructor]

@@ -19,18 +19,38 @@ export function getSubscriber(args: GetSubscriberArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetSubscriberArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the Security Lake subscriber.
+     */
     subscriberArn: string;
 }
 
 export interface GetSubscriberResult {
+    /**
+     * You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+     *
+     * Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
+     */
     readonly accessTypes?: enums.securitylake.SubscriberAccessTypesItem[];
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
+     */
     readonly resourceShareArn?: string;
+    /**
+     * The ARN name of the Amazon Security Lake subscriber.
+     */
     readonly resourceShareName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the S3 bucket.
+     */
     readonly s3BucketArn?: string;
     /**
      * The supported AWS services from which logs and events are collected.
      */
     readonly sources?: (outputs.securitylake.SubscriberSource0Properties | outputs.securitylake.SubscriberSource1Properties)[];
+    /**
+     * The Amazon Resource Name (ARN) of the Security Lake subscriber.
+     */
     readonly subscriberArn?: string;
     /**
      * The description for your subscriber account in Security Lake.
@@ -44,6 +64,9 @@ export interface GetSubscriberResult {
      * The name of your Security Lake subscriber account.
      */
     readonly subscriberName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
+     */
     readonly subscriberRoleArn?: string;
     /**
      * An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
@@ -58,5 +81,8 @@ export function getSubscriberOutput(args: GetSubscriberOutputArgs, opts?: pulumi
 }
 
 export interface GetSubscriberOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the Security Lake subscriber.
+     */
     subscriberArn: pulumi.Input<string>;
 }

@@ -16,27 +16,51 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetTransformOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A transform operation that casts a column to a different type.
+        /// </summary>
         [Input("castColumnTypeOperation")]
         public Input<Inputs.DataSetCastColumnTypeOperationArgs>? CastColumnTypeOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+        /// </summary>
         [Input("createColumnsOperation")]
         public Input<Inputs.DataSetCreateColumnsOperationArgs>? CreateColumnsOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that filters rows based on a condition.
+        /// </summary>
         [Input("filterOperation")]
         public Input<Inputs.DataSetFilterOperationArgs>? FilterOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+        /// </summary>
         [Input("overrideDatasetParameterOperation")]
         public Input<Inputs.DataSetOverrideDatasetParameterOperationArgs>? OverrideDatasetParameterOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that projects columns. Operations that come after a projection can only refer to projected columns.
+        /// </summary>
         [Input("projectOperation")]
         public Input<Inputs.DataSetProjectOperationArgs>? ProjectOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that renames a column.
+        /// </summary>
         [Input("renameColumnOperation")]
         public Input<Inputs.DataSetRenameColumnOperationArgs>? RenameColumnOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that tags a column with additional information.
+        /// </summary>
         [Input("tagColumnOperation")]
         public Input<Inputs.DataSetTagColumnOperationArgs>? TagColumnOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that removes tags associated with a column.
+        /// </summary>
         [Input("untagColumnOperation")]
         public Input<Inputs.DataSetUntagColumnOperationArgs>? UntagColumnOperation { get; set; }
 

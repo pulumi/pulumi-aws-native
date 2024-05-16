@@ -16,6 +16,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class CreditSpecificationProperties
     {
+        /// <summary>
+        /// The credit option for CPU usage of the instance.
+        /// 
+        /// Valid values: `standard` | `unlimited`
+        /// 
+        /// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
+        /// </summary>
         public readonly string? CpuCredits;
 
         [OutputConstructor]

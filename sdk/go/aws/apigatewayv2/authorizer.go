@@ -20,7 +20,8 @@ type Authorizer struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for ``REQUEST`` authorizers.
 	AuthorizerCredentialsArn pulumi.StringPtrOutput `pulumi:"authorizerCredentialsArn"`
-	AuthorizerId             pulumi.StringOutput    `pulumi:"authorizerId"`
+	// The authorizer ID.
+	AuthorizerId pulumi.StringOutput `pulumi:"authorizerId"`
 	// Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are ``1.0`` and ``2.0``. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).
 	AuthorizerPayloadFormatVersion pulumi.StringPtrOutput `pulumi:"authorizerPayloadFormatVersion"`
 	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.
@@ -194,6 +195,7 @@ func (o AuthorizerOutput) AuthorizerCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerCredentialsArn }).(pulumi.StringPtrOutput)
 }
 
+// The authorizer ID.
 func (o AuthorizerOutput) AuthorizerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerId }).(pulumi.StringOutput)
 }

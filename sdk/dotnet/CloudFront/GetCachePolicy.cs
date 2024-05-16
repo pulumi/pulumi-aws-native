@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCachePolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCachePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,24 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetCachePolicyResult
     {
+        /// <summary>
+        /// A cache policy configuration.
+        /// 
+        /// This configuration determines the following:
+        /// 
+        /// - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+        /// - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+        /// 
+        /// The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        /// </summary>
         public readonly Outputs.CachePolicyConfig? CachePolicyConfig;
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time when the cache policy was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
 
         [OutputConstructor]

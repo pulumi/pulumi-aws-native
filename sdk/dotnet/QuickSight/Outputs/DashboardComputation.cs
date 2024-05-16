@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardComputation
     {
+        /// <summary>
+        /// The forecast computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardForecastComputation? Forecast;
+        /// <summary>
+        /// The growth rate computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardGrowthRateComputation? GrowthRate;
+        /// <summary>
+        /// The maximum and minimum computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardMaximumMinimumComputation? MaximumMinimum;
+        /// <summary>
+        /// The metric comparison computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardMetricComparisonComputation? MetricComparison;
+        /// <summary>
+        /// The period over period computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardPeriodOverPeriodComputation? PeriodOverPeriod;
+        /// <summary>
+        /// The period to date computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardPeriodToDateComputation? PeriodToDate;
+        /// <summary>
+        /// The top movers and bottom movers computation setup.
+        /// </summary>
         public readonly Outputs.DashboardTopBottomMoversComputation? TopBottomMovers;
+        /// <summary>
+        /// The top ranked and bottom ranked computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardTopBottomRankedComputation? TopBottomRanked;
+        /// <summary>
+        /// The total aggregation computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardTotalAggregationComputation? TotalAggregation;
+        /// <summary>
+        /// The unique values computation configuration.
+        /// </summary>
         public readonly Outputs.DashboardUniqueValuesComputation? UniqueValues;
 
         [OutputConstructor]

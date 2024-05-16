@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// LoRaWANGatewayVersion object.
+        /// </summary>
         [Input("currentVersion")]
         public Input<Inputs.TaskDefinitionLoRaWanGatewayVersionArgs>? CurrentVersion { get; set; }
 
+        /// <summary>
+        /// The CRC of the signature private key to check.
+        /// </summary>
         [Input("sigKeyCrc")]
         public Input<int>? SigKeyCrc { get; set; }
 
+        /// <summary>
+        /// The signature used to verify the update firmware.
+        /// </summary>
         [Input("updateSignature")]
         public Input<string>? UpdateSignature { get; set; }
 
+        /// <summary>
+        /// LoRaWANGatewayVersion object.
+        /// </summary>
         [Input("updateVersion")]
         public Input<Inputs.TaskDefinitionLoRaWanGatewayVersionArgs>? UpdateVersion { get; set; }
 

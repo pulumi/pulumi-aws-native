@@ -20,15 +20,36 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetTopicArgs {
+    /**
+     * The ID of the AWS account that you want to create a topic in.
+     */
     awsAccountId: string;
+    /**
+     * The ID for the topic. This ID is unique per AWS Region for each AWS account.
+     */
     topicId: string;
 }
 
 export interface GetTopicResult {
+    /**
+     * The Amazon Resource Name (ARN) of the topic.
+     */
     readonly arn?: string;
+    /**
+     * A structure that represents a dataset.
+     */
     readonly dataSets?: outputs.quicksight.TopicDatasetMetadata[];
+    /**
+     * The description of the topic.
+     */
     readonly description?: string;
+    /**
+     * The name of the topic.
+     */
     readonly name?: string;
+    /**
+     * The user experience version of the topic.
+     */
     readonly userExperienceVersion?: enums.quicksight.TopicUserExperienceVersion;
 }
 /**
@@ -39,6 +60,12 @@ export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTopicOutputArgs {
+    /**
+     * The ID of the AWS account that you want to create a topic in.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The ID for the topic. This ID is unique per AWS Region for each AWS account.
+     */
     topicId: pulumi.Input<string>;
 }

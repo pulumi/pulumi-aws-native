@@ -23,20 +23,31 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 }
 
 type LookupQueueArgs struct {
+	// The Amazon Resource Name (ARN) of the queue.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupQueueResult struct {
-	AllowedStorageProfileIds        []string                       `pulumi:"allowedStorageProfileIds"`
-	Arn                             *string                        `pulumi:"arn"`
-	DefaultBudgetAction             *QueueDefaultQueueBudgetAction `pulumi:"defaultBudgetAction"`
-	Description                     *string                        `pulumi:"description"`
-	DisplayName                     *string                        `pulumi:"displayName"`
-	JobAttachmentSettings           *QueueJobAttachmentSettings    `pulumi:"jobAttachmentSettings"`
-	JobRunAsUser                    *QueueJobRunAsUser             `pulumi:"jobRunAsUser"`
-	QueueId                         *string                        `pulumi:"queueId"`
-	RequiredFileSystemLocationNames []string                       `pulumi:"requiredFileSystemLocationNames"`
-	RoleArn                         *string                        `pulumi:"roleArn"`
+	// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+	AllowedStorageProfileIds []string `pulumi:"allowedStorageProfileIds"`
+	// The Amazon Resource Name (ARN) of the queue.
+	Arn *string `pulumi:"arn"`
+	// The default action taken on a queue summary if a budget wasn't configured.
+	DefaultBudgetAction *QueueDefaultQueueBudgetAction `pulumi:"defaultBudgetAction"`
+	// A description of the queue that helps identify what the queue is used for.
+	Description *string `pulumi:"description"`
+	// The display name of the queue summary to update.
+	DisplayName *string `pulumi:"displayName"`
+	// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+	JobAttachmentSettings *QueueJobAttachmentSettings `pulumi:"jobAttachmentSettings"`
+	// Identifies the user for a job.
+	JobRunAsUser *QueueJobRunAsUser `pulumi:"jobRunAsUser"`
+	// The queue ID.
+	QueueId *string `pulumi:"queueId"`
+	// The file system location that the queue uses.
+	RequiredFileSystemLocationNames []string `pulumi:"requiredFileSystemLocationNames"`
+	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
@@ -53,6 +64,7 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 }
 
 type LookupQueueOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the queue.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -74,42 +86,52 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
+// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
 func (o LookupQueueResultOutput) AllowedStorageProfileIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupQueueResult) []string { return v.AllowedStorageProfileIds }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the queue.
 func (o LookupQueueResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The default action taken on a queue summary if a budget wasn't configured.
 func (o LookupQueueResultOutput) DefaultBudgetAction() QueueDefaultQueueBudgetActionPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *QueueDefaultQueueBudgetAction { return v.DefaultBudgetAction }).(QueueDefaultQueueBudgetActionPtrOutput)
 }
 
+// A description of the queue that helps identify what the queue is used for.
 func (o LookupQueueResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the queue summary to update.
 func (o LookupQueueResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
 func (o LookupQueueResultOutput) JobAttachmentSettings() QueueJobAttachmentSettingsPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *QueueJobAttachmentSettings { return v.JobAttachmentSettings }).(QueueJobAttachmentSettingsPtrOutput)
 }
 
+// Identifies the user for a job.
 func (o LookupQueueResultOutput) JobRunAsUser() QueueJobRunAsUserPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *QueueJobRunAsUser { return v.JobRunAsUser }).(QueueJobRunAsUserPtrOutput)
 }
 
+// The queue ID.
 func (o LookupQueueResultOutput) QueueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
+// The file system location that the queue uses.
 func (o LookupQueueResultOutput) RequiredFileSystemLocationNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupQueueResult) []string { return v.RequiredFileSystemLocationNames }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 func (o LookupQueueResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

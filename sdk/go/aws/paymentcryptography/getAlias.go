@@ -23,10 +23,14 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 }
 
 type LookupAliasArgs struct {
+	// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+	//
+	// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
 	AliasName string `pulumi:"aliasName"`
 }
 
 type LookupAliasResult struct {
+	// The `KeyARN` of the key associated with the alias.
 	KeyArn *string `pulumi:"keyArn"`
 }
 
@@ -44,6 +48,9 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 }
 
 type LookupAliasOutputArgs struct {
+	// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+	//
+	// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
 	AliasName pulumi.StringInput `pulumi:"aliasName"`
 }
 
@@ -65,6 +72,7 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
+// The `KeyARN` of the key associated with the alias.
 func (o LookupAliasResultOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }

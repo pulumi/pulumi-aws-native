@@ -18,7 +18,8 @@ type Url struct {
 
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthTypeOutput `pulumi:"authType"`
-	Cors     UrlCorsPtrOutput  `pulumi:"cors"`
+	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+	Cors UrlCorsPtrOutput `pulumi:"cors"`
 	// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The generated url for this resource.
@@ -84,7 +85,8 @@ func (UrlState) ElementType() reflect.Type {
 type urlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthType `pulumi:"authType"`
-	Cors     *UrlCors    `pulumi:"cors"`
+	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+	Cors *UrlCors `pulumi:"cors"`
 	// The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
 	InvokeMode *UrlInvokeMode `pulumi:"invokeMode"`
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
@@ -97,7 +99,8 @@ type urlArgs struct {
 type UrlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthTypeInput
-	Cors     UrlCorsPtrInput
+	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+	Cors UrlCorsPtrInput
 	// The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
 	InvokeMode UrlInvokeModePtrInput
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
@@ -148,6 +151,7 @@ func (o UrlOutput) AuthType() UrlAuthTypeOutput {
 	return o.ApplyT(func(v *Url) UrlAuthTypeOutput { return v.AuthType }).(UrlAuthTypeOutput)
 }
 
+// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
 func (o UrlOutput) Cors() UrlCorsPtrOutput {
 	return o.ApplyT(func(v *Url) UrlCorsPtrOutput { return v.Cors }).(UrlCorsPtrOutput)
 }

@@ -41,6 +41,9 @@ export class HealthCheck extends pulumi.CustomResource {
      * A complex type that contains information about the health check.
      */
     public readonly healthCheckConfig!: pulumi.Output<outputs.route53.HealthCheckConfigProperties>;
+    /**
+     * The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+     */
     public /*out*/ readonly healthCheckId!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -16,10 +16,16 @@ export function getDrtAccess(args: GetDrtAccessArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetDrtAccessArgs {
+    /**
+     * The ID of the account that submitted the template.
+     */
     accountId: string;
 }
 
 export interface GetDrtAccessResult {
+    /**
+     * The ID of the account that submitted the template.
+     */
     readonly accountId?: string;
     /**
      * Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
@@ -38,5 +44,8 @@ export function getDrtAccessOutput(args: GetDrtAccessOutputArgs, opts?: pulumi.I
 }
 
 export interface GetDrtAccessOutputArgs {
+    /**
+     * The ID of the account that submitted the template.
+     */
     accountId: pulumi.Input<string>;
 }

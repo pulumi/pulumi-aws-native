@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Amplify.Outputs
     [OutputType]
     public sealed class AppEnvironmentVariable
     {
+        /// <summary>
+        /// The environment variable name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The environment variable value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleHeaderMatch
     {
+        /// <summary>
+        /// Indicates whether the match is case sensitive.
+        /// </summary>
         public readonly bool? CaseSensitive;
+        /// <summary>
+        /// Describes a header match type.
+        /// </summary>
         public readonly Outputs.RuleHeaderMatchType Match;
+        /// <summary>
+        /// The name of the header.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

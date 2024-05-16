@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Panorama
     [AwsNativeResourceType("aws-native:panorama:Package")]
     public partial class Package : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The package's ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// When the package was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<int> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The package's ID.
+        /// </summary>
         [Output("packageId")]
         public Output<string> PackageId { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the package.
+        /// </summary>
         [Output("packageName")]
         public Output<string> PackageName { get; private set; } = null!;
 
+        /// <summary>
+        /// A storage location.
+        /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.PackageStorageLocation?> StorageLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the package.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -82,14 +100,24 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class PackageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A name for the package.
+        /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
 
+        /// <summary>
+        /// A storage location.
+        /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.PackageStorageLocationArgs>? StorageLocation { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags for the package.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

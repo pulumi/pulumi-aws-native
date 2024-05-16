@@ -34,7 +34,21 @@ export class TrackerConsumer extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrackerConsumer.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+     */
     public readonly consumerArn!: pulumi.Output<string>;
+    /**
+     * The name for the tracker resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique tracker resource name.
+     * - No spaces allowed. For example, `ExampleTracker` .
+     */
     public readonly trackerName!: pulumi.Output<string>;
 
     /**
@@ -71,6 +85,20 @@ export class TrackerConsumer extends pulumi.CustomResource {
  * The set of arguments for constructing a TrackerConsumer resource.
  */
 export interface TrackerConsumerArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+     */
     consumerArn: pulumi.Input<string>;
+    /**
+     * The name for the tracker resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique tracker resource name.
+     * - No spaces allowed. For example, `ExampleTracker` .
+     */
     trackerName: pulumi.Input<string>;
 }

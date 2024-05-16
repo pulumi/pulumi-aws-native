@@ -37,11 +37,31 @@ export class View extends pulumi.CustomResource {
         return obj['__pulumiType'] === View.__pulumiType;
     }
 
+    /**
+     * A search filter defines which resources can be part of a search query result set.
+     */
     public readonly filters!: pulumi.Output<outputs.resourceexplorer2.ViewSearchFilter | undefined>;
+    /**
+     * Information about an additional property that describes a resource, that you can optionally include in a view.
+     */
     public readonly includedProperties!: pulumi.Output<outputs.resourceexplorer2.ViewIncludedProperty[] | undefined>;
+    /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Tag key and value pairs that are attached to the view.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARN of the new view. For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     public /*out*/ readonly viewArn!: pulumi.Output<string>;
+    /**
+     * The name of the new view.
+     */
     public readonly viewName!: pulumi.Output<string>;
 
     /**
@@ -80,9 +100,24 @@ export class View extends pulumi.CustomResource {
  * The set of arguments for constructing a View resource.
  */
 export interface ViewArgs {
+    /**
+     * A search filter defines which resources can be part of a search query result set.
+     */
     filters?: pulumi.Input<inputs.resourceexplorer2.ViewSearchFilterArgs>;
+    /**
+     * Information about an additional property that describes a resource, that you can optionally include in a view.
+     */
     includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer2.ViewIncludedPropertyArgs>[]>;
+    /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Tag key and value pairs that are attached to the view.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the new view.
+     */
     viewName?: pulumi.Input<string>;
 }

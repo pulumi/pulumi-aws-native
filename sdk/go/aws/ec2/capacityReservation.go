@@ -16,22 +16,57 @@ import (
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 
-	AvailabilityZone       pulumi.StringOutput                            `pulumi:"availabilityZone"`
-	AvailableInstanceCount pulumi.IntOutput                               `pulumi:"availableInstanceCount"`
-	AwsId                  pulumi.StringOutput                            `pulumi:"awsId"`
-	EbsOptimized           pulumi.BoolPtrOutput                           `pulumi:"ebsOptimized"`
-	EndDate                pulumi.StringPtrOutput                         `pulumi:"endDate"`
-	EndDateType            pulumi.StringPtrOutput                         `pulumi:"endDateType"`
-	EphemeralStorage       pulumi.BoolPtrOutput                           `pulumi:"ephemeralStorage"`
-	InstanceCount          pulumi.IntOutput                               `pulumi:"instanceCount"`
-	InstanceMatchCriteria  pulumi.StringPtrOutput                         `pulumi:"instanceMatchCriteria"`
-	InstancePlatform       pulumi.StringOutput                            `pulumi:"instancePlatform"`
-	InstanceType           pulumi.StringOutput                            `pulumi:"instanceType"`
-	OutPostArn             pulumi.StringPtrOutput                         `pulumi:"outPostArn"`
-	PlacementGroupArn      pulumi.StringPtrOutput                         `pulumi:"placementGroupArn"`
-	TagSpecifications      CapacityReservationTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	Tenancy                pulumi.StringPtrOutput                         `pulumi:"tenancy"`
-	TotalInstanceCount     pulumi.IntOutput                               `pulumi:"totalInstanceCount"`
+	// The Availability Zone in which to create the Capacity Reservation.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+	AvailableInstanceCount pulumi.IntOutput `pulumi:"availableInstanceCount"`
+	// The ID of the Capacity Reservation.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
+	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+	//
+	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+	//
+	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
+	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+	//
+	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+	EndDateType pulumi.StringPtrOutput `pulumi:"endDateType"`
+	// *Deprecated.*
+	EphemeralStorage pulumi.BoolPtrOutput `pulumi:"ephemeralStorage"`
+	// The number of instances for which to reserve capacity.
+	//
+	// Valid range: 1 - 1000
+	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
+	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+	//
+	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+	//
+	// Default: `open`
+	InstanceMatchCriteria pulumi.StringPtrOutput `pulumi:"instanceMatchCriteria"`
+	// The type of operating system for which to reserve capacity.
+	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
+	// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutPostArn pulumi.StringPtrOutput `pulumi:"outPostArn"`
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	TagSpecifications CapacityReservationTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
+	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+	//
+	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
+	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+	TotalInstanceCount pulumi.IntOutput `pulumi:"totalInstanceCount"`
 }
 
 // NewCapacityReservation registers a new resource with the given unique name, arguments, and options.
@@ -99,36 +134,100 @@ func (CapacityReservationState) ElementType() reflect.Type {
 }
 
 type capacityReservationArgs struct {
-	AvailabilityZone      string                                `pulumi:"availabilityZone"`
-	EbsOptimized          *bool                                 `pulumi:"ebsOptimized"`
-	EndDate               *string                               `pulumi:"endDate"`
-	EndDateType           *string                               `pulumi:"endDateType"`
-	EphemeralStorage      *bool                                 `pulumi:"ephemeralStorage"`
-	InstanceCount         int                                   `pulumi:"instanceCount"`
-	InstanceMatchCriteria *string                               `pulumi:"instanceMatchCriteria"`
-	InstancePlatform      string                                `pulumi:"instancePlatform"`
-	InstanceType          string                                `pulumi:"instanceType"`
-	OutPostArn            *string                               `pulumi:"outPostArn"`
-	PlacementGroupArn     *string                               `pulumi:"placementGroupArn"`
-	TagSpecifications     []CapacityReservationTagSpecification `pulumi:"tagSpecifications"`
-	Tenancy               *string                               `pulumi:"tenancy"`
+	// The Availability Zone in which to create the Capacity Reservation.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+	//
+	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+	//
+	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	EndDate *string `pulumi:"endDate"`
+	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+	//
+	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+	EndDateType *string `pulumi:"endDateType"`
+	// *Deprecated.*
+	EphemeralStorage *bool `pulumi:"ephemeralStorage"`
+	// The number of instances for which to reserve capacity.
+	//
+	// Valid range: 1 - 1000
+	InstanceCount int `pulumi:"instanceCount"`
+	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+	//
+	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+	//
+	// Default: `open`
+	InstanceMatchCriteria *string `pulumi:"instanceMatchCriteria"`
+	// The type of operating system for which to reserve capacity.
+	InstancePlatform string `pulumi:"instancePlatform"`
+	// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	InstanceType string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutPostArn *string `pulumi:"outPostArn"`
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+	PlacementGroupArn *string `pulumi:"placementGroupArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	TagSpecifications []CapacityReservationTagSpecification `pulumi:"tagSpecifications"`
+	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+	//
+	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+	Tenancy *string `pulumi:"tenancy"`
 }
 
 // The set of arguments for constructing a CapacityReservation resource.
 type CapacityReservationArgs struct {
-	AvailabilityZone      pulumi.StringInput
-	EbsOptimized          pulumi.BoolPtrInput
-	EndDate               pulumi.StringPtrInput
-	EndDateType           pulumi.StringPtrInput
-	EphemeralStorage      pulumi.BoolPtrInput
-	InstanceCount         pulumi.IntInput
+	// The Availability Zone in which to create the Capacity Reservation.
+	AvailabilityZone pulumi.StringInput
+	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+	EbsOptimized pulumi.BoolPtrInput
+	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+	//
+	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+	//
+	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	EndDate pulumi.StringPtrInput
+	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+	//
+	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+	EndDateType pulumi.StringPtrInput
+	// *Deprecated.*
+	EphemeralStorage pulumi.BoolPtrInput
+	// The number of instances for which to reserve capacity.
+	//
+	// Valid range: 1 - 1000
+	InstanceCount pulumi.IntInput
+	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+	//
+	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+	//
+	// Default: `open`
 	InstanceMatchCriteria pulumi.StringPtrInput
-	InstancePlatform      pulumi.StringInput
-	InstanceType          pulumi.StringInput
-	OutPostArn            pulumi.StringPtrInput
-	PlacementGroupArn     pulumi.StringPtrInput
-	TagSpecifications     CapacityReservationTagSpecificationArrayInput
-	Tenancy               pulumi.StringPtrInput
+	// The type of operating system for which to reserve capacity.
+	InstancePlatform pulumi.StringInput
+	// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	InstanceType pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutPostArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+	PlacementGroupArn pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	TagSpecifications CapacityReservationTagSpecificationArrayInput
+	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+	//
+	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+	Tenancy pulumi.StringPtrInput
 }
 
 func (CapacityReservationArgs) ElementType() reflect.Type {
@@ -168,68 +267,103 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 	return o
 }
 
+// The Availability Zone in which to create the Capacity Reservation.
 func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
+// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 func (o CapacityReservationOutput) AvailableInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.AvailableInstanceCount }).(pulumi.IntOutput)
 }
 
+// The ID of the Capacity Reservation.
 func (o CapacityReservationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 func (o CapacityReservationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
+// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+//
+// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+//
+// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
 func (o CapacityReservationOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
+// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+//
+// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
 func (o CapacityReservationOutput) EndDateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.EndDateType }).(pulumi.StringPtrOutput)
 }
 
+// *Deprecated.*
 func (o CapacityReservationOutput) EphemeralStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.BoolPtrOutput { return v.EphemeralStorage }).(pulumi.BoolPtrOutput)
 }
 
+// The number of instances for which to reserve capacity.
+//
+// Valid range: 1 - 1000
 func (o CapacityReservationOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
+// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+//
+// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+//
+// Default: `open`
 func (o CapacityReservationOutput) InstanceMatchCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.InstanceMatchCriteria }).(pulumi.StringPtrOutput)
 }
 
+// The type of operating system for which to reserve capacity.
 func (o CapacityReservationOutput) InstancePlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.InstancePlatform }).(pulumi.StringOutput)
 }
 
+// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 func (o CapacityReservationOutput) OutPostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.OutPostArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o CapacityReservationOutput) TagSpecifications() CapacityReservationTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *CapacityReservation) CapacityReservationTagSpecificationArrayOutput {
 		return v.TagSpecifications
 	}).(CapacityReservationTagSpecificationArrayOutput)
 }
 
+// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+//
+// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
 func (o CapacityReservationOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
 
+// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
 func (o CapacityReservationOutput) TotalInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.TotalInstanceCount }).(pulumi.IntOutput)
 }

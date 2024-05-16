@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("targetValues")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _targetValues;
+
+        /// <summary>
+        /// The target value field wells of a `GaugeChartVisual` .
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> TargetValues
         {
             get => _targetValues ?? (_targetValues = new InputList<Inputs.AnalysisMeasureFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The value field wells of a `GaugeChartVisual` .
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.AnalysisMeasureFieldArgs>());

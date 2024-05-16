@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionClientParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The client ID to use for OAuth authorization.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client secret assciated with the client ID to use for OAuth authorization.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 

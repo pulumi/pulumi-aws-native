@@ -40,6 +40,8 @@ class GetBackupVaultResult:
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[Any]:
         """
+        A resource-based policy that is used to manage access permissions on the target backup vault.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "access_policy")
@@ -47,21 +49,33 @@ class GetBackupVaultResult:
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> Optional[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+        """
         return pulumi.get(self, "backup_vault_arn")
 
     @property
     @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags to assign to the backup vault.
+        """
         return pulumi.get(self, "backup_vault_tags")
 
     @property
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> Optional['outputs.BackupVaultLockConfigurationType']:
+        """
+        The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        """
         return pulumi.get(self, "lock_configuration")
 
     @property
     @pulumi.getter
     def notifications(self) -> Optional['outputs.BackupVaultNotificationObjectType']:
+        """
+        Specifies an object containing SNS event notification properties for the target backup vault.
+        """
         return pulumi.get(self, "notifications")
 
 
@@ -82,6 +96,9 @@ def get_backup_vault(backup_vault_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupVaultResult:
     """
     Resource Type definition for AWS::Backup::BackupVault
+
+
+    :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
     """
     __args__ = dict()
     __args__['backupVaultName'] = backup_vault_name
@@ -101,5 +118,8 @@ def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::BackupVault
+
+
+    :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
     """
     ...

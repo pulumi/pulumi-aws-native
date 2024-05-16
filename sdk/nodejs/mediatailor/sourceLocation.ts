@@ -37,17 +37,29 @@ export class SourceLocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SourceLocation.__pulumiType;
     }
 
+    /**
+     * Access configuration parameters.
+     */
     public readonly accessConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationAccessConfiguration | undefined>;
     /**
      * <p>The ARN of the source location.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+     */
     public readonly defaultSegmentDeliveryConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfiguration | undefined>;
+    /**
+     * The HTTP configuration for the source location.
+     */
     public readonly httpConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationHttpConfiguration>;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
      */
     public readonly segmentDeliveryConfigurations!: pulumi.Output<outputs.mediatailor.SourceLocationSegmentDeliveryConfiguration[] | undefined>;
+    /**
+     * The name of the source location.
+     */
     public readonly sourceLocationName!: pulumi.Output<string>;
     /**
      * The tags to assign to the source location.
@@ -95,13 +107,25 @@ export class SourceLocation extends pulumi.CustomResource {
  * The set of arguments for constructing a SourceLocation resource.
  */
 export interface SourceLocationArgs {
+    /**
+     * Access configuration parameters.
+     */
     accessConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationAccessConfigurationArgs>;
+    /**
+     * The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+     */
     defaultSegmentDeliveryConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfigurationArgs>;
+    /**
+     * The HTTP configuration for the source location.
+     */
     httpConfiguration: pulumi.Input<inputs.mediatailor.SourceLocationHttpConfigurationArgs>;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
      */
     segmentDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.mediatailor.SourceLocationSegmentDeliveryConfigurationArgs>[]>;
+    /**
+     * The name of the source location.
+     */
     sourceLocationName?: pulumi.Input<string>;
     /**
      * The tags to assign to the source location.

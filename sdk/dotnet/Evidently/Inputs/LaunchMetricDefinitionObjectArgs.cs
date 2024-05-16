@@ -24,9 +24,15 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
+        /// <summary>
+        /// A name for the metric. It can include up to 255 characters.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// A label for the units that the metric is measuring.
+        /// </summary>
         [Input("unitLabel")]
         public Input<string>? UnitLabel { get; set; }
 

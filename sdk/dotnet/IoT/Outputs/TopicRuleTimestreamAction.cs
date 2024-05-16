@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleTimestreamAction
     {
+        /// <summary>
+        /// The name of an Amazon Timestream database that has the table to write records into.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Metadata attributes of the time series that are written in each measure record.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleTimestreamDimension> Dimensions;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The table where the message data will be written.
+        /// </summary>
         public readonly string TableName;
+        /// <summary>
+        /// The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
+        /// </summary>
         public readonly Outputs.TopicRuleTimestreamTimestamp? Timestamp;
 
         [OutputConstructor]

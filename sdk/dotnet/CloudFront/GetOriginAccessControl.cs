@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginAccessControlArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginAccessControlInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetOriginAccessControlResult
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+        /// 
+        /// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+        /// 
+        /// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         public readonly Outputs.OriginAccessControlConfig? OriginAccessControlConfig;
 
         [OutputConstructor]

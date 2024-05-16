@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFreeFormLayoutCanvasSizeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the sizing of the canvas used in a free-form layout.
+        /// </summary>
         [Input("screenCanvasSizeOptions")]
         public Input<Inputs.DashboardFreeFormLayoutScreenCanvasSizeOptionsArgs>? ScreenCanvasSizeOptions { get; set; }
 

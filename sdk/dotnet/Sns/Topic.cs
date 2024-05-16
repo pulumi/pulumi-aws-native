@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Sns
         [Output("dataProtectionPolicy")]
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
+        /// </summary>
         [Output("deliveryStatusLogging")]
         public Output<ImmutableArray<Outputs.TopicLoggingConfig>> DeliveryStatusLogging { get; private set; } = null!;
 
@@ -87,6 +90,9 @@ namespace Pulumi.AwsNative.Sns
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the ARN of an Amazon SNS topic.
+        /// </summary>
         [Output("topicArn")]
         public Output<string> TopicArn { get; private set; } = null!;
 
@@ -184,6 +190,10 @@ namespace Pulumi.AwsNative.Sns
 
         [Input("deliveryStatusLogging")]
         private InputList<Inputs.TopicLoggingConfigArgs>? _deliveryStatusLogging;
+
+        /// <summary>
+        /// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
+        /// </summary>
         public InputList<Inputs.TopicLoggingConfigArgs> DeliveryStatusLogging
         {
             get => _deliveryStatusLogging ?? (_deliveryStatusLogging = new InputList<Inputs.TopicLoggingConfigArgs>());

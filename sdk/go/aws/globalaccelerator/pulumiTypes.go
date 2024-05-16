@@ -23,8 +23,12 @@ type AcceleratorTag struct {
 
 // ARN of resource to share.
 type CrossAccountAttachmentResource struct {
-	EndpointId string  `pulumi:"endpointId"`
-	Region     *string `pulumi:"region"`
+	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	//
+	// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+	EndpointId string `pulumi:"endpointId"`
+	// The AWS Region where a shared endpoint resource is located.
+	Region *string `pulumi:"region"`
 }
 
 // CrossAccountAttachmentResourceInput is an input type that accepts CrossAccountAttachmentResourceArgs and CrossAccountAttachmentResourceOutput values.
@@ -40,8 +44,12 @@ type CrossAccountAttachmentResourceInput interface {
 
 // ARN of resource to share.
 type CrossAccountAttachmentResourceArgs struct {
-	EndpointId pulumi.StringInput    `pulumi:"endpointId"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	//
+	// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+	EndpointId pulumi.StringInput `pulumi:"endpointId"`
+	// The AWS Region where a shared endpoint resource is located.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CrossAccountAttachmentResourceArgs) ElementType() reflect.Type {
@@ -96,10 +104,14 @@ func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOu
 	return o
 }
 
+// The endpoint ID for the endpoint that is specified as a AWS resource.
+//
+// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
 func (o CrossAccountAttachmentResourceOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v CrossAccountAttachmentResource) string { return v.EndpointId }).(pulumi.StringOutput)
 }
 
+// The AWS Region where a shared endpoint resource is located.
 func (o CrossAccountAttachmentResourceOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -261,7 +273,9 @@ func (o EndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 
 // listener to endpoint port mapping.
 type EndpointGroupPortOverride struct {
+	// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
 	EndpointPort int `pulumi:"endpointPort"`
+	// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
 	ListenerPort int `pulumi:"listenerPort"`
 }
 
@@ -278,7 +292,9 @@ type EndpointGroupPortOverrideInput interface {
 
 // listener to endpoint port mapping.
 type EndpointGroupPortOverrideArgs struct {
+	// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
 	EndpointPort pulumi.IntInput `pulumi:"endpointPort"`
+	// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
 	ListenerPort pulumi.IntInput `pulumi:"listenerPort"`
 }
 
@@ -334,10 +350,12 @@ func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutputWithCo
 	return o
 }
 
+// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
 func (o EndpointGroupPortOverrideOutput) EndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.EndpointPort }).(pulumi.IntOutput)
 }
 
+// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
 func (o EndpointGroupPortOverrideOutput) ListenerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.ListenerPort }).(pulumi.IntOutput)
 }
@@ -364,8 +382,10 @@ func (o EndpointGroupPortOverrideArrayOutput) Index(i pulumi.IntInput) EndpointG
 
 // A port range to support for connections from  clients to your accelerator.
 type ListenerPortRange struct {
+	// The first port in the range of ports, inclusive.
 	FromPort int `pulumi:"fromPort"`
-	ToPort   int `pulumi:"toPort"`
+	// The last port in the range of ports, inclusive.
+	ToPort int `pulumi:"toPort"`
 }
 
 // ListenerPortRangeInput is an input type that accepts ListenerPortRangeArgs and ListenerPortRangeOutput values.
@@ -381,8 +401,10 @@ type ListenerPortRangeInput interface {
 
 // A port range to support for connections from  clients to your accelerator.
 type ListenerPortRangeArgs struct {
+	// The first port in the range of ports, inclusive.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	ToPort   pulumi.IntInput `pulumi:"toPort"`
+	// The last port in the range of ports, inclusive.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (ListenerPortRangeArgs) ElementType() reflect.Type {
@@ -437,10 +459,12 @@ func (o ListenerPortRangeOutput) ToListenerPortRangeOutputWithContext(ctx contex
 	return o
 }
 
+// The first port in the range of ports, inclusive.
 func (o ListenerPortRangeOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerPortRange) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// The last port in the range of ports, inclusive.
 func (o ListenerPortRangeOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerPortRange) int { return v.ToPort }).(pulumi.IntOutput)
 }

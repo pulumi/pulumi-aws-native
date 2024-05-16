@@ -19,11 +19,22 @@ export function getSpotFleet(args: GetSpotFleetArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetSpotFleetArgs {
+    /**
+     * The ID of the Spot Fleet.
+     */
     id: string;
 }
 
 export interface GetSpotFleetResult {
+    /**
+     * The ID of the Spot Fleet.
+     */
     readonly id?: string;
+    /**
+     * Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+     *
+     * You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+     */
     readonly spotFleetRequestConfigData?: outputs.ec2.SpotFleetRequestConfigData;
 }
 /**
@@ -34,5 +45,8 @@ export function getSpotFleetOutput(args: GetSpotFleetOutputArgs, opts?: pulumi.I
 }
 
 export interface GetSpotFleetOutputArgs {
+    /**
+     * The ID of the Spot Fleet.
+     */
     id: pulumi.Input<string>;
 }

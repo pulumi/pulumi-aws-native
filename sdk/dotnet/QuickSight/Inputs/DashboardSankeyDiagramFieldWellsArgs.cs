@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSankeyDiagramFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a sankey diagram.
+        /// </summary>
         [Input("sankeyDiagramAggregatedFieldWells")]
         public Input<Inputs.DashboardSankeyDiagramAggregatedFieldWellsArgs>? SankeyDiagramAggregatedFieldWells { get; set; }
 

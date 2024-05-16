@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
+        /// </summary>
         [Input("resourceType")]
         public Input<Pulumi.AwsNative.Ec2.SpotFleetTagSpecificationResourceType>? ResourceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SpotFleetTagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public InputList<Inputs.SpotFleetTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.SpotFleetTagArgs>());

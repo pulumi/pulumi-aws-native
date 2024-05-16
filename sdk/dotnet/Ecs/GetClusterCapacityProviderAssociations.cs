@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class GetClusterCapacityProviderAssociationsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The cluster the capacity provider association is the target of.
+        /// </summary>
         [Input("cluster", required: true)]
         public string Cluster { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class GetClusterCapacityProviderAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The cluster the capacity provider association is the target of.
+        /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Ecs
     [OutputType]
     public sealed class GetClusterCapacityProviderAssociationsResult
     {
+        /// <summary>
+        /// The capacity providers to associate with the cluster.
+        /// </summary>
         public readonly ImmutableArray<string> CapacityProviders;
+        /// <summary>
+        /// The default capacity provider strategy to associate with the cluster.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy> DefaultCapacityProviderStrategy;
 
         [OutputConstructor]

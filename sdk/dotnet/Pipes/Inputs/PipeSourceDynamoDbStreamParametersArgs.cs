@@ -12,27 +12,53 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeSourceDynamoDbStreamParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of records to include in each batch.
+        /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
+        /// <summary>
+        /// A `DeadLetterConfig` object that contains information about a dead-letter queue configuration.
+        /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.PipeDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
 
+        /// <summary>
+        /// The maximum length of a time to wait for events.
+        /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
+        /// <summary>
+        /// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+        /// </summary>
         [Input("maximumRecordAgeInSeconds")]
         public Input<int>? MaximumRecordAgeInSeconds { get; set; }
 
+        /// <summary>
+        /// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 
+        /// <summary>
+        /// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+        /// </summary>
         [Input("onPartialBatchItemFailure")]
         public Input<Pulumi.AwsNative.Pipes.PipeOnPartialBatchItemFailureStreams>? OnPartialBatchItemFailure { get; set; }
 
+        /// <summary>
+        /// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+        /// </summary>
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
 
+        /// <summary>
+        /// (Streams only) The position in a stream from which to start reading.
+        /// 
+        /// *Valid values* : `TRIM_HORIZON | LATEST`
+        /// </summary>
         [Input("startingPosition", required: true)]
         public Input<Pulumi.AwsNative.Pipes.PipeDynamoDbStreamStartPosition> StartingPosition { get; set; } = null!;
 

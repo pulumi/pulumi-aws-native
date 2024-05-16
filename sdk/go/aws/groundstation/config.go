@@ -17,12 +17,18 @@ import (
 type Config struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput `pulumi:"arn"`
-	AwsId      pulumi.StringOutput `pulumi:"awsId"`
-	ConfigData ConfigDataOutput    `pulumi:"configData"`
-	Name       pulumi.StringOutput `pulumi:"name"`
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
-	Type       pulumi.StringOutput `pulumi:"type"`
+	// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+	ConfigData ConfigDataOutput `pulumi:"configData"`
+	// The name of the config object.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Tags assigned to a resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of the config, such as `tracking` .
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewConfig registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +74,22 @@ func (ConfigState) ElementType() reflect.Type {
 }
 
 type configArgs struct {
+	// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
 	ConfigData ConfigData `pulumi:"configData"`
-	Name       *string    `pulumi:"name"`
-	Tags       []aws.Tag  `pulumi:"tags"`
+	// The name of the config object.
+	Name *string `pulumi:"name"`
+	// Tags assigned to a resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Config resource.
 type ConfigArgs struct {
+	// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
 	ConfigData ConfigDataInput
-	Name       pulumi.StringPtrInput
-	Tags       aws.TagArrayInput
+	// The name of the config object.
+	Name pulumi.StringPtrInput
+	// Tags assigned to a resource.
+	Tags aws.TagArrayInput
 }
 
 func (ConfigArgs) ElementType() reflect.Type {
@@ -117,26 +129,32 @@ func (o ConfigOutput) ToConfigOutputWithContext(ctx context.Context) ConfigOutpu
 	return o
 }
 
+// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o ConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o ConfigOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
 func (o ConfigOutput) ConfigData() ConfigDataOutput {
 	return o.ApplyT(func(v *Config) ConfigDataOutput { return v.ConfigData }).(ConfigDataOutput)
 }
 
+// The name of the config object.
 func (o ConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Tags assigned to a resource.
 func (o ConfigOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Config) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the config, such as `tracking` .
 func (o ConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

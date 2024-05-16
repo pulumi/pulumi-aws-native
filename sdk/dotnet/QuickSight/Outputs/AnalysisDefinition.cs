@@ -13,13 +13,43 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefinition
     {
+        /// <summary>
+        /// The configuration for default analysis settings.
+        /// </summary>
         public readonly Outputs.AnalysisDefaults? AnalysisDefaults;
+        /// <summary>
+        /// The calculated field of an analysis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisCalculatedField> CalculatedFields;
+        /// <summary>
+        /// The general configuration of a column.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisColumnConfiguration> ColumnConfigurations;
+        /// <summary>
+        /// A data set.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataSetIdentifierDeclaration> DataSetIdentifierDeclarations;
+        /// <summary>
+        /// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+        /// 
+        /// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFilterGroup> FilterGroups;
+        /// <summary>
+        /// An array of analysis level configurations.
+        /// </summary>
         public readonly Outputs.AnalysisAssetOptions? Options;
+        /// <summary>
+        /// The declaration definition of a parameter.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisParameterDeclaration> ParameterDeclarations;
+        /// <summary>
+        /// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetDefinition> Sheets;
 
         [OutputConstructor]

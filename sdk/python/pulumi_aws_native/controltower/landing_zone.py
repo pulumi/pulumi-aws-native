@@ -22,7 +22,11 @@ class LandingZoneArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
-        :param Any manifest: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        :param Any manifest: The landing zone manifest JSON text file that specifies the landing zone configurations.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        :param pulumi.Input[str] version: The landing zone's current deployed version.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags applied to the landing zone.
         """
         pulumi.set(__self__, "manifest", manifest)
         pulumi.set(__self__, "version", version)
@@ -33,6 +37,8 @@ class LandingZoneArgs:
     @pulumi.getter
     def manifest(self) -> Any:
         """
+        The landing zone manifest JSON text file that specifies the landing zone configurations.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "manifest")
@@ -44,6 +50,9 @@ class LandingZoneArgs:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
+        """
+        The landing zone's current deployed version.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -53,6 +62,9 @@ class LandingZoneArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags applied to the landing zone.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -74,7 +86,11 @@ class LandingZone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any manifest: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        :param Any manifest: The landing zone manifest JSON text file that specifies the landing zone configurations.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags applied to the landing zone.
+        :param pulumi.Input[str] version: The landing zone's current deployed version.
         """
         ...
     @overload
@@ -159,27 +175,41 @@ class LandingZone(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the landing zone.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="driftStatus")
     def drift_status(self) -> pulumi.Output['LandingZoneDriftStatus']:
+        """
+        The drift status of the landing zone.
+        """
         return pulumi.get(self, "drift_status")
 
     @property
     @pulumi.getter(name="landingZoneIdentifier")
     def landing_zone_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the landing zone.
+        """
         return pulumi.get(self, "landing_zone_identifier")
 
     @property
     @pulumi.getter(name="latestAvailableVersion")
     def latest_available_version(self) -> pulumi.Output[str]:
+        """
+        The latest available version of the landing zone.
+        """
         return pulumi.get(self, "latest_available_version")
 
     @property
     @pulumi.getter
     def manifest(self) -> pulumi.Output[Any]:
         """
+        The landing zone manifest JSON text file that specifies the landing zone configurations.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "manifest")
@@ -187,15 +217,24 @@ class LandingZone(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['LandingZoneStatus']:
+        """
+        The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags applied to the landing zone.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
+        """
+        The landing zone's current deployed version.
+        """
         return pulumi.get(self, "version")
 

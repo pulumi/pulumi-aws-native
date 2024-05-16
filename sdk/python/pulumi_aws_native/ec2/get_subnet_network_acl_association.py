@@ -26,6 +26,9 @@ class GetSubnetNetworkAclAssociationResult:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[str]:
+        """
+        Returns the value of this object's AssociationId property.
+        """
         return pulumi.get(self, "association_id")
 
 
@@ -42,6 +45,9 @@ def get_subnet_network_acl_association(association_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetNetworkAclAssociationResult:
     """
     Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
+
+
+    :param str association_id: Returns the value of this object's AssociationId property.
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -57,5 +63,8 @@ def get_subnet_network_acl_association_output(association_id: Optional[pulumi.In
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetNetworkAclAssociationResult]:
     """
     Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
+
+
+    :param str association_id: Returns the value of this object's AssociationId property.
     """
     ...

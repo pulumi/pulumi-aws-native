@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipePlacementConstraint
     {
+        /// <summary>
+        /// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         public readonly string? Expression;
+        /// <summary>
+        /// The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipePlacementConstraintType? Type;
 
         [OutputConstructor]

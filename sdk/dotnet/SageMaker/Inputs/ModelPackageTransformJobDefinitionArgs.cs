@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("batchStrategy")]
         public Input<Pulumi.AwsNative.SageMaker.ModelPackageTransformJobDefinitionBatchStrategy>? BatchStrategy { get; set; }
 
+        /// <summary>
+        /// The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
+        /// </summary>
         [Input("environment")]
         public Input<Inputs.ModelPackageEnvironmentArgs>? Environment { get; set; }
 
@@ -36,12 +39,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("maxPayloadInMb")]
         public Input<int>? MaxPayloadInMb { get; set; }
 
+        /// <summary>
+        /// Describes the input source of a transform job and the way the transform job consumes it.
+        /// </summary>
         [Input("transformInput", required: true)]
         public Input<Inputs.ModelPackageTransformInputArgs> TransformInput { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the results of a transform job.
+        /// </summary>
         [Input("transformOutput", required: true)]
         public Input<Inputs.ModelPackageTransformOutputArgs> TransformOutput { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+        /// </summary>
         [Input("transformResources", required: true)]
         public Input<Inputs.ModelPackageTransformResourcesArgs> TransformResources { get; set; } = null!;
 

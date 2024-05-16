@@ -161,6 +161,9 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The component type status state.
+    /// </summary>
     [EnumType]
     public readonly struct ComponentTypeStatusState : IEquatable<ComponentTypeStatusState>
     {
@@ -315,6 +318,11 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The current state of the entity, component, component type, or workspace.
+    /// 
+    /// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
+    /// </summary>
     [EnumType]
     public readonly struct EntityStatusState : IEquatable<EntityStatusState>
     {

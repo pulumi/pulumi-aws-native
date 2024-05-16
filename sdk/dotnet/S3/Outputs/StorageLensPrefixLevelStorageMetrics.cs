@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// Specifies whether prefix-level storage metrics are enabled or disabled.
         /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+        /// </summary>
         public readonly Outputs.StorageLensSelectionCriteria? SelectionCriteria;
 
         [OutputConstructor]

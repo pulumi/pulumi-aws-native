@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTextFieldControlDisplayOptions
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         public readonly Outputs.DashboardSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The configuration of the placeholder options in a text control.
+        /// </summary>
         public readonly Outputs.DashboardTextControlPlaceholderOptions? PlaceholderOptions;
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         public readonly Outputs.DashboardLabelOptions? TitleOptions;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class CloudFrontOriginAccessIdentityConfig
     {
+        /// <summary>
+        /// A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string Comment;
 
         [OutputConstructor]

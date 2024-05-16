@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateParameterControl
     {
+        /// <summary>
+        /// A control from a date parameter that specifies date and time.
+        /// </summary>
         public readonly Outputs.TemplateParameterDateTimePickerControl? DateTimePicker;
+        /// <summary>
+        /// A control to display a dropdown list with buttons that are used to select a single value.
+        /// </summary>
         public readonly Outputs.TemplateParameterDropDownControl? Dropdown;
+        /// <summary>
+        /// A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+        /// </summary>
         public readonly Outputs.TemplateParameterListControl? List;
+        /// <summary>
+        /// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+        /// </summary>
         public readonly Outputs.TemplateParameterSliderControl? Slider;
+        /// <summary>
+        /// A control to display a text box that is used to enter multiple entries.
+        /// </summary>
         public readonly Outputs.TemplateParameterTextAreaControl? TextArea;
+        /// <summary>
+        /// A control to display a text box that is used to enter a single entry.
+        /// </summary>
         public readonly Outputs.TemplateParameterTextFieldControl? TextField;
 
         [OutputConstructor]

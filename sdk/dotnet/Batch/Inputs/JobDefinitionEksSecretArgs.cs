@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksSecretArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the secret or the secret's keys must be defined.
+        /// </summary>
         [Input("optional")]
         public Input<bool>? Optional { get; set; }
 
+        /// <summary>
+        /// The name of the secret. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 

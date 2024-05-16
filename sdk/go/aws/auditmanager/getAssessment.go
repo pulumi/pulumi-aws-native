@@ -24,19 +24,30 @@ func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...p
 }
 
 type LookupAssessmentArgs struct {
+	// The unique identifier for the assessment.
 	AssessmentId string `pulumi:"assessmentId"`
 }
 
 type LookupAssessmentResult struct {
-	Arn                          *string                       `pulumi:"arn"`
-	AssessmentId                 *string                       `pulumi:"assessmentId"`
+	// The Amazon Resource Name (ARN) of the assessment.
+	Arn *string `pulumi:"arn"`
+	// The unique identifier for the assessment.
+	AssessmentId *string `pulumi:"assessmentId"`
+	// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
 	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	CreationTime                 *float64                      `pulumi:"creationTime"`
+	// Specifies when the assessment was created.
+	CreationTime *float64 `pulumi:"creationTime"`
 	// The list of delegations.
 	Delegations []AssessmentDelegation `pulumi:"delegations"`
 	// The list of roles for the specified assessment.
-	Roles  []AssessmentRole  `pulumi:"roles"`
-	Scope  *AssessmentScope  `pulumi:"scope"`
+	Roles []AssessmentRole `pulumi:"roles"`
+	// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+	Scope *AssessmentScope `pulumi:"scope"`
+	// The overall status of the assessment.
+	//
+	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+	//
+	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status *AssessmentStatus `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -56,6 +67,7 @@ func LookupAssessmentOutput(ctx *pulumi.Context, args LookupAssessmentOutputArgs
 }
 
 type LookupAssessmentOutputArgs struct {
+	// The unique identifier for the assessment.
 	AssessmentId pulumi.StringInput `pulumi:"assessmentId"`
 }
 
@@ -77,18 +89,22 @@ func (o LookupAssessmentResultOutput) ToLookupAssessmentResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the assessment.
 func (o LookupAssessmentResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the assessment.
 func (o LookupAssessmentResultOutput) AssessmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *string { return v.AssessmentId }).(pulumi.StringPtrOutput)
 }
 
+// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
 func (o LookupAssessmentResultOutput) AssessmentReportsDestination() AssessmentReportsDestinationPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *AssessmentReportsDestination { return v.AssessmentReportsDestination }).(AssessmentReportsDestinationPtrOutput)
 }
 
+// Specifies when the assessment was created.
 func (o LookupAssessmentResultOutput) CreationTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *float64 { return v.CreationTime }).(pulumi.Float64PtrOutput)
 }
@@ -103,10 +119,16 @@ func (o LookupAssessmentResultOutput) Roles() AssessmentRoleArrayOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) []AssessmentRole { return v.Roles }).(AssessmentRoleArrayOutput)
 }
 
+// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
 func (o LookupAssessmentResultOutput) Scope() AssessmentScopePtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *AssessmentScope { return v.Scope }).(AssessmentScopePtrOutput)
 }
 
+// The overall status of the assessment.
+//
+// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+//
+// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 func (o LookupAssessmentResultOutput) Status() AssessmentStatusPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *AssessmentStatus { return v.Status }).(AssessmentStatusPtrOutput)
 }

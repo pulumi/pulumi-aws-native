@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetQueueEnvironmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier assigned to the farm that contains the queue.
+        /// </summary>
         [Input("farmId", required: true)]
         public string FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The queue environment ID.
+        /// </summary>
         [Input("queueEnvironmentId", required: true)]
         public string QueueEnvironmentId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the queue that contains the environment.
+        /// </summary>
         [Input("queueId", required: true)]
         public string QueueId { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetQueueEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier assigned to the farm that contains the queue.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The queue environment ID.
+        /// </summary>
         [Input("queueEnvironmentId", required: true)]
         public Input<string> QueueEnvironmentId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the queue that contains the environment.
+        /// </summary>
         [Input("queueId", required: true)]
         public Input<string> QueueId { get; set; } = null!;
 
@@ -63,10 +81,25 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetQueueEnvironmentResult
     {
+        /// <summary>
+        /// The name of the queue environment.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The queue environment's priority.
+        /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// The queue environment ID.
+        /// </summary>
         public readonly string? QueueEnvironmentId;
+        /// <summary>
+        /// A JSON or YAML template the describes the processing environment for the queue.
+        /// </summary>
         public readonly string? Template;
+        /// <summary>
+        /// Specifies whether the template for the queue environment is JSON or YAML.
+        /// </summary>
         public readonly Pulumi.AwsNative.Deadline.QueueEnvironmentEnvironmentTemplateType? TemplateType;
 
         [OutputConstructor]

@@ -244,6 +244,9 @@ class Eip(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[str]:
+        """
+        The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+        """
         return pulumi.get(self, "allocation_id")
 
     @property
@@ -276,6 +279,9 @@ class Eip(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[str]:
+        """
+        The Elastic IP address.
+        """
         return pulumi.get(self, "public_ip")
 
     @property

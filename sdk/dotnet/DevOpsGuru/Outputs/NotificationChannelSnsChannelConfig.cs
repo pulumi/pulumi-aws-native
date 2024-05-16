@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
     [OutputType]
     public sealed class NotificationChannelSnsChannelConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        /// </summary>
         public readonly string? TopicArn;
 
         [OutputConstructor]

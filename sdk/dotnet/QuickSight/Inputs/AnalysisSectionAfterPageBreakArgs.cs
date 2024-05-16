@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSectionAfterPageBreakArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that enables or disables a page break at the end of a section.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSectionPageBreakStatus>? Status { get; set; }
 

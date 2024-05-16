@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensGroupTag
     {
+        /// <summary>
+        /// Name of the object key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of the tag.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

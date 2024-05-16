@@ -71,15 +71,27 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the project.
+        /// </summary>
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the project.
+        /// </summary>
         [Output("projectDescription")]
         public Output<string?> ProjectDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the project. This ID is prepended to all entities associated with this project.
+        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the project.
+        /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
@@ -159,9 +171,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the project.
+        /// </summary>
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
+        /// <summary>
+        /// The name of the project.
+        /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 

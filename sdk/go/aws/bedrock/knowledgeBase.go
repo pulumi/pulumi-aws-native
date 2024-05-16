@@ -23,17 +23,24 @@ type KnowledgeBase struct {
 	// A list of reasons that the API operation on the knowledge base failed.
 	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
 	// The ARN of the knowledge base.
-	KnowledgeBaseArn           pulumi.StringOutput              `pulumi:"knowledgeBaseArn"`
+	KnowledgeBaseArn pulumi.StringOutput `pulumi:"knowledgeBaseArn"`
+	// Contains details about the embeddings configuration of the knowledge base.
 	KnowledgeBaseConfiguration KnowledgeBaseConfigurationOutput `pulumi:"knowledgeBaseConfiguration"`
 	// The unique identifier of the knowledge base.
 	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
 	// The name of the knowledge base.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-	RoleArn              pulumi.StringOutput                     `pulumi:"roleArn"`
-	Status               KnowledgeBaseStatusOutput               `pulumi:"status"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The status of the knowledge base.
+	Status KnowledgeBaseStatusOutput `pulumi:"status"`
+	// Contains the storage configuration of the knowledge base.
 	StorageConfiguration KnowledgeBaseStorageConfigurationOutput `pulumi:"storageConfiguration"`
-	Tags                 pulumi.StringMapOutput                  `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The time at which the knowledge base was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -93,27 +100,39 @@ func (KnowledgeBaseState) ElementType() reflect.Type {
 
 type knowledgeBaseArgs struct {
 	// Description of the Resource.
-	Description                *string                    `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Contains details about the embeddings configuration of the knowledge base.
 	KnowledgeBaseConfiguration KnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// The name of the knowledge base.
 	Name *string `pulumi:"name"`
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-	RoleArn              string                            `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// Contains the storage configuration of the knowledge base.
 	StorageConfiguration KnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
-	Tags                 map[string]string                 `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KnowledgeBase resource.
 type KnowledgeBaseArgs struct {
 	// Description of the Resource.
-	Description                pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// Contains details about the embeddings configuration of the knowledge base.
 	KnowledgeBaseConfiguration KnowledgeBaseConfigurationInput
 	// The name of the knowledge base.
 	Name pulumi.StringPtrInput
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-	RoleArn              pulumi.StringInput
+	RoleArn pulumi.StringInput
+	// Contains the storage configuration of the knowledge base.
 	StorageConfiguration KnowledgeBaseStorageConfigurationInput
-	Tags                 pulumi.StringMapInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapInput
 }
 
 func (KnowledgeBaseArgs) ElementType() reflect.Type {
@@ -173,6 +192,7 @@ func (o KnowledgeBaseOutput) KnowledgeBaseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseArn }).(pulumi.StringOutput)
 }
 
+// Contains details about the embeddings configuration of the knowledge base.
 func (o KnowledgeBaseOutput) KnowledgeBaseConfiguration() KnowledgeBaseConfigurationOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseConfigurationOutput { return v.KnowledgeBaseConfiguration }).(KnowledgeBaseConfigurationOutput)
 }
@@ -192,14 +212,20 @@ func (o KnowledgeBaseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The status of the knowledge base.
 func (o KnowledgeBaseOutput) Status() KnowledgeBaseStatusOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseStatusOutput { return v.Status }).(KnowledgeBaseStatusOutput)
 }
 
+// Contains the storage configuration of the knowledge base.
 func (o KnowledgeBaseOutput) StorageConfiguration() KnowledgeBaseStorageConfigurationOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseStorageConfigurationOutput { return v.StorageConfiguration }).(KnowledgeBaseStorageConfigurationOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o KnowledgeBaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

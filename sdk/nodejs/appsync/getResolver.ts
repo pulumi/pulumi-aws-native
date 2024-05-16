@@ -21,6 +21,9 @@ export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetResolverArgs {
+    /**
+     * ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+     */
     resolverArn: string;
 }
 
@@ -60,6 +63,9 @@ export interface GetResolverResult {
      *  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
      */
     readonly requestMappingTemplate?: string;
+    /**
+     * ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+     */
     readonly resolverArn?: string;
     /**
      * The response mapping template.
@@ -84,5 +90,8 @@ export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetResolverOutputArgs {
+    /**
+     * ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+     */
     resolverArn: pulumi.Input<string>;
 }

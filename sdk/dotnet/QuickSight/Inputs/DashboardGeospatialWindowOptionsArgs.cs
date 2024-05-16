@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialWindowOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The bound options (north, south, west, east) of the geospatial window options.
+        /// </summary>
         [Input("bounds")]
         public Input<Inputs.DashboardGeospatialCoordinateBoundsArgs>? Bounds { get; set; }
 
+        /// <summary>
+        /// The map zoom modes (manual, auto) of the geospatial window options.
+        /// </summary>
         [Input("mapZoomMode")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardMapZoomMode>? MapZoomMode { get; set; }
 

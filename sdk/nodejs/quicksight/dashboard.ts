@@ -41,13 +41,25 @@ export class Dashboard extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) of the resource.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account where you want to create the dashboard.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * <p>The time that this dashboard was created.</p>
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The ID for the dashboard, also added to the IAM policy.
+     */
     public readonly dashboardId!: pulumi.Output<string>;
+    /**
+     * Dashboard publish options.
+     */
     public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
+    /**
+     * The contents of a dashboard.
+     */
     public readonly definition!: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
     /**
      * <p>The last time that this dashboard was published.</p>
@@ -57,16 +69,49 @@ export class Dashboard extends pulumi.CustomResource {
      * <p>The last time that this dashboard was updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+     */
     public readonly linkEntities!: pulumi.Output<string[] | undefined>;
+    /**
+     * A structure that contains the configuration of a shareable link to the dashboard.
+     */
     public readonly linkSharingConfiguration!: pulumi.Output<outputs.quicksight.DashboardLinkSharingConfiguration | undefined>;
+    /**
+     * The display name of the dashboard.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of Amazon QuickSight parameters and the list's override values.
+     */
     public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
+    /**
+     * Permission for the resource.
+     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
+    /**
+     * Dashboard source entity.
+     */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+     */
     public readonly themeArn!: pulumi.Output<string | undefined>;
+    /**
+     * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+     */
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.DashboardValidationStrategy | undefined>;
+    /**
+     * Dashboard version.
+     */
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardVersion>;
+    /**
+     * A description for the first version of the dashboard being created.
+     */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
@@ -137,18 +182,60 @@ export class Dashboard extends pulumi.CustomResource {
  * The set of arguments for constructing a Dashboard resource.
  */
 export interface DashboardArgs {
+    /**
+     * The ID of the AWS account where you want to create the dashboard.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The ID for the dashboard, also added to the IAM policy.
+     */
     dashboardId: pulumi.Input<string>;
+    /**
+     * Dashboard publish options.
+     */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs>;
+    /**
+     * The contents of a dashboard.
+     */
     definition?: pulumi.Input<inputs.quicksight.DashboardVersionDefinitionArgs>;
+    /**
+     * A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+     */
     linkEntities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A structure that contains the configuration of a shareable link to the dashboard.
+     */
     linkSharingConfiguration?: pulumi.Input<inputs.quicksight.DashboardLinkSharingConfigurationArgs>;
+    /**
+     * The display name of the dashboard.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of Amazon QuickSight parameters and the list's override values.
+     */
     parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
+    /**
+     * Permission for the resource.
+     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
+    /**
+     * Dashboard source entity.
+     */
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+     */
     themeArn?: pulumi.Input<string>;
+    /**
+     * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+     */
     validationStrategy?: pulumi.Input<inputs.quicksight.DashboardValidationStrategyArgs>;
+    /**
+     * A description for the first version of the dashboard being created.
+     */
     versionDescription?: pulumi.Input<string>;
 }

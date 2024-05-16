@@ -31,6 +31,9 @@ export interface GetTableArgs {
 }
 
 export interface GetTableResult {
+    /**
+     * The `arn` of the table.
+     */
     readonly arn?: string;
     /**
      * The properties that determine whether magnetic store writes are enabled.

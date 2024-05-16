@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Athena.Inputs
     {
         [Input("capacityAssignments", required: true)]
         private InputList<Inputs.CapacityReservationCapacityAssignmentArgs>? _capacityAssignments;
+
+        /// <summary>
+        /// The list of assignments that make up the capacity assignment configuration.
+        /// </summary>
         public InputList<Inputs.CapacityReservationCapacityAssignmentArgs> CapacityAssignments
         {
             get => _capacityAssignments ?? (_capacityAssignments = new InputList<Inputs.CapacityReservationCapacityAssignmentArgs>());

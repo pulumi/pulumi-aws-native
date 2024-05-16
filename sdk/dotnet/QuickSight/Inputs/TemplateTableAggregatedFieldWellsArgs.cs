@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("groupBy")]
         private InputList<Inputs.TemplateDimensionFieldArgs>? _groupBy;
+
+        /// <summary>
+        /// The group by field well for a pivot table. Values are grouped by group by fields.
+        /// </summary>
         public InputList<Inputs.TemplateDimensionFieldArgs> GroupBy
         {
             get => _groupBy ?? (_groupBy = new InputList<Inputs.TemplateDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.TemplateMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The values field well for a pivot table. Values are aggregated based on group by fields.
+        /// </summary>
         public InputList<Inputs.TemplateMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.TemplateMeasureFieldArgs>());

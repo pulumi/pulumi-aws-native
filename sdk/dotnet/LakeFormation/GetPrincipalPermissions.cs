@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.LakeFormation
 
     public sealed class GetPrincipalPermissionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+        /// </summary>
         [Input("principalIdentifier", required: true)]
         public string PrincipalIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+        /// </summary>
         [Input("resourceIdentifier", required: true)]
         public string ResourceIdentifier { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.LakeFormation
 
     public sealed class GetPrincipalPermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+        /// </summary>
         [Input("principalIdentifier", required: true)]
         public Input<string> PrincipalIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+        /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;
 
@@ -57,7 +69,13 @@ namespace Pulumi.AwsNative.LakeFormation
     [OutputType]
     public sealed class GetPrincipalPermissionsResult
     {
+        /// <summary>
+        /// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+        /// </summary>
         public readonly string? PrincipalIdentifier;
+        /// <summary>
+        /// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+        /// </summary>
         public readonly string? ResourceIdentifier;
 
         [OutputConstructor]

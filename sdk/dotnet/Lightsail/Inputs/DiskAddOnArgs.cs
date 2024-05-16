@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         [Input("addOnType", required: true)]
         public Input<string> AddOnType { get; set; } = null!;
 
+        /// <summary>
+        /// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        /// </summary>
         [Input("autoSnapshotAddOnRequest")]
         public Input<Inputs.DiskAutoSnapshotAddOnArgs>? AutoSnapshotAddOnRequest { get; set; }
 

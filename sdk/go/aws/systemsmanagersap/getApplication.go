@@ -29,7 +29,9 @@ type LookupApplicationArgs struct {
 }
 
 type LookupApplicationResult struct {
-	ApplicationId   *string          `pulumi:"applicationId"`
+	// The ID of the application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The type of the application.
 	ApplicationType *ApplicationType `pulumi:"applicationType"`
 	// The ARN of the Helix application
 	Arn *string `pulumi:"arn"`
@@ -73,10 +75,12 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
+// The ID of the application.
 func (o LookupApplicationResultOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// The type of the application.
 func (o LookupApplicationResultOutput) ApplicationType() ApplicationTypePtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationType { return v.ApplicationType }).(ApplicationTypePtrOutput)
 }

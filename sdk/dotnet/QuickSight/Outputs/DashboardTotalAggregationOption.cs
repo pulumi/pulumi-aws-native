@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTotalAggregationOption
     {
+        /// <summary>
+        /// The field id that's associated with the total aggregation option.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// An aggregation function that aggregates the total values of a measure.
+        /// </summary>
         public readonly Outputs.DashboardTotalAggregationFunction TotalAggregationFunction;
 
         [OutputConstructor]

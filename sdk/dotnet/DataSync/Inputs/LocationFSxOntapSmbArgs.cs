@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        /// <summary>
+        /// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+        /// </summary>
         [Input("mountOptions", required: true)]
         public Input<Inputs.LocationFSxOntapSmbMountOptionsArgs> MountOptions { get; set; } = null!;
 

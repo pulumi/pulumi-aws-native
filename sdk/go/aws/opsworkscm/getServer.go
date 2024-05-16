@@ -23,15 +23,33 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
+	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 }
 
 type LookupServerResult struct {
-	Arn                        *string `pulumi:"arn"`
-	BackupRetentionCount       *int    `pulumi:"backupRetentionCount"`
-	DisableAutomatedBackup     *bool   `pulumi:"disableAutomatedBackup"`
-	Endpoint                   *string `pulumi:"endpoint"`
-	PreferredBackupWindow      *string `pulumi:"preferredBackupWindow"`
+	// The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
+	Arn *string `pulumi:"arn"`
+	// The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+	BackupRetentionCount *int `pulumi:"backupRetentionCount"`
+	// Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+	DisableAutomatedBackup *bool `pulumi:"disableAutomatedBackup"`
+	// A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
+	Endpoint *string `pulumi:"endpoint"`
+	// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+	//
+	// - `HH:MM` for daily backups
+	// - `DDD:HH:MM` for weekly backups
+	//
+	// `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+	//
+	// *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+	//
+	// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
+	// The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+	//
+	// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 }
 
@@ -49,6 +67,7 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 }
 
 type LookupServerOutputArgs struct {
+	// The name of the server.
 	ServerName pulumi.StringInput `pulumi:"serverName"`
 }
 
@@ -70,26 +89,43 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
 func (o LookupServerResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
 func (o LookupServerResultOutput) BackupRetentionCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *int { return v.BackupRetentionCount }).(pulumi.IntPtrOutput)
 }
 
+// Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
 func (o LookupServerResultOutput) DisableAutomatedBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *bool { return v.DisableAutomatedBackup }).(pulumi.BoolPtrOutput)
 }
 
+// A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
 func (o LookupServerResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
+// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+//
+// - `HH:MM` for daily backups
+// - `DDD:HH:MM` for weekly backups
+//
+// `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+//
+// *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+//
+// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
 func (o LookupServerResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
+// The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+//
+// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
 func (o LookupServerResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }

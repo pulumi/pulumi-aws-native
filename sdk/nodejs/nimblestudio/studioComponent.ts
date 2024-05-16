@@ -37,6 +37,9 @@ export class StudioComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === StudioComponent.__pulumiType;
     }
 
+    /**
+     * The configuration of the studio component, based on component type.
+     */
     public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration0Properties | outputs.nimblestudio.StudioComponentConfiguration1Properties | outputs.nimblestudio.StudioComponentConfiguration2Properties | outputs.nimblestudio.StudioComponentConfiguration3Properties | undefined>;
     /**
      * <p>The description.</p>
@@ -54,19 +57,39 @@ export class StudioComponent extends pulumi.CustomResource {
      * <p>The name for the studio component.</p>
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
+     */
     public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */
     public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
+    /**
+     * An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+     */
     public readonly secureInitializationRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier for the studio component resource.
+     */
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
     /**
      * <p>The studio ID. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
+    /**
+     * The specific subtype of a studio component.
+     */
     public readonly subtype!: pulumi.Output<enums.nimblestudio.StudioComponentSubtype | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the studio component.
+     */
     public readonly type!: pulumi.Output<enums.nimblestudio.StudioComponentType>;
 
     /**
@@ -125,6 +148,9 @@ export class StudioComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a StudioComponent resource.
  */
 export interface StudioComponentArgs {
+    /**
+     * The configuration of the studio component, based on component type.
+     */
     configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfiguration0PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration1PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration2PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration3PropertiesArgs>;
     /**
      * <p>The description.</p>
@@ -142,17 +168,34 @@ export interface StudioComponentArgs {
      * <p>The name for the studio component.</p>
      */
     name?: pulumi.Input<string>;
+    /**
+     * An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
+     */
     runtimeRoleArn?: pulumi.Input<string>;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */
     scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
+    /**
+     * An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+     */
     secureInitializationRoleArn?: pulumi.Input<string>;
     /**
      * <p>The studio ID. </p>
      */
     studioId: pulumi.Input<string>;
+    /**
+     * The specific subtype of a studio component.
+     */
     subtype?: pulumi.Input<enums.nimblestudio.StudioComponentSubtype>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the studio component.
+     */
     type: pulumi.Input<enums.nimblestudio.StudioComponentType>;
 }

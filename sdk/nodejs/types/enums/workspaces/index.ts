@@ -10,6 +10,9 @@ export const ConnectionAliasAssociationAssociationStatus = {
     PendingDisassociation: "PENDING_DISASSOCIATION",
 } as const;
 
+/**
+ * The association status of the connection alias.
+ */
 export type ConnectionAliasAssociationAssociationStatus = (typeof ConnectionAliasAssociationAssociationStatus)[keyof typeof ConnectionAliasAssociationAssociationStatus];
 
 export const ConnectionAliasState = {
@@ -18,4 +21,7 @@ export const ConnectionAliasState = {
     Deleting: "DELETING",
 } as const;
 
+/**
+ * The current state of the connection alias, returned as a string.
+ */
 export type ConnectionAliasState = (typeof ConnectionAliasState)[keyof typeof ConnectionAliasState];

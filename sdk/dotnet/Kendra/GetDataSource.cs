@@ -27,9 +27,17 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetDataSourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the data source. For example:
+        /// 
+        /// `b8cae438-6787-4091-8897-684a652bbb0a` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the index you want to use with the data source connector.
+        /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
 
@@ -41,9 +49,17 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetDataSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the data source. For example:
+        /// 
+        /// `b8cae438-6787-4091-8897-684a652bbb0a` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the index you want to use with the data source connector.
+        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
@@ -57,15 +73,55 @@ namespace Pulumi.AwsNative.Kendra
     [OutputType]
     public sealed class GetDataSourceResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data source. For example:
+        /// 
+        /// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Provides the configuration information for altering document metadata and content during the document ingestion process.
+        /// 
+        /// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfiguration? CustomDocumentEnrichmentConfiguration;
+        /// <summary>
+        /// Provides the configuration information for an Amazon Kendra data source.
+        /// </summary>
         public readonly Outputs.DataSourceConfiguration? DataSourceConfiguration;
+        /// <summary>
+        /// A description for the data source connector.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The identifier for the data source. For example:
+        /// 
+        /// `b8cae438-6787-4091-8897-684a652bbb0a` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The identifier of the index you want to use with the data source connector.
+        /// </summary>
         public readonly string? IndexId;
+        /// <summary>
+        /// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        /// </summary>
         public readonly string? LanguageCode;
+        /// <summary>
+        /// The name of the data source.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+        /// 
+        /// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `RoleArn` parameter is required for all other data sources.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+        /// </summary>
         public readonly string? Schedule;
         /// <summary>
         /// Tags for labeling the data source

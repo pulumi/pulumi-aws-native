@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDataLabelTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that specifies individual data values for labels.
+        /// </summary>
         [Input("dataPathLabelType")]
         public Input<Inputs.AnalysisDataPathLabelTypeArgs>? DataPathLabelType { get; set; }
 
+        /// <summary>
+        /// The field label type.
+        /// </summary>
         [Input("fieldLabelType")]
         public Input<Inputs.AnalysisFieldLabelTypeArgs>? FieldLabelType { get; set; }
 
+        /// <summary>
+        /// The maximum label of a data path label.
+        /// </summary>
         [Input("maximumLabelType")]
         public Input<Inputs.AnalysisMaximumLabelTypeArgs>? MaximumLabelType { get; set; }
 
+        /// <summary>
+        /// The minimum label of a data path label.
+        /// </summary>
         [Input("minimumLabelType")]
         public Input<Inputs.AnalysisMinimumLabelTypeArgs>? MinimumLabelType { get; set; }
 
+        /// <summary>
+        /// The range ends label type of a data path label.
+        /// </summary>
         [Input("rangeEndsLabelType")]
         public Input<Inputs.AnalysisRangeEndsLabelTypeArgs>? RangeEndsLabelType { get; set; }
 

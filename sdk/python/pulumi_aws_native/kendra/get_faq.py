@@ -36,16 +36,27 @@ class GetFaqResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier for the FAQ. For example:
+
+        `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[str]:
+        """
+        The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        """
         return pulumi.get(self, "language_code")
 
     @property
@@ -76,6 +87,9 @@ def get_faq(id: Optional[str] = None,
     A Kendra FAQ resource
 
 
+    :param str id: The identifier for the FAQ. For example:
+           
+           `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
     :param str index_id: Index ID
     """
     __args__ = dict()
@@ -99,6 +113,9 @@ def get_faq_output(id: Optional[pulumi.Input[str]] = None,
     A Kendra FAQ resource
 
 
+    :param str id: The identifier for the FAQ. For example:
+           
+           `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
     :param str index_id: Index ID
     """
     ...

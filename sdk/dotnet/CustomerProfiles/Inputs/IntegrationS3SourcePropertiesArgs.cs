@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationS3SourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket name where the source files are stored.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The object key for the Amazon S3 bucket in which the source files are stored.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 

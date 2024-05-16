@@ -15,21 +15,45 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:NetworkSettings")]
     public partial class NetworkSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of web portal ARNs that this network settings is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the network settings.
+        /// </summary>
         [Output("networkSettingsArn")]
         public Output<string> NetworkSettingsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more security groups used to control access from streaming instances to your VPC.
+        /// 
+        /// *Pattern* : `^[\w+\-]+$`
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+        /// 
+        /// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC that streaming instances will connect to.
+        /// 
+        /// *Pattern* : `^vpc-[0-9a-z]*$`
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -80,6 +104,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// One or more security groups used to control access from streaming instances to your VPC.
+        /// 
+        /// *Pattern* : `^[\w+\-]+$`
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -88,6 +118,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+        /// 
+        /// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -96,12 +132,21 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tag.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The VPC that streaming instances will connect to.
+        /// 
+        /// *Pattern* : `^vpc-[0-9a-z]*$`
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

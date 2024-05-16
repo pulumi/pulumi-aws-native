@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class ConnectorPlugin
     {
+        /// <summary>
+        /// A plugin is an AWS resource that contains the code that defines a connector's logic.
+        /// </summary>
         public readonly Outputs.ConnectorCustomPlugin CustomPlugin;
 
         [OutputConstructor]

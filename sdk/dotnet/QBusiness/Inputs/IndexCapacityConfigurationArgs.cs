@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class IndexCapacityConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of storage units configured for an Amazon Q Business index.
+        /// </summary>
         [Input("units")]
         public Input<double>? Units { get; set; }
 

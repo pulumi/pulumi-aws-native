@@ -16,6 +16,7 @@ import (
 type DrtAccess struct {
 	pulumi.CustomResourceState
 
+	// The ID of the account that submitted the template.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
 	LogBucketList pulumi.StringArrayOutput `pulumi:"logBucketList"`
@@ -117,6 +118,7 @@ func (o DrtAccessOutput) ToDrtAccessOutputWithContext(ctx context.Context) DrtAc
 	return o
 }
 
+// The ID of the account that submitted the template.
 func (o DrtAccessOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccess) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

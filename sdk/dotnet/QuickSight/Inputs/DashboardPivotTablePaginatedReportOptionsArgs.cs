@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPivotTablePaginatedReportOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the repeating header rows on each page.
+        /// </summary>
         [Input("overflowColumnHeaderVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? OverflowColumnHeaderVisibility { get; set; }
 
+        /// <summary>
+        /// The visibility of the printing table overflow across pages.
+        /// </summary>
         [Input("verticalOverflowVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? VerticalOverflowVisibility { get; set; }
 

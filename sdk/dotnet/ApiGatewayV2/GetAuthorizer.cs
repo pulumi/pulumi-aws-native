@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The authorizer ID.
+        /// </summary>
         [Input("authorizerId", required: true)]
         public string AuthorizerId { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The authorizer ID.
+        /// </summary>
         [Input("authorizerId", required: true)]
         public Input<string> AuthorizerId { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for ``REQUEST`` authorizers.
         /// </summary>
         public readonly string? AuthorizerCredentialsArn;
+        /// <summary>
+        /// The authorizer ID.
+        /// </summary>
         public readonly string? AuthorizerId;
         /// <summary>
         /// Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are ``1.0`` and ``2.0``. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).

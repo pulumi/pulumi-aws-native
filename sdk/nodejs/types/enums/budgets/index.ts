@@ -7,6 +7,9 @@ export const BudgetsActionActionThresholdType = {
     AbsoluteValue: "ABSOLUTE_VALUE",
 } as const;
 
+/**
+ * The type of threshold for a notification.
+ */
 export type BudgetsActionActionThresholdType = (typeof BudgetsActionActionThresholdType)[keyof typeof BudgetsActionActionThresholdType];
 
 export const BudgetsActionActionType = {
@@ -15,6 +18,9 @@ export const BudgetsActionActionType = {
     RunSsmDocuments: "RUN_SSM_DOCUMENTS",
 } as const;
 
+/**
+ * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+ */
 export type BudgetsActionActionType = (typeof BudgetsActionActionType)[keyof typeof BudgetsActionActionType];
 
 export const BudgetsActionApprovalModel = {
@@ -22,6 +28,9 @@ export const BudgetsActionApprovalModel = {
     Manual: "MANUAL",
 } as const;
 
+/**
+ * This specifies if the action needs manual or automatic approval.
+ */
 export type BudgetsActionApprovalModel = (typeof BudgetsActionApprovalModel)[keyof typeof BudgetsActionApprovalModel];
 
 export const BudgetsActionNotificationType = {
@@ -29,6 +38,9 @@ export const BudgetsActionNotificationType = {
     Forecasted: "FORECASTED",
 } as const;
 
+/**
+ * The type of a notification.
+ */
 export type BudgetsActionNotificationType = (typeof BudgetsActionNotificationType)[keyof typeof BudgetsActionNotificationType];
 
 export const BudgetsActionSsmActionDefinitionSubtype = {
@@ -36,6 +48,9 @@ export const BudgetsActionSsmActionDefinitionSubtype = {
     StopRdsInstances: "STOP_RDS_INSTANCES",
 } as const;
 
+/**
+ * The action subType.
+ */
 export type BudgetsActionSsmActionDefinitionSubtype = (typeof BudgetsActionSsmActionDefinitionSubtype)[keyof typeof BudgetsActionSsmActionDefinitionSubtype];
 
 export const BudgetsActionSubscriberType = {
@@ -43,4 +58,7 @@ export const BudgetsActionSubscriberType = {
     Email: "EMAIL",
 } as const;
 
+/**
+ * The type of notification that AWS sends to a subscriber.
+ */
 export type BudgetsActionSubscriberType = (typeof BudgetsActionSubscriberType)[keyof typeof BudgetsActionSubscriberType];

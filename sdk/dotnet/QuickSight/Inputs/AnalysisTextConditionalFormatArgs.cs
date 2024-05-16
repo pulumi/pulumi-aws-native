@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTextConditionalFormatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         [Input("backgroundColor")]
         public Input<Inputs.AnalysisConditionalFormattingColorArgs>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// The formatting configuration for the icon.
+        /// </summary>
         [Input("icon")]
         public Input<Inputs.AnalysisConditionalFormattingIconArgs>? Icon { get; set; }
 
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         [Input("textColor")]
         public Input<Inputs.AnalysisConditionalFormattingColorArgs>? TextColor { get; set; }
 

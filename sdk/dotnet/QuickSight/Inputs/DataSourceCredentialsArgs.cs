@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("copySourceArn")]
         public Input<string>? CopySourceArn { get; set; }
 
+        /// <summary>
+        /// The combination of user name and password that are used as credentials.
+        /// </summary>
         [Input("credentialPair")]
         public Input<Inputs.DataSourceCredentialPairArgs>? CredentialPair { get; set; }
 

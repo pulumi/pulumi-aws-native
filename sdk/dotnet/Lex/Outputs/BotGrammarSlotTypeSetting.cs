@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotGrammarSlotTypeSetting
     {
+        /// <summary>
+        /// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+        /// </summary>
         public readonly Outputs.BotGrammarSlotTypeSource? Source;
 
         [OutputConstructor]

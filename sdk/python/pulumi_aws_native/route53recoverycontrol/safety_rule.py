@@ -27,7 +27,13 @@ class SafetyRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
+        :param pulumi.Input['SafetyRuleAssertionRuleArgs'] assertion_rule: An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
+        :param pulumi.Input['SafetyRuleGatingRuleArgs'] gating_rule: A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+               
+               For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+        :param pulumi.Input[str] name: The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
+        :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
         if assertion_rule is not None:
@@ -46,6 +52,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="assertionRule")
     def assertion_rule(self) -> Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']]:
+        """
+        An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+        """
         return pulumi.get(self, "assertion_rule")
 
     @assertion_rule.setter
@@ -67,6 +76,11 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="gatingRule")
     def gating_rule(self) -> Optional[pulumi.Input['SafetyRuleGatingRuleArgs']]:
+        """
+        A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+
+        For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+        """
         return pulumi.get(self, "gating_rule")
 
     @gating_rule.setter
@@ -76,6 +90,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,6 +102,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]:
+        """
+        The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        """
         return pulumi.get(self, "rule_config")
 
     @rule_config.setter
@@ -121,7 +141,13 @@ class SafetyRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SafetyRuleAssertionRuleArgs']] assertion_rule: An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
+        :param pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']] gating_rule: A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+               
+               For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+        :param pulumi.Input[str] name: The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
+        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
@@ -208,6 +234,9 @@ class SafetyRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assertionRule")
     def assertion_rule(self) -> pulumi.Output[Optional['outputs.SafetyRuleAssertionRule']]:
+        """
+        An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+        """
         return pulumi.get(self, "assertion_rule")
 
     @property
@@ -221,16 +250,27 @@ class SafetyRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="gatingRule")
     def gating_rule(self) -> pulumi.Output[Optional['outputs.SafetyRuleGatingRule']]:
+        """
+        A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+
+        For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+        """
         return pulumi.get(self, "gating_rule")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> pulumi.Output[Optional['outputs.SafetyRuleRuleConfig']]:
+        """
+        The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        """
         return pulumi.get(self, "rule_config")
 
     @property

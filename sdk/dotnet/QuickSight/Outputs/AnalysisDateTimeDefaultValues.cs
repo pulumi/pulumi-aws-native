@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDateTimeDefaultValues
     {
+        /// <summary>
+        /// Defines different defaults to the users or groups based on mapping.
+        /// </summary>
         public readonly Outputs.AnalysisDynamicDefaultValue? DynamicValue;
+        /// <summary>
+        /// The rolling date configuration of a date time filter.
+        /// </summary>
         public readonly Outputs.AnalysisRollingDateConfiguration? RollingDate;
+        /// <summary>
+        /// The static values of the `DataTimeDefaultValues` .
+        /// </summary>
         public readonly ImmutableArray<string> StaticValues;
 
         [OutputConstructor]

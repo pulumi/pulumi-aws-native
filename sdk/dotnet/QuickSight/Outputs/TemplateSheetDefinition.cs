@@ -13,16 +13,62 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSheetDefinition
     {
+        /// <summary>
+        /// The layout content type of the sheet. Choose one of the following options:
+        /// 
+        /// - `PAGINATED` : Creates a sheet for a paginated report.
+        /// - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSheetContentType? ContentType;
+        /// <summary>
+        /// A description of the sheet.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The control of a filter that is used to interact with a dashboard or an analysis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFilterControl> FilterControls;
+        /// <summary>
+        /// A `Layout` defines the placement of elements within a sheet.
+        /// 
+        /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateLayout> Layouts;
+        /// <summary>
+        /// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The control of a parameter that users can interact with in a dashboard or an analysis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateParameterControl> ParameterControls;
+        /// <summary>
+        /// A grid layout to define the placement of sheet control.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetControlLayout> SheetControlLayouts;
+        /// <summary>
+        /// The unique identifier of a sheet.
+        /// </summary>
         public readonly string SheetId;
+        /// <summary>
+        /// A text box.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetTextBox> TextBoxes;
+        /// <summary>
+        /// The title of the sheet.
+        /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// A visual displayed on a sheet in an analysis, dashboard, or template.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateVisual> Visuals;
 
         [OutputConstructor]

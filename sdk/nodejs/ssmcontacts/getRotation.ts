@@ -38,11 +38,17 @@ export interface GetRotationResult {
      * Name of the Rotation
      */
     readonly name?: string;
+    /**
+     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     */
     readonly recurrence?: outputs.ssmcontacts.RotationRecurrenceSettings;
     /**
      * Start time of the first shift of Oncall Schedule
      */
     readonly startTime?: string;
+    /**
+     * A container of a key-value name pair.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * TimeZone Identifier for the Oncall Schedule

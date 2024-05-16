@@ -24,13 +24,18 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
-	ServiceIdentifier     string `pulumi:"serviceIdentifier"`
+	// The unique identifier of the service.
+	ServiceIdentifier string `pulumi:"serviceIdentifier"`
 }
 
 type LookupServiceResult struct {
-	Arn               *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the service.
+	Arn *string `pulumi:"arn"`
+	// The unique identifier of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -50,9 +55,12 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 }
 
 type LookupServiceOutputArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
-	ServiceIdentifier     pulumi.StringInput `pulumi:"serviceIdentifier"`
+	// The unique identifier of the service.
+	ServiceIdentifier pulumi.StringInput `pulumi:"serviceIdentifier"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {
@@ -73,10 +81,12 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o LookupServiceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the service.
 func (o LookupServiceResultOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }

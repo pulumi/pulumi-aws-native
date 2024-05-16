@@ -20,7 +20,8 @@ type StaticIp struct {
 	// The static IP address.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// A Boolean value indicating whether the static IP is attached.
-	IsAttached  pulumi.BoolOutput   `pulumi:"isAttached"`
+	IsAttached pulumi.BoolOutput `pulumi:"isAttached"`
+	// The Amazon Resource Name (ARN) of the static IP (for example, `arn:aws:lightsail:us-east-2:123456789101:StaticIp/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	StaticIpArn pulumi.StringOutput `pulumi:"staticIpArn"`
 	// The name of the static IP address.
 	StaticIpName pulumi.StringOutput `pulumi:"staticIpName"`
@@ -136,6 +137,7 @@ func (o StaticIpOutput) IsAttached() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.BoolOutput { return v.IsAttached }).(pulumi.BoolOutput)
 }
 
+// The Amazon Resource Name (ARN) of the static IP (for example, `arn:aws:lightsail:us-east-2:123456789101:StaticIp/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 func (o StaticIpOutput) StaticIpArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.StaticIpArn }).(pulumi.StringOutput)
 }

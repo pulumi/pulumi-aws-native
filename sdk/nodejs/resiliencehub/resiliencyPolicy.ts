@@ -41,6 +41,9 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      * Data Location Constraint of the Policy.
      */
     public readonly dataLocationConstraint!: pulumi.Output<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
+    /**
+     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+     */
     public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicyMap>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -54,6 +57,9 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      * Name of Resiliency Policy.
      */
     public readonly policyName!: pulumi.Output<string>;
+    /**
+     * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resiliency Policy Tier.
@@ -106,6 +112,9 @@ export interface ResiliencyPolicyArgs {
      * Data Location Constraint of the Policy.
      */
     dataLocationConstraint?: pulumi.Input<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint>;
+    /**
+     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+     */
     policy: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyMapArgs>;
     /**
      * Description of Resiliency Policy.
@@ -115,6 +124,9 @@ export interface ResiliencyPolicyArgs {
      * Name of Resiliency Policy.
      */
     policyName?: pulumi.Input<string>;
+    /**
+     * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resiliency Policy Tier.

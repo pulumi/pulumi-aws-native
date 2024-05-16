@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSapoDataSourceProperties
     {
+        /// <summary>
+        /// The object path specified in the SAPOData flow source.
+        /// </summary>
         public readonly string ObjectPath;
         public readonly Outputs.FlowSapoDataPaginationConfig? PaginationConfig;
         public readonly Outputs.FlowSapoDataParallelismConfig? ParallelismConfig;

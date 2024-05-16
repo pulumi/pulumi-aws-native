@@ -16,8 +16,19 @@ import (
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
-	AwsId                     pulumi.StringOutput             `pulumi:"awsId"`
-	LastModifiedTime          pulumi.StringOutput             `pulumi:"lastModifiedTime"`
+	// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The date and time when the origin request policy was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// An origin request policy configuration.
+	//
+	// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+	//
+	// - The request body and the URL path (without the domain name) from the viewer request.
+	// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
+	// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+	//
+	// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
 	OriginRequestPolicyConfig OriginRequestPolicyConfigOutput `pulumi:"originRequestPolicyConfig"`
 }
 
@@ -64,11 +75,29 @@ func (OriginRequestPolicyState) ElementType() reflect.Type {
 }
 
 type originRequestPolicyArgs struct {
+	// An origin request policy configuration.
+	//
+	// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+	//
+	// - The request body and the URL path (without the domain name) from the viewer request.
+	// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
+	// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+	//
+	// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
 	OriginRequestPolicyConfig OriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
 }
 
 // The set of arguments for constructing a OriginRequestPolicy resource.
 type OriginRequestPolicyArgs struct {
+	// An origin request policy configuration.
+	//
+	// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+	//
+	// - The request body and the URL path (without the domain name) from the viewer request.
+	// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
+	// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+	//
+	// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
 	OriginRequestPolicyConfig OriginRequestPolicyConfigInput
 }
 
@@ -109,14 +138,25 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx co
 	return o
 }
 
+// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
 func (o OriginRequestPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The date and time when the origin request policy was last modified.
 func (o OriginRequestPolicyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// An origin request policy configuration.
+//
+// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+//
+// - The request body and the URL path (without the domain name) from the viewer request.
+// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
+// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+//
+// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
 func (o OriginRequestPolicyOutput) OriginRequestPolicyConfig() OriginRequestPolicyConfigOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicyConfigOutput { return v.OriginRequestPolicyConfig }).(OriginRequestPolicyConfigOutput)
 }

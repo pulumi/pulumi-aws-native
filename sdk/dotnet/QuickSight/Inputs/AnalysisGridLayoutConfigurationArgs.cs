@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGridLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration options for the canvas of a grid layout.
+        /// </summary>
         [Input("canvasSizeOptions")]
         public Input<Inputs.AnalysisGridLayoutCanvasSizeOptionsArgs>? CanvasSizeOptions { get; set; }
 
         [Input("elements", required: true)]
         private InputList<Inputs.AnalysisGridLayoutElementArgs>? _elements;
+
+        /// <summary>
+        /// An element within a grid layout.
+        /// </summary>
         public InputList<Inputs.AnalysisGridLayoutElementArgs> Elements
         {
             get => _elements ?? (_elements = new InputList<Inputs.AnalysisGridLayoutElementArgs>());

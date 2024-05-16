@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDefaultPaginatedLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the default settings for a section-based layout configuration.
+        /// </summary>
         [Input("sectionBased")]
         public Input<Inputs.TemplateDefaultSectionBasedLayoutConfigurationArgs>? SectionBased { get; set; }
 

@@ -14,12 +14,27 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("countryCodes")]
         private InputList<string>? _countryCodes;
+
+        /// <summary>
+        /// An array of two-character country codes that you want to match against, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
+        /// 
+        /// When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.
+        /// </summary>
         public InputList<string> CountryCodes
         {
             get => _countryCodes ?? (_countryCodes = new InputList<string>());
             set => _countryCodes = value;
         }
 
+        /// <summary>
+        /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        /// 
+        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        /// 
+        /// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
+        /// 
+        /// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+        /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclForwardedIpConfigurationArgs>? ForwardedIpConfig { get; set; }
 

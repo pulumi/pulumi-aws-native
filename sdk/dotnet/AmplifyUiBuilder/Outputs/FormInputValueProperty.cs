@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormInputValueProperty
     {
+        /// <summary>
+        /// Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
+        /// </summary>
         public readonly Outputs.FormInputValuePropertyBindingProperties? BindingProperties;
+        /// <summary>
+        /// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FormInputValueProperty> Concat;
+        /// <summary>
+        /// The value to assign to the input field.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

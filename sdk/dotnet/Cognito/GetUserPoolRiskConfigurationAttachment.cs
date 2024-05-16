@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// </summary>
         [Input("clientId", required: true)]
         public string ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -57,8 +69,17 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolRiskConfigurationAttachmentResult
     {
+        /// <summary>
+        /// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType? AccountTakeoverRiskConfiguration;
+        /// <summary>
+        /// The compromised credentials risk configuration type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? CompromisedCredentialsRiskConfiguration;
+        /// <summary>
+        /// The type of the configuration to override the risk decision.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType? RiskExceptionConfiguration;
 
         [OutputConstructor]

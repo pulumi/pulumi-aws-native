@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDataPathSortArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the sort direction.
+        /// </summary>
         [Input("direction", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSortDirection> Direction { get; set; } = null!;
 
         [Input("sortPaths", required: true)]
         private InputList<Inputs.TemplateDataPathValueArgs>? _sortPaths;
+
+        /// <summary>
+        /// The list of data paths that need to be sorted.
+        /// </summary>
         public InputList<Inputs.TemplateDataPathValueArgs> SortPaths
         {
             get => _sortPaths ?? (_sortPaths = new InputList<Inputs.TemplateDataPathValueArgs>());

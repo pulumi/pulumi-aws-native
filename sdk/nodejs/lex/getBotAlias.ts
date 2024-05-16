@@ -20,18 +20,48 @@ export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetBotAliasArgs {
+    /**
+     * The unique identifier of the bot alias.
+     */
     botAliasId: string;
+    /**
+     * The unique identifier of the bot.
+     */
     botId: string;
 }
 
 export interface GetBotAliasResult {
+    /**
+     * The Amazon Resource Name (ARN) of the bot alias.
+     */
     readonly arn?: string;
+    /**
+     * The unique identifier of the bot alias.
+     */
     readonly botAliasId?: string;
+    /**
+     * Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+     */
     readonly botAliasLocaleSettings?: outputs.lex.BotAliasLocaleSettingsItem[];
+    /**
+     * The name of the bot alias.
+     */
     readonly botAliasName?: string;
+    /**
+     * The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+     */
     readonly botAliasStatus?: enums.lex.BotAliasStatus;
+    /**
+     * The version of the bot that the bot alias references.
+     */
     readonly botVersion?: string;
+    /**
+     * Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+     */
     readonly conversationLogSettings?: outputs.lex.BotAliasConversationLogSettings;
+    /**
+     * The description of the bot alias.
+     */
     readonly description?: string;
     /**
      * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
@@ -46,6 +76,12 @@ export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetBotAliasOutputArgs {
+    /**
+     * The unique identifier of the bot alias.
+     */
     botAliasId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the bot.
+     */
     botId: pulumi.Input<string>;
 }

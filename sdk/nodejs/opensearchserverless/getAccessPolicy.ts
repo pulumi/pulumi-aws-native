@@ -24,6 +24,9 @@ export interface GetAccessPolicyArgs {
      * The name of the policy
      */
     name: string;
+    /**
+     * The type of access policy. Currently the only option is `data` .
+     */
     type: enums.opensearchserverless.AccessPolicyType;
 }
 
@@ -49,5 +52,8 @@ export interface GetAccessPolicyOutputArgs {
      * The name of the policy
      */
     name: pulumi.Input<string>;
+    /**
+     * The type of access policy. Currently the only option is `data` .
+     */
     type: pulumi.Input<enums.opensearchserverless.AccessPolicyType>;
 }

@@ -26,7 +26,9 @@ class VodSourceArgs:
         """
         The set of arguments for constructing a VodSource resource.
         :param pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
+        :param pulumi.Input[str] source_location_name: The name of the source location that the VOD source is associated with.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the VOD source.
+        :param pulumi.Input[str] vod_source_name: The name of the VOD source.
         """
         pulumi.set(__self__, "http_package_configurations", http_package_configurations)
         pulumi.set(__self__, "source_location_name", source_location_name)
@@ -50,6 +52,9 @@ class VodSourceArgs:
     @property
     @pulumi.getter(name="sourceLocationName")
     def source_location_name(self) -> pulumi.Input[str]:
+        """
+        The name of the source location that the VOD source is associated with.
+        """
         return pulumi.get(self, "source_location_name")
 
     @source_location_name.setter
@@ -71,6 +76,9 @@ class VodSourceArgs:
     @property
     @pulumi.getter(name="vodSourceName")
     def vod_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VOD source.
+        """
         return pulumi.get(self, "vod_source_name")
 
     @vod_source_name.setter
@@ -94,7 +102,9 @@ class VodSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceHttpPackageConfigurationArgs']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
+        :param pulumi.Input[str] source_location_name: The name of the source location that the VOD source is associated with.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the VOD source.
+        :param pulumi.Input[str] vod_source_name: The name of the VOD source.
         """
         ...
     @overload
@@ -192,6 +202,9 @@ class VodSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceLocationName")
     def source_location_name(self) -> pulumi.Output[str]:
+        """
+        The name of the source location that the VOD source is associated with.
+        """
         return pulumi.get(self, "source_location_name")
 
     @property
@@ -205,5 +218,8 @@ class VodSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vodSourceName")
     def vod_source_name(self) -> pulumi.Output[str]:
+        """
+        The name of the VOD source.
+        """
         return pulumi.get(self, "vod_source_name")
 

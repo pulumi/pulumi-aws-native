@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PartitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the attribute that defines a partition dimension.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 

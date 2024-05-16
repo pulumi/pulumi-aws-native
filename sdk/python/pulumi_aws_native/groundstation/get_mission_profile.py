@@ -61,6 +61,9 @@ class GetMissionProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -82,11 +85,17 @@ class GetMissionProfileResult:
     @property
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> Optional[Sequence['outputs.MissionProfileDataflowEdge']]:
+        """
+        A dataflow edge defines from where and to where data will flow during a contact.
+        """
         return pulumi.get(self, "dataflow_edges")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -108,6 +117,9 @@ class GetMissionProfileResult:
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        The region of the mission profile.
+        """
         return pulumi.get(self, "region")
 
     @property
@@ -129,11 +141,17 @@ class GetMissionProfileResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags assigned to the mission profile.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> Optional[str]:
+        """
+        The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+        """
         return pulumi.get(self, "tracking_config_arn")
 
 
@@ -162,6 +180,10 @@ def get_mission_profile(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMissionProfileResult:
     """
     AWS Ground Station Mission Profile resource type for CloudFormation.
+
+
+    :param str arn: The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+    :param str id: The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -190,5 +212,9 @@ def get_mission_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMissionProfileResult]:
     """
     AWS Ground Station Mission Profile resource type for CloudFormation.
+
+
+    :param str arn: The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+    :param str id: The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """
     ...

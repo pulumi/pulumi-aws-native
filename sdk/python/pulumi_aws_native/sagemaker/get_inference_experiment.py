@@ -81,6 +81,11 @@ class GetInferenceExperimentResult:
     @property
     @pulumi.getter(name="dataStorageConfig")
     def data_storage_config(self) -> Optional['outputs.InferenceExperimentDataStorageConfig']:
+        """
+        The Amazon S3 location and configuration for storing inference request and response data.
+
+        This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
+        """
         return pulumi.get(self, "data_storage_config")
 
     @property
@@ -102,6 +107,9 @@ class GetInferenceExperimentResult:
     @property
     @pulumi.getter(name="endpointMetadata")
     def endpoint_metadata(self) -> Optional['outputs.InferenceExperimentEndpointMetadata']:
+        """
+        The metadata of the endpoint.
+        """
         return pulumi.get(self, "endpoint_metadata")
 
     @property
@@ -123,11 +131,19 @@ class GetInferenceExperimentResult:
     @property
     @pulumi.getter
     def schedule(self) -> Optional['outputs.InferenceExperimentSchedule']:
+        """
+        The start and end times of an inference experiment.
+
+        The maximum duration that you can set for an inference experiment is 30 days.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="shadowModeConfig")
     def shadow_mode_config(self) -> Optional['outputs.InferenceExperimentShadowModeConfig']:
+        """
+        The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+        """
         return pulumi.get(self, "shadow_mode_config")
 
     @property

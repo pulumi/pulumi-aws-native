@@ -93,9 +93,26 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
+    /**
+     * A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+     *
+     * This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+     */
     public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
+    /**
+     * The unique ID of the new or updated policy.
+     */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     public readonly policyStoreId!: pulumi.Output<string>;
+    /**
+     * The type of the policy. This is one of the following values:
+     *
+     * - Static
+     * - TemplateLinked
+     */
     public /*out*/ readonly policyType!: pulumi.Output<enums.verifiedpermissions.PolicyType>;
 
     /**
@@ -136,6 +153,14 @@ export class Policy extends pulumi.CustomResource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
+    /**
+     * A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+     *
+     * This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+     */
     definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyDefinition1PropertiesArgs>;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     policyStoreId: pulumi.Input<string>;
 }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CertificateManager.Outputs
     [OutputType]
     public sealed class AccountExpiryEventsConfiguration
     {
+        /// <summary>
+        /// This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
+        /// </summary>
         public readonly int? DaysBeforeExpiry;
 
         [OutputConstructor]

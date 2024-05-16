@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSetParameterValueConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination parameter name of the `SetParameterValueConfiguration` .
+        /// </summary>
         [Input("destinationParameterName", required: true)]
         public Input<string> DestinationParameterName { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of destination parameter values.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.AnalysisDestinationParameterValueConfigurationArgs> Value { get; set; } = null!;
 

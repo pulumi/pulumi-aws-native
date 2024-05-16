@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class CalculatedAttributeDefinitionThresholdArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The operator of the threshold.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionThresholdOperator> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the threshold.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

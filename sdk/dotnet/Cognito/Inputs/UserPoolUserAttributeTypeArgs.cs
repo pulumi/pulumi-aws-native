@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolUserAttributeTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the attribute.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

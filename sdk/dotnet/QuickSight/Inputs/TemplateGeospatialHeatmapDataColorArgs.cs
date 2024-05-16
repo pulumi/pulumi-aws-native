@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGeospatialHeatmapDataColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The hex color to be used in the heatmap point style.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 

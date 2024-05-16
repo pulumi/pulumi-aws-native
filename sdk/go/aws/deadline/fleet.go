@@ -16,18 +16,30 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput     `pulumi:"arn"`
-	Capabilities   FleetCapabilitiesOutput `pulumi:"capabilities"`
-	Configuration  pulumi.AnyOutput        `pulumi:"configuration"`
-	Description    pulumi.StringPtrOutput  `pulumi:"description"`
-	DisplayName    pulumi.StringOutput     `pulumi:"displayName"`
-	FarmId         pulumi.StringPtrOutput  `pulumi:"farmId"`
-	FleetId        pulumi.StringOutput     `pulumi:"fleetId"`
-	MaxWorkerCount pulumi.IntOutput        `pulumi:"maxWorkerCount"`
-	MinWorkerCount pulumi.IntPtrOutput     `pulumi:"minWorkerCount"`
-	RoleArn        pulumi.StringOutput     `pulumi:"roleArn"`
-	Status         FleetStatusOutput       `pulumi:"status"`
-	WorkerCount    pulumi.IntOutput        `pulumi:"workerCount"`
+	// The Amazon Resource Name (ARN) assigned to the fleet.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The amounts and attributes of fleets.
+	Capabilities FleetCapabilitiesOutput `pulumi:"capabilities"`
+	// Fleet configuration details.
+	Configuration pulumi.AnyOutput `pulumi:"configuration"`
+	// A description that helps identify what the fleet is used for.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the fleet summary to update.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The farm ID.
+	FarmId pulumi.StringPtrOutput `pulumi:"farmId"`
+	// The fleet ID.
+	FleetId pulumi.StringOutput `pulumi:"fleetId"`
+	// The maximum number of workers specified in the fleet.
+	MaxWorkerCount pulumi.IntOutput `pulumi:"maxWorkerCount"`
+	// The minimum number of workers in the fleet.
+	MinWorkerCount pulumi.IntPtrOutput `pulumi:"minWorkerCount"`
+	// The IAM role that workers in the fleet use when processing jobs.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The status of the fleet.
+	Status FleetStatusOutput `pulumi:"status"`
+	// The number of workers in the fleet summary.
+	WorkerCount pulumi.IntOutput `pulumi:"workerCount"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -86,24 +98,38 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	Configuration  interface{} `pulumi:"configuration"`
-	Description    *string     `pulumi:"description"`
-	DisplayName    string      `pulumi:"displayName"`
-	FarmId         *string     `pulumi:"farmId"`
-	MaxWorkerCount int         `pulumi:"maxWorkerCount"`
-	MinWorkerCount *int        `pulumi:"minWorkerCount"`
-	RoleArn        string      `pulumi:"roleArn"`
+	// Fleet configuration details.
+	Configuration interface{} `pulumi:"configuration"`
+	// A description that helps identify what the fleet is used for.
+	Description *string `pulumi:"description"`
+	// The display name of the fleet summary to update.
+	DisplayName string `pulumi:"displayName"`
+	// The farm ID.
+	FarmId *string `pulumi:"farmId"`
+	// The maximum number of workers specified in the fleet.
+	MaxWorkerCount int `pulumi:"maxWorkerCount"`
+	// The minimum number of workers in the fleet.
+	MinWorkerCount *int `pulumi:"minWorkerCount"`
+	// The IAM role that workers in the fleet use when processing jobs.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	Configuration  pulumi.Input
-	Description    pulumi.StringPtrInput
-	DisplayName    pulumi.StringInput
-	FarmId         pulumi.StringPtrInput
+	// Fleet configuration details.
+	Configuration pulumi.Input
+	// A description that helps identify what the fleet is used for.
+	Description pulumi.StringPtrInput
+	// The display name of the fleet summary to update.
+	DisplayName pulumi.StringInput
+	// The farm ID.
+	FarmId pulumi.StringPtrInput
+	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount pulumi.IntInput
+	// The minimum number of workers in the fleet.
 	MinWorkerCount pulumi.IntPtrInput
-	RoleArn        pulumi.StringInput
+	// The IAM role that workers in the fleet use when processing jobs.
+	RoleArn pulumi.StringInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -143,50 +169,62 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) assigned to the fleet.
 func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The amounts and attributes of fleets.
 func (o FleetOutput) Capabilities() FleetCapabilitiesOutput {
 	return o.ApplyT(func(v *Fleet) FleetCapabilitiesOutput { return v.Capabilities }).(FleetCapabilitiesOutput)
 }
 
+// Fleet configuration details.
 func (o FleetOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// A description that helps identify what the fleet is used for.
 func (o FleetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the fleet summary to update.
 func (o FleetOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The farm ID.
 func (o FleetOutput) FarmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FarmId }).(pulumi.StringPtrOutput)
 }
 
+// The fleet ID.
 func (o FleetOutput) FleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
 }
 
+// The maximum number of workers specified in the fleet.
 func (o FleetOutput) MaxWorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.MaxWorkerCount }).(pulumi.IntOutput)
 }
 
+// The minimum number of workers in the fleet.
 func (o FleetOutput) MinWorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MinWorkerCount }).(pulumi.IntPtrOutput)
 }
 
+// The IAM role that workers in the fleet use when processing jobs.
 func (o FleetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The status of the fleet.
 func (o FleetOutput) Status() FleetStatusOutput {
 	return o.ApplyT(func(v *Fleet) FleetStatusOutput { return v.Status }).(FleetStatusOutput)
 }
 
+// The number of workers in the fleet summary.
 func (o FleetOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.WorkerCount }).(pulumi.IntOutput)
 }

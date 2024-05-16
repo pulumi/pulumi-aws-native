@@ -24,6 +24,19 @@ class CapacityProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
+        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: The details of the Auto Scaling group for the capacity provider.
+        :param pulumi.Input[str] name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+               
+               The following basic restrictions apply to tags:
+               
+               - Maximum number of tags per resource - 50
+               - For each resource, each tag key must be unique, and each tag key can have only one value.
+               - Maximum key length - 128 Unicode characters in UTF-8
+               - Maximum value length - 256 Unicode characters in UTF-8
+               - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+               - Tag keys and values are case-sensitive.
+               - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         """
         pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
@@ -34,6 +47,9 @@ class CapacityProviderArgs:
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']:
+        """
+        The details of the Auto Scaling group for the capacity provider.
+        """
         return pulumi.get(self, "auto_scaling_group_provider")
 
     @auto_scaling_group_provider.setter
@@ -43,6 +59,9 @@ class CapacityProviderArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,6 +71,19 @@ class CapacityProviderArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+
+        The following basic restrictions apply to tags:
+
+        - Maximum number of tags per resource - 50
+        - For each resource, each tag key must be unique, and each tag key can have only one value.
+        - Maximum key length - 128 Unicode characters in UTF-8
+        - Maximum value length - 256 Unicode characters in UTF-8
+        - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        - Tag keys and values are case-sensitive.
+        - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -209,6 +241,19 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: The details of the Auto Scaling group for the capacity provider.
+        :param pulumi.Input[str] name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+               
+               The following basic restrictions apply to tags:
+               
+               - Maximum number of tags per resource - 50
+               - For each resource, each tag key must be unique, and each tag key can have only one value.
+               - Maximum key length - 128 Unicode characters in UTF-8
+               - Maximum value length - 256 Unicode characters in UTF-8
+               - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+               - Tag keys and values are case-sensitive.
+               - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         """
         ...
     @overload
@@ -387,7 +432,7 @@ class CapacityProvider(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupProvider.autoScalingGroupArn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityProvider, __self__).__init__(
             'aws-native:ecs:CapacityProvider',
@@ -419,15 +464,34 @@ class CapacityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> pulumi.Output['outputs.CapacityProviderAutoScalingGroupProvider']:
+        """
+        The details of the Auto Scaling group for the capacity provider.
+        """
         return pulumi.get(self, "auto_scaling_group_provider")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+
+        The following basic restrictions apply to tags:
+
+        - Maximum number of tags per resource - 50
+        - For each resource, each tag key must be unique, and each tag key can have only one value.
+        - Maximum key length - 128 Unicode characters in UTF-8
+        - Maximum value length - 256 Unicode characters in UTF-8
+        - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        - Tag keys and values are case-sensitive.
+        - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        """
         return pulumi.get(self, "tags")
 

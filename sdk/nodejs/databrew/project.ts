@@ -99,6 +99,9 @@ export class Project extends pulumi.CustomResource {
      * Sample
      */
     public readonly sample!: pulumi.Output<outputs.databrew.ProjectSample | undefined>;
+    /**
+     * Metadata tags that have been applied to the project.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -166,5 +169,8 @@ export interface ProjectArgs {
      * Sample
      */
     sample?: pulumi.Input<inputs.databrew.ProjectSampleArgs>;
+    /**
+     * Metadata tags that have been applied to the project.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

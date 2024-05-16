@@ -15,6 +15,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// The ID for the account. For example: `abc123` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ARN of an Amazon CloudWatch role for the current Account.
 	CloudWatchRoleArn pulumi.StringPtrOutput `pulumi:"cloudWatchRoleArn"`
@@ -107,6 +108,7 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The ID for the account. For example: `abc123` .
 func (o AccountOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

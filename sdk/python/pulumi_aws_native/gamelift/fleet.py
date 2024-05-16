@@ -52,6 +52,11 @@ class FleetArgs:
         :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        :param pulumi.Input['FleetContainerGroupsConfigurationArgs'] container_groups_configuration: *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+               
+               Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+               
+               *Used with:* `CreateFleet`
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] ec2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
@@ -59,6 +64,9 @@ class FleetArgs:
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]] locations: *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+               
+               A remote location where a multi-location fleet can deploy game servers for game hosting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -198,6 +206,13 @@ class FleetArgs:
     @property
     @pulumi.getter(name="containerGroupsConfiguration")
     def container_groups_configuration(self) -> Optional[pulumi.Input['FleetContainerGroupsConfigurationArgs']]:
+        """
+        *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+
+        *Used with:* `CreateFleet`
+        """
         return pulumi.get(self, "container_groups_configuration")
 
     @container_groups_configuration.setter
@@ -291,6 +306,11 @@ class FleetArgs:
     @property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]]:
+        """
+        *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        A remote location where a multi-location fleet can deploy game servers for game hosting.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -514,6 +534,11 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        :param pulumi.Input[pulumi.InputType['FleetContainerGroupsConfigurationArgs']] container_groups_configuration: *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+               
+               Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+               
+               *Used with:* `CreateFleet`
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] ec2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
@@ -521,6 +546,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]] locations: *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+               
+               A remote location where a multi-location fleet can deploy game servers for game hosting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -728,6 +756,13 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="containerGroupsConfiguration")
     def container_groups_configuration(self) -> pulumi.Output[Optional['outputs.FleetContainerGroupsConfiguration']]:
+        """
+        *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+
+        *Used with:* `CreateFleet`
+        """
         return pulumi.get(self, "container_groups_configuration")
 
     @property
@@ -797,6 +832,11 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence['outputs.FleetLocationConfiguration']]]:
+        """
+        *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        A remote location where a multi-location fleet can deploy game servers for game hosting.
+        """
         return pulumi.get(self, "locations")
 
     @property

@@ -12,18 +12,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSmallMultiplesOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the maximum number of visible columns to display in the grid of small multiples panels.
+        /// 
+        /// The default is `Auto` , which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.
+        /// </summary>
         [Input("maxVisibleColumns")]
         public Input<double>? MaxVisibleColumns { get; set; }
 
+        /// <summary>
+        /// Sets the maximum number of visible rows to display in the grid of small multiples panels.
+        /// 
+        /// The default value is `Auto` , which automatically adjusts the rows in the grid to fit the overall layout and size of the given chart.
+        /// </summary>
         [Input("maxVisibleRows")]
         public Input<double>? MaxVisibleRows { get; set; }
 
+        /// <summary>
+        /// A collection of options that configure how each panel displays in a small multiples chart.
+        /// </summary>
         [Input("panelConfiguration")]
         public Input<Inputs.AnalysisPanelConfigurationArgs>? PanelConfiguration { get; set; }
 
+        /// <summary>
+        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// </summary>
         [Input("xAxis")]
         public Input<Inputs.AnalysisSmallMultiplesAxisPropertiesArgs>? XAxis { get; set; }
 
+        /// <summary>
+        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// </summary>
         [Input("yAxis")]
         public Input<Inputs.AnalysisSmallMultiplesAxisPropertiesArgs>? YAxis { get; set; }
 

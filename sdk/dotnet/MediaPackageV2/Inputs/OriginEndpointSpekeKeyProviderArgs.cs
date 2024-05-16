@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _drmSystems = value;
         }
 
+        /// <summary>
+        /// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+        /// </summary>
         [Input("encryptionContractConfiguration", required: true)]
         public Input<Inputs.OriginEndpointEncryptionContractConfigurationArgs> EncryptionContractConfiguration { get; set; } = null!;
 

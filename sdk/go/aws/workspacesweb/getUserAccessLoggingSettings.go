@@ -24,15 +24,19 @@ func LookupUserAccessLoggingSettings(ctx *pulumi.Context, args *LookupUserAccess
 }
 
 type LookupUserAccessLoggingSettingsArgs struct {
+	// The ARN of the user access logging settings.
 	UserAccessLoggingSettingsArn string `pulumi:"userAccessLoggingSettingsArn"`
 }
 
 type LookupUserAccessLoggingSettingsResult struct {
+	// A list of web portal ARNs that this user access logging settings is associated with.
 	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
 	// Kinesis stream ARN to which log events are published.
-	KinesisStreamArn             *string   `pulumi:"kinesisStreamArn"`
-	Tags                         []aws.Tag `pulumi:"tags"`
-	UserAccessLoggingSettingsArn *string   `pulumi:"userAccessLoggingSettingsArn"`
+	KinesisStreamArn *string `pulumi:"kinesisStreamArn"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the user access logging settings.
+	UserAccessLoggingSettingsArn *string `pulumi:"userAccessLoggingSettingsArn"`
 }
 
 func LookupUserAccessLoggingSettingsOutput(ctx *pulumi.Context, args LookupUserAccessLoggingSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserAccessLoggingSettingsResultOutput {
@@ -49,6 +53,7 @@ func LookupUserAccessLoggingSettingsOutput(ctx *pulumi.Context, args LookupUserA
 }
 
 type LookupUserAccessLoggingSettingsOutputArgs struct {
+	// The ARN of the user access logging settings.
 	UserAccessLoggingSettingsArn pulumi.StringInput `pulumi:"userAccessLoggingSettingsArn"`
 }
 
@@ -70,6 +75,7 @@ func (o LookupUserAccessLoggingSettingsResultOutput) ToLookupUserAccessLoggingSe
 	return o
 }
 
+// A list of web portal ARNs that this user access logging settings is associated with.
 func (o LookupUserAccessLoggingSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
@@ -79,10 +85,12 @@ func (o LookupUserAccessLoggingSettingsResultOutput) KinesisStreamArn() pulumi.S
 	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) *string { return v.KinesisStreamArn }).(pulumi.StringPtrOutput)
 }
 
+// The tag.
 func (o LookupUserAccessLoggingSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the user access logging settings.
 func (o LookupUserAccessLoggingSettingsResultOutput) UserAccessLoggingSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) *string { return v.UserAccessLoggingSettingsArn }).(pulumi.StringPtrOutput)
 }

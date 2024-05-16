@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisRadarChartAreaStyleSettings
     {
+        /// <summary>
+        /// The visibility settings of a radar chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

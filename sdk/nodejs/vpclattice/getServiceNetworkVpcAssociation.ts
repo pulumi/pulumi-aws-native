@@ -19,19 +19,52 @@ export function getServiceNetworkVpcAssociation(args: GetServiceNetworkVpcAssoci
 }
 
 export interface GetServiceNetworkVpcAssociationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+     */
     arn: string;
 }
 
 export interface GetServiceNetworkVpcAssociationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+     */
     readonly arn?: string;
+    /**
+     * The date and time that the association was created, specified in ISO-8601 format.
+     */
     readonly createdAt?: string;
+    /**
+     * The ID of the specified association between the service network and the VPC.
+     */
     readonly id?: string;
+    /**
+     * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+     */
     readonly securityGroupIds?: string[];
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     readonly serviceNetworkArn?: string;
+    /**
+     * The ID of the service network.
+     */
     readonly serviceNetworkId?: string;
+    /**
+     * The name of the service network.
+     */
     readonly serviceNetworkName?: string;
+    /**
+     * The status of the association.
+     */
     readonly status?: enums.vpclattice.ServiceNetworkVpcAssociationStatus;
+    /**
+     * The tags for the association.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ID of the VPC.
+     */
     readonly vpcId?: string;
 }
 /**
@@ -42,5 +75,8 @@ export function getServiceNetworkVpcAssociationOutput(args: GetServiceNetworkVpc
 }
 
 export interface GetServiceNetworkVpcAssociationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+     */
     arn: pulumi.Input<string>;
 }

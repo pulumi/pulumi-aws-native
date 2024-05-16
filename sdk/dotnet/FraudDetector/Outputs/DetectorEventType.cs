@@ -25,9 +25,23 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// The description of the event type.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The entity type details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorEntityType> EntityTypes;
+        /// <summary>
+        /// The event type variable for the detector.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorEventVariable> EventVariables;
+        /// <summary>
+        /// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+        /// 
+        /// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        /// </summary>
         public readonly bool? Inline;
+        /// <summary>
+        /// The label details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorLabel> Labels;
         /// <summary>
         /// The time when the event type was last updated.

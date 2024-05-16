@@ -34,14 +34,41 @@ export class RunGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RunGroup.__pulumiType;
     }
 
+    /**
+     * The run group's ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The run group's ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * When the run group was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The group's maximum CPU count setting.
+     */
     public readonly maxCpus!: pulumi.Output<number | undefined>;
+    /**
+     * The group's maximum duration setting in minutes.
+     */
     public readonly maxDuration!: pulumi.Output<number | undefined>;
+    /**
+     * The maximum GPUs that can be used by a run group.
+     */
     public readonly maxGpus!: pulumi.Output<number | undefined>;
+    /**
+     * The group's maximum concurrent run setting.
+     */
     public readonly maxRuns!: pulumi.Output<number | undefined>;
+    /**
+     * The group's name.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Tags for the group.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -84,10 +111,28 @@ export class RunGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a RunGroup resource.
  */
 export interface RunGroupArgs {
+    /**
+     * The group's maximum CPU count setting.
+     */
     maxCpus?: pulumi.Input<number>;
+    /**
+     * The group's maximum duration setting in minutes.
+     */
     maxDuration?: pulumi.Input<number>;
+    /**
+     * The maximum GPUs that can be used by a run group.
+     */
     maxGpus?: pulumi.Input<number>;
+    /**
+     * The group's maximum concurrent run setting.
+     */
     maxRuns?: pulumi.Input<number>;
+    /**
+     * The group's name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Tags for the group.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

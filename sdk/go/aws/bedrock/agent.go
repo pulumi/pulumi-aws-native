@@ -25,7 +25,16 @@ type Agent struct {
 	AgentName pulumi.StringOutput `pulumi:"agentName"`
 	// ARN of a IAM role.
 	AgentResourceRoleArn pulumi.StringPtrOutput `pulumi:"agentResourceRoleArn"`
-	AgentStatus          AgentStatusOutput      `pulumi:"agentStatus"`
+	// The status of the agent and whether it is ready for use. The following statuses are possible:
+	//
+	// - CREATING – The agent is being created.
+	// - PREPARING – The agent is being prepared.
+	// - PREPARED – The agent is prepared and ready to be invoked.
+	// - NOT_PREPARED – The agent has been created but not yet prepared.
+	// - FAILED – The agent API operation failed.
+	// - UPDATING – The agent is being updated.
+	// - DELETING – The agent is being deleted.
+	AgentStatus AgentStatusOutput `pulumi:"agentStatus"`
 	// Draft Agent Version.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
 	// Specifies whether to automatically prepare after creating or updating the agent.
@@ -47,14 +56,23 @@ type Agent struct {
 	// List of Agent Knowledge Bases
 	KnowledgeBases AgentKnowledgeBaseArrayOutput `pulumi:"knowledgeBases"`
 	// Time Stamp.
-	PreparedAt                  pulumi.StringOutput                       `pulumi:"preparedAt"`
+	PreparedAt pulumi.StringOutput `pulumi:"preparedAt"`
+	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration AgentPromptOverrideConfigurationPtrOutput `pulumi:"promptOverrideConfiguration"`
 	// The recommended actions users can take to resolve an error in failureReasons.
 	RecommendedActions pulumi.StringArrayOutput `pulumi:"recommendedActions"`
 	// Specifies whether to allow deleting agent while it is in use.
-	SkipResourceInUseCheckOnDelete pulumi.BoolPtrOutput   `pulumi:"skipResourceInUseCheckOnDelete"`
-	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
-	TestAliasTags                  pulumi.StringMapOutput `pulumi:"testAliasTags"`
+	SkipResourceInUseCheckOnDelete pulumi.BoolPtrOutput `pulumi:"skipResourceInUseCheckOnDelete"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	TestAliasTags pulumi.StringMapOutput `pulumi:"testAliasTags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -118,12 +136,21 @@ type agentArgs struct {
 	// Instruction for the agent.
 	Instruction *string `pulumi:"instruction"`
 	// List of Agent Knowledge Bases
-	KnowledgeBases              []AgentKnowledgeBase              `pulumi:"knowledgeBases"`
+	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
+	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration *AgentPromptOverrideConfiguration `pulumi:"promptOverrideConfiguration"`
 	// Specifies whether to allow deleting agent while it is in use.
-	SkipResourceInUseCheckOnDelete *bool             `pulumi:"skipResourceInUseCheckOnDelete"`
-	Tags                           map[string]string `pulumi:"tags"`
-	TestAliasTags                  map[string]string `pulumi:"testAliasTags"`
+	SkipResourceInUseCheckOnDelete *bool `pulumi:"skipResourceInUseCheckOnDelete"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	TestAliasTags map[string]string `pulumi:"testAliasTags"`
 }
 
 // The set of arguments for constructing a Agent resource.
@@ -147,12 +174,21 @@ type AgentArgs struct {
 	// Instruction for the agent.
 	Instruction pulumi.StringPtrInput
 	// List of Agent Knowledge Bases
-	KnowledgeBases              AgentKnowledgeBaseArrayInput
+	KnowledgeBases AgentKnowledgeBaseArrayInput
+	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration AgentPromptOverrideConfigurationPtrInput
 	// Specifies whether to allow deleting agent while it is in use.
 	SkipResourceInUseCheckOnDelete pulumi.BoolPtrInput
-	Tags                           pulumi.StringMapInput
-	TestAliasTags                  pulumi.StringMapInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	TestAliasTags pulumi.StringMapInput
 }
 
 func (AgentArgs) ElementType() reflect.Type {
@@ -217,6 +253,15 @@ func (o AgentOutput) AgentResourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.AgentResourceRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the agent and whether it is ready for use. The following statuses are possible:
+//
+// - CREATING – The agent is being created.
+// - PREPARING – The agent is being prepared.
+// - PREPARED – The agent is prepared and ready to be invoked.
+// - NOT_PREPARED – The agent has been created but not yet prepared.
+// - FAILED – The agent API operation failed.
+// - UPDATING – The agent is being updated.
+// - DELETING – The agent is being deleted.
 func (o AgentOutput) AgentStatus() AgentStatusOutput {
 	return o.ApplyT(func(v *Agent) AgentStatusOutput { return v.AgentStatus }).(AgentStatusOutput)
 }
@@ -276,6 +321,7 @@ func (o AgentOutput) PreparedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.PreparedAt }).(pulumi.StringOutput)
 }
 
+// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 func (o AgentOutput) PromptOverrideConfiguration() AgentPromptOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v *Agent) AgentPromptOverrideConfigurationPtrOutput { return v.PromptOverrideConfiguration }).(AgentPromptOverrideConfigurationPtrOutput)
 }
@@ -290,10 +336,18 @@ func (o AgentOutput) SkipResourceInUseCheckOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Agent) pulumi.BoolPtrOutput { return v.SkipResourceInUseCheckOnDelete }).(pulumi.BoolPtrOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o AgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o AgentOutput) TestAliasTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringMapOutput { return v.TestAliasTags }).(pulumi.StringMapOutput)
 }

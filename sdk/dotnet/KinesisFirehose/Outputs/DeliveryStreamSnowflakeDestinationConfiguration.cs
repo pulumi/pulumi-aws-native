@@ -13,23 +13,77 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSnowflakeDestinationConfiguration
     {
+        /// <summary>
+        /// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
+        /// </summary>
         public readonly string AccountUrl;
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The name of the record content column
+        /// </summary>
         public readonly string? ContentColumnName;
+        /// <summary>
+        /// Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption? DataLoadingOption;
+        /// <summary>
+        /// All data in Snowflake is maintained in databases.
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        /// </summary>
         public readonly string? KeyPassphrase;
+        /// <summary>
+        /// The name of the record metadata column
+        /// </summary>
         public readonly string? MetaDataColumnName;
+        /// <summary>
+        /// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        /// </summary>
         public readonly string PrivateKey;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSnowflakeRetryOptions? RetryOptions;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Snowflake role
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Choose an S3 backup mode
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode? S3BackupMode;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
+        /// </summary>
         public readonly string Schema;
+        /// <summary>
+        /// Optionally configure a Snowflake role. Otherwise the default user role will be used.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSnowflakeRoleConfiguration? SnowflakeRoleConfiguration;
+        /// <summary>
+        /// Configure a Snowflake VPC
+        /// </summary>
         public readonly Outputs.DeliveryStreamSnowflakeVpcConfiguration? SnowflakeVpcConfiguration;
+        /// <summary>
+        /// All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
+        /// </summary>
         public readonly string Table;
+        /// <summary>
+        /// User login name for the Snowflake account.
+        /// </summary>
         public readonly string User;
 
         [OutputConstructor]

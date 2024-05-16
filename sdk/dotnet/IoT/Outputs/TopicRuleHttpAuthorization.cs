@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleHttpAuthorization
     {
+        /// <summary>
+        /// For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+        /// </summary>
         public readonly Outputs.TopicRuleSigV4Authorization? Sigv4;
 
         [OutputConstructor]

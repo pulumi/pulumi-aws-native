@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPivotTableSortByArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The sort configuration for a column that is not used in a field well.
+        /// </summary>
         [Input("column")]
         public Input<Inputs.AnalysisColumnSortArgs>? Column { get; set; }
 
+        /// <summary>
+        /// Allows data paths to be sorted by a specific data value.
+        /// </summary>
         [Input("dataPath")]
         public Input<Inputs.AnalysisDataPathSortArgs>? DataPath { get; set; }
 
+        /// <summary>
+        /// The sort configuration for a field in a field well.
+        /// </summary>
         [Input("field")]
         public Input<Inputs.AnalysisFieldSortArgs>? Field { get; set; }
 

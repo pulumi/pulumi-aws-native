@@ -41,6 +41,9 @@ export class Deployment extends pulumi.CustomResource {
      * The input configuration for a canary deployment.
      */
     public readonly deploymentCanarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
+    /**
+     * The ID for the deployment. For example: `abc123` .
+     */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
      * The description for the Deployment resource to create.

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleForward
     {
+        /// <summary>
+        /// Describes the weight of a target group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleWeightedTargetGroup> TargetGroups;
 
         [OutputConstructor]

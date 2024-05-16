@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class JobCsvOutputOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A single character that specifies the delimiter used to create CSV job output.
+        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 

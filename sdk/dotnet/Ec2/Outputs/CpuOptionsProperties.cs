@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class CpuOptionsProperties
     {
+        /// <summary>
+        /// The number of CPU cores for the instance.
+        /// </summary>
         public readonly int? CoreCount;
+        /// <summary>
+        /// The number of threads per CPU core.
+        /// </summary>
         public readonly int? ThreadsPerCore;
 
         [OutputConstructor]

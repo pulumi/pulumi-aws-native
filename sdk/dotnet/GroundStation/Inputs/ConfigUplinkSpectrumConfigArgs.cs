@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigUplinkSpectrumConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a frequency.
+        /// </summary>
         [Input("centerFrequency")]
         public Input<Inputs.ConfigFrequencyArgs>? CenterFrequency { get; set; }
 
+        /// <summary>
+        /// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
+        /// </summary>
         [Input("polarization")]
         public Input<Pulumi.AwsNative.GroundStation.ConfigPolarization>? Polarization { get; set; }
 

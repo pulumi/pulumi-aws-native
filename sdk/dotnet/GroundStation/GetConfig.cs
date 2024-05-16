@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetConfigArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.GroundStation
     [OutputType]
     public sealed class GetConfigResult
     {
+        /// <summary>
+        /// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        /// </summary>
         public readonly Outputs.ConfigData? ConfigData;
+        /// <summary>
+        /// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The name of the config object.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The type of the config, such as `tracking` .
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

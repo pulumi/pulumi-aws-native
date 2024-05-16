@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The API mapping resource ID.
+        /// </summary>
         [Output("apiMappingId")]
         public Output<string> ApiMappingId { get; private set; } = null!;
 

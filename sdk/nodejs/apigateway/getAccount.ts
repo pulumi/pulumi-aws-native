@@ -16,6 +16,9 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetAccountArgs {
+    /**
+     * The ID for the account. For example: `abc123` .
+     */
     id: string;
 }
 
@@ -24,6 +27,9 @@ export interface GetAccountResult {
      * The ARN of an Amazon CloudWatch role for the current Account.
      */
     readonly cloudWatchRoleArn?: string;
+    /**
+     * The ID for the account. For example: `abc123` .
+     */
     readonly id?: string;
 }
 /**
@@ -34,5 +40,8 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetAccountOutputArgs {
+    /**
+     * The ID for the account. For example: `abc123` .
+     */
     id: pulumi.Input<string>;
 }

@@ -23,6 +23,7 @@ func LookupAnomalySubscription(ctx *pulumi.Context, args *LookupAnomalySubscript
 }
 
 type LookupAnomalySubscriptionArgs struct {
+	// The `AnomalySubscription` Amazon Resource Name (ARN).
 	SubscriptionArn string `pulumi:"subscriptionArn"`
 }
 
@@ -34,8 +35,9 @@ type LookupAnomalySubscriptionResult struct {
 	// A list of cost anomaly monitors.
 	MonitorArnList []string `pulumi:"monitorArnList"`
 	// A list of subscriber
-	Subscribers     []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
-	SubscriptionArn *string                         `pulumi:"subscriptionArn"`
+	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
+	// The `AnomalySubscription` Amazon Resource Name (ARN).
+	SubscriptionArn *string `pulumi:"subscriptionArn"`
 	// The name of the subscription.
 	SubscriptionName *string `pulumi:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
@@ -58,6 +60,7 @@ func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubs
 }
 
 type LookupAnomalySubscriptionOutputArgs struct {
+	// The `AnomalySubscription` Amazon Resource Name (ARN).
 	SubscriptionArn pulumi.StringInput `pulumi:"subscriptionArn"`
 }
 
@@ -99,6 +102,7 @@ func (o LookupAnomalySubscriptionResultOutput) Subscribers() AnomalySubscription
 	return o.ApplyT(func(v LookupAnomalySubscriptionResult) []AnomalySubscriptionSubscriber { return v.Subscribers }).(AnomalySubscriptionSubscriberArrayOutput)
 }
 
+// The `AnomalySubscription` Amazon Resource Name (ARN).
 func (o LookupAnomalySubscriptionResultOutput) SubscriptionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnomalySubscriptionResult) *string { return v.SubscriptionArn }).(pulumi.StringPtrOutput)
 }

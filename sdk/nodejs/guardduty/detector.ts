@@ -38,10 +38,25 @@ export class Detector extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+     */
     public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
+    /**
+     * Specifies whether the detector is to be enabled on creation.
+     */
     public readonly enable!: pulumi.Output<boolean>;
+    /**
+     * Information about the configuration of a feature in your account.
+     */
     public readonly features!: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
+    /**
+     * Specifies how frequently updated findings are exported.
+     */
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a tag.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -81,9 +96,24 @@ export class Detector extends pulumi.CustomResource {
  * The set of arguments for constructing a Detector resource.
  */
 export interface DetectorArgs {
+    /**
+     * Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+     */
     dataSources?: pulumi.Input<inputs.guardduty.DetectorCfnDataSourceConfigurationsArgs>;
+    /**
+     * Specifies whether the detector is to be enabled on creation.
+     */
     enable: pulumi.Input<boolean>;
+    /**
+     * Information about the configuration of a feature in your account.
+     */
     features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorCfnFeatureConfigurationArgs>[]>;
+    /**
+     * Specifies how frequently updated findings are exported.
+     */
     findingPublishingFrequency?: pulumi.Input<string>;
+    /**
+     * Describes a tag.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -34,7 +34,13 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolUserToGroupAttachment.__pulumiType;
     }
 
+    /**
+     * The name of the group that you want to add your user to.
+     */
     public readonly groupName!: pulumi.Output<string>;
+    /**
+     * The user pool ID for the user pool.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string>;
 
@@ -77,7 +83,13 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolUserToGroupAttachment resource.
  */
 export interface UserPoolUserToGroupAttachmentArgs {
+    /**
+     * The name of the group that you want to add your user to.
+     */
     groupName: pulumi.Input<string>;
+    /**
+     * The user pool ID for the user pool.
+     */
     userPoolId: pulumi.Input<string>;
     username: pulumi.Input<string>;
 }

@@ -15,18 +15,39 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:VirtualMfaDevice")]
     public partial class VirtualMfaDevice : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        /// 
+        /// This parameter is optional. If it is not included, it defaults to a slash (/).
+        /// 
+        /// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         [Output("serialNumber")]
         public Output<string> SerialNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The IAM user associated with this virtual MFA device.
+        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<string>> Users { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
+        /// 
+        /// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         [Output("virtualMfaDeviceName")]
         public Output<string?> VirtualMfaDeviceName { get; private set; } = null!;
 
@@ -80,11 +101,22 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class VirtualMfaDeviceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        /// 
+        /// This parameter is optional. If it is not included, it defaults to a slash (/).
+        /// 
+        /// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -93,12 +125,21 @@ namespace Pulumi.AwsNative.Iam
 
         [Input("users", required: true)]
         private InputList<string>? _users;
+
+        /// <summary>
+        /// The IAM user associated with this virtual MFA device.
+        /// </summary>
         public InputList<string> Users
         {
             get => _users ?? (_users = new InputList<string>());
             set => _users = value;
         }
 
+        /// <summary>
+        /// The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
+        /// 
+        /// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         [Input("virtualMfaDeviceName")]
         public Input<string>? VirtualMfaDeviceName { get; set; }
 

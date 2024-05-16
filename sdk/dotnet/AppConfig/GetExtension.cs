@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetExtensionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The system-generated ID of the extension.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetExtensionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The system-generated ID of the extension.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,14 +57,29 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetExtensionResult
     {
+        /// <summary>
+        /// The actions defined in the extension.
+        /// </summary>
         public readonly ImmutableDictionary<string, ImmutableArray<Outputs.ExtensionAction>>? Actions;
+        /// <summary>
+        /// The system-generated Amazon Resource Name (ARN) for the extension.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Description of the extension.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The system-generated ID of the extension.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ExtensionParameter>? Parameters;
+        /// <summary>
+        /// The extension version number.
+        /// </summary>
         public readonly int? VersionNumber;
 
         [OutputConstructor]

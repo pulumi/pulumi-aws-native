@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateBoxPlotFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field well for a box plot.
+        /// </summary>
         [Input("boxPlotAggregatedFieldWells")]
         public Input<Inputs.TemplateBoxPlotAggregatedFieldWellsArgs>? BoxPlotAggregatedFieldWells { get; set; }
 

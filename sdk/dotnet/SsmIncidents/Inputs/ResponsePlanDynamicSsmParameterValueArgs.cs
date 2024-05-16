@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
     /// </summary>
     public sealed class ResponsePlanDynamicSsmParameterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Variable dynamic parameters. A parameter value is determined when an incident is created.
+        /// </summary>
         [Input("variable")]
         public Input<Pulumi.AwsNative.SsmIncidents.ResponsePlanVariableType>? Variable { get; set; }
 

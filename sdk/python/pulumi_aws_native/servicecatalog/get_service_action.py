@@ -40,26 +40,41 @@ class GetServiceActionResult:
     @property
     @pulumi.getter
     def definition(self) -> Optional[Sequence['outputs.ServiceActionDefinitionParameter']]:
+        """
+        The list of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}] or [{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]` .
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="definitionType")
     def definition_type(self) -> Optional['ServiceActionDefinitionType']:
+        """
+        The self-service action definition type. For example, `SSM_AUTOMATION` .
+        """
         return pulumi.get(self, "definition_type")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The self-service action description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The self-service action name.
+        """
         return pulumi.get(self, "name")
 
 
@@ -80,6 +95,9 @@ def get_service_action(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceActionResult:
     """
     Resource Schema for AWS::ServiceCatalog::ServiceAction
+
+
+    :param str id: The self-service action identifier. For example, `act-fs7abcd89wxyz` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -99,5 +117,8 @@ def get_service_action_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceActionResult]:
     """
     Resource Schema for AWS::ServiceCatalog::ServiceAction
+
+
+    :param str id: The self-service action identifier. For example, `act-fs7abcd89wxyz` .
     """
     ...

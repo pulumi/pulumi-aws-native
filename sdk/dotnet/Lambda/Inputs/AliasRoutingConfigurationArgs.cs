@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     {
         [Input("additionalVersionWeights", required: true)]
         private InputList<Inputs.AliasVersionWeightArgs>? _additionalVersionWeights;
+
+        /// <summary>
+        /// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        /// </summary>
         public InputList<Inputs.AliasVersionWeightArgs> AdditionalVersionWeights
         {
             get => _additionalVersionWeights ?? (_additionalVersionWeights = new InputList<Inputs.AliasVersionWeightArgs>());

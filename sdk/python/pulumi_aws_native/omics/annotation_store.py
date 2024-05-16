@@ -26,6 +26,13 @@ class AnnotationStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AnnotationStore resource.
+        :param pulumi.Input['AnnotationStoreStoreFormat'] store_format: The annotation file format of the store.
+        :param pulumi.Input[str] description: A description for the store.
+        :param pulumi.Input[str] name: The name of the Annotation Store.
+        :param pulumi.Input['AnnotationStoreReferenceItemArgs'] reference: A genome reference.
+        :param pulumi.Input['AnnotationStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs'] store_options: The store's file parsing options.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         pulumi.set(__self__, "store_format", store_format)
         if description is not None:
@@ -44,6 +51,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter(name="storeFormat")
     def store_format(self) -> pulumi.Input['AnnotationStoreStoreFormat']:
+        """
+        The annotation file format of the store.
+        """
         return pulumi.get(self, "store_format")
 
     @store_format.setter
@@ -53,6 +63,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the store.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -62,6 +75,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Annotation Store.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,6 +87,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter
     def reference(self) -> Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']]:
+        """
+        A genome reference.
+        """
         return pulumi.get(self, "reference")
 
     @reference.setter
@@ -80,6 +99,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> Optional[pulumi.Input['AnnotationStoreSseConfigArgs']]:
+        """
+        Server-side encryption (SSE) settings for a store.
+        """
         return pulumi.get(self, "sse_config")
 
     @sse_config.setter
@@ -89,6 +111,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter(name="storeOptions")
     def store_options(self) -> Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']]:
+        """
+        The store's file parsing options.
+        """
         return pulumi.get(self, "store_options")
 
     @store_options.setter
@@ -98,6 +123,9 @@ class AnnotationStoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags for the store.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -123,6 +151,13 @@ class AnnotationStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description for the store.
+        :param pulumi.Input[str] name: The name of the Annotation Store.
+        :param pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']] reference: A genome reference.
+        :param pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input['AnnotationStoreStoreFormat'] store_format: The annotation file format of the store.
+        :param pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']] store_options: The store's file parsing options.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
     @overload
@@ -223,70 +258,112 @@ class AnnotationStore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The store's ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        When the store was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the store.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Annotation Store.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def reference(self) -> pulumi.Output[Optional['outputs.AnnotationStoreReferenceItem']]:
+        """
+        A genome reference.
+        """
         return pulumi.get(self, "reference")
 
     @property
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> pulumi.Output[Optional['outputs.AnnotationStoreSseConfig']]:
+        """
+        Server-side encryption (SSE) settings for a store.
+        """
         return pulumi.get(self, "sse_config")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['AnnotationStoreStoreStatus']:
+        """
+        The store's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        The store's status message.
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="storeArn")
     def store_arn(self) -> pulumi.Output[str]:
+        """
+        The store's ARN.
+        """
         return pulumi.get(self, "store_arn")
 
     @property
     @pulumi.getter(name="storeFormat")
     def store_format(self) -> pulumi.Output['AnnotationStoreStoreFormat']:
+        """
+        The annotation file format of the store.
+        """
         return pulumi.get(self, "store_format")
 
     @property
     @pulumi.getter(name="storeOptions")
     def store_options(self) -> pulumi.Output[Optional['outputs.AnnotationStoreStoreOptionsProperties']]:
+        """
+        The store's file parsing options.
+        """
         return pulumi.get(self, "store_options")
 
     @property
     @pulumi.getter(name="storeSizeBytes")
     def store_size_bytes(self) -> pulumi.Output[float]:
+        """
+        The store's size in bytes.
+        """
         return pulumi.get(self, "store_size_bytes")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags for the store.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
+        """
+        When the store was updated.
+        """
         return pulumi.get(self, "update_time")
 

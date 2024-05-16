@@ -30,6 +30,20 @@ class BudgetsActionArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
+        :param pulumi.Input['BudgetsActionActionThresholdArgs'] action_threshold: The trigger threshold of the action.
+        :param pulumi.Input['BudgetsActionActionType'] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+        :param pulumi.Input[str] budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
+        :param pulumi.Input['BudgetsActionDefinitionArgs'] definition: The definition is where you specify all of the type-specific parameters.
+        :param pulumi.Input[str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
+        :param pulumi.Input['BudgetsActionNotificationType'] notification_type: The type of a notification.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]] subscribers: The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+               
+               For example, an email subscriber has the following parameters:
+               
+               - A `subscriptionType` of `EMAIL`
+               - An `address` of `example@example.com`
+        :param pulumi.Input['BudgetsActionApprovalModel'] approval_model: This specifies if the action needs manual or automatic approval.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] resource_tags: The tag structure that contains a tag key and value.
         """
         pulumi.set(__self__, "action_threshold", action_threshold)
         pulumi.set(__self__, "action_type", action_type)
@@ -46,6 +60,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Input['BudgetsActionActionThresholdArgs']:
+        """
+        The trigger threshold of the action.
+        """
         return pulumi.get(self, "action_threshold")
 
     @action_threshold.setter
@@ -55,6 +72,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input['BudgetsActionActionType']:
+        """
+        The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+        """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
@@ -64,6 +84,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Input[str]:
+        """
+        A string that represents the budget name. ":" and "\\" characters aren't allowed.
+        """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
@@ -73,6 +96,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input['BudgetsActionDefinitionArgs']:
+        """
+        The definition is where you specify all of the type-specific parameters.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -82,6 +108,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[str]:
+        """
+        The role passed for action execution and reversion. Roles and actions must be in the same account.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -91,6 +120,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input['BudgetsActionNotificationType']:
+        """
+        The type of a notification.
+        """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
@@ -100,6 +132,14 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter
     def subscribers(self) -> pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]:
+        """
+        The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+
+        For example, an email subscriber has the following parameters:
+
+        - A `subscriptionType` of `EMAIL`
+        - An `address` of `example@example.com`
+        """
         return pulumi.get(self, "subscribers")
 
     @subscribers.setter
@@ -109,6 +149,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> Optional[pulumi.Input['BudgetsActionApprovalModel']]:
+        """
+        This specifies if the action needs manual or automatic approval.
+        """
         return pulumi.get(self, "approval_model")
 
     @approval_model.setter
@@ -118,6 +161,9 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag structure that contains a tag key and value.
+        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -145,6 +191,20 @@ class BudgetsAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BudgetsActionActionThresholdArgs']] action_threshold: The trigger threshold of the action.
+        :param pulumi.Input['BudgetsActionActionType'] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+        :param pulumi.Input['BudgetsActionApprovalModel'] approval_model: This specifies if the action needs manual or automatic approval.
+        :param pulumi.Input[str] budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
+        :param pulumi.Input[pulumi.InputType['BudgetsActionDefinitionArgs']] definition: The definition is where you specify all of the type-specific parameters.
+        :param pulumi.Input[str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
+        :param pulumi.Input['BudgetsActionNotificationType'] notification_type: The type of a notification.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] resource_tags: The tag structure that contains a tag key and value.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]] subscribers: The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+               
+               For example, an email subscriber has the following parameters:
+               
+               - A `subscriptionType` of `EMAIL`
+               - An `address` of `example@example.com`
         """
         ...
     @overload
@@ -251,50 +311,85 @@ class BudgetsAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Output[str]:
+        """
+        A system-generated universally unique identifier (UUID) for the action.
+        """
         return pulumi.get(self, "action_id")
 
     @property
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Output['outputs.BudgetsActionActionThreshold']:
+        """
+        The trigger threshold of the action.
+        """
         return pulumi.get(self, "action_threshold")
 
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Output['BudgetsActionActionType']:
+        """
+        The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+        """
         return pulumi.get(self, "action_type")
 
     @property
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> pulumi.Output[Optional['BudgetsActionApprovalModel']]:
+        """
+        This specifies if the action needs manual or automatic approval.
+        """
         return pulumi.get(self, "approval_model")
 
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Output[str]:
+        """
+        A string that represents the budget name. ":" and "\\" characters aren't allowed.
+        """
         return pulumi.get(self, "budget_name")
 
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.BudgetsActionDefinition']:
+        """
+        The definition is where you specify all of the type-specific parameters.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[str]:
+        """
+        The role passed for action execution and reversion. Roles and actions must be in the same account.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Output['BudgetsActionNotificationType']:
+        """
+        The type of a notification.
+        """
         return pulumi.get(self, "notification_type")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag structure that contains a tag key and value.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter
     def subscribers(self) -> pulumi.Output[Sequence['outputs.BudgetsActionSubscriber']]:
+        """
+        The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+
+        For example, an email subscriber has the following parameters:
+
+        - A `subscriptionType` of `EMAIL`
+        - An `address` of `example@example.com`
+        """
         return pulumi.get(self, "subscribers")
 

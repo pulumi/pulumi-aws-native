@@ -23,14 +23,17 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
+	// The Amazon Resource Name (ARN) of the project.
 	ProjectArn string `pulumi:"projectArn"`
 }
 
 type LookupProjectResult struct {
 	// The time at which the project was created.
 	CreationTime *string `pulumi:"creationTime"`
-	ProjectArn   *string `pulumi:"projectArn"`
-	ProjectId    *string `pulumi:"projectId"`
+	// The Amazon Resource Name (ARN) of the project.
+	ProjectArn *string `pulumi:"projectArn"`
+	// The ID of the project. This ID is prepended to all entities associated with this project.
+	ProjectId *string `pulumi:"projectId"`
 	// The status of a project.
 	ProjectStatus *ProjectStatus `pulumi:"projectStatus"`
 	// Provisioned ServiceCatalog  Details
@@ -51,6 +54,7 @@ func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts
 }
 
 type LookupProjectOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the project.
 	ProjectArn pulumi.StringInput `pulumi:"projectArn"`
 }
 
@@ -77,10 +81,12 @@ func (o LookupProjectResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the project.
 func (o LookupProjectResultOutput) ProjectArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.ProjectArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the project. This ID is prepended to all entities associated with this project.
 func (o LookupProjectResultOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }

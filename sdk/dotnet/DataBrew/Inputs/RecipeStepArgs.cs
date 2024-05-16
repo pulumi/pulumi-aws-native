@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
     public sealed class RecipeStepArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RecipeActionArgs> Action { get; set; } = null!;
 

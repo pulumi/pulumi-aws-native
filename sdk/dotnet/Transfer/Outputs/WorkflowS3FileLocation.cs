@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowS3FileLocation
     {
+        /// <summary>
+        /// Specifies the details for the Amazon S3 location for an input file to a workflow.
+        /// </summary>
         public readonly Outputs.WorkflowS3InputFileLocation? S3FileLocation;
 
         [OutputConstructor]

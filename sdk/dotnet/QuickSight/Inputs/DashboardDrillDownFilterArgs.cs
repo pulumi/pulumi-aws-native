@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDrillDownFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category drill down filter.
+        /// </summary>
         [Input("categoryFilter")]
         public Input<Inputs.DashboardCategoryDrillDownFilterArgs>? CategoryFilter { get; set; }
 
+        /// <summary>
+        /// The numeric equality type drill down filter.
+        /// </summary>
         [Input("numericEqualityFilter")]
         public Input<Inputs.DashboardNumericEqualityDrillDownFilterArgs>? NumericEqualityFilter { get; set; }
 
+        /// <summary>
+        /// The time range drill down filter.
+        /// </summary>
         [Input("timeRangeFilter")]
         public Input<Inputs.DashboardTimeRangeDrillDownFilterArgs>? TimeRangeFilter { get; set; }
 

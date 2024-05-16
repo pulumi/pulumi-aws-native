@@ -53,11 +53,19 @@ export class RegexPatternSet extends pulumi.CustomResource {
      * Name of the RegexPatternSet.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The regular expression patterns in the set.
+     */
     public readonly regularExpressionList!: pulumi.Output<string[]>;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
     public readonly scope!: pulumi.Output<enums.wafv2.RegexPatternSetScope>;
+    /**
+     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     *
+     * You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -112,10 +120,18 @@ export interface RegexPatternSetArgs {
      * Name of the RegexPatternSet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The regular expression patterns in the set.
+     */
     regularExpressionList: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
     scope: pulumi.Input<enums.wafv2.RegexPatternSetScope>;
+    /**
+     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     *
+     * You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

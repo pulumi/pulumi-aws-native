@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDecimalPlacesConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The values of the decimal places.
+        /// </summary>
         [Input("decimalPlaces", required: true)]
         public Input<double> DecimalPlaces { get; set; } = null!;
 

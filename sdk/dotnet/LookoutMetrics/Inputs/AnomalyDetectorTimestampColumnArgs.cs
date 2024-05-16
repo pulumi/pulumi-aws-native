@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         [Input("columnFormat")]
         public Input<string>? ColumnFormat { get; set; }
 
+        /// <summary>
+        /// The name of the timestamp column.
+        /// </summary>
         [Input("columnName")]
         public Input<string>? ColumnName { get; set; }
 

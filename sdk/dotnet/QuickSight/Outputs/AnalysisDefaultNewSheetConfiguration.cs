@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultNewSheetConfiguration
     {
+        /// <summary>
+        /// The options that determine the default settings for interactive layout configuration.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultInteractiveLayoutConfiguration? InteractiveLayoutConfiguration;
+        /// <summary>
+        /// The options that determine the default settings for a paginated layout configuration.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultPaginatedLayoutConfiguration? PaginatedLayoutConfiguration;
+        /// <summary>
+        /// The option that determines the sheet content type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSheetContentType? SheetContentType;
 
         [OutputConstructor]

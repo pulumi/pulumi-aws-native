@@ -12,12 +12,23 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of a free-form layout.
+        /// </summary>
         [Input("freeFormLayout")]
         public Input<Inputs.AnalysisFreeFormLayoutConfigurationArgs>? FreeFormLayout { get; set; }
 
+        /// <summary>
+        /// The configuration for a grid layout. Also called a tiled layout.
+        /// 
+        /// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+        /// </summary>
         [Input("gridLayout")]
         public Input<Inputs.AnalysisGridLayoutConfigurationArgs>? GridLayout { get; set; }
 
+        /// <summary>
+        /// The configuration for a section-based layout.
+        /// </summary>
         [Input("sectionBasedLayout")]
         public Input<Inputs.AnalysisSectionBasedLayoutConfigurationArgs>? SectionBasedLayout { get; set; }
 

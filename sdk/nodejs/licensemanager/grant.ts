@@ -34,6 +34,9 @@ export class Grant extends pulumi.CustomResource {
         return obj['__pulumiType'] === Grant.__pulumiType;
     }
 
+    /**
+     * Allowed operations for the grant.
+     */
     public readonly allowedOperations!: pulumi.Output<string[] | undefined>;
     /**
      * Arn of the grant.
@@ -51,7 +54,19 @@ export class Grant extends pulumi.CustomResource {
      * License Arn for the grant.
      */
     public readonly licenseArn!: pulumi.Output<string | undefined>;
+    /**
+     * The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+     *
+     * - An AWS account, which includes only the account specified.
+     *
+     * - An organizational unit (OU), which includes all accounts in the OU.
+     *
+     * - An organization, which will include all accounts across your organization.
+     */
     public readonly principals!: pulumi.Output<string[] | undefined>;
+    /**
+     * Granted license status.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The version of the grant.
@@ -96,6 +111,9 @@ export class Grant extends pulumi.CustomResource {
  * The set of arguments for constructing a Grant resource.
  */
 export interface GrantArgs {
+    /**
+     * Allowed operations for the grant.
+     */
     allowedOperations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name for the created Grant.
@@ -109,6 +127,18 @@ export interface GrantArgs {
      * License Arn for the grant.
      */
     licenseArn?: pulumi.Input<string>;
+    /**
+     * The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+     *
+     * - An AWS account, which includes only the account specified.
+     *
+     * - An organizational unit (OU), which includes all accounts in the OU.
+     *
+     * - An organization, which will include all accounts across your organization.
+     */
     principals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Granted license status.
+     */
     status?: pulumi.Input<string>;
 }

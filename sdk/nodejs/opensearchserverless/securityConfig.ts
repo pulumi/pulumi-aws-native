@@ -89,7 +89,13 @@ export class SecurityConfig extends pulumi.CustomResource {
      * The friendly name of the security config
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+     */
     public readonly samlOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigSamlConfigOptions | undefined>;
+    /**
+     * The type of security configuration. Currently the only option is `saml` .
+     */
     public readonly type!: pulumi.Output<enums.opensearchserverless.SecurityConfigType | undefined>;
 
     /**
@@ -134,6 +140,12 @@ export interface SecurityConfigArgs {
      * The friendly name of the security config
      */
     name?: pulumi.Input<string>;
+    /**
+     * Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+     */
     samlOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigSamlConfigOptionsArgs>;
+    /**
+     * The type of security configuration. Currently the only option is `saml` .
+     */
     type?: pulumi.Input<enums.opensearchserverless.SecurityConfigType>;
 }

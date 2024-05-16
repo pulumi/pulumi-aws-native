@@ -50,11 +50,17 @@ class GetDatasetResult:
     @property
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.DatasetAction']]:
+        """
+        Information needed to run the "containerAction" to produce data set contents.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="contentDeliveryRules")
     def content_delivery_rules(self) -> Optional[Sequence['outputs.DatasetContentDeliveryRule']]:
+        """
+        When dataset contents are created, they are delivered to destination specified here.
+        """
         return pulumi.get(self, "content_delivery_rules")
 
     @property
@@ -65,26 +71,41 @@ class GetDatasetResult:
     @property
     @pulumi.getter(name="lateDataRules")
     def late_data_rules(self) -> Optional[Sequence['outputs.DatasetLateDataRule']]:
+        """
+        A structure that contains the name and configuration information of a late data rule.
+        """
         return pulumi.get(self, "late_data_rules")
 
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional['outputs.DatasetRetentionPeriod']:
+        """
+        How long, in days, message data is kept.
+        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def triggers(self) -> Optional[Sequence['outputs.DatasetTrigger']]:
+        """
+        The "DatasetTrigger" that specifies when the data set is automatically updated.
+        """
         return pulumi.get(self, "triggers")
 
     @property
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional['outputs.DatasetVersioningConfiguration']:
+        """
+        Information about the versioning of dataset contents.
+        """
         return pulumi.get(self, "versioning_configuration")
 
 
@@ -108,6 +129,9 @@ def get_dataset(dataset_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
     Resource Type definition for AWS::IoTAnalytics::Dataset
+
+
+    :param str dataset_name: The name of the dataset.
     """
     __args__ = dict()
     __args__['datasetName'] = dataset_name
@@ -130,5 +154,8 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Dataset
+
+
+    :param str dataset_name: The name of the dataset.
     """
     ...

@@ -41,8 +41,17 @@ export class Theme extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) of the theme.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account where you want to store the new theme.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+     */
     public readonly baseThemeId!: pulumi.Output<string>;
+    /**
+     * The theme configuration. This configuration contains all of the display properties for a theme.
+     */
     public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration>;
     /**
      * <p>The date and time that the theme was created.</p>
@@ -52,12 +61,33 @@ export class Theme extends pulumi.CustomResource {
      * <p>The date and time that the theme was last updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * A display name for the theme.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Permission for the resource.
+     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
+    /**
+     * A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+     */
     public readonly themeId!: pulumi.Output<string>;
+    /**
+     * Theme type.
+     */
     public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeType>;
+    /**
+     * A version of a theme.
+     */
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeVersion>;
+    /**
+     * A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+     */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
@@ -122,12 +152,36 @@ export class Theme extends pulumi.CustomResource {
  * The set of arguments for constructing a Theme resource.
  */
 export interface ThemeArgs {
+    /**
+     * The ID of the AWS account where you want to store the new theme.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+     */
     baseThemeId: pulumi.Input<string>;
+    /**
+     * The theme configuration. This configuration contains all of the display properties for a theme.
+     */
     configuration: pulumi.Input<inputs.quicksight.ThemeConfigurationArgs>;
+    /**
+     * A display name for the theme.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Permission for the resource.
+     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[]>;
+    /**
+     * A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+     */
     themeId: pulumi.Input<string>;
+    /**
+     * A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+     */
     versionDescription?: pulumi.Input<string>;
 }

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateListControlDisplayOptions
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         public readonly Outputs.TemplateSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The configuration of the search options in a list control.
+        /// </summary>
         public readonly Outputs.TemplateListControlSearchOptions? SearchOptions;
+        /// <summary>
+        /// The configuration of the `Select all` options in a list control.
+        /// </summary>
         public readonly Outputs.TemplateListControlSelectAllOptions? SelectAllOptions;
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         public readonly Outputs.TemplateLabelOptions? TitleOptions;
 
         [OutputConstructor]

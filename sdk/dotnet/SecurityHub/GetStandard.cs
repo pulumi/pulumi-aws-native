@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetStandardArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of a resource that represents your subscription to a supported standard.
+        /// </summary>
         [Input("standardsSubscriptionArn", required: true)]
         public string StandardsSubscriptionArn { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetStandardInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of a resource that represents your subscription to a supported standard.
+        /// </summary>
         [Input("standardsSubscriptionArn", required: true)]
         public Input<string> StandardsSubscriptionArn { get; set; } = null!;
 
@@ -60,6 +66,9 @@ namespace Pulumi.AwsNative.SecurityHub
         ///  *Maximum*: ``100``
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardsControl> DisabledStandardsControls;
+        /// <summary>
+        /// The ARN of a resource that represents your subscription to a supported standard.
+        /// </summary>
         public readonly string? StandardsSubscriptionArn;
 
         [OutputConstructor]

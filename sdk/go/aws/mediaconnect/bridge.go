@@ -17,16 +17,20 @@ type Bridge struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Number (ARN) of the bridge.
-	BridgeArn            pulumi.StringOutput                 `pulumi:"bridgeArn"`
-	BridgeState          BridgeStateEnumOutput               `pulumi:"bridgeState"`
-	EgressGatewayBridge  BridgeEgressGatewayBridgePtrOutput  `pulumi:"egressGatewayBridge"`
+	BridgeArn pulumi.StringOutput `pulumi:"bridgeArn"`
+	// The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+	BridgeState BridgeStateEnumOutput `pulumi:"bridgeState"`
+	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	EgressGatewayBridge BridgeEgressGatewayBridgePtrOutput `pulumi:"egressGatewayBridge"`
+	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge BridgeIngressGatewayBridgePtrOutput `pulumi:"ingressGatewayBridge"`
 	// The name of the bridge.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The outputs on this bridge.
 	Outputs BridgeOutputTypeArrayOutput `pulumi:"outputs"`
 	// The placement Amazon Resource Number (ARN) of the bridge.
-	PlacementArn         pulumi.StringOutput           `pulumi:"placementArn"`
+	PlacementArn pulumi.StringOutput `pulumi:"placementArn"`
+	// The settings for source failover.
 	SourceFailoverConfig BridgeFailoverConfigPtrOutput `pulumi:"sourceFailoverConfig"`
 	// The sources on this bridge.
 	Sources BridgeSourceTypeArrayOutput `pulumi:"sources"`
@@ -78,14 +82,17 @@ func (BridgeState) ElementType() reflect.Type {
 }
 
 type bridgeArgs struct {
-	EgressGatewayBridge  *BridgeEgressGatewayBridge  `pulumi:"egressGatewayBridge"`
+	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	EgressGatewayBridge *BridgeEgressGatewayBridge `pulumi:"egressGatewayBridge"`
+	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge *BridgeIngressGatewayBridge `pulumi:"ingressGatewayBridge"`
 	// The name of the bridge.
 	Name *string `pulumi:"name"`
 	// The outputs on this bridge.
 	Outputs []BridgeOutputType `pulumi:"outputs"`
 	// The placement Amazon Resource Number (ARN) of the bridge.
-	PlacementArn         string                `pulumi:"placementArn"`
+	PlacementArn string `pulumi:"placementArn"`
+	// The settings for source failover.
 	SourceFailoverConfig *BridgeFailoverConfig `pulumi:"sourceFailoverConfig"`
 	// The sources on this bridge.
 	Sources []BridgeSourceType `pulumi:"sources"`
@@ -93,14 +100,17 @@ type bridgeArgs struct {
 
 // The set of arguments for constructing a Bridge resource.
 type BridgeArgs struct {
-	EgressGatewayBridge  BridgeEgressGatewayBridgePtrInput
+	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	EgressGatewayBridge BridgeEgressGatewayBridgePtrInput
+	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge BridgeIngressGatewayBridgePtrInput
 	// The name of the bridge.
 	Name pulumi.StringPtrInput
 	// The outputs on this bridge.
 	Outputs BridgeOutputTypeArrayInput
 	// The placement Amazon Resource Number (ARN) of the bridge.
-	PlacementArn         pulumi.StringInput
+	PlacementArn pulumi.StringInput
+	// The settings for source failover.
 	SourceFailoverConfig BridgeFailoverConfigPtrInput
 	// The sources on this bridge.
 	Sources BridgeSourceTypeArrayInput
@@ -148,14 +158,17 @@ func (o BridgeOutput) BridgeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bridge) pulumi.StringOutput { return v.BridgeArn }).(pulumi.StringOutput)
 }
 
+// The current status of the bridge. Possible values are: ACTIVE or STANDBY.
 func (o BridgeOutput) BridgeState() BridgeStateEnumOutput {
 	return o.ApplyT(func(v *Bridge) BridgeStateEnumOutput { return v.BridgeState }).(BridgeStateEnumOutput)
 }
 
+// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 func (o BridgeOutput) EgressGatewayBridge() BridgeEgressGatewayBridgePtrOutput {
 	return o.ApplyT(func(v *Bridge) BridgeEgressGatewayBridgePtrOutput { return v.EgressGatewayBridge }).(BridgeEgressGatewayBridgePtrOutput)
 }
 
+// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 func (o BridgeOutput) IngressGatewayBridge() BridgeIngressGatewayBridgePtrOutput {
 	return o.ApplyT(func(v *Bridge) BridgeIngressGatewayBridgePtrOutput { return v.IngressGatewayBridge }).(BridgeIngressGatewayBridgePtrOutput)
 }
@@ -175,6 +188,7 @@ func (o BridgeOutput) PlacementArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bridge) pulumi.StringOutput { return v.PlacementArn }).(pulumi.StringOutput)
 }
 
+// The settings for source failover.
 func (o BridgeOutput) SourceFailoverConfig() BridgeFailoverConfigPtrOutput {
 	return o.ApplyT(func(v *Bridge) BridgeFailoverConfigPtrOutput { return v.SourceFailoverConfig }).(BridgeFailoverConfigPtrOutput)
 }

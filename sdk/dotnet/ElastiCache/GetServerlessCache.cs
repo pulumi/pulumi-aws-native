@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.ElastiCache
         /// The ARN of the Serverless Cache.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The usage limits for storage and ElastiCache Processing Units for the cache.
+        /// </summary>
         public readonly Outputs.ServerlessCacheCacheUsageLimits? CacheUsageLimits;
         /// <summary>
         /// The creation time of the Serverless Cache.
@@ -74,11 +77,17 @@ namespace Pulumi.AwsNative.ElastiCache
         /// The description of the Serverless Cache.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Represents the information required for client programs to connect to a cache node. This value is read-only.
+        /// </summary>
         public readonly Outputs.ServerlessCacheEndpoint? Endpoint;
         /// <summary>
         /// The full engine version of the Serverless Cache.
         /// </summary>
         public readonly string? FullEngineVersion;
+        /// <summary>
+        /// Represents the information required for client programs to connect to a cache node. This value is read-only.
+        /// </summary>
         public readonly Outputs.ServerlessCacheEndpoint? ReaderEndpoint;
         /// <summary>
         /// One or more Amazon VPC security groups associated with this Serverless Cache.

@@ -23,10 +23,16 @@ func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ..
 }
 
 type LookupMountTargetArgs struct {
+	// The ID of the Amazon EFS file system that the mount target provides access to.
+	//
+	// Example: `fs-0123456789111222a`
 	Id string `pulumi:"id"`
 }
 
 type LookupMountTargetResult struct {
+	// The ID of the Amazon EFS file system that the mount target provides access to.
+	//
+	// Example: `fs-0123456789111222a`
 	Id *string `pulumi:"id"`
 	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -46,6 +52,9 @@ func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputAr
 }
 
 type LookupMountTargetOutputArgs struct {
+	// The ID of the Amazon EFS file system that the mount target provides access to.
+	//
+	// Example: `fs-0123456789111222a`
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,6 +76,9 @@ func (o LookupMountTargetResultOutput) ToLookupMountTargetResultOutputWithContex
 	return o
 }
 
+// The ID of the Amazon EFS file system that the mount target provides access to.
+//
+// Example: `fs-0123456789111222a`
 func (o LookupMountTargetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardConditionalFormattingCustomIconConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color of the icon.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// Determines the icon display configuration.
+        /// </summary>
         [Input("displayConfiguration")]
         public Input<Inputs.DashboardConditionalFormattingIconDisplayConfigurationArgs>? DisplayConfiguration { get; set; }
 
+        /// <summary>
+        /// The expression that determines the condition of the icon set.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
+        /// <summary>
+        /// Custom icon options for an icon set.
+        /// </summary>
         [Input("iconOptions", required: true)]
         public Input<Inputs.DashboardConditionalFormattingCustomIconOptionsArgs> IconOptions { get; set; } = null!;
 

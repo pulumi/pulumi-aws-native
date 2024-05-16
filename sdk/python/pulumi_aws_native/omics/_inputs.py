@@ -26,11 +26,17 @@ __all__ = [
 class AnnotationStoreReferenceItemArgs:
     def __init__(__self__, *,
                  reference_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] reference_arn: The reference's ARN.
+        """
         pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> pulumi.Input[str]:
+        """
+        The reference's ARN.
+        """
         return pulumi.get(self, "reference_arn")
 
     @reference_arn.setter
@@ -43,6 +49,10 @@ class AnnotationStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['AnnotationStoreEncryptionType'],
                  key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['AnnotationStoreEncryptionType'] type: The encryption type.
+        :param pulumi.Input[str] key_arn: An encryption key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -50,6 +60,9 @@ class AnnotationStoreSseConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AnnotationStoreEncryptionType']:
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -59,6 +72,9 @@ class AnnotationStoreSseConfigArgs:
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        An encryption key ARN.
+        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -130,6 +146,7 @@ class ReferenceStoreSseConfigArgs:
                  key_arn: Optional[pulumi.Input[str]] = None):
         """
         Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input['ReferenceStoreEncryptionType'] type: The encryption type.
         :param pulumi.Input[str] key_arn: An encryption key ARN.
         """
         pulumi.set(__self__, "type", type)
@@ -139,6 +156,9 @@ class ReferenceStoreSseConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['ReferenceStoreEncryptionType']:
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -165,6 +185,7 @@ class SequenceStoreSseConfigArgs:
                  key_arn: Optional[pulumi.Input[str]] = None):
         """
         Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input['SequenceStoreEncryptionType'] type: The encryption type.
         :param pulumi.Input[str] key_arn: An encryption key ARN.
         """
         pulumi.set(__self__, "type", type)
@@ -174,6 +195,9 @@ class SequenceStoreSseConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['SequenceStoreEncryptionType']:
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -197,11 +221,17 @@ class SequenceStoreSseConfigArgs:
 class VariantStoreReferenceItemArgs:
     def __init__(__self__, *,
                  reference_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] reference_arn: The reference's ARN.
+        """
         pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> pulumi.Input[str]:
+        """
+        The reference's ARN.
+        """
         return pulumi.get(self, "reference_arn")
 
     @reference_arn.setter
@@ -214,6 +244,10 @@ class VariantStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['VariantStoreEncryptionType'],
                  key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['VariantStoreEncryptionType'] type: The encryption type.
+        :param pulumi.Input[str] key_arn: An encryption key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -221,6 +255,9 @@ class VariantStoreSseConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['VariantStoreEncryptionType']:
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -230,6 +267,9 @@ class VariantStoreSseConfigArgs:
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        An encryption key ARN.
+        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -242,6 +282,10 @@ class WorkflowParameterArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  optional: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] description: The parameter's description.
+        :param pulumi.Input[bool] optional: Whether the parameter is optional.
+        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if optional is not None:
@@ -250,6 +294,9 @@ class WorkflowParameterArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameter's description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -259,6 +306,9 @@ class WorkflowParameterArgs:
     @property
     @pulumi.getter
     def optional(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the parameter is optional.
+        """
         return pulumi.get(self, "optional")
 
     @optional.setter

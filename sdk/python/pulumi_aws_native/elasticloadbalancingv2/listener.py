@@ -305,6 +305,9 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_arn")
 
     @property

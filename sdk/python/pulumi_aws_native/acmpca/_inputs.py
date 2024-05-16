@@ -153,6 +153,22 @@ class CertificateAuthorityCrlConfigurationArgs:
                  s3_object_acl: Optional[pulumi.Input[str]] = None):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
+        :param pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs'] crl_distribution_point_extension_configuration: Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension omitted or not in certificates issued by your CA, you can set the *OmitExtension* parameter.
+        :param pulumi.Input[str] custom_cname: Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+               
+               > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        :param pulumi.Input[int] expiration_in_days: Validity period of the CRL in days.
+        :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+               
+               > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
+        :param pulumi.Input[str] s3_object_acl: Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+               
+               If no value is specified, the default is PUBLIC_READ.
+               
+               *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+               
+               For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
         """
         pulumi.set(__self__, "enabled", enabled)
         if crl_distribution_point_extension_configuration is not None:
@@ -169,6 +185,9 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -178,6 +197,9 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="crlDistributionPointExtensionConfiguration")
     def crl_distribution_point_extension_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]:
+        """
+        Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension omitted or not in certificates issued by your CA, you can set the *OmitExtension* parameter.
+        """
         return pulumi.get(self, "crl_distribution_point_extension_configuration")
 
     @crl_distribution_point_extension_configuration.setter
@@ -187,6 +209,11 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="customCname")
     def custom_cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+
+        > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        """
         return pulumi.get(self, "custom_cname")
 
     @custom_cname.setter
@@ -196,6 +223,9 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Validity period of the CRL in days.
+        """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
@@ -205,6 +235,11 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+
+        > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -214,6 +249,15 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="s3ObjectAcl")
     def s3_object_acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+
+        If no value is specified, the default is PUBLIC_READ.
+
+        *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+
+        For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
+        """
         return pulumi.get(self, "s3_object_acl")
 
     @s3_object_acl.setter
@@ -227,12 +271,24 @@ class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs:
                  omit_extension: pulumi.Input[bool]):
         """
         Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+        :param pulumi.Input[bool] omit_extension: Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+               
+               > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+               > 
+               > This configuration cannot be enabled with a custom CNAME set.
         """
         pulumi.set(__self__, "omit_extension", omit_extension)
 
     @property
     @pulumi.getter(name="omitExtension")
     def omit_extension(self) -> pulumi.Input[bool]:
+        """
+        Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+
+        > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+        > 
+        > This configuration cannot be enabled with a custom CNAME set.
+        """
         return pulumi.get(self, "omit_extension")
 
     @omit_extension.setter
@@ -247,6 +303,8 @@ class CertificateAuthorityCsrExtensionsArgs:
                  subject_information_access: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]] = None):
         """
         Structure that contains CSR pass though extensions information.
+        :param pulumi.Input['CertificateAuthorityKeyUsageArgs'] key_usage: Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]] subject_information_access: For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
         """
         if key_usage is not None:
             pulumi.set(__self__, "key_usage", key_usage)
@@ -256,6 +314,9 @@ class CertificateAuthorityCsrExtensionsArgs:
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']]:
+        """
+        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
@@ -265,6 +326,9 @@ class CertificateAuthorityCsrExtensionsArgs:
     @property
     @pulumi.getter(name="subjectInformationAccess")
     def subject_information_access(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]:
+        """
+        For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
+        """
         return pulumi.get(self, "subject_information_access")
 
     @subject_information_access.setter
@@ -451,6 +515,15 @@ class CertificateAuthorityKeyUsageArgs:
                  non_repudiation: Optional[pulumi.Input[bool]] = None):
         """
         Structure that contains X.509 KeyUsage information.
+        :param pulumi.Input[bool] crl_sign: Key can be used to sign CRLs.
+        :param pulumi.Input[bool] data_encipherment: Key can be used to decipher data.
+        :param pulumi.Input[bool] decipher_only: Key can be used only to decipher data.
+        :param pulumi.Input[bool] digital_signature: Key can be used for digital signing.
+        :param pulumi.Input[bool] encipher_only: Key can be used only to encipher data.
+        :param pulumi.Input[bool] key_agreement: Key can be used in a key-agreement protocol.
+        :param pulumi.Input[bool] key_cert_sign: Key can be used to sign certificates.
+        :param pulumi.Input[bool] key_encipherment: Key can be used to encipher data.
+        :param pulumi.Input[bool] non_repudiation: Key can be used for non-repudiation.
         """
         if crl_sign is not None:
             pulumi.set(__self__, "crl_sign", crl_sign)
@@ -474,6 +547,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="crlSign")
     def crl_sign(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to sign CRLs.
+        """
         return pulumi.get(self, "crl_sign")
 
     @crl_sign.setter
@@ -483,6 +559,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="dataEncipherment")
     def data_encipherment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to decipher data.
+        """
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
@@ -492,6 +571,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="decipherOnly")
     def decipher_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used only to decipher data.
+        """
         return pulumi.get(self, "decipher_only")
 
     @decipher_only.setter
@@ -501,6 +583,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="digitalSignature")
     def digital_signature(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used for digital signing.
+        """
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
@@ -510,6 +595,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="encipherOnly")
     def encipher_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used only to encipher data.
+        """
         return pulumi.get(self, "encipher_only")
 
     @encipher_only.setter
@@ -519,6 +607,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="keyAgreement")
     def key_agreement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used in a key-agreement protocol.
+        """
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
@@ -528,6 +619,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="keyCertSign")
     def key_cert_sign(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to sign certificates.
+        """
         return pulumi.get(self, "key_cert_sign")
 
     @key_cert_sign.setter
@@ -537,6 +631,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="keyEncipherment")
     def key_encipherment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to encipher data.
+        """
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
@@ -546,6 +643,9 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="nonRepudiation")
     def non_repudiation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used for non-repudiation.
+        """
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
@@ -560,6 +660,10 @@ class CertificateAuthorityOcspConfigurationArgs:
                  ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
         """
         Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
+        :param pulumi.Input[bool] enabled: Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+        :param pulumi.Input[str] ocsp_custom_cname: By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+               
+               > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         """
         pulumi.set(__self__, "enabled", enabled)
         if ocsp_custom_cname is not None:
@@ -568,6 +672,9 @@ class CertificateAuthorityOcspConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -577,6 +684,11 @@ class CertificateAuthorityOcspConfigurationArgs:
     @property
     @pulumi.getter(name="ocspCustomCname")
     def ocsp_custom_cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+
+        > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        """
         return pulumi.get(self, "ocsp_custom_cname")
 
     @ocsp_custom_cname.setter
@@ -621,6 +733,41 @@ class CertificateAuthorityRevocationConfigurationArgs:
                  ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']] = None):
         """
         Certificate Authority revocation information.
+        :param pulumi.Input['CertificateAuthorityCrlConfigurationArgs'] crl_configuration: Contains configuration information for a certificate revocation list (CRL). Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA by default copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. If you want to configure this default behavior to be something different, you can set the *CrlDistributionPointExtensionConfiguration* parameter. Your S3 bucket policy must give write permission to AWS Private CA.
+               
+               AWS Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption) .
+               
+               Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.
+               
+               A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts every 15 minutes.
+               
+               CRLs contain the following fields:
+               
+               - *Version* : The current version number defined in RFC 5280 is V2. The integer value is 0x1.
+               - *Signature Algorithm* : The name of the algorithm used to sign the CRL.
+               - *Issuer* : The X.500 distinguished name of your private CA that issued the CRL.
+               - *Last Update* : The issue date and time of this CRL.
+               - *Next Update* : The day and time by which the next CRL will be issued.
+               - *Revoked Certificates* : List of revoked certificates. Each list item contains the following information.
+               
+               - *Serial Number* : The serial number, in hexadecimal format, of the revoked certificate.
+               - *Revocation Date* : Date and time the certificate was revoked.
+               - *CRL Entry Extensions* : Optional extensions for the CRL entry.
+               
+               - *X509v3 CRL Reason Code* : Reason the certificate was revoked.
+               - *CRL Extensions* : Optional extensions for the CRL.
+               
+               - *X509v3 Authority Key Identifier* : Identifies the public key associated with the private key used to sign the certificate.
+               - *X509v3 CRL Number:* : Decimal sequence number for the CRL.
+               - *Signature Algorithm* : Algorithm used by your private CA to sign the CRL.
+               - *Signature Value* : Signature computed over the CRL.
+               
+               Certificate revocation lists created by AWS Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
+               
+               `openssl crl -inform DER -text -in *crl_path* -noout`
+               
+               For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html) in the *AWS Private Certificate Authority User Guide*
+        :param pulumi.Input['CertificateAuthorityOcspConfigurationArgs'] ocsp_configuration: Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
         """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
@@ -630,6 +777,42 @@ class CertificateAuthorityRevocationConfigurationArgs:
     @property
     @pulumi.getter(name="crlConfiguration")
     def crl_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']]:
+        """
+        Contains configuration information for a certificate revocation list (CRL). Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA by default copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. If you want to configure this default behavior to be something different, you can set the *CrlDistributionPointExtensionConfiguration* parameter. Your S3 bucket policy must give write permission to AWS Private CA.
+
+        AWS Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption) .
+
+        Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.
+
+        A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts every 15 minutes.
+
+        CRLs contain the following fields:
+
+        - *Version* : The current version number defined in RFC 5280 is V2. The integer value is 0x1.
+        - *Signature Algorithm* : The name of the algorithm used to sign the CRL.
+        - *Issuer* : The X.500 distinguished name of your private CA that issued the CRL.
+        - *Last Update* : The issue date and time of this CRL.
+        - *Next Update* : The day and time by which the next CRL will be issued.
+        - *Revoked Certificates* : List of revoked certificates. Each list item contains the following information.
+
+        - *Serial Number* : The serial number, in hexadecimal format, of the revoked certificate.
+        - *Revocation Date* : Date and time the certificate was revoked.
+        - *CRL Entry Extensions* : Optional extensions for the CRL entry.
+
+        - *X509v3 CRL Reason Code* : Reason the certificate was revoked.
+        - *CRL Extensions* : Optional extensions for the CRL.
+
+        - *X509v3 Authority Key Identifier* : Identifies the public key associated with the private key used to sign the certificate.
+        - *X509v3 CRL Number:* : Decimal sequence number for the CRL.
+        - *Signature Algorithm* : Algorithm used by your private CA to sign the CRL.
+        - *Signature Value* : Signature computed over the CRL.
+
+        Certificate revocation lists created by AWS Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
+
+        `openssl crl -inform DER -text -in *crl_path* -noout`
+
+        For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html) in the *AWS Private Certificate Authority User Guide*
+        """
         return pulumi.get(self, "crl_configuration")
 
     @crl_configuration.setter
@@ -639,6 +822,9 @@ class CertificateAuthorityRevocationConfigurationArgs:
     @property
     @pulumi.getter(name="ocspConfiguration")
     def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']]:
+        """
+        Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+        """
         return pulumi.get(self, "ocsp_configuration")
 
     @ocsp_configuration.setter
@@ -666,6 +852,23 @@ class CertificateAuthoritySubjectArgs:
                  title: Optional[pulumi.Input[str]] = None):
         """
         Structure that contains X.500 distinguished name information for your CA.
+        :param pulumi.Input[str] common_name: Fully qualified domain name (FQDN) associated with the certificate subject.
+        :param pulumi.Input[str] country: Two-digit code that specifies the country in which the certificate subject located.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]] custom_attributes: Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+               
+               > Custom attributes cannot be used in combination with standard attributes.
+        :param pulumi.Input[str] distinguished_name_qualifier: Disambiguating information for the certificate subject.
+        :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+        :param pulumi.Input[str] given_name: First name.
+        :param pulumi.Input[str] initials: Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
+        :param pulumi.Input[str] locality: The locality (such as a city or town) in which the certificate subject is located.
+        :param pulumi.Input[str] organization: Legal name of the organization with which the certificate subject is affiliated.
+        :param pulumi.Input[str] organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+        :param pulumi.Input[str] pseudonym: Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+        :param pulumi.Input[str] serial_number: The certificate serial number.
+        :param pulumi.Input[str] state: State in which the subject of the certificate is located.
+        :param pulumi.Input[str] surname: Family name.
+        :param pulumi.Input[str] title: A personal title such as Mr.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -701,6 +904,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified domain name (FQDN) associated with the certificate subject.
+        """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
@@ -710,6 +916,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        Two-digit code that specifies the country in which the certificate subject located.
+        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -719,6 +928,11 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="customAttributes")
     def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]:
+        """
+        Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+
+        > Custom attributes cannot be used in combination with standard attributes.
+        """
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
@@ -728,6 +942,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disambiguating information for the certificate subject.
+        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
@@ -737,6 +954,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+        """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
@@ -746,6 +966,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        First name.
+        """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
@@ -755,6 +978,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def initials(self) -> Optional[pulumi.Input[str]]:
+        """
+        Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
+        """
         return pulumi.get(self, "initials")
 
     @initials.setter
@@ -764,6 +990,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
+        """
+        The locality (such as a city or town) in which the certificate subject is located.
+        """
         return pulumi.get(self, "locality")
 
     @locality.setter
@@ -773,6 +1002,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
+        """
+        Legal name of the organization with which the certificate subject is affiliated.
+        """
         return pulumi.get(self, "organization")
 
     @organization.setter
@@ -782,6 +1014,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+        """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
@@ -791,6 +1026,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[pulumi.Input[str]]:
+        """
+        Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+        """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
@@ -800,6 +1038,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate serial number.
+        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -809,6 +1050,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State in which the subject of the certificate is located.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -818,6 +1062,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def surname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Family name.
+        """
         return pulumi.get(self, "surname")
 
     @surname.setter
@@ -827,6 +1074,9 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        A personal title such as Mr.
+        """
         return pulumi.get(self, "title")
 
     @title.setter

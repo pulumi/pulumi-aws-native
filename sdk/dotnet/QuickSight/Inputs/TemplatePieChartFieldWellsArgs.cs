@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePieChartFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a pie chart.
+        /// </summary>
         [Input("pieChartAggregatedFieldWells")]
         public Input<Inputs.TemplatePieChartAggregatedFieldWellsArgs>? PieChartAggregatedFieldWells { get; set; }
 

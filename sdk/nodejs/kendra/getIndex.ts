@@ -19,10 +19,16 @@ export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetIndexArgs {
+    /**
+     * The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+     */
     id: string;
 }
 
 export interface GetIndexResult {
+    /**
+     * The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
+     */
     readonly arn?: string;
     /**
      * Capacity units
@@ -36,14 +42,37 @@ export interface GetIndexResult {
      * Document metadata configurations
      */
     readonly documentMetadataConfigurations?: outputs.kendra.IndexDocumentMetadataConfiguration[];
+    /**
+     * The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+     */
     readonly id?: string;
+    /**
+     * The name of the index.
+     */
     readonly name?: string;
+    /**
+     * An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+     */
     readonly roleArn?: string;
     /**
      * Tags for labeling the index
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The user context policy.
+     *
+     * ATTRIBUTE_FILTER
+     *
+     * - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+     *
+     * USER_TOKEN
+     *
+     * - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+     */
     readonly userContextPolicy?: enums.kendra.IndexUserContextPolicy;
+    /**
+     * Defines the type of user token used for the index.
+     */
     readonly userTokenConfigurations?: outputs.kendra.IndexUserTokenConfiguration[];
 }
 /**
@@ -54,5 +83,8 @@ export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetIndexOutputArgs {
+    /**
+     * The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+     */
     id: pulumi.Input<string>;
 }

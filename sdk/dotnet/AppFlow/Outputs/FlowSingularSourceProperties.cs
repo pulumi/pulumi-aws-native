@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSingularSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Singular flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

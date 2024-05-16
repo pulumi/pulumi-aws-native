@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.M2
     [AwsNativeResourceType("aws-native:m2:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the application.
+        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+        /// </summary>
         [Output("definition")]
         public Output<Union<Outputs.ApplicationDefinition0Properties, Outputs.ApplicationDefinition1Properties>> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the target platform for this application.
+        /// </summary>
         [Output("engineType")]
         public Output<Pulumi.AwsNative.M2.ApplicationEngineType> EngineType { get; private set; } = null!;
 
@@ -36,12 +51,23 @@ namespace Pulumi.AwsNative.M2
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role associated with the application.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -97,12 +123,21 @@ namespace Pulumi.AwsNative.M2
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+        /// </summary>
         [Input("definition", required: true)]
         public InputUnion<Inputs.ApplicationDefinition0PropertiesArgs, Inputs.ApplicationDefinition1PropertiesArgs> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The type of the target platform for this application.
+        /// </summary>
         [Input("engineType", required: true)]
         public Input<Pulumi.AwsNative.M2.ApplicationEngineType> EngineType { get; set; } = null!;
 
@@ -112,14 +147,26 @@ namespace Pulumi.AwsNative.M2
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role associated with the application.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -33,6 +33,9 @@ class GetVirtualClusterResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
+        """
         return pulumi.get(self, "arn")
 
     @property

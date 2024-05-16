@@ -34,6 +34,9 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetNetworkAclAssociation.__pulumiType;
     }
 
+    /**
+     * Returns the value of this object's AssociationId property.
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * The ID of the network ACL

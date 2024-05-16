@@ -15,27 +15,50 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [AwsNativeResourceType("aws-native:paymentcryptography:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies whether the key is enabled.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the key is exportable. This data is immutable after the key is created.
+        /// </summary>
         [Output("exportable")]
         public Output<bool> Exportable { get; private set; } = null!;
 
+        /// <summary>
+        /// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        /// </summary>
         [Output("keyAttributes")]
         public Output<Outputs.KeyAttributes> KeyAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+        /// 
+        /// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        /// </summary>
         [Output("keyCheckValueAlgorithm")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyCheckValueAlgorithm?> KeyCheckValueAlgorithm { get; private set; } = null!;
 
         [Output("keyIdentifier")]
         public Output<string> KeyIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+        /// </summary>
         [Output("keyOrigin")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyOrigin> KeyOrigin { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of key that is being created or deleted.
+        /// </summary>
         [Output("keyState")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyState> KeyState { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that contains information about a tag.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -84,20 +107,38 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the key is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specifies whether the key is exportable. This data is immutable after the key is created.
+        /// </summary>
         [Input("exportable", required: true)]
         public Input<bool> Exportable { get; set; } = null!;
 
+        /// <summary>
+        /// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        /// </summary>
         [Input("keyAttributes", required: true)]
         public Input<Inputs.KeyAttributesArgs> KeyAttributes { get; set; } = null!;
 
+        /// <summary>
+        /// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+        /// 
+        /// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        /// </summary>
         [Input("keyCheckValueAlgorithm")]
         public Input<Pulumi.AwsNative.PaymentCryptography.KeyCheckValueAlgorithm>? KeyCheckValueAlgorithm { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A structure that contains information about a tag.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

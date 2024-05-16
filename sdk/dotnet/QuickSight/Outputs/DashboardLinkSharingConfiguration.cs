@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLinkSharingConfiguration
     {
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
 
         [OutputConstructor]

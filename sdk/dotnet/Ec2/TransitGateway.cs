@@ -15,45 +15,84 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:TransitGateway")]
     public partial class TransitGateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+        /// </summary>
         [Output("amazonSideAsn")]
         public Output<int?> AmazonSideAsn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the default association route table.
+        /// </summary>
         [Output("associationDefaultRouteTableId")]
         public Output<string?> AssociationDefaultRouteTableId { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        /// </summary>
         [Output("autoAcceptSharedAttachments")]
         public Output<string?> AutoAcceptSharedAttachments { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable automatic association with the default association route table. Enabled by default.
+        /// </summary>
         [Output("defaultRouteTableAssociation")]
         public Output<string?> DefaultRouteTableAssociation { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        /// </summary>
         [Output("defaultRouteTablePropagation")]
         public Output<string?> DefaultRouteTablePropagation { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the transit gateway.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable DNS support. Enabled by default.
+        /// </summary>
         [Output("dnsSupport")]
         public Output<string?> DnsSupport { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether multicast is enabled on the transit gateway
+        /// </summary>
         [Output("multicastSupport")]
         public Output<string?> MulticastSupport { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the default propagation route table.
+        /// </summary>
         [Output("propagationDefaultRouteTableId")]
         public Output<string?> PropagationDefaultRouteTableId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("transitGatewayArn")]
         public Output<string> TransitGatewayArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The transit gateway CIDR blocks.
+        /// </summary>
         [Output("transitGatewayCidrBlocks")]
         public Output<ImmutableArray<string>> TransitGatewayCidrBlocks { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+        /// </summary>
         [Output("vpnEcmpSupport")]
         public Output<string?> VpnEcmpSupport { get; private set; } = null!;
 
@@ -107,35 +146,66 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class TransitGatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+        /// </summary>
         [Input("amazonSideAsn")]
         public Input<int>? AmazonSideAsn { get; set; }
 
+        /// <summary>
+        /// The ID of the default association route table.
+        /// </summary>
         [Input("associationDefaultRouteTableId")]
         public Input<string>? AssociationDefaultRouteTableId { get; set; }
 
+        /// <summary>
+        /// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        /// </summary>
         [Input("autoAcceptSharedAttachments")]
         public Input<string>? AutoAcceptSharedAttachments { get; set; }
 
+        /// <summary>
+        /// Enable or disable automatic association with the default association route table. Enabled by default.
+        /// </summary>
         [Input("defaultRouteTableAssociation")]
         public Input<string>? DefaultRouteTableAssociation { get; set; }
 
+        /// <summary>
+        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        /// </summary>
         [Input("defaultRouteTablePropagation")]
         public Input<string>? DefaultRouteTablePropagation { get; set; }
 
+        /// <summary>
+        /// The description of the transit gateway.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Enable or disable DNS support. Enabled by default.
+        /// </summary>
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
+        /// <summary>
+        /// Indicates whether multicast is enabled on the transit gateway
+        /// </summary>
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
 
+        /// <summary>
+        /// The ID of the default propagation route table.
+        /// </summary>
         [Input("propagationDefaultRouteTableId")]
         public Input<string>? PropagationDefaultRouteTableId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -144,12 +214,19 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("transitGatewayCidrBlocks")]
         private InputList<string>? _transitGatewayCidrBlocks;
+
+        /// <summary>
+        /// The transit gateway CIDR blocks.
+        /// </summary>
         public InputList<string> TransitGatewayCidrBlocks
         {
             get => _transitGatewayCidrBlocks ?? (_transitGatewayCidrBlocks = new InputList<string>());
             set => _transitGatewayCidrBlocks = value;
         }
 
+        /// <summary>
+        /// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+        /// </summary>
         [Input("vpnEcmpSupport")]
         public Input<string>? VpnEcmpSupport { get; set; }
 

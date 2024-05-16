@@ -44,21 +44,33 @@ class GetDetectorResult:
     @property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional['outputs.DetectorCfnDataSourceConfigurations']:
+        """
+        Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        """
         return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
     def enable(self) -> Optional[bool]:
+        """
+        Specifies whether the detector is to be enabled on creation.
+        """
         return pulumi.get(self, "enable")
 
     @property
     @pulumi.getter
     def features(self) -> Optional[Sequence['outputs.DetectorCfnFeatureConfiguration']]:
+        """
+        Information about the configuration of a feature in your account.
+        """
         return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> Optional[str]:
+        """
+        Specifies how frequently updated findings are exported.
+        """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @property
@@ -69,6 +81,9 @@ class GetDetectorResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Describes a tag.
+        """
         return pulumi.get(self, "tags")
 
 

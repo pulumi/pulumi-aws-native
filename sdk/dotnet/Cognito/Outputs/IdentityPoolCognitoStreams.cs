@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class IdentityPoolCognitoStreams
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
+        /// </summary>
         public readonly string? StreamName;
+        /// <summary>
+        /// Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
+        /// </summary>
         public readonly string? StreamingStatus;
 
         [OutputConstructor]

@@ -30,24 +30,45 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("jobDefinitionArn")]
         public Output<string> JobDefinitionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the monitoring job definition.
+        /// </summary>
         [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Output("jobResources")]
         public Output<Outputs.ModelQualityJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
+        /// <summary>
+        /// Container image configuration object for the monitoring job.
+        /// </summary>
         [Output("modelQualityAppSpecification")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityAppSpecification> ModelQualityAppSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// </summary>
         [Output("modelQualityBaselineConfig")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityBaselineConfig?> ModelQualityBaselineConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.
+        /// </summary>
         [Output("modelQualityJobInput")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityJobInput> ModelQualityJobInput { get; private set; } = null!;
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Output("modelQualityJobOutputConfig")]
         public Output<Outputs.ModelQualityJobDefinitionMonitoringOutputConfig> ModelQualityJobOutputConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// </summary>
         [Output("networkConfig")]
         public Output<Outputs.ModelQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
 
@@ -57,6 +78,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+        /// 
+        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+        /// 
+        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+        /// 
+        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// </summary>
         [Output("stoppingCondition")]
         public Output<Outputs.ModelQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
 
@@ -128,24 +158,45 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
+        /// <summary>
+        /// The name of the monitoring job definition.
+        /// </summary>
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Input("jobResources", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
+        /// <summary>
+        /// Container image configuration object for the monitoring job.
+        /// </summary>
         [Input("modelQualityAppSpecification", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityAppSpecificationArgs> ModelQualityAppSpecification { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// </summary>
         [Input("modelQualityBaselineConfig")]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>? ModelQualityBaselineConfig { get; set; }
 
+        /// <summary>
+        /// The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.
+        /// </summary>
         [Input("modelQualityJobInput", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityJobInputArgs> ModelQualityJobInput { get; set; } = null!;
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Input("modelQualityJobOutputConfig", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionMonitoringOutputConfigArgs> ModelQualityJobOutputConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.ModelQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
 
@@ -155,6 +206,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+        /// 
+        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+        /// 
+        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+        /// 
+        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.ModelQualityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
 

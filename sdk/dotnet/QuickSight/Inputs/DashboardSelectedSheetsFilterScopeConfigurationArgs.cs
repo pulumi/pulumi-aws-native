@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("sheetVisualScopingConfigurations")]
         private InputList<Inputs.DashboardSheetVisualScopingConfigurationArgs>? _sheetVisualScopingConfigurations;
+
+        /// <summary>
+        /// The filter that is applied to the options.
+        /// </summary>
         public InputList<Inputs.DashboardSheetVisualScopingConfigurationArgs> SheetVisualScopingConfigurations
         {
             get => _sheetVisualScopingConfigurations ?? (_sheetVisualScopingConfigurations = new InputList<Inputs.DashboardSheetVisualScopingConfigurationArgs>());

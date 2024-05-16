@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultInteractiveLayoutConfiguration
     {
+        /// <summary>
+        /// The options that determine the default settings of a free-form layout configuration.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultFreeFormLayoutConfiguration? FreeForm;
+        /// <summary>
+        /// The options that determine the default settings for a grid layout configuration.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultGridLayoutConfiguration? Grid;
 
         [OutputConstructor]

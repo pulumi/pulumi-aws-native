@@ -27,6 +27,7 @@ type LookupNodegroupArgs struct {
 }
 
 type LookupNodegroupResult struct {
+	// The Amazon Resource Name (ARN) associated with the managed node group.
 	Arn *string `pulumi:"arn"`
 	Id  *string `pulumi:"id"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
@@ -82,6 +83,7 @@ func (o LookupNodegroupResultOutput) ToLookupNodegroupResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) associated with the managed node group.
 func (o LookupNodegroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNodegroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

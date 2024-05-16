@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Msk
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Includes all client authentication information.
+        /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ServerlessClusterClientAuthentication> ClientAuthentication { get; private set; } = null!;
 
@@ -85,6 +88,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ServerlessClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Includes all client authentication information.
+        /// </summary>
         [Input("clientAuthentication", required: true)]
         public Input<Inputs.ServerlessClusterClientAuthenticationArgs> ClientAuthentication { get; set; } = null!;
 

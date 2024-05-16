@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableInlineVisualization
     {
+        /// <summary>
+        /// The options for data bars.
+        /// </summary>
         public readonly Outputs.TemplateDataBarsOptions? DataBars;
 
         [OutputConstructor]

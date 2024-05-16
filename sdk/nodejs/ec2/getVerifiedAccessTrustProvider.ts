@@ -38,6 +38,9 @@ export interface GetVerifiedAccessTrustProviderResult {
      * The last updated time.
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * Describes the options for an OpenID Connect-compatible user-identity trust provider.
+     */
     readonly oidcOptions?: outputs.ec2.VerifiedAccessTrustProviderOidcOptions;
     /**
      * The configuration options for customer provided KMS encryption.

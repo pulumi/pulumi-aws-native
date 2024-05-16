@@ -86,6 +86,9 @@ export interface GetEventDataStoreResult {
      * The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
      */
     readonly status?: string;
+    /**
+     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * Indicates whether the event data store is protected from termination.

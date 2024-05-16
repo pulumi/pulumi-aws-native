@@ -15,36 +15,69 @@ namespace Pulumi.AwsNative.B2bi
     [AwsNativeResourceType("aws-native:b2bi:Transformer")]
     public partial class Transformer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        /// </summary>
         [Output("ediType")]
         public Output<Outputs.TransformerEdiTypeProperties> EdiType { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        /// </summary>
         [Output("fileFormat")]
         public Output<Pulumi.AwsNative.B2bi.TransformerFileFormat> FileFormat { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        /// </summary>
         [Output("mappingTemplate")]
         public Output<string> MappingTemplate { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp representing the date and time for the most recent change for the transformer object.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the descriptive name for the transformer.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        /// </summary>
         [Output("sampleDocument")]
         public Output<string?> SampleDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.B2bi.TransformerStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific transformer.
+        /// </summary>
         [Output("transformerArn")]
         public Output<string> TransformerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-assigned unique identifier for the transformer.
+        /// </summary>
         [Output("transformerId")]
         public Output<string> TransformerId { get; private set; } = null!;
 
@@ -93,26 +126,48 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class TransformerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        /// </summary>
         [Input("ediType", required: true)]
         public Input<Inputs.TransformerEdiTypePropertiesArgs> EdiType { get; set; } = null!;
 
+        /// <summary>
+        /// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        /// </summary>
         [Input("fileFormat", required: true)]
         public Input<Pulumi.AwsNative.B2bi.TransformerFileFormat> FileFormat { get; set; } = null!;
 
+        /// <summary>
+        /// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        /// </summary>
         [Input("mappingTemplate", required: true)]
         public Input<string> MappingTemplate { get; set; } = null!;
 
+        /// <summary>
+        /// Returns the descriptive name for the transformer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        /// </summary>
         [Input("sampleDocument")]
         public Input<string>? SampleDocument { get; set; }
 
+        /// <summary>
+        /// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.B2bi.TransformerStatus> Status { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

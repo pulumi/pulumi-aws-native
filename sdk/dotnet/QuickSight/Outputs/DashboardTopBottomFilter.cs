@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTopBottomFilter
     {
+        /// <summary>
+        /// The configuration options to sort aggregated values.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardAggregationSortConfiguration> AggregationSortConfigurations;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The number of items to include in the top bottom filter results.
+        /// </summary>
         public readonly double? Limit;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? TimeGranularity;
 
         [OutputConstructor]

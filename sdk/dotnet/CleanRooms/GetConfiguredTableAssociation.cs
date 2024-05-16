@@ -27,9 +27,17 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetConfiguredTableAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table association.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Input("configuredTableAssociationIdentifier", required: true)]
         public string ConfiguredTableAssociationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the membership this configured table association belongs to.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public string MembershipIdentifier { get; set; } = null!;
 
@@ -41,9 +49,17 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetConfiguredTableAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table association.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Input("configuredTableAssociationIdentifier", required: true)]
         public Input<string> ConfiguredTableAssociationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the membership this configured table association belongs to.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
@@ -57,9 +73,25 @@ namespace Pulumi.AwsNative.CleanRooms
     [OutputType]
     public sealed class GetConfiguredTableAssociationResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified configured table association.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table association.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         public readonly string? ConfiguredTableAssociationIdentifier;
+        /// <summary>
+        /// A description of the configured table association.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The service will assume this role to access catalog metadata and query the table.
+        /// </summary>
         public readonly string? RoleArn;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

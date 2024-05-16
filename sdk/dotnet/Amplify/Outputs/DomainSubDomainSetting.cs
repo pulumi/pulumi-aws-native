@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.Amplify.Outputs
     [OutputType]
     public sealed class DomainSubDomainSetting
     {
+        /// <summary>
+        /// The branch name setting for the subdomain.
+        /// 
+        /// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+        /// 
+        /// *Pattern:* (?s).+
+        /// </summary>
         public readonly string BranchName;
+        /// <summary>
+        /// The prefix setting for the subdomain.
+        /// </summary>
         public readonly string Prefix;
 
         [OutputConstructor]

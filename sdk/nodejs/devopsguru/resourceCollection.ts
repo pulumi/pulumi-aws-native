@@ -97,6 +97,9 @@ export class ResourceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceCollection.__pulumiType;
     }
 
+    /**
+     * Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+     */
     public readonly resourceCollectionFilter!: pulumi.Output<outputs.devopsguru.ResourceCollectionFilter>;
     /**
      * The type of ResourceCollection
@@ -132,5 +135,8 @@ export class ResourceCollection extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceCollection resource.
  */
 export interface ResourceCollectionArgs {
+    /**
+     * Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+     */
     resourceCollectionFilter: pulumi.Input<inputs.devopsguru.ResourceCollectionFilterArgs>;
 }

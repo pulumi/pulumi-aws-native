@@ -34,11 +34,19 @@ export class AttributeGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === AttributeGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon resource name (ARN) that specifies the attribute group across services.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
      */
     public readonly attributes!: pulumi.Output<any>;
+    /**
+     * The globally unique attribute group identifier of the attribute group.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The description of the attribute group. 
@@ -48,6 +56,9 @@ export class AttributeGroup extends pulumi.CustomResource {
      * The name of the attribute group. 
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value pairs you can use to associate with the attribute group.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -88,6 +99,8 @@ export class AttributeGroup extends pulumi.CustomResource {
  */
 export interface AttributeGroupArgs {
     /**
+     * A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
      */
     attributes: any;
@@ -99,5 +112,8 @@ export interface AttributeGroupArgs {
      * The name of the attribute group. 
      */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value pairs you can use to associate with the attribute group.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

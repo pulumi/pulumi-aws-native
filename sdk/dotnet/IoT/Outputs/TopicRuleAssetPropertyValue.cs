@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleAssetPropertyValue
     {
+        /// <summary>
+        /// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+        /// </summary>
         public readonly string? Quality;
+        /// <summary>
+        /// An asset property timestamp entry containing the following information.
+        /// </summary>
         public readonly Outputs.TopicRuleAssetPropertyTimestamp Timestamp;
+        /// <summary>
+        /// Contains an asset property value (of a single type).
+        /// </summary>
         public readonly Outputs.TopicRuleAssetPropertyVariant Value;
 
         [OutputConstructor]

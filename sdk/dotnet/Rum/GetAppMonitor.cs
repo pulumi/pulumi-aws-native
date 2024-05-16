@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.Rum
     [OutputType]
     public sealed class GetAppMonitorResult
     {
+        /// <summary>
+        /// This structure contains much of the configuration data for the app monitor.
+        /// </summary>
         public readonly Outputs.AppMonitorConfiguration? AppMonitorConfiguration;
+        /// <summary>
+        /// This structure specifies whether this app monitor allows the web client to define and send custom events.
+        /// </summary>
         public readonly Outputs.AppMonitorCustomEvents? CustomEvents;
         /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
@@ -71,6 +77,17 @@ namespace Pulumi.AwsNative.Rum
         /// The unique ID of the new app monitor.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Assigns one or more tags (key-value pairs) to the app monitor.
+        /// 
+        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        /// 
+        /// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+        /// 
+        /// You can associate as many as 50 tags with an app monitor.
+        /// 
+        /// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

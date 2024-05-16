@@ -17,6 +17,7 @@ type SoftwarePackage struct {
 	pulumi.CustomResourceState
 
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) for the package.
 	PackageArn  pulumi.StringOutput    `pulumi:"packageArn"`
 	PackageName pulumi.StringPtrOutput `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
@@ -122,6 +123,7 @@ func (o SoftwarePackageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoftwarePackage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the package.
 func (o SoftwarePackageOutput) PackageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwarePackage) pulumi.StringOutput { return v.PackageArn }).(pulumi.StringOutput)
 }

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ContinuousDeploymentPolicyTrafficConfig
     {
+        /// <summary>
+        /// Determines which HTTP requests are sent to the staging distribution.
+        /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicySingleHeaderConfig? SingleHeaderConfig;
+        /// <summary>
+        /// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+        /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicySingleWeightConfig? SingleWeightConfig;
+        /// <summary>
+        /// The type of traffic configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.ContinuousDeploymentPolicyTrafficConfigType Type;
 
         [OutputConstructor]

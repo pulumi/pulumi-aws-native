@@ -87,7 +87,8 @@ type Environment struct {
 	// URL used to login to the Environment
 	EnvironmentUrl pulumi.StringOutput `pulumi:"environmentUrl"`
 	// Federation mode used with the Environment
-	FederationMode       EnvironmentFederationModePtrOutput       `pulumi:"federationMode"`
+	FederationMode EnvironmentFederationModePtrOutput `pulumi:"federationMode"`
+	// Configuration information when authentication mode is FEDERATED.
 	FederationParameters EnvironmentFederationParametersPtrOutput `pulumi:"federationParameters"`
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
@@ -96,7 +97,8 @@ type Environment struct {
 	// SageMaker Studio Domain URL associated with the Environment
 	SageMakerStudioDomainUrl pulumi.StringOutput `pulumi:"sageMakerStudioDomainUrl"`
 	// State of the Environment
-	Status              EnvironmentStatusOutput                 `pulumi:"status"`
+	Status EnvironmentStatusOutput `pulumi:"status"`
+	// Configuration information for the superuser.
 	SuperuserParameters EnvironmentSuperuserParametersPtrOutput `pulumi:"superuserParameters"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -155,12 +157,14 @@ type environmentArgs struct {
 	// Description of the Environment
 	Description *string `pulumi:"description"`
 	// Federation mode used with the Environment
-	FederationMode       *EnvironmentFederationMode       `pulumi:"federationMode"`
+	FederationMode *EnvironmentFederationMode `pulumi:"federationMode"`
+	// Configuration information when authentication mode is FEDERATED.
 	FederationParameters *EnvironmentFederationParameters `pulumi:"federationParameters"`
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Environment
-	Name                *string                         `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Configuration information for the superuser.
 	SuperuserParameters *EnvironmentSuperuserParameters `pulumi:"superuserParameters"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -173,12 +177,14 @@ type EnvironmentArgs struct {
 	// Description of the Environment
 	Description pulumi.StringPtrInput
 	// Federation mode used with the Environment
-	FederationMode       EnvironmentFederationModePtrInput
+	FederationMode EnvironmentFederationModePtrInput
+	// Configuration information when authentication mode is FEDERATED.
 	FederationParameters EnvironmentFederationParametersPtrInput
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Environment
-	Name                pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Configuration information for the superuser.
 	SuperuserParameters EnvironmentSuperuserParametersPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -261,6 +267,7 @@ func (o EnvironmentOutput) FederationMode() EnvironmentFederationModePtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentFederationModePtrOutput { return v.FederationMode }).(EnvironmentFederationModePtrOutput)
 }
 
+// Configuration information when authentication mode is FEDERATED.
 func (o EnvironmentOutput) FederationParameters() EnvironmentFederationParametersPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentFederationParametersPtrOutput { return v.FederationParameters }).(EnvironmentFederationParametersPtrOutput)
 }
@@ -285,6 +292,7 @@ func (o EnvironmentOutput) Status() EnvironmentStatusOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentStatusOutput { return v.Status }).(EnvironmentStatusOutput)
 }
 
+// Configuration information for the superuser.
 func (o EnvironmentOutput) SuperuserParameters() EnvironmentSuperuserParametersPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentSuperuserParametersPtrOutput { return v.SuperuserParameters }).(EnvironmentSuperuserParametersPtrOutput)
 }

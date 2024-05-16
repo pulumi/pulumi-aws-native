@@ -359,11 +359,17 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
+        """
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
+        """
+        The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+        """
         return pulumi.get(self, "dns_name")
 
     @property
@@ -385,6 +391,9 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property
@@ -398,11 +407,17 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancerFullName")
     def load_balancer_full_name(self) -> pulumi.Output[str]:
+        """
+        The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+        """
         return pulumi.get(self, "load_balancer_full_name")
 
     @property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Output[str]:
+        """
+        The name of the load balancer. For example, `my-load-balancer` .
+        """
         return pulumi.get(self, "load_balancer_name")
 
     @property

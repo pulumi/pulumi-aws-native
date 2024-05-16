@@ -25,8 +25,10 @@ class DataflowEndpointGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataflowEndpointGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]] endpoint_details: The security details and endpoint information.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to a resource.
         """
         pulumi.set(__self__, "endpoint_details", endpoint_details)
         if contact_post_pass_duration_seconds is not None:
@@ -39,6 +41,9 @@ class DataflowEndpointGroupArgs:
     @property
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]]:
+        """
+        The security details and endpoint information.
+        """
         return pulumi.get(self, "endpoint_details")
 
     @endpoint_details.setter
@@ -72,6 +77,9 @@ class DataflowEndpointGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -121,6 +129,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]] endpoint_details: The security details and endpoint information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags assigned to a resource.
         """
         ...
     @overload
@@ -225,11 +235,17 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        UUID of a dataflow endpoint group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -251,10 +267,16 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Output[Sequence['outputs.DataflowEndpointGroupEndpointDetails']]:
+        """
+        The security details and endpoint information.
+        """
         return pulumi.get(self, "endpoint_details")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 

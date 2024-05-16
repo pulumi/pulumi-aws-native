@@ -615,6 +615,7 @@ func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The component type status state.
 type ComponentTypeStatusState string
 
 const (
@@ -1222,6 +1223,9 @@ func (in *entityStatusErrorPropertiesCodePtr) ToEntityStatusErrorPropertiesCodeP
 	return pulumi.ToOutputWithContext(ctx, in).(EntityStatusErrorPropertiesCodePtrOutput)
 }
 
+// The current state of the entity, component, component type, or workspace.
+//
+// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
 type EntityStatusState string
 
 const (

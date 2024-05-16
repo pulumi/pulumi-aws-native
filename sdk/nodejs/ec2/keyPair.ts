@@ -103,6 +103,17 @@ export class KeyPair extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyPair.__pulumiType;
     }
 
+    /**
+     * If you created the key pair using Amazon EC2:
+     *
+     * - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+     * - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+     *
+     * If you imported the key pair to Amazon EC2:
+     *
+     * - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+     */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
      * The format of the key pair.
@@ -114,6 +125,9 @@ export class KeyPair extends pulumi.CustomResource {
      *  Constraints: Up to 255 ASCII characters
      */
     public readonly keyName!: pulumi.Output<string>;
+    /**
+     * The ID of the key pair.
+     */
     public /*out*/ readonly keyPairId!: pulumi.Output<string>;
     /**
      * The type of key pair. Note that ED25519 keys are not supported for Windows instances.

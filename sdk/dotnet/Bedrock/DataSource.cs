@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The data deletion policy for a data source.
+        /// </summary>
         [Output("dataDeletionPolicy")]
         public Output<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy?> DataDeletionPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about how a data source is stored.
+        /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
 
@@ -33,6 +39,12 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("dataSourceId")]
         public Output<string> DataSourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the data source. The following statuses are possible:
+        /// 
+        /// - Available – The data source has been created and is ready for ingestion into the knowledge base.
+        /// - Deleting – The data source is being deleted.
+        /// </summary>
         [Output("dataSourceStatus")]
         public Output<Pulumi.AwsNative.Bedrock.DataSourceStatus> DataSourceStatus { get; private set; } = null!;
 
@@ -60,6 +72,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains the configuration for server-side encryption.
+        /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.DataSourceServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
@@ -69,6 +84,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about how to ingest the documents in a data source.
+        /// </summary>
         [Output("vectorIngestionConfiguration")]
         public Output<Outputs.DataSourceVectorIngestionConfiguration?> VectorIngestionConfiguration { get; private set; } = null!;
 
@@ -122,9 +140,15 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data deletion policy for a data source.
+        /// </summary>
         [Input("dataDeletionPolicy")]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy>? DataDeletionPolicy { get; set; }
 
+        /// <summary>
+        /// Contains details about how a data source is stored.
+        /// </summary>
         [Input("dataSourceConfiguration", required: true)]
         public Input<Inputs.DataSourceConfigurationArgs> DataSourceConfiguration { get; set; } = null!;
 
@@ -146,9 +170,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Contains the configuration for server-side encryption.
+        /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.DataSourceServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// Contains details about how to ingest the documents in a data source.
+        /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.DataSourceVectorIngestionConfigurationArgs>? VectorIngestionConfiguration { get; set; }
 

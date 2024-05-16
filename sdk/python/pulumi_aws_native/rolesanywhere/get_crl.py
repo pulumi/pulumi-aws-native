@@ -62,11 +62,17 @@ class GetCrlResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A label that consists of a key and value you define.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustAnchorArn")
     def trust_anchor_arn(self) -> Optional[str]:
+        """
+        The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        """
         return pulumi.get(self, "trust_anchor_arn")
 
 

@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the volume.
+        /// </summary>
         [Input("volumeId", required: true)]
         public string VolumeId { get; set; } = null!;
 
@@ -52,6 +55,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the volume.
+        /// </summary>
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
 
@@ -132,6 +138,9 @@ namespace Pulumi.AwsNative.Ec2
         ///  Valid Range: Minimum value of 125. Maximum value of 1000.
         /// </summary>
         public readonly int? Throughput;
+        /// <summary>
+        /// The ID of the volume.
+        /// </summary>
         public readonly string? VolumeId;
         /// <summary>
         /// The volume type. This parameter can be one of the following values:

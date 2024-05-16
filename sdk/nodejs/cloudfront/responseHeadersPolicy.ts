@@ -37,8 +37,19 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResponseHeadersPolicy.__pulumiType;
     }
 
+    /**
+     * The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The date and time when the response headers policy was last modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * A response headers policy configuration.
+     *
+     * A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+     */
     public readonly responseHeadersPolicyConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyConfig>;
 
     /**
@@ -72,5 +83,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ResponseHeadersPolicy resource.
  */
 export interface ResponseHeadersPolicyArgs {
+    /**
+     * A response headers policy configuration.
+     *
+     * A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+     */
     responseHeadersPolicyConfig: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyConfigArgs>;
 }

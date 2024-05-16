@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         /// </summary>
         public readonly string DataCapturedDestinationS3Uri;
+        /// <summary>
+        /// The dataset format for your batch transform job.
+        /// </summary>
         public readonly Outputs.ModelExplainabilityJobDefinitionDatasetFormat DatasetFormat;
         /// <summary>
         /// JSONpath to locate features in JSONlines dataset

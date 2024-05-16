@@ -17,8 +17,10 @@ type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState
 
 	ApiAssociationIdentifier pulumi.StringOutput `pulumi:"apiAssociationIdentifier"`
-	ApiId                    pulumi.StringOutput `pulumi:"apiId"`
-	DomainName               pulumi.StringOutput `pulumi:"domainName"`
+	// The API ID.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The domain name.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 }
 
 // NewDomainNameApiAssociation registers a new resource with the given unique name, arguments, and options.
@@ -71,13 +73,17 @@ func (DomainNameApiAssociationState) ElementType() reflect.Type {
 }
 
 type domainNameApiAssociationArgs struct {
-	ApiId      string `pulumi:"apiId"`
+	// The API ID.
+	ApiId string `pulumi:"apiId"`
+	// The domain name.
 	DomainName string `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainNameApiAssociation resource.
 type DomainNameApiAssociationArgs struct {
-	ApiId      pulumi.StringInput
+	// The API ID.
+	ApiId pulumi.StringInput
+	// The domain name.
 	DomainName pulumi.StringInput
 }
 
@@ -122,10 +128,12 @@ func (o DomainNameApiAssociationOutput) ApiAssociationIdentifier() pulumi.String
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiAssociationIdentifier }).(pulumi.StringOutput)
 }
 
+// The API ID.
 func (o DomainNameApiAssociationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The domain name.
 func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

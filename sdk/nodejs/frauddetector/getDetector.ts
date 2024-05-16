@@ -58,7 +58,21 @@ export interface GetDetectorResult {
      * The time when the detector was last updated.
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * The rule execution mode for the rules included in the detector version.
+     *
+     * Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+     *
+     * You can define and edit the rule mode at the detector version level, when it is in draft status.
+     *
+     * If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+     *
+     * If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+     */
     readonly ruleExecutionMode?: enums.frauddetector.DetectorRuleExecutionMode;
+    /**
+     * A rule.
+     */
     readonly rules?: outputs.frauddetector.DetectorRule[];
     /**
      * Tags associated with this detector.

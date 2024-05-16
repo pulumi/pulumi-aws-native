@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.Ec2
         /// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
         /// </summary>
         public readonly bool? AutoImport;
+        /// <summary>
+        /// The description of the IPAM pool.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IPAM this pool is a part of.

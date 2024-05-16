@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Timestream
     [OutputType]
     public sealed class GetDatabaseResult
     {
+        /// <summary>
+        /// The `arn` of the database.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableTableReference
     {
+        /// <summary>
+        /// A reference to a table within an AWS Glue data catalog.
+        /// </summary>
         public readonly Outputs.ConfiguredTableGlueTableReference Glue;
 
         [OutputConstructor]

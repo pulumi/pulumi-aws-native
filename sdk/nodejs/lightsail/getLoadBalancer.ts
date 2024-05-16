@@ -34,6 +34,9 @@ export interface GetLoadBalancerResult {
      * The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
      */
     readonly healthCheckPath?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
     readonly loadBalancerArn?: string;
     /**
      * Configuration option to enable session stickiness.

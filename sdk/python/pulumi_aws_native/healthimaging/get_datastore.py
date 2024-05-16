@@ -39,26 +39,41 @@ class GetDatastoreResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The timestamp when the data store was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="datastoreArn")
     def datastore_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the data store.
+        """
         return pulumi.get(self, "datastore_arn")
 
     @property
     @pulumi.getter(name="datastoreId")
     def datastore_id(self) -> Optional[str]:
+        """
+        The data store identifier.
+        """
         return pulumi.get(self, "datastore_id")
 
     @property
     @pulumi.getter(name="datastoreStatus")
     def datastore_status(self) -> Optional['DatastoreStatus']:
+        """
+        The data store status.
+        """
         return pulumi.get(self, "datastore_status")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The timestamp when the data store was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -79,6 +94,9 @@ def get_datastore(datastore_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     Definition of AWS::HealthImaging::Datastore Resource Type
+
+
+    :param str datastore_id: The data store identifier.
     """
     __args__ = dict()
     __args__['datastoreId'] = datastore_id
@@ -98,5 +116,8 @@ def get_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Definition of AWS::HealthImaging::Datastore Resource Type
+
+
+    :param str datastore_id: The data store identifier.
     """
     ...

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialCoordinateBoundsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The longitude of the east bound of the geospatial coordinate bounds.
+        /// </summary>
         [Input("east", required: true)]
         public Input<double> East { get; set; } = null!;
 
+        /// <summary>
+        /// The latitude of the north bound of the geospatial coordinate bounds.
+        /// </summary>
         [Input("north", required: true)]
         public Input<double> North { get; set; } = null!;
 
+        /// <summary>
+        /// The latitude of the south bound of the geospatial coordinate bounds.
+        /// </summary>
         [Input("south", required: true)]
         public Input<double> South { get; set; } = null!;
 
+        /// <summary>
+        /// The longitude of the west bound of the geospatial coordinate bounds.
+        /// </summary>
         [Input("west", required: true)]
         public Input<double> West { get; set; } = null!;
 

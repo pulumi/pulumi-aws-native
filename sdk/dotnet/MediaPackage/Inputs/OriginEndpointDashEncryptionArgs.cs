@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("keyRotationIntervalSeconds")]
         public Input<int>? KeyRotationIntervalSeconds { get; set; }
 
+        /// <summary>
+        /// Key provider settings for DRM.
+        /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 

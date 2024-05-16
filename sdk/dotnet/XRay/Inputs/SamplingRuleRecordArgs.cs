@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.XRay.Inputs
         [Input("modifiedAt")]
         public Input<string>? ModifiedAt { get; set; }
 
+        /// <summary>
+        /// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        /// </summary>
         [Input("samplingRule")]
         public Input<Inputs.SamplingRuleArgs>? SamplingRule { get; set; }
 

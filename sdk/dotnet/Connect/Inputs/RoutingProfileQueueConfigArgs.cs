@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class RoutingProfileQueueConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+        /// </summary>
         [Input("delay", required: true)]
         public Input<int> Delay { get; set; } = null!;
 
+        /// <summary>
+        /// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the channel and queue identifier for a routing profile.
+        /// </summary>
         [Input("queueReference", required: true)]
         public Input<Inputs.RoutingProfileQueueReferenceArgs> QueueReference { get; set; } = null!;
 

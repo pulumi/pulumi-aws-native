@@ -38,20 +38,53 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Describes the setup to be used for the broker nodes in the cluster.
+     */
     public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
+    /**
+     * Includes all client authentication information.
+     */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
+    /**
+     * The name of the cluster.
+     */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * Specifies the configuration to use for the brokers.
+     */
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
      * The current version of the MSK cluster
      */
     public readonly currentVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+     */
     public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
+    /**
+     * Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+     */
     public readonly enhancedMonitoring!: pulumi.Output<enums.msk.ClusterEnhancedMonitoring | undefined>;
+    /**
+     * The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+     */
     public readonly kafkaVersion!: pulumi.Output<string>;
+    /**
+     * You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+     */
     public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
+    /**
+     * The number of broker nodes in the cluster.
+     */
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
+    /**
+     * JMX and Node monitoring for the MSK cluster.
+     */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    /**
+     * This controls storage mode for supported storage tiers.
+     */
     public readonly storageMode!: pulumi.Output<enums.msk.ClusterStorageMode | undefined>;
     /**
      * A key-value pair to associate with a resource.
@@ -109,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["brokerNodeGroupInfo.brokerAzDistribution", "brokerNodeGroupInfo.clientSubnets[*]", "brokerNodeGroupInfo.securityGroups[*]", "clusterName", "encryptionInfo.encryptionAtRest", "encryptionInfo.encryptionInTransit.inCluster"] };
+        const replaceOnChanges = { replaceOnChanges: ["clusterName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,20 +152,53 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Describes the setup to be used for the broker nodes in the cluster.
+     */
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoArgs>;
+    /**
+     * Includes all client authentication information.
+     */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
+    /**
+     * The name of the cluster.
+     */
     clusterName?: pulumi.Input<string>;
+    /**
+     * Specifies the configuration to use for the brokers.
+     */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
     /**
      * The current version of the MSK cluster
      */
     currentVersion?: pulumi.Input<string>;
+    /**
+     * Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+     */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
+    /**
+     * Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+     */
     enhancedMonitoring?: pulumi.Input<enums.msk.ClusterEnhancedMonitoring>;
+    /**
+     * The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+     */
     kafkaVersion: pulumi.Input<string>;
+    /**
+     * You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+     */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs>;
+    /**
+     * The number of broker nodes in the cluster.
+     */
     numberOfBrokerNodes: pulumi.Input<number>;
+    /**
+     * JMX and Node monitoring for the MSK cluster.
+     */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
+    /**
+     * This controls storage mode for supported storage tiers.
+     */
     storageMode?: pulumi.Input<enums.msk.ClusterStorageMode>;
     /**
      * A key-value pair to associate with a resource.

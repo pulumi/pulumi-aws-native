@@ -16,11 +16,20 @@ export function getRobotApplicationVersion(args: GetRobotApplicationVersionArgs,
 }
 
 export interface GetRobotApplicationVersionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the robot application version.
+     */
     arn: string;
 }
 
 export interface GetRobotApplicationVersionResult {
+    /**
+     * The robot application version.
+     */
     readonly applicationVersion?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the robot application version.
+     */
     readonly arn?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getRobotApplicationVersionOutput(args: GetRobotApplicationVersio
 }
 
 export interface GetRobotApplicationVersionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the robot application version.
+     */
     arn: pulumi.Input<string>;
 }

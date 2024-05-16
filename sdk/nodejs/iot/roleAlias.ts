@@ -37,10 +37,25 @@ export class RoleAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAlias.__pulumiType;
     }
 
+    /**
+     * The number of seconds for which the credential is valid.
+     */
     public readonly credentialDurationSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The role alias.
+     */
     public readonly roleAlias!: pulumi.Output<string | undefined>;
+    /**
+     * The role alias ARN.
+     */
     public /*out*/ readonly roleAliasArn!: pulumi.Output<string>;
+    /**
+     * The role ARN.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -80,8 +95,20 @@ export class RoleAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a RoleAlias resource.
  */
 export interface RoleAliasArgs {
+    /**
+     * The number of seconds for which the credential is valid.
+     */
     credentialDurationSeconds?: pulumi.Input<number>;
+    /**
+     * The role alias.
+     */
     roleAlias?: pulumi.Input<string>;
+    /**
+     * The role ARN.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

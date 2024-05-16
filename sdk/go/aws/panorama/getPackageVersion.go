@@ -23,19 +23,29 @@ func LookupPackageVersion(ctx *pulumi.Context, args *LookupPackageVersionArgs, o
 }
 
 type LookupPackageVersionArgs struct {
-	PackageId      string `pulumi:"packageId"`
+	// A package ID.
+	PackageId string `pulumi:"packageId"`
+	// A package version.
 	PackageVersion string `pulumi:"packageVersion"`
-	PatchVersion   string `pulumi:"patchVersion"`
+	// A patch version.
+	PatchVersion string `pulumi:"patchVersion"`
 }
 
 type LookupPackageVersionResult struct {
-	IsLatestPatch     *bool                 `pulumi:"isLatestPatch"`
-	MarkLatest        *bool                 `pulumi:"markLatest"`
-	PackageArn        *string               `pulumi:"packageArn"`
-	PackageName       *string               `pulumi:"packageName"`
-	RegisteredTime    *int                  `pulumi:"registeredTime"`
-	Status            *PackageVersionStatus `pulumi:"status"`
-	StatusDescription *string               `pulumi:"statusDescription"`
+	// Whether the package version is the latest version.
+	IsLatestPatch *bool `pulumi:"isLatestPatch"`
+	// Whether to mark the new version as the latest version.
+	MarkLatest *bool `pulumi:"markLatest"`
+	// The package version's ARN.
+	PackageArn *string `pulumi:"packageArn"`
+	// The package version's name.
+	PackageName *string `pulumi:"packageName"`
+	// The package version's registered time.
+	RegisteredTime *int `pulumi:"registeredTime"`
+	// The package version's status.
+	Status *PackageVersionStatus `pulumi:"status"`
+	// The package version's status description.
+	StatusDescription *string `pulumi:"statusDescription"`
 }
 
 func LookupPackageVersionOutput(ctx *pulumi.Context, args LookupPackageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupPackageVersionResultOutput {
@@ -52,9 +62,12 @@ func LookupPackageVersionOutput(ctx *pulumi.Context, args LookupPackageVersionOu
 }
 
 type LookupPackageVersionOutputArgs struct {
-	PackageId      pulumi.StringInput `pulumi:"packageId"`
+	// A package ID.
+	PackageId pulumi.StringInput `pulumi:"packageId"`
+	// A package version.
 	PackageVersion pulumi.StringInput `pulumi:"packageVersion"`
-	PatchVersion   pulumi.StringInput `pulumi:"patchVersion"`
+	// A patch version.
+	PatchVersion pulumi.StringInput `pulumi:"patchVersion"`
 }
 
 func (LookupPackageVersionOutputArgs) ElementType() reflect.Type {
@@ -75,30 +88,37 @@ func (o LookupPackageVersionResultOutput) ToLookupPackageVersionResultOutputWith
 	return o
 }
 
+// Whether the package version is the latest version.
 func (o LookupPackageVersionResultOutput) IsLatestPatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *bool { return v.IsLatestPatch }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to mark the new version as the latest version.
 func (o LookupPackageVersionResultOutput) MarkLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *bool { return v.MarkLatest }).(pulumi.BoolPtrOutput)
 }
 
+// The package version's ARN.
 func (o LookupPackageVersionResultOutput) PackageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *string { return v.PackageArn }).(pulumi.StringPtrOutput)
 }
 
+// The package version's name.
 func (o LookupPackageVersionResultOutput) PackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *string { return v.PackageName }).(pulumi.StringPtrOutput)
 }
 
+// The package version's registered time.
 func (o LookupPackageVersionResultOutput) RegisteredTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *int { return v.RegisteredTime }).(pulumi.IntPtrOutput)
 }
 
+// The package version's status.
 func (o LookupPackageVersionResultOutput) Status() PackageVersionStatusPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *PackageVersionStatus { return v.Status }).(PackageVersionStatusPtrOutput)
 }
 
+// The package version's status description.
 func (o LookupPackageVersionResultOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }

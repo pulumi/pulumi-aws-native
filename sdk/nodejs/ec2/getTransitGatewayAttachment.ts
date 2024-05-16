@@ -19,16 +19,28 @@ export function getTransitGatewayAttachment(args: GetTransitGatewayAttachmentArg
 }
 
 export interface GetTransitGatewayAttachmentArgs {
+    /**
+     * The ID of the attachment.
+     */
     id: string;
 }
 
 export interface GetTransitGatewayAttachmentResult {
+    /**
+     * The ID of the attachment.
+     */
     readonly id?: string;
     /**
      * The options for the transit gateway vpc attachment.
      */
     readonly options?: outputs.ec2.OptionsProperties;
+    /**
+     * The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+     */
     readonly subnetIds?: string[];
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -39,5 +51,8 @@ export function getTransitGatewayAttachmentOutput(args: GetTransitGatewayAttachm
 }
 
 export interface GetTransitGatewayAttachmentOutputArgs {
+    /**
+     * The ID of the attachment.
+     */
     id: pulumi.Input<string>;
 }

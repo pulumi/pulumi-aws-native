@@ -155,8 +155,10 @@ func (o AgentPermissionsPropertiesPtrOutput) Principals() pulumi.StringArrayOutp
 
 // Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannel struct {
-	ChannelId  *string `pulumi:"channelId"`
-	ChannelUri string  `pulumi:"channelUri"`
+	// The channel ID.
+	ChannelId *string `pulumi:"channelId"`
+	// The channel URI.
+	ChannelUri string `pulumi:"channelUri"`
 }
 
 // ProfilingGroupChannelInput is an input type that accepts ProfilingGroupChannelArgs and ProfilingGroupChannelOutput values.
@@ -172,8 +174,10 @@ type ProfilingGroupChannelInput interface {
 
 // Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannelArgs struct {
-	ChannelId  pulumi.StringPtrInput `pulumi:"channelId"`
-	ChannelUri pulumi.StringInput    `pulumi:"channelUri"`
+	// The channel ID.
+	ChannelId pulumi.StringPtrInput `pulumi:"channelId"`
+	// The channel URI.
+	ChannelUri pulumi.StringInput `pulumi:"channelUri"`
 }
 
 func (ProfilingGroupChannelArgs) ElementType() reflect.Type {
@@ -228,10 +232,12 @@ func (o ProfilingGroupChannelOutput) ToProfilingGroupChannelOutputWithContext(ct
 	return o
 }
 
+// The channel ID.
 func (o ProfilingGroupChannelOutput) ChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfilingGroupChannel) *string { return v.ChannelId }).(pulumi.StringPtrOutput)
 }
 
+// The channel URI.
 func (o ProfilingGroupChannelOutput) ChannelUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfilingGroupChannel) string { return v.ChannelUri }).(pulumi.StringOutput)
 }

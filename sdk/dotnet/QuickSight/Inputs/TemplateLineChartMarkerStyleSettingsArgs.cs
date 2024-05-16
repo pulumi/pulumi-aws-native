@@ -12,9 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateLineChartMarkerStyleSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Color of marker in the series.
+        /// </summary>
         [Input("markerColor")]
         public Input<string>? MarkerColor { get; set; }
 
+        /// <summary>
+        /// Shape option for markers in the series.
+        /// 
+        /// - `CIRCLE` : Show marker as a circle.
+        /// - `TRIANGLE` : Show marker as a triangle.
+        /// - `SQUARE` : Show marker as a square.
+        /// - `DIAMOND` : Show marker as a diamond.
+        /// - `ROUNDED_SQUARE` : Show marker as a rounded square.
+        /// </summary>
         [Input("markerShape")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateLineChartMarkerShape>? MarkerShape { get; set; }
 
@@ -24,6 +36,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("markerSize")]
         public Input<string>? MarkerSize { get; set; }
 
+        /// <summary>
+        /// Configuration option that determines whether to show the markers in the series.
+        /// </summary>
         [Input("markerVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? MarkerVisibility { get; set; }
 

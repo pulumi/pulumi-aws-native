@@ -18,6 +18,7 @@ class ChannelPolicyArgs:
                  policy: Any):
         """
         The set of arguments for constructing a ChannelPolicy resource.
+        :param pulumi.Input[str] channel_name: The name of the channel associated with this Channel Policy.
         :param Any policy: <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
@@ -28,6 +29,9 @@ class ChannelPolicyArgs:
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Input[str]:
+        """
+        The name of the channel associated with this Channel Policy.
+        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -62,6 +66,7 @@ class ChannelPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] channel_name: The name of the channel associated with this Channel Policy.
         :param Any policy: <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
@@ -138,6 +143,9 @@ class ChannelPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel associated with this Channel Policy.
+        """
         return pulumi.get(self, "channel_name")
 
     @property

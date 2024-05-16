@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWaterfallChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The breakdown field wells of a waterfall visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Breakdowns;
+        /// <summary>
+        /// The category field wells of a waterfall visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Categories;
+        /// <summary>
+        /// The value field wells of a waterfall visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Values;
 
         [OutputConstructor]

@@ -30,6 +30,9 @@ class GetInternetGatewayResult:
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the internet gateway.
+        """
         return pulumi.get(self, "internet_gateway_id")
 
     @property
@@ -55,6 +58,9 @@ def get_internet_gateway(internet_gateway_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
     """
     Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
+
+
+    :param str internet_gateway_id: The ID of the internet gateway.
     """
     __args__ = dict()
     __args__['internetGatewayId'] = internet_gateway_id
@@ -71,5 +77,8 @@ def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
+
+
+    :param str internet_gateway_id: The ID of the internet gateway.
     """
     ...

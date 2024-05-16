@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Resources shared using the attachment.
         /// </summary>
         public readonly ImmutableArray<Outputs.CrossAccountAttachmentResource> Resources;
+        /// <summary>
+        /// A complex type that contains a `Tag` key and `Tag` value.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -13,19 +13,61 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
     [OutputType]
     public sealed class Workgroup
     {
+        /// <summary>
+        /// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        /// </summary>
         public readonly int? BaseCapacity;
+        /// <summary>
+        /// A array of parameters to set for more control over a serverless database.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WorkgroupConfigParameter> ConfigParameters;
+        /// <summary>
+        /// The creation date of the workgroup.
+        /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The VPC endpoint object.
+        /// </summary>
         public readonly Outputs.WorkgroupEndpoint? Endpoint;
+        /// <summary>
+        /// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+        /// </summary>
         public readonly bool? EnhancedVpcRouting;
+        /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
+        /// </summary>
         public readonly int? MaxCapacity;
+        /// <summary>
+        /// The namespace the workgroup is associated with.
+        /// </summary>
         public readonly string? NamespaceName;
+        /// <summary>
+        /// A value that specifies whether the workgroup can be accessible from a public network.
+        /// </summary>
         public readonly bool? PubliclyAccessible;
+        /// <summary>
+        /// An array of security group IDs to associate with the workgroup.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The status of the workgroup.
+        /// </summary>
         public readonly Pulumi.AwsNative.RedshiftServerless.WorkgroupStatus? Status;
+        /// <summary>
+        /// An array of subnet IDs the workgroup is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that links to the workgroup.
+        /// </summary>
         public readonly string? WorkgroupArn;
+        /// <summary>
+        /// The unique identifier of the workgroup.
+        /// </summary>
         public readonly string? WorkgroupId;
+        /// <summary>
+        /// The name of the workgroup.
+        /// </summary>
         public readonly string? WorkgroupName;
 
         [OutputConstructor]

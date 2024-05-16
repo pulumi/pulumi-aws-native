@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.SystemsManagerSap
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The ID of the application.
+        /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// The type of the application.
+        /// </summary>
         public readonly Pulumi.AwsNative.SystemsManagerSap.ApplicationType? ApplicationType;
         /// <summary>
         /// The ARN of the Helix application

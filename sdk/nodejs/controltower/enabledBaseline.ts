@@ -37,11 +37,29 @@ export class EnabledBaseline extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnabledBaseline.__pulumiType;
     }
 
+    /**
+     * The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+     */
     public readonly baselineIdentifier!: pulumi.Output<string>;
+    /**
+     * The enabled version of the `Baseline` .
+     */
     public readonly baselineVersion!: pulumi.Output<string>;
+    /**
+     * The ARN of the `EnabledBaseline` resource.
+     */
     public /*out*/ readonly enabledBaselineIdentifier!: pulumi.Output<string>;
+    /**
+     * A key-value parameter to an `EnabledBaseline` resource.
+     */
     public readonly parameters!: pulumi.Output<outputs.controltower.EnabledBaselineParameter[] | undefined>;
+    /**
+     * A key-value parameter to an `EnabledBaseline` resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The target on which to enable the `Baseline` .
+     */
     public readonly targetIdentifier!: pulumi.Output<string>;
 
     /**
@@ -89,9 +107,24 @@ export class EnabledBaseline extends pulumi.CustomResource {
  * The set of arguments for constructing a EnabledBaseline resource.
  */
 export interface EnabledBaselineArgs {
+    /**
+     * The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+     */
     baselineIdentifier: pulumi.Input<string>;
+    /**
+     * The enabled version of the `Baseline` .
+     */
     baselineVersion: pulumi.Input<string>;
+    /**
+     * A key-value parameter to an `EnabledBaseline` resource.
+     */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledBaselineParameterArgs>[]>;
+    /**
+     * A key-value parameter to an `EnabledBaseline` resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The target on which to enable the `Baseline` .
+     */
     targetIdentifier: pulumi.Input<string>;
 }

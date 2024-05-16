@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The usage limits for storage and ElastiCache Processing Units for the cache.
+        /// </summary>
         [Output("cacheUsageLimits")]
         public Output<Outputs.ServerlessCacheCacheUsageLimits?> CacheUsageLimits { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the information required for client programs to connect to a cache node. This value is read-only.
+        /// </summary>
         [Output("endpoint")]
         public Output<Outputs.ServerlessCacheEndpoint?> Endpoint { get; private set; } = null!;
 
@@ -75,6 +81,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("majorEngineVersion")]
         public Output<string?> MajorEngineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the information required for client programs to connect to a cache node. This value is read-only.
+        /// </summary>
         [Output("readerEndpoint")]
         public Output<Outputs.ServerlessCacheEndpoint?> ReaderEndpoint { get; private set; } = null!;
 
@@ -180,6 +189,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class ServerlessCacheArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The usage limits for storage and ElastiCache Processing Units for the cache.
+        /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
 
@@ -195,6 +207,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Represents the information required for client programs to connect to a cache node. This value is read-only.
+        /// </summary>
         [Input("endpoint")]
         public Input<Inputs.ServerlessCacheEndpointArgs>? Endpoint { get; set; }
 
@@ -222,6 +237,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("majorEngineVersion")]
         public Input<string>? MajorEngineVersion { get; set; }
 
+        /// <summary>
+        /// Represents the information required for client programs to connect to a cache node. This value is read-only.
+        /// </summary>
         [Input("readerEndpoint")]
         public Input<Inputs.ServerlessCacheEndpointArgs>? ReaderEndpoint { get; set; }
 

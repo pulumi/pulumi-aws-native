@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetProjectResult
     {
+        /// <summary>
+        /// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        /// </summary>
         public readonly Outputs.ProjectAppConfigResourceObject? AppConfigResource;
+        /// <summary>
+        /// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        /// </summary>
         public readonly Outputs.ProjectDataDeliveryObject? DataDelivery;
+        /// <summary>
+        /// An optional description of the project.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

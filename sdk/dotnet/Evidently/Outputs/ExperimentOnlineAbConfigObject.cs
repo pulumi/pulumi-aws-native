@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class ExperimentOnlineAbConfigObject
     {
+        /// <summary>
+        /// The name of the variation that is to be the default variation that the other variations are compared to.
+        /// </summary>
         public readonly string? ControlTreatmentName;
+        /// <summary>
+        /// This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTreatmentToWeight> TreatmentWeights;
 
         [OutputConstructor]

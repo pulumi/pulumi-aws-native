@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [AwsNativeResourceType("aws-native:apigatewayv2:VpcLink")]
     public partial class VpcLink : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the VPC link.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of security group IDs for the VPC link.
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of subnet IDs to include in the VPC link.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
@@ -30,6 +39,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC link ID.
+        /// </summary>
         [Output("vpcLinkId")]
         public Output<string> VpcLinkId { get; private set; } = null!;
 
@@ -83,11 +95,18 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the VPC link.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// A list of security group IDs for the VPC link.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -96,6 +115,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// A list of subnet IDs to include in the VPC link.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

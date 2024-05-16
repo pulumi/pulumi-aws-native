@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisHeatMapFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a heat map.
+        /// </summary>
         public readonly Outputs.AnalysisHeatMapAggregatedFieldWells? HeatMapAggregatedFieldWells;
 
         [OutputConstructor]

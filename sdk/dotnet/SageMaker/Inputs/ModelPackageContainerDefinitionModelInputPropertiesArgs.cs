@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
+    /// <summary>
+    /// A structure with Model Input details.
+    /// </summary>
     public sealed class ModelPackageContainerDefinitionModelInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

@@ -19,21 +19,60 @@ export function getDeliveryStream(args: GetDeliveryStreamArgs, opts?: pulumi.Inv
 }
 
 export interface GetDeliveryStreamArgs {
+    /**
+     * The name of the delivery stream.
+     */
     deliveryStreamName: string;
 }
 
 export interface GetDeliveryStreamResult {
+    /**
+     * Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+     */
     readonly amazonOpenSearchServerlessDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration;
+    /**
+     * Describes the configuration of a destination in Amazon OpenSearch Service.
+     */
     readonly amazonopensearchserviceDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration;
+    /**
+     * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
+     */
     readonly arn?: string;
+    /**
+     * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+     */
     readonly deliveryStreamEncryptionConfigurationInput?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput;
+    /**
+     * The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+     */
     readonly elasticsearchDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration;
+    /**
+     * The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+     */
     readonly extendedS3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration;
+    /**
+     * Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+     */
     readonly httpEndpointDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration;
+    /**
+     * The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     */
     readonly redshiftDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration;
+    /**
+     * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     */
     readonly s3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+    /**
+     * Configure Snowflake destination
+     */
     readonly snowflakeDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration;
+    /**
+     * The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+     */
     readonly splunkDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration;
+    /**
+     * Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -44,5 +83,8 @@ export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?
 }
 
 export interface GetDeliveryStreamOutputArgs {
+    /**
+     * The name of the delivery stream.
+     */
     deliveryStreamName: pulumi.Input<string>;
 }

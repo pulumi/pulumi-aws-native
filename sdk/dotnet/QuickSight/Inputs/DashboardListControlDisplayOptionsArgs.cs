@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardListControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.DashboardSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The configuration of the search options in a list control.
+        /// </summary>
         [Input("searchOptions")]
         public Input<Inputs.DashboardListControlSearchOptionsArgs>? SearchOptions { get; set; }
 
+        /// <summary>
+        /// The configuration of the `Select all` options in a list control.
+        /// </summary>
         [Input("selectAllOptions")]
         public Input<Inputs.DashboardListControlSelectAllOptionsArgs>? SelectAllOptions { get; set; }
 
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.DashboardLabelOptionsArgs>? TitleOptions { get; set; }
 

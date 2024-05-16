@@ -106,16 +106,51 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * The ARN of the endpoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description for the endpoint.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the endpoint.
+     */
     public /*out*/ readonly endpointId!: pulumi.Output<string>;
+    /**
+     * The URL of the endpoint.
+     */
     public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    /**
+     * The event buses being used by the endpoint.
+     *
+     * *Exactly* : `2`
+     */
     public readonly eventBuses!: pulumi.Output<outputs.events.EndpointEventBus[]>;
+    /**
+     * The name of the endpoint.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Endpoints can replicate all events to the secondary Region.
+     */
     public readonly replicationConfig!: pulumi.Output<outputs.events.EndpointReplicationConfig | undefined>;
+    /**
+     * The ARN of the role used by event replication for the endpoint.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The routing configuration of the endpoint.
+     */
     public readonly routingConfig!: pulumi.Output<outputs.events.EndpointRoutingConfig>;
+    /**
+     * The main Region of the endpoint.
+     */
     public /*out*/ readonly state!: pulumi.Output<enums.events.EndpointState>;
+    /**
+     * The reason the endpoint is in its current state.
+     */
     public /*out*/ readonly stateReason!: pulumi.Output<string>;
 
     /**
@@ -170,10 +205,30 @@ export class Endpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * A description for the endpoint.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The event buses being used by the endpoint.
+     *
+     * *Exactly* : `2`
+     */
     eventBuses: pulumi.Input<pulumi.Input<inputs.events.EndpointEventBusArgs>[]>;
+    /**
+     * The name of the endpoint.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Endpoints can replicate all events to the secondary Region.
+     */
     replicationConfig?: pulumi.Input<inputs.events.EndpointReplicationConfigArgs>;
+    /**
+     * The ARN of the role used by event replication for the endpoint.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The routing configuration of the endpoint.
+     */
     routingConfig: pulumi.Input<inputs.events.EndpointRoutingConfigArgs>;
 }

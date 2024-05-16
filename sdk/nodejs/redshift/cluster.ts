@@ -133,6 +133,9 @@ export class Cluster extends pulumi.CustomResource {
      * If true, the data in the cluster is encrypted at rest.
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    /**
+     * Describes a connection endpoint.
+     */
     public readonly endpoint!: pulumi.Output<outputs.redshift.ClusterEndpoint | undefined>;
     /**
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
@@ -158,6 +161,9 @@ export class Cluster extends pulumi.CustomResource {
      * The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+     */
     public readonly loggingProperties!: pulumi.Output<outputs.redshift.ClusterLoggingProperties | undefined>;
     /**
      * The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
@@ -207,6 +213,9 @@ export class Cluster extends pulumi.CustomResource {
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
      */
     public readonly numberOfNodes!: pulumi.Output<number | undefined>;
+    /**
+     * The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+     */
     public readonly ownerAccount!: pulumi.Output<string | undefined>;
     /**
      * The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
@@ -499,6 +508,9 @@ export interface ClusterArgs {
      * If true, the data in the cluster is encrypted at rest.
      */
     encrypted?: pulumi.Input<boolean>;
+    /**
+     * Describes a connection endpoint.
+     */
     endpoint?: pulumi.Input<inputs.redshift.ClusterEndpointArgs>;
     /**
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
@@ -524,6 +536,9 @@ export interface ClusterArgs {
      * The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+     */
     loggingProperties?: pulumi.Input<inputs.redshift.ClusterLoggingPropertiesArgs>;
     /**
      * The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
@@ -569,6 +584,9 @@ export interface ClusterArgs {
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
      */
     numberOfNodes?: pulumi.Input<number>;
+    /**
+     * The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+     */
     ownerAccount?: pulumi.Input<string>;
     /**
      * The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings

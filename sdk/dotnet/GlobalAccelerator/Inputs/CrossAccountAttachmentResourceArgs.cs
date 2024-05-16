@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     /// </summary>
     public sealed class CrossAccountAttachmentResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The endpoint ID for the endpoint that is specified as a AWS resource.
+        /// 
+        /// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+        /// </summary>
         [Input("endpointId", required: true)]
         public Input<string> EndpointId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region where a shared endpoint resource is located.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

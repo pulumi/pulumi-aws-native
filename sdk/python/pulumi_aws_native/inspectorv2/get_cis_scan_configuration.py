@@ -59,21 +59,33 @@ class GetCisScanConfigurationResult:
     @property
     @pulumi.getter
     def schedule(self) -> Optional['outputs.CisScanConfigurationSchedule']:
+        """
+        The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="securityLevel")
     def security_level(self) -> Optional['CisScanConfigurationCisSecurityLevel']:
+        """
+        The CIS scan configuration's CIS Benchmark level.
+        """
         return pulumi.get(self, "security_level")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The CIS scan configuration's tags.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def targets(self) -> Optional['outputs.CisScanConfigurationCisTargets']:
+        """
+        The CIS targets.
+        """
         return pulumi.get(self, "targets")
 
 

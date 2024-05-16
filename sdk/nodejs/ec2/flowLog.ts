@@ -49,6 +49,9 @@ export class FlowLog extends pulumi.CustomResource {
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
     public readonly deliverLogsPermissionArn!: pulumi.Output<string | undefined>;
+    /**
+     * The destination options.
+     */
     public readonly destinationOptions!: pulumi.Output<outputs.ec2.DestinationOptionsProperties | undefined>;
     /**
      * Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
@@ -151,6 +154,9 @@ export interface FlowLogArgs {
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
     deliverLogsPermissionArn?: pulumi.Input<string>;
+    /**
+     * The destination options.
+     */
     destinationOptions?: pulumi.Input<inputs.ec2.DestinationOptionsPropertiesArgs>;
     /**
      * Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.

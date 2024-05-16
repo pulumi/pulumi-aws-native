@@ -64,6 +64,11 @@ class GetScheduleGroupResult:
     @property
     @pulumi.getter
     def state(self) -> Optional['ScheduleGroupState']:
+        """
+        Specifies the state of the schedule group.
+
+        *Allowed Values* : `ACTIVE` | `DELETING`
+        """
         return pulumi.get(self, "state")
 
     @property
@@ -92,6 +97,9 @@ def get_schedule_group(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleGroupResult:
     """
     Definition of AWS::Scheduler::ScheduleGroup Resource Type
+
+
+    :param str name: The name of the schedule group.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -111,5 +119,8 @@ def get_schedule_group_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleGroupResult]:
     """
     Definition of AWS::Scheduler::ScheduleGroup Resource Type
+
+
+    :param str name: The name of the schedule group.
     """
     ...

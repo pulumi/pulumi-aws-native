@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayAttachment")]
     public partial class TransitGatewayAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -24,15 +27,27 @@ namespace Pulumi.AwsNative.Ec2
         [Output("options")]
         public Output<Outputs.OptionsProperties?> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -94,6 +109,10 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -102,15 +121,25 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Input("transitGatewayId", required: true)]
         public Input<string> TransitGatewayId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

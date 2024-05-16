@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardReferenceLineStyleConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The hex color of the reference line.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// The pattern type of the line style. Choose one of the following options:
+        /// 
+        /// - `SOLID`
+        /// - `DASHED`
+        /// - `DOTTED`
+        /// </summary>
         [Input("pattern")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardReferenceLinePatternType>? Pattern { get; set; }
 

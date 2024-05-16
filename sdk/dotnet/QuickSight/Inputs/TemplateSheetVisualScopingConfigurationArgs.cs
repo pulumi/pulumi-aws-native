@@ -12,14 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSheetVisualScopingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The scope of the applied entities. Choose one of the following options:
+        /// 
+        /// - `ALL_VISUALS`
+        /// - `SELECTED_VISUALS`
+        /// </summary>
         [Input("scope", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateFilterVisualScope> Scope { get; set; } = null!;
 
+        /// <summary>
+        /// The selected sheet that the filter is applied to.
+        /// </summary>
         [Input("sheetId", required: true)]
         public Input<string> SheetId { get; set; } = null!;
 
         [Input("visualIds")]
         private InputList<string>? _visualIds;
+
+        /// <summary>
+        /// The selected visuals that the filter is applied to.
+        /// </summary>
         public InputList<string> VisualIds
         {
             get => _visualIds ?? (_visualIds = new InputList<string>());

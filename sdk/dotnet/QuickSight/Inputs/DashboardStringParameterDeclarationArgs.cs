@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardStringParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default values of the `StringParameterDeclaration` .
+        /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.DashboardStringDefaultValuesArgs>? DefaultValues { get; set; }
 
@@ -23,12 +26,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _mappedDataSetParameters = value;
         }
 
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         [Input("parameterValueType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardParameterValueType> ParameterValueType { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration that defines the default value of a `String` parameter when a value has not been set.
+        /// </summary>
         [Input("valueWhenUnset")]
         public Input<Inputs.DashboardStringValueWhenUnsetConfigurationArgs>? ValueWhenUnset { get; set; }
 

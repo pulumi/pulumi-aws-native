@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("loadBalancerName")]
         public Output<string> LoadBalancerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+        /// </summary>
         [Output("loadBalancerTlsCertificateArn")]
         public Output<string> LoadBalancerTlsCertificateArn { get; private set; } = null!;
 

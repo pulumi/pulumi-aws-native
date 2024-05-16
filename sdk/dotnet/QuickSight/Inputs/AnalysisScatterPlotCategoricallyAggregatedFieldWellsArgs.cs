@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("category")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _category;
+
+        /// <summary>
+        /// The category field well of a scatter plot.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Category
         {
             get => _category ?? (_category = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("label")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _label;
+
+        /// <summary>
+        /// The label field well of a scatter plot.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Label
         {
             get => _label ?? (_label = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("size")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _size;
+
+        /// <summary>
+        /// The size field well of a scatter plot.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Size
         {
             get => _size ?? (_size = new InputList<Inputs.AnalysisMeasureFieldArgs>());
@@ -38,6 +50,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("xAxis")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _xAxis;
+
+        /// <summary>
+        /// The x-axis field well of a scatter plot.
+        /// 
+        /// The x-axis is aggregated by category.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> XAxis
         {
             get => _xAxis ?? (_xAxis = new InputList<Inputs.AnalysisMeasureFieldArgs>());
@@ -46,6 +64,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("yAxis")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _yAxis;
+
+        /// <summary>
+        /// The y-axis field well of a scatter plot.
+        /// 
+        /// The y-axis is aggregated by category.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> YAxis
         {
             get => _yAxis ?? (_yAxis = new InputList<Inputs.AnalysisMeasureFieldArgs>());

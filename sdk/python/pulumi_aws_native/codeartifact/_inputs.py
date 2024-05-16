@@ -43,6 +43,10 @@ class PackageGroupRestrictionTypeArgs:
     def __init__(__self__, *,
                  restriction_mode: pulumi.Input['PackageGroupRestrictionTypeRestrictionMode'],
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['PackageGroupRestrictionTypeRestrictionMode'] restriction_mode: The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The repositories to add to the allowed repositories list. The allowed repositories list is used when the `RestrictionMode` is set to `ALLOW_SPECIFIC_REPOSITORIES` .
+        """
         pulumi.set(__self__, "restriction_mode", restriction_mode)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
@@ -50,6 +54,9 @@ class PackageGroupRestrictionTypeArgs:
     @property
     @pulumi.getter(name="restrictionMode")
     def restriction_mode(self) -> pulumi.Input['PackageGroupRestrictionTypeRestrictionMode']:
+        """
+        The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
+        """
         return pulumi.get(self, "restriction_mode")
 
     @restriction_mode.setter
@@ -59,6 +66,9 @@ class PackageGroupRestrictionTypeArgs:
     @property
     @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The repositories to add to the allowed repositories list. The allowed repositories list is used when the `RestrictionMode` is set to `ALLOW_SPECIFIC_REPOSITORIES` .
+        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter

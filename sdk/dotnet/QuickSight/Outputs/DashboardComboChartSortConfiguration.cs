@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardComboChartSortConfiguration
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of the category field well in a combo chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> CategorySort;
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? ColorItemsLimit;
+        /// <summary>
+        /// The sort configuration of the color field well in a combo chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> ColorSort;
 
         [OutputConstructor]

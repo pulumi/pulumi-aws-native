@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSectionAfterPageBreak
     {
+        /// <summary>
+        /// The option that enables or disables a page break at the end of a section.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSectionPageBreakStatus? Status;
 
         [OutputConstructor]

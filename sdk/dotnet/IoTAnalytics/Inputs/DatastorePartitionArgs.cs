@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastorePartitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+        /// </summary>
         [Input("partition")]
         public Input<Inputs.PartitionArgs>? Partition { get; set; }
 
+        /// <summary>
+        /// A partition dimension defined by a timestamp attribute.
+        /// </summary>
         [Input("timestampPartition")]
         public Input<Inputs.DatastoreTimestampPartitionArgs>? TimestampPartition { get; set; }
 

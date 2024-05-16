@@ -13,9 +13,25 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaContainerParams
     {
+        /// <summary>
+        /// Contains information about a device that Linux processes in a container can access.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaDeviceMount> Devices;
+        /// <summary>
+        /// The memory size of the container, expressed in kilobytes.
+        /// 
+        /// Default: `16384` (16 MB)
+        /// </summary>
         public readonly int? MemorySizeInKb;
+        /// <summary>
+        /// Whether or not the container can read information from the device's `/sys` folder.
+        /// 
+        /// Default: `false`
+        /// </summary>
         public readonly bool? MountRoSysfs;
+        /// <summary>
+        /// Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaVolumeMount> Volumes;
 
         [OutputConstructor]

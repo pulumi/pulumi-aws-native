@@ -65,6 +65,9 @@ export class App extends pulumi.CustomResource {
      * Name of the app.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+     */
     public readonly permissionModel!: pulumi.Output<outputs.resiliencehub.AppPermissionModel | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -74,6 +77,9 @@ export class App extends pulumi.CustomResource {
      * An array of ResourceMapping objects.
      */
     public readonly resourceMappings!: pulumi.Output<outputs.resiliencehub.AppResourceMapping[]>;
+    /**
+     * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -148,6 +154,9 @@ export interface AppArgs {
      * Name of the app.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+     */
     permissionModel?: pulumi.Input<inputs.resiliencehub.AppPermissionModelArgs>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -157,5 +166,8 @@ export interface AppArgs {
      * An array of ResourceMapping objects.
      */
     resourceMappings: pulumi.Input<pulumi.Input<inputs.resiliencehub.AppResourceMappingArgs>[]>;
+    /**
+     * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

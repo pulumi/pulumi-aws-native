@@ -30,6 +30,9 @@ export interface GetApplicationResult {
      * The ID of the EMR Serverless Application.
      */
     readonly applicationId?: string;
+    /**
+     * The CPU architecture of an application.
+     */
     readonly architecture?: enums.emrserverless.ApplicationArchitecture;
     /**
      * The Amazon Resource Name (ARN) of the EMR Serverless Application.
@@ -43,6 +46,9 @@ export interface GetApplicationResult {
      * Configuration for Auto Stop of Application.
      */
     readonly autoStopConfiguration?: outputs.emrserverless.ApplicationAutoStopConfiguration;
+    /**
+     * The image configuration.
+     */
     readonly imageConfiguration?: outputs.emrserverless.ApplicationImageConfigurationInput;
     /**
      * Initial capacity initialized when an Application is started.
@@ -52,6 +58,9 @@ export interface GetApplicationResult {
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     readonly maximumCapacity?: outputs.emrserverless.ApplicationMaximumAllowedResources;
+    /**
+     * The configuration setting for monitoring.
+     */
     readonly monitoringConfiguration?: outputs.emrserverless.ApplicationMonitoringConfiguration;
     /**
      * Network Configuration for customer VPC connectivity.
@@ -61,6 +70,9 @@ export interface GetApplicationResult {
      * EMR release label.
      */
     readonly releaseLabel?: string;
+    /**
+     * The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+     */
     readonly runtimeConfiguration?: outputs.emrserverless.ApplicationConfigurationObject[];
     /**
      * Tag map with key and value

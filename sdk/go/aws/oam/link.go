@@ -16,12 +16,24 @@ import (
 type Link struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
-	Label             pulumi.StringOutput         `pulumi:"label"`
-	LabelTemplate     pulumi.StringPtrOutput      `pulumi:"labelTemplate"`
-	LinkConfiguration LinkConfigurationPtrOutput  `pulumi:"linkConfiguration"`
-	ResourceTypes     LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
-	SinkIdentifier    pulumi.StringOutput         `pulumi:"sinkIdentifier"`
+	// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+	Label pulumi.StringOutput `pulumi:"label"`
+	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+	//
+	// You can include the following variables in your template:
+	//
+	// - `$AccountName` is the name of the account
+	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	LabelTemplate pulumi.StringPtrOutput `pulumi:"labelTemplate"`
+	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+	LinkConfiguration LinkConfigurationPtrOutput `pulumi:"linkConfiguration"`
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+	ResourceTypes LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
+	// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -77,20 +89,40 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
-	LabelTemplate     *string            `pulumi:"labelTemplate"`
+	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+	//
+	// You can include the following variables in your template:
+	//
+	// - `$AccountName` is the name of the account
+	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	LabelTemplate *string `pulumi:"labelTemplate"`
+	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration *LinkConfiguration `pulumi:"linkConfiguration"`
-	ResourceTypes     []LinkResourceType `pulumi:"resourceTypes"`
-	SinkIdentifier    string             `pulumi:"sinkIdentifier"`
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+	ResourceTypes []LinkResourceType `pulumi:"resourceTypes"`
+	// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+	SinkIdentifier string `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
-	LabelTemplate     pulumi.StringPtrInput
+	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+	//
+	// You can include the following variables in your template:
+	//
+	// - `$AccountName` is the name of the account
+	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	LabelTemplate pulumi.StringPtrInput
+	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration LinkConfigurationPtrInput
-	ResourceTypes     LinkResourceTypeArrayInput
-	SinkIdentifier    pulumi.StringInput
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+	ResourceTypes LinkResourceTypeArrayInput
+	// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+	SinkIdentifier pulumi.StringInput
 	// Tags to apply to the link
 	Tags pulumi.StringMapInput
 }
@@ -132,26 +164,38 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
 }
 
+// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
 func (o LinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
 func (o LinkOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
+// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+//
+// You can include the following variables in your template:
+//
+// - `$AccountName` is the name of the account
+// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
 func (o LinkOutput) LabelTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.LabelTemplate }).(pulumi.StringPtrOutput)
 }
 
+// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 func (o LinkOutput) LinkConfiguration() LinkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Link) LinkConfigurationPtrOutput { return v.LinkConfiguration }).(LinkConfigurationPtrOutput)
 }
 
+// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 func (o LinkOutput) ResourceTypes() LinkResourceTypeArrayOutput {
 	return o.ApplyT(func(v *Link) LinkResourceTypeArrayOutput { return v.ResourceTypes }).(LinkResourceTypeArrayOutput)
 }
 
+// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
 func (o LinkOutput) SinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SinkIdentifier }).(pulumi.StringOutput)
 }

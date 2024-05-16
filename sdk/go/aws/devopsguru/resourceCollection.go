@@ -144,6 +144,7 @@ import (
 type ResourceCollection struct {
 	pulumi.CustomResourceState
 
+	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 	ResourceCollectionFilter ResourceCollectionFilterOutput `pulumi:"resourceCollectionFilter"`
 	// The type of ResourceCollection
 	ResourceCollectionType ResourceCollectionTypeOutput `pulumi:"resourceCollectionType"`
@@ -192,11 +193,13 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 }
 
 type resourceCollectionArgs struct {
+	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 	ResourceCollectionFilter ResourceCollectionFilter `pulumi:"resourceCollectionFilter"`
 }
 
 // The set of arguments for constructing a ResourceCollection resource.
 type ResourceCollectionArgs struct {
+	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 	ResourceCollectionFilter ResourceCollectionFilterInput
 }
 
@@ -237,6 +240,7 @@ func (o ResourceCollectionOutput) ToResourceCollectionOutputWithContext(ctx cont
 	return o
 }
 
+// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 func (o ResourceCollectionOutput) ResourceCollectionFilter() ResourceCollectionFilterOutput {
 	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionFilterOutput { return v.ResourceCollectionFilter }).(ResourceCollectionFilterOutput)
 }

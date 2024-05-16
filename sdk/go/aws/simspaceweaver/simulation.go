@@ -329,8 +329,10 @@ type Simulation struct {
 	// The name of the simulation.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Role ARN.
-	RoleArn            pulumi.StringOutput           `pulumi:"roleArn"`
-	SchemaS3Location   SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	SchemaS3Location SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
+	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 	SnapshotS3Location SimulationS3LocationPtrOutput `pulumi:"snapshotS3Location"`
 }
 
@@ -390,8 +392,10 @@ type simulationArgs struct {
 	// The name of the simulation.
 	Name *string `pulumi:"name"`
 	// Role ARN.
-	RoleArn            string                `pulumi:"roleArn"`
-	SchemaS3Location   *SimulationS3Location `pulumi:"schemaS3Location"`
+	RoleArn string `pulumi:"roleArn"`
+	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	SchemaS3Location *SimulationS3Location `pulumi:"schemaS3Location"`
+	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 	SnapshotS3Location *SimulationS3Location `pulumi:"snapshotS3Location"`
 }
 
@@ -402,8 +406,10 @@ type SimulationArgs struct {
 	// The name of the simulation.
 	Name pulumi.StringPtrInput
 	// Role ARN.
-	RoleArn            pulumi.StringInput
-	SchemaS3Location   SimulationS3LocationPtrInput
+	RoleArn pulumi.StringInput
+	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	SchemaS3Location SimulationS3LocationPtrInput
+	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 	SnapshotS3Location SimulationS3LocationPtrInput
 }
 
@@ -464,10 +470,12 @@ func (o SimulationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Simulation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 func (o SimulationOutput) SchemaS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SchemaS3Location }).(SimulationS3LocationPtrOutput)
 }
 
+// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 func (o SimulationOutput) SnapshotS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SnapshotS3Location }).(SimulationS3LocationPtrOutput)
 }

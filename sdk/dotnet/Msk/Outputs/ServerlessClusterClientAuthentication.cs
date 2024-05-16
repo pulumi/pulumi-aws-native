@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ServerlessClusterClientAuthentication
     {
+        /// <summary>
+        /// Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        /// </summary>
         public readonly Outputs.ServerlessClusterSasl Sasl;
 
         [OutputConstructor]

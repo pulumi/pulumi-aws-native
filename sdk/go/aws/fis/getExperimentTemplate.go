@@ -23,18 +23,29 @@ func LookupExperimentTemplate(ctx *pulumi.Context, args *LookupExperimentTemplat
 }
 
 type LookupExperimentTemplateArgs struct {
+	// The ID of the experiment template.
 	Id string `pulumi:"id"`
 }
 
 type LookupExperimentTemplateResult struct {
-	Actions           map[string]ExperimentTemplateAction  `pulumi:"actions"`
-	Description       *string                              `pulumi:"description"`
+	// The actions for the experiment.
+	Actions map[string]ExperimentTemplateAction `pulumi:"actions"`
+	// The description for the experiment template.
+	Description *string `pulumi:"description"`
+	// Describes the experiment options for an experiment template.
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
-	Id                *string                              `pulumi:"id"`
-	LogConfiguration  *ExperimentTemplateLogConfiguration  `pulumi:"logConfiguration"`
-	RoleArn           *string                              `pulumi:"roleArn"`
-	StopConditions    []ExperimentTemplateStopCondition    `pulumi:"stopConditions"`
-	Targets           map[string]ExperimentTemplateTarget  `pulumi:"targets"`
+	// The ID of the experiment template.
+	Id *string `pulumi:"id"`
+	// Specifies the configuration for experiment logging.
+	//
+	// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
+	// The Amazon Resource Name (ARN) of an IAM role.
+	RoleArn *string `pulumi:"roleArn"`
+	// The stop conditions for the experiment.
+	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
+	// The targets for the experiment.
+	Targets map[string]ExperimentTemplateTarget `pulumi:"targets"`
 }
 
 func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTemplateResultOutput {
@@ -51,6 +62,7 @@ func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTe
 }
 
 type LookupExperimentTemplateOutputArgs struct {
+	// The ID of the experiment template.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -72,36 +84,46 @@ func (o LookupExperimentTemplateResultOutput) ToLookupExperimentTemplateResultOu
 	return o
 }
 
+// The actions for the experiment.
 func (o LookupExperimentTemplateResultOutput) Actions() ExperimentTemplateActionMapOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) map[string]ExperimentTemplateAction { return v.Actions }).(ExperimentTemplateActionMapOutput)
 }
 
+// The description for the experiment template.
 func (o LookupExperimentTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Describes the experiment options for an experiment template.
 func (o LookupExperimentTemplateResultOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateExperimentOptions {
 		return v.ExperimentOptions
 	}).(ExperimentTemplateExperimentOptionsPtrOutput)
 }
 
+// The ID of the experiment template.
 func (o LookupExperimentTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the configuration for experiment logging.
+//
+// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
 func (o LookupExperimentTemplateResultOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateLogConfiguration { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role.
 func (o LookupExperimentTemplateResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The stop conditions for the experiment.
 func (o LookupExperimentTemplateResultOutput) StopConditions() ExperimentTemplateStopConditionArrayOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) []ExperimentTemplateStopCondition { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
 
+// The targets for the experiment.
 func (o LookupExperimentTemplateResultOutput) Targets() ExperimentTemplateTargetMapOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) map[string]ExperimentTemplateTarget { return v.Targets }).(ExperimentTemplateTargetMapOutput)
 }

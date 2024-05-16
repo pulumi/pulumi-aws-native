@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeDeadLetterConfig
     {
+        /// <summary>
+        /// The ARN of the specified target for the dead-letter queue.
+        /// 
+        /// For Amazon Kinesis stream and Amazon DynamoDB stream sources, specify either an Amazon SNS topic or Amazon SQS queue ARN.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

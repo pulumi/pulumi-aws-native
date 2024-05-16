@@ -27,6 +27,15 @@ class ResourceDataSyncArgs:
                  sync_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
+        :param pulumi.Input[str] bucket_name: The name of the S3 bucket where the aggregated data is stored.
+        :param pulumi.Input[str] bucket_prefix: An Amazon S3 prefix for the bucket.
+        :param pulumi.Input[str] bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+        :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Information about the target S3 bucket for the resource data sync.
+        :param pulumi.Input[str] sync_format: A supported sync format. The following format is currently supported: JsonSerDe
+        :param pulumi.Input[str] sync_name: The name of the resource data sync.
+        :param pulumi.Input['ResourceDataSyncSyncSourceArgs'] sync_source: Information about the source of the data included in the resource data sync.
+        :param pulumi.Input[str] sync_type: The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -50,6 +59,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the S3 bucket where the aggregated data is stored.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -59,6 +71,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon S3 prefix for the bucket.
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -68,6 +83,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region with the S3 bucket targeted by the resource data sync.
+        """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
@@ -77,6 +95,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -86,6 +107,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]:
+        """
+        Information about the target S3 bucket for the resource data sync.
+        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -95,6 +119,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        A supported sync format. The following format is currently supported: JsonSerDe
+        """
         return pulumi.get(self, "sync_format")
 
     @sync_format.setter
@@ -104,6 +131,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncName")
     def sync_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource data sync.
+        """
         return pulumi.get(self, "sync_name")
 
     @sync_name.setter
@@ -113,6 +143,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncSource")
     def sync_source(self) -> Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']]:
+        """
+        Information about the source of the data included in the resource data sync.
+        """
         return pulumi.get(self, "sync_source")
 
     @sync_source.setter
@@ -122,6 +155,9 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncType")
     def sync_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+        """
         return pulumi.get(self, "sync_type")
 
     @sync_type.setter
@@ -305,6 +341,15 @@ class ResourceDataSync(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket_name: The name of the S3 bucket where the aggregated data is stored.
+        :param pulumi.Input[str] bucket_prefix: An Amazon S3 prefix for the bucket.
+        :param pulumi.Input[str] bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+        :param pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']] s3_destination: Information about the target S3 bucket for the resource data sync.
+        :param pulumi.Input[str] sync_format: A supported sync format. The following format is currently supported: JsonSerDe
+        :param pulumi.Input[str] sync_name: The name of the resource data sync.
+        :param pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']] sync_source: Information about the source of the data included in the resource data sync.
+        :param pulumi.Input[str] sync_type: The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
         """
         ...
     @overload
@@ -551,45 +596,72 @@ class ResourceDataSync(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the S3 bucket where the aggregated data is stored.
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        An Amazon S3 prefix for the bucket.
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS Region with the S3 bucket targeted by the resource data sync.
+        """
         return pulumi.get(self, "bucket_region")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> pulumi.Output[Optional['outputs.ResourceDataSyncS3Destination']]:
+        """
+        Information about the target S3 bucket for the resource data sync.
+        """
         return pulumi.get(self, "s3_destination")
 
     @property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        A supported sync format. The following format is currently supported: JsonSerDe
+        """
         return pulumi.get(self, "sync_format")
 
     @property
     @pulumi.getter(name="syncName")
     def sync_name(self) -> pulumi.Output[str]:
+        """
+        The name of the resource data sync.
+        """
         return pulumi.get(self, "sync_name")
 
     @property
     @pulumi.getter(name="syncSource")
     def sync_source(self) -> pulumi.Output[Optional['outputs.ResourceDataSyncSyncSource']]:
+        """
+        Information about the source of the data included in the resource data sync.
+        """
         return pulumi.get(self, "sync_source")
 
     @property
     @pulumi.getter(name="syncType")
     def sync_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
+        """
         return pulumi.get(self, "sync_type")
 

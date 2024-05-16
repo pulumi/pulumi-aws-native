@@ -28,6 +28,7 @@ class DetectorModelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DetectorModel resource.
+        :param pulumi.Input['DetectorModelDefinitionArgs'] detector_model_definition: Information that defines how a detector operates.
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT Events to perform its operations.
         :param pulumi.Input[str] detector_model_description: A brief description of the detector model.
         :param pulumi.Input[str] detector_model_name: The name of the detector model.
@@ -55,6 +56,9 @@ class DetectorModelArgs:
     @property
     @pulumi.getter(name="detectorModelDefinition")
     def detector_model_definition(self) -> pulumi.Input['DetectorModelDefinitionArgs']:
+        """
+        Information that defines how a detector operates.
+        """
         return pulumi.get(self, "detector_model_definition")
 
     @detector_model_definition.setter
@@ -156,6 +160,7 @@ class DetectorModel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DetectorModelDefinitionArgs']] detector_model_definition: Information that defines how a detector operates.
         :param pulumi.Input[str] detector_model_description: A brief description of the detector model.
         :param pulumi.Input[str] detector_model_name: The name of the detector model.
         :param pulumi.Input['DetectorModelEvaluationMethod'] evaluation_method: Information about the order in which events are evaluated and how actions are executed.
@@ -254,6 +259,9 @@ class DetectorModel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="detectorModelDefinition")
     def detector_model_definition(self) -> pulumi.Output['outputs.DetectorModelDefinition']:
+        """
+        Information that defines how a detector operates.
+        """
         return pulumi.get(self, "detector_model_definition")
 
     @property

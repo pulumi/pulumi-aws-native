@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class MitigationActionActionParamsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters used when defining a mitigation action that move a set of things to a thing group.
+        /// </summary>
         [Input("addThingsToThingGroupParams")]
         public Input<Inputs.MitigationActionAddThingsToThingGroupParamsArgs>? AddThingsToThingGroupParams { get; set; }
 
+        /// <summary>
+        /// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+        /// </summary>
         [Input("enableIoTLoggingParams")]
         public Input<Inputs.MitigationActionEnableIoTLoggingParamsArgs>? EnableIoTLoggingParams { get; set; }
 
+        /// <summary>
+        /// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+        /// </summary>
         [Input("publishFindingToSnsParams")]
         public Input<Inputs.MitigationActionPublishFindingToSnsParamsArgs>? PublishFindingToSnsParams { get; set; }
 
+        /// <summary>
+        /// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        /// </summary>
         [Input("replaceDefaultPolicyVersionParams")]
         public Input<Inputs.MitigationActionReplaceDefaultPolicyVersionParamsArgs>? ReplaceDefaultPolicyVersionParams { get; set; }
 
+        /// <summary>
+        /// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        /// </summary>
         [Input("updateCaCertificateParams")]
         public Input<Inputs.MitigationActionUpdateCaCertificateParamsArgs>? UpdateCaCertificateParams { get; set; }
 
+        /// <summary>
+        /// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        /// </summary>
         [Input("updateDeviceCertificateParams")]
         public Input<Inputs.MitigationActionUpdateDeviceCertificateParamsArgs>? UpdateDeviceCertificateParams { get; set; }
 

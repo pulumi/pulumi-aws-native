@@ -19,27 +19,64 @@ export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.Inv
 }
 
 export interface GetAutomationRuleArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+     */
     ruleArn: string;
 }
 
 export interface GetAutomationRuleResult {
+    /**
+     * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+     */
     readonly actions?: outputs.securityhub.AutomationRulesAction[];
+    /**
+     * A timestamp that indicates when the rule was created.
+     *
+     * Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+     */
     readonly createdAt?: string;
+    /**
+     * The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
+     */
     readonly createdBy?: string;
     /**
      * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
     readonly criteria?: outputs.securityhub.AutomationRulesFindingFilters;
+    /**
+     * A description of the rule.
+     */
     readonly description?: string;
+    /**
+     * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+     */
     readonly isTerminal?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+     */
     readonly ruleArn?: string;
+    /**
+     * The name of the rule.
+     */
     readonly ruleName?: string;
+    /**
+     * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+     */
     readonly ruleOrder?: number;
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     readonly ruleStatus?: enums.securityhub.AutomationRuleRuleStatus;
+    /**
+     * User-defined tags associated with an automation rule.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * A timestamp that indicates when the rule was most recently updated.
+     *
+     * Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -50,5 +87,8 @@ export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?
 }
 
 export interface GetAutomationRuleOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+     */
     ruleArn: pulumi.Input<string>;
 }

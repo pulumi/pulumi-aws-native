@@ -17,20 +17,35 @@ import (
 type Experiment struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                   `pulumi:"arn"`
-	Description       pulumi.StringPtrOutput                `pulumi:"description"`
-	MetricGoals       ExperimentMetricGoalObjectArrayOutput `pulumi:"metricGoals"`
-	Name              pulumi.StringOutput                   `pulumi:"name"`
-	OnlineAbConfig    ExperimentOnlineAbConfigObjectOutput  `pulumi:"onlineAbConfig"`
-	Project           pulumi.StringOutput                   `pulumi:"project"`
-	RandomizationSalt pulumi.StringPtrOutput                `pulumi:"randomizationSalt"`
-	RemoveSegment     pulumi.BoolPtrOutput                  `pulumi:"removeSegment"`
+	// The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An optional description of the experiment.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	MetricGoals ExperimentMetricGoalObjectArrayOutput `pulumi:"metricGoals"`
+	// A name for the new experiment.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+	OnlineAbConfig ExperimentOnlineAbConfigObjectOutput `pulumi:"onlineAbConfig"`
+	// The name or the ARN of the project where this experiment is to be created.
+	Project pulumi.StringOutput `pulumi:"project"`
+	// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+	RandomizationSalt pulumi.StringPtrOutput `pulumi:"randomizationSalt"`
+	// Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+	RemoveSegment pulumi.BoolPtrOutput `pulumi:"removeSegment"`
 	// Start Experiment. Default is False
 	RunningStatus ExperimentRunningStatusObjectPtrOutput `pulumi:"runningStatus"`
-	SamplingRate  pulumi.IntPtrOutput                    `pulumi:"samplingRate"`
-	Segment       pulumi.StringPtrOutput                 `pulumi:"segment"`
+	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+	//
+	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+	SamplingRate pulumi.IntPtrOutput `pulumi:"samplingRate"`
+	// Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+	//
+	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Segment pulumi.StringPtrOutput `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayOutput                   `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
 	Treatments ExperimentTreatmentObjectArrayOutput `pulumi:"treatments"`
 }
 
@@ -91,37 +106,65 @@ func (ExperimentState) ElementType() reflect.Type {
 }
 
 type experimentArgs struct {
-	Description       *string                        `pulumi:"description"`
-	MetricGoals       []ExperimentMetricGoalObject   `pulumi:"metricGoals"`
-	Name              *string                        `pulumi:"name"`
-	OnlineAbConfig    ExperimentOnlineAbConfigObject `pulumi:"onlineAbConfig"`
-	Project           string                         `pulumi:"project"`
-	RandomizationSalt *string                        `pulumi:"randomizationSalt"`
-	RemoveSegment     *bool                          `pulumi:"removeSegment"`
+	// An optional description of the experiment.
+	Description *string `pulumi:"description"`
+	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	MetricGoals []ExperimentMetricGoalObject `pulumi:"metricGoals"`
+	// A name for the new experiment.
+	Name *string `pulumi:"name"`
+	// A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+	OnlineAbConfig ExperimentOnlineAbConfigObject `pulumi:"onlineAbConfig"`
+	// The name or the ARN of the project where this experiment is to be created.
+	Project string `pulumi:"project"`
+	// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+	RandomizationSalt *string `pulumi:"randomizationSalt"`
+	// Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+	RemoveSegment *bool `pulumi:"removeSegment"`
 	// Start Experiment. Default is False
 	RunningStatus *ExperimentRunningStatusObject `pulumi:"runningStatus"`
-	SamplingRate  *int                           `pulumi:"samplingRate"`
-	Segment       *string                        `pulumi:"segment"`
+	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+	//
+	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+	SamplingRate *int `pulumi:"samplingRate"`
+	// Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+	//
+	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Segment *string `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag                   `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
 }
 
 // The set of arguments for constructing a Experiment resource.
 type ExperimentArgs struct {
-	Description       pulumi.StringPtrInput
-	MetricGoals       ExperimentMetricGoalObjectArrayInput
-	Name              pulumi.StringPtrInput
-	OnlineAbConfig    ExperimentOnlineAbConfigObjectInput
-	Project           pulumi.StringInput
+	// An optional description of the experiment.
+	Description pulumi.StringPtrInput
+	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	MetricGoals ExperimentMetricGoalObjectArrayInput
+	// A name for the new experiment.
+	Name pulumi.StringPtrInput
+	// A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+	OnlineAbConfig ExperimentOnlineAbConfigObjectInput
+	// The name or the ARN of the project where this experiment is to be created.
+	Project pulumi.StringInput
+	// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
 	RandomizationSalt pulumi.StringPtrInput
-	RemoveSegment     pulumi.BoolPtrInput
+	// Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+	RemoveSegment pulumi.BoolPtrInput
 	// Start Experiment. Default is False
 	RunningStatus ExperimentRunningStatusObjectPtrInput
-	SamplingRate  pulumi.IntPtrInput
-	Segment       pulumi.StringPtrInput
+	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+	//
+	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+	SamplingRate pulumi.IntPtrInput
+	// Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+	//
+	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Segment pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
 	Treatments ExperimentTreatmentObjectArrayInput
 }
 
@@ -162,34 +205,42 @@ func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) Exp
 	return o
 }
 
+// The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
 func (o ExperimentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An optional description of the experiment.
 func (o ExperimentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
 func (o ExperimentOutput) MetricGoals() ExperimentMetricGoalObjectArrayOutput {
 	return o.ApplyT(func(v *Experiment) ExperimentMetricGoalObjectArrayOutput { return v.MetricGoals }).(ExperimentMetricGoalObjectArrayOutput)
 }
 
+// A name for the new experiment.
 func (o ExperimentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
 func (o ExperimentOutput) OnlineAbConfig() ExperimentOnlineAbConfigObjectOutput {
 	return o.ApplyT(func(v *Experiment) ExperimentOnlineAbConfigObjectOutput { return v.OnlineAbConfig }).(ExperimentOnlineAbConfigObjectOutput)
 }
 
+// The name or the ARN of the project where this experiment is to be created.
 func (o ExperimentOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
+// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
 func (o ExperimentOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
 }
 
+// Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
 func (o ExperimentOutput) RemoveSegment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.BoolPtrOutput { return v.RemoveSegment }).(pulumi.BoolPtrOutput)
 }
@@ -199,10 +250,16 @@ func (o ExperimentOutput) RunningStatus() ExperimentRunningStatusObjectPtrOutput
 	return o.ApplyT(func(v *Experiment) ExperimentRunningStatusObjectPtrOutput { return v.RunningStatus }).(ExperimentRunningStatusObjectPtrOutput)
 }
 
+// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+//
+// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
 func (o ExperimentOutput) SamplingRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.IntPtrOutput { return v.SamplingRate }).(pulumi.IntPtrOutput)
 }
 
+// Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+//
+// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
 func (o ExperimentOutput) Segment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Segment }).(pulumi.StringPtrOutput)
 }
@@ -212,6 +269,7 @@ func (o ExperimentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Experiment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
 func (o ExperimentOutput) Treatments() ExperimentTreatmentObjectArrayOutput {
 	return o.ApplyT(func(v *Experiment) ExperimentTreatmentObjectArrayOutput { return v.Treatments }).(ExperimentTreatmentObjectArrayOutput)
 }

@@ -85,7 +85,16 @@ namespace Pulumi.AwsNative.Bedrock
         /// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The status of the knowledge base.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseStatus? Status;
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The time at which the knowledge base was last updated.

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Comprehend
 
     public sealed class GetDocumentClassifierArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the document classifier.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Comprehend
 
     public sealed class GetDocumentClassifierInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the document classifier.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,8 +57,25 @@ namespace Pulumi.AwsNative.Comprehend
     [OutputType]
     public sealed class GetDocumentClassifierResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the document classifier.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+        /// 
+        /// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+        /// 
+        /// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+        /// 
+        /// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+        /// 
+        /// `'{"attribute": "value", "attribute": ["value"]}'`
+        /// </summary>
         public readonly string? ModelPolicy;
+        /// <summary>
+        /// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

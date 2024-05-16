@@ -45,11 +45,17 @@ class GetDistributionResult:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[str]:
+        """
+        The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -77,6 +83,9 @@ def get_distribution(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionResult:
     """
     A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+
+
+    :param str id: The distribution's identifier. For example: `E1U5RQF7T870K0` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -95,5 +104,8 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionResult]:
     """
     A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+
+
+    :param str id: The distribution's identifier. For example: `E1U5RQF7T870K0` .
     """
     ...

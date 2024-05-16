@@ -16,9 +16,35 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclAwsManagedRulesAtpRuleSet
     {
+        /// <summary>
+        /// Allow the use of regular expressions in the login page path.
+        /// </summary>
         public readonly bool? EnableRegexInPath;
+        /// <summary>
+        /// The path of the login endpoint for your application. For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` . Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login` , `/web/login/` , `/web/loginPage` , and `/web/login/thisPage` , but doesn't match the login path `/home/web/login` or `/website/login` .
+        /// 
+        /// The rule group inspects only HTTP `POST` requests to your specified login endpoint.
+        /// </summary>
         public readonly string LoginPath;
+        /// <summary>
+        /// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
+        /// 
+        /// This is part of the `AWSManagedRulesATPRuleSet` configuration in `ManagedRuleGroupConfig` .
+        /// 
+        /// In these settings, you specify how your application accepts login attempts by providing the request payload type and the names of the fields within the request body where the username and password are provided.
+        /// </summary>
         public readonly Outputs.WebAclRequestInspection? RequestInspection;
+        /// <summary>
+        /// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+        /// 
+        /// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
+        /// 
+        /// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
+        /// 
+        /// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspection? ResponseInspection;
 
         [OutputConstructor]

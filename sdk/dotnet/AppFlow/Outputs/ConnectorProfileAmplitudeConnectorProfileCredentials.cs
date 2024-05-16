@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// The Secret Access Key portion of the credentials.
+        /// </summary>
         public readonly string SecretKey;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("categorySort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of the location fields.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

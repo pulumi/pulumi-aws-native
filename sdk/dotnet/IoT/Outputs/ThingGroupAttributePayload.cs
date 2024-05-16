@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class ThingGroupAttributePayload
     {
+        /// <summary>
+        /// A JSON string containing up to three key-value pair in JSON format. For example:
+        /// 
+        /// `{\"attributes\":{\"string1\":\"string2\"}}`
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Attributes;
 
         [OutputConstructor]

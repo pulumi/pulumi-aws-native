@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisClusterMarker
     {
+        /// <summary>
+        /// The simple cluster marker of the cluster marker.
+        /// </summary>
         public readonly Outputs.AnalysisSimpleClusterMarker? SimpleClusterMarker;
 
         [OutputConstructor]

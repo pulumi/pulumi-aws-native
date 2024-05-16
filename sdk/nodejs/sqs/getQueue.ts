@@ -27,10 +27,16 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetQueueArgs {
+    /**
+     * Returns the URLs of the queues from the policy.
+     */
     queueUrl: string;
 }
 
 export interface GetQueueResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
+     */
     readonly arn?: string;
     /**
      * For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
@@ -71,6 +77,9 @@ export interface GetQueueResult {
      * The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
      */
     readonly messageRetentionPeriod?: number;
+    /**
+     * Returns the URLs of the queues from the policy.
+     */
     readonly queueUrl?: string;
     /**
      * Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
@@ -134,5 +143,8 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetQueueOutputArgs {
+    /**
+     * Returns the URLs of the queues from the policy.
+     */
     queueUrl: pulumi.Input<string>;
 }

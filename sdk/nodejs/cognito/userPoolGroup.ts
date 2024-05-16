@@ -34,10 +34,29 @@ export class UserPoolGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolGroup.__pulumiType;
     }
 
+    /**
+     * A string containing the description of the group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the group. Must be unique.
+     */
     public readonly groupName!: pulumi.Output<string | undefined>;
+    /**
+     * A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+     *
+     * Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+     *
+     * The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+     */
     public readonly precedence!: pulumi.Output<number | undefined>;
+    /**
+     * The role Amazon Resource Name (ARN) for the group.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The user pool ID for the user pool.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -77,9 +96,28 @@ export class UserPoolGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolGroup resource.
  */
 export interface UserPoolGroupArgs {
+    /**
+     * A string containing the description of the group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the group. Must be unique.
+     */
     groupName?: pulumi.Input<string>;
+    /**
+     * A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+     *
+     * Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+     *
+     * The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+     */
     precedence?: pulumi.Input<number>;
+    /**
+     * The role Amazon Resource Name (ARN) for the group.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The user pool ID for the user pool.
+     */
     userPoolId: pulumi.Input<string>;
 }

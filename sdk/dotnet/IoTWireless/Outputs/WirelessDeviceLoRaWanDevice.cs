@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class WirelessDeviceLoRaWanDevice
     {
+        /// <summary>
+        /// ABP device object for LoRaWAN specification v1.0.x
+        /// </summary>
         public readonly Outputs.WirelessDeviceAbpV10x? AbpV10x;
+        /// <summary>
+        /// ABP device object for create APIs for v1.1.
+        /// </summary>
         public readonly Outputs.WirelessDeviceAbpV11? AbpV11;
+        /// <summary>
+        /// The DevEUI value.
+        /// </summary>
         public readonly string? DevEui;
+        /// <summary>
+        /// The ID of the device profile for the new wireless device.
+        /// </summary>
         public readonly string? DeviceProfileId;
+        /// <summary>
+        /// OTAA device object for create APIs for v1.0.x
+        /// </summary>
         public readonly Outputs.WirelessDeviceOtaaV10x? OtaaV10x;
+        /// <summary>
+        /// OTAA device object for v1.1 for create APIs.
+        /// </summary>
         public readonly Outputs.WirelessDeviceOtaaV11? OtaaV11;
+        /// <summary>
+        /// The ID of the service profile.
+        /// </summary>
         public readonly string? ServiceProfileId;
 
         [OutputConstructor]

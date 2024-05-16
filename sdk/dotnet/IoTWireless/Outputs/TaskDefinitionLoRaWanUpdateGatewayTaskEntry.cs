@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class TaskDefinitionLoRaWanUpdateGatewayTaskEntry
     {
+        /// <summary>
+        /// LoRaWANGatewayVersion object.
+        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWanGatewayVersion? CurrentVersion;
+        /// <summary>
+        /// LoRaWANGatewayVersion object.
+        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWanGatewayVersion? UpdateVersion;
 
         [OutputConstructor]

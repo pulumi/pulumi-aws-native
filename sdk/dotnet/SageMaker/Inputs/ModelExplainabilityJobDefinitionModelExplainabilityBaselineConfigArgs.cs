@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the baseline model explainability job.
+        /// </summary>
         [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
+        /// <summary>
+        /// Input object for the endpoint
+        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.ModelExplainabilityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 

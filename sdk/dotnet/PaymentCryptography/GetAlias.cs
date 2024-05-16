@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
     public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+        /// 
+        /// &gt; Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        /// </summary>
         [Input("aliasName", required: true)]
         public string AliasName { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
     public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+        /// 
+        /// &gt; Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        /// </summary>
         [Input("aliasName", required: true)]
         public Input<string> AliasName { get; set; } = null!;
 
@@ -51,6 +61,9 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [OutputType]
     public sealed class GetAliasResult
     {
+        /// <summary>
+        /// The `KeyARN` of the key associated with the alias.
+        /// </summary>
         public readonly string? KeyArn;
 
         [OutputConstructor]

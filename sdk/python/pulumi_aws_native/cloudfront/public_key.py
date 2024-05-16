@@ -19,12 +19,16 @@ class PublicKeyArgs:
                  public_key_config: pulumi.Input['PublicKeyConfigArgs']):
         """
         The set of arguments for constructing a PublicKey resource.
+        :param pulumi.Input['PublicKeyConfigArgs'] public_key_config: Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
         """
         pulumi.set(__self__, "public_key_config", public_key_config)
 
     @property
     @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> pulumi.Input['PublicKeyConfigArgs']:
+        """
+        Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        """
         return pulumi.get(self, "public_key_config")
 
     @public_key_config.setter
@@ -44,6 +48,7 @@ class PublicKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['PublicKeyConfigArgs']] public_key_config: Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
         """
         ...
     @overload
@@ -114,15 +119,24 @@ class PublicKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the public key.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the public key was uploaded.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> pulumi.Output['outputs.PublicKeyConfig']:
+        """
+        Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        """
         return pulumi.get(self, "public_key_config")
 

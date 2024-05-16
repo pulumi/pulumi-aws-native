@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the route table.
+        /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the route table.
+        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
@@ -53,6 +59,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetRouteTableResult
     {
+        /// <summary>
+        /// The ID of the route table.
+        /// </summary>
         public readonly string? RouteTableId;
         /// <summary>
         /// Any tags assigned to the route table.

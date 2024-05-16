@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.StepFunctions
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Defines which category of execution history events are logged.
+    /// </summary>
     [EnumType]
     public readonly struct StateMachineLoggingConfigurationLevel : IEquatable<StateMachineLoggingConfigurationLevel>
     {
@@ -69,6 +72,9 @@ namespace Pulumi.AwsNative.StepFunctions
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+    /// </summary>
     [EnumType]
     public readonly struct StateMachineType : IEquatable<StateMachineType>
     {

@@ -16,6 +16,9 @@ export const AnomalyMonitorMonitorType = {
     Custom: "CUSTOM",
 } as const;
 
+/**
+ * The possible type values.
+ */
 export type AnomalyMonitorMonitorType = (typeof AnomalyMonitorMonitorType)[keyof typeof AnomalyMonitorMonitorType];
 
 export const AnomalySubscriptionFrequency = {
@@ -34,6 +37,9 @@ export const AnomalySubscriptionSubscriberStatus = {
     Declined: "DECLINED",
 } as const;
 
+/**
+ * Indicates if the subscriber accepts the notifications.
+ */
 export type AnomalySubscriptionSubscriberStatus = (typeof AnomalySubscriptionSubscriberStatus)[keyof typeof AnomalySubscriptionSubscriberStatus];
 
 export const AnomalySubscriptionSubscriberType = {
@@ -41,10 +47,16 @@ export const AnomalySubscriptionSubscriberType = {
     Sns: "SNS",
 } as const;
 
+/**
+ * The notification delivery channel.
+ */
 export type AnomalySubscriptionSubscriberType = (typeof AnomalySubscriptionSubscriberType)[keyof typeof AnomalySubscriptionSubscriberType];
 
 export const CostCategoryRuleVersion = {
     CostCategoryExpressionV1: "CostCategoryExpression.v1",
 } as const;
 
+/**
+ * The rule schema version in this particular Cost Category.
+ */
 export type CostCategoryRuleVersion = (typeof CostCategoryRuleVersion)[keyof typeof CostCategoryRuleVersion];

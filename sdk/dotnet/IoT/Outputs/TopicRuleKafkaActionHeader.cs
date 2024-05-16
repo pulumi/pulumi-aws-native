@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleKafkaActionHeader
     {
+        /// <summary>
+        /// The key of the Kafka header.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the Kafka header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

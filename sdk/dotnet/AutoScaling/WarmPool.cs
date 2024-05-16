@@ -15,18 +15,41 @@ namespace Pulumi.AwsNative.AutoScaling
     [AwsNativeResourceType("aws-native:autoscaling:WarmPool")]
     public partial class WarmPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Auto Scaling group.
+        /// </summary>
         [Output("autoScalingGroupName")]
         public Output<string> AutoScalingGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.
+        /// 
+        /// For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        /// </summary>
         [Output("instanceReusePolicy")]
         public Output<Outputs.WarmPoolInstanceReusePolicy?> InstanceReusePolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+        /// 
+        /// &gt; If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+        /// &gt; 
+        /// &gt; The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size. 
+        /// 
+        /// If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+        /// </summary>
         [Output("maxGroupPreparedCapacity")]
         public Output<int?> MaxGroupPreparedCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// </summary>
         [Output("minSize")]
         public Output<int?> MinSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
+        /// </summary>
         [Output("poolState")]
         public Output<string?> PoolState { get; private set; } = null!;
 
@@ -79,18 +102,41 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class WarmPoolArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Auto Scaling group.
+        /// </summary>
         [Input("autoScalingGroupName", required: true)]
         public Input<string> AutoScalingGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.
+        /// 
+        /// For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        /// </summary>
         [Input("instanceReusePolicy")]
         public Input<Inputs.WarmPoolInstanceReusePolicyArgs>? InstanceReusePolicy { get; set; }
 
+        /// <summary>
+        /// Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+        /// 
+        /// &gt; If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+        /// &gt; 
+        /// &gt; The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size. 
+        /// 
+        /// If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+        /// </summary>
         [Input("maxGroupPreparedCapacity")]
         public Input<int>? MaxGroupPreparedCapacity { get; set; }
 
+        /// <summary>
+        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
+        /// <summary>
+        /// Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
+        /// </summary>
         [Input("poolState")]
         public Input<string>? PoolState { get; set; }
 

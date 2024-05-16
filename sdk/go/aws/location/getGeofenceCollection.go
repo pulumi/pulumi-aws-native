@@ -24,20 +24,36 @@ func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectio
 }
 
 type LookupGeofenceCollectionArgs struct {
+	// A custom name for the geofence collection.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique geofence collection name.
+	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
 	CollectionName string `pulumi:"collectionName"`
 }
 
 type LookupGeofenceCollectionResult struct {
-	Arn           *string                        `pulumi:"arn"`
-	CollectionArn *string                        `pulumi:"collectionArn"`
-	CreateTime    *string                        `pulumi:"createTime"`
-	Description   *string                        `pulumi:"description"`
-	PricingPlan   *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+	Arn *string `pulumi:"arn"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+	CollectionArn *string `pulumi:"collectionArn"`
+	// The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime *string `pulumi:"createTime"`
+	// An optional description for the geofence collection.
+	Description *string                        `pulumi:"description"`
+	PricingPlan *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
 	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag `pulumi:"tags"`
-	UpdateTime *string   `pulumi:"updateTime"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
@@ -54,6 +70,13 @@ func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceColl
 }
 
 type LookupGeofenceCollectionOutputArgs struct {
+	// A custom name for the geofence collection.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique geofence collection name.
+	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
 	CollectionName pulumi.StringInput `pulumi:"collectionName"`
 }
 
@@ -75,18 +98,26 @@ func (o LookupGeofenceCollectionResultOutput) ToLookupGeofenceCollectionResultOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
 func (o LookupGeofenceCollectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
 func (o LookupGeofenceCollectionResultOutput) CollectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.CollectionArn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupGeofenceCollectionResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+// An optional description for the geofence collection.
 func (o LookupGeofenceCollectionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +136,7 @@ func (o LookupGeofenceCollectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupGeofenceCollectionResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

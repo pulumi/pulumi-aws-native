@@ -427,6 +427,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
+        """
+        The IPv4 CIDR block.
+        """
         return pulumi.get(self, "cidr_block")
 
     @property

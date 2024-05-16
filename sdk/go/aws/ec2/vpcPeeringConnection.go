@@ -17,6 +17,7 @@ import (
 type VpcPeeringConnection struct {
 	pulumi.CustomResourceState
 
+	// The ID of the peering connection.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId pulumi.StringPtrOutput `pulumi:"peerOwnerId"`
@@ -26,7 +27,8 @@ type VpcPeeringConnection struct {
 	PeerRoleArn pulumi.StringPtrOutput `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
-	Tags      aws.TagArrayOutput  `pulumi:"tags"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -92,8 +94,9 @@ type vpcPeeringConnectionArgs struct {
 	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
 	PeerRoleArn *string `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
-	PeerVpcId string    `pulumi:"peerVpcId"`
-	Tags      []aws.Tag `pulumi:"tags"`
+	PeerVpcId string `pulumi:"peerVpcId"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -108,7 +111,8 @@ type VpcPeeringConnectionArgs struct {
 	PeerRoleArn pulumi.StringPtrInput
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringInput
-	Tags      aws.TagArrayInput
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
@@ -150,6 +154,7 @@ func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutputWithContext(ctx 
 	return o
 }
 
+// The ID of the peering connection.
 func (o VpcPeeringConnectionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -174,6 +179,7 @@ func (o VpcPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o VpcPeeringConnectionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

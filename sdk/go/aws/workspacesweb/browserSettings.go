@@ -16,12 +16,20 @@ import (
 type BrowserSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext pulumi.StringMapOutput   `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns        pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	BrowserPolicy               pulumi.StringPtrOutput   `pulumi:"browserPolicy"`
-	BrowserSettingsArn          pulumi.StringOutput      `pulumi:"browserSettingsArn"`
-	CustomerManagedKey          pulumi.StringPtrOutput   `pulumi:"customerManagedKey"`
-	Tags                        aws.TagArrayOutput       `pulumi:"tags"`
+	// Additional encryption context of the browser settings.
+	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
+	// A list of web portal ARNs that the browser settings resource is associated with.
+	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+	BrowserPolicy pulumi.StringPtrOutput `pulumi:"browserPolicy"`
+	// The ARN of the browser settings.
+	BrowserSettingsArn pulumi.StringOutput `pulumi:"browserSettingsArn"`
+	// The custom managed key of the browser settings.
+	//
+	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	// The tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewBrowserSettings registers a new resource with the given unique name, arguments, and options.
@@ -69,18 +77,30 @@ func (BrowserSettingsState) ElementType() reflect.Type {
 }
 
 type browserSettingsArgs struct {
+	// Additional encryption context of the browser settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	BrowserPolicy               *string           `pulumi:"browserPolicy"`
-	CustomerManagedKey          *string           `pulumi:"customerManagedKey"`
-	Tags                        []aws.Tag         `pulumi:"tags"`
+	// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+	BrowserPolicy *string `pulumi:"browserPolicy"`
+	// The custom managed key of the browser settings.
+	//
+	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BrowserSettings resource.
 type BrowserSettingsArgs struct {
+	// Additional encryption context of the browser settings.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	BrowserPolicy               pulumi.StringPtrInput
-	CustomerManagedKey          pulumi.StringPtrInput
-	Tags                        aws.TagArrayInput
+	// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+	BrowserPolicy pulumi.StringPtrInput
+	// The custom managed key of the browser settings.
+	//
+	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+	CustomerManagedKey pulumi.StringPtrInput
+	// The tag.
+	Tags aws.TagArrayInput
 }
 
 func (BrowserSettingsArgs) ElementType() reflect.Type {
@@ -120,26 +140,34 @@ func (o BrowserSettingsOutput) ToBrowserSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
+// Additional encryption context of the browser settings.
 func (o BrowserSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
+// A list of web portal ARNs that the browser settings resource is associated with.
 func (o BrowserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
 func (o BrowserSettingsOutput) BrowserPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringPtrOutput { return v.BrowserPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the browser settings.
 func (o BrowserSettingsOutput) BrowserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringOutput { return v.BrowserSettingsArn }).(pulumi.StringOutput)
 }
 
+// The custom managed key of the browser settings.
+//
+// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
 func (o BrowserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
+// The tag.
 func (o BrowserSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *BrowserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

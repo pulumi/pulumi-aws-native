@@ -31,10 +31,16 @@ class OriginEndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
+        :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
+        :param pulumi.Input[str] channel_name: The channel name associated with the origin endpoint.
+        :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
+        :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
+        :param pulumi.Input['OriginEndpointSegmentArgs'] segment: The segment configuration, including the segment name, duration, and other configuration values.
         :param pulumi.Input[int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the origin endpoint.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         pulumi.set(__self__, "channel_name", channel_name)
@@ -58,6 +64,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="channelGroupName")
     def channel_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the channel group associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "channel_group_name")
 
     @channel_group_name.setter
@@ -67,6 +76,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Input[str]:
+        """
+        The channel name associated with the origin endpoint.
+        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -76,6 +88,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="containerType")
     def container_type(self) -> Optional[pulumi.Input['OriginEndpointContainerType']]:
+        """
+        The container type associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
@@ -121,6 +136,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="originEndpointName")
     def origin_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the origin endpoint associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "origin_endpoint_name")
 
     @origin_endpoint_name.setter
@@ -130,6 +148,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter
     def segment(self) -> Optional[pulumi.Input['OriginEndpointSegmentArgs']]:
+        """
+        The segment configuration, including the segment name, duration, and other configuration values.
+        """
         return pulumi.get(self, "segment")
 
     @segment.setter
@@ -151,6 +172,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags associated with the origin endpoint.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -179,10 +203,16 @@ class OriginEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
+        :param pulumi.Input[str] channel_name: The channel name associated with the origin endpoint.
+        :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
+        :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointSegmentArgs']] segment: The segment configuration, including the segment name, duration, and other configuration values.
         :param pulumi.Input[int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with the origin endpoint.
         """
         ...
     @overload
@@ -294,16 +324,25 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelGroupName")
     def channel_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel group associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[str]:
+        """
+        The channel name associated with the origin endpoint.
+        """
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="containerType")
     def container_type(self) -> pulumi.Output[Optional['OriginEndpointContainerType']]:
+        """
+        The container type associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "container_type")
 
     @property
@@ -349,11 +388,17 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="originEndpointName")
     def origin_endpoint_name(self) -> pulumi.Output[str]:
+        """
+        The name of the origin endpoint associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "origin_endpoint_name")
 
     @property
     @pulumi.getter
     def segment(self) -> pulumi.Output[Optional['outputs.OriginEndpointSegment']]:
+        """
+        The segment configuration, including the segment name, duration, and other configuration values.
+        """
         return pulumi.get(self, "segment")
 
     @property
@@ -367,5 +412,8 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags associated with the origin endpoint.
+        """
         return pulumi.get(self, "tags")
 

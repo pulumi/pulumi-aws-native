@@ -12,12 +12,23 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigS3RecordingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
+        /// </summary>
         [Input("bucketArn")]
         public Input<string>? BucketArn { get; set; }
 
+        /// <summary>
+        /// The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+        /// 
+        /// *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// Defines the ARN of the role assumed for putting archives to S3.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

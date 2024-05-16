@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.CustomerProfiles
     [AwsNativeResourceType("aws-native:customerprofiles:CalculatedAttributeDefinition")]
     public partial class CalculatedAttributeDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Mathematical expression and a list of attribute items specified in that expression.
+        /// </summary>
         [Output("attributeDetails")]
         public Output<Outputs.CalculatedAttributeDefinitionAttributeDetails> AttributeDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of an attribute defined in a profile object type.
+        /// </summary>
         [Output("calculatedAttributeName")]
         public Output<string> CalculatedAttributeName { get; private set; } = null!;
 
+        /// <summary>
+        /// The conditions including range, object count, and threshold for the calculated attribute.
+        /// </summary>
         [Output("conditions")]
         public Output<Outputs.CalculatedAttributeDefinitionConditions?> Conditions { get; private set; } = null!;
 
@@ -30,12 +39,21 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the calculated attribute.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the calculated attribute.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -45,9 +63,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The aggregation operation to perform for the calculated attribute.
+        /// </summary>
         [Output("statistic")]
         public Output<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic> Statistic { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -101,29 +125,54 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class CalculatedAttributeDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Mathematical expression and a list of attribute items specified in that expression.
+        /// </summary>
         [Input("attributeDetails", required: true)]
         public Input<Inputs.CalculatedAttributeDefinitionAttributeDetailsArgs> AttributeDetails { get; set; } = null!;
 
+        /// <summary>
+        /// The name of an attribute defined in a profile object type.
+        /// </summary>
         [Input("calculatedAttributeName", required: true)]
         public Input<string> CalculatedAttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The conditions including range, object count, and threshold for the calculated attribute.
+        /// </summary>
         [Input("conditions")]
         public Input<Inputs.CalculatedAttributeDefinitionConditionsArgs>? Conditions { get; set; }
 
+        /// <summary>
+        /// The description of the calculated attribute.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the calculated attribute.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The aggregation operation to perform for the calculated attribute.
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic> Statistic { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

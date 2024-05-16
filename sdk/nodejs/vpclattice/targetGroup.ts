@@ -37,15 +37,49 @@ export class TargetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === TargetGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the target group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the target group.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Describes the configuration of a target group.
+     *
+     * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+     */
     public readonly config!: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
+    /**
+     * The date and time that the target group was created, specified in ISO-8601 format.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The date and time that the target group was last updated, specified in ISO-8601 format.
+     */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    /**
+     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     *
+     * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.TargetGroupStatus>;
+    /**
+     * The tags for the target group.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Describes a target.
+     */
     public readonly targets!: pulumi.Output<outputs.vpclattice.TargetGroupTarget[] | undefined>;
+    /**
+     * The type of target group.
+     */
     public readonly type!: pulumi.Output<enums.vpclattice.TargetGroupType>;
 
     /**
@@ -85,7 +119,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["config.ipAddressType", "config.lambdaEventStructureVersion", "config.port", "config.protocol", "config.protocolVersion", "config.vpcIdentifier", "name", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TargetGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -95,9 +129,28 @@ export class TargetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a TargetGroup resource.
  */
 export interface TargetGroupArgs {
+    /**
+     * Describes the configuration of a target group.
+     *
+     * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+     */
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfigArgs>;
+    /**
+     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     *
+     * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The tags for the target group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Describes a target.
+     */
     targets?: pulumi.Input<pulumi.Input<inputs.vpclattice.TargetGroupTargetArgs>[]>;
+    /**
+     * The type of target group.
+     */
     type: pulumi.Input<enums.vpclattice.TargetGroupType>;
 }

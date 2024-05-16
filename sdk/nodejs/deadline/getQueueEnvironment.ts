@@ -21,16 +21,40 @@ export function getQueueEnvironment(args: GetQueueEnvironmentArgs, opts?: pulumi
 }
 
 export interface GetQueueEnvironmentArgs {
+    /**
+     * The identifier assigned to the farm that contains the queue.
+     */
     farmId: string;
+    /**
+     * The queue environment ID.
+     */
     queueEnvironmentId: string;
+    /**
+     * The unique identifier of the queue that contains the environment.
+     */
     queueId: string;
 }
 
 export interface GetQueueEnvironmentResult {
+    /**
+     * The name of the queue environment.
+     */
     readonly name?: string;
+    /**
+     * The queue environment's priority.
+     */
     readonly priority?: number;
+    /**
+     * The queue environment ID.
+     */
     readonly queueEnvironmentId?: string;
+    /**
+     * A JSON or YAML template the describes the processing environment for the queue.
+     */
     readonly template?: string;
+    /**
+     * Specifies whether the template for the queue environment is JSON or YAML.
+     */
     readonly templateType?: enums.deadline.QueueEnvironmentEnvironmentTemplateType;
 }
 /**
@@ -41,7 +65,16 @@ export function getQueueEnvironmentOutput(args: GetQueueEnvironmentOutputArgs, o
 }
 
 export interface GetQueueEnvironmentOutputArgs {
+    /**
+     * The identifier assigned to the farm that contains the queue.
+     */
     farmId: pulumi.Input<string>;
+    /**
+     * The queue environment ID.
+     */
     queueEnvironmentId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the queue that contains the environment.
+     */
     queueId: pulumi.Input<string>;
 }

@@ -83,6 +83,11 @@ namespace Pulumi.AwsNative.DataSync
         [Output("s3BucketArn")]
         public Output<string?> S3BucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+        /// 
+        /// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+        /// </summary>
         [Output("s3Config")]
         public Output<Outputs.LocationS3s3Config> S3Config { get; private set; } = null!;
 
@@ -162,6 +167,11 @@ namespace Pulumi.AwsNative.DataSync
         [Input("s3BucketArn")]
         public Input<string>? S3BucketArn { get; set; }
 
+        /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+        /// 
+        /// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+        /// </summary>
         [Input("s3Config", required: true)]
         public Input<Inputs.LocationS3s3ConfigArgs> S3Config { get; set; } = null!;
 

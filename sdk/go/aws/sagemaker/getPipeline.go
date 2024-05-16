@@ -29,15 +29,22 @@ type LookupPipelineArgs struct {
 }
 
 type LookupPipelineResult struct {
+	// The parallelism configuration applied to the pipeline.
 	ParallelismConfiguration *ParallelismConfigurationProperties `pulumi:"parallelismConfiguration"`
-	PipelineDefinition       interface{}                         `pulumi:"pipelineDefinition"`
+	// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+	PipelineDefinition interface{} `pulumi:"pipelineDefinition"`
 	// The description of the Pipeline.
 	PipelineDescription *string `pulumi:"pipelineDescription"`
 	// The display name of the Pipeline.
 	PipelineDisplayName *string `pulumi:"pipelineDisplayName"`
 	// Role Arn
-	RoleArn *string   `pulumi:"roleArn"`
-	Tags    []aws.Tag `pulumi:"tags"`
+	RoleArn *string `pulumi:"roleArn"`
+	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+	//
+	// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
+	//
+	// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineResultOutput {
@@ -76,10 +83,12 @@ func (o LookupPipelineResultOutput) ToLookupPipelineResultOutputWithContext(ctx 
 	return o
 }
 
+// The parallelism configuration applied to the pipeline.
 func (o LookupPipelineResultOutput) ParallelismConfiguration() ParallelismConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *ParallelismConfigurationProperties { return v.ParallelismConfiguration }).(ParallelismConfigurationPropertiesPtrOutput)
 }
 
+// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
 func (o LookupPipelineResultOutput) PipelineDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPipelineResult) interface{} { return v.PipelineDefinition }).(pulumi.AnyOutput)
 }
@@ -99,6 +108,11 @@ func (o LookupPipelineResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+//
+// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
+//
+// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
 func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.Budgets.Inputs
     {
         [Input("instanceIds", required: true)]
         private InputList<string>? _instanceIds;
+
+        /// <summary>
+        /// The EC2 and RDS instance IDs.
+        /// </summary>
         public InputList<string> InstanceIds
         {
             get => _instanceIds ?? (_instanceIds = new InputList<string>());
             set => _instanceIds = value;
         }
 
+        /// <summary>
+        /// The Region to run the ( SSM ) document.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// The action subType.
+        /// </summary>
         [Input("subtype", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionSsmActionDefinitionSubtype> Subtype { get; set; } = null!;
 

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Amplify.Inputs
 
     public sealed class BranchBasicAuthConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables basic authorization for the branch.
+        /// </summary>
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
+        /// <summary>
+        /// The password for basic authorization.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 

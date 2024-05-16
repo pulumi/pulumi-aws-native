@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class TaskDefinitionLoRaWanGatewayVersion
     {
+        /// <summary>
+        /// The model number of the wireless gateway.
+        /// </summary>
         public readonly string? Model;
+        /// <summary>
+        /// The version of the wireless gateway firmware.
+        /// </summary>
         public readonly string? PackageVersion;
+        /// <summary>
+        /// The basic station version of the wireless gateway.
+        /// </summary>
         public readonly string? Station;
 
         [OutputConstructor]

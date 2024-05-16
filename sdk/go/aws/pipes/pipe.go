@@ -76,23 +76,42 @@ import (
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput               `pulumi:"arn"`
-	CreationTime         pulumi.StringOutput               `pulumi:"creationTime"`
-	CurrentState         PipeStateEnumOutput               `pulumi:"currentState"`
-	Description          pulumi.StringPtrOutput            `pulumi:"description"`
-	DesiredState         PipeRequestedPipeStatePtrOutput   `pulumi:"desiredState"`
-	Enrichment           pulumi.StringPtrOutput            `pulumi:"enrichment"`
+	// The ARN of the pipe.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The time the pipe was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The state the pipe is in.
+	CurrentState PipeStateEnumOutput `pulumi:"currentState"`
+	// A description of the pipe.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The state the pipe should be in.
+	DesiredState PipeRequestedPipeStatePtrOutput `pulumi:"desiredState"`
+	// The ARN of the enrichment resource.
+	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
+	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
-	LastModifiedTime     pulumi.StringOutput               `pulumi:"lastModifiedTime"`
-	LogConfiguration     PipeLogConfigurationPtrOutput     `pulumi:"logConfiguration"`
-	Name                 pulumi.StringPtrOutput            `pulumi:"name"`
-	RoleArn              pulumi.StringOutput               `pulumi:"roleArn"`
-	Source               pulumi.StringOutput               `pulumi:"source"`
-	SourceParameters     PipeSourceParametersPtrOutput     `pulumi:"sourceParameters"`
-	StateReason          pulumi.StringOutput               `pulumi:"stateReason"`
-	Tags                 pulumi.StringMapOutput            `pulumi:"tags"`
-	Target               pulumi.StringOutput               `pulumi:"target"`
-	TargetParameters     PipeTargetParametersPtrOutput     `pulumi:"targetParameters"`
+	// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// Represents the configuration settings for the logs to which this pipe should report events.
+	LogConfiguration PipeLogConfigurationPtrOutput `pulumi:"logConfiguration"`
+	// The name of the pipe.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The ARN of the role that allows the pipe to send data to the target.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The ARN of the source resource.
+	Source pulumi.StringOutput `pulumi:"source"`
+	// The parameters required to set up a source for your pipe.
+	SourceParameters PipeSourceParametersPtrOutput `pulumi:"sourceParameters"`
+	// The reason the pipe is in its current state.
+	StateReason pulumi.StringOutput `pulumi:"stateReason"`
+	// The list of key-value pairs to associate with the pipe.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The ARN of the target resource.
+	Target pulumi.StringOutput `pulumi:"target"`
+	// The parameters required to set up a target for your pipe.
+	//
+	// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+	TargetParameters PipeTargetParametersPtrOutput `pulumi:"targetParameters"`
 }
 
 // NewPipe registers a new resource with the given unique name, arguments, and options.
@@ -158,34 +177,62 @@ func (PipeState) ElementType() reflect.Type {
 }
 
 type pipeArgs struct {
-	Description          *string                   `pulumi:"description"`
-	DesiredState         *PipeRequestedPipeState   `pulumi:"desiredState"`
-	Enrichment           *string                   `pulumi:"enrichment"`
+	// A description of the pipe.
+	Description *string `pulumi:"description"`
+	// The state the pipe should be in.
+	DesiredState *PipeRequestedPipeState `pulumi:"desiredState"`
+	// The ARN of the enrichment resource.
+	Enrichment *string `pulumi:"enrichment"`
+	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
-	LogConfiguration     *PipeLogConfiguration     `pulumi:"logConfiguration"`
-	Name                 *string                   `pulumi:"name"`
-	RoleArn              string                    `pulumi:"roleArn"`
-	Source               string                    `pulumi:"source"`
-	SourceParameters     *PipeSourceParameters     `pulumi:"sourceParameters"`
-	Tags                 map[string]string         `pulumi:"tags"`
-	Target               string                    `pulumi:"target"`
-	TargetParameters     *PipeTargetParameters     `pulumi:"targetParameters"`
+	// Represents the configuration settings for the logs to which this pipe should report events.
+	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
+	// The name of the pipe.
+	Name *string `pulumi:"name"`
+	// The ARN of the role that allows the pipe to send data to the target.
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the source resource.
+	Source string `pulumi:"source"`
+	// The parameters required to set up a source for your pipe.
+	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
+	// The list of key-value pairs to associate with the pipe.
+	Tags map[string]string `pulumi:"tags"`
+	// The ARN of the target resource.
+	Target string `pulumi:"target"`
+	// The parameters required to set up a target for your pipe.
+	//
+	// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+	TargetParameters *PipeTargetParameters `pulumi:"targetParameters"`
 }
 
 // The set of arguments for constructing a Pipe resource.
 type PipeArgs struct {
-	Description          pulumi.StringPtrInput
-	DesiredState         PipeRequestedPipeStatePtrInput
-	Enrichment           pulumi.StringPtrInput
+	// A description of the pipe.
+	Description pulumi.StringPtrInput
+	// The state the pipe should be in.
+	DesiredState PipeRequestedPipeStatePtrInput
+	// The ARN of the enrichment resource.
+	Enrichment pulumi.StringPtrInput
+	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
-	LogConfiguration     PipeLogConfigurationPtrInput
-	Name                 pulumi.StringPtrInput
-	RoleArn              pulumi.StringInput
-	Source               pulumi.StringInput
-	SourceParameters     PipeSourceParametersPtrInput
-	Tags                 pulumi.StringMapInput
-	Target               pulumi.StringInput
-	TargetParameters     PipeTargetParametersPtrInput
+	// Represents the configuration settings for the logs to which this pipe should report events.
+	LogConfiguration PipeLogConfigurationPtrInput
+	// The name of the pipe.
+	Name pulumi.StringPtrInput
+	// The ARN of the role that allows the pipe to send data to the target.
+	RoleArn pulumi.StringInput
+	// The ARN of the source resource.
+	Source pulumi.StringInput
+	// The parameters required to set up a source for your pipe.
+	SourceParameters PipeSourceParametersPtrInput
+	// The list of key-value pairs to associate with the pipe.
+	Tags pulumi.StringMapInput
+	// The ARN of the target resource.
+	Target pulumi.StringInput
+	// The parameters required to set up a target for your pipe.
+	//
+	// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+	TargetParameters PipeTargetParametersPtrInput
 }
 
 func (PipeArgs) ElementType() reflect.Type {
@@ -225,70 +272,89 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
+// The ARN of the pipe.
 func (o PipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The time the pipe was created.
 func (o PipeOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The state the pipe is in.
 func (o PipeOutput) CurrentState() PipeStateEnumOutput {
 	return o.ApplyT(func(v *Pipe) PipeStateEnumOutput { return v.CurrentState }).(PipeStateEnumOutput)
 }
 
+// A description of the pipe.
 func (o PipeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The state the pipe should be in.
 func (o PipeOutput) DesiredState() PipeRequestedPipeStatePtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeRequestedPipeStatePtrOutput { return v.DesiredState }).(PipeRequestedPipeStatePtrOutput)
 }
 
+// The ARN of the enrichment resource.
 func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Enrichment }).(pulumi.StringPtrOutput)
 }
 
+// The parameters required to set up enrichment on your pipe.
 func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
 }
 
+// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
 func (o PipeOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// Represents the configuration settings for the logs to which this pipe should report events.
 func (o PipeOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeLogConfigurationPtrOutput { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }
 
+// The name of the pipe.
 func (o PipeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that allows the pipe to send data to the target.
 func (o PipeOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the source resource.
 func (o PipeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
+// The parameters required to set up a source for your pipe.
 func (o PipeOutput) SourceParameters() PipeSourceParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeSourceParametersPtrOutput { return v.SourceParameters }).(PipeSourceParametersPtrOutput)
 }
 
+// The reason the pipe is in its current state.
 func (o PipeOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
 }
 
+// The list of key-value pairs to associate with the pipe.
 func (o PipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the target resource.
 func (o PipeOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
+// The parameters required to set up a target for your pipe.
+//
+// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
 func (o PipeOutput) TargetParameters() PipeTargetParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeTargetParametersPtrOutput { return v.TargetParameters }).(PipeTargetParametersPtrOutput)
 }

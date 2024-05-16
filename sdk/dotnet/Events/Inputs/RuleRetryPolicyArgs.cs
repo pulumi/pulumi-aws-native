@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of time, in seconds, to continue to make retry attempts.
+        /// </summary>
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
 
+        /// <summary>
+        /// The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
+        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 

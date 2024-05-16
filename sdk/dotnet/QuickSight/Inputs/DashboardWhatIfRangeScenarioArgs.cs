@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardWhatIfRangeScenarioArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The end date in the date range that you need the forecast results for.
+        /// </summary>
         [Input("endDate", required: true)]
         public Input<string> EndDate { get; set; } = null!;
 
+        /// <summary>
+        /// The start date in the date range that you need the forecast results for.
+        /// </summary>
         [Input("startDate", required: true)]
         public Input<string> StartDate { get; set; } = null!;
 
+        /// <summary>
+        /// The target value that you want to meet for the provided date range.
+        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

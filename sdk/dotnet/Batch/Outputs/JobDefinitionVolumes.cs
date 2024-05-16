@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionVolumes
     {
+        /// <summary>
+        /// This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
+        /// </summary>
         public readonly Outputs.JobDefinitionEfsVolumeConfiguration? EfsVolumeConfiguration;
+        /// <summary>
+        /// Determine whether your data volume persists on the host container instance and where it's stored. If this parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+        /// </summary>
         public readonly Outputs.JobDefinitionVolumesHost? Host;
+        /// <summary>
+        /// The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

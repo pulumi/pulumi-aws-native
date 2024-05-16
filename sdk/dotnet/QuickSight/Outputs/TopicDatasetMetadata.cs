@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicDatasetMetadata
     {
+        /// <summary>
+        /// A structure that represents a calculated field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicCalculatedField> CalculatedFields;
+        /// <summary>
+        /// Represents a column in a dataset.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicColumn> Columns;
+        /// <summary>
+        /// The definition of a data aggregation.
+        /// </summary>
         public readonly Outputs.TopicDataAggregation? DataAggregation;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dataset.
+        /// </summary>
         public readonly string DatasetArn;
+        /// <summary>
+        /// The description of the dataset.
+        /// </summary>
         public readonly string? DatasetDescription;
+        /// <summary>
+        /// The name of the dataset.
+        /// </summary>
         public readonly string? DatasetName;
+        /// <summary>
+        /// A structure that represents a filter used to select items for a topic.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicFilter> Filters;
+        /// <summary>
+        /// A structure that represents a named entity.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicNamedEntity> NamedEntities;
 
         [OutputConstructor]

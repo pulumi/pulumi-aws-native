@@ -23,7 +23,9 @@ class ScheduleArgs:
         """
         The set of arguments for constructing a Schedule resource.
         :param pulumi.Input[str] cron_expression: Schedule cron
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] job_names: A list of jobs to be run, according to the schedule.
         :param pulumi.Input[str] name: Schedule Name
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the schedule.
         """
         pulumi.set(__self__, "cron_expression", cron_expression)
         if job_names is not None:
@@ -48,6 +50,9 @@ class ScheduleArgs:
     @property
     @pulumi.getter(name="jobNames")
     def job_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of jobs to be run, according to the schedule.
+        """
         return pulumi.get(self, "job_names")
 
     @job_names.setter
@@ -69,6 +74,9 @@ class ScheduleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Metadata tags that have been applied to the schedule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -110,7 +118,9 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_expression: Schedule cron
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] job_names: A list of jobs to be run, according to the schedule.
         :param pulumi.Input[str] name: Schedule Name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the schedule.
         """
         ...
     @overload
@@ -214,6 +224,9 @@ class Schedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="jobNames")
     def job_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of jobs to be run, according to the schedule.
+        """
         return pulumi.get(self, "job_names")
 
     @property
@@ -227,5 +240,8 @@ class Schedule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Metadata tags that have been applied to the schedule.
+        """
         return pulumi.get(self, "tags")
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetActivityArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetActivityInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.StepFunctions
     [OutputType]
     public sealed class GetActivityResult
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The `TagsEntry` property specifies *tags* to identify an activity.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

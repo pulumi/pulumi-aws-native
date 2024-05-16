@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures the `ReferenceSets` for a stateful rule group. For more information, see the [Using IP set references in Suricata compatible rule groups](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html) in the *Network Firewall User Guide* .
+        /// </summary>
         [Input("referenceSets")]
         public Input<Inputs.RuleGroupReferenceSetsArgs>? ReferenceSets { get; set; }
 
+        /// <summary>
+        /// Settings that are available for use in the rules in the `RuleGroup` where this is defined.
+        /// </summary>
         [Input("ruleVariables")]
         public Input<Inputs.RuleGroupRuleVariablesArgs>? RuleVariables { get; set; }
 
+        /// <summary>
+        /// The stateless or stateful rules definitions for use in a single rule group. Each rule group requires a single `RulesSource` . You can use an instance of this for either stateless rules or stateful rules.
+        /// </summary>
         [Input("rulesSource", required: true)]
         public Input<Inputs.RuleGroupRulesSourceArgs> RulesSource { get; set; } = null!;
 
+        /// <summary>
+        /// Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.
+        /// </summary>
         [Input("statefulRuleOptions")]
         public Input<Inputs.RuleGroupStatefulRuleOptionsArgs>? StatefulRuleOptions { get; set; }
 

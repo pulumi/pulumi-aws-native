@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
 
     public sealed class DocumentClassifierDocumentsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 URI location of the training documents specified in the S3Uri CSV file.
+        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
+        /// </summary>
         [Input("testS3Uri")]
         public Input<string>? TestS3Uri { get; set; }
 

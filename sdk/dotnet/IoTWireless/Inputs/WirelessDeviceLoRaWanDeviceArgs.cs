@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class WirelessDeviceLoRaWanDeviceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ABP device object for LoRaWAN specification v1.0.x
+        /// </summary>
         [Input("abpV10x")]
         public Input<Inputs.WirelessDeviceAbpV10xArgs>? AbpV10x { get; set; }
 
+        /// <summary>
+        /// ABP device object for create APIs for v1.1.
+        /// </summary>
         [Input("abpV11")]
         public Input<Inputs.WirelessDeviceAbpV11Args>? AbpV11 { get; set; }
 
+        /// <summary>
+        /// The DevEUI value.
+        /// </summary>
         [Input("devEui")]
         public Input<string>? DevEui { get; set; }
 
+        /// <summary>
+        /// The ID of the device profile for the new wireless device.
+        /// </summary>
         [Input("deviceProfileId")]
         public Input<string>? DeviceProfileId { get; set; }
 
+        /// <summary>
+        /// OTAA device object for create APIs for v1.0.x
+        /// </summary>
         [Input("otaaV10x")]
         public Input<Inputs.WirelessDeviceOtaaV10xArgs>? OtaaV10x { get; set; }
 
+        /// <summary>
+        /// OTAA device object for v1.1 for create APIs.
+        /// </summary>
         [Input("otaaV11")]
         public Input<Inputs.WirelessDeviceOtaaV11Args>? OtaaV11 { get; set; }
 
+        /// <summary>
+        /// The ID of the service profile.
+        /// </summary>
         [Input("serviceProfileId")]
         public Input<string>? ServiceProfileId { get; set; }
 

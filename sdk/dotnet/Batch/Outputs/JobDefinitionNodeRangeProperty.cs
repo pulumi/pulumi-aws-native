@@ -13,9 +13,25 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionNodeRangeProperty
     {
+        /// <summary>
+        /// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        /// </summary>
         public readonly Outputs.JobDefinitionContainerProperties? Container;
+        /// <summary>
+        /// An object that contains the properties for the Amazon ECS resources of a job.
+        /// </summary>
         public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
+        /// <summary>
+        /// The instance types of the underlying host infrastructure of a multi-node parallel job.
+        /// 
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources.
+        /// &gt; 
+        /// &gt; In addition, this list object is currently limited to one element.
+        /// </summary>
         public readonly ImmutableArray<string> InstanceTypes;
+        /// <summary>
+        /// The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
+        /// </summary>
         public readonly string TargetNodes;
 
         [OutputConstructor]

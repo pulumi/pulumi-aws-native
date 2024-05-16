@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// A list of custom SageMaker images that are configured to run as a KernelGateway app.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainCustomImage> CustomImages;
+        /// <summary>
+        /// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        /// </summary>
         public readonly Outputs.DomainResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]

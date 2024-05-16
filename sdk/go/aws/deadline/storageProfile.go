@@ -16,11 +16,16 @@ import (
 type StorageProfile struct {
 	pulumi.CustomResourceState
 
-	DisplayName         pulumi.StringOutput                         `pulumi:"displayName"`
-	FarmId              pulumi.StringPtrOutput                      `pulumi:"farmId"`
+	// The display name of the storage profile summary to update.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The unique identifier of the farm that contains the storage profile.
+	FarmId pulumi.StringPtrOutput `pulumi:"farmId"`
+	// The details of the file system location for the resource.
 	FileSystemLocations StorageProfileFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
-	OsFamily            StorageProfileOperatingSystemFamilyOutput   `pulumi:"osFamily"`
-	StorageProfileId    pulumi.StringOutput                         `pulumi:"storageProfileId"`
+	// The operating system (OS) family.
+	OsFamily StorageProfileOperatingSystemFamilyOutput `pulumi:"osFamily"`
+	// The storage profile ID.
+	StorageProfileId pulumi.StringOutput `pulumi:"storageProfileId"`
 }
 
 // NewStorageProfile registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +78,26 @@ func (StorageProfileState) ElementType() reflect.Type {
 }
 
 type storageProfileArgs struct {
-	DisplayName         string                              `pulumi:"displayName"`
-	FarmId              *string                             `pulumi:"farmId"`
-	FileSystemLocations []StorageProfileFileSystemLocation  `pulumi:"fileSystemLocations"`
-	OsFamily            StorageProfileOperatingSystemFamily `pulumi:"osFamily"`
+	// The display name of the storage profile summary to update.
+	DisplayName string `pulumi:"displayName"`
+	// The unique identifier of the farm that contains the storage profile.
+	FarmId *string `pulumi:"farmId"`
+	// The details of the file system location for the resource.
+	FileSystemLocations []StorageProfileFileSystemLocation `pulumi:"fileSystemLocations"`
+	// The operating system (OS) family.
+	OsFamily StorageProfileOperatingSystemFamily `pulumi:"osFamily"`
 }
 
 // The set of arguments for constructing a StorageProfile resource.
 type StorageProfileArgs struct {
-	DisplayName         pulumi.StringInput
-	FarmId              pulumi.StringPtrInput
+	// The display name of the storage profile summary to update.
+	DisplayName pulumi.StringInput
+	// The unique identifier of the farm that contains the storage profile.
+	FarmId pulumi.StringPtrInput
+	// The details of the file system location for the resource.
 	FileSystemLocations StorageProfileFileSystemLocationArrayInput
-	OsFamily            StorageProfileOperatingSystemFamilyInput
+	// The operating system (OS) family.
+	OsFamily StorageProfileOperatingSystemFamilyInput
 }
 
 func (StorageProfileArgs) ElementType() reflect.Type {
@@ -124,22 +137,27 @@ func (o StorageProfileOutput) ToStorageProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The display name of the storage profile summary to update.
 func (o StorageProfileOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageProfile) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the farm that contains the storage profile.
 func (o StorageProfileOutput) FarmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) pulumi.StringPtrOutput { return v.FarmId }).(pulumi.StringPtrOutput)
 }
 
+// The details of the file system location for the resource.
 func (o StorageProfileOutput) FileSystemLocations() StorageProfileFileSystemLocationArrayOutput {
 	return o.ApplyT(func(v *StorageProfile) StorageProfileFileSystemLocationArrayOutput { return v.FileSystemLocations }).(StorageProfileFileSystemLocationArrayOutput)
 }
 
+// The operating system (OS) family.
 func (o StorageProfileOutput) OsFamily() StorageProfileOperatingSystemFamilyOutput {
 	return o.ApplyT(func(v *StorageProfile) StorageProfileOperatingSystemFamilyOutput { return v.OsFamily }).(StorageProfileOperatingSystemFamilyOutput)
 }
 
+// The storage profile ID.
 func (o StorageProfileOutput) StorageProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageProfile) pulumi.StringOutput { return v.StorageProfileId }).(pulumi.StringOutput)
 }

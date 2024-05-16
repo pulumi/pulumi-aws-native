@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class RestoreTestingSelectionKeyValue
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

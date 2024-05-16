@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowDynatraceSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The object specified in the Dynatrace flow source.
+        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

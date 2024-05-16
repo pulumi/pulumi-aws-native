@@ -46,6 +46,11 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
         /// </summary>
         public readonly string? Operation;
+        /// <summary>
+        /// Information needed to configure the payload.
+        /// 
+        /// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
         /// <summary>
         /// The name of the DynamoDB column that receives the action payload.

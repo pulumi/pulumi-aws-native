@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("pathPart")]
         public Output<string> PathPart { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the resource. For example: `abc123` .
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 

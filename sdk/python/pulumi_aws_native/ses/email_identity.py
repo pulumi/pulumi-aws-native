@@ -25,6 +25,18 @@ class EmailIdentityArgs:
         """
         The set of arguments for constructing a EmailIdentity resource.
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
+        :param pulumi.Input['EmailIdentityConfigurationSetAttributesArgs'] configuration_set_attributes: Used to associate a configuration set with an email identity.
+        :param pulumi.Input['EmailIdentityDkimAttributesArgs'] dkim_attributes: Used to enable or disable DKIM authentication for an email identity.
+        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+               
+               - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+               - Update the key length that should be used for Easy DKIM.
+               - Change from using no DKIM authentication to using Easy DKIM.
+               - Change from using no DKIM authentication to using BYODKIM.
+               - Change from using Easy DKIM to using BYODKIM.
+               - Change from using BYODKIM to using Easy DKIM.
+        :param pulumi.Input['EmailIdentityFeedbackAttributesArgs'] feedback_attributes: Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        :param pulumi.Input['EmailIdentityMailFromAttributesArgs'] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if configuration_set_attributes is not None:
@@ -53,6 +65,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="configurationSetAttributes")
     def configuration_set_attributes(self) -> Optional[pulumi.Input['EmailIdentityConfigurationSetAttributesArgs']]:
+        """
+        Used to associate a configuration set with an email identity.
+        """
         return pulumi.get(self, "configuration_set_attributes")
 
     @configuration_set_attributes.setter
@@ -62,6 +77,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="dkimAttributes")
     def dkim_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimAttributesArgs']]:
+        """
+        Used to enable or disable DKIM authentication for an email identity.
+        """
         return pulumi.get(self, "dkim_attributes")
 
     @dkim_attributes.setter
@@ -71,6 +89,16 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+        """
+        Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+
+        - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+        - Update the key length that should be used for Easy DKIM.
+        - Change from using no DKIM authentication to using Easy DKIM.
+        - Change from using no DKIM authentication to using BYODKIM.
+        - Change from using Easy DKIM to using BYODKIM.
+        - Change from using BYODKIM to using Easy DKIM.
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
@@ -80,6 +108,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> Optional[pulumi.Input['EmailIdentityFeedbackAttributesArgs']]:
+        """
+        Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        """
         return pulumi.get(self, "feedback_attributes")
 
     @feedback_attributes.setter
@@ -89,6 +120,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="mailFromAttributes")
     def mail_from_attributes(self) -> Optional[pulumi.Input['EmailIdentityMailFromAttributesArgs']]:
+        """
+        Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        """
         return pulumi.get(self, "mail_from_attributes")
 
     @mail_from_attributes.setter
@@ -113,7 +147,19 @@ class EmailIdentity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityConfigurationSetAttributesArgs']] configuration_set_attributes: Used to associate a configuration set with an email identity.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimAttributesArgs']] dkim_attributes: Used to enable or disable DKIM authentication for an email identity.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+               
+               - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+               - Update the key length that should be used for Easy DKIM.
+               - Change from using no DKIM authentication to using Easy DKIM.
+               - Change from using no DKIM authentication to using BYODKIM.
+               - Change from using Easy DKIM to using BYODKIM.
+               - Change from using BYODKIM to using Easy DKIM.
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityFeedbackAttributesArgs']] feedback_attributes: Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityMailFromAttributesArgs']] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
         """
         ...
     @overload
@@ -209,46 +255,80 @@ class EmailIdentity(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configurationSetAttributes")
     def configuration_set_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityConfigurationSetAttributes']]:
+        """
+        Used to associate a configuration set with an email identity.
+        """
         return pulumi.get(self, "configuration_set_attributes")
 
     @property
     @pulumi.getter(name="dkimAttributes")
     def dkim_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityDkimAttributes']]:
+        """
+        Used to enable or disable DKIM authentication for an email identity.
+        """
         return pulumi.get(self, "dkim_attributes")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName1")
     def dkim_dns_token_name1(self) -> pulumi.Output[str]:
+        """
+        The host name for the first token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name1")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName2")
     def dkim_dns_token_name2(self) -> pulumi.Output[str]:
+        """
+        The host name for the second token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name2")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName3")
     def dkim_dns_token_name3(self) -> pulumi.Output[str]:
+        """
+        The host name for the third token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name3")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue1")
     def dkim_dns_token_value1(self) -> pulumi.Output[str]:
+        """
+        The record value for the first token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value1")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue2")
     def dkim_dns_token_value2(self) -> pulumi.Output[str]:
+        """
+        The record value for the second token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value2")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue3")
     def dkim_dns_token_value3(self) -> pulumi.Output[str]:
+        """
+        The record value for the third token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value3")
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityDkimSigningAttributes']]:
+        """
+        Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+
+        - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+        - Update the key length that should be used for Easy DKIM.
+        - Change from using no DKIM authentication to using Easy DKIM.
+        - Change from using no DKIM authentication to using BYODKIM.
+        - Change from using Easy DKIM to using BYODKIM.
+        - Change from using BYODKIM to using Easy DKIM.
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @property
@@ -262,10 +342,16 @@ class EmailIdentity(pulumi.CustomResource):
     @property
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityFeedbackAttributes']]:
+        """
+        Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        """
         return pulumi.get(self, "feedback_attributes")
 
     @property
     @pulumi.getter(name="mailFromAttributes")
     def mail_from_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityMailFromAttributes']]:
+        """
+        Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        """
         return pulumi.get(self, "mail_from_attributes")
 

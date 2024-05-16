@@ -16,11 +16,17 @@ import (
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
 
-	Arn                       pulumi.StringOutput              `pulumi:"arn"`
-	AssessmentTargetArn       pulumi.StringOutput              `pulumi:"assessmentTargetArn"`
-	AssessmentTemplateName    pulumi.StringPtrOutput           `pulumi:"assessmentTemplateName"`
-	DurationInSeconds         pulumi.IntOutput                 `pulumi:"durationInSeconds"`
-	RulesPackageArns          pulumi.StringArrayOutput         `pulumi:"rulesPackageArns"`
+	// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the assessment target to be included in the assessment template.
+	AssessmentTargetArn pulumi.StringOutput `pulumi:"assessmentTargetArn"`
+	// The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
+	AssessmentTemplateName pulumi.StringPtrOutput `pulumi:"assessmentTemplateName"`
+	// The duration of the assessment run in seconds.
+	DurationInSeconds pulumi.IntOutput `pulumi:"durationInSeconds"`
+	// The ARNs of the rules packages that you want to use in the assessment template.
+	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
+	// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 	UserAttributesForFindings AssessmentTemplateTagArrayOutput `pulumi:"userAttributesForFindings"`
 }
 
@@ -81,19 +87,29 @@ func (AssessmentTemplateState) ElementType() reflect.Type {
 }
 
 type assessmentTemplateArgs struct {
-	AssessmentTargetArn       string                  `pulumi:"assessmentTargetArn"`
-	AssessmentTemplateName    *string                 `pulumi:"assessmentTemplateName"`
-	DurationInSeconds         int                     `pulumi:"durationInSeconds"`
-	RulesPackageArns          []string                `pulumi:"rulesPackageArns"`
+	// The ARN of the assessment target to be included in the assessment template.
+	AssessmentTargetArn string `pulumi:"assessmentTargetArn"`
+	// The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
+	AssessmentTemplateName *string `pulumi:"assessmentTemplateName"`
+	// The duration of the assessment run in seconds.
+	DurationInSeconds int `pulumi:"durationInSeconds"`
+	// The ARNs of the rules packages that you want to use in the assessment template.
+	RulesPackageArns []string `pulumi:"rulesPackageArns"`
+	// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 	UserAttributesForFindings []AssessmentTemplateTag `pulumi:"userAttributesForFindings"`
 }
 
 // The set of arguments for constructing a AssessmentTemplate resource.
 type AssessmentTemplateArgs struct {
-	AssessmentTargetArn       pulumi.StringInput
-	AssessmentTemplateName    pulumi.StringPtrInput
-	DurationInSeconds         pulumi.IntInput
-	RulesPackageArns          pulumi.StringArrayInput
+	// The ARN of the assessment target to be included in the assessment template.
+	AssessmentTargetArn pulumi.StringInput
+	// The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
+	AssessmentTemplateName pulumi.StringPtrInput
+	// The duration of the assessment run in seconds.
+	DurationInSeconds pulumi.IntInput
+	// The ARNs of the rules packages that you want to use in the assessment template.
+	RulesPackageArns pulumi.StringArrayInput
+	// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 	UserAttributesForFindings AssessmentTemplateTagArrayInput
 }
 
@@ -134,26 +150,32 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
 func (o AssessmentTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ARN of the assessment target to be included in the assessment template.
 func (o AssessmentTemplateOutput) AssessmentTargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.AssessmentTargetArn }).(pulumi.StringOutput)
 }
 
+// The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
 func (o AssessmentTemplateOutput) AssessmentTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringPtrOutput { return v.AssessmentTemplateName }).(pulumi.StringPtrOutput)
 }
 
+// The duration of the assessment run in seconds.
 func (o AssessmentTemplateOutput) DurationInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.IntOutput { return v.DurationInSeconds }).(pulumi.IntOutput)
 }
 
+// The ARNs of the rules packages that you want to use in the assessment template.
 func (o AssessmentTemplateOutput) RulesPackageArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringArrayOutput { return v.RulesPackageArns }).(pulumi.StringArrayOutput)
 }
 
+// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
 func (o AssessmentTemplateOutput) UserAttributesForFindings() AssessmentTemplateTagArrayOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) AssessmentTemplateTagArrayOutput { return v.UserAttributesForFindings }).(AssessmentTemplateTagArrayOutput)
 }

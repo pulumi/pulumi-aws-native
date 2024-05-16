@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("function")]
         public Input<Inputs.ModelCardObjectiveFunctionFunctionPropertiesArgs>? Function { get; set; }
 
+        /// <summary>
+        /// Notes about the object function, including other considerations for possible objective functions.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 

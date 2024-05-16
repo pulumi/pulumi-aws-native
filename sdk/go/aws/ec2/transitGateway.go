@@ -16,20 +16,33 @@ import (
 type TransitGateway struct {
 	pulumi.CustomResourceState
 
-	AmazonSideAsn                  pulumi.IntPtrOutput      `pulumi:"amazonSideAsn"`
-	AssociationDefaultRouteTableId pulumi.StringPtrOutput   `pulumi:"associationDefaultRouteTableId"`
-	AutoAcceptSharedAttachments    pulumi.StringPtrOutput   `pulumi:"autoAcceptSharedAttachments"`
-	AwsId                          pulumi.StringOutput      `pulumi:"awsId"`
-	DefaultRouteTableAssociation   pulumi.StringPtrOutput   `pulumi:"defaultRouteTableAssociation"`
-	DefaultRouteTablePropagation   pulumi.StringPtrOutput   `pulumi:"defaultRouteTablePropagation"`
-	Description                    pulumi.StringPtrOutput   `pulumi:"description"`
-	DnsSupport                     pulumi.StringPtrOutput   `pulumi:"dnsSupport"`
-	MulticastSupport               pulumi.StringPtrOutput   `pulumi:"multicastSupport"`
-	PropagationDefaultRouteTableId pulumi.StringPtrOutput   `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           aws.TagArrayOutput       `pulumi:"tags"`
-	TransitGatewayArn              pulumi.StringOutput      `pulumi:"transitGatewayArn"`
-	TransitGatewayCidrBlocks       pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
-	VpnEcmpSupport                 pulumi.StringPtrOutput   `pulumi:"vpnEcmpSupport"`
+	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+	AmazonSideAsn pulumi.IntPtrOutput `pulumi:"amazonSideAsn"`
+	// The ID of the default association route table.
+	AssociationDefaultRouteTableId pulumi.StringPtrOutput `pulumi:"associationDefaultRouteTableId"`
+	// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+	AutoAcceptSharedAttachments pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAttachments"`
+	// The ID of the transit gateway.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Enable or disable automatic association with the default association route table. Enabled by default.
+	DefaultRouteTableAssociation pulumi.StringPtrOutput `pulumi:"defaultRouteTableAssociation"`
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	DefaultRouteTablePropagation pulumi.StringPtrOutput `pulumi:"defaultRouteTablePropagation"`
+	// The description of the transit gateway.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Enable or disable DNS support. Enabled by default.
+	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	// Indicates whether multicast is enabled on the transit gateway
+	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
+	// The ID of the default propagation route table.
+	PropagationDefaultRouteTableId pulumi.StringPtrOutput `pulumi:"propagationDefaultRouteTableId"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags              aws.TagArrayOutput  `pulumi:"tags"`
+	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
+	// The transit gateway CIDR blocks.
+	TransitGatewayCidrBlocks pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
+	// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+	VpnEcmpSupport pulumi.StringPtrOutput `pulumi:"vpnEcmpSupport"`
 }
 
 // NewTransitGateway registers a new resource with the given unique name, arguments, and options.
@@ -77,34 +90,58 @@ func (TransitGatewayState) ElementType() reflect.Type {
 }
 
 type transitGatewayArgs struct {
-	AmazonSideAsn                  *int      `pulumi:"amazonSideAsn"`
-	AssociationDefaultRouteTableId *string   `pulumi:"associationDefaultRouteTableId"`
-	AutoAcceptSharedAttachments    *string   `pulumi:"autoAcceptSharedAttachments"`
-	DefaultRouteTableAssociation   *string   `pulumi:"defaultRouteTableAssociation"`
-	DefaultRouteTablePropagation   *string   `pulumi:"defaultRouteTablePropagation"`
-	Description                    *string   `pulumi:"description"`
-	DnsSupport                     *string   `pulumi:"dnsSupport"`
-	MulticastSupport               *string   `pulumi:"multicastSupport"`
-	PropagationDefaultRouteTableId *string   `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           []aws.Tag `pulumi:"tags"`
-	TransitGatewayCidrBlocks       []string  `pulumi:"transitGatewayCidrBlocks"`
-	VpnEcmpSupport                 *string   `pulumi:"vpnEcmpSupport"`
+	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
+	// The ID of the default association route table.
+	AssociationDefaultRouteTableId *string `pulumi:"associationDefaultRouteTableId"`
+	// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+	AutoAcceptSharedAttachments *string `pulumi:"autoAcceptSharedAttachments"`
+	// Enable or disable automatic association with the default association route table. Enabled by default.
+	DefaultRouteTableAssociation *string `pulumi:"defaultRouteTableAssociation"`
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	DefaultRouteTablePropagation *string `pulumi:"defaultRouteTablePropagation"`
+	// The description of the transit gateway.
+	Description *string `pulumi:"description"`
+	// Enable or disable DNS support. Enabled by default.
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// Indicates whether multicast is enabled on the transit gateway
+	MulticastSupport *string `pulumi:"multicastSupport"`
+	// The ID of the default propagation route table.
+	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []aws.Tag `pulumi:"tags"`
+	// The transit gateway CIDR blocks.
+	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
+	// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
 
 // The set of arguments for constructing a TransitGateway resource.
 type TransitGatewayArgs struct {
-	AmazonSideAsn                  pulumi.IntPtrInput
+	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+	AmazonSideAsn pulumi.IntPtrInput
+	// The ID of the default association route table.
 	AssociationDefaultRouteTableId pulumi.StringPtrInput
-	AutoAcceptSharedAttachments    pulumi.StringPtrInput
-	DefaultRouteTableAssociation   pulumi.StringPtrInput
-	DefaultRouteTablePropagation   pulumi.StringPtrInput
-	Description                    pulumi.StringPtrInput
-	DnsSupport                     pulumi.StringPtrInput
-	MulticastSupport               pulumi.StringPtrInput
+	// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+	AutoAcceptSharedAttachments pulumi.StringPtrInput
+	// Enable or disable automatic association with the default association route table. Enabled by default.
+	DefaultRouteTableAssociation pulumi.StringPtrInput
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	DefaultRouteTablePropagation pulumi.StringPtrInput
+	// The description of the transit gateway.
+	Description pulumi.StringPtrInput
+	// Enable or disable DNS support. Enabled by default.
+	DnsSupport pulumi.StringPtrInput
+	// Indicates whether multicast is enabled on the transit gateway
+	MulticastSupport pulumi.StringPtrInput
+	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
-	Tags                           aws.TagArrayInput
-	TransitGatewayCidrBlocks       pulumi.StringArrayInput
-	VpnEcmpSupport                 pulumi.StringPtrInput
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayInput
+	// The transit gateway CIDR blocks.
+	TransitGatewayCidrBlocks pulumi.StringArrayInput
+	// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+	VpnEcmpSupport pulumi.StringPtrInput
 }
 
 func (TransitGatewayArgs) ElementType() reflect.Type {
@@ -144,46 +181,57 @@ func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
 func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.IntPtrOutput { return v.AmazonSideAsn }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the default association route table.
 func (o TransitGatewayOutput) AssociationDefaultRouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AssociationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable automatic acceptance of attachment requests. Disabled by default.
 func (o TransitGatewayOutput) AutoAcceptSharedAttachments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AutoAcceptSharedAttachments }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the transit gateway.
 func (o TransitGatewayOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Enable or disable automatic association with the default association route table. Enabled by default.
 func (o TransitGatewayOutput) DefaultRouteTableAssociation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTableAssociation }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
 func (o TransitGatewayOutput) DefaultRouteTablePropagation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTablePropagation }).(pulumi.StringPtrOutput)
 }
 
+// The description of the transit gateway.
 func (o TransitGatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable DNS support. Enabled by default.
 func (o TransitGatewayOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether multicast is enabled on the transit gateway
 func (o TransitGatewayOutput) MulticastSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.MulticastSupport }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the default propagation route table.
 func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o TransitGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TransitGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -192,10 +240,12 @@ func (o TransitGatewayOutput) TransitGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.TransitGatewayArn }).(pulumi.StringOutput)
 }
 
+// The transit gateway CIDR blocks.
 func (o TransitGatewayOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringArrayOutput { return v.TransitGatewayCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
 func (o TransitGatewayOutput) VpnEcmpSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.VpnEcmpSupport }).(pulumi.StringPtrOutput)
 }

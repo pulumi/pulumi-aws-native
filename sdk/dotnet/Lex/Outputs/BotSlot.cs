@@ -16,11 +16,29 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSlot
     {
+        /// <summary>
+        /// The description of the slot.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Indicates whether a slot can return multiple values.
+        /// </summary>
         public readonly Outputs.BotMultipleValuesSetting? MultipleValuesSetting;
+        /// <summary>
+        /// The name given to the slot.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Determines whether Amazon Lex obscures slot values in conversation logs.
+        /// </summary>
         public readonly Outputs.BotObfuscationSetting? ObfuscationSetting;
+        /// <summary>
+        /// The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
+        /// </summary>
         public readonly string SlotTypeName;
+        /// <summary>
+        /// Specifies the elicitation setting details eliciting a slot.
+        /// </summary>
         public readonly Outputs.BotSlotValueElicitationSetting ValueElicitationSetting;
 
         [OutputConstructor]

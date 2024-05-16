@@ -13,12 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilter
     {
+        /// <summary>
+        /// A `CategoryFilter` filters text values.
+        /// 
+        /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly Outputs.DashboardCategoryFilter? CategoryFilter;
+        /// <summary>
+        /// A `NumericEqualityFilter` filters values that are equal to the specified value.
+        /// </summary>
         public readonly Outputs.DashboardNumericEqualityFilter? NumericEqualityFilter;
+        /// <summary>
+        /// A `NumericRangeFilter` filters values that are within the value range.
+        /// </summary>
         public readonly Outputs.DashboardNumericRangeFilter? NumericRangeFilter;
+        /// <summary>
+        /// A `RelativeDatesFilter` filters relative dates values.
+        /// </summary>
         public readonly Outputs.DashboardRelativeDatesFilter? RelativeDatesFilter;
+        /// <summary>
+        /// A `TimeEqualityFilter` filters values that are equal to a given value.
+        /// </summary>
         public readonly Outputs.DashboardTimeEqualityFilter? TimeEqualityFilter;
+        /// <summary>
+        /// A `TimeRangeFilter` filters values that are between two specified values.
+        /// </summary>
         public readonly Outputs.DashboardTimeRangeFilter? TimeRangeFilter;
+        /// <summary>
+        /// A `TopBottomFilter` filters values that are at the top or the bottom.
+        /// </summary>
         public readonly Outputs.DashboardTopBottomFilter? TopBottomFilter;
 
         [OutputConstructor]

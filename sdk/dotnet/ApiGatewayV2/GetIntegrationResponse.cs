@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("integrationId", required: true)]
         public string IntegrationId { get; set; } = null!;
 
+        /// <summary>
+        /// The integration response ID.
+        /// </summary>
         [Input("integrationResponseId", required: true)]
         public string IntegrationResponseId { get; set; } = null!;
 
@@ -62,6 +65,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("integrationId", required: true)]
         public Input<string> IntegrationId { get; set; } = null!;
 
+        /// <summary>
+        /// The integration response ID.
+        /// </summary>
         [Input("integrationResponseId", required: true)]
         public Input<string> IntegrationResponseId { get; set; } = null!;
 
@@ -82,6 +88,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         ///  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
         /// </summary>
         public readonly string? ContentHandlingStrategy;
+        /// <summary>
+        /// The integration response ID.
+        /// </summary>
         public readonly string? IntegrationResponseId;
         /// <summary>
         /// The integration response key.

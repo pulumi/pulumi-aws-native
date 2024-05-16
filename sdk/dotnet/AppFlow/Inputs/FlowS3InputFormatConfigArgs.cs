@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowS3InputFormatConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
+        /// </summary>
         [Input("s3InputFileType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowS3InputFormatConfigS3InputFileType>? S3InputFileType { get; set; }
 

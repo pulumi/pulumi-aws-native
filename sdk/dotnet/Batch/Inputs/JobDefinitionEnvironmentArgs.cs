@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the environment variable.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The value of the environment variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

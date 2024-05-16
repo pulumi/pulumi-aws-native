@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePivotTableSortBy
     {
+        /// <summary>
+        /// The sort configuration for a column that is not used in a field well.
+        /// </summary>
         public readonly Outputs.TemplateColumnSort? Column;
+        /// <summary>
+        /// Allows data paths to be sorted by a specific data value.
+        /// </summary>
         public readonly Outputs.TemplateDataPathSort? DataPath;
+        /// <summary>
+        /// The sort configuration for a field in a field well.
+        /// </summary>
         public readonly Outputs.TemplateFieldSort? Field;
 
         [OutputConstructor]

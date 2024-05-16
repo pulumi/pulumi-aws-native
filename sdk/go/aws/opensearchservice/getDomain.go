@@ -24,35 +24,69 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 }
 
 type LookupDomainArgs struct {
+	// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// Required when creating a new domain.
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DomainName string `pulumi:"domainName"`
 }
 
 type LookupDomainResult struct {
+	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
-	AccessPolicies              interface{}                          `pulumi:"accessPolicies"`
-	AdvancedOptions             map[string]string                    `pulumi:"advancedOptions"`
-	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput  `pulumi:"advancedSecurityOptions"`
-	Arn                         *string                              `pulumi:"arn"`
-	ClusterConfig               *DomainClusterConfig                 `pulumi:"clusterConfig"`
-	CognitoOptions              *DomainCognitoOptions                `pulumi:"cognitoOptions"`
-	DomainArn                   *string                              `pulumi:"domainArn"`
-	DomainEndpoint              *string                              `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       *DomainEndpointOptions               `pulumi:"domainEndpointOptions"`
-	DomainEndpointV2            *string                              `pulumi:"domainEndpointV2"`
-	DomainEndpoints             map[string]string                    `pulumi:"domainEndpoints"`
-	EbsOptions                  *DomainEbsOptions                    `pulumi:"ebsOptions"`
-	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions       `pulumi:"encryptionAtRestOptions"`
-	EngineVersion               *string                              `pulumi:"engineVersion"`
-	Id                          *string                              `pulumi:"id"`
-	IpAddressType               *string                              `pulumi:"ipAddressType"`
-	LogPublishingOptions        map[string]DomainLogPublishingOption `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions   `pulumi:"nodeToNodeEncryptionOptions"`
-	OffPeakWindowOptions        *DomainOffPeakWindowOptions          `pulumi:"offPeakWindowOptions"`
-	ServiceSoftwareOptions      *DomainServiceSoftwareOptions        `pulumi:"serviceSoftwareOptions"`
-	SnapshotOptions             *DomainSnapshotOptions               `pulumi:"snapshotOptions"`
-	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions         `pulumi:"softwareUpdateOptions"`
+	AccessPolicies interface{} `pulumi:"accessPolicies"`
+	// Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
+	// Specifies options for fine-grained access control.
+	//
+	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
+	AdvancedSecurityOptions *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
+	// The Amazon Resource Name (ARN) of the CloudFormation stack.
+	Arn *string `pulumi:"arn"`
+	// The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
+	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
+	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	// The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
+	DomainArn *string `pulumi:"domainArn"`
+	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
+	DomainEndpoint *string `pulumi:"domainEndpoint"`
+	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
+	DomainEndpointOptions *DomainEndpointOptions `pulumi:"domainEndpointOptions"`
+	// If `IPAddressType` to set to `dualstack` , a version 2 domain endpoint is provisioned. This endpoint functions like a normal endpoint, except that it works with both IPv4 and IPv6 IP addresses. Normal endpoints work only with IPv4 IP addresses.
+	DomainEndpointV2 *string           `pulumi:"domainEndpointV2"`
+	DomainEndpoints  map[string]string `pulumi:"domainEndpoints"`
+	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
+	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+	EncryptionAtRestOptions *DomainEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
+	// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
+	//
+	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+	EngineVersion *string `pulumi:"engineVersion"`
+	// The resource ID. For example, `123456789012/my-domain` .
+	Id *string `pulumi:"id"`
+	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
+	LogPublishingOptions map[string]DomainLogPublishingOption `pulumi:"logPublishingOptions"`
+	// Specifies options for node-to-node encryption.
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
+	// Off-peak window settings for the domain.
+	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
+	// The current status of the service software for an Amazon OpenSearch Service domain. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) .
+	ServiceSoftwareOptions *DomainServiceSoftwareOptions `pulumi:"serviceSoftwareOptions"`
+	// *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
+	//
+	// The automated snapshot configuration for the OpenSearch Service domain indexes.
+	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
+	// Options for configuring service software updates for a domain.
+	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
-	Tags       []aws.Tag         `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
 
@@ -70,6 +104,11 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 }
 
 type LookupDomainOutputArgs struct {
+	// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// Required when creating a new domain.
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
@@ -91,43 +130,56 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
+// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 func (o LookupDomainResultOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AccessPolicies }).(pulumi.AnyOutput)
 }
 
+// Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 func (o LookupDomainResultOutput) AdvancedOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
+// Specifies options for fine-grained access control.
+//
+// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 func (o LookupDomainResultOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainAdvancedSecurityOptionsInput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudFormation stack.
 func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
 func (o LookupDomainResultOutput) ClusterConfig() DomainClusterConfigPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainClusterConfig { return v.ClusterConfig }).(DomainClusterConfigPtrOutput)
 }
 
+// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 func (o LookupDomainResultOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainCognitoOptions { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
 func (o LookupDomainResultOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainArn }).(pulumi.StringPtrOutput)
 }
 
+// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
 func (o LookupDomainResultOutput) DomainEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
 func (o LookupDomainResultOutput) DomainEndpointOptions() DomainEndpointOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainEndpointOptions { return v.DomainEndpointOptions }).(DomainEndpointOptionsPtrOutput)
 }
 
+// If `IPAddressType` to set to `dualstack` , a version 2 domain endpoint is provisioned. This endpoint functions like a normal endpoint, except that it works with both IPv4 and IPv6 IP addresses. Normal endpoints work only with IPv4 IP addresses.
 func (o LookupDomainResultOutput) DomainEndpointV2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainEndpointV2 }).(pulumi.StringPtrOutput)
 }
@@ -136,46 +188,61 @@ func (o LookupDomainResultOutput) DomainEndpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.DomainEndpoints }).(pulumi.StringMapOutput)
 }
 
+// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 func (o LookupDomainResultOutput) EbsOptions() DomainEbsOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainEbsOptions { return v.EbsOptions }).(DomainEbsOptionsPtrOutput)
 }
 
+// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
 func (o LookupDomainResultOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainEncryptionAtRestOptions { return v.EncryptionAtRestOptions }).(DomainEncryptionAtRestOptionsPtrOutput)
 }
 
+// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
+//
+// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 func (o LookupDomainResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// The resource ID. For example, `123456789012/my-domain` .
 func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 func (o LookupDomainResultOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
+// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
 func (o LookupDomainResultOutput) LogPublishingOptions() DomainLogPublishingOptionMapOutput {
 	return o.ApplyT(func(v LookupDomainResult) map[string]DomainLogPublishingOption { return v.LogPublishingOptions }).(DomainLogPublishingOptionMapOutput)
 }
 
+// Specifies options for node-to-node encryption.
 func (o LookupDomainResultOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainNodeToNodeEncryptionOptions { return v.NodeToNodeEncryptionOptions }).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
+// Off-peak window settings for the domain.
 func (o LookupDomainResultOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainOffPeakWindowOptions { return v.OffPeakWindowOptions }).(DomainOffPeakWindowOptionsPtrOutput)
 }
 
+// The current status of the service software for an Amazon OpenSearch Service domain. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) .
 func (o LookupDomainResultOutput) ServiceSoftwareOptions() DomainServiceSoftwareOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainServiceSoftwareOptions { return v.ServiceSoftwareOptions }).(DomainServiceSoftwareOptionsPtrOutput)
 }
 
+// *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
+//
+// The automated snapshot configuration for the OpenSearch Service domain indexes.
 func (o LookupDomainResultOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainSnapshotOptions { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
 }
 
+// Options for configuring service software updates for a domain.
 func (o LookupDomainResultOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainSoftwareUpdateOptions { return v.SoftwareUpdateOptions }).(DomainSoftwareUpdateOptionsPtrOutput)
 }
@@ -185,6 +252,7 @@ func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
 func (o LookupDomainResultOutput) VpcOptions() DomainVpcOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainVpcOptions { return v.VpcOptions }).(DomainVpcOptionsPtrOutput)
 }

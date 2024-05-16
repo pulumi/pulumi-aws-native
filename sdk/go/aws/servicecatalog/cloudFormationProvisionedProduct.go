@@ -16,23 +16,62 @@ import (
 type CloudFormationProvisionedProduct struct {
 	pulumi.CustomResourceState
 
+	// The language code.
+	//
+	// - `jp` - Japanese
+	// - `zh` - Chinese
 	AcceptLanguage         CloudFormationProvisionedProductAcceptLanguagePtrOutput `pulumi:"acceptLanguage"`
 	CloudformationStackArn pulumi.StringOutput                                     `pulumi:"cloudformationStackArn"`
-	NotificationArns       pulumi.StringArrayOutput                                `pulumi:"notificationArns"`
+	// Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
 	// List of key-value pair outputs.
-	Outputs                  pulumi.StringMapOutput                                           `pulumi:"outputs"`
-	PathId                   pulumi.StringPtrOutput                                           `pulumi:"pathId"`
-	PathName                 pulumi.StringPtrOutput                                           `pulumi:"pathName"`
-	ProductId                pulumi.StringPtrOutput                                           `pulumi:"productId"`
-	ProductName              pulumi.StringPtrOutput                                           `pulumi:"productName"`
-	ProvisionedProductId     pulumi.StringOutput                                              `pulumi:"provisionedProductId"`
-	ProvisionedProductName   pulumi.StringPtrOutput                                           `pulumi:"provisionedProductName"`
-	ProvisioningArtifactId   pulumi.StringPtrOutput                                           `pulumi:"provisioningArtifactId"`
-	ProvisioningArtifactName pulumi.StringPtrOutput                                           `pulumi:"provisioningArtifactName"`
-	ProvisioningParameters   CloudFormationProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
-	ProvisioningPreferences  CloudFormationProvisionedProductProvisioningPreferencesPtrOutput `pulumi:"provisioningPreferences"`
-	RecordId                 pulumi.StringOutput                                              `pulumi:"recordId"`
-	Tags                     aws.TagArrayOutput                                               `pulumi:"tags"`
+	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+	//
+	// > You must provide the name or ID, but not both.
+	PathId pulumi.StringPtrOutput `pulumi:"pathId"`
+	// The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+	//
+	// > You must provide the name or ID, but not both.
+	PathName pulumi.StringPtrOutput `pulumi:"pathName"`
+	// The product identifier.
+	//
+	// > You must specify either the ID or the name of the product, but not both.
+	ProductId pulumi.StringPtrOutput `pulumi:"productId"`
+	// The name of the Service Catalog product.
+	//
+	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+	//
+	// > You must specify either the name or the ID of the product, but not both.
+	ProductName pulumi.StringPtrOutput `pulumi:"productName"`
+	// The ID of the provisioned product.
+	ProvisionedProductId pulumi.StringOutput `pulumi:"provisionedProductId"`
+	// A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+	ProvisionedProductName pulumi.StringPtrOutput `pulumi:"provisionedProductName"`
+	// The identifier of the provisioning artifact (also known as a version).
+	//
+	// > You must specify either the ID or the name of the provisioning artifact, but not both.
+	ProvisioningArtifactId pulumi.StringPtrOutput `pulumi:"provisioningArtifactId"`
+	// The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+	//
+	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
+	// Information about a parameter used to provision a product.
+	ProvisioningParameters CloudFormationProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
+	// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+	//
+	// One or more AWS accounts that will have access to the provisioned product.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+	ProvisioningPreferences CloudFormationProvisionedProductProvisioningPreferencesPtrOutput `pulumi:"provisioningPreferences"`
+	// The ID of the record, such as `rec-rjeatvy434trk` .
+	RecordId pulumi.StringOutput `pulumi:"recordId"`
+	// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCloudFormationProvisionedProduct registers a new resource with the given unique name, arguments, and options.
@@ -80,34 +119,108 @@ func (CloudFormationProvisionedProductState) ElementType() reflect.Type {
 }
 
 type cloudFormationProvisionedProductArgs struct {
-	AcceptLanguage           *CloudFormationProvisionedProductAcceptLanguage          `pulumi:"acceptLanguage"`
-	NotificationArns         []string                                                 `pulumi:"notificationArns"`
-	PathId                   *string                                                  `pulumi:"pathId"`
-	PathName                 *string                                                  `pulumi:"pathName"`
-	ProductId                *string                                                  `pulumi:"productId"`
-	ProductName              *string                                                  `pulumi:"productName"`
-	ProvisionedProductName   *string                                                  `pulumi:"provisionedProductName"`
-	ProvisioningArtifactId   *string                                                  `pulumi:"provisioningArtifactId"`
-	ProvisioningArtifactName *string                                                  `pulumi:"provisioningArtifactName"`
-	ProvisioningParameters   []CloudFormationProvisionedProductProvisioningParameter  `pulumi:"provisioningParameters"`
-	ProvisioningPreferences  *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
-	Tags                     []aws.Tag                                                `pulumi:"tags"`
+	// The language code.
+	//
+	// - `jp` - Japanese
+	// - `zh` - Chinese
+	AcceptLanguage *CloudFormationProvisionedProductAcceptLanguage `pulumi:"acceptLanguage"`
+	// Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+	NotificationArns []string `pulumi:"notificationArns"`
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+	//
+	// > You must provide the name or ID, but not both.
+	PathId *string `pulumi:"pathId"`
+	// The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+	//
+	// > You must provide the name or ID, but not both.
+	PathName *string `pulumi:"pathName"`
+	// The product identifier.
+	//
+	// > You must specify either the ID or the name of the product, but not both.
+	ProductId *string `pulumi:"productId"`
+	// The name of the Service Catalog product.
+	//
+	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+	//
+	// > You must specify either the name or the ID of the product, but not both.
+	ProductName *string `pulumi:"productName"`
+	// A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+	ProvisionedProductName *string `pulumi:"provisionedProductName"`
+	// The identifier of the provisioning artifact (also known as a version).
+	//
+	// > You must specify either the ID or the name of the provisioning artifact, but not both.
+	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
+	// The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+	//
+	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
+	// Information about a parameter used to provision a product.
+	ProvisioningParameters []CloudFormationProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
+	// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+	//
+	// One or more AWS accounts that will have access to the provisioned product.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+	ProvisioningPreferences *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
+	// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CloudFormationProvisionedProduct resource.
 type CloudFormationProvisionedProductArgs struct {
-	AcceptLanguage           CloudFormationProvisionedProductAcceptLanguagePtrInput
-	NotificationArns         pulumi.StringArrayInput
-	PathId                   pulumi.StringPtrInput
-	PathName                 pulumi.StringPtrInput
-	ProductId                pulumi.StringPtrInput
-	ProductName              pulumi.StringPtrInput
-	ProvisionedProductName   pulumi.StringPtrInput
-	ProvisioningArtifactId   pulumi.StringPtrInput
+	// The language code.
+	//
+	// - `jp` - Japanese
+	// - `zh` - Chinese
+	AcceptLanguage CloudFormationProvisionedProductAcceptLanguagePtrInput
+	// Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+	NotificationArns pulumi.StringArrayInput
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+	//
+	// > You must provide the name or ID, but not both.
+	PathId pulumi.StringPtrInput
+	// The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+	//
+	// > You must provide the name or ID, but not both.
+	PathName pulumi.StringPtrInput
+	// The product identifier.
+	//
+	// > You must specify either the ID or the name of the product, but not both.
+	ProductId pulumi.StringPtrInput
+	// The name of the Service Catalog product.
+	//
+	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+	//
+	// > You must specify either the name or the ID of the product, but not both.
+	ProductName pulumi.StringPtrInput
+	// A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+	ProvisionedProductName pulumi.StringPtrInput
+	// The identifier of the provisioning artifact (also known as a version).
+	//
+	// > You must specify either the ID or the name of the provisioning artifact, but not both.
+	ProvisioningArtifactId pulumi.StringPtrInput
+	// The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+	//
+	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 	ProvisioningArtifactName pulumi.StringPtrInput
-	ProvisioningParameters   CloudFormationProvisionedProductProvisioningParameterArrayInput
-	ProvisioningPreferences  CloudFormationProvisionedProductProvisioningPreferencesPtrInput
-	Tags                     aws.TagArrayInput
+	// Information about a parameter used to provision a product.
+	ProvisioningParameters CloudFormationProvisionedProductProvisioningParameterArrayInput
+	// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+	//
+	// One or more AWS accounts that will have access to the provisioned product.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+	ProvisioningPreferences CloudFormationProvisionedProductProvisioningPreferencesPtrInput
+	// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+	Tags aws.TagArrayInput
 }
 
 func (CloudFormationProvisionedProductArgs) ElementType() reflect.Type {
@@ -147,6 +260,10 @@ func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProdu
 	return o
 }
 
+// The language code.
+//
+// - `jp` - Japanese
+// - `zh` - Chinese
 func (o CloudFormationProvisionedProductOutput) AcceptLanguage() CloudFormationProvisionedProductAcceptLanguagePtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductAcceptLanguagePtrOutput {
 		return v.AcceptLanguage
@@ -157,6 +274,7 @@ func (o CloudFormationProvisionedProductOutput) CloudformationStackArn() pulumi.
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.CloudformationStackArn }).(pulumi.StringOutput)
 }
 
+// Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
 func (o CloudFormationProvisionedProductOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
@@ -166,54 +284,88 @@ func (o CloudFormationProvisionedProductOutput) Outputs() pulumi.StringMapOutput
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringMapOutput { return v.Outputs }).(pulumi.StringMapOutput)
 }
 
+// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+//
+// > You must provide the name or ID, but not both.
 func (o CloudFormationProvisionedProductOutput) PathId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.PathId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+//
+// > You must provide the name or ID, but not both.
 func (o CloudFormationProvisionedProductOutput) PathName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.PathName }).(pulumi.StringPtrOutput)
 }
 
+// The product identifier.
+//
+// > You must specify either the ID or the name of the product, but not both.
 func (o CloudFormationProvisionedProductOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProductId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Service Catalog product.
+//
+// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+//
+// > You must specify either the name or the ID of the product, but not both.
 func (o CloudFormationProvisionedProductOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProductName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the provisioned product.
 func (o CloudFormationProvisionedProductOutput) ProvisionedProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.ProvisionedProductId }).(pulumi.StringOutput)
 }
 
+// A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
 func (o CloudFormationProvisionedProductOutput) ProvisionedProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisionedProductName }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the provisioning artifact (also known as a version).
+//
+// > You must specify either the ID or the name of the provisioning artifact, but not both.
 func (o CloudFormationProvisionedProductOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+//
+// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 func (o CloudFormationProvisionedProductOutput) ProvisioningArtifactName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactName }).(pulumi.StringPtrOutput)
 }
 
+// Information about a parameter used to provision a product.
 func (o CloudFormationProvisionedProductOutput) ProvisioningParameters() CloudFormationProvisionedProductProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductProvisioningParameterArrayOutput {
 		return v.ProvisioningParameters
 	}).(CloudFormationProvisionedProductProvisioningParameterArrayOutput)
 }
 
+// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+//
+// One or more AWS accounts that will have access to the provisioned product.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+//
+// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
 func (o CloudFormationProvisionedProductOutput) ProvisioningPreferences() CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
 		return v.ProvisioningPreferences
 	}).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
 }
 
+// The ID of the record, such as `rec-rjeatvy434trk` .
 func (o CloudFormationProvisionedProductOutput) RecordId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.RecordId }).(pulumi.StringOutput)
 }
 
+// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
 func (o CloudFormationProvisionedProductOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

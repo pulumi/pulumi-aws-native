@@ -27,6 +27,12 @@ class AuthenticationModePropertiesArgs:
                  type: pulumi.Input['UserAuthenticationModePropertiesType'],
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        Specifies the authentication mode to use. Below is an example of the possible JSON values:
+
+        ```
+        { Passwords: ["*****", "******"] // If Type is password.
+        }
+        ```
         :param pulumi.Input['UserAuthenticationModePropertiesType'] type: Authentication Type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         """
@@ -215,6 +221,8 @@ class ServerlessCacheCacheUsageLimitsArgs:
                  ecpu_per_second: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']] = None):
         """
         The cache capacity limit of the Serverless Cache.
+        :param pulumi.Input['ServerlessCacheDataStorageArgs'] data_storage: The data storage limit.
+        :param pulumi.Input['ServerlessCacheEcpuPerSecondArgs'] ecpu_per_second: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
         """
         if data_storage is not None:
             pulumi.set(__self__, "data_storage", data_storage)
@@ -224,6 +232,9 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @property
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheDataStorageArgs']]:
+        """
+        The data storage limit.
+        """
         return pulumi.get(self, "data_storage")
 
     @data_storage.setter
@@ -233,6 +244,9 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @property
     @pulumi.getter(name="ecpuPerSecond")
     def ecpu_per_second(self) -> Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']]:
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+        """
         return pulumi.get(self, "ecpu_per_second")
 
     @ecpu_per_second.setter

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisParameterDateTimePickerControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.AnalysisDateTimePickerControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 
+        /// <summary>
+        /// The ID of the `ParameterDateTimePickerControl` .
+        /// </summary>
         [Input("parameterControlId", required: true)]
         public Input<string> ParameterControlId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the `ParameterDateTimePickerControl` .
+        /// </summary>
         [Input("sourceParameterName", required: true)]
         public Input<string> SourceParameterName { get; set; } = null!;
 
+        /// <summary>
+        /// The title of the `ParameterDateTimePickerControl` .
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

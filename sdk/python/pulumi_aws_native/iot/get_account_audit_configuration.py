@@ -33,11 +33,17 @@ class GetAccountAuditConfigurationResult:
     @property
     @pulumi.getter(name="auditCheckConfigurations")
     def audit_check_configurations(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfigurations']:
+        """
+        The types of audit checks that can be performed.
+        """
         return pulumi.get(self, "audit_check_configurations")
 
     @property
     @pulumi.getter(name="auditNotificationTargetConfigurations")
     def audit_notification_target_configurations(self) -> Optional['outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']:
+        """
+        The configuration of the audit notification target.
+        """
         return pulumi.get(self, "audit_notification_target_configurations")
 
     @property

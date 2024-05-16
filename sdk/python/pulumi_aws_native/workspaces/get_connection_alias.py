@@ -34,16 +34,25 @@ class GetConnectionAliasResult:
     @property
     @pulumi.getter(name="aliasId")
     def alias_id(self) -> Optional[str]:
+        """
+        The identifier of the connection alias, returned as a string.
+        """
         return pulumi.get(self, "alias_id")
 
     @property
     @pulumi.getter
     def associations(self) -> Optional[Sequence['outputs.ConnectionAliasAssociation']]:
+        """
+        Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+        """
         return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter(name="connectionAliasState")
     def connection_alias_state(self) -> Optional['ConnectionAliasState']:
+        """
+        The current state of the connection alias, returned as a string.
+        """
         return pulumi.get(self, "connection_alias_state")
 
 
@@ -62,6 +71,9 @@ def get_connection_alias(alias_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionAliasResult:
     """
     Resource Type definition for AWS::WorkSpaces::ConnectionAlias
+
+
+    :param str alias_id: The identifier of the connection alias, returned as a string.
     """
     __args__ = dict()
     __args__['aliasId'] = alias_id
@@ -79,5 +91,8 @@ def get_connection_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionAliasResult]:
     """
     Resource Type definition for AWS::WorkSpaces::ConnectionAlias
+
+
+    :param str alias_id: The identifier of the connection alias, returned as a string.
     """
     ...

@@ -21,9 +21,17 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:LaunchTemplate")]
     public partial class LaunchTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The default version of the launch template, such as 2.
+        /// 
+        /// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
+        /// </summary>
         [Output("defaultVersionNumber")]
         public Output<string> DefaultVersionNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// The latest version of the launch template, such as `5` .
+        /// </summary>
         [Output("latestVersionNumber")]
         public Output<string> LatestVersionNumber { get; private set; } = null!;
 
@@ -33,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("launchTemplateData")]
         public Output<Outputs.LaunchTemplateData> LaunchTemplateData { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the launch template.
+        /// </summary>
         [Output("launchTemplateId")]
         public Output<string> LaunchTemplateId { get; private set; } = null!;
 

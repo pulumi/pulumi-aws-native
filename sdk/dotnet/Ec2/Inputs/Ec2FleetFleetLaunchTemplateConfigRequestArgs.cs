@@ -12,11 +12,31 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class Ec2FleetFleetLaunchTemplateConfigRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+        /// 
+        /// You must specify the following:
+        /// 
+        /// - The ID or the name of the launch template, but not both.
+        /// - The version of the launch template.
+        /// 
+        /// `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+        /// 
+        /// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+        /// 
+        /// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        /// </summary>
         [Input("launchTemplateSpecification")]
         public Input<Inputs.Ec2FleetFleetLaunchTemplateSpecificationRequestArgs>? LaunchTemplateSpecification { get; set; }
 
         [Input("overrides")]
         private InputList<Inputs.Ec2FleetFleetLaunchTemplateOverridesRequestArgs>? _overrides;
+
+        /// <summary>
+        /// Specifies overrides for a launch template for an EC2 Fleet.
+        /// 
+        /// `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+        /// </summary>
         public InputList<Inputs.Ec2FleetFleetLaunchTemplateOverridesRequestArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.Ec2FleetFleetLaunchTemplateOverridesRequestArgs>());

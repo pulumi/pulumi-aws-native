@@ -13,14 +13,52 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceConfiguration
     {
+        /// <summary>
+        /// The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceChatterFeedConfiguration? ChatterFeedConfiguration;
+        /// <summary>
+        /// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+        /// </summary>
         public readonly bool? CrawlAttachments;
+        /// <summary>
+        /// A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+        /// 
+        /// The pattern is applied to the name of the attached file.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludeAttachmentFilePatterns;
+        /// <summary>
+        /// A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+        /// 
+        /// The pattern is applied to the name of the attached file.
+        /// </summary>
         public readonly ImmutableArray<string> IncludeAttachmentFilePatterns;
+        /// <summary>
+        /// Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceKnowledgeArticleConfiguration? KnowledgeArticleConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+        /// 
+        /// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+        /// - consumerKey - The application public key generated when you created your Salesforce application.
+        /// - consumerSecret - The application private key generated when you created your Salesforce application.
+        /// - password - The password associated with the user logging in to the Salesforce instance.
+        /// - securityToken - The token associated with the user logging in to the Salesforce instance.
+        /// - username - The user name of the user logging in to the Salesforce instance.
+        /// </summary>
         public readonly string SecretArn;
+        /// <summary>
+        /// The instance URL for the Salesforce site that you want to index.
+        /// </summary>
         public readonly string ServerUrl;
+        /// <summary>
+        /// Provides the configuration information for processing attachments to Salesforce standard objects.
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceStandardObjectAttachmentConfiguration? StandardObjectAttachmentConfiguration;
+        /// <summary>
+        /// Configuration of the Salesforce standard objects that Amazon Kendra indexes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceSalesforceStandardObjectConfiguration> StandardObjectConfigurations;
 
         [OutputConstructor]

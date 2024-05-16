@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class PublicKeyConfig
     {
+        /// <summary>
+        /// A string included in the request to help make sure that the request can't be replayed.
+        /// </summary>
         public readonly string CallerReference;
+        /// <summary>
+        /// A comment to describe the public key. The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        /// </summary>
         public readonly string EncodedKey;
+        /// <summary>
+        /// A name to help identify the public key.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

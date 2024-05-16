@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// The list of events you would like to subscribe and get notification for.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppEventSubscription> EventSubscriptions;
+        /// <summary>
+        /// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        /// </summary>
         public readonly Outputs.AppPermissionModel? PermissionModel;
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// An array of ResourceMapping objects.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppResourceMapping> ResourceMappings;
+        /// <summary>
+        /// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

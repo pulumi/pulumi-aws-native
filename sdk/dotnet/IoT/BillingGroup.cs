@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:BillingGroup")]
     public partial class BillingGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the billing group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the billing group.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the billing group.
+        /// </summary>
         [Output("billingGroupName")]
         public Output<string?> BillingGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The properties of the billing group.
+        /// </summary>
         [Output("billingGroupProperties")]
         public Output<Outputs.BillingGroupPropertiesProperties?> BillingGroupProperties { get; private set; } = null!;
 
@@ -82,9 +94,15 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class BillingGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the billing group.
+        /// </summary>
         [Input("billingGroupName")]
         public Input<string>? BillingGroupName { get; set; }
 
+        /// <summary>
+        /// The properties of the billing group.
+        /// </summary>
         [Input("billingGroupProperties")]
         public Input<Inputs.BillingGroupPropertiesPropertiesArgs>? BillingGroupProperties { get; set; }
 

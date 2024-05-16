@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the app block.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the app block.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetAppBlockResult
     {
+        /// <summary>
+        /// The ARN of the app block.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The time when the app block was created.
+        /// </summary>
         public readonly string? CreatedTime;
 
         [OutputConstructor]

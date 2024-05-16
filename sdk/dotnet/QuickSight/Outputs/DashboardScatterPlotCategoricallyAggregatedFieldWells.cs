@@ -13,10 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardScatterPlotCategoricallyAggregatedFieldWells
     {
+        /// <summary>
+        /// The category field well of a scatter plot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Category;
+        /// <summary>
+        /// The label field well of a scatter plot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Label;
+        /// <summary>
+        /// The size field well of a scatter plot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Size;
+        /// <summary>
+        /// The x-axis field well of a scatter plot.
+        /// 
+        /// The x-axis is aggregated by category.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> XAxis;
+        /// <summary>
+        /// The y-axis field well of a scatter plot.
+        /// 
+        /// The y-axis is aggregated by category.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> YAxis;
 
         [OutputConstructor]

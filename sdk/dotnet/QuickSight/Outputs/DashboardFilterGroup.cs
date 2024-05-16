@@ -13,10 +13,32 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterGroup
     {
+        /// <summary>
+        /// The filter new feature which can apply filter group to all data sets. Choose one of the following options:
+        /// 
+        /// - `ALL_DATASETS`
+        /// - `SINGLE_DATASET`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardCrossDatasetTypes CrossDataset;
+        /// <summary>
+        /// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
+        /// </summary>
         public readonly string FilterGroupId;
+        /// <summary>
+        /// With a `Filter` , you can remove portions of data from a particular visual or view.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFilter> Filters;
+        /// <summary>
+        /// The scope configuration for a `FilterGroup` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardFilterScopeConfiguration ScopeConfiguration;
+        /// <summary>
+        /// The status of the `FilterGroup` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardWidgetStatus? Status;
 
         [OutputConstructor]

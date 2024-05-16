@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetTrustStoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the trust store.
+        /// </summary>
         [Input("trustStoreArn", required: true)]
         public string TrustStoreArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetTrustStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the trust store.
+        /// </summary>
         [Input("trustStoreArn", required: true)]
         public Input<string> TrustStoreArn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetTrustStoreResult
     {
+        /// <summary>
+        /// A list of web portal ARNs that this trust store is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        /// <summary>
+        /// A list of CA certificates to be added to the trust store.
+        /// </summary>
         public readonly ImmutableArray<string> CertificateList;
+        /// <summary>
+        /// The tag.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of the trust store.
+        /// </summary>
         public readonly string? TrustStoreArn;
 
         [OutputConstructor]

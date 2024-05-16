@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.DeviceFarm
     [AwsNativeResourceType("aws-native:devicefarm:TestGridProject")]
     public partial class TestGridProject : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-readable description for the project.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-readable name for the project.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC security groups and subnets attached to the `TestGrid` project.
+        /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.TestGridProjectVpcConfig?> VpcConfig { get; private set; } = null!;
 
@@ -75,20 +90,33 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class TestGridProjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A human-readable description for the project.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A human-readable name for the project.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The VPC security groups and subnets attached to the `TestGrid` project.
+        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.TestGridProjectVpcConfigArgs>? VpcConfig { get; set; }
 

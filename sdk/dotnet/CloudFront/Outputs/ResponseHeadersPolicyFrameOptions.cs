@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyFrameOptions
     {
+        /// <summary>
+        /// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
+        /// 
+        /// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        /// </summary>
         public readonly string FrameOption;
+        /// <summary>
+        /// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        /// </summary>
         public readonly bool Override;
 
         [OutputConstructor]

@@ -12,36 +12,69 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisWaterfallChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("categoryAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? CategoryAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryAxisLabelOptions { get; set; }
 
+        /// <summary>
+        /// The color configuration of a waterfall visual.
+        /// </summary>
         [Input("colorConfiguration")]
         public Input<Inputs.AnalysisWaterfallChartColorConfigurationArgs>? ColorConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a waterfall visual.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisWaterfallChartFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a waterfall visual.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisWaterfallChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of a waterfall visual.
+        /// </summary>
         [Input("waterfallChartOptions")]
         public Input<Inputs.AnalysisWaterfallChartOptionsArgs>? WaterfallChartOptions { get; set; }
 

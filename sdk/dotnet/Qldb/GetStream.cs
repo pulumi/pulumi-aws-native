@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Qldb
 
     public sealed class GetStreamArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the ledger.
+        /// </summary>
         [Input("ledgerName", required: true)]
         public string LedgerName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Qldb
 
     public sealed class GetStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the ledger.
+        /// </summary>
         [Input("ledgerName", required: true)]
         public Input<string> LedgerName { get; set; } = null!;
 
@@ -57,7 +69,13 @@ namespace Pulumi.AwsNative.Qldb
     [OutputType]
     public sealed class GetStreamResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

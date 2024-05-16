@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisInsightConfiguration
     {
+        /// <summary>
+        /// The computation union that is used in an insight visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisComputation> Computations;
+        /// <summary>
+        /// The custom narrative options.
+        /// </summary>
         public readonly Outputs.AnalysisCustomNarrativeOptions? CustomNarrative;
 
         [OutputConstructor]

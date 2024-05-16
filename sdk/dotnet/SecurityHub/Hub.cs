@@ -159,6 +159,11 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("subscribedAt")]
         public Output<string> SubscribedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -227,6 +232,12 @@ namespace Pulumi.AwsNative.SecurityHub
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

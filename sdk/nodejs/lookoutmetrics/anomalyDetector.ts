@@ -49,6 +49,9 @@ export class AnomalyDetector extends pulumi.CustomResource {
      * Name for the Amazon Lookout for Metrics Anomaly Detector
      */
     public readonly anomalyDetectorName!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * KMS key used to encrypt the AnomalyDetector data

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisShapeConditionalFormatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         [Input("backgroundColor", required: true)]
         public Input<Inputs.AnalysisConditionalFormattingColorArgs> BackgroundColor { get; set; } = null!;
 

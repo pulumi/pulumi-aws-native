@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
     [OutputType]
     public sealed class ResiliencyPolicyPolicyMap
     {
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy Az;
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy Hardware;
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy? Region;
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy Software;
 
         [OutputConstructor]

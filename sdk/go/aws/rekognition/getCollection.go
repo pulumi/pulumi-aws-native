@@ -24,10 +24,12 @@ func LookupCollection(ctx *pulumi.Context, args *LookupCollectionArgs, opts ...p
 }
 
 type LookupCollectionArgs struct {
+	// ID for the collection that you are creating.
 	CollectionId string `pulumi:"collectionId"`
 }
 
 type LookupCollectionResult struct {
+	// Returns the Amazon Resource Name of the collection.
 	Arn *string `pulumi:"arn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -47,6 +49,7 @@ func LookupCollectionOutput(ctx *pulumi.Context, args LookupCollectionOutputArgs
 }
 
 type LookupCollectionOutputArgs struct {
+	// ID for the collection that you are creating.
 	CollectionId pulumi.StringInput `pulumi:"collectionId"`
 }
 
@@ -68,6 +71,7 @@ func (o LookupCollectionResultOutput) ToLookupCollectionResultOutputWithContext(
 	return o
 }
 
+// Returns the Amazon Resource Name of the collection.
 func (o LookupCollectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

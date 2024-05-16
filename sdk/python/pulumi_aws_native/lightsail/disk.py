@@ -31,6 +31,7 @@ class DiskArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[str] disk_name: The names to use for your new Lightsail disk.
+        :param pulumi.Input['DiskLocationArgs'] location: The AWS Region and Availability Zone where the disk is located.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "size_in_gb", size_in_gb)
@@ -96,6 +97,9 @@ class DiskArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['DiskLocationArgs']]:
+        """
+        The AWS Region and Availability Zone where the disk is located.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -135,6 +139,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskAddOnArgs']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[str] disk_name: The names to use for your new Lightsail disk.
+        :param pulumi.Input[pulumi.InputType['DiskLocationArgs']] location: The AWS Region and Availability Zone where the disk is located.
         :param pulumi.Input[int] size_in_gb: Size of the Lightsail disk
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -270,6 +275,9 @@ class Disk(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskArn")
     def disk_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the disk.
+        """
         return pulumi.get(self, "disk_arn")
 
     @property
@@ -299,6 +307,9 @@ class Disk(pulumi.CustomResource):
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.DiskLocation']]:
+        """
+        The AWS Region and Availability Zone where the disk is located.
+        """
         return pulumi.get(self, "location")
 
     @property

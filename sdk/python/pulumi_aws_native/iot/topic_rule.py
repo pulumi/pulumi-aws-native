@@ -24,6 +24,11 @@ class TopicRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
+        :param pulumi.Input['TopicRulePayloadArgs'] topic_rule_payload: Describes a rule.
+        :param pulumi.Input[str] rule_name: The name of the rule.
+               
+               *Pattern* : `[a-zA-Z0-9:_-]+`
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
         """
         pulumi.set(__self__, "topic_rule_payload", topic_rule_payload)
         if rule_name is not None:
@@ -34,6 +39,9 @@ class TopicRuleArgs:
     @property
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Input['TopicRulePayloadArgs']:
+        """
+        Describes a rule.
+        """
         return pulumi.get(self, "topic_rule_payload")
 
     @topic_rule_payload.setter
@@ -43,6 +51,11 @@ class TopicRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule.
+
+        *Pattern* : `[a-zA-Z0-9:_-]+`
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -52,6 +65,9 @@ class TopicRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -73,6 +89,11 @@ class TopicRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] rule_name: The name of the rule.
+               
+               *Pattern* : `[a-zA-Z0-9:_-]+`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']] topic_rule_payload: Describes a rule.
         """
         ...
     @overload
@@ -149,20 +170,34 @@ class TopicRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the rule.
+
+        *Pattern* : `[a-zA-Z0-9:_-]+`
+        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Output['outputs.TopicRulePayload']:
+        """
+        Describes a rule.
+        """
         return pulumi.get(self, "topic_rule_payload")
 

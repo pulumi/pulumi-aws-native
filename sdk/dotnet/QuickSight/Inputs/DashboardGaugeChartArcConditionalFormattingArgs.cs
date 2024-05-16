@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGaugeChartArcConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         [Input("foregroundColor")]
         public Input<Inputs.DashboardConditionalFormattingColorArgs>? ForegroundColor { get; set; }
 

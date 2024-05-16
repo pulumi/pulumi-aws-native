@@ -21,22 +21,64 @@ export function getForm(args: GetFormArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetFormArgs {
+    /**
+     * The unique ID of the Amplify app associated with the form.
+     */
     appId: string;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     environmentName: string;
+    /**
+     * The ID for the form.
+     */
     id: string;
 }
 
 export interface GetFormResult {
+    /**
+     * The `FormCTA` property specifies the call to action button configuration for the form.
+     */
     readonly cta?: outputs.amplifyuibuilder.FormCta;
+    /**
+     * The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+     */
     readonly dataType?: outputs.amplifyuibuilder.FormDataTypeConfig;
+    /**
+     * The configuration information for the form's fields.
+     */
     readonly fields?: {[key: string]: outputs.amplifyuibuilder.FormFieldConfig};
+    /**
+     * Specifies whether to perform a create or update action on the form.
+     */
     readonly formActionType?: enums.amplifyuibuilder.FormActionType;
+    /**
+     * The ID for the form.
+     */
     readonly id?: string;
+    /**
+     * Specifies an icon or decoration to display on the form.
+     */
     readonly labelDecorator?: enums.amplifyuibuilder.FormLabelDecorator;
+    /**
+     * The name of the form.
+     */
     readonly name?: string;
+    /**
+     * The schema version of the form.
+     */
     readonly schemaVersion?: string;
+    /**
+     * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+     */
     readonly sectionalElements?: {[key: string]: outputs.amplifyuibuilder.FormSectionalElement};
+    /**
+     * The `FormStyle` property specifies the configuration for the form's style.
+     */
     readonly style?: outputs.amplifyuibuilder.FormStyle;
+    /**
+     * One or more key-value pairs to use when tagging the form data.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -47,7 +89,16 @@ export function getFormOutput(args: GetFormOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetFormOutputArgs {
+    /**
+     * The unique ID of the Amplify app associated with the form.
+     */
     appId: pulumi.Input<string>;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     environmentName: pulumi.Input<string>;
+    /**
+     * The ID for the form.
+     */
     id: pulumi.Input<string>;
 }

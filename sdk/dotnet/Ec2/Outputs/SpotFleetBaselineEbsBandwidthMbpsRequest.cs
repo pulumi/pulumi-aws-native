@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetBaselineEbsBandwidthMbpsRequest
     {
+        /// <summary>
+        /// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

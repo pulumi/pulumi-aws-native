@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetVCpuCountRangeRequest
     {
+        /// <summary>
+        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of vCPUs. To specify no minimum limit, specify `0` .
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

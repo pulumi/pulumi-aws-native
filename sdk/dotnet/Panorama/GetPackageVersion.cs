@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetPackageVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A package ID.
+        /// </summary>
         [Input("packageId", required: true)]
         public string PackageId { get; set; } = null!;
 
+        /// <summary>
+        /// A package version.
+        /// </summary>
         [Input("packageVersion", required: true)]
         public string PackageVersionValue { get; set; } = null!;
 
+        /// <summary>
+        /// A patch version.
+        /// </summary>
         [Input("patchVersion", required: true)]
         public string PatchVersion { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetPackageVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A package ID.
+        /// </summary>
         [Input("packageId", required: true)]
         public Input<string> PackageId { get; set; } = null!;
 
+        /// <summary>
+        /// A package version.
+        /// </summary>
         [Input("packageVersion", required: true)]
         public Input<string> PackageVersion { get; set; } = null!;
 
+        /// <summary>
+        /// A patch version.
+        /// </summary>
         [Input("patchVersion", required: true)]
         public Input<string> PatchVersion { get; set; } = null!;
 
@@ -63,12 +81,33 @@ namespace Pulumi.AwsNative.Panorama
     [OutputType]
     public sealed class GetPackageVersionResult
     {
+        /// <summary>
+        /// Whether the package version is the latest version.
+        /// </summary>
         public readonly bool? IsLatestPatch;
+        /// <summary>
+        /// Whether to mark the new version as the latest version.
+        /// </summary>
         public readonly bool? MarkLatest;
+        /// <summary>
+        /// The package version's ARN.
+        /// </summary>
         public readonly string? PackageArn;
+        /// <summary>
+        /// The package version's name.
+        /// </summary>
         public readonly string? PackageName;
+        /// <summary>
+        /// The package version's registered time.
+        /// </summary>
         public readonly int? RegisteredTime;
+        /// <summary>
+        /// The package version's status.
+        /// </summary>
         public readonly Pulumi.AwsNative.Panorama.PackageVersionStatus? Status;
+        /// <summary>
+        /// The package version's status description.
+        /// </summary>
         public readonly string? StatusDescription;
 
         [OutputConstructor]

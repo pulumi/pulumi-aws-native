@@ -33,6 +33,20 @@ class ComponentArgs:
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None):
         """
         The set of arguments for constructing a Component resource.
+        :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]] children: The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]] collection_properties: The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        :param pulumi.Input[str] component_type: The type of the component. This can be an Amplify custom UI component or another custom component.
+        :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]] events: Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        :param pulumi.Input[str] name: The name of the component.
+        :param pulumi.Input[Mapping[str, Any]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]] properties: Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        :param pulumi.Input[str] schema_version: The schema version of the component when it was imported.
+        :param pulumi.Input[str] source_id: The unique ID of the component in its original source system, such as Figma.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the component.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]] variants: The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -66,6 +80,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the Amplify app associated with the component.
+        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -75,6 +92,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]:
+        """
+        The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
@@ -84,6 +104,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]:
+        """
+        The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        """
         return pulumi.get(self, "children")
 
     @children.setter
@@ -93,6 +116,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="collectionProperties")
     def collection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]:
+        """
+        The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        """
         return pulumi.get(self, "collection_properties")
 
     @collection_properties.setter
@@ -102,6 +128,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="componentType")
     def component_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the component. This can be an Amplify custom UI component or another custom component.
+        """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
@@ -111,6 +140,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the backend environment that is a part of the Amplify app.
+        """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
@@ -120,6 +152,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]]:
+        """
+        Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -129,6 +164,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the component.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -138,6 +176,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
@@ -147,6 +188,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]:
+        """
+        Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -156,6 +200,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema version of the component when it was imported.
+        """
         return pulumi.get(self, "schema_version")
 
     @schema_version.setter
@@ -165,6 +212,9 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the component in its original source system, such as Figma.
+        """
         return pulumi.get(self, "source_id")
 
     @source_id.setter
@@ -174,6 +224,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        One or more key-value pairs to use when tagging the component.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -183,6 +236,9 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]]:
+        """
+        The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        """
         return pulumi.get(self, "variants")
 
     @variants.setter
@@ -215,6 +271,20 @@ class Component(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentBindingPropertiesValueArgs']]]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]] children: The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentDataConfigurationArgs']]]] collection_properties: The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        :param pulumi.Input[str] component_type: The type of the component. This can be an Amplify custom UI component or another custom component.
+        :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentEventArgs']]]] events: Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        :param pulumi.Input[str] name: The name of the component.
+        :param pulumi.Input[Mapping[str, Any]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentPropertyArgs']]]] properties: Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        :param pulumi.Input[str] schema_version: The schema version of the component when it was imported.
+        :param pulumi.Input[str] source_id: The unique ID of the component in its original source system, such as Figma.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the component.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]] variants: The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
         """
         ...
     @overload
@@ -326,85 +396,136 @@ class Component(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique ID of the Amplify app associated with the component.
+        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the component.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentBindingPropertiesValue']]]:
+        """
+        The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        """
         return pulumi.get(self, "binding_properties")
 
     @property
     @pulumi.getter
     def children(self) -> pulumi.Output[Optional[Sequence['outputs.ComponentChild']]]:
+        """
+        The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        """
         return pulumi.get(self, "children")
 
     @property
     @pulumi.getter(name="collectionProperties")
     def collection_properties(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentDataConfiguration']]]:
+        """
+        The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        """
         return pulumi.get(self, "collection_properties")
 
     @property
     @pulumi.getter(name="componentType")
     def component_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the component. This can be an Amplify custom UI component or another custom component.
+        """
         return pulumi.get(self, "component_type")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time that the component was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the backend environment that is a part of the Amplify app.
+        """
         return pulumi.get(self, "environment_name")
 
     @property
     @pulumi.getter
     def events(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentEvent']]]:
+        """
+        Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        The time that the component was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the component.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def overrides(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+        """
+        Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        """
         return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentProperty']]]:
+        """
+        Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The schema version of the component when it was imported.
+        """
         return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique ID of the component in its original source system, such as Figma.
+        """
         return pulumi.get(self, "source_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        One or more key-value pairs to use when tagging the component.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def variants(self) -> pulumi.Output[Optional[Sequence['outputs.ComponentVariant']]]:
+        """
+        The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        """
         return pulumi.get(self, "variants")
 

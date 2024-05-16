@@ -37,14 +37,41 @@ export class KnowledgeBase extends pulumi.CustomResource {
         return obj['__pulumiType'] === KnowledgeBase.__pulumiType;
     }
 
+    /**
+     * The description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the knowledge base.
+     */
     public /*out*/ readonly knowledgeBaseArn!: pulumi.Output<string>;
+    /**
+     * The ID of the knowledge base.
+     */
     public /*out*/ readonly knowledgeBaseId!: pulumi.Output<string>;
+    /**
+     * The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+     */
     public readonly knowledgeBaseType!: pulumi.Output<enums.wisdom.KnowledgeBaseType>;
+    /**
+     * The name of the knowledge base.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Information about how to render the content.
+     */
     public readonly renderingConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseRenderingConfiguration | undefined>;
+    /**
+     * The configuration information for the customer managed key used for encryption.
+     */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseServerSideEncryptionConfiguration | undefined>;
+    /**
+     * Configuration information about the external data source.
+     */
     public readonly sourceConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseSourceConfiguration | undefined>;
+    /**
+     * Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -92,11 +119,32 @@ export class KnowledgeBase extends pulumi.CustomResource {
  * The set of arguments for constructing a KnowledgeBase resource.
  */
 export interface KnowledgeBaseArgs {
+    /**
+     * The description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+     */
     knowledgeBaseType: pulumi.Input<enums.wisdom.KnowledgeBaseType>;
+    /**
+     * The name of the knowledge base.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Information about how to render the content.
+     */
     renderingConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseRenderingConfigurationArgs>;
+    /**
+     * The configuration information for the customer managed key used for encryption.
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs>;
+    /**
+     * Configuration information about the external data source.
+     */
     sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfigurationArgs>;
+    /**
+     * Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

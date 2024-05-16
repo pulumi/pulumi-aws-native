@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableCellStyle
     {
+        /// <summary>
+        /// The background color for the table cells.
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// Determines the border options for a table visual.
+        /// </summary>
         public readonly Outputs.AnalysisGlobalTableBorderOptions? Border;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// The height color for the table cells.
+        /// </summary>
         public readonly double? Height;
+        /// <summary>
+        /// The horizontal text alignment (left, center, right, auto) for the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisHorizontalTextAlignment? HorizontalTextAlignment;
+        /// <summary>
+        /// The text wrap (none, wrap) for the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTextWrap? TextWrap;
+        /// <summary>
+        /// The vertical text alignment (top, middle, bottom) for the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVerticalTextAlignment? VerticalTextAlignment;
+        /// <summary>
+        /// The visibility of the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

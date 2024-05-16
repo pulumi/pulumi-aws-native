@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             themes initially inherit from a default Amazon QuickSight theme.&lt;/p&gt;
         /// </summary>
         public readonly string? BaseThemeId;
+        /// <summary>
+        /// The theme configuration. This configuration contains all of the display properties for a theme.
+        /// </summary>
         public readonly Outputs.ThemeConfiguration? Configuration;
         /// <summary>
         /// &lt;p&gt;The date and time that this theme version was created.&lt;/p&gt;
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Errors associated with the theme.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.ThemeError> Errors;
+        /// <summary>
+        /// The status of the theme version.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.ThemeResourceStatus? Status;
         /// <summary>
         /// &lt;p&gt;The version number of the theme.&lt;/p&gt;

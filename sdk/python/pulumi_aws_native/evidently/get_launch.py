@@ -49,11 +49,17 @@ class GetLaunchResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description for the launch.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -67,21 +73,33 @@ class GetLaunchResult:
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.LaunchGroupObject']]:
+        """
+        A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="metricMonitors")
     def metric_monitors(self) -> Optional[Sequence['outputs.LaunchMetricDefinitionObject']]:
+        """
+        This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        """
         return pulumi.get(self, "metric_monitors")
 
     @property
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> Optional[str]:
+        """
+        When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+        """
         return pulumi.get(self, "randomization_salt")
 
     @property
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> Optional[Sequence['outputs.LaunchStepConfig']]:
+        """
+        A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        """
         return pulumi.get(self, "scheduled_splits_config")
 
     @property
@@ -113,6 +131,9 @@ def get_launch(arn: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchResult:
     """
     Resource Type definition for AWS::Evidently::Launch.
+
+
+    :param str arn: The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -135,5 +156,8 @@ def get_launch_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchResult]:
     """
     Resource Type definition for AWS::Evidently::Launch.
+
+
+    :param str arn: The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
     """
     ...

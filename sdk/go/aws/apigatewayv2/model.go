@@ -22,7 +22,8 @@ type Model struct {
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// The description of the model.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	ModelId     pulumi.StringOutput    `pulumi:"modelId"`
+	// The model ID.
+	ModelId pulumi.StringOutput `pulumi:"modelId"`
 	// The name of the model.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
@@ -163,6 +164,7 @@ func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The model ID.
 func (o ModelOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ModelId }).(pulumi.StringOutput)
 }

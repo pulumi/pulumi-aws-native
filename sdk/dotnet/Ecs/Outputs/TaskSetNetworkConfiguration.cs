@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class TaskSetNetworkConfiguration
     {
+        /// <summary>
+        /// An object representing the networking details for a task or service. For example `awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}`
+        /// </summary>
         public readonly Outputs.TaskSetAwsVpcConfiguration? AwsVpcConfiguration;
 
         [OutputConstructor]

@@ -13,7 +13,24 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetLaunchTemplateConfig
     {
+        /// <summary>
+        /// Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
+        /// 
+        /// You must specify the following:
+        /// 
+        /// - The ID or the name of the launch template, but not both.
+        /// - The version of the launch template.
+        /// 
+        /// `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
+        /// 
+        /// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
+        /// 
+        /// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        /// </summary>
         public readonly Outputs.SpotFleetFleetLaunchTemplateSpecification? LaunchTemplateSpecification;
+        /// <summary>
+        /// Specifies overrides for a launch template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetLaunchTemplateOverrides> Overrides;
 
         [OutputConstructor]

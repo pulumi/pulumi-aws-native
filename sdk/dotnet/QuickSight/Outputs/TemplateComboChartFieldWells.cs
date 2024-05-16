@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateComboChartFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a combo chart.
+        /// </summary>
         public readonly Outputs.TemplateComboChartAggregatedFieldWells? ComboChartAggregatedFieldWells;
 
         [OutputConstructor]

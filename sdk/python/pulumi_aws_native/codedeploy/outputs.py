@@ -24,17 +24,45 @@ class DeploymentConfigMinimumHealthyHosts(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
+        """
+        :param str type: The minimum healthy instance type:
+               
+               - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+               - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+               
+               In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+               
+               > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful. 
+               
+               For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+        :param int value: The minimum healthy instance value.
+        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The minimum healthy instance type:
+
+        - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+        - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+
+        In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+
+        > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful. 
+
+        For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> int:
+        """
+        The minimum healthy instance value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -43,17 +71,27 @@ class DeploymentConfigMinimumHealthyHostsPerZone(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
+        """
+        :param str type: The `type` associated with the `MinimumHealthyHostsPerZone` option.
+        :param int value: The `value` associated with the `MinimumHealthyHostsPerZone` option.
+        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The `type` associated with the `MinimumHealthyHostsPerZone` option.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> int:
+        """
+        The `value` associated with the `MinimumHealthyHostsPerZone` option.
+        """
         return pulumi.get(self, "value")
 
 
@@ -81,17 +119,27 @@ class DeploymentConfigTimeBasedCanary(dict):
     def __init__(__self__, *,
                  canary_interval: int,
                  canary_percentage: int):
+        """
+        :param int canary_interval: The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        :param int canary_percentage: The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        """
         pulumi.set(__self__, "canary_interval", canary_interval)
         pulumi.set(__self__, "canary_percentage", canary_percentage)
 
     @property
     @pulumi.getter(name="canaryInterval")
     def canary_interval(self) -> int:
+        """
+        The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        """
         return pulumi.get(self, "canary_interval")
 
     @property
     @pulumi.getter(name="canaryPercentage")
     def canary_percentage(self) -> int:
+        """
+        The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        """
         return pulumi.get(self, "canary_percentage")
 
 
@@ -119,17 +167,27 @@ class DeploymentConfigTimeBasedLinear(dict):
     def __init__(__self__, *,
                  linear_interval: int,
                  linear_percentage: int):
+        """
+        :param int linear_interval: The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        :param int linear_percentage: The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        """
         pulumi.set(__self__, "linear_interval", linear_interval)
         pulumi.set(__self__, "linear_percentage", linear_percentage)
 
     @property
     @pulumi.getter(name="linearInterval")
     def linear_interval(self) -> int:
+        """
+        The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        """
         return pulumi.get(self, "linear_interval")
 
     @property
     @pulumi.getter(name="linearPercentage")
     def linear_percentage(self) -> int:
+        """
+        The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        """
         return pulumi.get(self, "linear_percentage")
 
 
@@ -158,6 +216,11 @@ class DeploymentConfigTrafficRoutingConfig(dict):
                  type: str,
                  time_based_canary: Optional['outputs.DeploymentConfigTimeBasedCanary'] = None,
                  time_based_linear: Optional['outputs.DeploymentConfigTimeBasedLinear'] = None):
+        """
+        :param str type: The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
+        :param 'DeploymentConfigTimeBasedCanary' time_based_canary: A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        :param 'DeploymentConfigTimeBasedLinear' time_based_linear: A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        """
         pulumi.set(__self__, "type", type)
         if time_based_canary is not None:
             pulumi.set(__self__, "time_based_canary", time_based_canary)
@@ -167,16 +230,25 @@ class DeploymentConfigTrafficRoutingConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="timeBasedCanary")
     def time_based_canary(self) -> Optional['outputs.DeploymentConfigTimeBasedCanary']:
+        """
+        A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        """
         return pulumi.get(self, "time_based_canary")
 
     @property
     @pulumi.getter(name="timeBasedLinear")
     def time_based_linear(self) -> Optional['outputs.DeploymentConfigTimeBasedLinear']:
+        """
+        A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        """
         return pulumi.get(self, "time_based_linear")
 
 
@@ -207,6 +279,15 @@ class DeploymentConfigZonalConfig(dict):
                  first_zone_monitor_duration_in_seconds: Optional[int] = None,
                  minimum_healthy_hosts_per_zone: Optional['outputs.DeploymentConfigMinimumHealthyHostsPerZone'] = None,
                  monitor_duration_in_seconds: Optional[int] = None):
+        """
+        :param int first_zone_monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+               
+               For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        :param 'DeploymentConfigMinimumHealthyHostsPerZone' minimum_healthy_hosts_per_zone: Information about the minimum number of healthy instances per Availability Zone.
+        :param int monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+               
+               For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        """
         if first_zone_monitor_duration_in_seconds is not None:
             pulumi.set(__self__, "first_zone_monitor_duration_in_seconds", first_zone_monitor_duration_in_seconds)
         if minimum_healthy_hosts_per_zone is not None:
@@ -217,16 +298,29 @@ class DeploymentConfigZonalConfig(dict):
     @property
     @pulumi.getter(name="firstZoneMonitorDurationInSeconds")
     def first_zone_monitor_duration_in_seconds(self) -> Optional[int]:
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+
+        For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        """
         return pulumi.get(self, "first_zone_monitor_duration_in_seconds")
 
     @property
     @pulumi.getter(name="minimumHealthyHostsPerZone")
     def minimum_healthy_hosts_per_zone(self) -> Optional['outputs.DeploymentConfigMinimumHealthyHostsPerZone']:
+        """
+        Information about the minimum number of healthy instances per Availability Zone.
+        """
         return pulumi.get(self, "minimum_healthy_hosts_per_zone")
 
     @property
     @pulumi.getter(name="monitorDurationInSeconds")
     def monitor_duration_in_seconds(self) -> Optional[int]:
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+
+        For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        """
         return pulumi.get(self, "monitor_duration_in_seconds")
 
 

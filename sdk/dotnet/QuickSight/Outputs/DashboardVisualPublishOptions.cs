@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardVisualPublishOptions
     {
+        /// <summary>
+        /// Determines if hidden fields are included in an exported dashboard.
+        /// </summary>
         public readonly Outputs.DashboardExportHiddenFieldsOption? ExportHiddenFieldsOption;
 
         [OutputConstructor]

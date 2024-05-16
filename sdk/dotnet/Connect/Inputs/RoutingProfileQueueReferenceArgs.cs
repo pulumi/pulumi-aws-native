@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class RoutingProfileQueueReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        /// </summary>
         [Input("channel", required: true)]
         public Input<Pulumi.AwsNative.Connect.RoutingProfileChannel> Channel { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         [Input("queueArn", required: true)]
         public Input<string> QueueArn { get; set; } = null!;
 

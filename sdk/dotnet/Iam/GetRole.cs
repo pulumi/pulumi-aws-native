@@ -65,6 +65,13 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetRoleResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the role. For example:
+        /// 
+        /// `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+        /// 
+        /// This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
@@ -99,6 +106,11 @@ namespace Pulumi.AwsNative.Iam
         ///   If an external policy (such as ``AWS::IAM::Policy`` or
         /// </summary>
         public readonly ImmutableArray<Outputs.RolePolicy> Policies;
+        /// <summary>
+        /// Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+        /// 
+        /// For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly string? RoleId;
         /// <summary>
         /// A list of tags that are attached to the role. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.

@@ -13,21 +13,75 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisComboChartConfiguration
     {
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? BarDataLabels;
+        /// <summary>
+        /// Determines the bar arrangement in a combo chart. The following are valid values in this structure:
+        /// 
+        /// - `CLUSTERED` : For clustered bar combo charts.
+        /// - `STACKED` : For stacked bar combo charts.
+        /// - `STACKED_PERCENT` : Do not use. If you use this value, the operation returns a validation error.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisBarsArrangement? BarsArrangement;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? ColorLabelOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisComboChartFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? LineDataLabels;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? SecondaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        /// <summary>
+        /// The sort configuration of a `ComboChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisComboChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
 
         [OutputConstructor]

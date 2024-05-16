@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFieldSeriesItem
     {
+        /// <summary>
+        /// The axis that you are binding the field to.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisAxisBinding AxisBinding;
+        /// <summary>
+        /// The field ID of the field for which you are setting the axis binding.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The options that determine the presentation of a line series in the visual
+        /// </summary>
         public readonly Outputs.AnalysisLineChartSeriesSettings? Settings;
 
         [OutputConstructor]

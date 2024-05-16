@@ -37,6 +37,9 @@ export interface GetSchemaMappingResult {
      */
     readonly mappedInputFields?: outputs.entityresolution.SchemaMappingSchemaInputAttribute[];
     readonly schemaArn?: string;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;
 }

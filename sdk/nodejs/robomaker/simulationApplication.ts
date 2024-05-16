@@ -131,6 +131,9 @@ export class SimulationApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === SimulationApplication.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The current revision id.
@@ -160,6 +163,9 @@ export class SimulationApplication extends pulumi.CustomResource {
      * The sources of the simulation application.
      */
     public readonly sources!: pulumi.Output<outputs.robomaker.SimulationApplicationSourceConfig[] | undefined>;
+    /**
+     * A map that contains tag keys and tag values that are attached to the simulation application.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -238,5 +244,8 @@ export interface SimulationApplicationArgs {
      * The sources of the simulation application.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[]>;
+    /**
+     * A map that contains tag keys and tag values that are attached to the simulation application.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

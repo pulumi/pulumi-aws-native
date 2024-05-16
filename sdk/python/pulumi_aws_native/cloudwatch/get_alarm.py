@@ -115,6 +115,9 @@ class GetAlarmResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -234,6 +237,9 @@ class GetAlarmResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+        """
         return pulumi.get(self, "tags")
 
     @property

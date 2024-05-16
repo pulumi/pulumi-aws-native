@@ -12,23 +12,46 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The filter new feature which can apply filter group to all data sets. Choose one of the following options:
+        /// 
+        /// - `ALL_DATASETS`
+        /// - `SINGLE_DATASET`
+        /// </summary>
         [Input("crossDataset", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardCrossDatasetTypes> CrossDataset { get; set; } = null!;
 
+        /// <summary>
+        /// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
+        /// </summary>
         [Input("filterGroupId", required: true)]
         public Input<string> FilterGroupId { get; set; } = null!;
 
         [Input("filters", required: true)]
         private InputList<Inputs.DashboardFilterArgs>? _filters;
+
+        /// <summary>
+        /// With a `Filter` , you can remove portions of data from a particular visual or view.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.DashboardFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// The scope configuration for a `FilterGroup` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("scopeConfiguration", required: true)]
         public Input<Inputs.DashboardFilterScopeConfigurationArgs> ScopeConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the `FilterGroup` .
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardWidgetStatus>? Status { get; set; }
 

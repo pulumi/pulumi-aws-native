@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.IvsChat
         /// LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+        /// </summary>
         public readonly Outputs.LoggingConfigurationDestinationConfiguration? DestinationConfiguration;
         /// <summary>
         /// The system-generated ID of the logging configuration.

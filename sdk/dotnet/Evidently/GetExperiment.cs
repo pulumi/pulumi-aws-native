@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetExperimentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetExperimentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,22 +57,53 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetExperimentResult
     {
+        /// <summary>
+        /// The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// An optional description of the experiment.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentMetricGoalObject> MetricGoals;
+        /// <summary>
+        /// A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        /// </summary>
         public readonly Outputs.ExperimentOnlineAbConfigObject? OnlineAbConfig;
+        /// <summary>
+        /// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+        /// </summary>
         public readonly string? RandomizationSalt;
+        /// <summary>
+        /// Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+        /// </summary>
         public readonly bool? RemoveSegment;
         /// <summary>
         /// Start Experiment. Default is False
         /// </summary>
         public readonly Outputs.ExperimentRunningStatusObject? RunningStatus;
+        /// <summary>
+        /// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+        /// 
+        /// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+        /// </summary>
         public readonly int? SamplingRate;
+        /// <summary>
+        /// Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+        /// 
+        /// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        /// </summary>
         public readonly string? Segment;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTreatmentObject> Treatments;
 
         [OutputConstructor]

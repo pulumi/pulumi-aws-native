@@ -37,6 +37,13 @@ class GetIdentitySourceResult:
     @property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.IdentitySourceConfiguration']:
+        """
+        A structure that contains configuration information used when creating or updating a new identity source.
+
+        > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
+        > 
+        > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -47,11 +54,17 @@ class GetIdentitySourceResult:
     @property
     @pulumi.getter(name="identitySourceId")
     def identity_source_id(self) -> Optional[str]:
+        """
+        The unique ID of the new or updated identity store.
+        """
         return pulumi.get(self, "identity_source_id")
 
     @property
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> Optional[str]:
+        """
+        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        """
         return pulumi.get(self, "principal_entity_type")
 
 
@@ -72,6 +85,10 @@ def get_identity_source(identity_source_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentitySourceResult:
     """
     Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
+
+
+    :param str identity_source_id: The unique ID of the new or updated identity store.
+    :param str policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
     """
     __args__ = dict()
     __args__['identitySourceId'] = identity_source_id
@@ -92,5 +109,9 @@ def get_identity_source_output(identity_source_id: Optional[pulumi.Input[str]] =
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentitySourceResult]:
     """
     Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
+
+
+    :param str identity_source_id: The unique ID of the new or updated identity store.
+    :param str policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
     """
     ...

@@ -16,16 +16,26 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationArn pulumi.StringOutput         `pulumi:"applicationArn"`
-	ApplicationId  pulumi.StringOutput         `pulumi:"applicationId"`
-	Definition     pulumi.AnyOutput            `pulumi:"definition"`
-	Description    pulumi.StringPtrOutput      `pulumi:"description"`
-	EngineType     ApplicationEngineTypeOutput `pulumi:"engineType"`
+	// The Amazon Resource Name (ARN) of the application.
+	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
+	// The identifier of the application.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	Definition pulumi.AnyOutput `pulumi:"definition"`
+	// The description of the application.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The type of the target platform for this application.
+	EngineType ApplicationEngineTypeOutput `pulumi:"engineType"`
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	Name     pulumi.StringOutput    `pulumi:"name"`
-	RoleArn  pulumi.StringPtrOutput `pulumi:"roleArn"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	// The name of the application.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the role associated with the application.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -81,26 +91,42 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	Definition  interface{}           `pulumi:"definition"`
-	Description *string               `pulumi:"description"`
-	EngineType  ApplicationEngineType `pulumi:"engineType"`
+	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	Definition interface{} `pulumi:"definition"`
+	// The description of the application.
+	Description *string `pulumi:"description"`
+	// The type of the target platform for this application.
+	EngineType ApplicationEngineType `pulumi:"engineType"`
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
-	KmsKeyId *string           `pulumi:"kmsKeyId"`
-	Name     *string           `pulumi:"name"`
-	RoleArn  *string           `pulumi:"roleArn"`
-	Tags     map[string]string `pulumi:"tags"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The name of the application.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the role associated with the application.
+	RoleArn *string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	Definition  pulumi.Input
+	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	Definition pulumi.Input
+	// The description of the application.
 	Description pulumi.StringPtrInput
-	EngineType  ApplicationEngineTypeInput
+	// The type of the target platform for this application.
+	EngineType ApplicationEngineTypeInput
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
 	KmsKeyId pulumi.StringPtrInput
-	Name     pulumi.StringPtrInput
-	RoleArn  pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// The name of the application.
+	Name pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the role associated with the application.
+	RoleArn pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -140,22 +166,27 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the application.
 func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the application.
 func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
 func (o ApplicationOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }
 
+// The description of the application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The type of the target platform for this application.
 func (o ApplicationOutput) EngineType() ApplicationEngineTypeOutput {
 	return o.ApplyT(func(v *Application) ApplicationEngineTypeOutput { return v.EngineType }).(ApplicationEngineTypeOutput)
 }
@@ -165,14 +196,19 @@ func (o ApplicationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role associated with the application.
 func (o ApplicationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

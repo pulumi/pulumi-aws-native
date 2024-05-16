@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? Height;
+        /// <summary>
+        /// The configuration of spacing (often a margin or padding).
+        /// </summary>
         public readonly Outputs.AnalysisSpacing? Padding;
 
         [OutputConstructor]

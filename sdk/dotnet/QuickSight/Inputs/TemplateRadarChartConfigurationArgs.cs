@@ -12,48 +12,93 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateRadarChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the visibility of the colors of alternatign bands in a radar chart.
+        /// </summary>
         [Input("alternateBandColorsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? AlternateBandColorsVisibility { get; set; }
 
+        /// <summary>
+        /// The color of the even-numbered alternate bands of a radar chart.
+        /// </summary>
         [Input("alternateBandEvenColor")]
         public Input<string>? AlternateBandEvenColor { get; set; }
 
+        /// <summary>
+        /// The color of the odd-numbered alternate bands of a radar chart.
+        /// </summary>
         [Input("alternateBandOddColor")]
         public Input<string>? AlternateBandOddColor { get; set; }
 
+        /// <summary>
+        /// The axis behavior options of a radar chart.
+        /// </summary>
         [Input("axesRangeScale")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateRadarChartAxesRangeScale>? AxesRangeScale { get; set; }
 
+        /// <summary>
+        /// The series settings of a radar chart.
+        /// </summary>
         [Input("baseSeriesSettings")]
         public Input<Inputs.TemplateRadarChartSeriesSettingsArgs>? BaseSeriesSettings { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("colorAxis")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? ColorAxis { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
+        /// <summary>
+        /// The field wells of a radar chart visual.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateRadarChartFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.TemplateLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The shape of the radar chart.
+        /// </summary>
         [Input("shape")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateRadarChartShape>? Shape { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a `RadarChartVisual` .
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplateRadarChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The start angle of a radar chart's axis.
+        /// </summary>
         [Input("startAngle")]
         public Input<double>? StartAngle { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.TemplateVisualPaletteArgs>? VisualPalette { get; set; }
 

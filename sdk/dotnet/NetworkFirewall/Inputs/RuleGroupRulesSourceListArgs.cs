@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRulesSourceListArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether you want to allow or deny access to the domains in your target list.
+        /// </summary>
         [Input("generatedRulesType", required: true)]
         public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupGeneratedRulesType> GeneratedRulesType { get; set; } = null!;
 
         [Input("targetTypes", required: true)]
         private InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType>? _targetTypes;
+
+        /// <summary>
+        /// The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType> TargetTypes
         {
             get => _targetTypes ?? (_targetTypes = new InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType>());
@@ -25,6 +32,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("targets", required: true)]
         private InputList<string>? _targets;
+
+        /// <summary>
+        /// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
+        /// 
+        /// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
+        /// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
+        /// </summary>
         public InputList<string> Targets
         {
             get => _targets ?? (_targets = new InputList<string>());

@@ -37,16 +37,25 @@ class GetBillingGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the billing group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="billingGroupProperties")
     def billing_group_properties(self) -> Optional['outputs.BillingGroupPropertiesProperties']:
+        """
+        The properties of the billing group.
+        """
         return pulumi.get(self, "billing_group_properties")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the billing group.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -74,6 +83,9 @@ def get_billing_group(billing_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingGroupResult:
     """
     Resource Type definition for AWS::IoT::BillingGroup
+
+
+    :param str billing_group_name: The name of the billing group.
     """
     __args__ = dict()
     __args__['billingGroupName'] = billing_group_name
@@ -92,5 +104,8 @@ def get_billing_group_output(billing_group_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingGroupResult]:
     """
     Resource Type definition for AWS::IoT::BillingGroup
+
+
+    :param str billing_group_name: The name of the billing group.
     """
     ...

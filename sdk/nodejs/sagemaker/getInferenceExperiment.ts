@@ -34,6 +34,11 @@ export interface GetInferenceExperimentResult {
      * The timestamp at which you created the inference experiment.
      */
     readonly creationTime?: string;
+    /**
+     * The Amazon S3 location and configuration for storing inference request and response data.
+     *
+     * This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
+     */
     readonly dataStorageConfig?: outputs.sagemaker.InferenceExperimentDataStorageConfig;
     /**
      * The description of the inference experiment.
@@ -43,6 +48,9 @@ export interface GetInferenceExperimentResult {
      * The desired state of the experiment after starting or stopping operation.
      */
     readonly desiredState?: enums.sagemaker.InferenceExperimentDesiredState;
+    /**
+     * The metadata of the endpoint.
+     */
     readonly endpointMetadata?: outputs.sagemaker.InferenceExperimentEndpointMetadata;
     /**
      * The timestamp at which you last modified the inference experiment.
@@ -52,7 +60,15 @@ export interface GetInferenceExperimentResult {
      * An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
      */
     readonly modelVariants?: outputs.sagemaker.InferenceExperimentModelVariantConfig[];
+    /**
+     * The start and end times of an inference experiment.
+     *
+     * The maximum duration that you can set for an inference experiment is 30 days.
+     */
     readonly schedule?: outputs.sagemaker.InferenceExperimentSchedule;
+    /**
+     * The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+     */
     readonly shadowModeConfig?: outputs.sagemaker.InferenceExperimentShadowModeConfig;
     /**
      * The status of the inference experiment.

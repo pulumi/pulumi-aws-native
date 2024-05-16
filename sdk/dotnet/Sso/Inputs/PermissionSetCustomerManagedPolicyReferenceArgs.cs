@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Sso.Inputs
 
     public sealed class PermissionSetCustomerManagedPolicyReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

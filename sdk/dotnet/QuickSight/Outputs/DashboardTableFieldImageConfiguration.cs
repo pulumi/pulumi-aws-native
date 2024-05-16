@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableFieldImageConfiguration
     {
+        /// <summary>
+        /// The sizing options for the table image configuration.
+        /// </summary>
         public readonly Outputs.DashboardTableCellImageSizingConfiguration? SizingOptions;
 
         [OutputConstructor]

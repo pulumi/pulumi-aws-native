@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFontWeight
     {
+        /// <summary>
+        /// The lexical name for the level of boldness of the text display.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardFontWeightName? Name;
 
         [OutputConstructor]

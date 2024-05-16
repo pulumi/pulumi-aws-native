@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWaterfallChartColorConfiguration
     {
+        /// <summary>
+        /// The color configuration for individual groups within a waterfall visual.
+        /// </summary>
         public readonly Outputs.AnalysisWaterfallChartGroupColorConfiguration? GroupColorConfiguration;
 
         [OutputConstructor]

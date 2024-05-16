@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileBasicAuthCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password to use to connect to a resource.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The username to use to connect to a resource.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

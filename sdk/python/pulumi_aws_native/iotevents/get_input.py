@@ -34,6 +34,9 @@ class GetInputResult:
     @property
     @pulumi.getter(name="inputDefinition")
     def input_definition(self) -> Optional['outputs.InputDefinition']:
+        """
+        The definition of the input.
+        """
         return pulumi.get(self, "input_definition")
 
     @property

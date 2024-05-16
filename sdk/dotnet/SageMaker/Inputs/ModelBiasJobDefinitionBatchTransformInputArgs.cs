@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("dataCapturedDestinationS3Uri", required: true)]
         public Input<string> DataCapturedDestinationS3Uri { get; set; } = null!;
 
+        /// <summary>
+        /// The dataset format for your batch transform job.
+        /// </summary>
         [Input("datasetFormat", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionDatasetFormatArgs> DatasetFormat { get; set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("probabilityAttribute")]
         public Input<string>? ProbabilityAttribute { get; set; }
 
+        /// <summary>
+        /// The threshold for the class probability to be evaluated as a positive result.
+        /// </summary>
         [Input("probabilityThresholdAttribute")]
         public Input<double>? ProbabilityThresholdAttribute { get; set; }
 

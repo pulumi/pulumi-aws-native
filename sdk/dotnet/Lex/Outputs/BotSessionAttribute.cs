@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSessionAttribute
     {
+        /// <summary>
+        /// The name of the session attribute.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The session-specific context information for the session attribute.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

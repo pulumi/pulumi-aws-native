@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// Step action operation
         /// </summary>
         public readonly string Operation;
+        /// <summary>
+        /// Contextual parameters for the transformation.
+        /// </summary>
         public readonly Union<Outputs.RecipeParameters, ImmutableDictionary<string, string>>? Parameters;
 
         [OutputConstructor]

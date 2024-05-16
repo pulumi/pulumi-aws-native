@@ -30,8 +30,9 @@ type EventStream struct {
 	// The operational state of destination stream for export.
 	State EventStreamStateEnumOutput `pulumi:"state"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
-	Uri  pulumi.StringOutput `pulumi:"uri"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewEventStream registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,8 @@ type eventStreamArgs struct {
 	EventStreamName *string `pulumi:"eventStreamName"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	Uri  string    `pulumi:"uri"`
+	// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+	Uri string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a EventStream resource.
@@ -103,7 +105,8 @@ type EventStreamArgs struct {
 	EventStreamName pulumi.StringPtrInput
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayInput
-	Uri  pulumi.StringInput
+	// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+	Uri pulumi.StringInput
 }
 
 func (EventStreamArgs) ElementType() reflect.Type {
@@ -178,6 +181,7 @@ func (o EventStreamOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EventStream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
 func (o EventStreamOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }

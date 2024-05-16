@@ -37,9 +37,23 @@ export class TopicRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicRule.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the rule.
+     *
+     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     */
     public readonly ruleName!: pulumi.Output<string | undefined>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Describes a rule.
+     */
     public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRulePayload>;
 
     /**
@@ -77,7 +91,18 @@ export class TopicRule extends pulumi.CustomResource {
  * The set of arguments for constructing a TopicRule resource.
  */
 export interface TopicRuleArgs {
+    /**
+     * The name of the rule.
+     *
+     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     */
     ruleName?: pulumi.Input<string>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Describes a rule.
+     */
     topicRulePayload: pulumi.Input<inputs.iot.TopicRulePayloadArgs>;
 }

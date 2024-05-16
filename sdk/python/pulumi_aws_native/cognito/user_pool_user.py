@@ -26,6 +26,32 @@ class UserPoolUserArgs:
                  validation_data: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolUser resource.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_metadata: A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+               
+               You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the *pre sign-up* trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a `clientMetadata` attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda , you can process the `clientMetadata` value to enhance your workflow for your specific needs.
+               
+               For more information, see [Customizing user pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) in the *Amazon Cognito Developer Guide* .
+               
+               > When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:
+               > 
+               > - Store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.
+               > - Validate the ClientMetadata value.
+               > - Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] desired_delivery_mediums: Specify `"EMAIL"` if email will be used to send the welcome message. Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
+        :param pulumi.Input[bool] force_alias_creation: This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
+               
+               If this parameter is set to `True` and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
+               
+               If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
+        :param pulumi.Input[str] message_action: Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]] user_attributes: Specifies whether the attribute is standard or custom.
+        :param pulumi.Input[str] username: The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
+               
+               - The username can't be a duplicate of another username in the same user pool.
+               - You can't change the value of a username after you create it.
+               - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]] validation_data: Specifies whether the attribute is standard or custom.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if client_metadata is not None:
@@ -46,6 +72,9 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool where the user will be created.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -55,6 +84,19 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="clientMetadata")
     def client_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+
+        You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the *pre sign-up* trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a `clientMetadata` attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda , you can process the `clientMetadata` value to enhance your workflow for your specific needs.
+
+        For more information, see [Customizing user pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) in the *Amazon Cognito Developer Guide* .
+
+        > When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:
+        > 
+        > - Store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.
+        > - Validate the ClientMetadata value.
+        > - Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.
+        """
         return pulumi.get(self, "client_metadata")
 
     @client_metadata.setter
@@ -64,6 +106,9 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="desiredDeliveryMediums")
     def desired_delivery_mediums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify `"EMAIL"` if email will be used to send the welcome message. Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
+        """
         return pulumi.get(self, "desired_delivery_mediums")
 
     @desired_delivery_mediums.setter
@@ -73,6 +118,13 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="forceAliasCreation")
     def force_alias_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
+
+        If this parameter is set to `True` and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
+
+        If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
+        """
         return pulumi.get(self, "force_alias_creation")
 
     @force_alias_creation.setter
@@ -82,6 +134,9 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="messageAction")
     def message_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
+        """
         return pulumi.get(self, "message_action")
 
     @message_action.setter
@@ -91,6 +146,9 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="userAttributes")
     def user_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
+        """
+        Specifies whether the attribute is standard or custom.
+        """
         return pulumi.get(self, "user_attributes")
 
     @user_attributes.setter
@@ -100,6 +158,13 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
+
+        - The username can't be a duplicate of another username in the same user pool.
+        - You can't change the value of a username after you create it.
+        - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -109,6 +174,9 @@ class UserPoolUserArgs:
     @property
     @pulumi.getter(name="validationData")
     def validation_data(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
+        """
+        Specifies whether the attribute is standard or custom.
+        """
         return pulumi.get(self, "validation_data")
 
     @validation_data.setter
@@ -135,6 +203,32 @@ class UserPoolUser(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_metadata: A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+               
+               You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the *pre sign-up* trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a `clientMetadata` attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda , you can process the `clientMetadata` value to enhance your workflow for your specific needs.
+               
+               For more information, see [Customizing user pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) in the *Amazon Cognito Developer Guide* .
+               
+               > When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:
+               > 
+               > - Store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.
+               > - Validate the ClientMetadata value.
+               > - Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] desired_delivery_mediums: Specify `"EMAIL"` if email will be used to send the welcome message. Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
+        :param pulumi.Input[bool] force_alias_creation: This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
+               
+               If this parameter is set to `True` and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
+               
+               If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
+        :param pulumi.Input[str] message_action: Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] user_attributes: Specifies whether the attribute is standard or custom.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
+        :param pulumi.Input[str] username: The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
+               
+               - The username can't be a duplicate of another username in the same user pool.
+               - You can't change the value of a username after you create it.
+               - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] validation_data: Specifies whether the attribute is standard or custom.
         """
         ...
     @overload
@@ -224,40 +318,82 @@ class UserPoolUser(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientMetadata")
     def client_metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+
+        You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the *pre sign-up* trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a `clientMetadata` attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda , you can process the `clientMetadata` value to enhance your workflow for your specific needs.
+
+        For more information, see [Customizing user pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) in the *Amazon Cognito Developer Guide* .
+
+        > When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:
+        > 
+        > - Store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.
+        > - Validate the ClientMetadata value.
+        > - Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.
+        """
         return pulumi.get(self, "client_metadata")
 
     @property
     @pulumi.getter(name="desiredDeliveryMediums")
     def desired_delivery_mediums(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specify `"EMAIL"` if email will be used to send the welcome message. Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
+        """
         return pulumi.get(self, "desired_delivery_mediums")
 
     @property
     @pulumi.getter(name="forceAliasCreation")
     def force_alias_creation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
+
+        If this parameter is set to `True` and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
+
+        If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
+        """
         return pulumi.get(self, "force_alias_creation")
 
     @property
     @pulumi.getter(name="messageAction")
     def message_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
+        """
         return pulumi.get(self, "message_action")
 
     @property
     @pulumi.getter(name="userAttributes")
     def user_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolUserAttributeType']]]:
+        """
+        Specifies whether the attribute is standard or custom.
+        """
         return pulumi.get(self, "user_attributes")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID for the user pool where the user will be created.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
+        """
+        The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
+
+        - The username can't be a duplicate of another username in the same user pool.
+        - You can't change the value of a username after you create it.
+        - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="validationData")
     def validation_data(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolUserAttributeType']]]:
+        """
+        Specifies whether the attribute is standard or custom.
+        """
         return pulumi.get(self, "validation_data")
 

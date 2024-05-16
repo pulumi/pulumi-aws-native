@@ -17,13 +17,32 @@ import (
 type RestoreTestingPlan struct {
 	pulumi.CustomResourceState
 
-	RecoveryPointSelection     RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput `pulumi:"recoveryPointSelection"`
-	RestoreTestingPlanArn      pulumi.StringOutput                                          `pulumi:"restoreTestingPlanArn"`
-	RestoreTestingPlanName     pulumi.StringOutput                                          `pulumi:"restoreTestingPlanName"`
-	ScheduleExpression         pulumi.StringOutput                                          `pulumi:"scheduleExpression"`
-	ScheduleExpressionTimezone pulumi.StringPtrOutput                                       `pulumi:"scheduleExpressionTimezone"`
-	StartWindowHours           pulumi.IntPtrOutput                                          `pulumi:"startWindowHours"`
-	Tags                       aws.TagArrayOutput                                           `pulumi:"tags"`
+	// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+	//
+	// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+	//
+	// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+	//
+	// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+	//
+	// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+	//
+	// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+	RecoveryPointSelection RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput `pulumi:"recoveryPointSelection"`
+	// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+	RestoreTestingPlanArn pulumi.StringOutput `pulumi:"restoreTestingPlanArn"`
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+	RestoreTestingPlanName pulumi.StringOutput `pulumi:"restoreTestingPlanName"`
+	// A CRON expression in specified timezone when a restore testing plan is executed.
+	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
+	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+	ScheduleExpressionTimezone pulumi.StringPtrOutput `pulumi:"scheduleExpressionTimezone"`
+	// Defaults to 24 hours.
+	//
+	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+	StartWindowHours pulumi.IntPtrOutput `pulumi:"startWindowHours"`
+	// The tags to assign to the restore testing plan.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRestoreTestingPlan registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +95,58 @@ func (RestoreTestingPlanState) ElementType() reflect.Type {
 }
 
 type restoreTestingPlanArgs struct {
-	RecoveryPointSelection     RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
-	RestoreTestingPlanName     *string                                                `pulumi:"restoreTestingPlanName"`
-	ScheduleExpression         string                                                 `pulumi:"scheduleExpression"`
-	ScheduleExpressionTimezone *string                                                `pulumi:"scheduleExpressionTimezone"`
-	StartWindowHours           *int                                                   `pulumi:"startWindowHours"`
-	Tags                       []aws.Tag                                              `pulumi:"tags"`
+	// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+	//
+	// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+	//
+	// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+	//
+	// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+	//
+	// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+	//
+	// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+	RecoveryPointSelection RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+	RestoreTestingPlanName *string `pulumi:"restoreTestingPlanName"`
+	// A CRON expression in specified timezone when a restore testing plan is executed.
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
+	// Defaults to 24 hours.
+	//
+	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+	StartWindowHours *int `pulumi:"startWindowHours"`
+	// The tags to assign to the restore testing plan.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestoreTestingPlan resource.
 type RestoreTestingPlanArgs struct {
-	RecoveryPointSelection     RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput
-	RestoreTestingPlanName     pulumi.StringPtrInput
-	ScheduleExpression         pulumi.StringInput
+	// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+	//
+	// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+	//
+	// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+	//
+	// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+	//
+	// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+	//
+	// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+	RecoveryPointSelection RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+	RestoreTestingPlanName pulumi.StringPtrInput
+	// A CRON expression in specified timezone when a restore testing plan is executed.
+	ScheduleExpression pulumi.StringInput
+	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 	ScheduleExpressionTimezone pulumi.StringPtrInput
-	StartWindowHours           pulumi.IntPtrInput
-	Tags                       aws.TagArrayInput
+	// Defaults to 24 hours.
+	//
+	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+	StartWindowHours pulumi.IntPtrInput
+	// The tags to assign to the restore testing plan.
+	Tags aws.TagArrayInput
 }
 
 func (RestoreTestingPlanArgs) ElementType() reflect.Type {
@@ -131,32 +186,51 @@ func (o RestoreTestingPlanOutput) ToRestoreTestingPlanOutputWithContext(ctx cont
 	return o
 }
 
+// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+//
+// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+//
+// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+//
+// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+//
+// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+//
+// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
 func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
 		return v.RecoveryPointSelection
 	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput)
 }
 
+// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
 func (o RestoreTestingPlanOutput) RestoreTestingPlanArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.RestoreTestingPlanArn }).(pulumi.StringOutput)
 }
 
+// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 func (o RestoreTestingPlanOutput) RestoreTestingPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.RestoreTestingPlanName }).(pulumi.StringOutput)
 }
 
+// A CRON expression in specified timezone when a restore testing plan is executed.
 func (o RestoreTestingPlanOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
+// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 func (o RestoreTestingPlanOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringPtrOutput { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
 }
 
+// Defaults to 24 hours.
+//
+// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
 func (o RestoreTestingPlanOutput) StartWindowHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.IntPtrOutput { return v.StartWindowHours }).(pulumi.IntPtrOutput)
 }
 
+// The tags to assign to the restore testing plan.
 func (o RestoreTestingPlanOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

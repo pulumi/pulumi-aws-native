@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class AppImageConfigCustomImageContainerEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key that identifies a container environment variable.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the container environment variable.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

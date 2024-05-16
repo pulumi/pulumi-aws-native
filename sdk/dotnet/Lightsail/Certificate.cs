@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lightsail
     [AwsNativeResourceType("aws-native:lightsail:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate.
+        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 

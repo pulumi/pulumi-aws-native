@@ -53,6 +53,9 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      * Descriptor for where the location actually points
      */
     public readonly locationScope!: pulumi.Output<string | undefined>;
+    /**
+     * A container of a key value name pair.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -97,5 +100,8 @@ export interface AccessGrantsLocationArgs {
      * Descriptor for where the location actually points
      */
     locationScope?: pulumi.Input<string>;
+    /**
+     * A container of a key value name pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

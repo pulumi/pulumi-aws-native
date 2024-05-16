@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupCustomerContentEncryptionConfiguration
     {
+        /// <summary>
+        /// The customer managed KMS key that is used to encrypt the user's data stores in Athena.
+        /// </summary>
         public readonly string KmsKey;
 
         [OutputConstructor]

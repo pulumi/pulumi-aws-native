@@ -37,7 +37,13 @@ export class SchedulingPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchedulingPolicy.__pulumiType;
     }
 
+    /**
+     * Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The fair share policy for a scheduling policy.
+     */
     public readonly fairsharePolicy!: pulumi.Output<outputs.batch.SchedulingPolicyFairsharePolicy | undefined>;
     /**
      * Name of Scheduling Policy.
@@ -80,6 +86,9 @@ export class SchedulingPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a SchedulingPolicy resource.
  */
 export interface SchedulingPolicyArgs {
+    /**
+     * The fair share policy for a scheduling policy.
+     */
     fairsharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairsharePolicyArgs>;
     /**
      * Name of Scheduling Policy.

@@ -45,6 +45,14 @@ export class User extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the user account.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Specifies the authentication mode to use. Below is an example of the possible JSON values:
+     *
+     * ```
+     * { Passwords: ["*****", "******"] // If Type is password.
+     * }
+     * ```
+     */
     public readonly authenticationMode!: pulumi.Output<outputs.elasticache.AuthenticationModeProperties | undefined>;
     /**
      * Must be redis.
@@ -129,6 +137,14 @@ export interface UserArgs {
      * Access permissions string used for this user account.
      */
     accessString?: pulumi.Input<string>;
+    /**
+     * Specifies the authentication mode to use. Below is an example of the possible JSON values:
+     *
+     * ```
+     * { Passwords: ["*****", "******"] // If Type is password.
+     * }
+     * ```
+     */
     authenticationMode?: pulumi.Input<inputs.elasticache.AuthenticationModePropertiesArgs>;
     /**
      * Must be redis.

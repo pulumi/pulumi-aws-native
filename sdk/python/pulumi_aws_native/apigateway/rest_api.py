@@ -1356,11 +1356,17 @@ class RestApi(pulumi.CustomResource):
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
+        """
+        The string identifier of the associated RestApi.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="rootResourceId")
     def root_resource_id(self) -> pulumi.Output[str]:
+        """
+        The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
+        """
         return pulumi.get(self, "root_resource_id")
 
     @property

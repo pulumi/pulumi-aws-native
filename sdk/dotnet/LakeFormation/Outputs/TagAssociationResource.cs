@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
     [OutputType]
     public sealed class TagAssociationResource
     {
+        /// <summary>
+        /// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+        /// </summary>
         public readonly Outputs.TagAssociationCatalogResource? Catalog;
+        /// <summary>
+        /// A structure for the database object.
+        /// </summary>
         public readonly Outputs.TagAssociationDatabaseResource? Database;
+        /// <summary>
+        /// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        /// </summary>
         public readonly Outputs.TagAssociationTableResource? Table;
+        /// <summary>
+        /// A structure for a table with columns object. This object is only used when granting a SELECT permission.
+        /// 
+        /// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+        /// </summary>
         public readonly Outputs.TagAssociationTableWithColumnsResource? TableWithColumns;
 
         [OutputConstructor]

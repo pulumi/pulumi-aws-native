@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class DataflowEndpointGroupSocketAddressArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the endpoint, such as `Endpoint 1` .
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The port of the endpoint, such as `55888` .
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

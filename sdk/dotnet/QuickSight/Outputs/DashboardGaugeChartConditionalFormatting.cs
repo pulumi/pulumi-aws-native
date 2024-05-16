@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGaugeChartConditionalFormatting
     {
+        /// <summary>
+        /// Conditional formatting options of a `GaugeChartVisual` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardGaugeChartConditionalFormattingOption> ConditionalFormattingOptions;
 
         [OutputConstructor]

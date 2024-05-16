@@ -20,6 +20,9 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to include in the VPC link.
+        :param pulumi.Input[str] name: The name of the VPC link.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs for the VPC link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: This resource type use map for Tags, suggest to use List of Tag
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -33,6 +36,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of subnet IDs to include in the VPC link.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -42,6 +48,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VPC link.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -51,6 +60,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security group IDs for the VPC link.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -85,6 +97,9 @@ class VpcLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the VPC link.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs for the VPC link.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to include in the VPC link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: This resource type use map for Tags, suggest to use List of Tag
         """
         ...
@@ -165,16 +180,25 @@ class VpcLink(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the VPC link.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of security group IDs for the VPC link.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of subnet IDs to include in the VPC link.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
@@ -188,5 +212,8 @@ class VpcLink(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcLinkId")
     def vpc_link_id(self) -> pulumi.Output[str]:
+        """
+        The VPC link ID.
+        """
         return pulumi.get(self, "vpc_link_id")
 

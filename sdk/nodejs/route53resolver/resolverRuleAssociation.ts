@@ -38,6 +38,9 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      * The name of an association between a Resolver rule and a VPC.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+     */
     public /*out*/ readonly resolverRuleAssociationId!: pulumi.Output<string>;
     /**
      * The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.

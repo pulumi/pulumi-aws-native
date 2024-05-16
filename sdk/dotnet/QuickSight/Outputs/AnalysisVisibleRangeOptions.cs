@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisVisibleRangeOptions
     {
+        /// <summary>
+        /// The percent range in the visible range.
+        /// </summary>
         public readonly Outputs.AnalysisPercentVisibleRange? PercentRange;
 
         [OutputConstructor]

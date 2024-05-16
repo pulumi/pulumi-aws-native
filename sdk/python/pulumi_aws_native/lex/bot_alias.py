@@ -27,7 +27,13 @@ class BotAliasArgs:
                  sentiment_analysis_settings: Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BotAlias resource.
+        :param pulumi.Input[str] bot_id: The unique identifier of the bot.
+        :param pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        :param pulumi.Input[str] bot_alias_name: The name of the bot alias.
         :param pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]] bot_alias_tags: A list of tags to add to the bot alias.
+        :param pulumi.Input[str] bot_version: The version of the bot that the bot alias references.
+        :param pulumi.Input['BotAliasConversationLogSettingsArgs'] conversation_log_settings: Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        :param pulumi.Input[str] description: The description of the bot alias.
         :param pulumi.Input['SentimentAnalysisSettingsPropertiesArgs'] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         pulumi.set(__self__, "bot_id", bot_id)
@@ -49,6 +55,9 @@ class BotAliasArgs:
     @property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the bot.
+        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -58,6 +67,9 @@ class BotAliasArgs:
     @property
     @pulumi.getter(name="botAliasLocaleSettings")
     def bot_alias_locale_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]:
+        """
+        Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        """
         return pulumi.get(self, "bot_alias_locale_settings")
 
     @bot_alias_locale_settings.setter
@@ -67,6 +79,9 @@ class BotAliasArgs:
     @property
     @pulumi.getter(name="botAliasName")
     def bot_alias_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bot alias.
+        """
         return pulumi.get(self, "bot_alias_name")
 
     @bot_alias_name.setter
@@ -88,6 +103,9 @@ class BotAliasArgs:
     @property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the bot that the bot alias references.
+        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -97,6 +115,9 @@ class BotAliasArgs:
     @property
     @pulumi.getter(name="conversationLogSettings")
     def conversation_log_settings(self) -> Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']]:
+        """
+        Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        """
         return pulumi.get(self, "conversation_log_settings")
 
     @conversation_log_settings.setter
@@ -106,6 +127,9 @@ class BotAliasArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the bot alias.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -144,7 +168,13 @@ class BotAlias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasLocaleSettingsItemArgs']]]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        :param pulumi.Input[str] bot_alias_name: The name of the bot alias.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasTagArgs']]]] bot_alias_tags: A list of tags to add to the bot alias.
+        :param pulumi.Input[str] bot_id: The unique identifier of the bot.
+        :param pulumi.Input[str] bot_version: The version of the bot that the bot alias references.
+        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogSettingsArgs']] conversation_log_settings: Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        :param pulumi.Input[str] description: The description of the bot alias.
         :param pulumi.Input[pulumi.InputType['SentimentAnalysisSettingsPropertiesArgs']] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         ...
@@ -241,26 +271,41 @@ class BotAlias(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot alias.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="botAliasId")
     def bot_alias_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the bot alias.
+        """
         return pulumi.get(self, "bot_alias_id")
 
     @property
     @pulumi.getter(name="botAliasLocaleSettings")
     def bot_alias_locale_settings(self) -> pulumi.Output[Optional[Sequence['outputs.BotAliasLocaleSettingsItem']]]:
+        """
+        Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        """
         return pulumi.get(self, "bot_alias_locale_settings")
 
     @property
     @pulumi.getter(name="botAliasName")
     def bot_alias_name(self) -> pulumi.Output[str]:
+        """
+        The name of the bot alias.
+        """
         return pulumi.get(self, "bot_alias_name")
 
     @property
     @pulumi.getter(name="botAliasStatus")
     def bot_alias_status(self) -> pulumi.Output['BotAliasStatus']:
+        """
+        The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+        """
         return pulumi.get(self, "bot_alias_status")
 
     @property
@@ -274,21 +319,33 @@ class BotAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the bot.
+        """
         return pulumi.get(self, "bot_id")
 
     @property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the bot that the bot alias references.
+        """
         return pulumi.get(self, "bot_version")
 
     @property
     @pulumi.getter(name="conversationLogSettings")
     def conversation_log_settings(self) -> pulumi.Output[Optional['outputs.BotAliasConversationLogSettings']]:
+        """
+        Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        """
         return pulumi.get(self, "conversation_log_settings")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the bot alias.
+        """
         return pulumi.get(self, "description")
 
     @property

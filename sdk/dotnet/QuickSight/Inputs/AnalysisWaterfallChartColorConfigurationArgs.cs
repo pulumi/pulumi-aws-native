@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisWaterfallChartColorConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color configuration for individual groups within a waterfall visual.
+        /// </summary>
         [Input("groupColorConfiguration")]
         public Input<Inputs.AnalysisWaterfallChartGroupColorConfigurationArgs>? GroupColorConfiguration { get; set; }
 

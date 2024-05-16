@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateNumericalMeasureFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Aggregation for numerical values.
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.TemplateNumericalAggregationFunctionArgs>? AggregationFunction { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.TemplateNumberFormatConfigurationArgs>? FormatConfiguration { get; set; }
 

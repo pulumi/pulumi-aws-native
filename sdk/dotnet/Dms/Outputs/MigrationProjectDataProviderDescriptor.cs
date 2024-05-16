@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.Dms.Outputs
     [OutputType]
     public sealed class MigrationProjectDataProviderDescriptor
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data provider.
+        /// </summary>
         public readonly string? DataProviderArn;
         public readonly string? DataProviderIdentifier;
+        /// <summary>
+        /// The user-friendly name of the data provider.
+        /// </summary>
         public readonly string? DataProviderName;
+        /// <summary>
+        /// The ARN of the role used to access AWS Secrets Manager.
+        /// </summary>
         public readonly string? SecretsManagerAccessRoleArn;
+        /// <summary>
+        /// The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
+        /// </summary>
         public readonly string? SecretsManagerSecretId;
 
         [OutputConstructor]

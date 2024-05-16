@@ -13,13 +13,39 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisHeatMapConfiguration
     {
+        /// <summary>
+        /// Determines the color scale that is applied to the visual.
+        /// </summary>
         public readonly Outputs.AnalysisColorScale? ColorScale;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? ColumnLabelOptions;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a heat map.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisHeatMapFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? RowLabelOptions;
+        /// <summary>
+        /// The sort configuration of a heat map.
+        /// </summary>
         public readonly Outputs.AnalysisHeatMapSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
 
         [OutputConstructor]

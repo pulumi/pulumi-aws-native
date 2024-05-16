@@ -24,15 +24,23 @@ func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.Invo
 }
 
 type LookupIpSetArgs struct {
+	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 	DetectorId string `pulumi:"detectorId"`
 	Id         string `pulumi:"id"`
 }
 
 type LookupIpSetResult struct {
-	Id       *string   `pulumi:"id"`
-	Location *string   `pulumi:"location"`
-	Name     *string   `pulumi:"name"`
-	Tags     []aws.Tag `pulumi:"tags"`
+	Id *string `pulumi:"id"`
+	// The URI of the file that contains the IPSet.
+	Location *string `pulumi:"location"`
+	// The user-friendly name to identify the IPSet.
+	//
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	Name *string `pulumi:"name"`
+	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
@@ -49,6 +57,7 @@ func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...
 }
 
 type LookupIpSetOutputArgs struct {
+	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 	DetectorId pulumi.StringInput `pulumi:"detectorId"`
 	Id         pulumi.StringInput `pulumi:"id"`
 }
@@ -75,14 +84,21 @@ func (o LookupIpSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The URI of the file that contains the IPSet.
 func (o LookupIpSetResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// The user-friendly name to identify the IPSet.
+//
+// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
 func (o LookupIpSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupIpSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIpSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

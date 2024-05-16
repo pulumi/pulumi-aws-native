@@ -41,6 +41,9 @@ export class StateMachineAlias extends pulumi.CustomResource {
      * The ARN of the alias.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
+     */
     public readonly deploymentPreference!: pulumi.Output<outputs.stepfunctions.StateMachineAliasDeploymentPreference | undefined>;
     /**
      * An optional description of the alias.
@@ -50,6 +53,13 @@ export class StateMachineAlias extends pulumi.CustomResource {
      * The alias name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+     *
+     * Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+     *
+     * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+     */
     public readonly routingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineAliasRoutingConfigurationVersion[] | undefined>;
 
     /**
@@ -86,6 +96,9 @@ export class StateMachineAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a StateMachineAlias resource.
  */
 export interface StateMachineAliasArgs {
+    /**
+     * Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
+     */
     deploymentPreference?: pulumi.Input<inputs.stepfunctions.StateMachineAliasDeploymentPreferenceArgs>;
     /**
      * An optional description of the alias.
@@ -95,5 +108,12 @@ export interface StateMachineAliasArgs {
      * The alias name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+     *
+     * Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+     *
+     * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+     */
     routingConfiguration?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineAliasRoutingConfigurationVersionArgs>[]>;
 }

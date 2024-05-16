@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataSync.Outputs
     [OutputType]
     public sealed class LocationFSxOntapNfs
     {
+        /// <summary>
+        /// Specifies how DataSync can access a location using the NFS protocol.
+        /// </summary>
         public readonly Outputs.LocationFSxOntapNfsMountOptions MountOptions;
 
         [OutputConstructor]

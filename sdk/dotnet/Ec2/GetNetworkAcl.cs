@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkAclArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the network ACL.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkAclInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the network ACL.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkAclResult
     {
+        /// <summary>
+        /// The ID of the network ACL.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The tags for the network ACL.

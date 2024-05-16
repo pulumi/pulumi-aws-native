@@ -81,8 +81,27 @@ export class Activity extends pulumi.CustomResource {
         return obj['__pulumiType'] === Activity.__pulumiType;
     }
 
+    /**
+     * Returns the ARN of the resource.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the activity.
+     *
+     * A name must *not* contain:
+     *
+     * - white space
+     * - brackets `< > { } [ ]`
+     * - wildcard characters `? *`
+     * - special characters `" # % \ ^ | ~ ` $ & , ; : /`
+     * - control characters ( `U+0000-001F` , `U+007F-009F` )
+     *
+     * To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The `TagsEntry` property specifies *tags* to identify an activity.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -115,6 +134,22 @@ export class Activity extends pulumi.CustomResource {
  * The set of arguments for constructing a Activity resource.
  */
 export interface ActivityArgs {
+    /**
+     * The name of the activity.
+     *
+     * A name must *not* contain:
+     *
+     * - white space
+     * - brackets `< > { } [ ]`
+     * - wildcard characters `? *`
+     * - special characters `" # % \ ^ | ~ ` $ & , ; : /`
+     * - control characters ( `U+0000-001F` , `U+007F-009F` )
+     *
+     * To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The `TagsEntry` property specifies *tags* to identify an activity.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

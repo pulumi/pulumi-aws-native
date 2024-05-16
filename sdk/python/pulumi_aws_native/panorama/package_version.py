@@ -23,6 +23,12 @@ class PackageVersionArgs:
                  updated_latest_patch_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PackageVersion resource.
+        :param pulumi.Input[str] package_id: A package ID.
+        :param pulumi.Input[str] package_version: A package version.
+        :param pulumi.Input[str] patch_version: A patch version.
+        :param pulumi.Input[bool] mark_latest: Whether to mark the new version as the latest version.
+        :param pulumi.Input[str] owner_account: An owner account.
+        :param pulumi.Input[str] updated_latest_patch_version: If the version was marked latest, the new version to maker as latest.
         """
         pulumi.set(__self__, "package_id", package_id)
         pulumi.set(__self__, "package_version", package_version)
@@ -37,6 +43,9 @@ class PackageVersionArgs:
     @property
     @pulumi.getter(name="packageId")
     def package_id(self) -> pulumi.Input[str]:
+        """
+        A package ID.
+        """
         return pulumi.get(self, "package_id")
 
     @package_id.setter
@@ -46,6 +55,9 @@ class PackageVersionArgs:
     @property
     @pulumi.getter(name="packageVersion")
     def package_version(self) -> pulumi.Input[str]:
+        """
+        A package version.
+        """
         return pulumi.get(self, "package_version")
 
     @package_version.setter
@@ -55,6 +67,9 @@ class PackageVersionArgs:
     @property
     @pulumi.getter(name="patchVersion")
     def patch_version(self) -> pulumi.Input[str]:
+        """
+        A patch version.
+        """
         return pulumi.get(self, "patch_version")
 
     @patch_version.setter
@@ -64,6 +79,9 @@ class PackageVersionArgs:
     @property
     @pulumi.getter(name="markLatest")
     def mark_latest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to mark the new version as the latest version.
+        """
         return pulumi.get(self, "mark_latest")
 
     @mark_latest.setter
@@ -73,6 +91,9 @@ class PackageVersionArgs:
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        An owner account.
+        """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
@@ -82,6 +103,9 @@ class PackageVersionArgs:
     @property
     @pulumi.getter(name="updatedLatestPatchVersion")
     def updated_latest_patch_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the version was marked latest, the new version to maker as latest.
+        """
         return pulumi.get(self, "updated_latest_patch_version")
 
     @updated_latest_patch_version.setter
@@ -106,6 +130,12 @@ class PackageVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] mark_latest: Whether to mark the new version as the latest version.
+        :param pulumi.Input[str] owner_account: An owner account.
+        :param pulumi.Input[str] package_id: A package ID.
+        :param pulumi.Input[str] package_version: A package version.
+        :param pulumi.Input[str] patch_version: A patch version.
+        :param pulumi.Input[str] updated_latest_patch_version: If the version was marked latest, the new version to maker as latest.
         """
         ...
     @overload
@@ -205,60 +235,96 @@ class PackageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isLatestPatch")
     def is_latest_patch(self) -> pulumi.Output[bool]:
+        """
+        Whether the package version is the latest version.
+        """
         return pulumi.get(self, "is_latest_patch")
 
     @property
     @pulumi.getter(name="markLatest")
     def mark_latest(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to mark the new version as the latest version.
+        """
         return pulumi.get(self, "mark_latest")
 
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> pulumi.Output[Optional[str]]:
+        """
+        An owner account.
+        """
         return pulumi.get(self, "owner_account")
 
     @property
     @pulumi.getter(name="packageArn")
     def package_arn(self) -> pulumi.Output[str]:
+        """
+        The package version's ARN.
+        """
         return pulumi.get(self, "package_arn")
 
     @property
     @pulumi.getter(name="packageId")
     def package_id(self) -> pulumi.Output[str]:
+        """
+        A package ID.
+        """
         return pulumi.get(self, "package_id")
 
     @property
     @pulumi.getter(name="packageName")
     def package_name(self) -> pulumi.Output[str]:
+        """
+        The package version's name.
+        """
         return pulumi.get(self, "package_name")
 
     @property
     @pulumi.getter(name="packageVersion")
     def package_version(self) -> pulumi.Output[str]:
+        """
+        A package version.
+        """
         return pulumi.get(self, "package_version")
 
     @property
     @pulumi.getter(name="patchVersion")
     def patch_version(self) -> pulumi.Output[str]:
+        """
+        A patch version.
+        """
         return pulumi.get(self, "patch_version")
 
     @property
     @pulumi.getter(name="registeredTime")
     def registered_time(self) -> pulumi.Output[int]:
+        """
+        The package version's registered time.
+        """
         return pulumi.get(self, "registered_time")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['PackageVersionStatus']:
+        """
+        The package version's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusDescription")
     def status_description(self) -> pulumi.Output[str]:
+        """
+        The package version's status description.
+        """
         return pulumi.get(self, "status_description")
 
     @property
     @pulumi.getter(name="updatedLatestPatchVersion")
     def updated_latest_patch_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        If the version was marked latest, the new version to maker as latest.
+        """
         return pulumi.get(self, "updated_latest_patch_version")
 

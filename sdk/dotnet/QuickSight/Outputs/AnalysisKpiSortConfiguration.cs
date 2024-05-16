@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisKpiSortConfiguration
     {
+        /// <summary>
+        /// The sort configuration of the trend group fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> TrendGroupSort;
 
         [OutputConstructor]

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
 
     public sealed class ResiliencyPolicyPolicyMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         [Input("az", required: true)]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs> Az { get; set; } = null!;
 
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         [Input("hardware", required: true)]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs> Hardware { get; set; } = null!;
 
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         [Input("region")]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs>? Region { get; set; }
 
+        /// <summary>
+        /// Defines a failure policy.
+        /// </summary>
         [Input("software", required: true)]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs> Software { get; set; } = null!;
 

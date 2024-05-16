@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelQualityJobDefinitionModelQualityBaselineConfig
     {
+        /// <summary>
+        /// The name of the job that performs baselining for the monitoring job.
+        /// </summary>
         public readonly string? BaseliningJobName;
+        /// <summary>
+        /// The constraints resource for a monitoring job.
+        /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionConstraintsResource? ConstraintsResource;
 
         [OutputConstructor]

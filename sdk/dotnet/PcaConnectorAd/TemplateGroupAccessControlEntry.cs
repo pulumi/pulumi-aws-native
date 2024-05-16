@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [AwsNativeResourceType("aws-native:pcaconnectorad:TemplateGroupAccessControlEntry")]
     public partial class TemplateGroupAccessControlEntry : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        /// </summary>
         [Output("accessRights")]
         public Output<Outputs.TemplateGroupAccessControlEntryAccessRights> AccessRights { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+        /// </summary>
         [Output("groupDisplayName")]
         public Output<string> GroupDisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+        /// </summary>
         [Output("groupSecurityIdentifier")]
         public Output<string?> GroupSecurityIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        /// </summary>
         [Output("templateArn")]
         public Output<string?> TemplateArn { get; private set; } = null!;
 
@@ -77,15 +89,27 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class TemplateGroupAccessControlEntryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        /// </summary>
         [Input("accessRights", required: true)]
         public Input<Inputs.TemplateGroupAccessControlEntryAccessRightsArgs> AccessRights { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+        /// </summary>
         [Input("groupDisplayName", required: true)]
         public Input<string> GroupDisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+        /// </summary>
         [Input("groupSecurityIdentifier")]
         public Input<string>? GroupSecurityIdentifier { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
 

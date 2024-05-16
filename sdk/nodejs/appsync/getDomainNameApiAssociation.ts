@@ -21,6 +21,9 @@ export interface GetDomainNameApiAssociationArgs {
 
 export interface GetDomainNameApiAssociationResult {
     readonly apiAssociationIdentifier?: string;
+    /**
+     * The API ID.
+     */
     readonly apiId?: string;
 }
 /**

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetDateTimeDatasetParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A list of default values for a given date time parameter. This structure only accepts static values.
+        /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.DataSetDateTimeDatasetParameterDefaultValuesArgs>? DefaultValues { get; set; }
 
@@ -30,9 +33,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The time granularity of the date time parameter.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetTimeGranularity>? TimeGranularity { get; set; }
 
+        /// <summary>
+        /// The value type of the dataset parameter. Valid values are `single value` or `multi value` .
+        /// </summary>
         [Input("valueType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType> ValueType { get; set; } = null!;
 

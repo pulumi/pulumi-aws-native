@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.BackupGateway
     [AwsNativeResourceType("aws-native:backupgateway:Hypervisor")]
     public partial class Hypervisor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        /// </summary>
         [Output("host")]
         public Output<string?> Host { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+        /// </summary>
         [Output("hypervisorArn")]
         public Output<string> HypervisorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+        /// </summary>
         [Output("logGroupArn")]
         public Output<string?> LogGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the hypervisor.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The password for the hypervisor.
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The username for the hypervisor.
+        /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
 
@@ -89,29 +113,51 @@ namespace Pulumi.AwsNative.BackupGateway
 
     public sealed class HypervisorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+        /// </summary>
         [Input("logGroupArn")]
         public Input<string>? LogGroupArn { get; set; }
 
+        /// <summary>
+        /// The name of the hypervisor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The password for the hypervisor.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The username for the hypervisor.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Rum
     [AwsNativeResourceType("aws-native:rum:AppMonitor")]
     public partial class AppMonitor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// This structure contains much of the configuration data for the app monitor.
+        /// </summary>
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorConfiguration?> AppMonitorConfiguration { get; private set; } = null!;
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.Rum
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// This structure specifies whether this app monitor allows the web client to define and send custom events.
+        /// </summary>
         [Output("customEvents")]
         public Output<Outputs.AppMonitorCustomEvents?> CustomEvents { get; private set; } = null!;
 
@@ -45,6 +51,17 @@ namespace Pulumi.AwsNative.Rum
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Assigns one or more tags (key-value pairs) to the app monitor.
+        /// 
+        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        /// 
+        /// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+        /// 
+        /// You can associate as many as 50 tags with an app monitor.
+        /// 
+        /// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -97,9 +114,15 @@ namespace Pulumi.AwsNative.Rum
 
     public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This structure contains much of the configuration data for the app monitor.
+        /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
 
+        /// <summary>
+        /// This structure specifies whether this app monitor allows the web client to define and send custom events.
+        /// </summary>
         [Input("customEvents")]
         public Input<Inputs.AppMonitorCustomEventsArgs>? CustomEvents { get; set; }
 
@@ -123,6 +146,18 @@ namespace Pulumi.AwsNative.Rum
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Assigns one or more tags (key-value pairs) to the app monitor.
+        /// 
+        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        /// 
+        /// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+        /// 
+        /// You can associate as many as 50 tags with an app monitor.
+        /// 
+        /// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

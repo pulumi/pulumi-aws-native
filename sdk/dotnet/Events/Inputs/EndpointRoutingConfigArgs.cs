@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class EndpointRoutingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.
+        /// </summary>
         [Input("failoverConfig", required: true)]
         public Input<Inputs.EndpointFailoverConfigArgs> FailoverConfig { get; set; } = null!;
 

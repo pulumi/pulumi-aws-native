@@ -16,10 +16,12 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
+	// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
 	ChannelArn pulumi.StringOutput `pulumi:"channelArn"`
 	// One or more resources to which events arriving through a channel are logged and stored.
 	Destinations ChannelDestinationArrayOutput `pulumi:"destinations"`
-	Name         pulumi.StringPtrOutput        `pulumi:"name"`
+	// The name of the channel.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ARN of an on-premises storage solution or application, or a partner event source.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
@@ -72,7 +74,8 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// One or more resources to which events arriving through a channel are logged and stored.
 	Destinations []ChannelDestination `pulumi:"destinations"`
-	Name         *string              `pulumi:"name"`
+	// The name of the channel.
+	Name *string `pulumi:"name"`
 	// The ARN of an on-premises storage solution or application, or a partner event source.
 	Source *string `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
@@ -83,7 +86,8 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// One or more resources to which events arriving through a channel are logged and stored.
 	Destinations ChannelDestinationArrayInput
-	Name         pulumi.StringPtrInput
+	// The name of the channel.
+	Name pulumi.StringPtrInput
 	// The ARN of an on-premises storage solution or application, or a partner event source.
 	Source pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -127,6 +131,7 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
 func (o ChannelOutput) ChannelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelArn }).(pulumi.StringOutput)
 }
@@ -136,6 +141,7 @@ func (o ChannelOutput) Destinations() ChannelDestinationArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelDestinationArrayOutput { return v.Destinations }).(ChannelDestinationArrayOutput)
 }
 
+// The name of the channel.
 func (o ChannelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }

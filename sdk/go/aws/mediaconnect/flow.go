@@ -51,7 +51,6 @@ func NewFlow(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"availabilityZone",
 		"name",
-		"source.name",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

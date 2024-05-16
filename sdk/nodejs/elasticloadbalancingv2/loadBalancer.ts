@@ -37,7 +37,13 @@ export class LoadBalancer extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancer.__pulumiType;
     }
 
+    /**
+     * The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
+     */
     public /*out*/ readonly canonicalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+     */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
@@ -47,12 +53,21 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
     public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
     /**
      * The load balancer attributes.
      */
     public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
+    /**
+     * The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+     */
     public /*out*/ readonly loadBalancerFullName!: pulumi.Output<string>;
+    /**
+     * The name of the load balancer. For example, `my-load-balancer` .
+     */
     public /*out*/ readonly loadBalancerName!: pulumi.Output<string>;
     /**
      * The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".

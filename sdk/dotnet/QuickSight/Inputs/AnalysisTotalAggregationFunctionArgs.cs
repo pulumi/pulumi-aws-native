@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTotalAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A built in aggregation function for total values.
+        /// </summary>
         [Input("simpleTotalAggregationFunction")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSimpleTotalAggregationFunction>? SimpleTotalAggregationFunction { get; set; }
 

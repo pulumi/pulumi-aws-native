@@ -23,10 +23,12 @@ func LookupMonitoringSubscription(ctx *pulumi.Context, args *LookupMonitoringSub
 }
 
 type LookupMonitoringSubscriptionArgs struct {
+	// The ID of the distribution that you are enabling metrics for.
 	DistributionId string `pulumi:"distributionId"`
 }
 
 type LookupMonitoringSubscriptionResult struct {
+	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	MonitoringSubscription *MonitoringSubscriptionType `pulumi:"monitoringSubscription"`
 }
 
@@ -44,6 +46,7 @@ func LookupMonitoringSubscriptionOutput(ctx *pulumi.Context, args LookupMonitori
 }
 
 type LookupMonitoringSubscriptionOutputArgs struct {
+	// The ID of the distribution that you are enabling metrics for.
 	DistributionId pulumi.StringInput `pulumi:"distributionId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupMonitoringSubscriptionResultOutput) ToLookupMonitoringSubscription
 	return o
 }
 
+// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 func (o LookupMonitoringSubscriptionResultOutput) MonitoringSubscription() MonitoringSubscriptionTypePtrOutput {
 	return o.ApplyT(func(v LookupMonitoringSubscriptionResult) *MonitoringSubscriptionType {
 		return v.MonitoringSubscription

@@ -21,20 +21,44 @@ export function getInstanceStorageConfig(args: GetInstanceStorageConfigArgs, opt
 }
 
 export interface GetInstanceStorageConfigArgs {
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     */
     associationId: string;
     /**
      * Connect Instance ID with which the storage config will be associated
      */
     instanceArn: string;
+    /**
+     * A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+     */
     resourceType: enums.connect.InstanceStorageConfigInstanceStorageResourceType;
 }
 
 export interface GetInstanceStorageConfigResult {
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     */
     readonly associationId?: string;
+    /**
+     * Configuration information of a Kinesis Data Firehose delivery stream.
+     */
     readonly kinesisFirehoseConfig?: outputs.connect.InstanceStorageConfigKinesisFirehoseConfig;
+    /**
+     * Configuration information of a Kinesis data stream.
+     */
     readonly kinesisStreamConfig?: outputs.connect.InstanceStorageConfigKinesisStreamConfig;
+    /**
+     * Configuration information of a Kinesis video stream.
+     */
     readonly kinesisVideoStreamConfig?: outputs.connect.InstanceStorageConfigKinesisVideoStreamConfig;
+    /**
+     * Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+     */
     readonly s3Config?: outputs.connect.InstanceStorageConfigS3Config;
+    /**
+     * A valid storage type.
+     */
     readonly storageType?: enums.connect.InstanceStorageConfigStorageType;
 }
 /**
@@ -45,10 +69,16 @@ export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOut
 }
 
 export interface GetInstanceStorageConfigOutputArgs {
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     */
     associationId: pulumi.Input<string>;
     /**
      * Connect Instance ID with which the storage config will be associated
      */
     instanceArn: pulumi.Input<string>;
+    /**
+     * A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+     */
     resourceType: pulumi.Input<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
 }

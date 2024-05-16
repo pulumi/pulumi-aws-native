@@ -33,12 +33,21 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         /// The name of the MetricSet.
         /// </summary>
         public readonly string MetricSetName;
+        /// <summary>
+        /// Contains information about how the source data should be interpreted.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorMetricSource MetricSource;
         /// <summary>
         /// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         /// </summary>
         public readonly int? Offset;
+        /// <summary>
+        /// Contains information about the column used to track time in a source data file.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorTimestampColumn? TimestampColumn;
+        /// <summary>
+        /// The time zone in which your source data was recorded.
+        /// </summary>
         public readonly string? Timezone;
 
         [OutputConstructor]

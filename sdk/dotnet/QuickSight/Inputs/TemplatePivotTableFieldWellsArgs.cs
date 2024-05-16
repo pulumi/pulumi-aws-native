@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePivotTableFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field well for the pivot table.
+        /// </summary>
         [Input("pivotTableAggregatedFieldWells")]
         public Input<Inputs.TemplatePivotTableAggregatedFieldWellsArgs>? PivotTableAggregatedFieldWells { get; set; }
 

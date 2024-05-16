@@ -23,6 +23,8 @@ class StorageLensGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLensGroup resource.
+        :param pulumi.Input['StorageLensGroupFilterArgs'] filter: This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        :param pulumi.Input[str] name: This property contains the Storage Lens group name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         pulumi.set(__self__, "filter", filter)
@@ -34,6 +36,9 @@ class StorageLensGroupArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input['StorageLensGroupFilterArgs']:
+        """
+        This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -43,6 +48,9 @@ class StorageLensGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This property contains the Storage Lens group name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,6 +84,8 @@ class StorageLensGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['StorageLensGroupFilterArgs']] filter: This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        :param pulumi.Input[str] name: This property contains the Storage Lens group name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         ...
@@ -153,11 +163,17 @@ class StorageLensGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Output['outputs.StorageLensGroupFilter']:
+        """
+        This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        This property contains the Storage Lens group name.
+        """
         return pulumi.get(self, "name")
 
     @property

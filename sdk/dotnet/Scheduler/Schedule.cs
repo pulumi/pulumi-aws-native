@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Scheduler
         [Output("endDate")]
         public Output<string?> EndDate { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+        /// </summary>
         [Output("flexibleTimeWindow")]
         public Output<Outputs.ScheduleFlexibleTimeWindow> FlexibleTimeWindow { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.Scheduler
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -69,9 +75,17 @@ namespace Pulumi.AwsNative.Scheduler
         [Output("startDate")]
         public Output<string?> StartDate { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the schedule is enabled or disabled.
+        /// 
+        /// *Allowed Values* : `ENABLED` | `DISABLED`
+        /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.Scheduler.ScheduleState?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+        /// </summary>
         [Output("target")]
         public Output<Outputs.ScheduleTarget> Target { get; private set; } = null!;
 
@@ -136,6 +150,9 @@ namespace Pulumi.AwsNative.Scheduler
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
+        /// <summary>
+        /// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+        /// </summary>
         [Input("flexibleTimeWindow", required: true)]
         public Input<Inputs.ScheduleFlexibleTimeWindowArgs> FlexibleTimeWindow { get; set; } = null!;
 
@@ -151,6 +168,9 @@ namespace Pulumi.AwsNative.Scheduler
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -172,9 +192,17 @@ namespace Pulumi.AwsNative.Scheduler
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 
+        /// <summary>
+        /// Specifies whether the schedule is enabled or disabled.
+        /// 
+        /// *Allowed Values* : `ENABLED` | `DISABLED`
+        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.Scheduler.ScheduleState>? State { get; set; }
 
+        /// <summary>
+        /// The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+        /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.ScheduleTargetArgs> Target { get; set; } = null!;
 

@@ -17,6 +17,7 @@ import (
 type ModelCard struct {
 	pulumi.CustomResourceState
 
+	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContentOutput `pulumi:"content"`
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy ModelCardUserContextPtrOutput `pulumi:"createdBy"`
@@ -35,8 +36,9 @@ type ModelCard struct {
 	// The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
 	ModelCardStatus ModelCardStatusOutput `pulumi:"modelCardStatus"`
 	// A version of the model card.
-	ModelCardVersion pulumi.IntOutput                 `pulumi:"modelCardVersion"`
-	SecurityConfig   ModelCardSecurityConfigPtrOutput `pulumi:"securityConfig"`
+	ModelCardVersion pulumi.IntOutput `pulumi:"modelCardVersion"`
+	// The security configuration used to protect model card data.
+	SecurityConfig ModelCardSecurityConfigPtrOutput `pulumi:"securityConfig"`
 	// Key-value pairs used to manage metadata for model cards.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -92,6 +94,7 @@ func (ModelCardState) ElementType() reflect.Type {
 }
 
 type modelCardArgs struct {
+	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContent `pulumi:"content"`
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy *ModelCardUserContext `pulumi:"createdBy"`
@@ -100,14 +103,16 @@ type modelCardArgs struct {
 	// The unique name of the model card.
 	ModelCardName *string `pulumi:"modelCardName"`
 	// The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
-	ModelCardStatus ModelCardStatus          `pulumi:"modelCardStatus"`
-	SecurityConfig  *ModelCardSecurityConfig `pulumi:"securityConfig"`
+	ModelCardStatus ModelCardStatus `pulumi:"modelCardStatus"`
+	// The security configuration used to protect model card data.
+	SecurityConfig *ModelCardSecurityConfig `pulumi:"securityConfig"`
 	// Key-value pairs used to manage metadata for model cards.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelCard resource.
 type ModelCardArgs struct {
+	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContentInput
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy ModelCardUserContextPtrInput
@@ -117,7 +122,8 @@ type ModelCardArgs struct {
 	ModelCardName pulumi.StringPtrInput
 	// The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
 	ModelCardStatus ModelCardStatusInput
-	SecurityConfig  ModelCardSecurityConfigPtrInput
+	// The security configuration used to protect model card data.
+	SecurityConfig ModelCardSecurityConfigPtrInput
 	// Key-value pairs used to manage metadata for model cards.
 	Tags aws.TagArrayInput
 }
@@ -159,6 +165,7 @@ func (o ModelCardOutput) ToModelCardOutputWithContext(ctx context.Context) Model
 	return o
 }
 
+// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 func (o ModelCardOutput) Content() ModelCardContentOutput {
 	return o.ApplyT(func(v *ModelCard) ModelCardContentOutput { return v.Content }).(ModelCardContentOutput)
 }
@@ -208,6 +215,7 @@ func (o ModelCardOutput) ModelCardVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *ModelCard) pulumi.IntOutput { return v.ModelCardVersion }).(pulumi.IntOutput)
 }
 
+// The security configuration used to protect model card data.
 func (o ModelCardOutput) SecurityConfig() ModelCardSecurityConfigPtrOutput {
 	return o.ApplyT(func(v *ModelCard) ModelCardSecurityConfigPtrOutput { return v.SecurityConfig }).(ModelCardSecurityConfigPtrOutput)
 }

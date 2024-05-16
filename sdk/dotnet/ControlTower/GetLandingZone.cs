@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ControlTower
 
     public sealed class GetLandingZoneArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the landing zone.
+        /// </summary>
         [Input("landingZoneIdentifier", required: true)]
         public string LandingZoneIdentifier { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ControlTower
 
     public sealed class GetLandingZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the landing zone.
+        /// </summary>
         [Input("landingZoneIdentifier", required: true)]
         public Input<string> LandingZoneIdentifier { get; set; } = null!;
 
@@ -51,16 +57,39 @@ namespace Pulumi.AwsNative.ControlTower
     [OutputType]
     public sealed class GetLandingZoneResult
     {
+        /// <summary>
+        /// The ARN of the landing zone.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The drift status of the landing zone.
+        /// </summary>
         public readonly Pulumi.AwsNative.ControlTower.LandingZoneDriftStatus? DriftStatus;
+        /// <summary>
+        /// The unique identifier of the landing zone.
+        /// </summary>
         public readonly string? LandingZoneIdentifier;
+        /// <summary>
+        /// The latest available version of the landing zone.
+        /// </summary>
         public readonly string? LatestAvailableVersion;
         /// <summary>
+        /// The landing zone manifest JSON text file that specifies the landing zone configurations.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Manifest;
+        /// <summary>
+        /// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.ControlTower.LandingZoneStatus? Status;
+        /// <summary>
+        /// Tags applied to the landing zone.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The landing zone's current deployed version.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

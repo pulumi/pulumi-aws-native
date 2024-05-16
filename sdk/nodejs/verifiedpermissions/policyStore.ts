@@ -55,10 +55,25 @@ export class PolicyStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyStore.__pulumiType;
     }
 
+    /**
+     * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Descriptive text that you can provide to help with identification of the current policy store.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     public /*out*/ readonly policyStoreId!: pulumi.Output<string>;
+    /**
+     * Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+     */
     public readonly schema!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition | undefined>;
+    /**
+     * A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+     */
     public readonly validationSettings!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings>;
 
     /**
@@ -96,7 +111,16 @@ export class PolicyStore extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyStore resource.
  */
 export interface PolicyStoreArgs {
+    /**
+     * Descriptive text that you can provide to help with identification of the current policy store.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+     */
     schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinitionArgs>;
+    /**
+     * A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+     */
     validationSettings: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettingsArgs>;
 }

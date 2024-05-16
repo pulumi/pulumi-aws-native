@@ -14,26 +14,46 @@ namespace Pulumi.AwsNative.Macie.Inputs
     {
         [Input("eq")]
         private InputList<string>? _eq;
+
+        /// <summary>
+        /// The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        /// </summary>
         public InputList<string> Eq
         {
             get => _eq ?? (_eq = new InputList<string>());
             set => _eq = value;
         }
 
+        /// <summary>
+        /// The value for the specified property is greater than the specified value.
+        /// </summary>
         [Input("gt")]
         public Input<int>? Gt { get; set; }
 
+        /// <summary>
+        /// The value for the specified property is greater than or equal to the specified value.
+        /// </summary>
         [Input("gte")]
         public Input<int>? Gte { get; set; }
 
+        /// <summary>
+        /// The value for the specified property is less than the specified value.
+        /// </summary>
         [Input("lt")]
         public Input<int>? Lt { get; set; }
 
+        /// <summary>
+        /// The value for the specified property is less than or equal to the specified value.
+        /// </summary>
         [Input("lte")]
         public Input<int>? Lte { get; set; }
 
         [Input("neq")]
         private InputList<string>? _neq;
+
+        /// <summary>
+        /// The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        /// </summary>
         public InputList<string> Neq
         {
             get => _neq ?? (_neq = new InputList<string>());

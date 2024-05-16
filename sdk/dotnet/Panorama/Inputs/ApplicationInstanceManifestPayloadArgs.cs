@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Panorama.Inputs
 
     public sealed class ApplicationInstanceManifestPayloadArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application manifest.
+        /// </summary>
         [Input("payloadData")]
         public Input<string>? PayloadData { get; set; }
 

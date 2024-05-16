@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateRangeEndsLabelType
     {
+        /// <summary>
+        /// The visibility of the range ends label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

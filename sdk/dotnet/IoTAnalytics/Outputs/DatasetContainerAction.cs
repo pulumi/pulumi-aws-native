@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetContainerAction
     {
+        /// <summary>
+        /// The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+        /// </summary>
         public readonly string ExecutionRoleArn;
+        /// <summary>
+        /// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
+        /// </summary>
         public readonly string Image;
+        /// <summary>
+        /// The configuration of the resource used to execute the `containerAction` .
+        /// </summary>
         public readonly Outputs.DatasetResourceConfiguration ResourceConfiguration;
+        /// <summary>
+        /// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetVariable> Variables;
 
         [OutputConstructor]

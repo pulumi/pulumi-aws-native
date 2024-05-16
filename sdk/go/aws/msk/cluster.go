@@ -16,20 +16,31 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput                  `pulumi:"arn"`
-	BrokerNodeGroupInfo  ClusterBrokerNodeGroupInfoOutput     `pulumi:"brokerNodeGroupInfo"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Describes the setup to be used for the broker nodes in the cluster.
+	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
+	// Includes all client authentication information.
 	ClientAuthentication ClusterClientAuthenticationPtrOutput `pulumi:"clientAuthentication"`
-	ClusterName          pulumi.StringOutput                  `pulumi:"clusterName"`
-	ConfigurationInfo    ClusterConfigurationInfoPtrOutput    `pulumi:"configurationInfo"`
+	// The name of the cluster.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Specifies the configuration to use for the brokers.
+	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
 	// The current version of the MSK cluster
-	CurrentVersion      pulumi.StringPtrOutput             `pulumi:"currentVersion"`
-	EncryptionInfo      ClusterEncryptionInfoPtrOutput     `pulumi:"encryptionInfo"`
-	EnhancedMonitoring  ClusterEnhancedMonitoringPtrOutput `pulumi:"enhancedMonitoring"`
-	KafkaVersion        pulumi.StringOutput                `pulumi:"kafkaVersion"`
-	LoggingInfo         ClusterLoggingInfoPtrOutput        `pulumi:"loggingInfo"`
-	NumberOfBrokerNodes pulumi.IntOutput                   `pulumi:"numberOfBrokerNodes"`
-	OpenMonitoring      ClusterOpenMonitoringPtrOutput     `pulumi:"openMonitoring"`
-	StorageMode         ClusterStorageModePtrOutput        `pulumi:"storageMode"`
+	CurrentVersion pulumi.StringPtrOutput `pulumi:"currentVersion"`
+	// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+	EncryptionInfo ClusterEncryptionInfoPtrOutput `pulumi:"encryptionInfo"`
+	// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+	EnhancedMonitoring ClusterEnhancedMonitoringPtrOutput `pulumi:"enhancedMonitoring"`
+	// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+	KafkaVersion pulumi.StringOutput `pulumi:"kafkaVersion"`
+	// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+	LoggingInfo ClusterLoggingInfoPtrOutput `pulumi:"loggingInfo"`
+	// The number of broker nodes in the cluster.
+	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
+	// JMX and Node monitoring for the MSK cluster.
+	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
+	// This controls storage mode for supported storage tiers.
+	StorageMode ClusterStorageModePtrOutput `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -51,12 +62,7 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NumberOfBrokerNodes'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"brokerNodeGroupInfo.brokerAzDistribution",
-		"brokerNodeGroupInfo.clientSubnets[*]",
-		"brokerNodeGroupInfo.securityGroups[*]",
 		"clusterName",
-		"encryptionInfo.encryptionAtRest",
-		"encryptionInfo.encryptionInTransit.inCluster",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -92,38 +98,60 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	BrokerNodeGroupInfo  ClusterBrokerNodeGroupInfo   `pulumi:"brokerNodeGroupInfo"`
+	// Describes the setup to be used for the broker nodes in the cluster.
+	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
+	// Includes all client authentication information.
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ClusterName          *string                      `pulumi:"clusterName"`
-	ConfigurationInfo    *ClusterConfigurationInfo    `pulumi:"configurationInfo"`
+	// The name of the cluster.
+	ClusterName *string `pulumi:"clusterName"`
+	// Specifies the configuration to use for the brokers.
+	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
 	// The current version of the MSK cluster
-	CurrentVersion      *string                    `pulumi:"currentVersion"`
-	EncryptionInfo      *ClusterEncryptionInfo     `pulumi:"encryptionInfo"`
-	EnhancedMonitoring  *ClusterEnhancedMonitoring `pulumi:"enhancedMonitoring"`
-	KafkaVersion        string                     `pulumi:"kafkaVersion"`
-	LoggingInfo         *ClusterLoggingInfo        `pulumi:"loggingInfo"`
-	NumberOfBrokerNodes int                        `pulumi:"numberOfBrokerNodes"`
-	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
-	StorageMode         *ClusterStorageMode        `pulumi:"storageMode"`
+	CurrentVersion *string `pulumi:"currentVersion"`
+	// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+	EncryptionInfo *ClusterEncryptionInfo `pulumi:"encryptionInfo"`
+	// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+	EnhancedMonitoring *ClusterEnhancedMonitoring `pulumi:"enhancedMonitoring"`
+	// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+	KafkaVersion string `pulumi:"kafkaVersion"`
+	// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+	LoggingInfo *ClusterLoggingInfo `pulumi:"loggingInfo"`
+	// The number of broker nodes in the cluster.
+	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
+	// JMX and Node monitoring for the MSK cluster.
+	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// This controls storage mode for supported storage tiers.
+	StorageMode *ClusterStorageMode `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	BrokerNodeGroupInfo  ClusterBrokerNodeGroupInfoInput
+	// Describes the setup to be used for the broker nodes in the cluster.
+	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoInput
+	// Includes all client authentication information.
 	ClientAuthentication ClusterClientAuthenticationPtrInput
-	ClusterName          pulumi.StringPtrInput
-	ConfigurationInfo    ClusterConfigurationInfoPtrInput
+	// The name of the cluster.
+	ClusterName pulumi.StringPtrInput
+	// Specifies the configuration to use for the brokers.
+	ConfigurationInfo ClusterConfigurationInfoPtrInput
 	// The current version of the MSK cluster
-	CurrentVersion      pulumi.StringPtrInput
-	EncryptionInfo      ClusterEncryptionInfoPtrInput
-	EnhancedMonitoring  ClusterEnhancedMonitoringPtrInput
-	KafkaVersion        pulumi.StringInput
-	LoggingInfo         ClusterLoggingInfoPtrInput
+	CurrentVersion pulumi.StringPtrInput
+	// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+	EncryptionInfo ClusterEncryptionInfoPtrInput
+	// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+	EnhancedMonitoring ClusterEnhancedMonitoringPtrInput
+	// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+	KafkaVersion pulumi.StringInput
+	// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+	LoggingInfo ClusterLoggingInfoPtrInput
+	// The number of broker nodes in the cluster.
 	NumberOfBrokerNodes pulumi.IntInput
-	OpenMonitoring      ClusterOpenMonitoringPtrInput
-	StorageMode         ClusterStorageModePtrInput
+	// JMX and Node monitoring for the MSK cluster.
+	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// This controls storage mode for supported storage tiers.
+	StorageMode ClusterStorageModePtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapInput
 }
@@ -169,18 +197,22 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Describes the setup to be used for the broker nodes in the cluster.
 func (o ClusterOutput) BrokerNodeGroupInfo() ClusterBrokerNodeGroupInfoOutput {
 	return o.ApplyT(func(v *Cluster) ClusterBrokerNodeGroupInfoOutput { return v.BrokerNodeGroupInfo }).(ClusterBrokerNodeGroupInfoOutput)
 }
 
+// Includes all client authentication information.
 func (o ClusterOutput) ClientAuthentication() ClusterClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClientAuthenticationPtrOutput { return v.ClientAuthentication }).(ClusterClientAuthenticationPtrOutput)
 }
 
+// The name of the cluster.
 func (o ClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// Specifies the configuration to use for the brokers.
 func (o ClusterOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterConfigurationInfoPtrOutput { return v.ConfigurationInfo }).(ClusterConfigurationInfoPtrOutput)
 }
@@ -190,30 +222,37 @@ func (o ClusterOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
+// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
 func (o ClusterOutput) EncryptionInfo() ClusterEncryptionInfoPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEncryptionInfoPtrOutput { return v.EncryptionInfo }).(ClusterEncryptionInfoPtrOutput)
 }
 
+// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
 func (o ClusterOutput) EnhancedMonitoring() ClusterEnhancedMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEnhancedMonitoringPtrOutput { return v.EnhancedMonitoring }).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
 func (o ClusterOutput) KafkaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KafkaVersion }).(pulumi.StringOutput)
 }
 
+// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
 func (o ClusterOutput) LoggingInfo() ClusterLoggingInfoPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterLoggingInfoPtrOutput { return v.LoggingInfo }).(ClusterLoggingInfoPtrOutput)
 }
 
+// The number of broker nodes in the cluster.
 func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.NumberOfBrokerNodes }).(pulumi.IntOutput)
 }
 
+// JMX and Node monitoring for the MSK cluster.
 func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
 }
 
+// This controls storage mode for supported storage tiers.
 func (o ClusterOutput) StorageMode() ClusterStorageModePtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterStorageModePtrOutput { return v.StorageMode }).(ClusterStorageModePtrOutput)
 }

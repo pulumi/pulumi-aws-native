@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRulePutItemInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The table where the message data will be written.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

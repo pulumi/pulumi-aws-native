@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicyRemoveHeaderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP header name.
+        /// </summary>
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
 

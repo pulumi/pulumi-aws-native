@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetJsonOptions
     {
+        /// <summary>
+        /// A value that specifies whether JSON input contains embedded new line characters.
+        /// </summary>
         public readonly bool? MultiLine;
 
         [OutputConstructor]

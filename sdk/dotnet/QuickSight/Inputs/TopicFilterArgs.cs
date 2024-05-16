@@ -12,41 +12,75 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that represents a category filter.
+        /// </summary>
         [Input("categoryFilter")]
         public Input<Inputs.TopicCategoryFilterArgs>? CategoryFilter { get; set; }
 
+        /// <summary>
+        /// A filter used to restrict data based on a range of dates or times.
+        /// </summary>
         [Input("dateRangeFilter")]
         public Input<Inputs.TopicDateRangeFilterArgs>? DateRangeFilter { get; set; }
 
+        /// <summary>
+        /// The class of the filter. Valid values for this structure are `ENFORCED_VALUE_FILTER` , `CONDITIONAL_VALUE_FILTER` , and `NAMED_VALUE_FILTER` .
+        /// </summary>
         [Input("filterClass")]
         public Input<Pulumi.AwsNative.QuickSight.TopicFilterClass>? FilterClass { get; set; }
 
+        /// <summary>
+        /// A description of the filter used to select items for a topic.
+        /// </summary>
         [Input("filterDescription")]
         public Input<string>? FilterDescription { get; set; }
 
+        /// <summary>
+        /// The name of the filter.
+        /// </summary>
         [Input("filterName", required: true)]
         public Input<string> FilterName { get; set; } = null!;
 
         [Input("filterSynonyms")]
         private InputList<string>? _filterSynonyms;
+
+        /// <summary>
+        /// The other names or aliases for the filter.
+        /// </summary>
         public InputList<string> FilterSynonyms
         {
             get => _filterSynonyms ?? (_filterSynonyms = new InputList<string>());
             set => _filterSynonyms = value;
         }
 
+        /// <summary>
+        /// The type of the filter. Valid values for this structure are `CATEGORY_FILTER` , `NUMERIC_EQUALITY_FILTER` , `NUMERIC_RANGE_FILTER` , `DATE_RANGE_FILTER` , and `RELATIVE_DATE_FILTER` .
+        /// </summary>
         [Input("filterType")]
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedFilterType>? FilterType { get; set; }
 
+        /// <summary>
+        /// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.
+        /// </summary>
         [Input("numericEqualityFilter")]
         public Input<Inputs.TopicNumericEqualityFilterArgs>? NumericEqualityFilter { get; set; }
 
+        /// <summary>
+        /// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.
+        /// </summary>
         [Input("numericRangeFilter")]
         public Input<Inputs.TopicNumericRangeFilterArgs>? NumericRangeFilter { get; set; }
 
+        /// <summary>
+        /// The name of the field that the filter operates on.
+        /// </summary>
         [Input("operandFieldName", required: true)]
         public Input<string> OperandFieldName { get; set; } = null!;
 
+        /// <summary>
+        /// A structure that represents a relative date filter.
+        /// </summary>
         [Input("relativeDateFilter")]
         public Input<Inputs.TopicRelativeDateFilterArgs>? RelativeDateFilter { get; set; }
 

@@ -15,23 +15,60 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// </summary>
     public sealed class StackSetOperationPreferencesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+        /// 
+        /// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
+        /// </summary>
         [Input("failureToleranceCount")]
         public Input<int>? FailureToleranceCount { get; set; }
 
+        /// <summary>
+        /// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+        /// 
+        /// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
+        /// 
+        /// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
+        /// </summary>
         [Input("failureTolerancePercentage")]
         public Input<int>? FailureTolerancePercentage { get; set; }
 
+        /// <summary>
+        /// The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
+        /// 
+        /// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+        /// 
+        /// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+        /// </summary>
         [Input("maxConcurrentCount")]
         public Input<int>? MaxConcurrentCount { get; set; }
 
+        /// <summary>
+        /// The maximum percentage of accounts in which to perform this operation at one time.
+        /// 
+        /// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+        /// 
+        /// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+        /// 
+        /// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+        /// </summary>
         [Input("maxConcurrentPercentage")]
         public Input<int>? MaxConcurrentPercentage { get; set; }
 
+        /// <summary>
+        /// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+        /// </summary>
         [Input("regionConcurrencyType")]
         public Input<Pulumi.AwsNative.CloudFormation.StackSetRegionConcurrencyType>? RegionConcurrencyType { get; set; }
 
         [Input("regionOrder")]
         private InputList<string>? _regionOrder;
+
+        /// <summary>
+        /// The order of the Regions where you want to perform the stack operation.
+        /// 
+        /// &gt; `RegionOrder` isn't followed if `AutoDeployment` is enabled.
+        /// </summary>
         public InputList<string> RegionOrder
         {
             get => _regionOrder ?? (_regionOrder = new InputList<string>());

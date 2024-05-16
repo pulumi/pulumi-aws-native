@@ -24,6 +24,7 @@ func LookupScheduleGroup(ctx *pulumi.Context, args *LookupScheduleGroupArgs, opt
 }
 
 type LookupScheduleGroupArgs struct {
+	// The name of the schedule group.
 	Name string `pulumi:"name"`
 }
 
@@ -33,8 +34,11 @@ type LookupScheduleGroupResult struct {
 	// The time at which the schedule group was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The time at which the schedule group was last modified.
-	LastModificationDate *string                 `pulumi:"lastModificationDate"`
-	State                *ScheduleGroupStateEnum `pulumi:"state"`
+	LastModificationDate *string `pulumi:"lastModificationDate"`
+	// Specifies the state of the schedule group.
+	//
+	// *Allowed Values* : `ACTIVE` | `DELETING`
+	State *ScheduleGroupStateEnum `pulumi:"state"`
 	// The list of tags to associate with the schedule group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -53,6 +57,7 @@ func LookupScheduleGroupOutput(ctx *pulumi.Context, args LookupScheduleGroupOutp
 }
 
 type LookupScheduleGroupOutputArgs struct {
+	// The name of the schedule group.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -89,6 +94,9 @@ func (o LookupScheduleGroupResultOutput) LastModificationDate() pulumi.StringPtr
 	return o.ApplyT(func(v LookupScheduleGroupResult) *string { return v.LastModificationDate }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the state of the schedule group.
+//
+// *Allowed Values* : `ACTIVE` | `DELETING`
 func (o LookupScheduleGroupResultOutput) State() ScheduleGroupStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupScheduleGroupResult) *ScheduleGroupStateEnum { return v.State }).(ScheduleGroupStateEnumPtrOutput)
 }

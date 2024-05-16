@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class KeyGroupConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A comment to describe the key group. The comment cannot be longer than 128 characters.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         [Input("items", required: true)]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// A list of the identifiers of the public keys in the key group.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());
             set => _items = value;
         }
 
+        /// <summary>
+        /// A name to identify the key group.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -48,11 +48,17 @@ class GetProjectResult:
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the project.
+        """
         return pulumi.get(self, "project_arn")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[str]:
+        """
+        The ID of the project. This ID is prepended to all entities associated with this project.
+        """
         return pulumi.get(self, "project_id")
 
     @property
@@ -89,6 +95,9 @@ def get_project(project_arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Resource Type definition for AWS::SageMaker::Project
+
+
+    :param str project_arn: The Amazon Resource Name (ARN) of the project.
     """
     __args__ = dict()
     __args__['projectArn'] = project_arn
@@ -108,5 +117,8 @@ def get_project_output(project_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::SageMaker::Project
+
+
+    :param str project_arn: The Amazon Resource Name (ARN) of the project.
     """
     ...

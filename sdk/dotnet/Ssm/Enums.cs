@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Ssm
 {
+    /// <summary>
+    /// The severity level that is assigned to the association.
+    /// </summary>
     [EnumType]
     public readonly struct AssociationComplianceSeverity : IEquatable<AssociationComplianceSeverity>
     {
@@ -38,6 +41,13 @@ namespace Pulumi.AwsNative.Ssm
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+    /// 
+    /// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+    /// 
+    /// By default, all associations use `AUTO` mode.
+    /// </summary>
     [EnumType]
     public readonly struct AssociationSyncCompliance : IEquatable<AssociationSyncCompliance>
     {
@@ -376,6 +386,11 @@ namespace Pulumi.AwsNative.Ssm
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The key for the filter.
+    /// 
+    /// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+    /// </summary>
     [EnumType]
     public readonly struct PatchBaselinePatchFilterKey : IEquatable<PatchBaselinePatchFilterKey>
     {
@@ -452,6 +467,9 @@ namespace Pulumi.AwsNative.Ssm
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+    /// </summary>
     [EnumType]
     public readonly struct PatchBaselineRuleComplianceLevel : IEquatable<PatchBaselineRuleComplianceLevel>
     {

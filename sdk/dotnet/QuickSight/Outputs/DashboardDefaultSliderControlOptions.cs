@@ -13,10 +13,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultSliderControlOptions
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.DashboardSliderControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The larger value that is displayed at the right of the slider.
+        /// </summary>
         public readonly double MaximumValue;
+        /// <summary>
+        /// The smaller value that is displayed at the left of the slider.
+        /// </summary>
         public readonly double MinimumValue;
+        /// <summary>
+        /// The number of increments that the slider bar is divided into.
+        /// </summary>
         public readonly double StepSize;
+        /// <summary>
+        /// The type of the `DefaultSliderControlOptions` . Choose one of the following options:
+        /// 
+        /// - `SINGLE_POINT` : Filter against(equals) a single data point.
+        /// - `RANGE` : Filter data that is in a specified range.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSheetControlSliderType? Type;
 
         [OutputConstructor]

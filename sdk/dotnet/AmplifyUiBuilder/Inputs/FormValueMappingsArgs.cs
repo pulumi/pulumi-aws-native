@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     {
         [Input("bindingProperties")]
         private InputMap<Inputs.FormInputBindingPropertiesValueArgs>? _bindingProperties;
+
+        /// <summary>
+        /// The information to bind fields to data at runtime.
+        /// </summary>
         public InputMap<Inputs.FormInputBindingPropertiesValueArgs> BindingProperties
         {
             get => _bindingProperties ?? (_bindingProperties = new InputMap<Inputs.FormInputBindingPropertiesValueArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
         [Input("values", required: true)]
         private InputList<Inputs.FormValueMappingArgs>? _values;
+
+        /// <summary>
+        /// The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+        /// </summary>
         public InputList<Inputs.FormValueMappingArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.FormValueMappingArgs>());

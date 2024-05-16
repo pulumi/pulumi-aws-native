@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainUserSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Code Editor application settings.
+        /// 
+        /// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
+        /// </summary>
         [Input("codeEditorAppSettings")]
         public Input<Inputs.DomainCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
 
         [Input("customFileSystemConfigs")]
         private InputList<Inputs.DomainCustomFileSystemConfigArgs>? _customFileSystemConfigs;
+
+        /// <summary>
+        /// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// </summary>
         public InputList<Inputs.DomainCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
             get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainCustomFileSystemConfigArgs>());
             set => _customFileSystemConfigs = value;
         }
 
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations.
+        /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.DomainCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
 
@@ -41,6 +53,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
 
+        /// <summary>
+        /// The settings for the JupyterLab application.
+        /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.DomainJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
@@ -56,9 +71,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
+        /// <summary>
+        /// A collection of settings that apply to an `RSessionGateway` app.
+        /// </summary>
         [Input("rSessionAppSettings")]
         public Input<Inputs.DomainRSessionAppSettingsArgs>? RSessionAppSettings { get; set; }
 
+        /// <summary>
+        /// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+        /// </summary>
         [Input("rStudioServerProAppSettings")]
         public Input<Inputs.DomainRStudioServerProAppSettingsArgs>? RStudioServerProAppSettings { get; set; }
 
@@ -80,6 +101,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("sharingSettings")]
         public Input<Inputs.DomainSharingSettingsArgs>? SharingSettings { get; set; }
 
+        /// <summary>
+        /// The default storage settings for a space.
+        /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.DomainDefaultSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
 

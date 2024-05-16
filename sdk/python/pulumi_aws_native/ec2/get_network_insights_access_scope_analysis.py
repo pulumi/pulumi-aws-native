@@ -52,46 +52,73 @@ class GetNetworkInsightsAccessScopeAnalysisResult:
     @property
     @pulumi.getter(name="analyzedEniCount")
     def analyzed_eni_count(self) -> Optional[int]:
+        """
+        The number of network interfaces analyzed.
+        """
         return pulumi.get(self, "analyzed_eni_count")
 
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[str]:
+        """
+        The end date of the analysis.
+        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="findingsFound")
     def findings_found(self) -> Optional['NetworkInsightsAccessScopeAnalysisFindingsFound']:
+        """
+        Indicates whether there are findings (true | false | unknown).
+        """
         return pulumi.get(self, "findings_found")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeAnalysisArn")
     def network_insights_access_scope_analysis_arn(self) -> Optional[str]:
+        """
+        The ARN of the Network Access Scope analysis.
+        """
         return pulumi.get(self, "network_insights_access_scope_analysis_arn")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeAnalysisId")
     def network_insights_access_scope_analysis_id(self) -> Optional[str]:
+        """
+        The ID of the Network Access Scope analysis.
+        """
         return pulumi.get(self, "network_insights_access_scope_analysis_id")
 
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[str]:
+        """
+        The start date of the analysis.
+        """
         return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['NetworkInsightsAccessScopeAnalysisStatus']:
+        """
+        The status of the analysis (running | succeeded | failed).
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[str]:
+        """
+        The status message.
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -116,6 +143,9 @@ def get_network_insights_access_scope_analysis(network_insights_access_scope_ana
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAccessScopeAnalysisResult:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
+
+
+    :param str network_insights_access_scope_analysis_id: The ID of the Network Access Scope analysis.
     """
     __args__ = dict()
     __args__['networkInsightsAccessScopeAnalysisId'] = network_insights_access_scope_analysis_id
@@ -139,5 +169,8 @@ def get_network_insights_access_scope_analysis_output(network_insights_access_sc
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
+
+
+    :param str network_insights_access_scope_analysis_id: The ID of the Network Access Scope analysis.
     """
     ...

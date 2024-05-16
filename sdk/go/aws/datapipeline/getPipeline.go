@@ -24,6 +24,7 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 }
 
 type LookupPipelineArgs struct {
+	// The ID of the pipeline.
 	PipelineId string `pulumi:"pipelineId"`
 }
 
@@ -34,7 +35,8 @@ type LookupPipelineResult struct {
 	ParameterObjects []PipelineParameterObject `pulumi:"parameterObjects"`
 	// The parameter values used with the pipeline.
 	ParameterValues []PipelineParameterValue `pulumi:"parameterValues"`
-	PipelineId      *string                  `pulumi:"pipelineId"`
+	// The ID of the pipeline.
+	PipelineId *string `pulumi:"pipelineId"`
 	// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
 	PipelineObjects []PipelineObject `pulumi:"pipelineObjects"`
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
@@ -55,6 +57,7 @@ func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, op
 }
 
 type LookupPipelineOutputArgs struct {
+	// The ID of the pipeline.
 	PipelineId pulumi.StringInput `pulumi:"pipelineId"`
 }
 
@@ -91,6 +94,7 @@ func (o LookupPipelineResultOutput) ParameterValues() PipelineParameterValueArra
 	return o.ApplyT(func(v LookupPipelineResult) []PipelineParameterValue { return v.ParameterValues }).(PipelineParameterValueArrayOutput)
 }
 
+// The ID of the pipeline.
 func (o LookupPipelineResultOutput) PipelineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.PipelineId }).(pulumi.StringPtrOutput)
 }

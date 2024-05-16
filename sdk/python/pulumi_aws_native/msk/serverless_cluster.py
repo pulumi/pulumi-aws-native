@@ -22,6 +22,7 @@ class ServerlessClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
+        :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Includes all client authentication information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "client_authentication", client_authentication)
@@ -34,6 +35,9 @@ class ServerlessClusterArgs:
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Input['ServerlessClusterClientAuthenticationArgs']:
+        """
+        Includes all client authentication information.
+        """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
@@ -86,6 +90,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']] client_authentication: Includes all client authentication information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
@@ -173,6 +178,9 @@ class ServerlessCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Output['outputs.ServerlessClusterClientAuthentication']:
+        """
+        Includes all client authentication information.
+        """
         return pulumi.get(self, "client_authentication")
 
     @property

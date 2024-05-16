@@ -26,7 +26,13 @@ export interface GetVdmAttributesArgs {
 }
 
 export interface GetVdmAttributesResult {
+    /**
+     * Settings for your VDM configuration as applicable to the Dashboard.
+     */
     readonly dashboardAttributes?: outputs.ses.VdmAttributesDashboardAttributes;
+    /**
+     * Settings for your VDM configuration as applicable to the Guardian.
+     */
     readonly guardianAttributes?: outputs.ses.VdmAttributesGuardianAttributes;
     /**
      * Unique identifier for this resource

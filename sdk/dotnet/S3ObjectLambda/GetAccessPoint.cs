@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     [OutputType]
     public sealed class GetAccessPointResult
     {
+        /// <summary>
+        /// The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
+        /// </summary>
         public readonly Outputs.AccessPointAlias? Alias;
+        /// <summary>
+        /// Specifies the ARN for the Object Lambda Access Point.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The date and time when the Object lambda Access Point was created.

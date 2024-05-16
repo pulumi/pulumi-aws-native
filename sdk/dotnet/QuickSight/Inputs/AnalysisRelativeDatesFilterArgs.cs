@@ -12,36 +12,79 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisRelativeDatesFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The date configuration of the filter.
+        /// </summary>
         [Input("anchorDateConfiguration", required: true)]
         public Input<Inputs.AnalysisAnchorDateConfigurationArgs> AnchorDateConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.AnalysisDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
+        /// <summary>
+        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// </summary>
         [Input("excludePeriodConfiguration")]
         public Input<Inputs.AnalysisExcludePeriodConfigurationArgs>? ExcludePeriodConfiguration { get; set; }
 
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum granularity (period granularity) of the relative dates filter.
+        /// </summary>
         [Input("minimumGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity>? MinimumGranularity { get; set; }
 
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         [Input("nullOption", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisFilterNullOption> NullOption { get; set; } = null!;
 
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         [Input("parameterName")]
         public Input<string>? ParameterName { get; set; }
 
+        /// <summary>
+        /// The range date type of the filter. Choose one of the options below:
+        /// 
+        /// - `PREVIOUS`
+        /// - `THIS`
+        /// - `LAST`
+        /// - `NOW`
+        /// - `NEXT`
+        /// </summary>
         [Input("relativeDateType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisRelativeDateType> RelativeDateType { get; set; } = null!;
 
+        /// <summary>
+        /// The date value of the filter.
+        /// </summary>
         [Input("relativeDateValue")]
         public Input<double>? RelativeDateValue { get; set; }
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity> TimeGranularity { get; set; } = null!;
 

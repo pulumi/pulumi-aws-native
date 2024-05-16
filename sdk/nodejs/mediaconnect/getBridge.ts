@@ -30,8 +30,17 @@ export interface GetBridgeResult {
      * The Amazon Resource Number (ARN) of the bridge.
      */
     readonly bridgeArn?: string;
+    /**
+     * The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+     */
     readonly bridgeState?: enums.mediaconnect.BridgeStateEnum;
+    /**
+     * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+     */
     readonly egressGatewayBridge?: outputs.mediaconnect.BridgeEgressGatewayBridge;
+    /**
+     * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+     */
     readonly ingressGatewayBridge?: outputs.mediaconnect.BridgeIngressGatewayBridge;
     /**
      * The name of the bridge.
@@ -45,6 +54,9 @@ export interface GetBridgeResult {
      * The placement Amazon Resource Number (ARN) of the bridge.
      */
     readonly placementArn?: string;
+    /**
+     * The settings for source failover.
+     */
     readonly sourceFailoverConfig?: outputs.mediaconnect.BridgeFailoverConfig;
     /**
      * The sources on this bridge.

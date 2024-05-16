@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateValidationStrategy
     {
+        /// <summary>
+        /// The mode of validation for the asset to be created or updated. When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateValidationStrategyMode Mode;
 
         [OutputConstructor]

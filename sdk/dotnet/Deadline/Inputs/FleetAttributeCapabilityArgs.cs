@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class FleetAttributeCapabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the fleet attribute capability for the worker.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The number of fleet attribute capabilities.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

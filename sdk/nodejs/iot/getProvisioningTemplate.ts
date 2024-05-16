@@ -19,16 +19,40 @@ export function getProvisioningTemplate(args: GetProvisioningTemplateArgs, opts?
 }
 
 export interface GetProvisioningTemplateArgs {
+    /**
+     * The name of the fleet provisioning template.
+     */
     templateName: string;
 }
 
 export interface GetProvisioningTemplateResult {
+    /**
+     * The description of the fleet provisioning template.
+     */
     readonly description?: string;
+    /**
+     * True to enable the fleet provisioning template, otherwise false.
+     */
     readonly enabled?: boolean;
+    /**
+     * Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+     */
     readonly preProvisioningHook?: outputs.iot.ProvisioningTemplateProvisioningHook;
+    /**
+     * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+     */
     readonly provisioningRoleArn?: string;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN that identifies the provisioning template.
+     */
     readonly templateArn?: string;
+    /**
+     * The JSON formatted contents of the fleet provisioning template version.
+     */
     readonly templateBody?: string;
 }
 /**
@@ -39,5 +63,8 @@ export function getProvisioningTemplateOutput(args: GetProvisioningTemplateOutpu
 }
 
 export interface GetProvisioningTemplateOutputArgs {
+    /**
+     * The name of the fleet provisioning template.
+     */
     templateName: pulumi.Input<string>;
 }

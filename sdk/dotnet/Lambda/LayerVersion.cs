@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("layerName")]
         public Output<string?> LayerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the layer version.
+        /// </summary>
         [Output("layerVersionArn")]
         public Output<string> LayerVersionArn { get; private set; } = null!;
 

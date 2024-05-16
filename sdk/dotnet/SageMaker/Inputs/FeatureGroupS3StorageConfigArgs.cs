@@ -12,9 +12,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class FeatureGroupS3StorageConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Key Management Service (KMS) key ARN of the key used to encrypt any objects written into the `OfflineStore` S3 location.
+        /// 
+        /// The IAM `roleARN` that is passed as a parameter to `CreateFeatureGroup` must have below permissions to the `KmsKeyId` :
+        /// 
+        /// - `"kms:GenerateDataKey"`
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The S3 URI, or location in Amazon S3, of `OfflineStore` .
+        /// 
+        /// S3 URIs have a format similar to the following: `s3://example-bucket/prefix/` .
+        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 

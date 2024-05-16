@@ -37,19 +37,67 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The app block ARN with which the application should be associated.
+     */
     public readonly appBlockArn!: pulumi.Output<string>;
+    /**
+     * The ARN of the application.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A list of attributes to delete from an application.
+     */
     public readonly attributesToDelete!: pulumi.Output<string[] | undefined>;
+    /**
+     * The time when the application was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The description of the application.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the application. This name is visible to users in the application catalog.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The S3 location of the application icon.
+     */
     public readonly iconS3Location!: pulumi.Output<outputs.appstream.ApplicationS3Location>;
+    /**
+     * The instance families the application supports.
+     *
+     * *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+     */
     public readonly instanceFamilies!: pulumi.Output<string[]>;
+    /**
+     * The launch parameters of the application.
+     */
     public readonly launchParameters!: pulumi.Output<string | undefined>;
+    /**
+     * The launch path of the application.
+     */
     public readonly launchPath!: pulumi.Output<string>;
+    /**
+     * The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+     *
+     * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The platforms the application supports.
+     *
+     * *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+     */
     public readonly platforms!: pulumi.Output<string[]>;
+    /**
+     * The tag of the application.
+     */
     public readonly tags!: pulumi.Output<(outputs.appstream.ApplicationTag0Properties | outputs.appstream.ApplicationTag1Properties)[] | undefined>;
+    /**
+     * The working directory of the application.
+     */
     public readonly workingDirectory!: pulumi.Output<string | undefined>;
 
     /**
@@ -119,16 +167,58 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The app block ARN with which the application should be associated.
+     */
     appBlockArn: pulumi.Input<string>;
+    /**
+     * A list of attributes to delete from an application.
+     */
     attributesToDelete?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The description of the application.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the application. This name is visible to users in the application catalog.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The S3 location of the application icon.
+     */
     iconS3Location: pulumi.Input<inputs.appstream.ApplicationS3LocationArgs>;
+    /**
+     * The instance families the application supports.
+     *
+     * *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+     */
     instanceFamilies: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The launch parameters of the application.
+     */
     launchParameters?: pulumi.Input<string>;
+    /**
+     * The launch path of the application.
+     */
     launchPath: pulumi.Input<string>;
+    /**
+     * The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+     *
+     * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The platforms the application supports.
+     *
+     * *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+     */
     platforms: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tag of the application.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.ApplicationTag0PropertiesArgs | inputs.appstream.ApplicationTag1PropertiesArgs>[]>;
+    /**
+     * The working directory of the application.
+     */
     workingDirectory?: pulumi.Input<string>;
 }

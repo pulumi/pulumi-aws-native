@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCategoryFilterConfiguration
     {
+        /// <summary>
+        /// A custom filter that filters based on a single value. This filter can be partially matched.
+        /// </summary>
         public readonly Outputs.TemplateCustomFilterConfiguration? CustomFilterConfiguration;
+        /// <summary>
+        /// A list of custom filter values.
+        /// </summary>
         public readonly Outputs.TemplateCustomFilterListConfiguration? CustomFilterListConfiguration;
+        /// <summary>
+        /// A list of filter configurations.
+        /// </summary>
         public readonly Outputs.TemplateFilterListConfiguration? FilterListConfiguration;
 
         [OutputConstructor]

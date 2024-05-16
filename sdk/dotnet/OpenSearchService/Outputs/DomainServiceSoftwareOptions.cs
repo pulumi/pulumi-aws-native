@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainServiceSoftwareOptions
     {
+        /// <summary>
+        /// The timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+        /// </summary>
         public readonly string? AutomatedUpdateDate;
+        /// <summary>
+        /// True if you're able to cancel your service software version update. False if you can't cancel your service software update.
+        /// </summary>
         public readonly bool? Cancellable;
+        /// <summary>
+        /// The current service software version present on the domain.
+        /// </summary>
         public readonly string? CurrentVersion;
+        /// <summary>
+        /// A description of the service software update status.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The new service software version, if one is available.
+        /// </summary>
         public readonly string? NewVersion;
+        /// <summary>
+        /// True if a service software is never automatically updated. False if a service software is automatically updated after the automated update date.
+        /// </summary>
         public readonly bool? OptionalDeployment;
+        /// <summary>
+        /// True if you're able to update your service software version. False if you can't update your service software version.
+        /// </summary>
         public readonly bool? UpdateAvailable;
+        /// <summary>
+        /// The status of your service software update.
+        /// </summary>
         public readonly string? UpdateStatus;
 
         [OutputConstructor]

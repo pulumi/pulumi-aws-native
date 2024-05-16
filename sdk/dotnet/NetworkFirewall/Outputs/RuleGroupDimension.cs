@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupDimension
     {
+        /// <summary>
+        /// The value to use in the custom metric dimension.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

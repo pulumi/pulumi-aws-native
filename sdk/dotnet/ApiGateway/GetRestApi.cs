@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRestApiArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The string identifier of the associated RestApi.
+        /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRestApiInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The string identifier of the associated RestApi.
+        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
@@ -87,7 +93,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
+        /// <summary>
+        /// The string identifier of the associated RestApi.
+        /// </summary>
         public readonly string? RestApiId;
+        /// <summary>
+        /// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
+        /// </summary>
         public readonly string? RootResourceId;
         /// <summary>
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.

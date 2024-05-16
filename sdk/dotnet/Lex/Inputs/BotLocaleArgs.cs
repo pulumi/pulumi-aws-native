@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotLocaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+        /// </summary>
         [Input("customVocabulary")]
         public Input<Inputs.BotCustomVocabularyArgs>? CustomVocabulary { get; set; }
 
+        /// <summary>
+        /// A description of the bot locale. Use this to help identify the bot locale in lists.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -33,9 +39,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
             set => _intents = value;
         }
 
+        /// <summary>
+        /// The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
+        /// </summary>
         [Input("localeId", required: true)]
         public Input<string> LocaleId { get; set; } = null!;
 
+        /// <summary>
+        /// Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
+        /// </summary>
         [Input("nluConfidenceThreshold", required: true)]
         public Input<double> NluConfidenceThreshold { get; set; } = null!;
 
@@ -51,6 +63,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
             set => _slotTypes = value;
         }
 
+        /// <summary>
+        /// Defines settings for using an Amazon Polly voice to communicate with a user.
+        /// </summary>
         [Input("voiceSettings")]
         public Input<Inputs.BotVoiceSettingsArgs>? VoiceSettings { get; set; }
 

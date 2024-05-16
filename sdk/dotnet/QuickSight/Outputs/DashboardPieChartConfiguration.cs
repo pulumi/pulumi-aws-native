@@ -13,16 +13,51 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPieChartConfiguration
     {
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The contribution analysis (anomaly configuration) setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The options for configuring a donut chart or pie chart.
+        /// </summary>
         public readonly Outputs.DashboardDonutOptions? DonutOptions;
+        /// <summary>
+        /// The field well configuration of a pie chart.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardPieChartFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         public readonly Outputs.DashboardSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// The sort configuration of a pie chart.
+        /// </summary>
         public readonly Outputs.DashboardPieChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? ValueLabelOptions;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 
         [OutputConstructor]

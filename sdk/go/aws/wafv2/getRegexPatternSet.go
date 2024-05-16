@@ -38,9 +38,13 @@ type LookupRegexPatternSetResult struct {
 	// Description of the entity.
 	Description *string `pulumi:"description"`
 	// Id of the RegexPatternSet
-	Id                    *string   `pulumi:"id"`
-	RegularExpressionList []string  `pulumi:"regularExpressionList"`
-	Tags                  []aws.Tag `pulumi:"tags"`
+	Id *string `pulumi:"id"`
+	// The regular expression patterns in the set.
+	RegularExpressionList []string `pulumi:"regularExpressionList"`
+	// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+	//
+	// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSetOutputArgs, opts ...pulumi.InvokeOption) LookupRegexPatternSetResultOutput {
@@ -98,10 +102,14 @@ func (o LookupRegexPatternSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The regular expression patterns in the set.
 func (o LookupRegexPatternSetResultOutput) RegularExpressionList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) []string { return v.RegularExpressionList }).(pulumi.StringArrayOutput)
 }
 
+// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+//
+// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
 func (o LookupRegexPatternSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

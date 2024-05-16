@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.DataSync
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the options that DataSync can use to mount your NFS file server.
+        /// </summary>
         [Output("mountOptions")]
         public Output<Outputs.LocationNfsMountOptions?> MountOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        /// </summary>
         [Output("onPremConfig")]
         public Output<Outputs.LocationNfsOnPremConfig> OnPremConfig { get; private set; } = null!;
 
@@ -100,9 +106,15 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class LocationNfsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the options that DataSync can use to mount your NFS file server.
+        /// </summary>
         [Input("mountOptions")]
         public Input<Inputs.LocationNfsMountOptionsArgs>? MountOptions { get; set; }
 
+        /// <summary>
+        /// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        /// </summary>
         [Input("onPremConfig", required: true)]
         public Input<Inputs.LocationNfsOnPremConfigArgs> OnPremConfig { get; set; } = null!;
 

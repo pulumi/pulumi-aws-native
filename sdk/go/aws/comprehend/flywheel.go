@@ -17,15 +17,24 @@ import (
 type Flywheel struct {
 	pulumi.CustomResourceState
 
-	ActiveModelArn     pulumi.StringPtrOutput              `pulumi:"activeModelArn"`
-	Arn                pulumi.StringOutput                 `pulumi:"arn"`
-	DataAccessRoleArn  pulumi.StringOutput                 `pulumi:"dataAccessRoleArn"`
-	DataLakeS3Uri      pulumi.StringOutput                 `pulumi:"dataLakeS3Uri"`
+	// The Amazon Resource Number (ARN) of the active model version.
+	ActiveModelArn pulumi.StringPtrOutput `pulumi:"activeModelArn"`
+	// The Amazon Resource Name (ARN) of the flywheel.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
+	// Amazon S3 URI of the data lake location.
+	DataLakeS3Uri pulumi.StringOutput `pulumi:"dataLakeS3Uri"`
+	// Data security configuration.
 	DataSecurityConfig FlywheelDataSecurityConfigPtrOutput `pulumi:"dataSecurityConfig"`
-	FlywheelName       pulumi.StringOutput                 `pulumi:"flywheelName"`
-	ModelType          FlywheelModelTypePtrOutput          `pulumi:"modelType"`
-	Tags               aws.TagArrayOutput                  `pulumi:"tags"`
-	TaskConfig         FlywheelTaskConfigPtrOutput         `pulumi:"taskConfig"`
+	// Name for the flywheel.
+	FlywheelName pulumi.StringOutput `pulumi:"flywheelName"`
+	// Model type of the flywheel's model.
+	ModelType FlywheelModelTypePtrOutput `pulumi:"modelType"`
+	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Configuration about the model associated with a flywheel.
+	TaskConfig FlywheelTaskConfigPtrOutput `pulumi:"taskConfig"`
 }
 
 // NewFlywheel registers a new resource with the given unique name, arguments, and options.
@@ -81,26 +90,42 @@ func (FlywheelState) ElementType() reflect.Type {
 }
 
 type flywheelArgs struct {
-	ActiveModelArn     *string                     `pulumi:"activeModelArn"`
-	DataAccessRoleArn  string                      `pulumi:"dataAccessRoleArn"`
-	DataLakeS3Uri      string                      `pulumi:"dataLakeS3Uri"`
+	// The Amazon Resource Number (ARN) of the active model version.
+	ActiveModelArn *string `pulumi:"activeModelArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
+	// Amazon S3 URI of the data lake location.
+	DataLakeS3Uri string `pulumi:"dataLakeS3Uri"`
+	// Data security configuration.
 	DataSecurityConfig *FlywheelDataSecurityConfig `pulumi:"dataSecurityConfig"`
-	FlywheelName       *string                     `pulumi:"flywheelName"`
-	ModelType          *FlywheelModelType          `pulumi:"modelType"`
-	Tags               []aws.Tag                   `pulumi:"tags"`
-	TaskConfig         *FlywheelTaskConfig         `pulumi:"taskConfig"`
+	// Name for the flywheel.
+	FlywheelName *string `pulumi:"flywheelName"`
+	// Model type of the flywheel's model.
+	ModelType *FlywheelModelType `pulumi:"modelType"`
+	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Configuration about the model associated with a flywheel.
+	TaskConfig *FlywheelTaskConfig `pulumi:"taskConfig"`
 }
 
 // The set of arguments for constructing a Flywheel resource.
 type FlywheelArgs struct {
-	ActiveModelArn     pulumi.StringPtrInput
-	DataAccessRoleArn  pulumi.StringInput
-	DataLakeS3Uri      pulumi.StringInput
+	// The Amazon Resource Number (ARN) of the active model version.
+	ActiveModelArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+	DataAccessRoleArn pulumi.StringInput
+	// Amazon S3 URI of the data lake location.
+	DataLakeS3Uri pulumi.StringInput
+	// Data security configuration.
 	DataSecurityConfig FlywheelDataSecurityConfigPtrInput
-	FlywheelName       pulumi.StringPtrInput
-	ModelType          FlywheelModelTypePtrInput
-	Tags               aws.TagArrayInput
-	TaskConfig         FlywheelTaskConfigPtrInput
+	// Name for the flywheel.
+	FlywheelName pulumi.StringPtrInput
+	// Model type of the flywheel's model.
+	ModelType FlywheelModelTypePtrInput
+	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	Tags aws.TagArrayInput
+	// Configuration about the model associated with a flywheel.
+	TaskConfig FlywheelTaskConfigPtrInput
 }
 
 func (FlywheelArgs) ElementType() reflect.Type {
@@ -140,38 +165,47 @@ func (o FlywheelOutput) ToFlywheelOutputWithContext(ctx context.Context) Flywhee
 	return o
 }
 
+// The Amazon Resource Number (ARN) of the active model version.
 func (o FlywheelOutput) ActiveModelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flywheel) pulumi.StringPtrOutput { return v.ActiveModelArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the flywheel.
 func (o FlywheelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flywheel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
 func (o FlywheelOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flywheel) pulumi.StringOutput { return v.DataAccessRoleArn }).(pulumi.StringOutput)
 }
 
+// Amazon S3 URI of the data lake location.
 func (o FlywheelOutput) DataLakeS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flywheel) pulumi.StringOutput { return v.DataLakeS3Uri }).(pulumi.StringOutput)
 }
 
+// Data security configuration.
 func (o FlywheelOutput) DataSecurityConfig() FlywheelDataSecurityConfigPtrOutput {
 	return o.ApplyT(func(v *Flywheel) FlywheelDataSecurityConfigPtrOutput { return v.DataSecurityConfig }).(FlywheelDataSecurityConfigPtrOutput)
 }
 
+// Name for the flywheel.
 func (o FlywheelOutput) FlywheelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flywheel) pulumi.StringOutput { return v.FlywheelName }).(pulumi.StringOutput)
 }
 
+// Model type of the flywheel's model.
 func (o FlywheelOutput) ModelType() FlywheelModelTypePtrOutput {
 	return o.ApplyT(func(v *Flywheel) FlywheelModelTypePtrOutput { return v.ModelType }).(FlywheelModelTypePtrOutput)
 }
 
+// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
 func (o FlywheelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Flywheel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Configuration about the model associated with a flywheel.
 func (o FlywheelOutput) TaskConfig() FlywheelTaskConfigPtrOutput {
 	return o.ApplyT(func(v *Flywheel) FlywheelTaskConfigPtrOutput { return v.TaskConfig }).(FlywheelTaskConfigPtrOutput)
 }

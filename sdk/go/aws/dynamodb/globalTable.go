@@ -16,20 +16,50 @@ import (
 type GlobalTable struct {
 	pulumi.CustomResourceState
 
-	Arn                                pulumi.StringOutput                                    `pulumi:"arn"`
-	AttributeDefinitions               GlobalTableAttributeDefinitionArrayOutput              `pulumi:"attributeDefinitions"`
-	BillingMode                        pulumi.StringPtrOutput                                 `pulumi:"billingMode"`
-	GlobalSecondaryIndexes             GlobalTableGlobalSecondaryIndexArrayOutput             `pulumi:"globalSecondaryIndexes"`
-	KeySchema                          GlobalTableKeySchemaArrayOutput                        `pulumi:"keySchema"`
-	LocalSecondaryIndexes              GlobalTableLocalSecondaryIndexArrayOutput              `pulumi:"localSecondaryIndexes"`
-	Replicas                           GlobalTableReplicaSpecificationArrayOutput             `pulumi:"replicas"`
-	SseSpecification                   GlobalTableSseSpecificationPtrOutput                   `pulumi:"sseSpecification"`
-	StreamArn                          pulumi.StringOutput                                    `pulumi:"streamArn"`
-	StreamSpecification                GlobalTableStreamSpecificationPtrOutput                `pulumi:"streamSpecification"`
-	TableId                            pulumi.StringOutput                                    `pulumi:"tableId"`
-	TableName                          pulumi.StringPtrOutput                                 `pulumi:"tableName"`
-	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrOutput            `pulumi:"timeToLiveSpecification"`
-	WriteOnDemandThroughputSettings    GlobalTableWriteOnDemandThroughputSettingsPtrOutput    `pulumi:"writeOnDemandThroughputSettings"`
+	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Represents an attribute for describing the schema for the table and indexes.
+	AttributeDefinitions GlobalTableAttributeDefinitionArrayOutput `pulumi:"attributeDefinitions"`
+	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+	//
+	// - `PAY_PER_REQUEST`
+	// - `PROVISIONED`
+	//
+	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
+	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema GlobalTableKeySchemaArrayOutput `pulumi:"keySchema"`
+	// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
+	// Defines settings specific to a single replica of a global table.
+	Replicas GlobalTableReplicaSpecificationArrayOutput `pulumi:"replicas"`
+	// Represents the settings used to enable server-side encryption.
+	SseSpecification GlobalTableSseSpecificationPtrOutput `pulumi:"sseSpecification"`
+	// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+	//
+	// > You must specify the `StreamSpecification` property to use this attribute.
+	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
+	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+	//
+	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	StreamSpecification GlobalTableStreamSpecificationPtrOutput `pulumi:"streamSpecification"`
+	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
+	TableId pulumi.StringOutput `pulumi:"tableId"`
+	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
+	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrOutput `pulumi:"writeOnDemandThroughputSettings"`
+	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrOutput `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -88,33 +118,83 @@ func (GlobalTableState) ElementType() reflect.Type {
 }
 
 type globalTableArgs struct {
-	AttributeDefinitions               []GlobalTableAttributeDefinition               `pulumi:"attributeDefinitions"`
-	BillingMode                        *string                                        `pulumi:"billingMode"`
-	GlobalSecondaryIndexes             []GlobalTableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
-	KeySchema                          []GlobalTableKeySchema                         `pulumi:"keySchema"`
-	LocalSecondaryIndexes              []GlobalTableLocalSecondaryIndex               `pulumi:"localSecondaryIndexes"`
-	Replicas                           []GlobalTableReplicaSpecification              `pulumi:"replicas"`
-	SseSpecification                   *GlobalTableSseSpecification                   `pulumi:"sseSpecification"`
-	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
-	TableName                          *string                                        `pulumi:"tableName"`
-	TimeToLiveSpecification            *GlobalTableTimeToLiveSpecification            `pulumi:"timeToLiveSpecification"`
-	WriteOnDemandThroughputSettings    *GlobalTableWriteOnDemandThroughputSettings    `pulumi:"writeOnDemandThroughputSettings"`
+	// Represents an attribute for describing the schema for the table and indexes.
+	AttributeDefinitions []GlobalTableAttributeDefinition `pulumi:"attributeDefinitions"`
+	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+	//
+	// - `PAY_PER_REQUEST`
+	// - `PROVISIONED`
+	//
+	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+	BillingMode *string `pulumi:"billingMode"`
+	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
+	// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
+	// Defines settings specific to a single replica of a global table.
+	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
+	// Represents the settings used to enable server-side encryption.
+	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
+	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+	//
+	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
+	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	TableName *string `pulumi:"tableName"`
+	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
+	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
 // The set of arguments for constructing a GlobalTable resource.
 type GlobalTableArgs struct {
-	AttributeDefinitions               GlobalTableAttributeDefinitionArrayInput
-	BillingMode                        pulumi.StringPtrInput
-	GlobalSecondaryIndexes             GlobalTableGlobalSecondaryIndexArrayInput
-	KeySchema                          GlobalTableKeySchemaArrayInput
-	LocalSecondaryIndexes              GlobalTableLocalSecondaryIndexArrayInput
-	Replicas                           GlobalTableReplicaSpecificationArrayInput
-	SseSpecification                   GlobalTableSseSpecificationPtrInput
-	StreamSpecification                GlobalTableStreamSpecificationPtrInput
-	TableName                          pulumi.StringPtrInput
-	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrInput
-	WriteOnDemandThroughputSettings    GlobalTableWriteOnDemandThroughputSettingsPtrInput
+	// Represents an attribute for describing the schema for the table and indexes.
+	AttributeDefinitions GlobalTableAttributeDefinitionArrayInput
+	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+	//
+	// - `PAY_PER_REQUEST`
+	// - `PROVISIONED`
+	//
+	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+	BillingMode pulumi.StringPtrInput
+	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayInput
+	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	//
+	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	//
+	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	KeySchema GlobalTableKeySchemaArrayInput
+	// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayInput
+	// Defines settings specific to a single replica of a global table.
+	Replicas GlobalTableReplicaSpecificationArrayInput
+	// Represents the settings used to enable server-side encryption.
+	SseSpecification GlobalTableSseSpecificationPtrInput
+	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+	//
+	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	StreamSpecification GlobalTableStreamSpecificationPtrInput
+	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	TableName pulumi.StringPtrInput
+	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrInput
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput
+	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput
 }
 
@@ -155,64 +235,94 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
 func (o GlobalTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Represents an attribute for describing the schema for the table and indexes.
 func (o GlobalTableOutput) AttributeDefinitions() GlobalTableAttributeDefinitionArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableAttributeDefinitionArrayOutput { return v.AttributeDefinitions }).(GlobalTableAttributeDefinitionArrayOutput)
 }
 
+// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+//
+// - `PAY_PER_REQUEST`
+// - `PROVISIONED`
+//
+// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
 func (o GlobalTableOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
+// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
 func (o GlobalTableOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
+// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+//
+// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 func (o GlobalTableOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableKeySchemaArrayOutput { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
+// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
 func (o GlobalTableOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
+// Defines settings specific to a single replica of a global table.
 func (o GlobalTableOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableReplicaSpecificationArrayOutput { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
+// Represents the settings used to enable server-side encryption.
 func (o GlobalTableOutput) SseSpecification() GlobalTableSseSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableSseSpecificationPtrOutput { return v.SseSpecification }).(GlobalTableSseSpecificationPtrOutput)
 }
 
+// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+//
+// > You must specify the `StreamSpecification` property to use this attribute.
 func (o GlobalTableOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+//
+// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
 func (o GlobalTableOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableStreamSpecificationPtrOutput { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
 }
 
+// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
 func (o GlobalTableOutput) TableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.TableId }).(pulumi.StringOutput)
 }
 
+// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+//
+// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 func (o GlobalTableOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
 func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
+// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 		return v.WriteOnDemandThroughputSettings
 	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
+// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 func (o GlobalTableOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 		return v.WriteProvisionedThroughputSettings

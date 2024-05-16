@@ -17,11 +17,16 @@ import (
 type Permission struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the new permission.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Set to true to use this as the default permission.
 	IsResourceTypeDefault pulumi.BoolOutput `pulumi:"isResourceTypeDefault"`
 	// The name of the permission.
-	Name           pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The type of managed permission. This can be one of the following values:
+	//
+	// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+	// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
 	// Policy template for the permission.
 	//
@@ -29,7 +34,10 @@ type Permission struct {
 	PolicyTemplate pulumi.AnyOutput `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	Tags         aws.TagArrayOutput  `pulumi:"tags"`
+	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+	//
+	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Version of the permission.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -93,8 +101,11 @@ type permissionArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 	PolicyTemplate interface{} `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
-	ResourceType string    `pulumi:"resourceType"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	ResourceType string `pulumi:"resourceType"`
+	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+	//
+	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Permission resource.
@@ -107,7 +118,10 @@ type PermissionArgs struct {
 	PolicyTemplate pulumi.Input
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringInput
-	Tags         aws.TagArrayInput
+	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+	//
+	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	Tags aws.TagArrayInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -147,6 +161,7 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the new permission.
 func (o PermissionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -161,6 +176,10 @@ func (o PermissionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of managed permission. This can be one of the following values:
+//
+// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
 func (o PermissionOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.PermissionType }).(pulumi.StringOutput)
 }
@@ -177,6 +196,9 @@ func (o PermissionOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
+// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+//
+// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
 func (o PermissionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Permission) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCustomNarrativeOptions
     {
+        /// <summary>
+        /// The string input of custom narrative.
+        /// </summary>
         public readonly string Narrative;
 
         [OutputConstructor]

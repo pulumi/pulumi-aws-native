@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EnabledBaselineParameter struct {
-	Key   *string     `pulumi:"key"`
+	// A string denoting the parameter key.
+	Key *string `pulumi:"key"`
+	// A low-level `Document` object of any type (for example, a Java Object).
 	Value interface{} `pulumi:"value"`
 }
 
@@ -30,8 +32,10 @@ type EnabledBaselineParameterInput interface {
 }
 
 type EnabledBaselineParameterArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.Input          `pulumi:"value"`
+	// A string denoting the parameter key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// A low-level `Document` object of any type (for example, a Java Object).
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (EnabledBaselineParameterArgs) ElementType() reflect.Type {
@@ -85,10 +89,12 @@ func (o EnabledBaselineParameterOutput) ToEnabledBaselineParameterOutputWithCont
 	return o
 }
 
+// A string denoting the parameter key.
 func (o EnabledBaselineParameterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnabledBaselineParameter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// A low-level `Document` object of any type (for example, a Java Object).
 func (o EnabledBaselineParameterOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnabledBaselineParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -114,12 +120,16 @@ func (o EnabledBaselineParameterArrayOutput) Index(i pulumi.IntInput) EnabledBas
 }
 
 type EnabledBaselineTag struct {
-	Key   *string `pulumi:"key"`
+	// A string that identifies a key-value pair.
+	Key *string `pulumi:"key"`
+	// A string parameter that describes an `EnabledBaseline` resource.
 	Value *string `pulumi:"value"`
 }
 
 type EnabledControlParameter struct {
-	Key   string      `pulumi:"key"`
+	// The key of a key/value pair. It is of type `string` .
+	Key string `pulumi:"key"`
+	// The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
 	Value interface{} `pulumi:"value"`
 }
 
@@ -135,8 +145,10 @@ type EnabledControlParameterInput interface {
 }
 
 type EnabledControlParameterArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.Input       `pulumi:"value"`
+	// The key of a key/value pair. It is of type `string` .
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (EnabledControlParameterArgs) ElementType() reflect.Type {
@@ -190,10 +202,12 @@ func (o EnabledControlParameterOutput) ToEnabledControlParameterOutputWithContex
 	return o
 }
 
+// The key of a key/value pair. It is of type `string` .
 func (o EnabledControlParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnabledControlParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
 func (o EnabledControlParameterOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnabledControlParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -227,7 +241,13 @@ type EnabledControlTag struct {
 }
 
 type LandingZoneTag struct {
-	Key   *string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with `aws:` . digits, whitespace, `_` , `.` , `:` , `/` , `=` , `+` , `@` , `-` , and `"` .
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Key *string `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_` , `.` , `/` , `=` , `+` , and `-` .
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Value *string `pulumi:"value"`
 }
 

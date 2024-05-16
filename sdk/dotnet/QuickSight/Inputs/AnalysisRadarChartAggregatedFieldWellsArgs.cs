@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("category")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _category;
+
+        /// <summary>
+        /// The aggregated field well categories of a radar chart.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Category
         {
             get => _category ?? (_category = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("color")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _color;
+
+        /// <summary>
+        /// The color that are assigned to the aggregated field wells of a radar chart.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Color
         {
             get => _color ?? (_color = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The values that are assigned to the aggregated field wells of a radar chart.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.AnalysisMeasureFieldArgs>());

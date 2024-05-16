@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableFieldLinkConfiguration
     {
+        /// <summary>
+        /// The URL content (text, icon) for the table link configuration.
+        /// </summary>
         public readonly Outputs.TemplateTableFieldLinkContentConfiguration Content;
+        /// <summary>
+        /// The URL target (new tab, new window, same tab) for the table link configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateUrlTargetConfiguration Target;
 
         [OutputConstructor]

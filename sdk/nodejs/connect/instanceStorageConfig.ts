@@ -37,16 +37,37 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceStorageConfig.__pulumiType;
     }
 
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * Connect Instance ID with which the storage config will be associated
      */
     public readonly instanceArn!: pulumi.Output<string>;
+    /**
+     * Configuration information of a Kinesis Data Firehose delivery stream.
+     */
     public readonly kinesisFirehoseConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisFirehoseConfig | undefined>;
+    /**
+     * Configuration information of a Kinesis data stream.
+     */
     public readonly kinesisStreamConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisStreamConfig | undefined>;
+    /**
+     * Configuration information of a Kinesis video stream.
+     */
     public readonly kinesisVideoStreamConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisVideoStreamConfig | undefined>;
+    /**
+     * A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+     */
     public readonly resourceType!: pulumi.Output<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
+    /**
+     * Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+     */
     public readonly s3Config!: pulumi.Output<outputs.connect.InstanceStorageConfigS3Config | undefined>;
+    /**
+     * A valid storage type.
+     */
     public readonly storageType!: pulumi.Output<enums.connect.InstanceStorageConfigStorageType>;
 
     /**
@@ -102,10 +123,28 @@ export interface InstanceStorageConfigArgs {
      * Connect Instance ID with which the storage config will be associated
      */
     instanceArn: pulumi.Input<string>;
+    /**
+     * Configuration information of a Kinesis Data Firehose delivery stream.
+     */
     kinesisFirehoseConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisFirehoseConfigArgs>;
+    /**
+     * Configuration information of a Kinesis data stream.
+     */
     kinesisStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisStreamConfigArgs>;
+    /**
+     * Configuration information of a Kinesis video stream.
+     */
     kinesisVideoStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisVideoStreamConfigArgs>;
+    /**
+     * A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+     */
     resourceType: pulumi.Input<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
+    /**
+     * Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+     */
     s3Config?: pulumi.Input<inputs.connect.InstanceStorageConfigS3ConfigArgs>;
+    /**
+     * A valid storage type.
+     */
     storageType: pulumi.Input<enums.connect.InstanceStorageConfigStorageType>;
 }

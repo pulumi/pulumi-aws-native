@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePivotTableOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("cellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? CellStyle { get; set; }
 
+        /// <summary>
+        /// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
+        /// </summary>
         [Input("collapsedRowDimensionsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? CollapsedRowDimensionsVisibility { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("columnHeaderStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? ColumnHeaderStyle { get; set; }
 
+        /// <summary>
+        /// The visibility of the column names.
+        /// </summary>
         [Input("columnNamesVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? ColumnNamesVisibility { get; set; }
 
@@ -30,27 +42,54 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("defaultCellWidth")]
         public Input<string>? DefaultCellWidth { get; set; }
 
+        /// <summary>
+        /// The metric placement (row, column) options.
+        /// </summary>
         [Input("metricPlacement")]
         public Input<Pulumi.AwsNative.QuickSight.TemplatePivotTableMetricPlacement>? MetricPlacement { get; set; }
 
+        /// <summary>
+        /// Determines the row alternate color options.
+        /// </summary>
         [Input("rowAlternateColorOptions")]
         public Input<Inputs.TemplateRowAlternateColorOptionsArgs>? RowAlternateColorOptions { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("rowFieldNamesStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? RowFieldNamesStyle { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("rowHeaderStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? RowHeaderStyle { get; set; }
 
+        /// <summary>
+        /// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// </summary>
         [Input("rowsLabelOptions")]
         public Input<Inputs.TemplatePivotTableRowsLabelOptionsArgs>? RowsLabelOptions { get; set; }
 
+        /// <summary>
+        /// The layout for the row dimension headers of a pivot table. Choose one of the following options.
+        /// 
+        /// - `TABULAR` : (Default) Each row field is displayed in a separate column.
+        /// - `HIERARCHY` : All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.
+        /// </summary>
         [Input("rowsLayout")]
         public Input<Pulumi.AwsNative.QuickSight.TemplatePivotTableRowsLayout>? RowsLayout { get; set; }
 
+        /// <summary>
+        /// The visibility of the single metric options.
+        /// </summary>
         [Input("singleMetricVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? SingleMetricVisibility { get; set; }
 
+        /// <summary>
+        /// Determines the visibility of the pivot table.
+        /// </summary>
         [Input("toggleButtonsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? ToggleButtonsVisibility { get; set; }
 

@@ -16,21 +16,69 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class AccountAuditConfigurationAuditCheckConfigurations
     {
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? AuthenticatedCognitoRoleOverlyPermissiveCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? CaCertificateExpiringCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? CaCertificateKeyQualityCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? ConflictingClientIdsCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? DeviceCertificateExpiringCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? DeviceCertificateKeyQualityCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? DeviceCertificateSharedCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IntermediateCaRevokedForActiveDeviceCertificatesCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IoTPolicyPotentialMisConfigurationCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IotPolicyOverlyPermissiveCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IotRoleAliasAllowsAccessToUnusedServicesCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IotRoleAliasOverlyPermissiveCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? LoggingDisabledCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? RevokedCaCertificateStillActiveCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? RevokedDeviceCertificateStillActiveCheck;
+        /// <summary>
+        /// Which audit checks are enabled and disabled for this account.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? UnauthenticatedCognitoRoleOverlyPermissiveCheck;
 
         [OutputConstructor]

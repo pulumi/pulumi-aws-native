@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardContributionAnalysisDefault
     {
+        /// <summary>
+        /// The dimensions columns that are used in the contribution analysis, usually a list of `ColumnIdentifiers` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardColumnIdentifier> ContributorDimensions;
+        /// <summary>
+        /// The measure field that is used in the contribution analysis.
+        /// </summary>
         public readonly string MeasureFieldId;
 
         [OutputConstructor]

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensBucketsAndRegions
     {
+        /// <summary>
+        /// This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
+        /// </summary>
         public readonly ImmutableArray<string> Buckets;
+        /// <summary>
+        /// This property contains the details of the Regions for the S3 Storage Lens configuration.
+        /// </summary>
         public readonly ImmutableArray<string> Regions;
 
         [OutputConstructor]

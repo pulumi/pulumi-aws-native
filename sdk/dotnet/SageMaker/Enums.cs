@@ -628,6 +628,9 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The value type of a feature. Valid values are Integral, Fractional, or String.
+    /// </summary>
     [EnumType]
     public readonly struct FeatureGroupFeatureDefinitionFeatureType : IEquatable<FeatureGroupFeatureDefinitionFeatureType>
     {
@@ -2618,6 +2621,9 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the sharing type of the space.
+    /// </summary>
     [EnumType]
     public readonly struct SpaceSharingSettingsSharingType : IEquatable<SpaceSharingSettingsSharingType>
     {

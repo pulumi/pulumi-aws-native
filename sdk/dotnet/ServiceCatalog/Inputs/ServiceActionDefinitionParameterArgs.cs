@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 
     public sealed class ServiceActionDefinitionParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameter key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

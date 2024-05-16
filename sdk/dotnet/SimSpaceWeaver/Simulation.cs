@@ -285,9 +285,15 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// </summary>
         [Output("schemaS3Location")]
         public Output<Outputs.SimulationS3Location?> SchemaS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// </summary>
         [Output("snapshotS3Location")]
         public Output<Outputs.SimulationS3Location?> SnapshotS3Location { get; private set; } = null!;
 
@@ -362,9 +368,15 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// </summary>
         [Input("schemaS3Location")]
         public Input<Inputs.SimulationS3LocationArgs>? SchemaS3Location { get; set; }
 
+        /// <summary>
+        /// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// </summary>
         [Input("snapshotS3Location")]
         public Input<Inputs.SimulationS3LocationArgs>? SnapshotS3Location { get; set; }
 

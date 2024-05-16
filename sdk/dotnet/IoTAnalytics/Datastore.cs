@@ -128,21 +128,43 @@ namespace Pulumi.AwsNative.IoTAnalytics
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the data store.
+        /// </summary>
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the partition dimensions in a data store.
+        /// </summary>
         [Output("datastorePartitions")]
         public Output<Outputs.DatastorePartitions?> DatastorePartitions { get; private set; } = null!;
 
+        /// <summary>
+        /// Where data store data is stored.
+        /// </summary>
         [Output("datastoreStorage")]
         public Output<Outputs.DatastoreStorage?> DatastoreStorage { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        /// 
+        /// The default file format is JSON. You can specify only one format.
+        /// 
+        /// You can't change the file format after you create the data store.
+        /// </summary>
         [Output("fileFormatConfiguration")]
         public Output<Outputs.DatastoreFileFormatConfiguration?> FileFormatConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.DatastoreRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -195,23 +217,46 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the data store.
+        /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
 
+        /// <summary>
+        /// Information about the partition dimensions in a data store.
+        /// </summary>
         [Input("datastorePartitions")]
         public Input<Inputs.DatastorePartitionsArgs>? DatastorePartitions { get; set; }
 
+        /// <summary>
+        /// Where data store data is stored.
+        /// </summary>
         [Input("datastoreStorage")]
         public Input<Inputs.DatastoreStorageArgs>? DatastoreStorage { get; set; }
 
+        /// <summary>
+        /// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        /// 
+        /// The default file format is JSON. You can specify only one format.
+        /// 
+        /// You can't change the file format after you create the data store.
+        /// </summary>
         [Input("fileFormatConfiguration")]
         public Input<Inputs.DatastoreFileFormatConfigurationArgs>? FileFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.DatastoreRetentionPeriodArgs>? RetentionPeriod { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

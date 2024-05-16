@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipProtectedQueryS3OutputConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 bucket to unload the protected query results.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 prefix to unload the protected query results.
+        /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 
+        /// <summary>
+        /// Intended file format of the result.
+        /// </summary>
         [Input("resultFormat", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.MembershipResultFormat> ResultFormat { get; set; } = null!;
 

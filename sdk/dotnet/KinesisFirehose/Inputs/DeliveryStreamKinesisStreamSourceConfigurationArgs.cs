@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamKinesisStreamSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the source Kinesis data stream.
+        /// </summary>
         [Input("kinesisStreamArn", required: true)]
         public Input<string> KinesisStreamArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the role that provides access to the source Kinesis data stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

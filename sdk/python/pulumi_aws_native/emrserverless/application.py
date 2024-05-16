@@ -37,12 +37,16 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] release_label: EMR release label.
         :param pulumi.Input[str] type: The type of the application
+        :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: Configuration for Auto Start of Application.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: Configuration for Auto Stop of Application.
+        :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]] initial_capacity: Initial capacity initialized when an Application is started.
         :param pulumi.Input['ApplicationMaximumAllowedResourcesArgs'] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
+        :param pulumi.Input['ApplicationMonitoringConfigurationArgs'] monitoring_configuration: The configuration setting for monitoring.
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: Network Configuration for customer VPC connectivity.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tag map with key and value
         :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
@@ -100,6 +104,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input['ApplicationArchitecture']]:
+        """
+        The CPU architecture of an application.
+        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
@@ -133,6 +140,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]:
+        """
+        The image configuration.
+        """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
@@ -166,6 +176,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]:
+        """
+        The configuration setting for monitoring.
+        """
         return pulumi.get(self, "monitoring_configuration")
 
     @monitoring_configuration.setter
@@ -199,6 +212,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]]:
+        """
+        The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        """
         return pulumi.get(self, "runtime_configuration")
 
     @runtime_configuration.setter
@@ -255,13 +271,17 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: Configuration for Auto Start of Application.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: Configuration for Auto Stop of Application.
+        :param pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']] image_configuration: The image configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] initial_capacity: Initial capacity initialized when an Application is started.
         :param pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
+        :param pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']] monitoring_configuration: The configuration setting for monitoring.
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[str] release_label: EMR release label.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tag map with key and value
         :param pulumi.Input[str] type: The type of the application
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
@@ -386,6 +406,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def architecture(self) -> pulumi.Output[Optional['ApplicationArchitecture']]:
+        """
+        The CPU architecture of an application.
+        """
         return pulumi.get(self, "architecture")
 
     @property
@@ -415,6 +438,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationImageConfigurationInput']]:
+        """
+        The image configuration.
+        """
         return pulumi.get(self, "image_configuration")
 
     @property
@@ -436,6 +462,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationMonitoringConfiguration']]:
+        """
+        The configuration setting for monitoring.
+        """
         return pulumi.get(self, "monitoring_configuration")
 
     @property
@@ -465,6 +494,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationConfigurationObject']]]:
+        """
+        The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        """
         return pulumi.get(self, "runtime_configuration")
 
     @property

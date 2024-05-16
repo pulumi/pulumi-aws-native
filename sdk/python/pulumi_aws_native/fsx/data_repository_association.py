@@ -350,6 +350,11 @@ class DataRepositoryAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
+        """
+        Returns the data repository association's system generated Association ID.
+
+        Example: `dra-abcdef0123456789d`
+        """
         return pulumi.get(self, "association_id")
 
     @property
@@ -398,6 +403,11 @@ class DataRepositoryAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        Returns the data repository association's Amazon Resource Name (ARN).
+
+        Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+        """
         return pulumi.get(self, "resource_arn")
 
     @property

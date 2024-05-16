@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGridLayoutConfiguration
     {
+        /// <summary>
+        /// Configuration options for the canvas of a grid layout.
+        /// </summary>
         public readonly Outputs.AnalysisGridLayoutCanvasSizeOptions? CanvasSizeOptions;
+        /// <summary>
+        /// An element within a grid layout.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisGridLayoutElement> Elements;
 
         [OutputConstructor]

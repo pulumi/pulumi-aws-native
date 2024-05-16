@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class RoutingProfileCrossChannelBehaviorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the other channels that can be routed to an agent handling their current channel.
+        /// </summary>
         [Input("behaviorType", required: true)]
         public Input<Pulumi.AwsNative.Connect.RoutingProfileBehaviorType> BehaviorType { get; set; } = null!;
 

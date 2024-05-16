@@ -13,8 +13,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceHookConfiguration
     {
+        /// <summary>
+        /// The condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. You use this with [DocumentAttributeTarget to apply the condition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) .
+        /// 
+        /// For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
+        /// 
+        /// Amazon Kendra cannot create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Kendra then will map your newly created metadata field to your index field.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        /// </summary>
         public readonly string LambdaArn;
+        /// <summary>
+        /// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+        /// </summary>
         public readonly string S3Bucket;
 
         [OutputConstructor]

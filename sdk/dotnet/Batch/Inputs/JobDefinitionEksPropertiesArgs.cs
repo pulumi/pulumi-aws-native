@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The properties for the pod.
+        /// </summary>
         [Input("podProperties")]
         public Input<Inputs.JobDefinitionPodPropertiesArgs>? PodProperties { get; set; }
 

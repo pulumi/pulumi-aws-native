@@ -81,6 +81,14 @@ export const FleetCertificateConfigurationCertificateType = {
     Generated: "GENERATED",
 } as const;
 
+/**
+ * Indicates whether a TLS/SSL certificate is generated for a fleet.
+ *
+ * Valid values include:
+ *
+ * - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+ * - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+ */
 export type FleetCertificateConfigurationCertificateType = (typeof FleetCertificateConfigurationCertificateType)[keyof typeof FleetCertificateConfigurationCertificateType];
 
 export const FleetComputeType = {

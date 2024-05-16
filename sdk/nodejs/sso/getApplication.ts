@@ -46,6 +46,9 @@ export interface GetApplicationResult {
      * Specifies whether the application is enabled or disabled
      */
     readonly status?: enums.sso.ApplicationStatus;
+    /**
+     * Specifies tags to be attached to the application
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

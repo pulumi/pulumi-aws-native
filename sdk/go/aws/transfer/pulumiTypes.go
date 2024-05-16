@@ -812,6 +812,7 @@ func (o WorkflowInputFileLocationPtrOutput) S3FileLocation() WorkflowS3InputFile
 
 // Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
 type WorkflowS3FileLocation struct {
+	// Specifies the details for the Amazon S3 location for an input file to a workflow.
 	S3FileLocation *WorkflowS3InputFileLocation `pulumi:"s3FileLocation"`
 }
 
@@ -828,6 +829,7 @@ type WorkflowS3FileLocationInput interface {
 
 // Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
 type WorkflowS3FileLocationArgs struct {
+	// Specifies the details for the Amazon S3 location for an input file to a workflow.
 	S3FileLocation WorkflowS3InputFileLocationPtrInput `pulumi:"s3FileLocation"`
 }
 
@@ -909,6 +911,7 @@ func (o WorkflowS3FileLocationOutput) ToWorkflowS3FileLocationPtrOutputWithConte
 	}).(WorkflowS3FileLocationPtrOutput)
 }
 
+// Specifies the details for the Amazon S3 location for an input file to a workflow.
 func (o WorkflowS3FileLocationOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowS3FileLocation) *WorkflowS3InputFileLocation { return v.S3FileLocation }).(WorkflowS3InputFileLocationPtrOutput)
 }
@@ -937,6 +940,7 @@ func (o WorkflowS3FileLocationPtrOutput) Elem() WorkflowS3FileLocationOutput {
 	}).(WorkflowS3FileLocationOutput)
 }
 
+// Specifies the details for the Amazon S3 location for an input file to a workflow.
 func (o WorkflowS3FileLocationPtrOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowS3FileLocation) *WorkflowS3InputFileLocation {
 		if v == nil {
@@ -1358,6 +1362,7 @@ func (o WorkflowStepArrayOutput) Index(i pulumi.IntInput) WorkflowStepOutput {
 
 // Details for a step that performs a file copy.
 type WorkflowStepCopyStepDetailsProperties struct {
+	// Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
 	DestinationFileLocation *WorkflowS3FileLocation `pulumi:"destinationFileLocation"`
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
@@ -1380,6 +1385,7 @@ type WorkflowStepCopyStepDetailsPropertiesInput interface {
 
 // Details for a step that performs a file copy.
 type WorkflowStepCopyStepDetailsPropertiesArgs struct {
+	// Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
 	DestinationFileLocation WorkflowS3FileLocationPtrInput `pulumi:"destinationFileLocation"`
 	// The name of the step, used as an identifier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1467,6 +1473,7 @@ func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToWorkflowStepCopyStepDetai
 	}).(WorkflowStepCopyStepDetailsPropertiesPtrOutput)
 }
 
+// Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
 func (o WorkflowStepCopyStepDetailsPropertiesOutput) DestinationFileLocation() WorkflowS3FileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsProperties) *WorkflowS3FileLocation {
 		return v.DestinationFileLocation
@@ -1514,6 +1521,7 @@ func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) Elem() WorkflowStepCopyS
 	}).(WorkflowStepCopyStepDetailsPropertiesOutput)
 }
 
+// Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
 func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) DestinationFileLocation() WorkflowS3FileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsProperties) *WorkflowS3FileLocation {
 		if v == nil {

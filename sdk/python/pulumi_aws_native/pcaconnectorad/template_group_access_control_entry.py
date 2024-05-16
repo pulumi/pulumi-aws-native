@@ -23,6 +23,10 @@ class TemplateGroupAccessControlEntryArgs:
                  template_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
+        :param pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs'] access_rights: Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        :param pulumi.Input[str] group_display_name: Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+        :param pulumi.Input[str] group_security_identifier: Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+        :param pulumi.Input[str] template_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         """
         pulumi.set(__self__, "access_rights", access_rights)
         pulumi.set(__self__, "group_display_name", group_display_name)
@@ -34,6 +38,9 @@ class TemplateGroupAccessControlEntryArgs:
     @property
     @pulumi.getter(name="accessRights")
     def access_rights(self) -> pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs']:
+        """
+        Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        """
         return pulumi.get(self, "access_rights")
 
     @access_rights.setter
@@ -43,6 +50,9 @@ class TemplateGroupAccessControlEntryArgs:
     @property
     @pulumi.getter(name="groupDisplayName")
     def group_display_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+        """
         return pulumi.get(self, "group_display_name")
 
     @group_display_name.setter
@@ -52,6 +62,9 @@ class TemplateGroupAccessControlEntryArgs:
     @property
     @pulumi.getter(name="groupSecurityIdentifier")
     def group_security_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+        """
         return pulumi.get(self, "group_security_identifier")
 
     @group_security_identifier.setter
@@ -61,6 +74,9 @@ class TemplateGroupAccessControlEntryArgs:
     @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        """
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
@@ -83,6 +99,10 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['TemplateGroupAccessControlEntryAccessRightsArgs']] access_rights: Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        :param pulumi.Input[str] group_display_name: Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+        :param pulumi.Input[str] group_security_identifier: Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+        :param pulumi.Input[str] template_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         """
         ...
     @overload
@@ -162,20 +182,32 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessRights")
     def access_rights(self) -> pulumi.Output['outputs.TemplateGroupAccessControlEntryAccessRights']:
+        """
+        Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        """
         return pulumi.get(self, "access_rights")
 
     @property
     @pulumi.getter(name="groupDisplayName")
     def group_display_name(self) -> pulumi.Output[str]:
+        """
+        Name of the Active Directory group. This name does not need to match the group name in Active Directory.
+        """
         return pulumi.get(self, "group_display_name")
 
     @property
     @pulumi.getter(name="groupSecurityIdentifier")
     def group_security_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
+        """
         return pulumi.get(self, "group_security_identifier")
 
     @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        """
         return pulumi.get(self, "template_arn")
 

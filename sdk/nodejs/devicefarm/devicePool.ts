@@ -37,12 +37,35 @@ export class DevicePool extends pulumi.CustomResource {
         return obj['__pulumiType'] === DevicePool.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The device pool's description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+     *
+     * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+     */
     public readonly maxDevices!: pulumi.Output<number | undefined>;
+    /**
+     * The device pool's name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of the project for the device pool.
+     */
     public readonly projectArn!: pulumi.Output<string>;
+    /**
+     * Represents a condition for a device pool.
+     */
     public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -89,10 +112,30 @@ export class DevicePool extends pulumi.CustomResource {
  * The set of arguments for constructing a DevicePool resource.
  */
 export interface DevicePoolArgs {
+    /**
+     * The device pool's description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+     *
+     * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+     */
     maxDevices?: pulumi.Input<number>;
+    /**
+     * The device pool's name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the project for the device pool.
+     */
     projectArn: pulumi.Input<string>;
+    /**
+     * Represents a condition for a device pool.
+     */
     rules: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRuleArgs>[]>;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

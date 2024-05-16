@@ -225,14 +225,22 @@ import (
 type Dataset struct {
 	pulumi.CustomResourceState
 
-	Actions                 DatasetActionArrayOutput                `pulumi:"actions"`
-	AwsId                   pulumi.StringOutput                     `pulumi:"awsId"`
-	ContentDeliveryRules    DatasetContentDeliveryRuleArrayOutput   `pulumi:"contentDeliveryRules"`
-	DatasetName             pulumi.StringPtrOutput                  `pulumi:"datasetName"`
-	LateDataRules           DatasetLateDataRuleArrayOutput          `pulumi:"lateDataRules"`
-	RetentionPeriod         DatasetRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
-	Tags                    aws.TagArrayOutput                      `pulumi:"tags"`
-	Triggers                DatasetTriggerArrayOutput               `pulumi:"triggers"`
+	// Information needed to run the "containerAction" to produce data set contents.
+	Actions DatasetActionArrayOutput `pulumi:"actions"`
+	AwsId   pulumi.StringOutput      `pulumi:"awsId"`
+	// When dataset contents are created, they are delivered to destination specified here.
+	ContentDeliveryRules DatasetContentDeliveryRuleArrayOutput `pulumi:"contentDeliveryRules"`
+	// The name of the dataset.
+	DatasetName pulumi.StringPtrOutput `pulumi:"datasetName"`
+	// A structure that contains the name and configuration information of a late data rule.
+	LateDataRules DatasetLateDataRuleArrayOutput `pulumi:"lateDataRules"`
+	// How long, in days, message data is kept.
+	RetentionPeriod DatasetRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The "DatasetTrigger" that specifies when the data set is automatically updated.
+	Triggers DatasetTriggerArrayOutput `pulumi:"triggers"`
+	// Information about the versioning of dataset contents.
 	VersioningConfiguration DatasetVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 }
 
@@ -283,25 +291,41 @@ func (DatasetState) ElementType() reflect.Type {
 }
 
 type datasetArgs struct {
-	Actions                 []DatasetAction                 `pulumi:"actions"`
-	ContentDeliveryRules    []DatasetContentDeliveryRule    `pulumi:"contentDeliveryRules"`
-	DatasetName             *string                         `pulumi:"datasetName"`
-	LateDataRules           []DatasetLateDataRule           `pulumi:"lateDataRules"`
-	RetentionPeriod         *DatasetRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []aws.Tag                       `pulumi:"tags"`
-	Triggers                []DatasetTrigger                `pulumi:"triggers"`
+	// Information needed to run the "containerAction" to produce data set contents.
+	Actions []DatasetAction `pulumi:"actions"`
+	// When dataset contents are created, they are delivered to destination specified here.
+	ContentDeliveryRules []DatasetContentDeliveryRule `pulumi:"contentDeliveryRules"`
+	// The name of the dataset.
+	DatasetName *string `pulumi:"datasetName"`
+	// A structure that contains the name and configuration information of a late data rule.
+	LateDataRules []DatasetLateDataRule `pulumi:"lateDataRules"`
+	// How long, in days, message data is kept.
+	RetentionPeriod *DatasetRetentionPeriod `pulumi:"retentionPeriod"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The "DatasetTrigger" that specifies when the data set is automatically updated.
+	Triggers []DatasetTrigger `pulumi:"triggers"`
+	// Information about the versioning of dataset contents.
 	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
-	Actions                 DatasetActionArrayInput
-	ContentDeliveryRules    DatasetContentDeliveryRuleArrayInput
-	DatasetName             pulumi.StringPtrInput
-	LateDataRules           DatasetLateDataRuleArrayInput
-	RetentionPeriod         DatasetRetentionPeriodPtrInput
-	Tags                    aws.TagArrayInput
-	Triggers                DatasetTriggerArrayInput
+	// Information needed to run the "containerAction" to produce data set contents.
+	Actions DatasetActionArrayInput
+	// When dataset contents are created, they are delivered to destination specified here.
+	ContentDeliveryRules DatasetContentDeliveryRuleArrayInput
+	// The name of the dataset.
+	DatasetName pulumi.StringPtrInput
+	// A structure that contains the name and configuration information of a late data rule.
+	LateDataRules DatasetLateDataRuleArrayInput
+	// How long, in days, message data is kept.
+	RetentionPeriod DatasetRetentionPeriodPtrInput
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayInput
+	// The "DatasetTrigger" that specifies when the data set is automatically updated.
+	Triggers DatasetTriggerArrayInput
+	// Information about the versioning of dataset contents.
 	VersioningConfiguration DatasetVersioningConfigurationPtrInput
 }
 
@@ -342,6 +366,7 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+// Information needed to run the "containerAction" to produce data set contents.
 func (o DatasetOutput) Actions() DatasetActionArrayOutput {
 	return o.ApplyT(func(v *Dataset) DatasetActionArrayOutput { return v.Actions }).(DatasetActionArrayOutput)
 }
@@ -350,30 +375,37 @@ func (o DatasetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// When dataset contents are created, they are delivered to destination specified here.
 func (o DatasetOutput) ContentDeliveryRules() DatasetContentDeliveryRuleArrayOutput {
 	return o.ApplyT(func(v *Dataset) DatasetContentDeliveryRuleArrayOutput { return v.ContentDeliveryRules }).(DatasetContentDeliveryRuleArrayOutput)
 }
 
+// The name of the dataset.
 func (o DatasetOutput) DatasetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringPtrOutput { return v.DatasetName }).(pulumi.StringPtrOutput)
 }
 
+// A structure that contains the name and configuration information of a late data rule.
 func (o DatasetOutput) LateDataRules() DatasetLateDataRuleArrayOutput {
 	return o.ApplyT(func(v *Dataset) DatasetLateDataRuleArrayOutput { return v.LateDataRules }).(DatasetLateDataRuleArrayOutput)
 }
 
+// How long, in days, message data is kept.
 func (o DatasetOutput) RetentionPeriod() DatasetRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatasetRetentionPeriodPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource.
 func (o DatasetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Dataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The "DatasetTrigger" that specifies when the data set is automatically updated.
 func (o DatasetOutput) Triggers() DatasetTriggerArrayOutput {
 	return o.ApplyT(func(v *Dataset) DatasetTriggerArrayOutput { return v.Triggers }).(DatasetTriggerArrayOutput)
 }
 
+// Information about the versioning of dataset contents.
 func (o DatasetOutput) VersioningConfiguration() DatasetVersioningConfigurationPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetVersioningConfigurationPtrOutput { return v.VersioningConfiguration }).(DatasetVersioningConfigurationPtrOutput)
 }

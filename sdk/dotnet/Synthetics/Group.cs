@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Synthetics
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the canaries that you want to associate with this group.
+        /// </summary>
         [Output("resourceArns")]
         public Output<ImmutableArray<string>> ResourceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of key-value pairs that are associated with the group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -90,6 +96,10 @@ namespace Pulumi.AwsNative.Synthetics
 
         [Input("resourceArns")]
         private InputList<string>? _resourceArns;
+
+        /// <summary>
+        /// The ARNs of the canaries that you want to associate with this group.
+        /// </summary>
         public InputList<string> ResourceArns
         {
             get => _resourceArns ?? (_resourceArns = new InputList<string>());
@@ -98,6 +108,10 @@ namespace Pulumi.AwsNative.Synthetics
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The list of key-value pairs that are associated with the group.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

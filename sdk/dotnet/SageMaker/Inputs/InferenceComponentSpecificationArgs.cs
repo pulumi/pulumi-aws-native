@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class InferenceComponentSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the compute resources to allocate to run a model that you assign to an inference component. These resources include CPU cores, accelerators, and memory.
+        /// </summary>
         [Input("computeResourceRequirements", required: true)]
         public Input<Inputs.InferenceComponentComputeResourceRequirementsArgs> ComputeResourceRequirements { get; set; } = null!;
 
+        /// <summary>
+        /// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
+        /// </summary>
         [Input("container")]
         public Input<Inputs.InferenceComponentContainerSpecificationArgs>? Container { get; set; }
 
+        /// <summary>
+        /// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        /// </summary>
         [Input("modelName")]
         public Input<string>? ModelName { get; set; }
 
+        /// <summary>
+        /// Settings that take effect while the model container starts up.
+        /// </summary>
         [Input("startupParameters")]
         public Input<Inputs.InferenceComponentStartupParametersArgs>? StartupParameters { get; set; }
 

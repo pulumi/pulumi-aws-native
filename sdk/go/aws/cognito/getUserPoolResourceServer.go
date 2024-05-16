@@ -23,12 +23,16 @@ func LookupUserPoolResourceServer(ctx *pulumi.Context, args *LookupUserPoolResou
 }
 
 type LookupUserPoolResourceServerArgs struct {
+	// The resource ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolResourceServerResult struct {
-	Id     *string                                         `pulumi:"id"`
-	Name   *string                                         `pulumi:"name"`
+	// The resource ID.
+	Id *string `pulumi:"id"`
+	// A friendly name for the resource server.
+	Name *string `pulumi:"name"`
+	// A resource server scope.
 	Scopes []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
 }
 
@@ -46,6 +50,7 @@ func LookupUserPoolResourceServerOutput(ctx *pulumi.Context, args LookupUserPool
 }
 
 type LookupUserPoolResourceServerOutputArgs struct {
+	// The resource ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupUserPoolResourceServerResultOutput) ToLookupUserPoolResourceServer
 	return o
 }
 
+// The resource ID.
 func (o LookupUserPoolResourceServerResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResourceServerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A friendly name for the resource server.
 func (o LookupUserPoolResourceServerResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResourceServerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A resource server scope.
 func (o LookupUserPoolResourceServerResultOutput) Scopes() UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolResourceServerResult) []UserPoolResourceServerResourceServerScopeType {
 		return v.Scopes

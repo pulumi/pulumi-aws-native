@@ -33,11 +33,17 @@ class GetStreamResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -65,6 +71,10 @@ def get_stream(id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamResult:
     """
     Resource schema for AWS::QLDB::Stream.
+
+
+    :param str id: The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+    :param str ledger_name: The name of the ledger.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -84,5 +94,9 @@ def get_stream_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource schema for AWS::QLDB::Stream.
+
+
+    :param str id: The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+    :param str ledger_name: The name of the ledger.
     """
     ...

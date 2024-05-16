@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     [AwsNativeResourceType("aws-native:route53recoverycontrol:SafetyRule")]
     public partial class SafetyRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+        /// </summary>
         [Output("assertionRule")]
         public Output<Outputs.SafetyRuleAssertionRule?> AssertionRule { get; private set; } = null!;
 
@@ -24,12 +27,23 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         [Output("controlPanelArn")]
         public Output<string?> ControlPanelArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+        /// 
+        /// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+        /// </summary>
         [Output("gatingRule")]
         public Output<Outputs.SafetyRuleGatingRule?> GatingRule { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: &amp; &gt; &lt; ' (single quote) " (double quote) ; (semicolon)
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        /// </summary>
         [Output("ruleConfig")]
         public Output<Outputs.SafetyRuleRuleConfig?> RuleConfig { get; private set; } = null!;
 
@@ -102,6 +116,9 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
 
     public sealed class SafetyRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+        /// </summary>
         [Input("assertionRule")]
         public Input<Inputs.SafetyRuleAssertionRuleArgs>? AssertionRule { get; set; }
 
@@ -111,12 +128,23 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         [Input("controlPanelArn")]
         public Input<string>? ControlPanelArn { get; set; }
 
+        /// <summary>
+        /// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+        /// 
+        /// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+        /// </summary>
         [Input("gatingRule")]
         public Input<Inputs.SafetyRuleGatingRuleArgs>? GatingRule { get; set; }
 
+        /// <summary>
+        /// The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: &amp; &gt; &lt; ' (single quote) " (double quote) ; (semicolon)
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        /// </summary>
         [Input("ruleConfig")]
         public Input<Inputs.SafetyRuleRuleConfigArgs>? RuleConfig { get; set; }
 

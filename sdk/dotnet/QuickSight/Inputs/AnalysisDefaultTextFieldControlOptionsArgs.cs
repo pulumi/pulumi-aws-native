@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDefaultTextFieldControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.AnalysisTextFieldControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 

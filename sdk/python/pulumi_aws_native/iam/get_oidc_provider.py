@@ -44,16 +44,25 @@ class GetOidcProviderResult:
     @property
     @pulumi.getter(name="clientIdList")
     def client_id_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "client_id_list")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="thumbprintList")
     def thumbprint_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "thumbprint_list")
 
 

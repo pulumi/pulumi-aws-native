@@ -24,25 +24,52 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 }
 
 type LookupRuleGroupArgs struct {
-	Id    string         `pulumi:"id"`
-	Name  string         `pulumi:"name"`
+	// The ID of the rule group.
+	Id string `pulumi:"id"`
+	// The name of the rule group. You cannot change the name of a rule group after you create it.
+	Name string `pulumi:"name"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope RuleGroupScope `pulumi:"scope"`
 }
 
 type LookupRuleGroupResult struct {
+	// The Amazon Resource Name (ARN) of the rule group.
 	Arn *string `pulumi:"arn"`
 	// Collection of Available Labels.
 	AvailableLabels []RuleGroupLabelSummary `pulumi:"availableLabels"`
-	Capacity        *int                    `pulumi:"capacity"`
+	// The web ACL capacity units (WCUs) required for this rule group.
+	//
+	// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+	//
+	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
+	Capacity *int `pulumi:"capacity"`
 	// Collection of Consumed Labels.
-	ConsumedLabels       []RuleGroupLabelSummary                `pulumi:"consumedLabels"`
+	ConsumedLabels []RuleGroupLabelSummary `pulumi:"consumedLabels"`
+	// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+	//
+	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies map[string]RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
-	Description          *string                                `pulumi:"description"`
-	Id                   *string                                `pulumi:"id"`
-	LabelNamespace       *string                                `pulumi:"labelNamespace"`
+	// A description of the rule group that helps with identification.
+	Description *string `pulumi:"description"`
+	// The ID of the rule group.
+	Id *string `pulumi:"id"`
+	// The label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
+	//
+	// The syntax for the label namespace prefix for a rule group is the following: `awswaf:<account ID>:rule group:<rule group name>:`
+	//
+	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
+	LabelNamespace *string `pulumi:"labelNamespace"`
 	// Collection of Rules.
-	Rules            []RuleGroupRule            `pulumi:"rules"`
-	Tags             []aws.Tag                  `pulumi:"tags"`
+	Rules []RuleGroupRule `pulumi:"rules"`
+	// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+	//
+	// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig *RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -60,8 +87,13 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 }
 
 type LookupRuleGroupOutputArgs struct {
-	Id    pulumi.StringInput  `pulumi:"id"`
-	Name  pulumi.StringInput  `pulumi:"name"`
+	// The ID of the rule group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the rule group. You cannot change the name of a rule group after you create it.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope RuleGroupScopeInput `pulumi:"scope"`
 }
 
@@ -83,6 +115,7 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the rule group.
 func (o LookupRuleGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -92,6 +125,11 @@ func (o LookupRuleGroupResultOutput) AvailableLabels() RuleGroupLabelSummaryArra
 	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupLabelSummary { return v.AvailableLabels }).(RuleGroupLabelSummaryArrayOutput)
 }
 
+// The web ACL capacity units (WCUs) required for this rule group.
+//
+// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+//
+// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
 func (o LookupRuleGroupResultOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -101,18 +139,30 @@ func (o LookupRuleGroupResultOutput) ConsumedLabels() RuleGroupLabelSummaryArray
 	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupLabelSummary { return v.ConsumedLabels }).(RuleGroupLabelSummaryArrayOutput)
 }
 
+// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+//
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+//
+// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 func (o LookupRuleGroupResultOutput) CustomResponseBodies() RuleGroupCustomResponseBodyMapOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) map[string]RuleGroupCustomResponseBody { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodyMapOutput)
 }
 
+// A description of the rule group that helps with identification.
 func (o LookupRuleGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the rule group.
 func (o LookupRuleGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
+//
+// The syntax for the label namespace prefix for a rule group is the following: `awswaf:<account ID>:rule group:<rule group name>:`
+//
+// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 func (o LookupRuleGroupResultOutput) LabelNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.LabelNamespace }).(pulumi.StringPtrOutput)
 }
@@ -122,10 +172,14 @@ func (o LookupRuleGroupResultOutput) Rules() RuleGroupRuleArrayOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupRule { return v.Rules }).(RuleGroupRuleArrayOutput)
 }
 
+// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+//
+// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
 func (o LookupRuleGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 func (o LookupRuleGroupResultOutput) VisibilityConfig() RuleGroupVisibilityConfigPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *RuleGroupVisibilityConfig { return v.VisibilityConfig }).(RuleGroupVisibilityConfigPtrOutput)
 }

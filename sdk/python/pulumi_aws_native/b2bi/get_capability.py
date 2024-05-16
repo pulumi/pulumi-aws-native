@@ -50,41 +50,65 @@ class GetCapabilityResult:
     @property
     @pulumi.getter(name="capabilityArn")
     def capability_arn(self) -> Optional[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        """
         return pulumi.get(self, "capability_arn")
 
     @property
     @pulumi.getter(name="capabilityId")
     def capability_id(self) -> Optional[str]:
+        """
+        Returns a system-assigned unique identifier for the capability.
+        """
         return pulumi.get(self, "capability_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.CapabilityConfigurationProperties']:
+        """
+        A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        Returns a timestamp for creation date and time of the capability.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> Optional[Sequence['outputs.CapabilityS3Location']]:
+        """
+        Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        """
         return pulumi.get(self, "instructions_documents")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The display name of the capability.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -108,6 +132,9 @@ def get_capability(capability_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapabilityResult:
     """
     Definition of AWS::B2BI::Capability Resource Type
+
+
+    :param str capability_id: Returns a system-assigned unique identifier for the capability.
     """
     __args__ = dict()
     __args__['capabilityId'] = capability_id
@@ -130,5 +157,8 @@ def get_capability_output(capability_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapabilityResult]:
     """
     Definition of AWS::B2BI::Capability Resource Type
+
+
+    :param str capability_id: Returns a system-assigned unique identifier for the capability.
     """
     ...

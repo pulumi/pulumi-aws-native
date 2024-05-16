@@ -23,12 +23,17 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 }
 
 type LookupDeploymentArgs struct {
+	// The ID of the deployment.
 	DeploymentId string `pulumi:"deploymentId"`
 }
 
 type LookupDeploymentResult struct {
-	DeploymentId *string           `pulumi:"deploymentId"`
-	Tags         map[string]string `pulumi:"tags"`
+	// The ID of the deployment.
+	DeploymentId *string `pulumi:"deploymentId"`
+	// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -45,6 +50,7 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 }
 
 type LookupDeploymentOutputArgs struct {
+	// The ID of the deployment.
 	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 }
 
@@ -66,10 +72,14 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(
 	return o
 }
 
+// The ID of the deployment.
 func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
+// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+//
+// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
 func (o LookupDeploymentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

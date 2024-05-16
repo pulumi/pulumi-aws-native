@@ -39,7 +39,8 @@ type LookupApplicationResult struct {
 	PortalOptions *ApplicationPortalOptionsConfiguration `pulumi:"portalOptions"`
 	// Specifies whether the application is enabled or disabled
 	Status *ApplicationStatus `pulumi:"status"`
-	Tags   []aws.Tag          `pulumi:"tags"`
+	// Specifies tags to be attached to the application
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -103,6 +104,7 @@ func (o LookupApplicationResultOutput) Status() ApplicationStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationStatus { return v.Status }).(ApplicationStatusPtrOutput)
 }
 
+// Specifies tags to be attached to the application
 func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

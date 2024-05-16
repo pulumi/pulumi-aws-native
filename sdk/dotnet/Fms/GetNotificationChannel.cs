@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class GetNotificationChannelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+        /// </summary>
         [Input("snsTopicArn", required: true)]
         public string SnsTopicArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class GetNotificationChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+        /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Fms
     [OutputType]
     public sealed class GetNotificationChannelResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+        /// </summary>
         public readonly string? SnsRoleName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+        /// </summary>
         public readonly string? SnsTopicArn;
 
         [OutputConstructor]

@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAxisScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The liner axis scale setup.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("linear")]
         public Input<Inputs.DashboardAxisLinearScaleArgs>? Linear { get; set; }
 
+        /// <summary>
+        /// The logarithmic axis scale setup.
+        /// </summary>
         [Input("logarithmic")]
         public Input<Inputs.DashboardAxisLogarithmicScaleArgs>? Logarithmic { get; set; }
 

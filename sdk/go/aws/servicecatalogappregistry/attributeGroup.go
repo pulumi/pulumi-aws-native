@@ -16,14 +16,19 @@ import (
 type AttributeGroup struct {
 	pulumi.CustomResourceState
 
+	// The Amazon resource name (ARN) that specifies the attribute group across services.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
-	Attributes pulumi.AnyOutput    `pulumi:"attributes"`
-	AwsId      pulumi.StringOutput `pulumi:"awsId"`
+	Attributes pulumi.AnyOutput `pulumi:"attributes"`
+	// The globally unique attribute group identifier of the attribute group.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The description of the attribute group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the attribute group.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value pairs you can use to associate with the attribute group.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -70,23 +75,29 @@ func (AttributeGroupState) ElementType() reflect.Type {
 }
 
 type attributeGroupArgs struct {
+	// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 	Attributes interface{} `pulumi:"attributes"`
 	// The description of the attribute group.
 	Description *string `pulumi:"description"`
 	// The name of the attribute group.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value pairs you can use to associate with the attribute group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AttributeGroup resource.
 type AttributeGroupArgs struct {
+	// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 	Attributes pulumi.Input
 	// The description of the attribute group.
 	Description pulumi.StringPtrInput
 	// The name of the attribute group.
 	Name pulumi.StringPtrInput
+	// Key-value pairs you can use to associate with the attribute group.
 	Tags pulumi.StringMapInput
 }
 
@@ -127,15 +138,19 @@ func (o AttributeGroupOutput) ToAttributeGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon resource name (ARN) that specifies the attribute group across services.
 func (o AttributeGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 func (o AttributeGroupOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
 }
 
+// The globally unique attribute group identifier of the attribute group.
 func (o AttributeGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -150,6 +165,7 @@ func (o AttributeGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Key-value pairs you can use to associate with the attribute group.
 func (o AttributeGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

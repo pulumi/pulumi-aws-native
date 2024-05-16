@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigAntennaUplinkConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a uplink spectrum.
+        /// </summary>
         [Input("spectrumConfig")]
         public Input<Inputs.ConfigUplinkSpectrumConfigArgs>? SpectrumConfig { get; set; }
 
+        /// <summary>
+        /// Defines an equivalent isotropically radiated power (EIRP).
+        /// </summary>
         [Input("targetEirp")]
         public Input<Inputs.ConfigEirpArgs>? TargetEirp { get; set; }
 
+        /// <summary>
+        /// Whether or not uplink transmit is disabled.
+        /// </summary>
         [Input("transmitDisabled")]
         public Input<bool>? TransmitDisabled { get; set; }
 

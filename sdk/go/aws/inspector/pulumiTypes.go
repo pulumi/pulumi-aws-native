@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssessmentTemplateTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -30,7 +32,9 @@ type AssessmentTemplateTagInput interface {
 }
 
 type AssessmentTemplateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// A tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -85,10 +89,12 @@ func (o AssessmentTemplateTagOutput) ToAssessmentTemplateTagOutputWithContext(ct
 	return o
 }
 
+// A tag key.
 func (o AssessmentTemplateTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentTemplateTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A value assigned to a tag key.
 func (o AssessmentTemplateTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentTemplateTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -114,7 +120,9 @@ func (o AssessmentTemplateTagArrayOutput) Index(i pulumi.IntInput) AssessmentTem
 }
 
 type ResourceGroupTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -130,7 +138,9 @@ type ResourceGroupTagInput interface {
 }
 
 type ResourceGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// A tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -185,10 +195,12 @@ func (o ResourceGroupTagOutput) ToResourceGroupTagOutputWithContext(ctx context.
 	return o
 }
 
+// A tag key.
 func (o ResourceGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A value assigned to a tag key.
 func (o ResourceGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }

@@ -19,20 +19,56 @@ export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetPlaceIndexArgs {
+    /**
+     * The name of the place index resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique place index resource name.
+     * - No spaces allowed. For example, `ExamplePlaceIndex` .
+     */
     indexName: string;
 }
 
 export interface GetPlaceIndexResult {
+    /**
+     * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+     */
     readonly arn?: string;
+    /**
+     * The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly createTime?: string;
+    /**
+     * Specifies the data storage option requesting Places.
+     */
     readonly dataSourceConfiguration?: outputs.location.PlaceIndexDataSourceConfiguration;
+    /**
+     * The optional description for the place index resource.
+     */
     readonly description?: string;
+    /**
+     * Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+     */
     readonly indexArn?: string;
+    /**
+     * No longer used. If included, the only allowed value is `RequestBasedUsage` .
+     *
+     * *Allowed Values* : `RequestBasedUsage`
+     */
     readonly pricingPlan?: enums.location.PlaceIndexPricingPlan;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly updateTime?: string;
 }
 /**
@@ -43,5 +79,14 @@ export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi
 }
 
 export interface GetPlaceIndexOutputArgs {
+    /**
+     * The name of the place index resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique place index resource name.
+     * - No spaces allowed. For example, `ExamplePlaceIndex` .
+     */
     indexName: pulumi.Input<string>;
 }

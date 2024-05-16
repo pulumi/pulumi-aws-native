@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class TargetGroupHealthCheckConfig
     {
+        /// <summary>
+        /// Indicates whether health checking is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+        /// </summary>
         public readonly int? HealthCheckIntervalSeconds;
+        /// <summary>
+        /// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+        /// </summary>
         public readonly int? HealthCheckTimeoutSeconds;
+        /// <summary>
+        /// The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        /// </summary>
         public readonly int? HealthyThresholdCount;
+        /// <summary>
+        /// Describes the codes to use when checking for a successful response from a target for health checks.
+        /// </summary>
         public readonly Outputs.TargetGroupMatcher? Matcher;
+        /// <summary>
+        /// The destination for health checks on the targets. If the protocol version is `HTTP/1.1` or `HTTP/2` , specify a valid URI (for example, `/path?query` ). The default path is `/` . Health checks are not supported if the protocol version is `gRPC` , however, you can choose `HTTP/1.1` or `HTTP/2` and specify a valid URI.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocol? Protocol;
+        /// <summary>
+        /// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocolVersion? ProtocolVersion;
+        /// <summary>
+        /// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+        /// </summary>
         public readonly int? UnhealthyThresholdCount;
 
         [OutputConstructor]

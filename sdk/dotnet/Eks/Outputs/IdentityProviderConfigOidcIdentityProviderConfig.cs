@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.Eks.Outputs
         /// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
         /// </summary>
         public readonly string IssuerUrl;
+        /// <summary>
+        /// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IdentityProviderConfigRequiredClaim> RequiredClaims;
         /// <summary>
         /// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.

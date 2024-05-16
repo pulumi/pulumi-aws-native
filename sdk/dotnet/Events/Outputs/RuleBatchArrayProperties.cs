@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleBatchArrayProperties
     {
+        /// <summary>
+        /// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+        /// </summary>
         public readonly int? Size;
 
         [OutputConstructor]

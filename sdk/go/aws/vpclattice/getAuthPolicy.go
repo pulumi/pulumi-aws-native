@@ -23,13 +23,17 @@ func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...p
 }
 
 type LookupAuthPolicyArgs struct {
+	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 }
 
 type LookupAuthPolicyResult struct {
+	// The auth policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
-	Policy interface{}          `pulumi:"policy"`
-	State  *AuthPolicyStateEnum `pulumi:"state"`
+	Policy interface{} `pulumi:"policy"`
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+	State *AuthPolicyStateEnum `pulumi:"state"`
 }
 
 func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAuthPolicyResultOutput {
@@ -46,6 +50,7 @@ func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs
 }
 
 type LookupAuthPolicyOutputArgs struct {
+	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput `pulumi:"resourceIdentifier"`
 }
 
@@ -67,11 +72,14 @@ func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutputWithContext(
 	return o
 }
 
+// The auth policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 func (o LookupAuthPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
 func (o LookupAuthPolicyResultOutput) State() AuthPolicyStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) *AuthPolicyStateEnum { return v.State }).(AuthPolicyStateEnumPtrOutput)
 }

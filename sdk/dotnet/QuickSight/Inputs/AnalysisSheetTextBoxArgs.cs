@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSheetTextBoxArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content that is displayed in the text box.
+        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
+        /// <summary>
+        /// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
+        /// </summary>
         [Input("sheetTextBoxId", required: true)]
         public Input<string> SheetTextBoxId { get; set; } = null!;
 

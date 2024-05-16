@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("groupBy")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _groupBy;
+
+        /// <summary>
+        /// The group by field well of a box plot chart. Values are grouped based on group by fields.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> GroupBy
         {
             get => _groupBy ?? (_groupBy = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.DashboardMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The value field well of a box plot chart. Values are aggregated based on group by fields.
+        /// </summary>
         public InputList<Inputs.DashboardMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.DashboardMeasureFieldArgs>());

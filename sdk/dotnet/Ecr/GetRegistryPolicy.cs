@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Ecr
 
     public sealed class GetRegistryPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account ID of the private registry the policy is associated with.
+        /// </summary>
         [Input("registryId", required: true)]
         public string RegistryId { get; set; } = null!;
 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.Ecr
 
     public sealed class GetRegistryPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account ID of the private registry the policy is associated with.
+        /// </summary>
         [Input("registryId", required: true)]
         public Input<string> RegistryId { get; set; } = null!;
 
@@ -59,6 +65,9 @@ namespace Pulumi.AwsNative.Ecr
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyText;
+        /// <summary>
+        /// The account ID of the private registry the policy is associated with.
+        /// </summary>
         public readonly string? RegistryId;
 
         [OutputConstructor]

@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// The secrets and parameters that get referenced by your service as environment variables
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentSecrets;
+        /// <summary>
+        /// The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentVariables;
         /// <summary>
         /// Start Command

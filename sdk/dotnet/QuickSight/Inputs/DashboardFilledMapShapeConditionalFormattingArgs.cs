@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilledMapShapeConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID of the filled map shape.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The shape conditional formatting of a filled map visual.
+        /// </summary>
         [Input("format")]
         public Input<Inputs.DashboardShapeConditionalFormatArgs>? Format { get; set; }
 

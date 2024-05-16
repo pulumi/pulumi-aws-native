@@ -22,10 +22,16 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetNatGatewayArgs {
+    /**
+     * The ID of the NAT gateway.
+     */
     natGatewayId: string;
 }
 
 export interface GetNatGatewayResult {
+    /**
+     * The ID of the NAT gateway.
+     */
     readonly natGatewayId?: string;
     /**
      * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
@@ -57,5 +63,8 @@ export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi
 }
 
 export interface GetNatGatewayOutputArgs {
+    /**
+     * The ID of the NAT gateway.
+     */
     natGatewayId: pulumi.Input<string>;
 }

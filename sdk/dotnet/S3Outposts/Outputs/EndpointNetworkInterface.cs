@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
     [OutputType]
     public sealed class EndpointNetworkInterface
     {
+        /// <summary>
+        /// The ID for the network interface.
+        /// </summary>
         public readonly string NetworkInterfaceId;
 
         [OutputConstructor]

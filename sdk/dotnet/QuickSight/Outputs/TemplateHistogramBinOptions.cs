@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateHistogramBinOptions
     {
+        /// <summary>
+        /// The options that determine the bin count of a histogram.
+        /// </summary>
         public readonly Outputs.TemplateBinCountOptions? BinCount;
+        /// <summary>
+        /// The options that determine the bin width of a histogram.
+        /// </summary>
         public readonly Outputs.TemplateBinWidthOptions? BinWidth;
+        /// <summary>
+        /// The options that determine the selected bin type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateHistogramBinType? SelectedBinType;
+        /// <summary>
+        /// The options that determine the bin start value.
+        /// </summary>
         public readonly double? StartValue;
 
         [OutputConstructor]

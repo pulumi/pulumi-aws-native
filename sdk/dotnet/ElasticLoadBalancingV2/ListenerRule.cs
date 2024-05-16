@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.ListenerRuleRuleCondition>> Conditions { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this is the default rule.
+        /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
@@ -46,6 +49,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 

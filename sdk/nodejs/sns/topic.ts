@@ -61,6 +61,9 @@ export class Topic extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
     public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
+    /**
+     * The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
+     */
     public readonly deliveryStatusLogging!: pulumi.Output<outputs.sns.TopicLoggingConfig[] | undefined>;
     /**
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
@@ -89,6 +92,9 @@ export class Topic extends pulumi.CustomResource {
      *   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Returns the ARN of an Amazon SNS topic.
+     */
     public /*out*/ readonly topicArn!: pulumi.Output<string>;
     /**
      * The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
@@ -173,6 +179,9 @@ export interface TopicArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
     dataProtectionPolicy?: any;
+    /**
+     * The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
+     */
     deliveryStatusLogging?: pulumi.Input<pulumi.Input<inputs.sns.TopicLoggingConfigArgs>[]>;
     /**
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.

@@ -21,12 +21,21 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the account that you are creating a schedule in.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the dataset that you are creating a refresh schedule for.
+        /// </summary>
         [Output("dataSetId")]
         public Output<string?> DataSetId { get; private set; } = null!;
 
+        /// <summary>
+        /// A summary of a configured refresh schedule for a dataset.
+        /// </summary>
         [Output("schedule")]
         public Output<Outputs.RefreshScheduleMap?> Schedule { get; private set; } = null!;
 
@@ -81,12 +90,21 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class RefreshScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID of the account that you are creating a schedule in.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
+        /// <summary>
+        /// The ID of the dataset that you are creating a refresh schedule for.
+        /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
+        /// <summary>
+        /// A summary of a configured refresh schedule for a dataset.
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.RefreshScheduleMapArgs>? Schedule { get; set; }
 

@@ -37,8 +37,17 @@ type LookupAgentResult struct {
 	// Name for a resource.
 	AgentName *string `pulumi:"agentName"`
 	// ARN of a IAM role.
-	AgentResourceRoleArn *string      `pulumi:"agentResourceRoleArn"`
-	AgentStatus          *AgentStatus `pulumi:"agentStatus"`
+	AgentResourceRoleArn *string `pulumi:"agentResourceRoleArn"`
+	// The status of the agent and whether it is ready for use. The following statuses are possible:
+	//
+	// - CREATING – The agent is being created.
+	// - PREPARING – The agent is being prepared.
+	// - PREPARED – The agent is prepared and ready to be invoked.
+	// - NOT_PREPARED – The agent has been created but not yet prepared.
+	// - FAILED – The agent API operation failed.
+	// - UPDATING – The agent is being updated.
+	// - DELETING – The agent is being deleted.
+	AgentStatus *AgentStatus `pulumi:"agentStatus"`
 	// Draft Agent Version.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Time Stamp.
@@ -58,12 +67,21 @@ type LookupAgentResult struct {
 	// List of Agent Knowledge Bases
 	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
 	// Time Stamp.
-	PreparedAt                  *string                           `pulumi:"preparedAt"`
+	PreparedAt *string `pulumi:"preparedAt"`
+	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration *AgentPromptOverrideConfiguration `pulumi:"promptOverrideConfiguration"`
 	// The recommended actions users can take to resolve an error in failureReasons.
-	RecommendedActions []string          `pulumi:"recommendedActions"`
-	Tags               map[string]string `pulumi:"tags"`
-	TestAliasTags      map[string]string `pulumi:"testAliasTags"`
+	RecommendedActions []string `pulumi:"recommendedActions"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	TestAliasTags map[string]string `pulumi:"testAliasTags"`
 	// Time Stamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -129,6 +147,15 @@ func (o LookupAgentResultOutput) AgentResourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.AgentResourceRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the agent and whether it is ready for use. The following statuses are possible:
+//
+// - CREATING – The agent is being created.
+// - PREPARING – The agent is being prepared.
+// - PREPARED – The agent is prepared and ready to be invoked.
+// - NOT_PREPARED – The agent has been created but not yet prepared.
+// - FAILED – The agent API operation failed.
+// - UPDATING – The agent is being updated.
+// - DELETING – The agent is being deleted.
 func (o LookupAgentResultOutput) AgentStatus() AgentStatusPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentStatus { return v.AgentStatus }).(AgentStatusPtrOutput)
 }
@@ -183,6 +210,7 @@ func (o LookupAgentResultOutput) PreparedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.PreparedAt }).(pulumi.StringPtrOutput)
 }
 
+// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 func (o LookupAgentResultOutput) PromptOverrideConfiguration() AgentPromptOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentPromptOverrideConfiguration { return v.PromptOverrideConfiguration }).(AgentPromptOverrideConfigurationPtrOutput)
 }
@@ -192,10 +220,18 @@ func (o LookupAgentResultOutput) RecommendedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAgentResult) []string { return v.RecommendedActions }).(pulumi.StringArrayOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o LookupAgentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAgentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o LookupAgentResultOutput) TestAliasTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAgentResult) map[string]string { return v.TestAliasTags }).(pulumi.StringMapOutput)
 }

@@ -28,6 +28,7 @@ type LookupResourceCollectionArgs struct {
 }
 
 type LookupResourceCollectionResult struct {
+	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 	ResourceCollectionFilter *ResourceCollectionFilter `pulumi:"resourceCollectionFilter"`
 	// The type of ResourceCollection
 	ResourceCollectionType *ResourceCollectionType `pulumi:"resourceCollectionType"`
@@ -69,6 +70,7 @@ func (o LookupResourceCollectionResultOutput) ToLookupResourceCollectionResultOu
 	return o
 }
 
+// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 func (o LookupResourceCollectionResultOutput) ResourceCollectionFilter() ResourceCollectionFilterPtrOutput {
 	return o.ApplyT(func(v LookupResourceCollectionResult) *ResourceCollectionFilter { return v.ResourceCollectionFilter }).(ResourceCollectionFilterPtrOutput)
 }

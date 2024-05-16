@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFormatConfiguration
     {
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         public readonly Outputs.TemplateDateTimeFormatConfiguration? DateTimeFormatConfiguration;
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         public readonly Outputs.TemplateNumberFormatConfiguration? NumberFormatConfiguration;
+        /// <summary>
+        /// Formatting configuration for string fields.
+        /// </summary>
         public readonly Outputs.TemplateStringFormatConfiguration? StringFormatConfiguration;
 
         [OutputConstructor]

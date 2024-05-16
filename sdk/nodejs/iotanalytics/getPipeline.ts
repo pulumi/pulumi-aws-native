@@ -19,12 +19,21 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetPipelineArgs {
+    /**
+     * The name of the pipeline.
+     */
     pipelineName: string;
 }
 
 export interface GetPipelineResult {
     readonly id?: string;
+    /**
+     * An activity that performs a transformation on a message.
+     */
     readonly pipelineActivities?: outputs.iotanalytics.PipelineActivity[];
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -35,5 +44,8 @@ export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetPipelineOutputArgs {
+    /**
+     * The name of the pipeline.
+     */
     pipelineName: pulumi.Input<string>;
 }

@@ -18,6 +18,14 @@ class ApprovedOriginArgs:
                  origin: pulumi.Input[str]):
         """
         The set of arguments for constructing a ApprovedOrigin resource.
+        :param pulumi.Input[str] instance_id: The Amazon Resource Name (ARN) of the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+        :param pulumi.Input[str] origin: Domain name to be added to the allow-list of the instance.
+               
+               *Maximum* : `267`
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "origin", origin)
@@ -25,6 +33,13 @@ class ApprovedOriginArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -34,6 +49,11 @@ class ApprovedOriginArgs:
     @property
     @pulumi.getter
     def origin(self) -> pulumi.Input[str]:
+        """
+        Domain name to be added to the allow-list of the instance.
+
+        *Maximum* : `267`
+        """
         return pulumi.get(self, "origin")
 
     @origin.setter
@@ -67,6 +87,14 @@ class ApprovedOrigin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_id: The Amazon Resource Name (ARN) of the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+        :param pulumi.Input[str] origin: Domain name to be added to the allow-list of the instance.
+               
+               *Maximum* : `267`
         """
         ...
     @overload
@@ -153,10 +181,22 @@ class ApprovedOrigin(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter
     def origin(self) -> pulumi.Output[str]:
+        """
+        Domain name to be added to the allow-list of the instance.
+
+        *Maximum* : `267`
+        """
         return pulumi.get(self, "origin")
 

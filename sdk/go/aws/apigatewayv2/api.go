@@ -15,8 +15,10 @@ import (
 type Api struct {
 	pulumi.CustomResourceState
 
+	// The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
 	ApiEndpoint pulumi.StringOutput `pulumi:"apiEndpoint"`
-	ApiId       pulumi.StringOutput `pulumi:"apiId"`
+	// The API identifier.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	ApiKeySelectionExpression pulumi.StringPtrOutput `pulumi:"apiKeySelectionExpression"`
 	// Specifies how to interpret the base path of the API during import. Valid values are ``ignore``, ``prepend``, and ``split``. The default value is ``ignore``. To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html). Supported only for HTTP APIs.
@@ -214,10 +216,12 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
 }
 
+// The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
 func (o ApiOutput) ApiEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiEndpoint }).(pulumi.StringOutput)
 }
 
+// The API identifier.
 func (o ApiOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }

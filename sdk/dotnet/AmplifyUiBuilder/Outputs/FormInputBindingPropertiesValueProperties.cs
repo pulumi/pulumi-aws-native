@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormInputBindingPropertiesValueProperties
     {
+        /// <summary>
+        /// An Amplify DataStore model.
+        /// </summary>
         public readonly string? Model;
 
         [OutputConstructor]

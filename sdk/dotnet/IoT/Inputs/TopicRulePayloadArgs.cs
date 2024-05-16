@@ -14,24 +14,45 @@ namespace Pulumi.AwsNative.IoT.Inputs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.TopicRuleActionArgs>? _actions;
+
+        /// <summary>
+        /// Describes the actions associated with a rule.
+        /// </summary>
         public InputList<Inputs.TopicRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.TopicRuleActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The version of the SQL rules engine to use when evaluating the rule.
+        /// 
+        /// The default value is 2015-10-08.
+        /// </summary>
         [Input("awsIotSqlVersion")]
         public Input<string>? AwsIotSqlVersion { get; set; }
 
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Describes the actions associated with a rule.
+        /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleActionArgs>? ErrorAction { get; set; }
 
+        /// <summary>
+        /// Specifies whether the rule is disabled.
+        /// </summary>
         [Input("ruleDisabled")]
         public Input<bool>? RuleDisabled { get; set; }
 
+        /// <summary>
+        /// The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+        /// </summary>
         [Input("sql", required: true)]
         public Input<string> Sql { get; set; } = null!;
 

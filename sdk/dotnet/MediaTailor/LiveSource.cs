@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("httpPackageConfigurations")]
         public Output<ImmutableArray<Outputs.LiveSourceHttpPackageConfiguration>> HttpPackageConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name that's used to refer to a live source.
+        /// </summary>
         [Output("liveSourceName")]
         public Output<string> LiveSourceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the source location.
+        /// </summary>
         [Output("sourceLocationName")]
         public Output<string> SourceLocationName { get; private set; } = null!;
 
@@ -101,9 +107,15 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _httpPackageConfigurations = value;
         }
 
+        /// <summary>
+        /// The name that's used to refer to a live source.
+        /// </summary>
         [Input("liveSourceName")]
         public Input<string>? LiveSourceName { get; set; }
 
+        /// <summary>
+        /// The name of the source location.
+        /// </summary>
         [Input("sourceLocationName", required: true)]
         public Input<string> SourceLocationName { get; set; } = null!;
 

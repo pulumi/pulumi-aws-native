@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Inputs
 
     public sealed class IdentitySourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
+        /// </summary>
         [Input("cognitoUserPoolConfiguration", required: true)]
         public Input<Inputs.IdentitySourceCognitoUserPoolConfigurationArgs> CognitoUserPoolConfiguration { get; set; } = null!;
 

@@ -15,24 +15,49 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details for your use of the account creation fraud prevention managed rule group, `AWSManagedRulesACFPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+        /// </summary>
         [Input("awsManagedRulesAcfpRuleSet")]
         public Input<Inputs.WebAclAwsManagedRulesAcfpRuleSetArgs>? AwsManagedRulesAcfpRuleSet { get; set; }
 
+        /// <summary>
+        /// Details for your use of the account takeover prevention managed rule group, `AWSManagedRulesATPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+        /// </summary>
         [Input("awsManagedRulesAtpRuleSet")]
         public Input<Inputs.WebAclAwsManagedRulesAtpRuleSetArgs>? AwsManagedRulesAtpRuleSet { get; set; }
 
+        /// <summary>
+        /// Details for your use of the Bot Control managed rule group, `AWSManagedRulesBotControlRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+        /// </summary>
         [Input("awsManagedRulesBotControlRuleSet")]
         public Input<Inputs.WebAclAwsManagedRulesBotControlRuleSetArgs>? AwsManagedRulesBotControlRuleSet { get; set; }
 
+        /// <summary>
+        /// &gt; Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
+        /// </summary>
         [Input("loginPath")]
         public Input<string>? LoginPath { get; set; }
 
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         [Input("passwordField")]
         public Input<Inputs.WebAclFieldIdentifierArgs>? PasswordField { get; set; }
 
+        /// <summary>
+        /// &gt; Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+        /// </summary>
         [Input("payloadType")]
         public Input<Pulumi.AwsNative.WaFv2.WebAclManagedRuleGroupConfigPayloadType>? PayloadType { get; set; }
 
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         [Input("usernameField")]
         public Input<Inputs.WebAclFieldIdentifierArgs>? UsernameField { get; set; }
 

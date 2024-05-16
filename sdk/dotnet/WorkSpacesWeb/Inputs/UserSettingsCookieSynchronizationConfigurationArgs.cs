@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
     {
         [Input("allowlist", required: true)]
         private InputList<Inputs.UserSettingsCookieSpecificationArgs>? _allowlist;
+
+        /// <summary>
+        /// Specifies a single cookie or set of cookies in an end user's browser.
+        /// </summary>
         public InputList<Inputs.UserSettingsCookieSpecificationArgs> Allowlist
         {
             get => _allowlist ?? (_allowlist = new InputList<Inputs.UserSettingsCookieSpecificationArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
         [Input("blocklist")]
         private InputList<Inputs.UserSettingsCookieSpecificationArgs>? _blocklist;
+
+        /// <summary>
+        /// The list of cookie specifications that are blocked from being synchronized to the remote browser.
+        /// </summary>
         public InputList<Inputs.UserSettingsCookieSpecificationArgs> Blocklist
         {
             get => _blocklist ?? (_blocklist = new InputList<Inputs.UserSettingsCookieSpecificationArgs>());

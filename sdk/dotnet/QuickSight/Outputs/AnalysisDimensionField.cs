@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDimensionField
     {
+        /// <summary>
+        /// The dimension type field with categorical type columns..
+        /// </summary>
         public readonly Outputs.AnalysisCategoricalDimensionField? CategoricalDimensionField;
+        /// <summary>
+        /// The dimension type field with date type columns.
+        /// </summary>
         public readonly Outputs.AnalysisDateDimensionField? DateDimensionField;
+        /// <summary>
+        /// The dimension type field with numerical type columns.
+        /// </summary>
         public readonly Outputs.AnalysisNumericalDimensionField? NumericalDimensionField;
 
         [OutputConstructor]

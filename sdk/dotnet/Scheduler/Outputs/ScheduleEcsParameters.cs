@@ -32,7 +32,13 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// Specifies an ECS task group for the task. The maximum length is 255 characters.
         /// </summary>
         public readonly string? Group;
+        /// <summary>
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
+        /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.ScheduleLaunchType? LaunchType;
+        /// <summary>
+        /// Specifies the network configuration for an ECS task.
+        /// </summary>
         public readonly Outputs.ScheduleNetworkConfiguration? NetworkConfiguration;
         /// <summary>
         /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
@@ -46,6 +52,9 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0.
         /// </summary>
         public readonly string? PlatformVersion;
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the Amazon ECS [`TagResource`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
+        /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.SchedulePropagateTags? PropagateTags;
         /// <summary>
         /// The reference ID to use for the task.

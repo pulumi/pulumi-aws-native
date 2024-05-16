@@ -16,8 +16,19 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyOption
     {
+        /// <summary>
+        /// Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
+        /// 
+        /// For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
+        /// </summary>
         public readonly Outputs.PolicyNetworkAclCommonPolicy? NetworkAclCommonPolicy;
+        /// <summary>
+        /// Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
+        /// </summary>
         public readonly Outputs.PolicyNetworkFirewallPolicy? NetworkFirewallPolicy;
+        /// <summary>
+        /// Configures the deployment model for the third-party firewall.
+        /// </summary>
         public readonly Outputs.PolicyThirdPartyFirewallPolicy? ThirdPartyFirewallPolicy;
 
         [OutputConstructor]

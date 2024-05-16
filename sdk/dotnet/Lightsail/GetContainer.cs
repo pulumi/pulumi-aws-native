@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Lightsail
     [OutputType]
     public sealed class GetContainerResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the container.
+        /// </summary>
         public readonly string? ContainerArn;
         /// <summary>
         /// Describes a container deployment configuration of an Amazon Lightsail container service.

@@ -88,9 +88,11 @@ type SecurityConfig struct {
 	// Security config description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of the security config
-	Name        pulumi.StringPtrOutput                   `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
 	SamlOptions SecurityConfigSamlConfigOptionsPtrOutput `pulumi:"samlOptions"`
-	Type        SecurityConfigTypePtrOutput              `pulumi:"type"`
+	// The type of security configuration. Currently the only option is `saml` .
+	Type SecurityConfigTypePtrOutput `pulumi:"type"`
 }
 
 // NewSecurityConfig registers a new resource with the given unique name, arguments, and options.
@@ -141,9 +143,11 @@ type securityConfigArgs struct {
 	// Security config description
 	Description *string `pulumi:"description"`
 	// The friendly name of the security config
-	Name        *string                          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
 	SamlOptions *SecurityConfigSamlConfigOptions `pulumi:"samlOptions"`
-	Type        *SecurityConfigType              `pulumi:"type"`
+	// The type of security configuration. Currently the only option is `saml` .
+	Type *SecurityConfigType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SecurityConfig resource.
@@ -151,9 +155,11 @@ type SecurityConfigArgs struct {
 	// Security config description
 	Description pulumi.StringPtrInput
 	// The friendly name of the security config
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
 	SamlOptions SecurityConfigSamlConfigOptionsPtrInput
-	Type        SecurityConfigTypePtrInput
+	// The type of security configuration. Currently the only option is `saml` .
+	Type SecurityConfigTypePtrInput
 }
 
 func (SecurityConfigArgs) ElementType() reflect.Type {
@@ -208,10 +214,12 @@ func (o SecurityConfigOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
 func (o SecurityConfigOutput) SamlOptions() SecurityConfigSamlConfigOptionsPtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) SecurityConfigSamlConfigOptionsPtrOutput { return v.SamlOptions }).(SecurityConfigSamlConfigOptionsPtrOutput)
 }
 
+// The type of security configuration. Currently the only option is `saml` .
 func (o SecurityConfigOutput) Type() SecurityConfigTypePtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) SecurityConfigTypePtrOutput { return v.Type }).(SecurityConfigTypePtrOutput)
 }

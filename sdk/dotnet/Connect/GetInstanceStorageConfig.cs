@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetInstanceStorageConfigArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+        /// </summary>
         [Input("associationId", required: true)]
         public string AssociationId { get; set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Connect
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+        /// </summary>
         [Input("resourceType", required: true)]
         public Pulumi.AwsNative.Connect.InstanceStorageConfigInstanceStorageResourceType ResourceType { get; set; }
 
@@ -47,6 +53,9 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetInstanceStorageConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+        /// </summary>
         [Input("associationId", required: true)]
         public Input<string> AssociationId { get; set; } = null!;
 
@@ -56,6 +65,9 @@ namespace Pulumi.AwsNative.Connect
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+        /// </summary>
         [Input("resourceType", required: true)]
         public Input<Pulumi.AwsNative.Connect.InstanceStorageConfigInstanceStorageResourceType> ResourceType { get; set; } = null!;
 
@@ -69,11 +81,29 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetInstanceStorageConfigResult
     {
+        /// <summary>
+        /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+        /// </summary>
         public readonly string? AssociationId;
+        /// <summary>
+        /// Configuration information of a Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.InstanceStorageConfigKinesisFirehoseConfig? KinesisFirehoseConfig;
+        /// <summary>
+        /// Configuration information of a Kinesis data stream.
+        /// </summary>
         public readonly Outputs.InstanceStorageConfigKinesisStreamConfig? KinesisStreamConfig;
+        /// <summary>
+        /// Configuration information of a Kinesis video stream.
+        /// </summary>
         public readonly Outputs.InstanceStorageConfigKinesisVideoStreamConfig? KinesisVideoStreamConfig;
+        /// <summary>
+        /// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        /// </summary>
         public readonly Outputs.InstanceStorageConfigS3Config? S3Config;
+        /// <summary>
+        /// A valid storage type.
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.InstanceStorageConfigStorageType? StorageType;
 
         [OutputConstructor]

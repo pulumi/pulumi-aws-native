@@ -15,24 +15,49 @@ namespace Pulumi.AwsNative.Evidently
     [AwsNativeResourceType("aws-native:evidently:Feature")]
     public partial class Feature : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+        /// 
+        /// This variation must also be listed in the `Variations` structure.
+        /// 
+        /// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        /// </summary>
         [Output("defaultVariation")]
         public Output<string?> DefaultVariation { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description of the feature.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+        /// </summary>
         [Output("entityOverrides")]
         public Output<ImmutableArray<Outputs.FeatureEntityOverride>> EntityOverrides { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        /// </summary>
         [Output("evaluationStrategy")]
         public Output<Pulumi.AwsNative.Evidently.FeatureEvaluationStrategy?> EvaluationStrategy { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the feature. It can include up to 127 characters.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or ARN of the project that is to contain the new feature.
+        /// </summary>
         [Output("project")]
         public Output<string> Project { get; private set; } = null!;
 
@@ -42,6 +67,9 @@ namespace Pulumi.AwsNative.Evidently
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+        /// </summary>
         [Output("variations")]
         public Output<ImmutableArray<Outputs.FeatureVariationObject>> Variations { get; private set; } = null!;
 
@@ -95,26 +123,49 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class FeatureArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+        /// 
+        /// This variation must also be listed in the `Variations` structure.
+        /// 
+        /// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        /// </summary>
         [Input("defaultVariation")]
         public Input<string>? DefaultVariation { get; set; }
 
+        /// <summary>
+        /// An optional description of the feature.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("entityOverrides")]
         private InputList<Inputs.FeatureEntityOverrideArgs>? _entityOverrides;
+
+        /// <summary>
+        /// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+        /// </summary>
         public InputList<Inputs.FeatureEntityOverrideArgs> EntityOverrides
         {
             get => _entityOverrides ?? (_entityOverrides = new InputList<Inputs.FeatureEntityOverrideArgs>());
             set => _entityOverrides = value;
         }
 
+        /// <summary>
+        /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        /// </summary>
         [Input("evaluationStrategy")]
         public Input<Pulumi.AwsNative.Evidently.FeatureEvaluationStrategy>? EvaluationStrategy { get; set; }
 
+        /// <summary>
+        /// The name for the feature. It can include up to 127 characters.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name or ARN of the project that is to contain the new feature.
+        /// </summary>
         [Input("project", required: true)]
         public Input<string> Project { get; set; } = null!;
 
@@ -132,6 +183,10 @@ namespace Pulumi.AwsNative.Evidently
 
         [Input("variations", required: true)]
         private InputList<Inputs.FeatureVariationObjectArgs>? _variations;
+
+        /// <summary>
+        /// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+        /// </summary>
         public InputList<Inputs.FeatureVariationObjectArgs> Variations
         {
             get => _variations ?? (_variations = new InputList<Inputs.FeatureVariationObjectArgs>());

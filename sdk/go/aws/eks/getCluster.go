@@ -29,6 +29,7 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
+	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 	Arn *string `pulumi:"arn"`
@@ -41,11 +42,20 @@ type LookupClusterResult struct {
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint *string `pulumi:"endpoint"`
 	// The unique ID given to your cluster.
-	Id      *string  `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+	//
+	// > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
 	Logging *Logging `pulumi:"logging"`
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
-	OpenIdConnectIssuerUrl *string                    `pulumi:"openIdConnectIssuerUrl"`
-	ResourcesVpcConfig     *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
+	OpenIdConnectIssuerUrl *string `pulumi:"openIdConnectIssuerUrl"`
+	// An object representing the VPC configuration to use for an Amazon EKS cluster.
+	//
+	// > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+	// > - `EndpointPublicAccess`
+	// > - `EndpointPrivateAccess`
+	// > - `PublicAccessCidrs`
+	ResourcesVpcConfig *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
@@ -88,6 +98,7 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// The access configuration for the cluster.
 func (o LookupClusterResultOutput) AccessConfig() ClusterAccessConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterAccessConfig { return v.AccessConfig }).(ClusterAccessConfigPtrOutput)
 }
@@ -122,6 +133,9 @@ func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+//
+// > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
 func (o LookupClusterResultOutput) Logging() LoggingPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *Logging { return v.Logging }).(LoggingPtrOutput)
 }
@@ -131,6 +145,12 @@ func (o LookupClusterResultOutput) OpenIdConnectIssuerUrl() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.OpenIdConnectIssuerUrl }).(pulumi.StringPtrOutput)
 }
 
+// An object representing the VPC configuration to use for an Amazon EKS cluster.
+//
+// > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+// > - `EndpointPublicAccess`
+// > - `EndpointPrivateAccess`
+// > - `PublicAccessCidrs`
 func (o LookupClusterResultOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterResourcesVpcConfig { return v.ResourcesVpcConfig }).(ClusterResourcesVpcConfigPtrOutput)
 }

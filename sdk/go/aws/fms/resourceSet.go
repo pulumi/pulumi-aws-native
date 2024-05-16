@@ -17,12 +17,17 @@ import (
 type ResourceSet struct {
 	pulumi.CustomResourceState
 
-	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
-	Description      pulumi.StringPtrOutput   `pulumi:"description"`
-	Name             pulumi.StringOutput      `pulumi:"name"`
+	// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A description of the resource set.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeList pulumi.StringArrayOutput `pulumi:"resourceTypeList"`
 	Resources        pulumi.StringArrayOutput `pulumi:"resources"`
-	Tags             aws.TagArrayOutput       `pulumi:"tags"`
+	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +73,28 @@ func (ResourceSetState) ElementType() reflect.Type {
 }
 
 type resourceSetArgs struct {
-	Description      *string   `pulumi:"description"`
-	Name             *string   `pulumi:"name"`
-	ResourceTypeList []string  `pulumi:"resourceTypeList"`
-	Resources        []string  `pulumi:"resources"`
-	Tags             []aws.Tag `pulumi:"tags"`
+	// A description of the resource set.
+	Description *string `pulumi:"description"`
+	// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+	Name *string `pulumi:"name"`
+	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	ResourceTypeList []string `pulumi:"resourceTypeList"`
+	Resources        []string `pulumi:"resources"`
+	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
-	Description      pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
+	// A description of the resource set.
+	Description pulumi.StringPtrInput
+	// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+	Name pulumi.StringPtrInput
+	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeList pulumi.StringArrayInput
 	Resources        pulumi.StringArrayInput
-	Tags             aws.TagArrayInput
+	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags aws.TagArrayInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -121,18 +134,22 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
 func (o ResourceSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A description of the resource set.
 func (o ResourceSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
 func (o ResourceSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 func (o ResourceSetOutput) ResourceTypeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.ResourceTypeList }).(pulumi.StringArrayOutput)
 }
@@ -141,6 +158,7 @@ func (o ResourceSetOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
+// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 func (o ResourceSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

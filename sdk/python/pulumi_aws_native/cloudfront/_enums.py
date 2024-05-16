@@ -12,15 +12,24 @@ __all__ = [
 
 
 class ContinuousDeploymentPolicyConfigType(str, Enum):
+    """
+    The type of traffic configuration.
+    """
     SINGLE_WEIGHT = "SingleWeight"
     SINGLE_HEADER = "SingleHeader"
 
 
 class ContinuousDeploymentPolicyTrafficConfigType(str, Enum):
+    """
+    The type of traffic configuration.
+    """
     SINGLE_WEIGHT = "SingleWeight"
     SINGLE_HEADER = "SingleHeader"
 
 
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus(str, Enum):
+    """
+    A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+    """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginRequestPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginRequestPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,25 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetOriginRequestPolicyResult
     {
+        /// <summary>
+        /// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time when the origin request policy was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// An origin request policy configuration.
+        /// 
+        /// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+        /// 
+        /// - The request body and the URL path (without the domain name) from the viewer request.
+        /// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
+        /// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+        /// 
+        /// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        /// </summary>
         public readonly Outputs.OriginRequestPolicyConfig? OriginRequestPolicyConfig;
 
         [OutputConstructor]

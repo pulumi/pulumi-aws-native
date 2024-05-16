@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateNumberFormatConfiguration
     {
+        /// <summary>
+        /// The options that determine the numeric format configuration.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateNumericFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

@@ -30,7 +30,8 @@ type LookupIpamScopeArgs struct {
 
 type LookupIpamScopeResult struct {
 	// The Amazon Resource Name (ARN) of the IPAM scope.
-	Arn         *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The description of the scope.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
 	IpamArn *string `pulumi:"ipamArn"`
@@ -87,6 +88,7 @@ func (o LookupIpamScopeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamScopeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The description of the scope.
 func (o LookupIpamScopeResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamScopeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDateTimeDatasetParameter
     {
+        /// <summary>
+        /// A list of default values for a given date time parameter. This structure only accepts static values.
+        /// </summary>
         public readonly Outputs.DataSetDateTimeDatasetParameterDefaultValues? DefaultValues;
         /// <summary>
         /// &lt;p&gt;An identifier for the parameter that is created in the dataset.&lt;/p&gt;
@@ -25,7 +28,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The name of the date time parameter that is created in the dataset.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The time granularity of the date time parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetTimeGranularity? TimeGranularity;
+        /// <summary>
+        /// The value type of the dataset parameter. Valid values are `single value` or `multi value` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType ValueType;
 
         [OutputConstructor]

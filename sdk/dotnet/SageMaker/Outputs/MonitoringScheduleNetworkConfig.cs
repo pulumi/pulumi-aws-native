@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         /// </summary>
         public readonly bool? EnableNetworkIsolation;
+        /// <summary>
+        /// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+        /// </summary>
         public readonly Outputs.MonitoringScheduleVpcConfig? VpcConfig;
 
         [OutputConstructor]

@@ -12,20 +12,33 @@ namespace Pulumi.AwsNative.Ssm.Inputs
 
     public sealed class ResourceDataSyncSyncSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+        /// </summary>
         [Input("awsOrganizationsSource")]
         public Input<Inputs.ResourceDataSyncAwsOrganizationsSourceArgs>? AwsOrganizationsSource { get; set; }
 
+        /// <summary>
+        /// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+        /// </summary>
         [Input("includeFutureRegions")]
         public Input<bool>? IncludeFutureRegions { get; set; }
 
         [Input("sourceRegions", required: true)]
         private InputList<string>? _sourceRegions;
+
+        /// <summary>
+        /// The `SyncSource` AWS Regions included in the resource data sync.
+        /// </summary>
         public InputList<string> SourceRegions
         {
             get => _sourceRegions ?? (_sourceRegions = new InputList<string>());
             set => _sourceRegions = value;
         }
 
+        /// <summary>
+        /// The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
+        /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
 

@@ -37,14 +37,41 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProvisioningTemplate.__pulumiType;
     }
 
+    /**
+     * The description of the fleet provisioning template.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * True to enable the fleet provisioning template, otherwise false.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+     */
     public readonly preProvisioningHook!: pulumi.Output<outputs.iot.ProvisioningTemplateProvisioningHook | undefined>;
+    /**
+     * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+     */
     public readonly provisioningRoleArn!: pulumi.Output<string>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ARN that identifies the provisioning template.
+     */
     public /*out*/ readonly templateArn!: pulumi.Output<string>;
+    /**
+     * The JSON formatted contents of the fleet provisioning template version.
+     */
     public readonly templateBody!: pulumi.Output<string>;
+    /**
+     * The name of the fleet provisioning template.
+     */
     public readonly templateName!: pulumi.Output<string | undefined>;
+    /**
+     * The type of the provisioning template.
+     */
     public readonly templateType!: pulumi.Output<enums.iot.ProvisioningTemplateTemplateType | undefined>;
 
     /**
@@ -95,12 +122,36 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a ProvisioningTemplate resource.
  */
 export interface ProvisioningTemplateArgs {
+    /**
+     * The description of the fleet provisioning template.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * True to enable the fleet provisioning template, otherwise false.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+     */
     preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplateProvisioningHookArgs>;
+    /**
+     * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+     */
     provisioningRoleArn: pulumi.Input<string>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The JSON formatted contents of the fleet provisioning template version.
+     */
     templateBody: pulumi.Input<string>;
+    /**
+     * The name of the fleet provisioning template.
+     */
     templateName?: pulumi.Input<string>;
+    /**
+     * The type of the provisioning template.
+     */
     templateType?: pulumi.Input<enums.iot.ProvisioningTemplateTemplateType>;
 }

@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeSourceRabbitMqBrokerParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of records to include in each batch.
+        /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
+        /// <summary>
+        /// The AWS Secrets Manager secret that stores your broker credentials.
+        /// </summary>
         [Input("credentials", required: true)]
         public Input<Inputs.PipeMqBrokerAccessCredentialsPropertiesArgs> Credentials { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum length of a time to wait for events.
+        /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
+        /// <summary>
+        /// The name of the destination queue to consume.
+        /// </summary>
         [Input("queueName", required: true)]
         public Input<string> QueueName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the virtual host associated with the source broker.
+        /// </summary>
         [Input("virtualHost")]
         public Input<string>? VirtualHost { get; set; }
 

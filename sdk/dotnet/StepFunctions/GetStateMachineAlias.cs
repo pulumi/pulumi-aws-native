@@ -65,6 +65,13 @@ namespace Pulumi.AwsNative.StepFunctions
         /// An optional description of the alias.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+        /// 
+        /// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+        /// 
+        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.StateMachineAliasRoutingConfigurationVersion> RoutingConfiguration;
 
         [OutputConstructor]

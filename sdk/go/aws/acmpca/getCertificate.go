@@ -23,13 +23,16 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
+	// The Amazon Resource Name (ARN) of the issued certificate.
 	Arn string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 }
 
 type LookupCertificateResult struct {
-	Arn         *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the issued certificate.
+	Arn *string `pulumi:"arn"`
+	// The issued Base64 PEM-encoded certificate.
 	Certificate *string `pulumi:"certificate"`
 }
 
@@ -47,6 +50,7 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 }
 
 type LookupCertificateOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the issued certificate.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
@@ -70,10 +74,12 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the issued certificate.
 func (o LookupCertificateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The issued Base64 PEM-encoded certificate.
 func (o LookupCertificateResultOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }

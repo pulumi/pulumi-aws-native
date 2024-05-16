@@ -14,18 +14,35 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("inlineConfigurations")]
         private InputList<Inputs.DataSourceInlineCustomDocumentEnrichmentConfigurationArgs>? _inlineConfigurations;
+
+        /// <summary>
+        /// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
+        /// </summary>
         public InputList<Inputs.DataSourceInlineCustomDocumentEnrichmentConfigurationArgs> InlineConfigurations
         {
             get => _inlineConfigurations ?? (_inlineConfigurations = new InputList<Inputs.DataSourceInlineCustomDocumentEnrichmentConfigurationArgs>());
             set => _inlineConfigurations = value;
         }
 
+        /// <summary>
+        /// Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) . You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+        /// 
+        /// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        /// </summary>
         [Input("postExtractionHookConfiguration")]
         public Input<Inputs.DataSourceHookConfigurationArgs>? PostExtractionHookConfiguration { get; set; }
 
+        /// <summary>
+        /// Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Kendra. You can configure your Lambda function using [PreExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) if you want to apply advanced alterations on the original or raw documents. If you want to apply advanced alterations on the Amazon Kendra structured documents, you must configure your Lambda function using [PostExtractionHookConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html) . You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+        /// 
+        /// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        /// </summary>
         [Input("preExtractionHookConfiguration")]
         public Input<Inputs.DataSourceHookConfigurationArgs>? PreExtractionHookConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

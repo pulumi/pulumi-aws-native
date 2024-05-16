@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [AwsNativeResourceType("aws-native:networkfirewall:FirewallPolicy")]
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description of the firewall policy.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        /// </summary>
         [Output("firewallPolicy")]
         public Output<Outputs.FirewallPolicy> FirewallPolicyValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the `FirewallPolicy` resource.
+        /// </summary>
         [Output("firewallPolicyId")]
         public Output<string> FirewallPolicyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+        /// </summary>
         [Output("firewallPolicyName")]
         public Output<string> FirewallPolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -82,17 +100,30 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the firewall policy.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        /// </summary>
         [Input("firewallPolicy", required: true)]
         public Input<Inputs.FirewallPolicyArgs> FirewallPolicyValue { get; set; } = null!;
 
+        /// <summary>
+        /// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+        /// </summary>
         [Input("firewallPolicyName")]
         public Input<string>? FirewallPolicyName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

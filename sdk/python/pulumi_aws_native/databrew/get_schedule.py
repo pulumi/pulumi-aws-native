@@ -37,6 +37,9 @@ class GetScheduleResult:
     @property
     @pulumi.getter(name="jobNames")
     def job_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of jobs to be run, according to the schedule.
+        """
         return pulumi.get(self, "job_names")
 
 

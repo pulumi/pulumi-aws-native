@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileApiKeyCredentials
     {
+        /// <summary>
+        /// The API key required for API key authentication.
+        /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// The API secret key required for API key authentication.
+        /// </summary>
         public readonly string? ApiSecretKey;
 
         [OutputConstructor]

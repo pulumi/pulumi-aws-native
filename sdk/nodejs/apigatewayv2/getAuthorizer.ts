@@ -24,6 +24,9 @@ export interface GetAuthorizerArgs {
      * The API identifier.
      */
     apiId: string;
+    /**
+     * The authorizer ID.
+     */
     authorizerId: string;
 }
 
@@ -32,6 +35,9 @@ export interface GetAuthorizerResult {
      * Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for ``REQUEST`` authorizers.
      */
     readonly authorizerCredentialsArn?: string;
+    /**
+     * The authorizer ID.
+     */
     readonly authorizerId?: string;
     /**
      * Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are ``1.0`` and ``2.0``. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).
@@ -84,5 +90,8 @@ export interface GetAuthorizerOutputArgs {
      * The API identifier.
      */
     apiId: pulumi.Input<string>;
+    /**
+     * The authorizer ID.
+     */
     authorizerId: pulumi.Input<string>;
 }

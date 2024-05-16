@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd.Outputs
     [OutputType]
     public sealed class ConnectorVpcInformation
     {
+        /// <summary>
+        /// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
 
         [OutputConstructor]

@@ -81,11 +81,17 @@ class GetStudioResult:
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
     def studio_encryption_configuration(self) -> Optional['outputs.StudioEncryptionConfiguration']:
+        """
+        Configuration of the encryption method that is used for the studio.
+        """
         return pulumi.get(self, "studio_encryption_configuration")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> Optional[str]:
+        """
+        The unique identifier for the studio resource.
+        """
         return pulumi.get(self, "studio_id")
 
     @property
@@ -125,6 +131,9 @@ def get_studio(studio_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudioResult:
     """
     Represents a studio that contains other Nimble Studio resources
+
+
+    :param str studio_id: The unique identifier for the studio resource.
     """
     __args__ = dict()
     __args__['studioId'] = studio_id
@@ -147,5 +156,8 @@ def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
     """
     Represents a studio that contains other Nimble Studio resources
+
+
+    :param str studio_id: The unique identifier for the studio resource.
     """
     ...

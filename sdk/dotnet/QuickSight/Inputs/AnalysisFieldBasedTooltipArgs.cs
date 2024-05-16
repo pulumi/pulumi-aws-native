@@ -12,17 +12,32 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFieldBasedTooltipArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of `Show aggregations` .
+        /// </summary>
         [Input("aggregationVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? AggregationVisibility { get; set; }
 
         [Input("tooltipFields")]
         private InputList<Inputs.AnalysisTooltipItemArgs>? _tooltipFields;
+
+        /// <summary>
+        /// The tooltip.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.AnalysisTooltipItemArgs> TooltipFields
         {
             get => _tooltipFields ?? (_tooltipFields = new InputList<Inputs.AnalysisTooltipItemArgs>());
             set => _tooltipFields = value;
         }
 
+        /// <summary>
+        /// The type for the &gt;tooltip title. Choose one of the following options:
+        /// 
+        /// - `NONE` : Doesn't use the primary value as the title.
+        /// - `PRIMARY_VALUE` : Uses primary value as the title.
+        /// </summary>
         [Input("tooltipTitleType")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTooltipTitleType>? TooltipTitleType { get; set; }
 

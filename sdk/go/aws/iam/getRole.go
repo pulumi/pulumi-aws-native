@@ -34,6 +34,11 @@ type LookupRoleArgs struct {
 }
 
 type LookupRoleResult struct {
+	// Returns the Amazon Resource Name (ARN) for the role. For example:
+	//
+	// `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+	//
+	// This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
 	Arn *string `pulumi:"arn"`
 	// The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
 	//
@@ -56,7 +61,10 @@ type LookupRoleResult struct {
 	//  For information about limits on the number of inline policies that you can embed with a role, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
 	//   If an external policy (such as ``AWS::IAM::Policy`` or
 	Policies []RolePolicyType `pulumi:"policies"`
-	RoleId   *string          `pulumi:"roleId"`
+	// Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+	//
+	// For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+	RoleId *string `pulumi:"roleId"`
 	// A list of tags that are attached to the role. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -100,6 +108,11 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the role. For example:
+//
+// `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+//
+// This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
 func (o LookupRoleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -147,6 +160,9 @@ func (o LookupRoleResultOutput) Policies() RolePolicyTypeArrayOutput {
 	return o.ApplyT(func(v LookupRoleResult) []RolePolicyType { return v.Policies }).(RolePolicyTypeArrayOutput)
 }
 
+// Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+//
+// For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
 func (o LookupRoleResultOutput) RoleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleResult) *string { return v.RoleId }).(pulumi.StringPtrOutput)
 }

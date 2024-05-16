@@ -49,6 +49,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
                  s3: Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Destination configuration for IVS Chat logging.
+        :param pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs'] cloud_watch_logs: The CloudWatchLogsDestinationConfiguration property type specifies a CloudWatch Logs location where chat logs will be stored.
+        :param pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs'] firehose: The FirehoseDestinationConfiguration property type specifies a Kinesis Firehose location where chat logs will be stored.
+        :param pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs'] s3: The S3DestinationConfiguration property type specifies an S3 location where chat logs will be stored.
         """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
@@ -60,6 +63,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> Optional[pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]:
+        """
+        The CloudWatchLogsDestinationConfiguration property type specifies a CloudWatch Logs location where chat logs will be stored.
+        """
         return pulumi.get(self, "cloud_watch_logs")
 
     @cloud_watch_logs.setter
@@ -69,6 +75,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs']]:
+        """
+        The FirehoseDestinationConfiguration property type specifies a Kinesis Firehose location where chat logs will be stored.
+        """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
@@ -78,6 +87,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']]:
+        """
+        The S3DestinationConfiguration property type specifies an S3 location where chat logs will be stored.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter

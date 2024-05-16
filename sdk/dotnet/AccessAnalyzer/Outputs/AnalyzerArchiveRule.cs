@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerArchiveRule
     {
+        /// <summary>
+        /// The criteria that defines the archive rule.
+        /// 
+        /// To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerFilter> Filter;
         /// <summary>
         /// The archive rule name

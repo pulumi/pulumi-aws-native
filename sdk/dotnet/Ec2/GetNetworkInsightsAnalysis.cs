@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsAnalysisArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the network insights analysis.
+        /// </summary>
         [Input("networkInsightsAnalysisId", required: true)]
         public string NetworkInsightsAnalysisId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the network insights analysis.
+        /// </summary>
         [Input("networkInsightsAnalysisId", required: true)]
         public Input<string> NetworkInsightsAnalysisId { get; set; } = null!;
 
@@ -51,18 +57,57 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisResult
     {
+        /// <summary>
+        /// The member accounts that contain resources that the path can traverse.
+        /// </summary>
         public readonly ImmutableArray<string> AdditionalAccounts;
+        /// <summary>
+        /// Describes an potential intermediate component of a feasible path.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint> AlternatePathHints;
+        /// <summary>
+        /// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> Explanations;
+        /// <summary>
+        /// Describes a path component.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent> ForwardPathComponents;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the network insights analysis.
+        /// </summary>
         public readonly string? NetworkInsightsAnalysisArn;
+        /// <summary>
+        /// The ID of the network insights analysis.
+        /// </summary>
         public readonly string? NetworkInsightsAnalysisId;
+        /// <summary>
+        /// Indicates whether the destination is reachable from the source.
+        /// </summary>
         public readonly bool? NetworkPathFound;
+        /// <summary>
+        /// Describes a path component.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent> ReturnPathComponents;
+        /// <summary>
+        /// The time the analysis started.
+        /// </summary>
         public readonly string? StartDate;
+        /// <summary>
+        /// The status of the network insights analysis.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.NetworkInsightsAnalysisStatus? Status;
+        /// <summary>
+        /// The status message, if the status is `failed` .
+        /// </summary>
         public readonly string? StatusMessage;
+        /// <summary>
+        /// The IDs of potential intermediate accounts.
+        /// </summary>
         public readonly ImmutableArray<string> SuggestedAccounts;
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

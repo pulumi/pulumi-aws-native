@@ -77,6 +77,9 @@ class GetAssetResult:
     @property
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> Optional[Sequence['outputs.AssetHierarchy']]:
+        """
+        Describes an asset hierarchy that contains a hierarchy's name and ID.
+        """
         return pulumi.get(self, "asset_hierarchies")
 
     @property
@@ -106,6 +109,9 @@ class GetAssetResult:
     @property
     @pulumi.getter(name="assetProperties")
     def asset_properties(self) -> Optional[Sequence['outputs.AssetProperty']]:
+        """
+        Contains asset property information.
+        """
         return pulumi.get(self, "asset_properties")
 
     @property

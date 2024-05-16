@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
     /// </summary>
     public sealed class FhirDatastoreSseConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
+        /// </summary>
         [Input("kmsEncryptionConfig", required: true)]
         public Input<Inputs.FhirDatastoreKmsEncryptionConfigArgs> KmsEncryptionConfig { get; set; } = null!;
 

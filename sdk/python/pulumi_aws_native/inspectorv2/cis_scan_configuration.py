@@ -25,6 +25,10 @@ class CisScanConfigurationArgs:
         """
         The set of arguments for constructing a CisScanConfiguration resource.
         :param pulumi.Input[str] scan_name: Name of the scan
+        :param pulumi.Input['CisScanConfigurationScheduleArgs'] schedule: The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The CIS scan configuration's tags.
+        :param pulumi.Input['CisScanConfigurationCisTargetsArgs'] targets: The CIS targets.
         """
         if scan_name is not None:
             pulumi.set(__self__, "scan_name", scan_name)
@@ -52,6 +56,9 @@ class CisScanConfigurationArgs:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['CisScanConfigurationScheduleArgs']]:
+        """
+        The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -61,6 +68,9 @@ class CisScanConfigurationArgs:
     @property
     @pulumi.getter(name="securityLevel")
     def security_level(self) -> Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']]:
+        """
+        The CIS scan configuration's CIS Benchmark level.
+        """
         return pulumi.get(self, "security_level")
 
     @security_level.setter
@@ -70,6 +80,9 @@ class CisScanConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The CIS scan configuration's tags.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +92,9 @@ class CisScanConfigurationArgs:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input['CisScanConfigurationCisTargetsArgs']]:
+        """
+        The CIS targets.
+        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -103,6 +119,10 @@ class CisScanConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scan_name: Name of the scan
+        :param pulumi.Input[pulumi.InputType['CisScanConfigurationScheduleArgs']] schedule: The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The CIS scan configuration's tags.
+        :param pulumi.Input[pulumi.InputType['CisScanConfigurationCisTargetsArgs']] targets: The CIS targets.
         """
         ...
     @overload
@@ -197,20 +217,32 @@ class CisScanConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationSchedule']]:
+        """
+        The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="securityLevel")
     def security_level(self) -> pulumi.Output[Optional['CisScanConfigurationCisSecurityLevel']]:
+        """
+        The CIS scan configuration's CIS Benchmark level.
+        """
         return pulumi.get(self, "security_level")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The CIS scan configuration's tags.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationCisTargets']]:
+        """
+        The CIS targets.
+        """
         return pulumi.get(self, "targets")
 

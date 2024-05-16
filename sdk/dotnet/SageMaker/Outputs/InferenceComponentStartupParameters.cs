@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentStartupParameters
     {
+        /// <summary>
+        /// The timeout value, in seconds, for your inference container to pass health check by Amazon S3 Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests) .
+        /// </summary>
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
+        /// <summary>
+        /// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this inference component.
+        /// </summary>
         public readonly int? ModelDataDownloadTimeoutInSeconds;
 
         [OutputConstructor]

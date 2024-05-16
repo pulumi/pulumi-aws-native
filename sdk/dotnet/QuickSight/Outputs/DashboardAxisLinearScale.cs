@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAxisLinearScale
     {
+        /// <summary>
+        /// The step count setup of a linear axis.
+        /// </summary>
         public readonly double? StepCount;
+        /// <summary>
+        /// The step size setup of a linear axis.
+        /// </summary>
         public readonly double? StepSize;
 
         [OutputConstructor]

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Osis
     [AwsNativeResourceType("aws-native:osis:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        /// </summary>
         [Output("bufferOptions")]
         public Output<Outputs.PipelineBufferOptions?> BufferOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Options to control how OpenSearch encrypts buffer data.
+        /// </summary>
         [Output("encryptionAtRestOptions")]
         public Output<Outputs.PipelineEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
 
@@ -27,6 +33,9 @@ namespace Pulumi.AwsNative.Osis
         [Output("ingestEndpointUrls")]
         public Output<ImmutableArray<string>> IngestEndpointUrls { get; private set; } = null!;
 
+        /// <summary>
+        /// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        /// </summary>
         [Output("logPublishingOptions")]
         public Output<Outputs.PipelineLogPublishingOptions?> LogPublishingOptions { get; private set; } = null!;
 
@@ -72,6 +81,9 @@ namespace Pulumi.AwsNative.Osis
         [Output("vpcEndpoints")]
         public Output<ImmutableArray<Outputs.PipelineVpcEndpoint>> VpcEndpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+        /// </summary>
         [Output("vpcOptions")]
         public Output<Outputs.PipelineVpcOptions?> VpcOptions { get; private set; } = null!;
 
@@ -124,12 +136,21 @@ namespace Pulumi.AwsNative.Osis
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        /// </summary>
         [Input("bufferOptions")]
         public Input<Inputs.PipelineBufferOptionsArgs>? BufferOptions { get; set; }
 
+        /// <summary>
+        /// Options to control how OpenSearch encrypts buffer data.
+        /// </summary>
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.PipelineEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
+        /// <summary>
+        /// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        /// </summary>
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsArgs>? LogPublishingOptions { get; set; }
 
@@ -169,6 +190,9 @@ namespace Pulumi.AwsNative.Osis
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+        /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.PipelineVpcOptionsArgs>? VpcOptions { get; set; }
 

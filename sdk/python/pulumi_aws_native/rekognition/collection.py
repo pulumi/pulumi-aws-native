@@ -20,6 +20,7 @@ class CollectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Collection resource.
+        :param pulumi.Input[str] collection_id: ID for the collection that you are creating.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "collection_id", collection_id)
@@ -29,6 +30,9 @@ class CollectionArgs:
     @property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[str]:
+        """
+        ID for the collection that you are creating.
+        """
         return pulumi.get(self, "collection_id")
 
     @collection_id.setter
@@ -61,6 +65,7 @@ class Collection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] collection_id: ID for the collection that you are creating.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -135,11 +140,17 @@ class Collection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name of the collection.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Output[str]:
+        """
+        ID for the collection that you are creating.
+        """
         return pulumi.get(self, "collection_id")
 
     @property

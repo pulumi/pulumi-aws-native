@@ -12,6 +12,16 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeTargetStateMachineParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify whether to invoke the Step Functions state machine synchronously or asynchronously.
+        /// 
+        /// - `REQUEST_RESPONSE` (default) - Invoke synchronously. For more information, see [StartSyncExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartSyncExecution.html) in the *AWS Step Functions API Reference* .
+        /// 
+        /// &gt; `REQUEST_RESPONSE` is not supported for `STANDARD` state machine workflows.
+        /// - `FIRE_AND_FORGET` - Invoke asynchronously. For more information, see [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) in the *AWS Step Functions API Reference* .
+        /// 
+        /// For more information, see [Invocation types](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation) in the *Amazon EventBridge User Guide* .
+        /// </summary>
         [Input("invocationType")]
         public Input<Pulumi.AwsNative.Pipes.PipeTargetInvocationType>? InvocationType { get; set; }
 

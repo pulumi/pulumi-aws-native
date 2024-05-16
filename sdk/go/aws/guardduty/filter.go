@@ -17,13 +17,24 @@ import (
 type Filter struct {
 	pulumi.CustomResourceState
 
-	Action          pulumi.StringPtrOutput      `pulumi:"action"`
-	Description     pulumi.StringPtrOutput      `pulumi:"description"`
-	DetectorId      pulumi.StringPtrOutput      `pulumi:"detectorId"`
+	// Specifies the action that is to be applied to the findings that match the filter.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
+	// Represents a map of finding properties that match specified conditions and values when querying findings.
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
-	Name            pulumi.StringPtrOutput      `pulumi:"name"`
-	Rank            pulumi.IntPtrOutput         `pulumi:"rank"`
-	Tags            aws.TagArrayOutput          `pulumi:"tags"`
+	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+	//
+	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFilter registers a new resource with the given unique name, arguments, and options.
@@ -74,24 +85,46 @@ func (FilterState) ElementType() reflect.Type {
 }
 
 type filterArgs struct {
-	Action          *string               `pulumi:"action"`
-	Description     *string               `pulumi:"description"`
-	DetectorId      *string               `pulumi:"detectorId"`
+	// Specifies the action that is to be applied to the findings that match the filter.
+	Action *string `pulumi:"action"`
+	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+	Description *string `pulumi:"description"`
+	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	DetectorId *string `pulumi:"detectorId"`
+	// Represents a map of finding properties that match specified conditions and values when querying findings.
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
-	Name            *string               `pulumi:"name"`
-	Rank            *int                  `pulumi:"rank"`
-	Tags            []aws.Tag             `pulumi:"tags"`
+	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+	Name *string `pulumi:"name"`
+	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+	//
+	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+	Rank *int `pulumi:"rank"`
+	// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Filter resource.
 type FilterArgs struct {
-	Action          pulumi.StringPtrInput
-	Description     pulumi.StringPtrInput
-	DetectorId      pulumi.StringPtrInput
+	// Specifies the action that is to be applied to the findings that match the filter.
+	Action pulumi.StringPtrInput
+	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+	Description pulumi.StringPtrInput
+	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	DetectorId pulumi.StringPtrInput
+	// Represents a map of finding properties that match specified conditions and values when querying findings.
 	FindingCriteria FilterFindingCriteriaInput
-	Name            pulumi.StringPtrInput
-	Rank            pulumi.IntPtrInput
-	Tags            aws.TagArrayInput
+	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+	Name pulumi.StringPtrInput
+	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+	//
+	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+	Rank pulumi.IntPtrInput
+	// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (FilterArgs) ElementType() reflect.Type {
@@ -131,30 +164,41 @@ func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutpu
 	return o
 }
 
+// Specifies the action that is to be applied to the findings that match the filter.
 func (o FilterOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 func (o FilterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 func (o FilterOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
+// Represents a map of finding properties that match specified conditions and values when querying findings.
 func (o FilterOutput) FindingCriteria() FilterFindingCriteriaOutput {
 	return o.ApplyT(func(v *Filter) FilterFindingCriteriaOutput { return v.FindingCriteria }).(FilterFindingCriteriaOutput)
 }
 
+// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 func (o FilterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+//
+// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
 func (o FilterOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o FilterOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Filter) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

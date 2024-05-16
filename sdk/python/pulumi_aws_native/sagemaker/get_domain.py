@@ -112,6 +112,9 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional['outputs.DomainSettings']:
+        """
+        A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        """
         return pulumi.get(self, "domain_settings")
 
     @property

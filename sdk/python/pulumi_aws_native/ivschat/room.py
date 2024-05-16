@@ -30,6 +30,7 @@ class RoomArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
         :param pulumi.Input[int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
+        :param pulumi.Input['RoomMessageReviewHandlerArgs'] message_review_handler: The MessageReviewHandler property type specifies configuration information for optional message review.
         :param pulumi.Input[str] name: The name of the room. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -85,6 +86,9 @@ class RoomArgs:
     @property
     @pulumi.getter(name="messageReviewHandler")
     def message_review_handler(self) -> Optional[pulumi.Input['RoomMessageReviewHandlerArgs']]:
+        """
+        The MessageReviewHandler property type specifies configuration information for optional message review.
+        """
         return pulumi.get(self, "message_review_handler")
 
     @message_review_handler.setter
@@ -170,6 +174,7 @@ class Room(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
         :param pulumi.Input[int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
+        :param pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']] message_review_handler: The MessageReviewHandler property type specifies configuration information for optional message review.
         :param pulumi.Input[str] name: The name of the room. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -329,6 +334,9 @@ class Room(pulumi.CustomResource):
     @property
     @pulumi.getter(name="messageReviewHandler")
     def message_review_handler(self) -> pulumi.Output[Optional['outputs.RoomMessageReviewHandler']]:
+        """
+        The MessageReviewHandler property type specifies configuration information for optional message review.
+        """
         return pulumi.get(self, "message_review_handler")
 
     @property

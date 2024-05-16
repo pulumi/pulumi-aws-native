@@ -29,11 +29,17 @@ class GetSimulationApplicationVersionResult:
     @property
     @pulumi.getter(name="applicationVersion")
     def application_version(self) -> Optional[str]:
+        """
+        The simulation application version.
+        """
         return pulumi.get(self, "application_version")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the simulation application version.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -51,6 +57,9 @@ def get_simulation_application_version(arn: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimulationApplicationVersionResult:
     """
     AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the simulation application version.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -67,5 +76,8 @@ def get_simulation_application_version_output(arn: Optional[pulumi.Input[str]] =
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationVersionResult]:
     """
     AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the simulation application version.
     """
     ...

@@ -15,27 +15,55 @@ namespace Pulumi.AwsNative.CleanRooms
     [AwsNativeResourceType("aws-native:cleanrooms:ConfiguredTable")]
     public partial class ConfiguredTable : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        /// </summary>
         [Output("allowedColumns")]
         public Output<ImmutableArray<string>> AllowedColumns { get; private set; } = null!;
 
+        /// <summary>
+        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        /// </summary>
         [Output("analysisMethod")]
         public Output<Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod> AnalysisMethod { get; private set; } = null!;
 
+        /// <summary>
+        /// A specification about how data from the configured table can be used in a query.
+        /// </summary>
         [Output("analysisRules")]
         public Output<ImmutableArray<Outputs.ConfiguredTableAnalysisRule>> AnalysisRules { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified configured table.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Output("configuredTableIdentifier")]
         public Output<string> ConfiguredTableIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the configured table.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the configured table.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        /// </summary>
         [Output("tableReference")]
         public Output<Outputs.ConfiguredTableTableReference> TableReference { get; private set; } = null!;
 
@@ -98,29 +126,49 @@ namespace Pulumi.AwsNative.CleanRooms
     {
         [Input("allowedColumns", required: true)]
         private InputList<string>? _allowedColumns;
+
+        /// <summary>
+        /// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        /// </summary>
         public InputList<string> AllowedColumns
         {
             get => _allowedColumns ?? (_allowedColumns = new InputList<string>());
             set => _allowedColumns = value;
         }
 
+        /// <summary>
+        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        /// </summary>
         [Input("analysisMethod", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod> AnalysisMethod { get; set; } = null!;
 
         [Input("analysisRules")]
         private InputList<Inputs.ConfiguredTableAnalysisRuleArgs>? _analysisRules;
+
+        /// <summary>
+        /// A specification about how data from the configured table can be used in a query.
+        /// </summary>
         public InputList<Inputs.ConfiguredTableAnalysisRuleArgs> AnalysisRules
         {
             get => _analysisRules ?? (_analysisRules = new InputList<Inputs.ConfiguredTableAnalysisRuleArgs>());
             set => _analysisRules = value;
         }
 
+        /// <summary>
+        /// A description for the configured table.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A name for the configured table.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        /// </summary>
         [Input("tableReference", required: true)]
         public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;
 

@@ -33,16 +33,25 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @property
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType']:
+        """
+        Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
     @property
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType']:
+        """
+        The compromised credentials risk configuration type.
+        """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
     @property
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType']:
+        """
+        The type of the configuration to override the risk decision.
+        """
         return pulumi.get(self, "risk_exception_configuration")
 
 
@@ -62,6 +71,10 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolRiskConfigurationAttachmentResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
+
+
+    :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+    :param str user_pool_id: The user pool ID.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
@@ -81,5 +94,9 @@ def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulum
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolRiskConfigurationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
+
+
+    :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+    :param str user_pool_id: The user pool ID.
     """
     ...

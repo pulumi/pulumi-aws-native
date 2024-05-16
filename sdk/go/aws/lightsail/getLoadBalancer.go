@@ -33,6 +33,7 @@ type LookupLoadBalancerResult struct {
 	AttachedInstances []string `pulumi:"attachedInstances"`
 	// The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
+	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// Configuration option to enable session stickiness.
 	SessionStickinessEnabled *bool `pulumi:"sessionStickinessEnabled"`
@@ -90,6 +91,7 @@ func (o LookupLoadBalancerResultOutput) HealthCheckPath() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the load balancer.
 func (o LookupLoadBalancerResultOutput) LoadBalancerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
 }

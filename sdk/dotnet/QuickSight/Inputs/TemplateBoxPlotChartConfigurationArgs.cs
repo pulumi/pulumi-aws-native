@@ -12,41 +12,77 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateBoxPlotChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options of a box plot visual.
+        /// </summary>
         [Input("boxPlotOptions")]
         public Input<Inputs.TemplateBoxPlotOptionsArgs>? BoxPlotOptions { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
+        /// <summary>
+        /// The field wells of a `BoxPlotVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateBoxPlotFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.TemplateLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
 
         [Input("referenceLines")]
         private InputList<Inputs.TemplateReferenceLineArgs>? _referenceLines;
+
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public InputList<Inputs.TemplateReferenceLineArgs> ReferenceLines
         {
             get => _referenceLines ?? (_referenceLines = new InputList<Inputs.TemplateReferenceLineArgs>());
             set => _referenceLines = value;
         }
 
+        /// <summary>
+        /// The sort configuration of a `BoxPlotVisual` .
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplateBoxPlotSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.TemplateTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.TemplateVisualPaletteArgs>? VisualPalette { get; set; }
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         [Input("ruleGroupArn", required: true)]
         public string RuleGroupArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         [Input("ruleGroupArn", required: true)]
         public Input<string> RuleGroupArn { get; set; } = null!;
 
@@ -51,10 +57,29 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetRuleGroupResult
     {
+        /// <summary>
+        /// A description of the rule group.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The object that defines the rules in a rule group.
+        /// 
+        /// AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
+        /// 
+        /// To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+        /// </summary>
         public readonly Outputs.RuleGroup? RuleGroupValue;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         public readonly string? RuleGroupArn;
+        /// <summary>
+        /// The unique ID of the `RuleGroup` resource.
+        /// </summary>
         public readonly string? RuleGroupId;
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

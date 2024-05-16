@@ -25,14 +25,16 @@ type Disk struct {
 	AttachmentState pulumi.StringOutput `pulumi:"attachmentState"`
 	// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	DiskArn          pulumi.StringOutput    `pulumi:"diskArn"`
+	// The Amazon Resource Name (ARN) of the disk.
+	DiskArn pulumi.StringOutput `pulumi:"diskArn"`
 	// The names to use for your new Lightsail disk.
 	DiskName pulumi.StringOutput `pulumi:"diskName"`
 	// Iops of the Lightsail disk
 	Iops pulumi.IntOutput `pulumi:"iops"`
 	// Check is Disk is attached state
-	IsAttached pulumi.BoolOutput     `pulumi:"isAttached"`
-	Location   DiskLocationPtrOutput `pulumi:"location"`
+	IsAttached pulumi.BoolOutput `pulumi:"isAttached"`
+	// The AWS Region and Availability Zone where the disk is located.
+	Location DiskLocationPtrOutput `pulumi:"location"`
 	// Path of the  attached Disk
 	Path pulumi.StringOutput `pulumi:"path"`
 	// Resource type of Lightsail instance.
@@ -101,7 +103,8 @@ type diskArgs struct {
 	// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The names to use for your new Lightsail disk.
-	DiskName *string       `pulumi:"diskName"`
+	DiskName *string `pulumi:"diskName"`
+	// The AWS Region and Availability Zone where the disk is located.
 	Location *DiskLocation `pulumi:"location"`
 	// Size of the Lightsail disk
 	SizeInGb int `pulumi:"sizeInGb"`
@@ -117,6 +120,7 @@ type DiskArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The names to use for your new Lightsail disk.
 	DiskName pulumi.StringPtrInput
+	// The AWS Region and Availability Zone where the disk is located.
 	Location DiskLocationPtrInput
 	// Size of the Lightsail disk
 	SizeInGb pulumi.IntInput
@@ -181,6 +185,7 @@ func (o DiskOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the disk.
 func (o DiskOutput) DiskArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.DiskArn }).(pulumi.StringOutput)
 }
@@ -200,6 +205,7 @@ func (o DiskOutput) IsAttached() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Disk) pulumi.BoolOutput { return v.IsAttached }).(pulumi.BoolOutput)
 }
 
+// The AWS Region and Availability Zone where the disk is located.
 func (o DiskOutput) Location() DiskLocationPtrOutput {
 	return o.ApplyT(func(v *Disk) DiskLocationPtrOutput { return v.Location }).(DiskLocationPtrOutput)
 }

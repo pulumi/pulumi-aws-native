@@ -23,8 +23,10 @@ type ServiceTemplate struct {
 	// <p>The name of the service template as displayed in the developer interface.</p>
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// <p>A customer provided encryption key that's used to encrypt data.</p>
-	EncryptionKey        pulumi.StringPtrOutput               `pulumi:"encryptionKey"`
-	Name                 pulumi.StringPtrOutput               `pulumi:"name"`
+	EncryptionKey pulumi.StringPtrOutput `pulumi:"encryptionKey"`
+	// The name of the service template.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
 	PipelineProvisioning ServiceTemplateProvisioningPtrOutput `pulumi:"pipelineProvisioning"`
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
@@ -83,8 +85,10 @@ type serviceTemplateArgs struct {
 	// <p>The name of the service template as displayed in the developer interface.</p>
 	DisplayName *string `pulumi:"displayName"`
 	// <p>A customer provided encryption key that's used to encrypt data.</p>
-	EncryptionKey        *string                      `pulumi:"encryptionKey"`
-	Name                 *string                      `pulumi:"name"`
+	EncryptionKey *string `pulumi:"encryptionKey"`
+	// The name of the service template.
+	Name *string `pulumi:"name"`
+	// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
 	PipelineProvisioning *ServiceTemplateProvisioning `pulumi:"pipelineProvisioning"`
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
@@ -99,8 +103,10 @@ type ServiceTemplateArgs struct {
 	// <p>The name of the service template as displayed in the developer interface.</p>
 	DisplayName pulumi.StringPtrInput
 	// <p>A customer provided encryption key that's used to encrypt data.</p>
-	EncryptionKey        pulumi.StringPtrInput
-	Name                 pulumi.StringPtrInput
+	EncryptionKey pulumi.StringPtrInput
+	// The name of the service template.
+	Name pulumi.StringPtrInput
+	// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
 	PipelineProvisioning ServiceTemplateProvisioningPtrInput
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
@@ -165,10 +171,12 @@ func (o ServiceTemplateOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceTemplate) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
 
+// The name of the service template.
 func (o ServiceTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
 func (o ServiceTemplateOutput) PipelineProvisioning() ServiceTemplateProvisioningPtrOutput {
 	return o.ApplyT(func(v *ServiceTemplate) ServiceTemplateProvisioningPtrOutput { return v.PipelineProvisioning }).(ServiceTemplateProvisioningPtrOutput)
 }

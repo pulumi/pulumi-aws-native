@@ -28,16 +28,31 @@ __all__ = [
 
 
 class CapacityProviderAutoScalingGroupProviderManagedDraining(str, Enum):
+    """
+    The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
+    """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
 
 
 class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(str, Enum):
+    """
+    The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+
+    > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work. 
+
+    When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+
+    When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
+    """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
 
 
 class CapacityProviderManagedScalingStatus(str, Enum):
+    """
+    Determines whether to use managed scaling for the capacity provider.
+    """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
 

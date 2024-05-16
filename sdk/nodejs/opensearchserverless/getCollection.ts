@@ -46,6 +46,9 @@ export interface GetCollectionResult {
      * The identifier of the collection
      */
     readonly id?: string;
+    /**
+     * Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+     */
     readonly standbyReplicas?: enums.opensearchserverless.CollectionStandbyReplicas;
 }
 /**

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes a resource statement.
+        /// </summary>
         [Input("resourceStatement")]
         public Input<Inputs.NetworkInsightsAccessScopeResourceStatementRequestArgs>? ResourceStatement { get; set; }
 

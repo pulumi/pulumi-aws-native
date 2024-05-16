@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetCsvOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A single character that specifies the delimiter being used in the CSV file.
+        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
+        /// <summary>
+        /// A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+        /// </summary>
         [Input("headerRow")]
         public Input<bool>? HeaderRow { get; set; }
 

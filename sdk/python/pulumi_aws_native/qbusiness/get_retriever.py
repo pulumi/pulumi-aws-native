@@ -53,46 +53,73 @@ class GetRetrieverResult:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        Provides information on how the retriever used for your Amazon Q Business application is configured.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the retriever was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of your retriever.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="retrieverArn")
     def retriever_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
+        """
         return pulumi.get(self, "retriever_arn")
 
     @property
     @pulumi.getter(name="retrieverId")
     def retriever_id(self) -> Optional[str]:
+        """
+        The identifier of the retriever used by your Amazon Q Business application.
+        """
         return pulumi.get(self, "retriever_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['RetrieverStatus']:
+        """
+        The status of your retriever.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the retriever was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -118,6 +145,10 @@ def get_retriever(application_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRetrieverResult:
     """
     Definition of AWS::QBusiness::Retriever Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business application using the retriever.
+    :param str retriever_id: The identifier of the retriever used by your Amazon Q Business application.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -143,5 +174,9 @@ def get_retriever_output(application_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRetrieverResult]:
     """
     Definition of AWS::QBusiness::Retriever Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business application using the retriever.
+    :param str retriever_id: The identifier of the retriever used by your Amazon Q Business application.
     """
     ...

@@ -33,6 +33,43 @@ class CloudFormationProvisionedProductArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CloudFormationProvisionedProduct resource.
+        :param pulumi.Input['CloudFormationProvisionedProductAcceptLanguage'] accept_language: The language code.
+               
+               - `jp` - Japanese
+               - `zh` - Chinese
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+        :param pulumi.Input[str] path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+               
+               > You must provide the name or ID, but not both.
+        :param pulumi.Input[str] path_name: The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+               
+               > You must provide the name or ID, but not both.
+        :param pulumi.Input[str] product_id: The product identifier.
+               
+               > You must specify either the ID or the name of the product, but not both.
+        :param pulumi.Input[str] product_name: The name of the Service Catalog product.
+               
+               Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+               
+               > You must specify either the name or the ID of the product, but not both.
+        :param pulumi.Input[str] provisioned_product_name: A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+        :param pulumi.Input[str] provisioning_artifact_id: The identifier of the provisioning artifact (also known as a version).
+               
+               > You must specify either the ID or the name of the provisioning artifact, but not both.
+        :param pulumi.Input[str] provisioning_artifact_name: The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+               
+               > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Information about a parameter used to provision a product.
+        :param pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs'] provisioning_preferences: The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+               
+               One or more AWS accounts that will have access to the provisioned product.
+               
+               Applicable only to a `CFN_STACKSET` provisioned product type.
+               
+               The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+               
+               If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -62,6 +99,12 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']]:
+        """
+        The language code.
+
+        - `jp` - Japanese
+        - `zh` - Chinese
+        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -71,6 +114,9 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+        """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
@@ -80,6 +126,11 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+
+        > You must provide the name or ID, but not both.
+        """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
@@ -89,6 +140,11 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="pathName")
     def path_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+
+        > You must provide the name or ID, but not both.
+        """
         return pulumi.get(self, "path_name")
 
     @path_name.setter
@@ -98,6 +154,11 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The product identifier.
+
+        > You must specify either the ID or the name of the product, but not both.
+        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -107,6 +168,13 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Catalog product.
+
+        Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+
+        > You must specify either the name or the ID of the product, but not both.
+        """
         return pulumi.get(self, "product_name")
 
     @product_name.setter
@@ -116,6 +184,9 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisionedProductName")
     def provisioned_product_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+        """
         return pulumi.get(self, "provisioned_product_name")
 
     @provisioned_product_name.setter
@@ -125,6 +196,11 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the provisioning artifact (also known as a version).
+
+        > You must specify either the ID or the name of the provisioning artifact, but not both.
+        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -134,6 +210,11 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+
+        > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @provisioning_artifact_name.setter
@@ -143,6 +224,9 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]]]:
+        """
+        Information about a parameter used to provision a product.
+        """
         return pulumi.get(self, "provisioning_parameters")
 
     @provisioning_parameters.setter
@@ -152,6 +236,17 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs']]:
+        """
+        The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+
+        One or more AWS accounts that will have access to the provisioned product.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+
+        If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        """
         return pulumi.get(self, "provisioning_preferences")
 
     @provisioning_preferences.setter
@@ -161,6 +256,9 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -191,6 +289,43 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['CloudFormationProvisionedProductAcceptLanguage'] accept_language: The language code.
+               
+               - `jp` - Japanese
+               - `zh` - Chinese
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+        :param pulumi.Input[str] path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+               
+               > You must provide the name or ID, but not both.
+        :param pulumi.Input[str] path_name: The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+               
+               > You must provide the name or ID, but not both.
+        :param pulumi.Input[str] product_id: The product identifier.
+               
+               > You must specify either the ID or the name of the product, but not both.
+        :param pulumi.Input[str] product_name: The name of the Service Catalog product.
+               
+               Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+               
+               > You must specify either the name or the ID of the product, but not both.
+        :param pulumi.Input[str] provisioned_product_name: A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+        :param pulumi.Input[str] provisioning_artifact_id: The identifier of the provisioning artifact (also known as a version).
+               
+               > You must specify either the ID or the name of the provisioning artifact, but not both.
+        :param pulumi.Input[str] provisioning_artifact_name: The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+               
+               > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: Information about a parameter used to provision a product.
+        :param pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']] provisioning_preferences: The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+               
+               One or more AWS accounts that will have access to the provisioned product.
+               
+               Applicable only to a `CFN_STACKSET` provisioned product type.
+               
+               The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+               
+               If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
         """
         ...
     @overload
@@ -298,6 +433,12 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional['CloudFormationProvisionedProductAcceptLanguage']]:
+        """
+        The language code.
+
+        - `jp` - Japanese
+        - `zh` - Chinese
+        """
         return pulumi.get(self, "accept_language")
 
     @property
@@ -308,6 +449,9 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
+        """
         return pulumi.get(self, "notification_arns")
 
     @property
@@ -321,60 +465,118 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+
+        > You must provide the name or ID, but not both.
+        """
         return pulumi.get(self, "path_id")
 
     @property
     @pulumi.getter(name="pathName")
     def path_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+
+        > You must provide the name or ID, but not both.
+        """
         return pulumi.get(self, "path_name")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The product identifier.
+
+        > You must specify either the ID or the name of the product, but not both.
+        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Service Catalog product.
+
+        Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+
+        > You must specify either the name or the ID of the product, but not both.
+        """
         return pulumi.get(self, "product_name")
 
     @property
     @pulumi.getter(name="provisionedProductId")
     def provisioned_product_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the provisioned product.
+        """
         return pulumi.get(self, "provisioned_product_id")
 
     @property
     @pulumi.getter(name="provisionedProductName")
     def provisioned_product_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+        """
         return pulumi.get(self, "provisioned_product_name")
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the provisioning artifact (also known as a version).
+
+        > You must specify either the ID or the name of the provisioning artifact, but not both.
+        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+
+        > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.CloudFormationProvisionedProductProvisioningParameter']]]:
+        """
+        Information about a parameter used to provision a product.
+        """
         return pulumi.get(self, "provisioning_parameters")
 
     @property
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> pulumi.Output[Optional['outputs.CloudFormationProvisionedProductProvisioningPreferences']]:
+        """
+        The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+
+        One or more AWS accounts that will have access to the provisioned product.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+
+        If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        """
         return pulumi.get(self, "provisioning_preferences")
 
     @property
     @pulumi.getter(name="recordId")
     def record_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the record, such as `rec-rjeatvy434trk` .
+        """
         return pulumi.get(self, "record_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+        """
         return pulumi.get(self, "tags")
 

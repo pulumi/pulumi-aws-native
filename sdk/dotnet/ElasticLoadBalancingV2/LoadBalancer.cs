@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
+        /// </summary>
         [Output("canonicalHostedZoneId")]
         public Output<string> CanonicalHostedZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+        /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
@@ -33,6 +39,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
@@ -42,9 +51,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("loadBalancerAttributes")]
         public Output<ImmutableArray<Outputs.LoadBalancerAttribute>> LoadBalancerAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+        /// </summary>
         [Output("loadBalancerFullName")]
         public Output<string> LoadBalancerFullName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the load balancer. For example, `my-load-balancer` .
+        /// </summary>
         [Output("loadBalancerName")]
         public Output<string> LoadBalancerName { get; private set; } = null!;
 

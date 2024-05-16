@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Input object for the batch transform job.
+        /// </summary>
         [Input("batchTransformInput")]
         public Input<Inputs.ModelExplainabilityJobDefinitionBatchTransformInputArgs>? BatchTransformInput { get; set; }
 
+        /// <summary>
+        /// Input object for the endpoint
+        /// </summary>
         [Input("endpointInput")]
         public Input<Inputs.ModelExplainabilityJobDefinitionEndpointInputArgs>? EndpointInput { get; set; }
 

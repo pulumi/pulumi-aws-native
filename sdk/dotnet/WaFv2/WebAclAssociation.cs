@@ -15,9 +15,24 @@ namespace Pulumi.AwsNative.WaFv2
     [AwsNativeResourceType("aws-native:wafv2:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+        /// 
+        /// The ARN must be in one of the following formats:
+        /// 
+        /// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+        /// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+        /// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+        /// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+        /// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+        /// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+        /// </summary>
         [Output("webAclArn")]
         public Output<string> WebAclArn { get; private set; } = null!;
 
@@ -71,9 +86,24 @@ namespace Pulumi.AwsNative.WaFv2
 
     public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+        /// 
+        /// The ARN must be in one of the following formats:
+        /// 
+        /// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+        /// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+        /// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+        /// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+        /// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+        /// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+        /// </summary>
         [Input("webAclArn", required: true)]
         public Input<string> WebAclArn { get; set; } = null!;
 

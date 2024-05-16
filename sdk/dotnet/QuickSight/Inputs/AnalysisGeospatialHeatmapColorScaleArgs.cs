@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("colors")]
         private InputList<Inputs.AnalysisGeospatialHeatmapDataColorArgs>? _colors;
+
+        /// <summary>
+        /// The color to be used in the heatmap point style.
+        /// </summary>
         public InputList<Inputs.AnalysisGeospatialHeatmapDataColorArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.AnalysisGeospatialHeatmapDataColorArgs>());

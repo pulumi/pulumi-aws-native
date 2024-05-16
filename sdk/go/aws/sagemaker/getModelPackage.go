@@ -24,23 +24,47 @@ func LookupModelPackage(ctx *pulumi.Context, args *LookupModelPackageArgs, opts 
 }
 
 type LookupModelPackageArgs struct {
+	// The Amazon Resource Name (ARN) of the model package.
 	ModelPackageArn string `pulumi:"modelPackageArn"`
 }
 
 type LookupModelPackageResult struct {
+	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
-	ApprovalDescription               *string                                                  `pulumi:"approvalDescription"`
-	CertifyForMarketplace             *bool                                                    `pulumi:"certifyForMarketplace"`
-	CreationTime                      *string                                                  `pulumi:"creationTime"`
-	CustomerMetadataProperties        *ModelPackageCustomerMetadataProperties                  `pulumi:"customerMetadataProperties"`
-	LastModifiedTime                  *string                                                  `pulumi:"lastModifiedTime"`
-	ModelApprovalStatus               *ModelPackageModelApprovalStatus                         `pulumi:"modelApprovalStatus"`
-	ModelPackageArn                   *string                                                  `pulumi:"modelPackageArn"`
-	ModelPackageName                  *string                                                  `pulumi:"modelPackageName"`
-	ModelPackageStatus                *ModelPackageStatus                                      `pulumi:"modelPackageStatus"`
-	ModelPackageStatusDetails         *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
-	ModelPackageVersion               *int                                                     `pulumi:"modelPackageVersion"`
-	SkipModelValidation               *ModelPackageSkipModelValidation                         `pulumi:"skipModelValidation"`
+	// A description provided when the model approval is set.
+	ApprovalDescription *string `pulumi:"approvalDescription"`
+	// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+	CertifyForMarketplace *bool `pulumi:"certifyForMarketplace"`
+	// The time that the model package was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The metadata properties for the model package.
+	CustomerMetadataProperties *ModelPackageCustomerMetadataProperties `pulumi:"customerMetadataProperties"`
+	// The last time the model package was modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The approval status of the model. This can be one of the following values.
+	//
+	// - `APPROVED` - The model is approved
+	// - `REJECTED` - The model is rejected.
+	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
+	// The Amazon Resource Name (ARN) of the model package.
+	ModelPackageArn *string `pulumi:"modelPackageArn"`
+	// The name of the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
+	// The status of the model package. This can be one of the following values.
+	//
+	// - `PENDING` - The model package creation is pending.
+	// - `IN_PROGRESS` - The model package is in the process of being created.
+	// - `COMPLETED` - The model package was successfully created.
+	// - `FAILED` - The model package creation failed.
+	// - `DELETING` - The model package is in the process of being deleted.
+	ModelPackageStatus *ModelPackageStatus `pulumi:"modelPackageStatus"`
+	// Specifies the validation and image scan statuses of the model package.
+	ModelPackageStatusDetails *ModelPackageStatusDetails `pulumi:"modelPackageStatusDetails"`
+	// The version number of a versioned model.
+	ModelPackageVersion *int `pulumi:"modelPackageVersion"`
+	// Indicates if you want to skip model validation.
+	SkipModelValidation *ModelPackageSkipModelValidation `pulumi:"skipModelValidation"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -59,6 +83,7 @@ func LookupModelPackageOutput(ctx *pulumi.Context, args LookupModelPackageOutput
 }
 
 type LookupModelPackageOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the model package.
 	ModelPackageArn pulumi.StringInput `pulumi:"modelPackageArn"`
 }
 
@@ -80,58 +105,81 @@ func (o LookupModelPackageResultOutput) ToLookupModelPackageResultOutputWithCont
 	return o
 }
 
+// An array of additional Inference Specification objects.
 func (o LookupModelPackageResultOutput) AdditionalInferenceSpecifications() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) []ModelPackageAdditionalInferenceSpecificationDefinition {
 		return v.AdditionalInferenceSpecifications
 	}).(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput)
 }
 
+// A description provided when the model approval is set.
 func (o LookupModelPackageResultOutput) ApprovalDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.ApprovalDescription }).(pulumi.StringPtrOutput)
 }
 
+// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
 func (o LookupModelPackageResultOutput) CertifyForMarketplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *bool { return v.CertifyForMarketplace }).(pulumi.BoolPtrOutput)
 }
 
+// The time that the model package was created.
 func (o LookupModelPackageResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The metadata properties for the model package.
 func (o LookupModelPackageResultOutput) CustomerMetadataProperties() ModelPackageCustomerMetadataPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageCustomerMetadataProperties {
 		return v.CustomerMetadataProperties
 	}).(ModelPackageCustomerMetadataPropertiesPtrOutput)
 }
 
+// The last time the model package was modified.
 func (o LookupModelPackageResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// The approval status of the model. This can be one of the following values.
+//
+// - `APPROVED` - The model is approved
+// - `REJECTED` - The model is rejected.
+// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 func (o LookupModelPackageResultOutput) ModelApprovalStatus() ModelPackageModelApprovalStatusPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageModelApprovalStatus { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the model package.
 func (o LookupModelPackageResultOutput) ModelPackageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.ModelPackageArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the model.
 func (o LookupModelPackageResultOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the model package. This can be one of the following values.
+//
+// - `PENDING` - The model package creation is pending.
+// - `IN_PROGRESS` - The model package is in the process of being created.
+// - `COMPLETED` - The model package was successfully created.
+// - `FAILED` - The model package creation failed.
+// - `DELETING` - The model package is in the process of being deleted.
 func (o LookupModelPackageResultOutput) ModelPackageStatus() ModelPackageStatusPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageStatus { return v.ModelPackageStatus }).(ModelPackageStatusPtrOutput)
 }
 
+// Specifies the validation and image scan statuses of the model package.
 func (o LookupModelPackageResultOutput) ModelPackageStatusDetails() ModelPackageStatusDetailsPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageStatusDetails { return v.ModelPackageStatusDetails }).(ModelPackageStatusDetailsPtrOutput)
 }
 
+// The version number of a versioned model.
 func (o LookupModelPackageResultOutput) ModelPackageVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *int { return v.ModelPackageVersion }).(pulumi.IntPtrOutput)
 }
 
+// Indicates if you want to skip model validation.
 func (o LookupModelPackageResultOutput) SkipModelValidation() ModelPackageSkipModelValidationPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageSkipModelValidation { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
 }

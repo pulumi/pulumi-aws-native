@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class QuickConnectConfig
     {
+        /// <summary>
+        /// Contains information about a phone number for a quick connect.
+        /// </summary>
         public readonly Outputs.QuickConnectPhoneNumberQuickConnectConfig? PhoneConfig;
+        /// <summary>
+        /// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+        /// </summary>
         public readonly Outputs.QuickConnectQueueQuickConnectConfig? QueueConfig;
+        /// <summary>
+        /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.QuickConnectType QuickConnectType;
+        /// <summary>
+        /// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+        /// </summary>
         public readonly Outputs.QuickConnectUserQuickConnectConfig? UserConfig;
 
         [OutputConstructor]

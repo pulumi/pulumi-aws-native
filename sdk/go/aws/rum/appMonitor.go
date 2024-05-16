@@ -17,9 +17,11 @@ import (
 type AppMonitor struct {
 	pulumi.CustomResourceState
 
+	// This structure contains much of the configuration data for the app monitor.
 	AppMonitorConfiguration AppMonitorConfigurationPtrOutput `pulumi:"appMonitorConfiguration"`
 	// The unique ID of the new app monitor.
-	AwsId        pulumi.StringOutput             `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// This structure specifies whether this app monitor allows the web client to define and send custom events.
 	CustomEvents AppMonitorCustomEventsPtrOutput `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
@@ -27,7 +29,16 @@ type AppMonitor struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A name for the app monitor
 	Name pulumi.StringOutput `pulumi:"name"`
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
+	// Assigns one or more tags (key-value pairs) to the app monitor.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with an app monitor.
+	//
+	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAppMonitor registers a new resource with the given unique name, arguments, and options.
@@ -77,27 +88,49 @@ func (AppMonitorState) ElementType() reflect.Type {
 }
 
 type appMonitorArgs struct {
+	// This structure contains much of the configuration data for the app monitor.
 	AppMonitorConfiguration *AppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
-	CustomEvents            *AppMonitorCustomEvents  `pulumi:"customEvents"`
+	// This structure specifies whether this app monitor allows the web client to define and send custom events.
+	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain string `pulumi:"domain"`
 	// A name for the app monitor
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Assigns one or more tags (key-value pairs) to the app monitor.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with an app monitor.
+	//
+	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppMonitor resource.
 type AppMonitorArgs struct {
+	// This structure contains much of the configuration data for the app monitor.
 	AppMonitorConfiguration AppMonitorConfigurationPtrInput
-	CustomEvents            AppMonitorCustomEventsPtrInput
+	// This structure specifies whether this app monitor allows the web client to define and send custom events.
+	CustomEvents AppMonitorCustomEventsPtrInput
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrInput
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain pulumi.StringInput
 	// A name for the app monitor
 	Name pulumi.StringPtrInput
+	// Assigns one or more tags (key-value pairs) to the app monitor.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with an app monitor.
+	//
+	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -138,6 +171,7 @@ func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) App
 	return o
 }
 
+// This structure contains much of the configuration data for the app monitor.
 func (o AppMonitorOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorConfigurationPtrOutput { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
 }
@@ -147,6 +181,7 @@ func (o AppMonitorOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// This structure specifies whether this app monitor allows the web client to define and send custom events.
 func (o AppMonitorOutput) CustomEvents() AppMonitorCustomEventsPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorCustomEventsPtrOutput { return v.CustomEvents }).(AppMonitorCustomEventsPtrOutput)
 }
@@ -166,6 +201,15 @@ func (o AppMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Assigns one or more tags (key-value pairs) to the app monitor.
+//
+// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+//
+// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+//
+// You can associate as many as 50 tags with an app monitor.
+//
+// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 func (o AppMonitorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *AppMonitor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

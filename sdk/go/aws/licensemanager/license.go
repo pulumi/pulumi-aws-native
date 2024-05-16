@@ -17,23 +17,29 @@ type License struct {
 	pulumi.CustomResourceState
 
 	// Beneficiary of the license.
-	Beneficiary              pulumi.StringPtrOutput                `pulumi:"beneficiary"`
+	Beneficiary pulumi.StringPtrOutput `pulumi:"beneficiary"`
+	// Details about a consumption configuration.
 	ConsumptionConfiguration LicenseConsumptionConfigurationOutput `pulumi:"consumptionConfiguration"`
-	Entitlements             LicenseEntitlementArrayOutput         `pulumi:"entitlements"`
+	// Describes a resource entitled for use with a license.
+	Entitlements LicenseEntitlementArrayOutput `pulumi:"entitlements"`
 	// Home region for the created license.
-	HomeRegion pulumi.StringOutput     `pulumi:"homeRegion"`
-	Issuer     LicenseIssuerDataOutput `pulumi:"issuer"`
+	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
+	// Details associated with the issuer of a license.
+	Issuer LicenseIssuerDataOutput `pulumi:"issuer"`
 	// Amazon Resource Name is a unique name for each resource.
-	LicenseArn      pulumi.StringOutput        `pulumi:"licenseArn"`
+	LicenseArn pulumi.StringOutput `pulumi:"licenseArn"`
+	// Describes key/value pairs.
 	LicenseMetadata LicenseMetadataArrayOutput `pulumi:"licenseMetadata"`
 	// Name for the created license.
 	LicenseName pulumi.StringOutput `pulumi:"licenseName"`
 	// Product name for the created license.
 	ProductName pulumi.StringOutput `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSku pulumi.StringPtrOutput          `pulumi:"productSku"`
-	Status     pulumi.StringPtrOutput          `pulumi:"status"`
-	Validity   LicenseValidityDateFormatOutput `pulumi:"validity"`
+	ProductSku pulumi.StringPtrOutput `pulumi:"productSku"`
+	// License status.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Date and time range during which the license is valid, in ISO8601-UTC format.
+	Validity LicenseValidityDateFormatOutput `pulumi:"validity"`
 	// The version of the license.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -97,32 +103,42 @@ func (LicenseState) ElementType() reflect.Type {
 
 type licenseArgs struct {
 	// Beneficiary of the license.
-	Beneficiary              *string                         `pulumi:"beneficiary"`
+	Beneficiary *string `pulumi:"beneficiary"`
+	// Details about a consumption configuration.
 	ConsumptionConfiguration LicenseConsumptionConfiguration `pulumi:"consumptionConfiguration"`
-	Entitlements             []LicenseEntitlement            `pulumi:"entitlements"`
+	// Describes a resource entitled for use with a license.
+	Entitlements []LicenseEntitlement `pulumi:"entitlements"`
 	// Home region for the created license.
-	HomeRegion      string            `pulumi:"homeRegion"`
-	Issuer          LicenseIssuerData `pulumi:"issuer"`
+	HomeRegion string `pulumi:"homeRegion"`
+	// Details associated with the issuer of a license.
+	Issuer LicenseIssuerData `pulumi:"issuer"`
+	// Describes key/value pairs.
 	LicenseMetadata []LicenseMetadata `pulumi:"licenseMetadata"`
 	// Name for the created license.
 	LicenseName *string `pulumi:"licenseName"`
 	// Product name for the created license.
 	ProductName string `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSku *string                   `pulumi:"productSku"`
-	Status     *string                   `pulumi:"status"`
-	Validity   LicenseValidityDateFormat `pulumi:"validity"`
+	ProductSku *string `pulumi:"productSku"`
+	// License status.
+	Status *string `pulumi:"status"`
+	// Date and time range during which the license is valid, in ISO8601-UTC format.
+	Validity LicenseValidityDateFormat `pulumi:"validity"`
 }
 
 // The set of arguments for constructing a License resource.
 type LicenseArgs struct {
 	// Beneficiary of the license.
-	Beneficiary              pulumi.StringPtrInput
+	Beneficiary pulumi.StringPtrInput
+	// Details about a consumption configuration.
 	ConsumptionConfiguration LicenseConsumptionConfigurationInput
-	Entitlements             LicenseEntitlementArrayInput
+	// Describes a resource entitled for use with a license.
+	Entitlements LicenseEntitlementArrayInput
 	// Home region for the created license.
-	HomeRegion      pulumi.StringInput
-	Issuer          LicenseIssuerDataInput
+	HomeRegion pulumi.StringInput
+	// Details associated with the issuer of a license.
+	Issuer LicenseIssuerDataInput
+	// Describes key/value pairs.
 	LicenseMetadata LicenseMetadataArrayInput
 	// Name for the created license.
 	LicenseName pulumi.StringPtrInput
@@ -130,8 +146,10 @@ type LicenseArgs struct {
 	ProductName pulumi.StringInput
 	// ProductSKU of the license.
 	ProductSku pulumi.StringPtrInput
-	Status     pulumi.StringPtrInput
-	Validity   LicenseValidityDateFormatInput
+	// License status.
+	Status pulumi.StringPtrInput
+	// Date and time range during which the license is valid, in ISO8601-UTC format.
+	Validity LicenseValidityDateFormatInput
 }
 
 func (LicenseArgs) ElementType() reflect.Type {
@@ -176,10 +194,12 @@ func (o LicenseOutput) Beneficiary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Beneficiary }).(pulumi.StringPtrOutput)
 }
 
+// Details about a consumption configuration.
 func (o LicenseOutput) ConsumptionConfiguration() LicenseConsumptionConfigurationOutput {
 	return o.ApplyT(func(v *License) LicenseConsumptionConfigurationOutput { return v.ConsumptionConfiguration }).(LicenseConsumptionConfigurationOutput)
 }
 
+// Describes a resource entitled for use with a license.
 func (o LicenseOutput) Entitlements() LicenseEntitlementArrayOutput {
 	return o.ApplyT(func(v *License) LicenseEntitlementArrayOutput { return v.Entitlements }).(LicenseEntitlementArrayOutput)
 }
@@ -189,6 +209,7 @@ func (o LicenseOutput) HomeRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
 }
 
+// Details associated with the issuer of a license.
 func (o LicenseOutput) Issuer() LicenseIssuerDataOutput {
 	return o.ApplyT(func(v *License) LicenseIssuerDataOutput { return v.Issuer }).(LicenseIssuerDataOutput)
 }
@@ -198,6 +219,7 @@ func (o LicenseOutput) LicenseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.LicenseArn }).(pulumi.StringOutput)
 }
 
+// Describes key/value pairs.
 func (o LicenseOutput) LicenseMetadata() LicenseMetadataArrayOutput {
 	return o.ApplyT(func(v *License) LicenseMetadataArrayOutput { return v.LicenseMetadata }).(LicenseMetadataArrayOutput)
 }
@@ -217,10 +239,12 @@ func (o LicenseOutput) ProductSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.ProductSku }).(pulumi.StringPtrOutput)
 }
 
+// License status.
 func (o LicenseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// Date and time range during which the license is valid, in ISO8601-UTC format.
 func (o LicenseOutput) Validity() LicenseValidityDateFormatOutput {
 	return o.ApplyT(func(v *License) LicenseValidityDateFormatOutput { return v.Validity }).(LicenseValidityDateFormatOutput)
 }

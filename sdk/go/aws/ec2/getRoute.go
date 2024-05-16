@@ -26,6 +26,7 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
+	// The IPv4 CIDR block.
 	CidrBlock string `pulumi:"cidrBlock"`
 	// The ID of the route table for the route.
 	RouteTableId string `pulumi:"routeTableId"`
@@ -35,7 +36,8 @@ type LookupRouteResult struct {
 	// The ID of the carrier gateway.
 	//  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
-	CidrBlock        *string `pulumi:"cidrBlock"`
+	// The IPv4 CIDR block.
+	CidrBlock *string `pulumi:"cidrBlock"`
 	// The Amazon Resource Name (ARN) of the core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
@@ -72,6 +74,7 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 }
 
 type LookupRouteOutputArgs struct {
+	// The IPv4 CIDR block.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// The ID of the route table for the route.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
@@ -102,6 +105,7 @@ func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.CarrierGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 CIDR block.
 func (o LookupRouteResultOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }

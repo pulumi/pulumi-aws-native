@@ -26,6 +26,14 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        :param pulumi.Input[float] duration_seconds: The number of seconds vended session credentials will be valid for
+        :param pulumi.Input[bool] enabled: The enabled status of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        :param pulumi.Input[str] name: The customer specified name of the resource.
+        :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in CreateSession requests with this profile.
+        :param pulumi.Input[str] session_policy: A session policy that will applied to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A label that consists of a key and value you define.
         """
         pulumi.set(__self__, "role_arns", role_arns)
         if duration_seconds is not None:
@@ -46,6 +54,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="roleArns")
     def role_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        """
         return pulumi.get(self, "role_arns")
 
     @role_arns.setter
@@ -55,6 +66,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of seconds vended session credentials will be valid for
+        """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
@@ -64,6 +78,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The enabled status of the resource.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -73,6 +90,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @managed_policy_arns.setter
@@ -82,6 +102,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer specified name of the resource.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,6 +114,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="requireInstanceProperties")
     def require_instance_properties(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether instance properties are required in CreateSession requests with this profile.
+        """
         return pulumi.get(self, "require_instance_properties")
 
     @require_instance_properties.setter
@@ -100,6 +126,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="sessionPolicy")
     def session_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A session policy that will applied to the trust boundary of the vended session credentials.
+        """
         return pulumi.get(self, "session_policy")
 
     @session_policy.setter
@@ -109,6 +138,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A label that consists of a key and value you define.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,6 +167,14 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] duration_seconds: The number of seconds vended session credentials will be valid for
+        :param pulumi.Input[bool] enabled: The enabled status of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        :param pulumi.Input[str] name: The customer specified name of the resource.
+        :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in CreateSession requests with this profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        :param pulumi.Input[str] session_policy: A session policy that will applied to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A label that consists of a key and value you define.
         """
         ...
     @overload
@@ -226,50 +266,80 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> pulumi.Output[Optional[float]]:
+        """
+        The number of seconds vended session credentials will be valid for
+        """
         return pulumi.get(self, "duration_seconds")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The enabled status of the resource.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The customer specified name of the resource.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="profileArn")
     def profile_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the profile.
+        """
         return pulumi.get(self, "profile_arn")
 
     @property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[str]:
+        """
+        The unique primary identifier of the Profile
+        """
         return pulumi.get(self, "profile_id")
 
     @property
     @pulumi.getter(name="requireInstanceProperties")
     def require_instance_properties(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether instance properties are required in CreateSession requests with this profile.
+        """
         return pulumi.get(self, "require_instance_properties")
 
     @property
     @pulumi.getter(name="roleArns")
     def role_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        """
         return pulumi.get(self, "role_arns")
 
     @property
     @pulumi.getter(name="sessionPolicy")
     def session_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        A session policy that will applied to the trust boundary of the vended session credentials.
+        """
         return pulumi.get(self, "session_policy")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A label that consists of a key and value you define.
+        """
         return pulumi.get(self, "tags")
 

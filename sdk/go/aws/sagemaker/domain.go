@@ -32,7 +32,8 @@ type Domain struct {
 	// The domain name.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// A name for the domain.
-	DomainName     pulumi.StringOutput     `pulumi:"domainName"`
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings DomainSettingsPtrOutput `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
@@ -76,7 +77,6 @@ func NewDomain(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"authMode",
 		"domainName",
-		"domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
 		"kmsKeyId",
 		"tags[*]",
 		"vpcId",
@@ -126,7 +126,8 @@ type domainArgs struct {
 	// The default user settings.
 	DefaultUserSettings DomainUserSettings `pulumi:"defaultUserSettings"`
 	// A name for the domain.
-	DomainName     *string         `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
+	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings *DomainSettings `pulumi:"domainSettings"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -151,7 +152,8 @@ type DomainArgs struct {
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsInput
 	// A name for the domain.
-	DomainName     pulumi.StringPtrInput
+	DomainName pulumi.StringPtrInput
+	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings DomainSettingsPtrInput
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId pulumi.StringPtrInput
@@ -240,6 +242,7 @@ func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 func (o DomainOutput) DomainSettings() DomainSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSettingsPtrOutput { return v.DomainSettings }).(DomainSettingsPtrOutput)
 }

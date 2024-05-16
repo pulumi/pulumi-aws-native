@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetNetworkSettingsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the network settings.
+        /// </summary>
         [Input("networkSettingsArn", required: true)]
         public string NetworkSettingsArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetNetworkSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the network settings.
+        /// </summary>
         [Input("networkSettingsArn", required: true)]
         public Input<string> NetworkSettingsArn { get; set; } = null!;
 
@@ -51,11 +57,35 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetNetworkSettingsResult
     {
+        /// <summary>
+        /// A list of web portal ARNs that this network settings is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        /// <summary>
+        /// The ARN of the network settings.
+        /// </summary>
         public readonly string? NetworkSettingsArn;
+        /// <summary>
+        /// One or more security groups used to control access from streaming instances to your VPC.
+        /// 
+        /// *Pattern* : `^[\w+\-]+$`
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+        /// 
+        /// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The tag.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The VPC that streaming instances will connect to.
+        /// 
+        /// *Pattern* : `^vpc-[0-9a-z]*$`
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

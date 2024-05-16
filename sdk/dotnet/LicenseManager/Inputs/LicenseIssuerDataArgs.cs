@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
 
     public sealed class LicenseIssuerDataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Issuer name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        /// </summary>
         [Input("signKey")]
         public Input<string>? SignKey { get; set; }
 

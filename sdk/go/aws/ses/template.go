@@ -89,7 +89,8 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	AwsId    pulumi.StringOutput   `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template TemplateTypePtrOutput `pulumi:"template"`
 }
 
@@ -137,11 +138,13 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
+	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template *TemplateType `pulumi:"template"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
+	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template TemplateTypePtrInput
 }
 
@@ -186,6 +189,7 @@ func (o TemplateOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 func (o TemplateOutput) Template() TemplateTypePtrOutput {
 	return o.ApplyT(func(v *Template) TemplateTypePtrOutput { return v.Template }).(TemplateTypePtrOutput)
 }

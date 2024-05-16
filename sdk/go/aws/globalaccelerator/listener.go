@@ -21,8 +21,9 @@ type Listener struct {
 	// Client affinity lets you direct all requests from a user to the same endpoint.
 	ClientAffinity ListenerClientAffinityPtrOutput `pulumi:"clientAffinity"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn pulumi.StringOutput          `pulumi:"listenerArn"`
-	PortRanges  ListenerPortRangeArrayOutput `pulumi:"portRanges"`
+	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
+	// A complex type for a range of ports for a listener.
+	PortRanges ListenerPortRangeArrayOutput `pulumi:"portRanges"`
 	// The protocol for the listener.
 	Protocol ListenerProtocolOutput `pulumi:"protocol"`
 }
@@ -84,7 +85,8 @@ type listenerArgs struct {
 	AcceleratorArn string `pulumi:"acceleratorArn"`
 	// Client affinity lets you direct all requests from a user to the same endpoint.
 	ClientAffinity *ListenerClientAffinity `pulumi:"clientAffinity"`
-	PortRanges     []ListenerPortRange     `pulumi:"portRanges"`
+	// A complex type for a range of ports for a listener.
+	PortRanges []ListenerPortRange `pulumi:"portRanges"`
 	// The protocol for the listener.
 	Protocol ListenerProtocol `pulumi:"protocol"`
 }
@@ -95,7 +97,8 @@ type ListenerArgs struct {
 	AcceleratorArn pulumi.StringInput
 	// Client affinity lets you direct all requests from a user to the same endpoint.
 	ClientAffinity ListenerClientAffinityPtrInput
-	PortRanges     ListenerPortRangeArrayInput
+	// A complex type for a range of ports for a listener.
+	PortRanges ListenerPortRangeArrayInput
 	// The protocol for the listener.
 	Protocol ListenerProtocolInput
 }
@@ -152,6 +155,7 @@ func (o ListenerOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
+// A complex type for a range of ports for a listener.
 func (o ListenerOutput) PortRanges() ListenerPortRangeArrayOutput {
 	return o.ApplyT(func(v *Listener) ListenerPortRangeArrayOutput { return v.PortRanges }).(ListenerPortRangeArrayOutput)
 }

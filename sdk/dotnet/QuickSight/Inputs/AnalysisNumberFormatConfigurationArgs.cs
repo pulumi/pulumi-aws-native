@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisNumberFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the numeric format configuration.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.AnalysisNumericFormatConfigurationArgs>? FormatConfiguration { get; set; }
 

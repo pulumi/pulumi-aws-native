@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionReplaceDefaultPolicyVersionParams
     {
+        /// <summary>
+        /// The name of the template to be applied. The only supported value is `BLANK_POLICY` .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName TemplateName;
 
         [OutputConstructor]

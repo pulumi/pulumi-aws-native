@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentBindingPropertiesValue
     {
+        /// <summary>
+        /// The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
+        /// </summary>
         public readonly Outputs.ComponentBindingPropertiesValueProperties? BindingProperties;
+        /// <summary>
+        /// The default value of the property.
+        /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// The property type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

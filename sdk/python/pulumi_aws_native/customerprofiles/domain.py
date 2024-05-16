@@ -32,6 +32,8 @@ class DomainArgs:
         :param pulumi.Input[str] dead_letter_queue_url: The URL of the SQS dead letter queue
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input['DomainMatchingArgs'] matching: The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+        :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the domain
         """
         pulumi.set(__self__, "default_expiration_days", default_expiration_days)
@@ -99,6 +101,9 @@ class DomainArgs:
     @property
     @pulumi.getter
     def matching(self) -> Optional[pulumi.Input['DomainMatchingArgs']]:
+        """
+        The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+        """
         return pulumi.get(self, "matching")
 
     @matching.setter
@@ -108,6 +113,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
+        """
+        The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+        """
         return pulumi.get(self, "rule_based_matching")
 
     @rule_based_matching.setter
@@ -149,6 +157,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[pulumi.InputType['DomainMatchingArgs']] matching: The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+        :param pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']] rule_based_matching: The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the domain
         """
         ...
@@ -290,16 +300,25 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def matching(self) -> pulumi.Output[Optional['outputs.DomainMatching']]:
+        """
+        The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+        """
         return pulumi.get(self, "matching")
 
     @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> pulumi.Output[Optional['outputs.DomainRuleBasedMatching']]:
+        """
+        The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+        """
         return pulumi.get(self, "rule_based_matching")
 
     @property
     @pulumi.getter
     def stats(self) -> pulumi.Output['outputs.DomainStats']:
+        """
+        Usage-specific statistics about the domain.
+        """
         return pulumi.get(self, "stats")
 
     @property

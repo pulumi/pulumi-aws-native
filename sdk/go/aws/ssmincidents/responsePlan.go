@@ -20,12 +20,14 @@ type ResponsePlan struct {
 	// The list of actions.
 	Actions ResponsePlanActionArrayOutput `pulumi:"actions"`
 	// The ARN of the response plan.
-	Arn         pulumi.StringOutput              `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Chatbot chat channel used for collaboration during an incident.
 	ChatChannel ResponsePlanChatChannelPtrOutput `pulumi:"chatChannel"`
 	// The display name of the response plan.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The list of engagements to use.
-	Engagements      pulumi.StringArrayOutput           `pulumi:"engagements"`
+	Engagements pulumi.StringArrayOutput `pulumi:"engagements"`
+	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
 	// The list of integrations.
 	Integrations ResponsePlanIntegrationArrayOutput `pulumi:"integrations"`
@@ -83,12 +85,14 @@ func (ResponsePlanState) ElementType() reflect.Type {
 
 type responsePlanArgs struct {
 	// The list of actions.
-	Actions     []ResponsePlanAction     `pulumi:"actions"`
+	Actions []ResponsePlanAction `pulumi:"actions"`
+	// The AWS Chatbot chat channel used for collaboration during an incident.
 	ChatChannel *ResponsePlanChatChannel `pulumi:"chatChannel"`
 	// The display name of the response plan.
 	DisplayName *string `pulumi:"displayName"`
 	// The list of engagements to use.
-	Engagements      []string                     `pulumi:"engagements"`
+	Engagements []string `pulumi:"engagements"`
+	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	// The list of integrations.
 	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
@@ -101,12 +105,14 @@ type responsePlanArgs struct {
 // The set of arguments for constructing a ResponsePlan resource.
 type ResponsePlanArgs struct {
 	// The list of actions.
-	Actions     ResponsePlanActionArrayInput
+	Actions ResponsePlanActionArrayInput
+	// The AWS Chatbot chat channel used for collaboration during an incident.
 	ChatChannel ResponsePlanChatChannelPtrInput
 	// The display name of the response plan.
 	DisplayName pulumi.StringPtrInput
 	// The list of engagements to use.
-	Engagements      pulumi.StringArrayInput
+	Engagements pulumi.StringArrayInput
+	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 	IncidentTemplate ResponsePlanIncidentTemplateInput
 	// The list of integrations.
 	Integrations ResponsePlanIntegrationArrayInput
@@ -163,6 +169,7 @@ func (o ResponsePlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AWS Chatbot chat channel used for collaboration during an incident.
 func (o ResponsePlanOutput) ChatChannel() ResponsePlanChatChannelPtrOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanChatChannelPtrOutput { return v.ChatChannel }).(ResponsePlanChatChannelPtrOutput)
 }
@@ -177,6 +184,7 @@ func (o ResponsePlanOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringArrayOutput { return v.Engagements }).(pulumi.StringArrayOutput)
 }
 
+// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 func (o ResponsePlanOutput) IncidentTemplate() ResponsePlanIncidentTemplateOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIncidentTemplateOutput { return v.IncidentTemplate }).(ResponsePlanIncidentTemplateOutput)
 }

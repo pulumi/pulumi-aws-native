@@ -23,6 +23,9 @@ class PipelineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]] pipeline_activities: An activity that performs a transformation on a message.
+        :param pulumi.Input[str] pipeline_name: The name of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key-value pairs that are used to manage the resource.
         """
         pulumi.set(__self__, "pipeline_activities", pipeline_activities)
         if pipeline_name is not None:
@@ -33,6 +36,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="pipelineActivities")
     def pipeline_activities(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]]:
+        """
+        An activity that performs a transformation on a message.
+        """
         return pulumi.get(self, "pipeline_activities")
 
     @pipeline_activities.setter
@@ -42,6 +48,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
@@ -51,6 +60,9 @@ class PipelineArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -268,6 +280,9 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineActivityArgs']]]] pipeline_activities: An activity that performs a transformation on a message.
+        :param pulumi.Input[str] pipeline_name: The name of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key-value pairs that are used to manage the resource.
         """
         ...
     @overload
@@ -545,15 +560,24 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="pipelineActivities")
     def pipeline_activities(self) -> pulumi.Output[Sequence['outputs.PipelineActivity']]:
+        """
+        An activity that performs a transformation on a message.
+        """
         return pulumi.get(self, "pipeline_activities")
 
     @property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "pipeline_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 

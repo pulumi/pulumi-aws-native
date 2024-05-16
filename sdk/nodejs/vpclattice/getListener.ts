@@ -19,15 +19,36 @@ export function getListener(args: GetListenerArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetListenerArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     arn: string;
 }
 
 export interface GetListenerResult {
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     readonly arn?: string;
+    /**
+     * The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+     */
     readonly defaultAction?: outputs.vpclattice.ListenerDefaultAction;
+    /**
+     * The ID of the listener.
+     */
     readonly id?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     readonly serviceArn?: string;
+    /**
+     * The ID of the service.
+     */
     readonly serviceId?: string;
+    /**
+     * The tags for the listener.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +59,8 @@ export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetListenerOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     arn: pulumi.Input<string>;
 }

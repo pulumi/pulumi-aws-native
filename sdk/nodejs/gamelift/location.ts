@@ -37,7 +37,13 @@ export class Location extends pulumi.CustomResource {
         return obj['__pulumiType'] === Location.__pulumiType;
     }
 
+    /**
+     * A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
+     */
     public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    /**
+     * A descriptive name for the custom location.
+     */
     public readonly locationName!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -74,6 +80,9 @@ export class Location extends pulumi.CustomResource {
  * The set of arguments for constructing a Location resource.
  */
 export interface LocationArgs {
+    /**
+     * A descriptive name for the custom location.
+     */
     locationName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -37,14 +37,31 @@ export class ThingType extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingType.__pulumiType;
     }
 
+    /**
+     * The thing type arn.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The thing type id.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Deprecates a thing type. You can not associate new things with deprecated thing type.
+     *
+     * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+     */
     public readonly deprecateThingType!: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The name of the thing type.
+     */
     public readonly thingTypeName!: pulumi.Output<string | undefined>;
+    /**
+     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+     */
     public readonly thingTypeProperties!: pulumi.Output<outputs.iot.ThingTypePropertiesProperties | undefined>;
 
     /**
@@ -83,11 +100,22 @@ export class ThingType extends pulumi.CustomResource {
  * The set of arguments for constructing a ThingType resource.
  */
 export interface ThingTypeArgs {
+    /**
+     * Deprecates a thing type. You can not associate new things with deprecated thing type.
+     *
+     * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+     */
     deprecateThingType?: pulumi.Input<boolean>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The name of the thing type.
+     */
     thingTypeName?: pulumi.Input<string>;
+    /**
+     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+     */
     thingTypeProperties?: pulumi.Input<inputs.iot.ThingTypePropertiesPropertiesArgs>;
 }

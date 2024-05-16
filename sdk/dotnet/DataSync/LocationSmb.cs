@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        /// </summary>
         [Output("mountOptions")]
         public Output<Outputs.LocationSmbMountOptions?> MountOptions { get; private set; } = null!;
 
@@ -139,6 +142,9 @@ namespace Pulumi.AwsNative.DataSync
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        /// <summary>
+        /// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        /// </summary>
         [Input("mountOptions")]
         public Input<Inputs.LocationSmbMountOptionsArgs>? MountOptions { get; set; }
 

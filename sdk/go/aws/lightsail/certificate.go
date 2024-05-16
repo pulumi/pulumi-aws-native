@@ -17,6 +17,7 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the certificate.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The name for the certificate.
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
@@ -138,6 +139,7 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the certificate.
 func (o CertificateOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }

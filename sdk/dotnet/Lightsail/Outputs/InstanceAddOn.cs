@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
         /// The add-on type
         /// </summary>
         public readonly string AddOnType;
+        /// <summary>
+        /// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        /// </summary>
         public readonly Outputs.InstanceAutoSnapshotAddOn? AutoSnapshotAddOnRequest;
         /// <summary>
         /// Status of the Addon

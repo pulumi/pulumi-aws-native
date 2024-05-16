@@ -23,20 +23,27 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupBotArgs struct {
+	// The unique identifier of the bot.
 	Id string `pulumi:"id"`
 }
 
 type LookupBotResult struct {
+	// The Amazon Resource Name (ARN) of the bot.
 	Arn *string `pulumi:"arn"`
 	// Data privacy setting of the Bot.
 	DataPrivacy *DataPrivacyProperties `pulumi:"dataPrivacy"`
-	Description *string                `pulumi:"description"`
-	Id          *string                `pulumi:"id"`
+	// The description of the version.
+	Description *string `pulumi:"description"`
+	// The unique identifier of the bot.
+	Id *string `pulumi:"id"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTtlInSeconds *int                     `pulumi:"idleSessionTtlInSeconds"`
-	Name                    *string                  `pulumi:"name"`
-	RoleArn                 *string                  `pulumi:"roleArn"`
-	TestBotAliasSettings    *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
+	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
+	// The name of the bot locale.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+	RoleArn *string `pulumi:"roleArn"`
+	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+	TestBotAliasSettings *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
 }
 
 func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulumi.InvokeOption) LookupBotResultOutput {
@@ -53,6 +60,7 @@ func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulu
 }
 
 type LookupBotOutputArgs struct {
+	// The unique identifier of the bot.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -74,6 +82,7 @@ func (o LookupBotResultOutput) ToLookupBotResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the bot.
 func (o LookupBotResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -83,10 +92,12 @@ func (o LookupBotResultOutput) DataPrivacy() DataPrivacyPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *DataPrivacyProperties { return v.DataPrivacy }).(DataPrivacyPropertiesPtrOutput)
 }
 
+// The description of the version.
 func (o LookupBotResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the bot.
 func (o LookupBotResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -96,14 +107,17 @@ func (o LookupBotResultOutput) IdleSessionTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *int { return v.IdleSessionTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The name of the bot locale.
 func (o LookupBotResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 func (o LookupBotResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
 func (o LookupBotResultOutput) TestBotAliasSettings() BotTestBotAliasSettingsPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *BotTestBotAliasSettings { return v.TestBotAliasSettings }).(BotTestBotAliasSettingsPtrOutput)
 }

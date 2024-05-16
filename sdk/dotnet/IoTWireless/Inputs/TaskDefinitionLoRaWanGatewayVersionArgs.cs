@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class TaskDefinitionLoRaWanGatewayVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The model number of the wireless gateway.
+        /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 
+        /// <summary>
+        /// The version of the wireless gateway firmware.
+        /// </summary>
         [Input("packageVersion")]
         public Input<string>? PackageVersion { get; set; }
 
+        /// <summary>
+        /// The basic station version of the wireless gateway.
+        /// </summary>
         [Input("station")]
         public Input<string>? Station { get; set; }
 

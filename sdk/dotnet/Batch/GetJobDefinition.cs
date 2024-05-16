@@ -51,20 +51,59 @@ namespace Pulumi.AwsNative.Batch
     [OutputType]
     public sealed class GetJobDefinitionResult
     {
+        /// <summary>
+        /// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        /// </summary>
         public readonly Outputs.JobDefinitionContainerProperties? ContainerProperties;
+        /// <summary>
+        /// An object that contains the properties for the Amazon ECS resources of a job.
+        /// </summary>
         public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
+        /// <summary>
+        /// An object that contains the properties for the Kubernetes resources of a job.
+        /// </summary>
         public readonly Outputs.JobDefinitionEksProperties? EksProperties;
         public readonly string? Id;
+        /// <summary>
+        /// An object that represents the node properties of a multi-node parallel job.
+        /// 
+        /// &gt; Node properties can't be specified for Amazon EKS based job definitions.
+        /// </summary>
         public readonly Outputs.JobDefinitionNodeProperties? NodeProperties;
         /// <summary>
+        /// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Parameters;
+        /// <summary>
+        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+        /// </summary>
         public readonly ImmutableArray<string> PlatformCapabilities;
+        /// <summary>
+        /// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        /// </summary>
         public readonly bool? PropagateTags;
+        /// <summary>
+        /// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+        /// </summary>
         public readonly Outputs.JobDefinitionRetryStrategy? RetryStrategy;
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        /// </summary>
         public readonly int? SchedulingPriority;
+        /// <summary>
+        /// An object that represents a job timeout configuration.
+        /// </summary>
         public readonly Outputs.JobDefinitionTimeout? Timeout;
+        /// <summary>
+        /// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+        /// 
+        /// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+        /// - If the value is `multinode` , then `nodeProperties` is required.
+        /// 
+        /// &gt; If the job is run on Fargate resources, then `multinode` isn't supported.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

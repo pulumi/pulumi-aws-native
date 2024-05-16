@@ -147,6 +147,9 @@ namespace Pulumi.AwsNative.RoboMaker
     [AwsNativeResourceType("aws-native:robomaker:RobotApplication")]
     public partial class RobotApplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot application.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -168,6 +171,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about a robot software suite.
+        /// </summary>
         [Output("robotSoftwareSuite")]
         public Output<Outputs.RobotApplicationRobotSoftwareSuite> RobotSoftwareSuite { get; private set; } = null!;
 
@@ -177,6 +183,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("sources")]
         public Output<ImmutableArray<Outputs.RobotApplicationSourceConfig>> Sources { get; private set; } = null!;
 
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the robot application.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -247,6 +256,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Information about a robot software suite.
+        /// </summary>
         [Input("robotSoftwareSuite", required: true)]
         public Input<Inputs.RobotApplicationRobotSoftwareSuiteArgs> RobotSoftwareSuite { get; set; } = null!;
 
@@ -264,6 +276,10 @@ namespace Pulumi.AwsNative.RoboMaker
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the robot application.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

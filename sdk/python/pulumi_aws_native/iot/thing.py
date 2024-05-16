@@ -20,6 +20,10 @@ class ThingArgs:
                  thing_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Thing resource.
+        :param pulumi.Input['ThingAttributePayloadArgs'] attribute_payload: The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        :param pulumi.Input[str] thing_name: The name of the thing to update.
+               
+               You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
         """
         if attribute_payload is not None:
             pulumi.set(__self__, "attribute_payload", attribute_payload)
@@ -29,6 +33,9 @@ class ThingArgs:
     @property
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> Optional[pulumi.Input['ThingAttributePayloadArgs']]:
+        """
+        The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        """
         return pulumi.get(self, "attribute_payload")
 
     @attribute_payload.setter
@@ -38,6 +45,11 @@ class ThingArgs:
     @property
     @pulumi.getter(name="thingName")
     def thing_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the thing to update.
+
+        You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+        """
         return pulumi.get(self, "thing_name")
 
     @thing_name.setter
@@ -88,6 +100,10 @@ class Thing(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']] attribute_payload: The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        :param pulumi.Input[str] thing_name: The name of the thing to update.
+               
+               You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
         """
         ...
     @overload
@@ -191,20 +207,34 @@ class Thing(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> pulumi.Output[Optional['outputs.ThingAttributePayload']]:
+        """
+        The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        """
         return pulumi.get(self, "attribute_payload")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The Id of this thing.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="thingName")
     def thing_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the thing to update.
+
+        You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+        """
         return pulumi.get(self, "thing_name")
 

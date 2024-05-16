@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class DeploymentIoTJobConfiguration
     {
+        /// <summary>
+        /// Contains a list of criteria that define when and how to cancel a configuration deployment.
+        /// </summary>
         public readonly Outputs.DeploymentIoTJobAbortConfig? AbortConfig;
+        /// <summary>
+        /// Contains information about the rollout configuration for a job. This configuration defines the rate at which the job deploys a configuration to a fleet of target devices.
+        /// </summary>
         public readonly Outputs.DeploymentIoTJobExecutionsRolloutConfig? JobExecutionsRolloutConfig;
+        /// <summary>
+        /// Contains information about the timeout configuration for a job.
+        /// </summary>
         public readonly Outputs.DeploymentIoTJobTimeoutConfig? TimeoutConfig;
 
         [OutputConstructor]

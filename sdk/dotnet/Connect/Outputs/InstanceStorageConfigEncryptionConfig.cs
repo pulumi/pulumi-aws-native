@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class InstanceStorageConfigEncryptionConfig
     {
+        /// <summary>
+        /// The type of encryption.
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.InstanceStorageConfigEncryptionType EncryptionType;
+        /// <summary>
+        /// The full ARN of the encryption key.
+        /// 
+        /// &gt; Be sure to provide the full ARN of the encryption key, not just the ID.
+        /// &gt; 
+        /// &gt; Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
+        /// </summary>
         public readonly string KeyId;
 
         [OutputConstructor]

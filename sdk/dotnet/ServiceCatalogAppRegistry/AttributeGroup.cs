@@ -15,15 +15,23 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:AttributeGroup")]
     public partial class AttributeGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the attribute group across services.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         /// </summary>
         [Output("attributes")]
         public Output<object> Attributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The globally unique attribute group identifier of the attribute group.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -39,6 +47,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value pairs you can use to associate with the attribute group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -88,6 +99,8 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public sealed class AttributeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         /// </summary>
         [Input("attributes", required: true)]
@@ -107,6 +120,10 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pairs you can use to associate with the attribute group.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -15,24 +15,46 @@ namespace Pulumi.AwsNative.GuardDuty
     [AwsNativeResourceType("aws-native:guardduty:IpSet")]
     public partial class IpSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether or not GuardDuty uses the `IPSet` .
+        /// </summary>
         [Output("activate")]
         public Output<bool?> Activate { get; private set; } = null!;
 
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        /// </summary>
         [Output("detectorId")]
         public Output<string?> DetectorId { get; private set; } = null!;
 
+        /// <summary>
+        /// The format of the file that contains the IPSet.
+        /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
 
+        /// <summary>
+        /// The URI of the file that contains the IPSet.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The user-friendly name to identify the IPSet.
+        /// 
+        /// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -86,23 +108,46 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class IpSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether or not GuardDuty uses the `IPSet` .
+        /// </summary>
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
 
+        /// <summary>
+        /// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
+        /// <summary>
+        /// The format of the file that contains the IPSet.
+        /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
+        /// <summary>
+        /// The URI of the file that contains the IPSet.
+        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// The user-friendly name to identify the IPSet.
+        /// 
+        /// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

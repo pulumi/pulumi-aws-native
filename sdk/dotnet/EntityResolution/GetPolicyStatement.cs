@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.EntityResolution
 
     public sealed class GetPolicyStatementArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// A statement identifier that differentiates the statement from others in the same policy.
+        /// </summary>
         [Input("statementId", required: true)]
         public string StatementId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.EntityResolution
 
     public sealed class GetPolicyStatementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// A statement identifier that differentiates the statement from others in the same policy.
+        /// </summary>
         [Input("statementId", required: true)]
         public Input<string> StatementId { get; set; } = null!;
 
@@ -57,9 +69,25 @@ namespace Pulumi.AwsNative.EntityResolution
     [OutputType]
     public sealed class GetPolicyStatementResult
     {
+        /// <summary>
+        /// The action that the principal can use on the resource.
+        /// 
+        /// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+        /// </summary>
         public readonly ImmutableArray<string> Action;
+        /// <summary>
+        /// A set of condition keys that you can use in key policies.
+        /// </summary>
         public readonly string? Condition;
+        /// <summary>
+        /// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+        /// 
+        /// &gt; If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+        /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.PolicyStatementStatementEffect? Effect;
+        /// <summary>
+        /// The AWS service or AWS account that can access the resource defined as ARN.
+        /// </summary>
         public readonly ImmutableArray<string> Principal;
 
         [OutputConstructor]

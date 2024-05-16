@@ -513,7 +513,13 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
+    /**
+     * The optional auto scaling capacity settings for a table in provisioned capacity mode.
+     */
     public readonly autoScalingSpecifications!: pulumi.Output<outputs.cassandra.TableAutoScalingSpecification | undefined>;
+    /**
+     * Determines the billing mode for the table - on-demand or provisioned.
+     */
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -527,6 +533,9 @@ export class Table extends pulumi.CustomResource {
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
     public readonly defaultTimeToLive!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the encryption at rest option selected for the table.
+     */
     public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
      * Name for Cassandra keyspace
@@ -544,6 +553,15 @@ export class Table extends pulumi.CustomResource {
      * Non-key columns of the table
      */
     public readonly regularColumns!: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
+    /**
+     * The AWS Region specific settings of a multi-Region table.
+     *
+     * For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+     *
+     * - `region` : The Region where these settings are applied. (Required)
+     * - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+     * - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+     */
     public readonly replicaSpecifications!: pulumi.Output<outputs.cassandra.TableReplicaSpecification[] | undefined>;
     /**
      * Name for Cassandra table
@@ -610,7 +628,13 @@ export class Table extends pulumi.CustomResource {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
+    /**
+     * The optional auto scaling capacity settings for a table in provisioned capacity mode.
+     */
     autoScalingSpecifications?: pulumi.Input<inputs.cassandra.TableAutoScalingSpecificationArgs>;
+    /**
+     * Determines the billing mode for the table - on-demand or provisioned.
+     */
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -624,6 +648,9 @@ export interface TableArgs {
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
     defaultTimeToLive?: pulumi.Input<number>;
+    /**
+     * Specifies the encryption at rest option selected for the table.
+     */
     encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
     /**
      * Name for Cassandra keyspace
@@ -641,6 +668,15 @@ export interface TableArgs {
      * Non-key columns of the table
      */
     regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
+    /**
+     * The AWS Region specific settings of a multi-Region table.
+     *
+     * For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+     *
+     * - `region` : The Region where these settings are applied. (Required)
+     * - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+     * - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+     */
     replicaSpecifications?: pulumi.Input<pulumi.Input<inputs.cassandra.TableReplicaSpecificationArgs>[]>;
     /**
      * Name for Cassandra table

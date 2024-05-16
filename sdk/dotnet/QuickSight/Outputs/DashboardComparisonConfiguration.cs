@@ -13,7 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardComparisonConfiguration
     {
+        /// <summary>
+        /// The format of the comparison.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardComparisonFormatConfiguration? ComparisonFormat;
+        /// <summary>
+        /// The method of the comparison. Choose from the following options:
+        /// 
+        /// - `DIFFERENCE`
+        /// - `PERCENT_DIFFERENCE`
+        /// - `PERCENT`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardComparisonMethod? ComparisonMethod;
 
         [OutputConstructor]

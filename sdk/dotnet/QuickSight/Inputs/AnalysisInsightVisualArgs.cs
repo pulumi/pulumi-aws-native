@@ -14,24 +14,43 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.AnalysisVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.AnalysisVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AnalysisVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The dataset that is used in the insight visual.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of an insight visual.
+        /// </summary>
         [Input("insightConfiguration")]
         public Input<Inputs.AnalysisInsightConfigurationArgs>? InsightConfiguration { get; set; }
 
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.AnalysisVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

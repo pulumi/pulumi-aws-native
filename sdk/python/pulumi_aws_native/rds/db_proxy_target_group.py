@@ -26,6 +26,9 @@ class DbProxyTargetGroupArgs:
         The set of arguments for constructing a DbProxyTargetGroup resource.
         :param pulumi.Input[str] db_proxy_name: The identifier for the proxy.
         :param pulumi.Input['DbProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
+        :param pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs'] connection_pool_configuration_info: Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_cluster_identifiers: One or more DB cluster identifiers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_instance_identifiers: One or more DB instance identifiers.
         """
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         pulumi.set(__self__, "target_group_name", target_group_name)
@@ -63,6 +66,9 @@ class DbProxyTargetGroupArgs:
     @property
     @pulumi.getter(name="connectionPoolConfigurationInfo")
     def connection_pool_configuration_info(self) -> Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]:
+        """
+        Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        """
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @connection_pool_configuration_info.setter
@@ -72,6 +78,9 @@ class DbProxyTargetGroupArgs:
     @property
     @pulumi.getter(name="dbClusterIdentifiers")
     def db_cluster_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more DB cluster identifiers.
+        """
         return pulumi.get(self, "db_cluster_identifiers")
 
     @db_cluster_identifiers.setter
@@ -81,6 +90,9 @@ class DbProxyTargetGroupArgs:
     @property
     @pulumi.getter(name="dbInstanceIdentifiers")
     def db_instance_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more DB instance identifiers.
+        """
         return pulumi.get(self, "db_instance_identifiers")
 
     @db_instance_identifiers.setter
@@ -104,6 +116,9 @@ class DbProxyTargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] connection_pool_configuration_info: Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_cluster_identifiers: One or more DB cluster identifiers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_instance_identifiers: One or more DB instance identifiers.
         :param pulumi.Input[str] db_proxy_name: The identifier for the proxy.
         :param pulumi.Input['DbProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
@@ -190,16 +205,25 @@ class DbProxyTargetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectionPoolConfigurationInfo")
     def connection_pool_configuration_info(self) -> pulumi.Output[Optional['outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']]:
+        """
+        Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        """
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @property
     @pulumi.getter(name="dbClusterIdentifiers")
     def db_cluster_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more DB cluster identifiers.
+        """
         return pulumi.get(self, "db_cluster_identifiers")
 
     @property
     @pulumi.getter(name="dbInstanceIdentifiers")
     def db_instance_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more DB instance identifiers.
+        """
         return pulumi.get(self, "db_instance_identifiers")
 
     @property

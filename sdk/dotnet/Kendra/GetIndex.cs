@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetIndexArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Kendra
     [OutputType]
     public sealed class GetIndexResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Capacity units
@@ -64,14 +73,37 @@ namespace Pulumi.AwsNative.Kendra
         /// Document metadata configurations
         /// </summary>
         public readonly ImmutableArray<Outputs.IndexDocumentMetadataConfiguration> DocumentMetadataConfigurations;
+        /// <summary>
+        /// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+        /// </summary>
         public readonly string? RoleArn;
         /// <summary>
         /// Tags for labeling the index
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The user context policy.
+        /// 
+        /// ATTRIBUTE_FILTER
+        /// 
+        /// - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+        /// 
+        /// USER_TOKEN
+        /// 
+        /// - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+        /// </summary>
         public readonly Pulumi.AwsNative.Kendra.IndexUserContextPolicy? UserContextPolicy;
+        /// <summary>
+        /// Defines the type of user token used for the index.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IndexUserTokenConfiguration> UserTokenConfigurations;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorJsonFormatDescriptor
     {
+        /// <summary>
+        /// The character set in which the source JSON file is written.
+        /// </summary>
         public readonly string? Charset;
+        /// <summary>
+        /// The level of compression of the source CSV file.
+        /// </summary>
         public readonly Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorJsonFormatDescriptorFileCompression? FileCompression;
 
         [OutputConstructor]

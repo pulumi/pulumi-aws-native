@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.AppConfig
     [AwsNativeResourceType("aws-native:appconfig:ExtensionAssociation")]
     public partial class ExtensionAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the extension defined in the association.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID for the association.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the extension defined in the association.
+        /// </summary>
         [Output("extensionArn")]
         public Output<string> ExtensionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+        /// </summary>
         [Output("extensionIdentifier")]
         public Output<string?> ExtensionIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+        /// </summary>
         [Output("extensionVersionNumber")]
         public Output<int?> ExtensionVersionNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of applications, configuration profiles, or environments defined in the association.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of an application, configuration profile, or environment.
+        /// </summary>
         [Output("resourceIdentifier")]
         public Output<string?> ResourceIdentifier { get; private set; } = null!;
 
@@ -97,20 +121,33 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class ExtensionAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+        /// </summary>
         [Input("extensionIdentifier")]
         public Input<string>? ExtensionIdentifier { get; set; }
 
+        /// <summary>
+        /// The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+        /// </summary>
         [Input("extensionVersionNumber")]
         public Input<int>? ExtensionVersionNumber { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// The ARN of an application, configuration profile, or environment.
+        /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
 

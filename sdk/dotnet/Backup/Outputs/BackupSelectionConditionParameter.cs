@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupSelectionConditionParameter
     {
+        /// <summary>
+        /// The key in a key-value pair. For example, in the tag `Department: Accounting` , `Department` is the key.
+        /// </summary>
         public readonly string? ConditionKey;
+        /// <summary>
+        /// The value in a key-value pair. For example, in the tag `Department: Accounting` , `Accounting` is the value.
+        /// </summary>
         public readonly string? ConditionValue;
 
         [OutputConstructor]

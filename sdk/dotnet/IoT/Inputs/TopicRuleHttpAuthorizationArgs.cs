@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleHttpAuthorizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+        /// </summary>
         [Input("sigv4")]
         public Input<Inputs.TopicRuleSigV4AuthorizationArgs>? Sigv4 { get; set; }
 

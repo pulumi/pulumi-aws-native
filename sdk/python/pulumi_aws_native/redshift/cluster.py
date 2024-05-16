@@ -99,6 +99,7 @@ class ClusterArgs:
         :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
+        :param pulumi.Input['ClusterEndpointArgs'] endpoint: Describes a connection endpoint.
         :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
                
                If this option is true , enhanced VPC routing is enabled.
@@ -108,6 +109,7 @@ class ClusterArgs:
         :param pulumi.Input[str] hsm_configuration_identifier: Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+        :param pulumi.Input['ClusterLoggingPropertiesArgs'] logging_properties: Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
         :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
         :param pulumi.Input[bool] manage_master_password: A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
@@ -120,6 +122,7 @@ class ClusterArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
+        :param pulumi.Input[str] owner_account: The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network.
@@ -522,6 +525,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input['ClusterEndpointArgs']]:
+        """
+        Describes a connection endpoint.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -595,6 +601,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="loggingProperties")
     def logging_properties(self) -> Optional[pulumi.Input['ClusterLoggingPropertiesArgs']]:
+        """
+        Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        """
         return pulumi.get(self, "logging_properties")
 
     @logging_properties.setter
@@ -704,6 +713,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+        """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
@@ -959,6 +971,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
+        :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: Describes a connection endpoint.
         :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
                
                If this option is true , enhanced VPC routing is enabled.
@@ -968,6 +981,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] hsm_configuration_identifier: Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']] logging_properties: Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
         :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
         :param pulumi.Input[bool] manage_master_password: A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
@@ -982,6 +996,7 @@ class Cluster(pulumi.CustomResource):
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
+        :param pulumi.Input[str] owner_account: The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network.
@@ -1420,6 +1435,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[Optional['outputs.ClusterEndpoint']]:
+        """
+        Describes a connection endpoint.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -1469,6 +1487,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loggingProperties")
     def logging_properties(self) -> pulumi.Output[Optional['outputs.ClusterLoggingProperties']]:
+        """
+        Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        """
         return pulumi.get(self, "logging_properties")
 
     @property
@@ -1566,6 +1587,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+        """
         return pulumi.get(self, "owner_account")
 
     @property

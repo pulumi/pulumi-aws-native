@@ -19,19 +19,44 @@ export function getFeature(args: GetFeatureArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetFeatureArgs {
+    /**
+     * The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+     */
     arn: string;
 }
 
 export interface GetFeatureResult {
+    /**
+     * The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+     */
     readonly arn?: string;
+    /**
+     * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+     *
+     * This variation must also be listed in the `Variations` structure.
+     *
+     * If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+     */
     readonly defaultVariation?: string;
+    /**
+     * An optional description of the feature.
+     */
     readonly description?: string;
+    /**
+     * A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+     */
     readonly entityOverrides?: outputs.evidently.FeatureEntityOverride[];
+    /**
+     * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+     */
     readonly evaluationStrategy?: enums.evidently.FeatureEvaluationStrategy;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+     */
     readonly variations?: outputs.evidently.FeatureVariationObject[];
 }
 /**
@@ -42,5 +67,8 @@ export function getFeatureOutput(args: GetFeatureOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetFeatureOutputArgs {
+    /**
+     * The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+     */
     arn: pulumi.Input<string>;
 }

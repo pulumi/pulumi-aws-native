@@ -15,21 +15,41 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
     /// </summary>
     public sealed class AppResourceMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+        /// 
+        /// &gt; This parameter accepts values in "eks-cluster/namespace" format.
+        /// </summary>
         [Input("eksSourceName")]
         public Input<string>? EksSourceName { get; set; }
 
+        /// <summary>
+        /// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        /// </summary>
         [Input("logicalStackName")]
         public Input<string>? LogicalStackName { get; set; }
 
+        /// <summary>
+        /// Specifies the type of resource mapping.
+        /// </summary>
         [Input("mappingType", required: true)]
         public Input<string> MappingType { get; set; } = null!;
 
+        /// <summary>
+        /// Defines a physical resource identifier.
+        /// </summary>
         [Input("physicalResourceId", required: true)]
         public Input<Inputs.AppPhysicalResourceIdArgs> PhysicalResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
+        /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 
+        /// <summary>
+        /// Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
+        /// </summary>
         [Input("terraformSourceName")]
         public Input<string>? TerraformSourceName { get; set; }
 

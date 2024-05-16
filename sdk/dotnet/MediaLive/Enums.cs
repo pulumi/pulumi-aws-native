@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.MediaLive
 {
+    /// <summary>
+    /// The current state of the multiplex.
+    /// </summary>
     [EnumType]
     public readonly struct MultiplexState : IEquatable<MultiplexState>
     {

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:UserAccessLoggingSettings")]
     public partial class UserAccessLoggingSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of web portal ARNs that this user access logging settings is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("kinesisStreamArn")]
         public Output<string> KinesisStreamArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the user access logging settings.
+        /// </summary>
         [Output("userAccessLoggingSettingsArn")]
         public Output<string> UserAccessLoggingSettingsArn { get; private set; } = null!;
 
@@ -83,6 +92,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tag.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

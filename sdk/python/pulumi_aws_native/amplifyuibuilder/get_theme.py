@@ -45,36 +45,57 @@ class GetThemeResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The time that the theme was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID for the theme.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        The time that the theme was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the theme.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def overrides(self) -> Optional[Sequence['outputs.ThemeValues']]:
+        """
+        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        """
         return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        One or more key-value pairs to use when tagging the theme.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence['outputs.ThemeValues']]:
+        """
+        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        """
         return pulumi.get(self, "values")
 
 
@@ -99,6 +120,11 @@ def get_theme(app_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThemeResult:
     """
     Definition of AWS::AmplifyUIBuilder::Theme Resource Type
+
+
+    :param str app_id: The unique ID for the Amplify app associated with the theme.
+    :param str environment_name: The name of the backend environment that is a part of the Amplify app.
+    :param str id: The ID for the theme.
     """
     __args__ = dict()
     __args__['appId'] = app_id
@@ -124,5 +150,10 @@ def get_theme_output(app_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemeResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Theme Resource Type
+
+
+    :param str app_id: The unique ID for the Amplify app associated with the theme.
+    :param str environment_name: The name of the backend environment that is a part of the Amplify app.
+    :param str id: The ID for the theme.
     """
     ...

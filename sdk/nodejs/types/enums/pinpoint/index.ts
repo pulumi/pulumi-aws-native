@@ -27,4 +27,14 @@ export const InAppTemplateLayout = {
     Carousel: "CAROUSEL",
 } as const;
 
+/**
+ * A string that determines the appearance of the in-app message. You can specify one of the following:
+ *
+ * - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+ * - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+ * - `OVERLAYS` – a message that covers entire screen.
+ * - `MOBILE_FEED` – a message that appears in a window in front of the page.
+ * - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+ * - `CAROUSEL` – a scrollable layout of up to five unique messages.
+ */
 export type InAppTemplateLayout = (typeof InAppTemplateLayout)[keyof typeof InAppTemplateLayout];

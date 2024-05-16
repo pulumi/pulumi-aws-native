@@ -43,6 +43,9 @@ class GetApiKeyResult:
     @property
     @pulumi.getter(name="apiKeyId")
     def api_key_id(self) -> Optional[str]:
+        """
+        The ID for the API key. For example: `abc123` .
+        """
         return pulumi.get(self, "api_key_id")
 
     @property
@@ -104,6 +107,9 @@ def get_api_key(api_key_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiKeyResult:
     """
     The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
+
+
+    :param str api_key_id: The ID for the API key. For example: `abc123` .
     """
     __args__ = dict()
     __args__['apiKeyId'] = api_key_id
@@ -124,5 +130,8 @@ def get_api_key_output(api_key_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
+
+
+    :param str api_key_id: The ID for the API key. For example: `abc123` .
     """
     ...

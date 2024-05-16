@@ -19,13 +19,28 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetAssessmentArgs {
+    /**
+     * The unique identifier for the assessment.
+     */
     assessmentId: string;
 }
 
 export interface GetAssessmentResult {
+    /**
+     * The Amazon Resource Name (ARN) of the assessment.
+     */
     readonly arn?: string;
+    /**
+     * The unique identifier for the assessment.
+     */
     readonly assessmentId?: string;
+    /**
+     * The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+     */
     readonly assessmentReportsDestination?: outputs.auditmanager.AssessmentReportsDestination;
+    /**
+     * Specifies when the assessment was created.
+     */
     readonly creationTime?: number;
     /**
      * The list of delegations.
@@ -35,7 +50,17 @@ export interface GetAssessmentResult {
      * The list of roles for the specified assessment.
      */
     readonly roles?: outputs.auditmanager.AssessmentRole[];
+    /**
+     * The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+     */
     readonly scope?: outputs.auditmanager.AssessmentScope;
+    /**
+     * The overall status of the assessment.
+     *
+     * When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+     *
+     * After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+     */
     readonly status?: enums.auditmanager.AssessmentStatus;
     /**
      * The tags associated with the assessment.
@@ -50,5 +75,8 @@ export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi
 }
 
 export interface GetAssessmentOutputArgs {
+    /**
+     * The unique identifier for the assessment.
+     */
     assessmentId: pulumi.Input<string>;
 }

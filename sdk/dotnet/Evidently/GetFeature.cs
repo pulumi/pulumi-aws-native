@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetFeatureArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetFeatureInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,15 +57,37 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetFeatureResult
     {
+        /// <summary>
+        /// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+        /// 
+        /// This variation must also be listed in the `Variations` structure.
+        /// 
+        /// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        /// </summary>
         public readonly string? DefaultVariation;
+        /// <summary>
+        /// An optional description of the feature.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FeatureEntityOverride> EntityOverrides;
+        /// <summary>
+        /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        /// </summary>
         public readonly Pulumi.AwsNative.Evidently.FeatureEvaluationStrategy? EvaluationStrategy;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.FeatureVariationObject> Variations;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateLineChartSeriesSettings
     {
+        /// <summary>
+        /// Line styles options for a line series in `LineChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateLineChartLineStyleSettings? LineStyleSettings;
+        /// <summary>
+        /// Marker styles options for a line series in `LineChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateLineChartMarkerStyleSettings? MarkerStyleSettings;
 
         [OutputConstructor]

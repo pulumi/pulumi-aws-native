@@ -23,10 +23,12 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
+	// The name of the project.
 	ProjectName string `pulumi:"projectName"`
 }
 
 type LookupProjectResult struct {
+	// Returns the Amazon Resource Name of the project.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -44,6 +46,7 @@ func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts
 }
 
 type LookupProjectOutputArgs struct {
+	// The name of the project.
 	ProjectName pulumi.StringInput `pulumi:"projectName"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx co
 	return o
 }
 
+// Returns the Amazon Resource Name of the project.
 func (o LookupProjectResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

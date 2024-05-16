@@ -39,21 +39,37 @@ class GetCollaborationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified collaboration.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> Optional[str]:
+        """
+        Returns the unique identifier of the specified collaboration.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the collaboration provided by the collaboration owner.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -82,6 +98,11 @@ def get_collaboration(collaboration_identifier: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollaborationResult:
     """
     Represents a collaboration between AWS accounts that allows for secure data collaboration
+
+
+    :param str collaboration_identifier: Returns the unique identifier of the specified collaboration.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
     """
     __args__ = dict()
     __args__['collaborationIdentifier'] = collaboration_identifier
@@ -101,5 +122,10 @@ def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[str
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaborationResult]:
     """
     Represents a collaboration between AWS accounts that allows for secure data collaboration
+
+
+    :param str collaboration_identifier: Returns the unique identifier of the specified collaboration.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
     """
     ...

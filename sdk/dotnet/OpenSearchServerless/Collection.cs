@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        /// </summary>
         [Output("standbyReplicas")]
         public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas?> StandbyReplicas { get; private set; } = null!;
 
@@ -136,6 +139,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionType?> Type { get; private set; } = null!;
 
@@ -208,6 +214,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        /// </summary>
         [Input("standbyReplicas")]
         public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas>? StandbyReplicas { get; set; }
 
@@ -223,6 +232,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionType>? Type { get; set; }
 

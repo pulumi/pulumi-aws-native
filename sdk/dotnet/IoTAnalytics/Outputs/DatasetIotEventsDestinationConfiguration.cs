@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetIotEventsDestinationConfiguration
     {
+        /// <summary>
+        /// The name of the AWS IoT Events input to which dataset contents are delivered.
+        /// </summary>
         public readonly string InputName;
+        /// <summary>
+        /// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

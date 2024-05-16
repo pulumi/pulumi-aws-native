@@ -38,6 +38,9 @@ export class RouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteTable.__pulumiType;
     }
 
+    /**
+     * The ID of the route table.
+     */
     public /*out*/ readonly routeTableId!: pulumi.Output<string>;
     /**
      * Any tags assigned to the route table.

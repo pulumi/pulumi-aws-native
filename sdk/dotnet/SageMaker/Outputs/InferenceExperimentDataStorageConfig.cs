@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceExperimentDataStorageConfig
     {
+        /// <summary>
+        /// Configuration specifying how to treat different headers. If no headers are specified Amazon SageMaker will by default base64 encode when capturing the data.
+        /// </summary>
         public readonly Outputs.InferenceExperimentCaptureContentTypeHeader? ContentType;
         /// <summary>
         /// The Amazon S3 bucket where the inference request and response data is stored.

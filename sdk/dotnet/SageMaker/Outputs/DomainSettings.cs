@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainSettings
     {
+        /// <summary>
+        /// A collection of settings that configure the domain's Docker interaction.
+        /// </summary>
         public readonly Outputs.DomainDockerSettings? DockerSettings;
+        /// <summary>
+        /// A collection of settings that configure the `RStudioServerPro` Domain-level app.
+        /// </summary>
         public readonly Outputs.DomainRStudioServerProDomainSettings? RStudioServerProDomainSettings;
         /// <summary>
         /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.

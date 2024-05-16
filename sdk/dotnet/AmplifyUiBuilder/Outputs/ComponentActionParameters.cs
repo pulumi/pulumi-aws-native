@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentActionParameters
     {
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Anchor;
+        /// <summary>
+        /// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentProperty>? Fields;
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Global;
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Id;
+        /// <summary>
+        /// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+        /// </summary>
         public readonly string? Model;
+        /// <summary>
+        /// Represents the state configuration when an action modifies a property of another element within the same component.
+        /// </summary>
         public readonly Outputs.ComponentMutationActionSetStateParameter? State;
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Target;
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Type;
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Url;
 
         [OutputConstructor]

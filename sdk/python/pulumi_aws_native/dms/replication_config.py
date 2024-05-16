@@ -32,6 +32,7 @@ class ReplicationConfigArgs:
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
+        :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
         :param pulumi.Input[str] replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -75,6 +76,9 @@ class ReplicationConfigArgs:
     @property
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> Optional[pulumi.Input['ReplicationConfigComputeConfigArgs']]:
+        """
+        Configuration parameters for provisioning an AWS DMS Serverless replication.
+        """
         return pulumi.get(self, "compute_config")
 
     @compute_config.setter
@@ -230,6 +234,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
         :param pulumi.Input[str] replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -342,6 +347,9 @@ class ReplicationConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> pulumi.Output[Optional['outputs.ReplicationConfigComputeConfig']]:
+        """
+        Configuration parameters for provisioning an AWS DMS Serverless replication.
+        """
         return pulumi.get(self, "compute_config")
 
     @property

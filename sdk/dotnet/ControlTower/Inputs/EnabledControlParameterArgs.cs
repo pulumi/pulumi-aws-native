@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ControlTower.Inputs
 
     public sealed class EnabledControlParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key of a key/value pair. It is of type `string` .
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+        /// </summary>
         [Input("value", required: true)]
         public object Value { get; set; } = null!;
 

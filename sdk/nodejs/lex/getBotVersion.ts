@@ -17,12 +17,24 @@ export function getBotVersion(args: GetBotVersionArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetBotVersionArgs {
+    /**
+     * The unique identifier of the bot.
+     */
     botId: string;
+    /**
+     * The version of the bot.
+     */
     botVersion: string;
 }
 
 export interface GetBotVersionResult {
+    /**
+     * The version of the bot.
+     */
     readonly botVersion?: string;
+    /**
+     * The description of the version.
+     */
     readonly description?: string;
 }
 /**
@@ -33,6 +45,12 @@ export function getBotVersionOutput(args: GetBotVersionOutputArgs, opts?: pulumi
 }
 
 export interface GetBotVersionOutputArgs {
+    /**
+     * The unique identifier of the bot.
+     */
     botId: pulumi.Input<string>;
+    /**
+     * The version of the bot.
+     */
     botVersion: pulumi.Input<string>;
 }

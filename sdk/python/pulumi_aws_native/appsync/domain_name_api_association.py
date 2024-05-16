@@ -18,6 +18,8 @@ class DomainNameApiAssociationArgs:
                  domain_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a DomainNameApiAssociation resource.
+        :param pulumi.Input[str] api_id: The API ID.
+        :param pulumi.Input[str] domain_name: The domain name.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -25,6 +27,9 @@ class DomainNameApiAssociationArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The API ID.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -34,6 +39,9 @@ class DomainNameApiAssociationArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -54,6 +62,8 @@ class DomainNameApiAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The API ID.
+        :param pulumi.Input[str] domain_name: The domain name.
         """
         ...
     @overload
@@ -134,10 +144,16 @@ class DomainNameApiAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API ID.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowS3InputFormatConfig
     {
+        /// <summary>
+        /// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowS3InputFormatConfigS3InputFileType? S3InputFileType;
 
         [OutputConstructor]

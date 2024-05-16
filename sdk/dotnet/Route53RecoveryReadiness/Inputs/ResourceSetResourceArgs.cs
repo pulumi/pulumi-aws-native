@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
 
+        /// <summary>
+        /// A component for DNS/routing control readiness checks and architecture checks.
+        /// </summary>
         [Input("dnsTargetResource")]
         public Input<Inputs.ResourceSetDnsTargetResourceArgs>? DnsTargetResource { get; set; }
 

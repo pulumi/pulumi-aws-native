@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [AwsNativeResourceType("aws-native:pcaconnectorad:ServicePrincipalName")]
     public partial class ServicePrincipalName : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Output("connectorArn")]
         public Output<string?> ConnectorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        /// </summary>
         [Output("directoryRegistrationArn")]
         public Output<string?> DirectoryRegistrationArn { get; private set; } = null!;
 
@@ -71,9 +77,15 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class ServicePrincipalNameArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Input("connectorArn")]
         public Input<string>? ConnectorArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        /// </summary>
         [Input("directoryRegistrationArn")]
         public Input<string>? DirectoryRegistrationArn { get; set; }
 

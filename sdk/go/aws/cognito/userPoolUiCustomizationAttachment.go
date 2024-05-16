@@ -16,10 +16,14 @@ import (
 type UserPoolUiCustomizationAttachment struct {
 	pulumi.CustomResourceState
 
-	AwsId      pulumi.StringOutput    `pulumi:"awsId"`
-	ClientId   pulumi.StringOutput    `pulumi:"clientId"`
-	Css        pulumi.StringPtrOutput `pulumi:"css"`
-	UserPoolId pulumi.StringOutput    `pulumi:"userPoolId"`
+	// The resource ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// The CSS values in the UI customization.
+	Css pulumi.StringPtrOutput `pulumi:"css"`
+	// The user pool ID for the user pool.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserPoolUiCustomizationAttachment registers a new resource with the given unique name, arguments, and options.
@@ -73,15 +77,21 @@ func (UserPoolUiCustomizationAttachmentState) ElementType() reflect.Type {
 }
 
 type userPoolUiCustomizationAttachmentArgs struct {
-	ClientId   string  `pulumi:"clientId"`
-	Css        *string `pulumi:"css"`
-	UserPoolId string  `pulumi:"userPoolId"`
+	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	ClientId string `pulumi:"clientId"`
+	// The CSS values in the UI customization.
+	Css *string `pulumi:"css"`
+	// The user pool ID for the user pool.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
 type UserPoolUiCustomizationAttachmentArgs struct {
-	ClientId   pulumi.StringInput
-	Css        pulumi.StringPtrInput
+	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	ClientId pulumi.StringInput
+	// The CSS values in the UI customization.
+	Css pulumi.StringPtrInput
+	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput
 }
 
@@ -122,18 +132,22 @@ func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttach
 	return o
 }
 
+// The resource ID.
 func (o UserPoolUiCustomizationAttachmentOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
 func (o UserPoolUiCustomizationAttachmentOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The CSS values in the UI customization.
 func (o UserPoolUiCustomizationAttachmentOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringPtrOutput { return v.Css }).(pulumi.StringPtrOutput)
 }
 
+// The user pool ID for the user pool.
 func (o UserPoolUiCustomizationAttachmentOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

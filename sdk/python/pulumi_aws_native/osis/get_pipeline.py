@@ -55,11 +55,17 @@ class GetPipelineResult:
     @property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> Optional['outputs.PipelineBufferOptions']:
+        """
+        Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        """
         return pulumi.get(self, "buffer_options")
 
     @property
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional['outputs.PipelineEncryptionAtRestOptions']:
+        """
+        Options to control how OpenSearch encrypts buffer data.
+        """
         return pulumi.get(self, "encryption_at_rest_options")
 
     @property
@@ -73,6 +79,9 @@ class GetPipelineResult:
     @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional['outputs.PipelineLogPublishingOptions']:
+        """
+        Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        """
         return pulumi.get(self, "log_publishing_options")
 
     @property

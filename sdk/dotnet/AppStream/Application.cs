@@ -15,45 +15,93 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The app block ARN with which the application should be associated.
+        /// </summary>
         [Output("appBlockArn")]
         public Output<string> AppBlockArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of attributes to delete from an application.
+        /// </summary>
         [Output("attributesToDelete")]
         public Output<ImmutableArray<string>> AttributesToDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the application was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the application. This name is visible to users in the application catalog.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The S3 location of the application icon.
+        /// </summary>
         [Output("iconS3Location")]
         public Output<Outputs.ApplicationS3Location> IconS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance families the application supports.
+        /// 
+        /// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+        /// </summary>
         [Output("instanceFamilies")]
         public Output<ImmutableArray<string>> InstanceFamilies { get; private set; } = null!;
 
+        /// <summary>
+        /// The launch parameters of the application.
+        /// </summary>
         [Output("launchParameters")]
         public Output<string?> LaunchParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The launch path of the application.
+        /// </summary>
         [Output("launchPath")]
         public Output<string> LaunchPath { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The platforms the application supports.
+        /// 
+        /// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+        /// </summary>
         [Output("platforms")]
         public Output<ImmutableArray<string>> Platforms { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag of the application.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Union<Outputs.ApplicationTag0Properties, Outputs.ApplicationTag1Properties>>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The working directory of the application.
+        /// </summary>
         [Output("workingDirectory")]
         public Output<string?> WorkingDirectory { get; private set; } = null!;
 
@@ -108,45 +156,84 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The app block ARN with which the application should be associated.
+        /// </summary>
         [Input("appBlockArn", required: true)]
         public Input<string> AppBlockArn { get; set; } = null!;
 
         [Input("attributesToDelete")]
         private InputList<string>? _attributesToDelete;
+
+        /// <summary>
+        /// A list of attributes to delete from an application.
+        /// </summary>
         public InputList<string> AttributesToDelete
         {
             get => _attributesToDelete ?? (_attributesToDelete = new InputList<string>());
             set => _attributesToDelete = value;
         }
 
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the application. This name is visible to users in the application catalog.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The S3 location of the application icon.
+        /// </summary>
         [Input("iconS3Location", required: true)]
         public Input<Inputs.ApplicationS3LocationArgs> IconS3Location { get; set; } = null!;
 
         [Input("instanceFamilies", required: true)]
         private InputList<string>? _instanceFamilies;
+
+        /// <summary>
+        /// The instance families the application supports.
+        /// 
+        /// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+        /// </summary>
         public InputList<string> InstanceFamilies
         {
             get => _instanceFamilies ?? (_instanceFamilies = new InputList<string>());
             set => _instanceFamilies = value;
         }
 
+        /// <summary>
+        /// The launch parameters of the application.
+        /// </summary>
         [Input("launchParameters")]
         public Input<string>? LaunchParameters { get; set; }
 
+        /// <summary>
+        /// The launch path of the application.
+        /// </summary>
         [Input("launchPath", required: true)]
         public Input<string> LaunchPath { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("platforms", required: true)]
         private InputList<string>? _platforms;
+
+        /// <summary>
+        /// The platforms the application supports.
+        /// 
+        /// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+        /// </summary>
         public InputList<string> Platforms
         {
             get => _platforms ?? (_platforms = new InputList<string>());
@@ -155,12 +242,19 @@ namespace Pulumi.AwsNative.AppStream
 
         [Input("tags")]
         private InputList<Union<Inputs.ApplicationTag0PropertiesArgs, Inputs.ApplicationTag1PropertiesArgs>>? _tags;
+
+        /// <summary>
+        /// The tag of the application.
+        /// </summary>
         public InputList<Union<Inputs.ApplicationTag0PropertiesArgs, Inputs.ApplicationTag1PropertiesArgs>> Tags
         {
             get => _tags ?? (_tags = new InputList<Union<Inputs.ApplicationTag0PropertiesArgs, Inputs.ApplicationTag1PropertiesArgs>>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The working directory of the application.
+        /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 

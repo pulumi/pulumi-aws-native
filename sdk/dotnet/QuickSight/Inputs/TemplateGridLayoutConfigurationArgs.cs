@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGridLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration options for the canvas of a grid layout.
+        /// </summary>
         [Input("canvasSizeOptions")]
         public Input<Inputs.TemplateGridLayoutCanvasSizeOptionsArgs>? CanvasSizeOptions { get; set; }
 
         [Input("elements", required: true)]
         private InputList<Inputs.TemplateGridLayoutElementArgs>? _elements;
+
+        /// <summary>
+        /// An element within a grid layout.
+        /// </summary>
         public InputList<Inputs.TemplateGridLayoutElementArgs> Elements
         {
             get => _elements ?? (_elements = new InputList<Inputs.TemplateGridLayoutElementArgs>());

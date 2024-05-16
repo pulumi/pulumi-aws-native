@@ -52,6 +52,9 @@ export class SchemaMapping extends pulumi.CustomResource {
      * The name of the SchemaMapping
      */
     public readonly schemaName!: pulumi.Output<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
@@ -113,5 +116,8 @@ export interface SchemaMappingArgs {
      * The name of the SchemaMapping
      */
     schemaName: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

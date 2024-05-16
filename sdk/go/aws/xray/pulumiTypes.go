@@ -190,9 +190,13 @@ type SamplingRuleType struct {
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize int `pulumi:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn string  `pulumi:"resourceArn"`
-	RuleArn     *string `pulumi:"ruleArn"`
-	RuleName    *string `pulumi:"ruleName"`
+	ResourceArn string `pulumi:"resourceArn"`
+	// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+	//
+	// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+	RuleArn *string `pulumi:"ruleArn"`
+	// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+	RuleName *string `pulumi:"ruleName"`
 	// Matches the name that the service uses to identify itself in segments.
 	ServiceName string `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
@@ -228,9 +232,13 @@ type SamplingRuleTypeArgs struct {
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntInput `pulumi:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn pulumi.StringInput    `pulumi:"resourceArn"`
-	RuleArn     pulumi.StringPtrInput `pulumi:"ruleArn"`
-	RuleName    pulumi.StringPtrInput `pulumi:"ruleName"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+	//
+	// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+	RuleArn pulumi.StringPtrInput `pulumi:"ruleArn"`
+	// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
 	// Matches the name that the service uses to identify itself in segments.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
@@ -353,10 +361,14 @@ func (o SamplingRuleTypeOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SamplingRuleType) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+//
+// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
 func (o SamplingRuleTypeOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleType) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
 func (o SamplingRuleTypeOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleType) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
@@ -475,6 +487,9 @@ func (o SamplingRuleTypePtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+//
+// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
 func (o SamplingRuleTypePtrOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
@@ -484,6 +499,7 @@ func (o SamplingRuleTypePtrOutput) RuleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
 func (o SamplingRuleTypePtrOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
@@ -537,7 +553,8 @@ type SamplingRuleRecord struct {
 	// When the rule was created, in Unix time seconds.
 	CreatedAt *string `pulumi:"createdAt"`
 	// When the rule was modified, in Unix time seconds.
-	ModifiedAt   *string           `pulumi:"modifiedAt"`
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 	SamplingRule *SamplingRuleType `pulumi:"samplingRule"`
 }
 
@@ -556,7 +573,8 @@ type SamplingRuleRecordArgs struct {
 	// When the rule was created, in Unix time seconds.
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
 	// When the rule was modified, in Unix time seconds.
-	ModifiedAt   pulumi.StringPtrInput    `pulumi:"modifiedAt"`
+	ModifiedAt pulumi.StringPtrInput `pulumi:"modifiedAt"`
+	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 	SamplingRule SamplingRuleTypePtrInput `pulumi:"samplingRule"`
 }
 
@@ -647,6 +665,7 @@ func (o SamplingRuleRecordOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleRecord) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 func (o SamplingRuleRecordOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v SamplingRuleRecord) *SamplingRuleType { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }
@@ -695,6 +714,7 @@ func (o SamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 func (o SamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v *SamplingRuleRecord) *SamplingRuleType {
 		if v == nil {

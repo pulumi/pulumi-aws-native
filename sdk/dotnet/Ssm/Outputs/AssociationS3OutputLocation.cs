@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class AssociationS3OutputLocation
     {
+        /// <summary>
+        /// The name of the S3 bucket.
+        /// </summary>
         public readonly string? OutputS3BucketName;
+        /// <summary>
+        /// The S3 bucket subfolder.
+        /// </summary>
         public readonly string? OutputS3KeyPrefix;
+        /// <summary>
+        /// The AWS Region of the S3 bucket.
+        /// </summary>
         public readonly string? OutputS3Region;
 
         [OutputConstructor]

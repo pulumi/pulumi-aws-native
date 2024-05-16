@@ -30,8 +30,13 @@ class DatasetArgs:
         The set of arguments for constructing a Dataset resource.
         :param pulumi.Input['DatasetType'] dataset_type: The dataset type
         :param pulumi.Input['DatasetDomain'] domain: The domain associated with the dataset
+        :param pulumi.Input['SchemaPropertiesArgs'] schema: The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
         :param pulumi.Input[str] data_frequency: Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
         :param pulumi.Input[str] dataset_name: A name for the dataset
+        :param pulumi.Input['EncryptionConfigPropertiesArgs'] encryption_config: A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "dataset_type", dataset_type)
         pulumi.set(__self__, "domain", domain)
@@ -72,6 +77,9 @@ class DatasetArgs:
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Input['SchemaPropertiesArgs']:
+        """
+        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -105,6 +113,9 @@ class DatasetArgs:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['EncryptionConfigPropertiesArgs']]:
+        """
+        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
@@ -114,6 +125,11 @@ class DatasetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -143,6 +159,11 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[str] dataset_name: A name for the dataset
         :param pulumi.Input['DatasetType'] dataset_type: The dataset type
         :param pulumi.Input['DatasetDomain'] domain: The domain associated with the dataset
+        :param pulumi.Input[pulumi.InputType['EncryptionConfigPropertiesArgs']] encryption_config: A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        :param pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']] schema: The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -235,6 +256,9 @@ class Dataset(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the dataset.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -272,15 +296,26 @@ class Dataset(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Output[Optional['outputs.EncryptionConfigProperties']]:
+        """
+        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        """
         return pulumi.get(self, "encryption_config")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output['outputs.SchemaProperties']:
+        """
+        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

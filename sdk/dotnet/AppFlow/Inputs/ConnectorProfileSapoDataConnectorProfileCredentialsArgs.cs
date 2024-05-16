@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileSapoDataConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The basic auth credentials required for basic authentication.
+        /// </summary>
         [Input("basicAuthCredentials")]
         public Input<Inputs.ConnectorProfileBasicAuthCredentialsArgs>? BasicAuthCredentials { get; set; }
 
+        /// <summary>
+        /// The SAPOData OAuth type authentication credentials.
+        /// </summary>
         [Input("oAuthCredentials")]
         public Input<Inputs.ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs>? OAuthCredentials { get; set; }
 

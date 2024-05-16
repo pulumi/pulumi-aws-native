@@ -21,6 +21,11 @@ namespace Pulumi.AwsNative.ResourceGroups
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+        /// 
+        /// &gt; You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        /// </summary>
         [Output("configuration")]
         public Output<ImmutableArray<Outputs.GroupConfigurationItem>> Configuration { get; private set; } = null!;
 
@@ -36,12 +41,32 @@ namespace Pulumi.AwsNative.ResourceGroups
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+        /// </summary>
         [Output("resourceQuery")]
         public Output<Outputs.GroupResourceQuery?> ResourceQuery { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+        /// 
+        /// &gt; - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        /// &gt; - You can include a `Resources` property only if you also specify a `Configuration` property.
+        /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
+        /// <summary>
+        /// Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+        /// 
+        /// &gt; Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
+        /// 
+        /// *Minimum permissions*
+        /// 
+        /// To run this command, you must have the following permissions:
+        /// 
+        /// - `resource-groups:Tag`
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -96,6 +121,12 @@ namespace Pulumi.AwsNative.ResourceGroups
     {
         [Input("configuration")]
         private InputList<Inputs.GroupConfigurationItemArgs>? _configuration;
+
+        /// <summary>
+        /// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+        /// 
+        /// &gt; You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        /// </summary>
         public InputList<Inputs.GroupConfigurationItemArgs> Configuration
         {
             get => _configuration ?? (_configuration = new InputList<Inputs.GroupConfigurationItemArgs>());
@@ -114,11 +145,21 @@ namespace Pulumi.AwsNative.ResourceGroups
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+        /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryArgs>? ResourceQuery { get; set; }
 
         [Input("resources")]
         private InputList<string>? _resources;
+
+        /// <summary>
+        /// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+        /// 
+        /// &gt; - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        /// &gt; - You can include a `Resources` property only if you also specify a `Configuration` property.
+        /// </summary>
         public InputList<string> Resources
         {
             get => _resources ?? (_resources = new InputList<string>());
@@ -127,6 +168,18 @@ namespace Pulumi.AwsNative.ResourceGroups
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+        /// 
+        /// &gt; Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
+        /// 
+        /// *Minimum permissions*
+        /// 
+        /// To run this command, you must have the following permissions:
+        /// 
+        /// - `resource-groups:Tag`
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

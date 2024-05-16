@@ -15,6 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // An access policy to associate with the current access entry.
 type AccessEntryAccessPolicy struct {
+	// The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
 	AccessScope AccessEntryAccessScope `pulumi:"accessScope"`
 	// The ARN of the access policy to add to the access entry.
 	PolicyArn string `pulumi:"policyArn"`
@@ -33,6 +34,7 @@ type AccessEntryAccessPolicyInput interface {
 
 // An access policy to associate with the current access entry.
 type AccessEntryAccessPolicyArgs struct {
+	// The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
 	AccessScope AccessEntryAccessScopeInput `pulumi:"accessScope"`
 	// The ARN of the access policy to add to the access entry.
 	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
@@ -90,6 +92,7 @@ func (o AccessEntryAccessPolicyOutput) ToAccessEntryAccessPolicyOutputWithContex
 	return o
 }
 
+// The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
 func (o AccessEntryAccessPolicyOutput) AccessScope() AccessEntryAccessScopeOutput {
 	return o.ApplyT(func(v AccessEntryAccessPolicy) AccessEntryAccessScope { return v.AccessScope }).(AccessEntryAccessScopeOutput)
 }
@@ -787,6 +790,9 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.String
 
 // The cluster control plane logging configuration for your cluster.
 type ClusterLoggingEnabledTypes struct {
+	// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+	//
+	// > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
 	EnabledTypes []ClusterLoggingTypeConfig `pulumi:"enabledTypes"`
 }
 
@@ -803,6 +809,9 @@ type ClusterLoggingEnabledTypesInput interface {
 
 // The cluster control plane logging configuration for your cluster.
 type ClusterLoggingEnabledTypesArgs struct {
+	// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+	//
+	// > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
 	EnabledTypes ClusterLoggingTypeConfigArrayInput `pulumi:"enabledTypes"`
 }
 
@@ -884,6 +893,9 @@ func (o ClusterLoggingEnabledTypesOutput) ToClusterLoggingEnabledTypesPtrOutputW
 	}).(ClusterLoggingEnabledTypesPtrOutput)
 }
 
+// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+//
+// > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
 func (o ClusterLoggingEnabledTypesOutput) EnabledTypes() ClusterLoggingTypeConfigArrayOutput {
 	return o.ApplyT(func(v ClusterLoggingEnabledTypes) []ClusterLoggingTypeConfig { return v.EnabledTypes }).(ClusterLoggingTypeConfigArrayOutput)
 }
@@ -912,6 +924,9 @@ func (o ClusterLoggingEnabledTypesPtrOutput) Elem() ClusterLoggingEnabledTypesOu
 	}).(ClusterLoggingEnabledTypesOutput)
 }
 
+// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+//
+// > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
 func (o ClusterLoggingEnabledTypesPtrOutput) EnabledTypes() ClusterLoggingTypeConfigArrayOutput {
 	return o.ApplyT(func(v *ClusterLoggingEnabledTypes) []ClusterLoggingTypeConfig {
 		if v == nil {
@@ -1619,8 +1634,10 @@ func (o FargateProfileLabelArrayOutput) Index(i pulumi.IntInput) FargateProfileL
 }
 
 type FargateProfileSelector struct {
-	Labels    []FargateProfileLabel `pulumi:"labels"`
-	Namespace string                `pulumi:"namespace"`
+	// A key-value pair.
+	Labels []FargateProfileLabel `pulumi:"labels"`
+	// The Kubernetes `namespace` that the selector should match.
+	Namespace string `pulumi:"namespace"`
 }
 
 // FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
@@ -1635,8 +1652,10 @@ type FargateProfileSelectorInput interface {
 }
 
 type FargateProfileSelectorArgs struct {
-	Labels    FargateProfileLabelArrayInput `pulumi:"labels"`
-	Namespace pulumi.StringInput            `pulumi:"namespace"`
+	// A key-value pair.
+	Labels FargateProfileLabelArrayInput `pulumi:"labels"`
+	// The Kubernetes `namespace` that the selector should match.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
 func (FargateProfileSelectorArgs) ElementType() reflect.Type {
@@ -1690,10 +1709,12 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(
 	return o
 }
 
+// A key-value pair.
 func (o FargateProfileSelectorOutput) Labels() FargateProfileLabelArrayOutput {
 	return o.ApplyT(func(v FargateProfileSelector) []FargateProfileLabel { return v.Labels }).(FargateProfileLabelArrayOutput)
 }
 
+// The Kubernetes `namespace` that the selector should match.
 func (o FargateProfileSelectorOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v FargateProfileSelector) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -1735,7 +1756,8 @@ type IdentityProviderConfigOidcIdentityProviderConfig struct {
 	// The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
 	GroupsPrefix *string `pulumi:"groupsPrefix"`
 	// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
-	IssuerUrl      string                                `pulumi:"issuerUrl"`
+	IssuerUrl string `pulumi:"issuerUrl"`
+	// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
 	RequiredClaims []IdentityProviderConfigRequiredClaim `pulumi:"requiredClaims"`
 	// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
 	UsernameClaim *string `pulumi:"usernameClaim"`
@@ -1763,7 +1785,8 @@ type IdentityProviderConfigOidcIdentityProviderConfigArgs struct {
 	// The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
 	GroupsPrefix pulumi.StringPtrInput `pulumi:"groupsPrefix"`
 	// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
-	IssuerUrl      pulumi.StringInput                            `pulumi:"issuerUrl"`
+	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
+	// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
 	RequiredClaims IdentityProviderConfigRequiredClaimArrayInput `pulumi:"requiredClaims"`
 	// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
 	UsernameClaim pulumi.StringPtrInput `pulumi:"usernameClaim"`
@@ -1869,6 +1892,7 @@ func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) IssuerUrl() pulu
 	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) string { return v.IssuerUrl }).(pulumi.StringOutput)
 }
 
+// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
 func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) RequiredClaims() IdentityProviderConfigRequiredClaimArrayOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) []IdentityProviderConfigRequiredClaim {
 		return v.RequiredClaims
@@ -1949,6 +1973,7 @@ func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) IssuerUrl() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
 func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) RequiredClaims() IdentityProviderConfigRequiredClaimArrayOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) []IdentityProviderConfigRequiredClaim {
 		if v == nil {
@@ -2237,8 +2262,15 @@ func (o LoggingPtrOutput) ClusterLogging() ClusterLoggingEnabledTypesPtrOutput {
 
 // An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecification struct {
-	Id      *string `pulumi:"id"`
-	Name    *string `pulumi:"name"`
+	// The ID of the launch template.
+	//
+	// You must specify either the launch template ID or the launch template name in the request, but not both.
+	Id *string `pulumi:"id"`
+	// The name of the launch template.
+	//
+	// You must specify either the launch template name or the launch template ID in the request, but not both.
+	Name *string `pulumi:"name"`
+	// The version number of the launch template to use. If no version is specified, then the template's default version is used.
 	Version *string `pulumi:"version"`
 }
 
@@ -2255,8 +2287,15 @@ type NodegroupLaunchTemplateSpecificationInput interface {
 
 // An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecificationArgs struct {
-	Id      pulumi.StringPtrInput `pulumi:"id"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of the launch template.
+	//
+	// You must specify either the launch template ID or the launch template name in the request, but not both.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the launch template.
+	//
+	// You must specify either the launch template name or the launch template ID in the request, but not both.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The version number of the launch template to use. If no version is specified, then the template's default version is used.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -2338,14 +2377,21 @@ func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpe
 	}).(NodegroupLaunchTemplateSpecificationPtrOutput)
 }
 
+// The ID of the launch template.
+//
+// You must specify either the launch template ID or the launch template name in the request, but not both.
 func (o NodegroupLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// You must specify either the launch template name or the launch template ID in the request, but not both.
 func (o NodegroupLaunchTemplateSpecificationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The version number of the launch template to use. If no version is specified, then the template's default version is used.
 func (o NodegroupLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2374,6 +2420,9 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Elem() NodegroupLaunchTem
 	}).(NodegroupLaunchTemplateSpecificationOutput)
 }
 
+// The ID of the launch template.
+//
+// You must specify either the launch template ID or the launch template name in the request, but not both.
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2383,6 +2432,9 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Id() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// You must specify either the launch template name or the launch template ID in the request, but not both.
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2392,6 +2444,7 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version number of the launch template to use. If no version is specified, then the template's default version is used.
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2403,7 +2456,9 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPt
 
 // An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccess struct {
-	Ec2SshKey            string   `pulumi:"ec2SshKey"`
+	// The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
+	Ec2SshKey string `pulumi:"ec2SshKey"`
+	// The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
 	SourceSecurityGroups []string `pulumi:"sourceSecurityGroups"`
 }
 
@@ -2420,7 +2475,9 @@ type NodegroupRemoteAccessInput interface {
 
 // An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccessArgs struct {
-	Ec2SshKey            pulumi.StringInput      `pulumi:"ec2SshKey"`
+	// The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
+	Ec2SshKey pulumi.StringInput `pulumi:"ec2SshKey"`
+	// The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
 	SourceSecurityGroups pulumi.StringArrayInput `pulumi:"sourceSecurityGroups"`
 }
 
@@ -2502,10 +2559,12 @@ func (o NodegroupRemoteAccessOutput) ToNodegroupRemoteAccessPtrOutputWithContext
 	}).(NodegroupRemoteAccessPtrOutput)
 }
 
+// The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
 func (o NodegroupRemoteAccessOutput) Ec2SshKey() pulumi.StringOutput {
 	return o.ApplyT(func(v NodegroupRemoteAccess) string { return v.Ec2SshKey }).(pulumi.StringOutput)
 }
 
+// The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
 func (o NodegroupRemoteAccessOutput) SourceSecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NodegroupRemoteAccess) []string { return v.SourceSecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -2534,6 +2593,7 @@ func (o NodegroupRemoteAccessPtrOutput) Elem() NodegroupRemoteAccessOutput {
 	}).(NodegroupRemoteAccessOutput)
 }
 
+// The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
 func (o NodegroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupRemoteAccess) *string {
 		if v == nil {
@@ -2543,6 +2603,7 @@ func (o NodegroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
 func (o NodegroupRemoteAccessPtrOutput) SourceSecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodegroupRemoteAccess) []string {
 		if v == nil {
@@ -2554,9 +2615,18 @@ func (o NodegroupRemoteAccessPtrOutput) SourceSecurityGroups() pulumi.StringArra
 
 // An object representing a auto scaling group specification for AWS EKS Nodegroup.
 type NodegroupScalingConfig struct {
+	// The current number of nodes that the managed node group should maintain.
+	//
+	// > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down.
+	//
+	// Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
+	//
+	// This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
 	DesiredSize *int `pulumi:"desiredSize"`
-	MaxSize     *int `pulumi:"maxSize"`
-	MinSize     *int `pulumi:"minSize"`
+	// The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
+	MaxSize *int `pulumi:"maxSize"`
+	// The minimum number of nodes that the managed node group can scale in to.
+	MinSize *int `pulumi:"minSize"`
 }
 
 // NodegroupScalingConfigInput is an input type that accepts NodegroupScalingConfigArgs and NodegroupScalingConfigOutput values.
@@ -2572,9 +2642,18 @@ type NodegroupScalingConfigInput interface {
 
 // An object representing a auto scaling group specification for AWS EKS Nodegroup.
 type NodegroupScalingConfigArgs struct {
+	// The current number of nodes that the managed node group should maintain.
+	//
+	// > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down.
+	//
+	// Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
+	//
+	// This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
 	DesiredSize pulumi.IntPtrInput `pulumi:"desiredSize"`
-	MaxSize     pulumi.IntPtrInput `pulumi:"maxSize"`
-	MinSize     pulumi.IntPtrInput `pulumi:"minSize"`
+	// The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// The minimum number of nodes that the managed node group can scale in to.
+	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
 }
 
 func (NodegroupScalingConfigArgs) ElementType() reflect.Type {
@@ -2655,14 +2734,23 @@ func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigPtrOutputWithConte
 	}).(NodegroupScalingConfigPtrOutput)
 }
 
+// The current number of nodes that the managed node group should maintain.
+//
+// > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down.
+//
+// Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
+//
+// This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
 func (o NodegroupScalingConfigOutput) DesiredSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodegroupScalingConfig) *int { return v.DesiredSize }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
 func (o NodegroupScalingConfigOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodegroupScalingConfig) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of nodes that the managed node group can scale in to.
 func (o NodegroupScalingConfigOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodegroupScalingConfig) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
@@ -2691,6 +2779,13 @@ func (o NodegroupScalingConfigPtrOutput) Elem() NodegroupScalingConfigOutput {
 	}).(NodegroupScalingConfigOutput)
 }
 
+// The current number of nodes that the managed node group should maintain.
+//
+// > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down.
+//
+// Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
+//
+// This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
 func (o NodegroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodegroupScalingConfig) *int {
 		if v == nil {
@@ -2700,6 +2795,7 @@ func (o NodegroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
 func (o NodegroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodegroupScalingConfig) *int {
 		if v == nil {
@@ -2709,6 +2805,7 @@ func (o NodegroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of nodes that the managed node group can scale in to.
 func (o NodegroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodegroupScalingConfig) *int {
 		if v == nil {
@@ -2720,9 +2817,12 @@ func (o NodegroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
 
 // An object representing a Taint specification for AWS EKS Nodegroup.
 type NodegroupTaint struct {
+	// The effect of the taint.
 	Effect *string `pulumi:"effect"`
-	Key    *string `pulumi:"key"`
-	Value  *string `pulumi:"value"`
+	// The key of the taint.
+	Key *string `pulumi:"key"`
+	// The value of the taint.
+	Value *string `pulumi:"value"`
 }
 
 // NodegroupTaintInput is an input type that accepts NodegroupTaintArgs and NodegroupTaintOutput values.
@@ -2738,9 +2838,12 @@ type NodegroupTaintInput interface {
 
 // An object representing a Taint specification for AWS EKS Nodegroup.
 type NodegroupTaintArgs struct {
+	// The effect of the taint.
 	Effect pulumi.StringPtrInput `pulumi:"effect"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
-	Value  pulumi.StringPtrInput `pulumi:"value"`
+	// The key of the taint.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value of the taint.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (NodegroupTaintArgs) ElementType() reflect.Type {
@@ -2795,14 +2898,17 @@ func (o NodegroupTaintOutput) ToNodegroupTaintOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The effect of the taint.
 func (o NodegroupTaintOutput) Effect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupTaint) *string { return v.Effect }).(pulumi.StringPtrOutput)
 }
 
+// The key of the taint.
 func (o NodegroupTaintOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupTaint) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The value of the taint.
 func (o NodegroupTaintOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupTaint) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

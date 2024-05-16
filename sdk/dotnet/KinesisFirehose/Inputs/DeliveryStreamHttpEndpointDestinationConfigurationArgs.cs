@@ -12,30 +12,57 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamHttpEndpointDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        /// </summary>
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamBufferingHintsArgs>? BufferingHints { get; set; }
 
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
+        /// <summary>
+        /// Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// </summary>
         [Input("endpointConfiguration", required: true)]
         public Input<Inputs.DeliveryStreamHttpEndpointConfigurationArgs> EndpointConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// </summary>
         [Input("requestConfiguration")]
         public Input<Inputs.DeliveryStreamHttpEndpointRequestConfigurationArgs>? RequestConfiguration { get; set; }
 
+        /// <summary>
+        /// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamRetryOptionsArgs>? RetryOptions { get; set; }
 
+        /// <summary>
+        /// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
+        /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
 

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetLoadBalancersConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
+        /// </summary>
         [Input("classicLoadBalancersConfig")]
         public Input<Inputs.SpotFleetClassicLoadBalancersConfigArgs>? ClassicLoadBalancersConfig { get; set; }
 
+        /// <summary>
+        /// Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+        /// </summary>
         [Input("targetGroupsConfig")]
         public Input<Inputs.SpotFleetTargetGroupsConfigArgs>? TargetGroupsConfig { get; set; }
 

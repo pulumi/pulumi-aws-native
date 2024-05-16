@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAxisLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The reference that specifies where the axis label is applied to.
+        /// </summary>
         [Input("applyTo")]
         public Input<Inputs.DashboardAxisLabelReferenceOptionsArgs>? ApplyTo { get; set; }
 
+        /// <summary>
+        /// The text for the axis label.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? FontConfiguration { get; set; }
 

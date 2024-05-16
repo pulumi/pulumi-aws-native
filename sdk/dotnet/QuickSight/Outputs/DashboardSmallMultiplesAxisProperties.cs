@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSmallMultiplesAxisProperties
     {
+        /// <summary>
+        /// Defines the placement of the axis. By default, axes are rendered `OUTSIDE` of the panels. Axes with `INDEPENDENT` scale are rendered `INSIDE` the panels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSmallMultiplesAxisPlacement? Placement;
+        /// <summary>
+        /// Determines whether scale of the axes are shared or independent. The default value is `SHARED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSmallMultiplesAxisScale? Scale;
 
         [OutputConstructor]

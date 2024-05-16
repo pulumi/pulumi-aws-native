@@ -19,16 +19,42 @@ export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetAuthorizerArgs {
+    /**
+     * The authorizer name.
+     */
     authorizerName: string;
 }
 
 export interface GetAuthorizerResult {
+    /**
+     * The Amazon Resource Name (ARN) of the authorizer.
+     */
     readonly arn?: string;
+    /**
+     * The authorizer's Lambda function ARN.
+     */
     readonly authorizerFunctionArn?: string;
+    /**
+     * When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+     */
     readonly enableCachingForHttp?: boolean;
+    /**
+     * The status of the authorizer.
+     *
+     * Valid values: `ACTIVE` | `INACTIVE`
+     */
     readonly status?: enums.iot.AuthorizerStatus;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The key used to extract the token from the HTTP headers.
+     */
     readonly tokenKeyName?: string;
+    /**
+     * The public keys used to validate the token signature returned by your custom authentication service.
+     */
     readonly tokenSigningPublicKeys?: {[key: string]: string};
 }
 /**
@@ -39,5 +65,8 @@ export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi
 }
 
 export interface GetAuthorizerOutputArgs {
+    /**
+     * The authorizer name.
+     */
     authorizerName: pulumi.Input<string>;
 }

@@ -23,12 +23,14 @@ func LookupRequestValidator(ctx *pulumi.Context, args *LookupRequestValidatorArg
 }
 
 type LookupRequestValidatorArgs struct {
+	// The ID for the request validator. For example: `abc123` .
 	RequestValidatorId string `pulumi:"requestValidatorId"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupRequestValidatorResult struct {
+	// The ID for the request validator. For example: `abc123` .
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
@@ -50,6 +52,7 @@ func LookupRequestValidatorOutput(ctx *pulumi.Context, args LookupRequestValidat
 }
 
 type LookupRequestValidatorOutputArgs struct {
+	// The ID for the request validator. For example: `abc123` .
 	RequestValidatorId pulumi.StringInput `pulumi:"requestValidatorId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
@@ -73,6 +76,7 @@ func (o LookupRequestValidatorResultOutput) ToLookupRequestValidatorResultOutput
 	return o
 }
 
+// The ID for the request validator. For example: `abc123` .
 func (o LookupRequestValidatorResultOutput) RequestValidatorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRequestValidatorResult) *string { return v.RequestValidatorId }).(pulumi.StringPtrOutput)
 }

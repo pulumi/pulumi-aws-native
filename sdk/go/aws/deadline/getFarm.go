@@ -23,14 +23,19 @@ func LookupFarm(ctx *pulumi.Context, args *LookupFarmArgs, opts ...pulumi.Invoke
 }
 
 type LookupFarmArgs struct {
+	// The Amazon Resource Name (ARN) assigned to the farm.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupFarmResult struct {
-	Arn         *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) assigned to the farm.
+	Arn *string `pulumi:"arn"`
+	// A description of the farm that helps identify what the farm is used for.
 	Description *string `pulumi:"description"`
+	// The display name of the farm.
 	DisplayName *string `pulumi:"displayName"`
-	FarmId      *string `pulumi:"farmId"`
+	// The farm ID.
+	FarmId *string `pulumi:"farmId"`
 }
 
 func LookupFarmOutput(ctx *pulumi.Context, args LookupFarmOutputArgs, opts ...pulumi.InvokeOption) LookupFarmResultOutput {
@@ -47,6 +52,7 @@ func LookupFarmOutput(ctx *pulumi.Context, args LookupFarmOutputArgs, opts ...pu
 }
 
 type LookupFarmOutputArgs struct {
+	// The Amazon Resource Name (ARN) assigned to the farm.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68,18 +74,22 @@ func (o LookupFarmResultOutput) ToLookupFarmResultOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) assigned to the farm.
 func (o LookupFarmResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A description of the farm that helps identify what the farm is used for.
 func (o LookupFarmResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the farm.
 func (o LookupFarmResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The farm ID.
 func (o LookupFarmResultOutput) FarmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.FarmId }).(pulumi.StringPtrOutput)
 }

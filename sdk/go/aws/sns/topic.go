@@ -34,7 +34,8 @@ type Topic struct {
 	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy  pulumi.AnyOutput              `pulumi:"dataProtectionPolicy"`
+	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
+	// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
 	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
@@ -50,7 +51,8 @@ type Topic struct {
 	Subscription TopicSubscriptionArrayOutput `pulumi:"subscription"`
 	// The list of tags to add to a new topic.
 	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
-	Tags     aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Returns the ARN of an Amazon SNS topic.
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
 	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
 	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -120,7 +122,8 @@ type topicArgs struct {
 	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy  interface{}          `pulumi:"dataProtectionPolicy"`
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
+	// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName *string `pulumi:"displayName"`
@@ -162,7 +165,8 @@ type TopicArgs struct {
 	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy  pulumi.Input
+	DataProtectionPolicy pulumi.Input
+	// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
 	DeliveryStatusLogging TopicLoggingConfigArrayInput
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName pulumi.StringPtrInput
@@ -250,6 +254,7 @@ func (o TopicOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
+// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
 func (o TopicOutput) DeliveryStatusLogging() TopicLoggingConfigArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicLoggingConfigArrayOutput { return v.DeliveryStatusLogging }).(TopicLoggingConfigArrayOutput)
 }
@@ -290,6 +295,7 @@ func (o TopicOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Topic) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Returns the ARN of an Amazon SNS topic.
 func (o TopicOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.TopicArn }).(pulumi.StringOutput)
 }

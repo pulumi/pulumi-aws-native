@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         [Input("comparison", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.InsightMapFilterComparison> Comparison { get; set; } = null!;
 
+        /// <summary>
+        /// The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

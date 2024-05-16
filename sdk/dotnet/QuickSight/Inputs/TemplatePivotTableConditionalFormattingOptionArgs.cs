@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePivotTableConditionalFormattingOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cell conditional formatting option for a pivot table.
+        /// </summary>
         [Input("cell")]
         public Input<Inputs.TemplatePivotTableCellConditionalFormattingArgs>? Cell { get; set; }
 

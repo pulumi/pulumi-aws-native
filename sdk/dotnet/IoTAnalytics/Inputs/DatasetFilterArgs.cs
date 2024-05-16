@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Used to limit data to that which has arrived since the last execution of the action.
+        /// </summary>
         [Input("deltaTime")]
         public Input<Inputs.DatasetDeltaTimeArgs>? DeltaTime { get; set; }
 

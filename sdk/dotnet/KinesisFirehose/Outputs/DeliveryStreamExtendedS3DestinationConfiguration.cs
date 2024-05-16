@@ -13,20 +13,65 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamExtendedS3DestinationConfiguration
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
+        /// </summary>
         public readonly string BucketArn;
+        /// <summary>
+        /// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat? CompressionFormat;
+        /// <summary>
+        /// The time zone you prefer. UTC is the default.
+        /// </summary>
         public readonly string? CustomTimeZone;
+        /// <summary>
+        /// Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
+        /// </summary>
         public readonly Outputs.DeliveryStreamDataFormatConversionConfiguration? DataFormatConversionConfiguration;
+        /// <summary>
+        /// The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
+        /// <summary>
+        /// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+        /// </summary>
         public readonly Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration;
+        /// <summary>
+        /// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
+        /// </summary>
         public readonly string? ErrorOutputPrefix;
+        /// <summary>
+        /// Specify a file extension. It will override the default file extension
+        /// </summary>
         public readonly string? FileExtension;
+        /// <summary>
+        /// The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files. For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS credentials. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
+        /// <summary>
+        /// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode? S3BackupMode;
 
         [OutputConstructor]

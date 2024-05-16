@@ -34,10 +34,25 @@ export class Farm extends pulumi.CustomResource {
         return obj['__pulumiType'] === Farm.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned to the farm.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description of the farm that helps identify what the farm is used for.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the farm.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The farm ID.
+     */
     public /*out*/ readonly farmId!: pulumi.Output<string>;
+    /**
+     * The ARN for the KMS key.
+     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -77,7 +92,16 @@ export class Farm extends pulumi.CustomResource {
  * The set of arguments for constructing a Farm resource.
  */
 export interface FarmArgs {
+    /**
+     * A description of the farm that helps identify what the farm is used for.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the farm.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The ARN for the KMS key.
+     */
     kmsKeyArn?: pulumi.Input<string>;
 }

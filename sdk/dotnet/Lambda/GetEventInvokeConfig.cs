@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetEventInvokeConfigResult
     {
+        /// <summary>
+        /// A configuration object that specifies the destination of an event after Lambda processes it.
+        /// </summary>
         public readonly Outputs.EventInvokeConfigDestinationConfig? DestinationConfig;
         /// <summary>
         /// The maximum age of a request that Lambda sends to a function for processing.

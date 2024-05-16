@@ -34,7 +34,13 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpointServicePermissions.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+     */
     public readonly allowedPrincipals!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ID of the service.
+     */
     public readonly serviceId!: pulumi.Output<string>;
 
     /**
@@ -68,6 +74,12 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcEndpointServicePermissions resource.
  */
 export interface VpcEndpointServicePermissionsArgs {
+    /**
+     * The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+     */
     allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the service.
+     */
     serviceId: pulumi.Input<string>;
 }

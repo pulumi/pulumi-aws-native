@@ -19,13 +19,32 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetViewArgs {
+    /**
+     * The ARN of the new view. For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     viewArn: string;
 }
 
 export interface GetViewResult {
+    /**
+     * A search filter defines which resources can be part of a search query result set.
+     */
     readonly filters?: outputs.resourceexplorer2.ViewSearchFilter;
+    /**
+     * Information about an additional property that describes a resource, that you can optionally include in a view.
+     */
     readonly includedProperties?: outputs.resourceexplorer2.ViewIncludedProperty[];
+    /**
+     * Tag key and value pairs that are attached to the view.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * The ARN of the new view. For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     readonly viewArn?: string;
 }
 /**
@@ -36,5 +55,10 @@ export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetViewOutputArgs {
+    /**
+     * The ARN of the new view. For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     viewArn: pulumi.Input<string>;
 }

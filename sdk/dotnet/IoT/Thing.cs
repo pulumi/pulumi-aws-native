@@ -49,15 +49,29 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:Thing")]
     public partial class Thing : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        /// </summary>
         [Output("attributePayload")]
         public Output<Outputs.ThingAttributePayload?> AttributePayload { get; private set; } = null!;
 
+        /// <summary>
+        /// The Id of this thing.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the thing to update.
+        /// 
+        /// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+        /// </summary>
         [Output("thingName")]
         public Output<string?> ThingName { get; private set; } = null!;
 
@@ -110,9 +124,17 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class ThingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        /// </summary>
         [Input("attributePayload")]
         public Input<Inputs.ThingAttributePayloadArgs>? AttributePayload { get; set; }
 
+        /// <summary>
+        /// The name of the thing to update.
+        /// 
+        /// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+        /// </summary>
         [Input("thingName")]
         public Input<string>? ThingName { get; set; }
 

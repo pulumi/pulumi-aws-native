@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Athena.Inputs
     /// </summary>
     public sealed class WorkGroupCustomerContentEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The customer managed KMS key that is used to encrypt the user's data stores in Athena.
+        /// </summary>
         [Input("kmsKey", required: true)]
         public Input<string> KmsKey { get; set; } = null!;
 

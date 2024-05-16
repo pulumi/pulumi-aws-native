@@ -37,14 +37,41 @@ export class Theme extends pulumi.CustomResource {
         return obj['__pulumiType'] === Theme.__pulumiType;
     }
 
+    /**
+     * The unique ID for the Amplify app associated with the theme.
+     */
     public readonly appId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID for the theme.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The time that the theme was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     public readonly environmentName!: pulumi.Output<string | undefined>;
+    /**
+     * The time that the theme was modified.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The name of the theme.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     */
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
+    /**
+     * One or more key-value pairs to use when tagging the theme.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     */
     public readonly values!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
 
     /**
@@ -89,10 +116,28 @@ export class Theme extends pulumi.CustomResource {
  * The set of arguments for constructing a Theme resource.
  */
 export interface ThemeArgs {
+    /**
+     * The unique ID for the Amplify app associated with the theme.
+     */
     appId?: pulumi.Input<string>;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     environmentName?: pulumi.Input<string>;
+    /**
+     * The name of the theme.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     */
     overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
+    /**
+     * One or more key-value pairs to use when tagging the theme.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     */
     values?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
 }

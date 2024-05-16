@@ -262,6 +262,9 @@ export class Function extends pulumi.CustomResource {
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
     public readonly architectures!: pulumi.Output<enums.lambda.FunctionArchitecturesItem[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the function.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The code for the function.
@@ -346,6 +349,9 @@ export class Function extends pulumi.CustomResource {
      * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
      */
     public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
+    /**
+     * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+     */
     public /*out*/ readonly snapStartResponse!: pulumi.Output<outputs.lambda.FunctionSnapStartResponse>;
     /**
      * A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.

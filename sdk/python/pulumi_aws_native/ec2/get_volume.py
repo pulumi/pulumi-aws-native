@@ -174,6 +174,9 @@ class GetVolumeResult:
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[str]:
+        """
+        The ID of the volume.
+        """
         return pulumi.get(self, "volume_id")
 
     @property
@@ -225,6 +228,9 @@ def get_volume(volume_id: Optional[str] = None,
       +  You successfully update an Amazon EBS volume and the update succeeds but another change in your ``update-stack`` call fails. The rollback will be subject to a cooldown period.
 
      For more information on the coo
+
+
+    :param str volume_id: The ID of the volume.
     """
     __args__ = dict()
     __args__['volumeId'] = volume_id
@@ -259,5 +265,8 @@ def get_volume_output(volume_id: Optional[pulumi.Input[str]] = None,
       +  You successfully update an Amazon EBS volume and the update succeeds but another change in your ``update-stack`` call fails. The rollback will be subject to a cooldown period.
 
      For more information on the coo
+
+
+    :param str volume_id: The ID of the volume.
     """
     ...

@@ -29,11 +29,17 @@ class GetVpcConnectionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the VPC connection.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Create tags when creating the VPC connection.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -51,6 +57,9 @@ def get_vpc_connection(arn: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcConnectionResult:
     """
     Resource Type definition for AWS::MSK::VpcConnection
+
+
+    :param str arn: The ARN of the VPC connection.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -67,5 +76,8 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Resource Type definition for AWS::MSK::VpcConnection
+
+
+    :param str arn: The ARN of the VPC connection.
     """
     ...

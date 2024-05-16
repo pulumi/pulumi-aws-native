@@ -52,6 +52,27 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
                  supports_class_b: Optional[pulumi.Input[bool]] = None,
                  supports_class_c: Optional[pulumi.Input[bool]] = None,
                  supports_join: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] class_b_timeout: The ClassBTimeout value.
+        :param pulumi.Input[int] class_c_timeout: The ClassCTimeout value.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] factory_preset_freqs_list: The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
+        :param pulumi.Input[str] mac_version: The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
+        :param pulumi.Input[int] max_duty_cycle: The MaxDutyCycle value.
+        :param pulumi.Input[int] max_eirp: The MaxEIRP value.
+        :param pulumi.Input[int] ping_slot_dr: The PingSlotDR value.
+        :param pulumi.Input[int] ping_slot_freq: The PingSlotFreq value.
+        :param pulumi.Input[int] ping_slot_period: The PingSlotPeriod value.
+        :param pulumi.Input[str] reg_params_revision: The version of regional parameters.
+        :param pulumi.Input[str] rf_region: The frequency band (RFRegion) value.
+        :param pulumi.Input[int] rx_data_rate2: The RXDataRate2 value.
+        :param pulumi.Input[int] rx_delay1: The RXDelay1 value.
+        :param pulumi.Input[int] rx_dr_offset1: The RXDROffset1 value.
+        :param pulumi.Input[int] rx_freq2: The RXFreq2 value.
+        :param pulumi.Input[bool] supports32_bit_f_cnt: The Supports32BitFCnt value.
+        :param pulumi.Input[bool] supports_class_b: The SupportsClassB value.
+        :param pulumi.Input[bool] supports_class_c: The SupportsClassC value.
+        :param pulumi.Input[bool] supports_join: The SupportsJoin value.
+        """
         if class_b_timeout is not None:
             pulumi.set(__self__, "class_b_timeout", class_b_timeout)
         if class_c_timeout is not None:
@@ -94,6 +115,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="classBTimeout")
     def class_b_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ClassBTimeout value.
+        """
         return pulumi.get(self, "class_b_timeout")
 
     @class_b_timeout.setter
@@ -103,6 +127,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="classCTimeout")
     def class_c_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ClassCTimeout value.
+        """
         return pulumi.get(self, "class_c_timeout")
 
     @class_c_timeout.setter
@@ -112,6 +139,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="factoryPresetFreqsList")
     def factory_preset_freqs_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
+        """
         return pulumi.get(self, "factory_preset_freqs_list")
 
     @factory_preset_freqs_list.setter
@@ -121,6 +151,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="macVersion")
     def mac_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
+        """
         return pulumi.get(self, "mac_version")
 
     @mac_version.setter
@@ -130,6 +163,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="maxDutyCycle")
     def max_duty_cycle(self) -> Optional[pulumi.Input[int]]:
+        """
+        The MaxDutyCycle value.
+        """
         return pulumi.get(self, "max_duty_cycle")
 
     @max_duty_cycle.setter
@@ -139,6 +175,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="maxEirp")
     def max_eirp(self) -> Optional[pulumi.Input[int]]:
+        """
+        The MaxEIRP value.
+        """
         return pulumi.get(self, "max_eirp")
 
     @max_eirp.setter
@@ -148,6 +187,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="pingSlotDr")
     def ping_slot_dr(self) -> Optional[pulumi.Input[int]]:
+        """
+        The PingSlotDR value.
+        """
         return pulumi.get(self, "ping_slot_dr")
 
     @ping_slot_dr.setter
@@ -157,6 +199,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="pingSlotFreq")
     def ping_slot_freq(self) -> Optional[pulumi.Input[int]]:
+        """
+        The PingSlotFreq value.
+        """
         return pulumi.get(self, "ping_slot_freq")
 
     @ping_slot_freq.setter
@@ -166,6 +211,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="pingSlotPeriod")
     def ping_slot_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The PingSlotPeriod value.
+        """
         return pulumi.get(self, "ping_slot_period")
 
     @ping_slot_period.setter
@@ -175,6 +223,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="regParamsRevision")
     def reg_params_revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of regional parameters.
+        """
         return pulumi.get(self, "reg_params_revision")
 
     @reg_params_revision.setter
@@ -184,6 +235,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="rfRegion")
     def rf_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The frequency band (RFRegion) value.
+        """
         return pulumi.get(self, "rf_region")
 
     @rf_region.setter
@@ -193,6 +247,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="rxDataRate2")
     def rx_data_rate2(self) -> Optional[pulumi.Input[int]]:
+        """
+        The RXDataRate2 value.
+        """
         return pulumi.get(self, "rx_data_rate2")
 
     @rx_data_rate2.setter
@@ -202,6 +259,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="rxDelay1")
     def rx_delay1(self) -> Optional[pulumi.Input[int]]:
+        """
+        The RXDelay1 value.
+        """
         return pulumi.get(self, "rx_delay1")
 
     @rx_delay1.setter
@@ -211,6 +271,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="rxDrOffset1")
     def rx_dr_offset1(self) -> Optional[pulumi.Input[int]]:
+        """
+        The RXDROffset1 value.
+        """
         return pulumi.get(self, "rx_dr_offset1")
 
     @rx_dr_offset1.setter
@@ -220,6 +283,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="rxFreq2")
     def rx_freq2(self) -> Optional[pulumi.Input[int]]:
+        """
+        The RXFreq2 value.
+        """
         return pulumi.get(self, "rx_freq2")
 
     @rx_freq2.setter
@@ -229,6 +295,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="supports32BitFCnt")
     def supports32_bit_f_cnt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The Supports32BitFCnt value.
+        """
         return pulumi.get(self, "supports32_bit_f_cnt")
 
     @supports32_bit_f_cnt.setter
@@ -238,6 +307,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="supportsClassB")
     def supports_class_b(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The SupportsClassB value.
+        """
         return pulumi.get(self, "supports_class_b")
 
     @supports_class_b.setter
@@ -247,6 +319,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="supportsClassC")
     def supports_class_c(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The SupportsClassC value.
+        """
         return pulumi.get(self, "supports_class_c")
 
     @supports_class_c.setter
@@ -256,6 +331,9 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
     @property
     @pulumi.getter(name="supportsJoin")
     def supports_join(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The SupportsJoin value.
+        """
         return pulumi.get(self, "supports_join")
 
     @supports_join.setter
@@ -392,6 +470,61 @@ class ServiceProfileLoRaWanServiceProfileArgs:
                  ul_bucket_size: Optional[pulumi.Input[int]] = None,
                  ul_rate: Optional[pulumi.Input[int]] = None,
                  ul_rate_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] add_gw_metadata: The AddGWMetaData value.
+        :param pulumi.Input[str] channel_mask: The ChannelMask value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] dev_status_req_freq: The DevStatusReqFreq value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] dl_bucket_size: The DLBucketSize value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] dl_rate: The DLRate value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[str] dl_rate_policy: The DLRatePolicy value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] dr_max: The DRMax value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] dr_min: The DRMin value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[bool] hr_allowed: The HRAllowed value that describes whether handover roaming is allowed.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] min_gw_diversity: The MinGwDiversity value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[bool] nwk_geo_loc: The NwkGeoLoc value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[bool] pr_allowed: The PRAllowed value that describes whether passive roaming is allowed.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[bool] ra_allowed: The RAAllowed value that describes whether roaming activation is allowed.
+        :param pulumi.Input[bool] report_dev_status_battery: The ReportDevStatusBattery value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[bool] report_dev_status_margin: The ReportDevStatusMargin value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] target_per: The TargetPer value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] ul_bucket_size: The UlBucketSize value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[int] ul_rate: The ULRate value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        :param pulumi.Input[str] ul_rate_policy: The ULRatePolicy value.
+               
+               This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         if add_gw_metadata is not None:
             pulumi.set(__self__, "add_gw_metadata", add_gw_metadata)
         if channel_mask is not None:
@@ -434,6 +567,9 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="addGwMetadata")
     def add_gw_metadata(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The AddGWMetaData value.
+        """
         return pulumi.get(self, "add_gw_metadata")
 
     @add_gw_metadata.setter
@@ -443,6 +579,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="channelMask")
     def channel_mask(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ChannelMask value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "channel_mask")
 
     @channel_mask.setter
@@ -452,6 +593,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="devStatusReqFreq")
     def dev_status_req_freq(self) -> Optional[pulumi.Input[int]]:
+        """
+        The DevStatusReqFreq value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "dev_status_req_freq")
 
     @dev_status_req_freq.setter
@@ -461,6 +607,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="dlBucketSize")
     def dl_bucket_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The DLBucketSize value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "dl_bucket_size")
 
     @dl_bucket_size.setter
@@ -470,6 +621,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="dlRate")
     def dl_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The DLRate value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "dl_rate")
 
     @dl_rate.setter
@@ -479,6 +635,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="dlRatePolicy")
     def dl_rate_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DLRatePolicy value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "dl_rate_policy")
 
     @dl_rate_policy.setter
@@ -488,6 +649,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="drMax")
     def dr_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The DRMax value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "dr_max")
 
     @dr_max.setter
@@ -497,6 +663,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="drMin")
     def dr_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The DRMin value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "dr_min")
 
     @dr_min.setter
@@ -506,6 +677,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="hrAllowed")
     def hr_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The HRAllowed value that describes whether handover roaming is allowed.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "hr_allowed")
 
     @hr_allowed.setter
@@ -515,6 +691,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="minGwDiversity")
     def min_gw_diversity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The MinGwDiversity value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "min_gw_diversity")
 
     @min_gw_diversity.setter
@@ -524,6 +705,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="nwkGeoLoc")
     def nwk_geo_loc(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The NwkGeoLoc value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "nwk_geo_loc")
 
     @nwk_geo_loc.setter
@@ -533,6 +719,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="prAllowed")
     def pr_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The PRAllowed value that describes whether passive roaming is allowed.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "pr_allowed")
 
     @pr_allowed.setter
@@ -542,6 +733,9 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="raAllowed")
     def ra_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The RAAllowed value that describes whether roaming activation is allowed.
+        """
         return pulumi.get(self, "ra_allowed")
 
     @ra_allowed.setter
@@ -551,6 +745,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="reportDevStatusBattery")
     def report_dev_status_battery(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The ReportDevStatusBattery value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "report_dev_status_battery")
 
     @report_dev_status_battery.setter
@@ -560,6 +759,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="reportDevStatusMargin")
     def report_dev_status_margin(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The ReportDevStatusMargin value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "report_dev_status_margin")
 
     @report_dev_status_margin.setter
@@ -569,6 +773,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="targetPer")
     def target_per(self) -> Optional[pulumi.Input[int]]:
+        """
+        The TargetPer value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "target_per")
 
     @target_per.setter
@@ -578,6 +787,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="ulBucketSize")
     def ul_bucket_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The UlBucketSize value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "ul_bucket_size")
 
     @ul_bucket_size.setter
@@ -587,6 +801,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="ulRate")
     def ul_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ULRate value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "ul_rate")
 
     @ul_rate.setter
@@ -596,6 +815,11 @@ class ServiceProfileLoRaWanServiceProfileArgs:
     @property
     @pulumi.getter(name="ulRatePolicy")
     def ul_rate_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ULRatePolicy value.
+
+        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        """
         return pulumi.get(self, "ul_rate_policy")
 
     @ul_rate_policy.setter
@@ -609,6 +833,11 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
                  model: Optional[pulumi.Input[str]] = None,
                  package_version: Optional[pulumi.Input[str]] = None,
                  station: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] model: The model number of the wireless gateway.
+        :param pulumi.Input[str] package_version: The version of the wireless gateway firmware.
+        :param pulumi.Input[str] station: The basic station version of the wireless gateway.
+        """
         if model is not None:
             pulumi.set(__self__, "model", model)
         if package_version is not None:
@@ -619,6 +848,9 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
     @property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
+        """
+        The model number of the wireless gateway.
+        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -628,6 +860,9 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
     @property
     @pulumi.getter(name="packageVersion")
     def package_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the wireless gateway firmware.
+        """
         return pulumi.get(self, "package_version")
 
     @package_version.setter
@@ -637,6 +872,9 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
     @property
     @pulumi.getter
     def station(self) -> Optional[pulumi.Input[str]]:
+        """
+        The basic station version of the wireless gateway.
+        """
         return pulumi.get(self, "station")
 
     @station.setter
@@ -651,6 +889,12 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
                  sig_key_crc: Optional[pulumi.Input[int]] = None,
                  update_signature: Optional[pulumi.Input[str]] = None,
                  update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
+        """
+        :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] current_version: LoRaWANGatewayVersion object.
+        :param pulumi.Input[int] sig_key_crc: The CRC of the signature private key to check.
+        :param pulumi.Input[str] update_signature: The signature used to verify the update firmware.
+        :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] update_version: LoRaWANGatewayVersion object.
+        """
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if sig_key_crc is not None:
@@ -663,6 +907,9 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+        """
+        LoRaWANGatewayVersion object.
+        """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
@@ -672,6 +919,9 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="sigKeyCrc")
     def sig_key_crc(self) -> Optional[pulumi.Input[int]]:
+        """
+        The CRC of the signature private key to check.
+        """
         return pulumi.get(self, "sig_key_crc")
 
     @sig_key_crc.setter
@@ -681,6 +931,9 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateSignature")
     def update_signature(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signature used to verify the update firmware.
+        """
         return pulumi.get(self, "update_signature")
 
     @update_signature.setter
@@ -690,6 +943,9 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateVersion")
     def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+        """
+        LoRaWANGatewayVersion object.
+        """
         return pulumi.get(self, "update_version")
 
     @update_version.setter
@@ -702,6 +958,10 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
     def __init__(__self__, *,
                  current_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
                  update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
+        """
+        :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] current_version: LoRaWANGatewayVersion object.
+        :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] update_version: LoRaWANGatewayVersion object.
+        """
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if update_version is not None:
@@ -710,6 +970,9 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
     @property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+        """
+        LoRaWANGatewayVersion object.
+        """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
@@ -719,6 +982,9 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
     @property
     @pulumi.getter(name="updateVersion")
     def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+        """
+        LoRaWANGatewayVersion object.
+        """
         return pulumi.get(self, "update_version")
 
     @update_version.setter
@@ -732,6 +998,11 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
                  lo_ra_wan: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']] = None,
                  update_data_role: Optional[pulumi.Input[str]] = None,
                  update_data_source: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs'] lo_ra_wan: The signature used to verify the update firmware.
+        :param pulumi.Input[str] update_data_role: The IAM role used to read data from the S3 bucket.
+        :param pulumi.Input[str] update_data_source: The link to the S3 bucket.
+        """
         if lo_ra_wan is not None:
             pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if update_data_role is not None:
@@ -742,6 +1013,9 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]:
+        """
+        The signature used to verify the update firmware.
+        """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
@@ -751,6 +1025,9 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateDataRole")
     def update_data_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role used to read data from the S3 bucket.
+        """
         return pulumi.get(self, "update_data_role")
 
     @update_data_role.setter
@@ -760,6 +1037,9 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateDataSource")
     def update_data_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The link to the S3 bucket.
+        """
         return pulumi.get(self, "update_data_source")
 
     @update_data_source.setter
@@ -774,6 +1054,8 @@ class TraceContentPropertiesArgs:
                  wireless_device_frame_info: Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']] = None):
         """
         Trace content for your wireless gateway and wireless device resources
+        :param pulumi.Input['NetworkAnalyzerConfigurationLogLevel'] log_level: The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
+        :param pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo'] wireless_device_frame_info: `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
         """
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
@@ -783,6 +1065,9 @@ class TraceContentPropertiesArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']]:
+        """
+        The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -792,6 +1077,9 @@ class TraceContentPropertiesArgs:
     @property
     @pulumi.getter(name="wirelessDeviceFrameInfo")
     def wireless_device_frame_info(self) -> Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]:
+        """
+        `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
+        """
         return pulumi.get(self, "wireless_device_frame_info")
 
     @wireless_device_frame_info.setter
@@ -804,12 +1092,19 @@ class WirelessDeviceAbpV10xArgs:
     def __init__(__self__, *,
                  dev_addr: pulumi.Input[str],
                  session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs']):
+        """
+        :param pulumi.Input[str] dev_addr: The DevAddr value.
+        :param pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs'] session_keys: Session keys for ABP v1.0.x.
+        """
         pulumi.set(__self__, "dev_addr", dev_addr)
         pulumi.set(__self__, "session_keys", session_keys)
 
     @property
     @pulumi.getter(name="devAddr")
     def dev_addr(self) -> pulumi.Input[str]:
+        """
+        The DevAddr value.
+        """
         return pulumi.get(self, "dev_addr")
 
     @dev_addr.setter
@@ -819,6 +1114,9 @@ class WirelessDeviceAbpV10xArgs:
     @property
     @pulumi.getter(name="sessionKeys")
     def session_keys(self) -> pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs']:
+        """
+        Session keys for ABP v1.0.x.
+        """
         return pulumi.get(self, "session_keys")
 
     @session_keys.setter
@@ -831,12 +1129,19 @@ class WirelessDeviceAbpV11Args:
     def __init__(__self__, *,
                  dev_addr: pulumi.Input[str],
                  session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV11Args']):
+        """
+        :param pulumi.Input[str] dev_addr: The DevAddr value.
+        :param pulumi.Input['WirelessDeviceSessionKeysAbpV11Args'] session_keys: Session keys for ABP v1.1.
+        """
         pulumi.set(__self__, "dev_addr", dev_addr)
         pulumi.set(__self__, "session_keys", session_keys)
 
     @property
     @pulumi.getter(name="devAddr")
     def dev_addr(self) -> pulumi.Input[str]:
+        """
+        The DevAddr value.
+        """
         return pulumi.get(self, "dev_addr")
 
     @dev_addr.setter
@@ -846,6 +1151,9 @@ class WirelessDeviceAbpV11Args:
     @property
     @pulumi.getter(name="sessionKeys")
     def session_keys(self) -> pulumi.Input['WirelessDeviceSessionKeysAbpV11Args']:
+        """
+        Session keys for ABP v1.1.
+        """
         return pulumi.get(self, "session_keys")
 
     @session_keys.setter
@@ -863,6 +1171,15 @@ class WirelessDeviceLoRaWanDeviceArgs:
                  otaa_v10x: Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']] = None,
                  otaa_v11: Optional[pulumi.Input['WirelessDeviceOtaaV11Args']] = None,
                  service_profile_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['WirelessDeviceAbpV10xArgs'] abp_v10x: ABP device object for LoRaWAN specification v1.0.x
+        :param pulumi.Input['WirelessDeviceAbpV11Args'] abp_v11: ABP device object for create APIs for v1.1.
+        :param pulumi.Input[str] dev_eui: The DevEUI value.
+        :param pulumi.Input[str] device_profile_id: The ID of the device profile for the new wireless device.
+        :param pulumi.Input['WirelessDeviceOtaaV10xArgs'] otaa_v10x: OTAA device object for create APIs for v1.0.x
+        :param pulumi.Input['WirelessDeviceOtaaV11Args'] otaa_v11: OTAA device object for v1.1 for create APIs.
+        :param pulumi.Input[str] service_profile_id: The ID of the service profile.
+        """
         if abp_v10x is not None:
             pulumi.set(__self__, "abp_v10x", abp_v10x)
         if abp_v11 is not None:
@@ -881,6 +1198,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="abpV10x")
     def abp_v10x(self) -> Optional[pulumi.Input['WirelessDeviceAbpV10xArgs']]:
+        """
+        ABP device object for LoRaWAN specification v1.0.x
+        """
         return pulumi.get(self, "abp_v10x")
 
     @abp_v10x.setter
@@ -890,6 +1210,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="abpV11")
     def abp_v11(self) -> Optional[pulumi.Input['WirelessDeviceAbpV11Args']]:
+        """
+        ABP device object for create APIs for v1.1.
+        """
         return pulumi.get(self, "abp_v11")
 
     @abp_v11.setter
@@ -899,6 +1222,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="devEui")
     def dev_eui(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DevEUI value.
+        """
         return pulumi.get(self, "dev_eui")
 
     @dev_eui.setter
@@ -908,6 +1234,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="deviceProfileId")
     def device_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the device profile for the new wireless device.
+        """
         return pulumi.get(self, "device_profile_id")
 
     @device_profile_id.setter
@@ -917,6 +1246,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="otaaV10x")
     def otaa_v10x(self) -> Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']]:
+        """
+        OTAA device object for create APIs for v1.0.x
+        """
         return pulumi.get(self, "otaa_v10x")
 
     @otaa_v10x.setter
@@ -926,6 +1258,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="otaaV11")
     def otaa_v11(self) -> Optional[pulumi.Input['WirelessDeviceOtaaV11Args']]:
+        """
+        OTAA device object for v1.1 for create APIs.
+        """
         return pulumi.get(self, "otaa_v11")
 
     @otaa_v11.setter
@@ -935,6 +1270,9 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @property
     @pulumi.getter(name="serviceProfileId")
     def service_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the service profile.
+        """
         return pulumi.get(self, "service_profile_id")
 
     @service_profile_id.setter
@@ -947,12 +1285,19 @@ class WirelessDeviceOtaaV10xArgs:
     def __init__(__self__, *,
                  app_eui: pulumi.Input[str],
                  app_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] app_eui: The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
+        :param pulumi.Input[str] app_key: The AppKey value.
+        """
         pulumi.set(__self__, "app_eui", app_eui)
         pulumi.set(__self__, "app_key", app_key)
 
     @property
     @pulumi.getter(name="appEui")
     def app_eui(self) -> pulumi.Input[str]:
+        """
+        The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
+        """
         return pulumi.get(self, "app_eui")
 
     @app_eui.setter
@@ -962,6 +1307,9 @@ class WirelessDeviceOtaaV10xArgs:
     @property
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Input[str]:
+        """
+        The AppKey value.
+        """
         return pulumi.get(self, "app_key")
 
     @app_key.setter
@@ -975,6 +1323,11 @@ class WirelessDeviceOtaaV11Args:
                  app_key: pulumi.Input[str],
                  join_eui: pulumi.Input[str],
                  nwk_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] app_key: The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        :param pulumi.Input[str] join_eui: The JoinEUI value.
+        :param pulumi.Input[str] nwk_key: The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         pulumi.set(__self__, "app_key", app_key)
         pulumi.set(__self__, "join_eui", join_eui)
         pulumi.set(__self__, "nwk_key", nwk_key)
@@ -982,6 +1335,9 @@ class WirelessDeviceOtaaV11Args:
     @property
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Input[str]:
+        """
+        The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         return pulumi.get(self, "app_key")
 
     @app_key.setter
@@ -991,6 +1347,9 @@ class WirelessDeviceOtaaV11Args:
     @property
     @pulumi.getter(name="joinEui")
     def join_eui(self) -> pulumi.Input[str]:
+        """
+        The JoinEUI value.
+        """
         return pulumi.get(self, "join_eui")
 
     @join_eui.setter
@@ -1000,6 +1359,9 @@ class WirelessDeviceOtaaV11Args:
     @property
     @pulumi.getter(name="nwkKey")
     def nwk_key(self) -> pulumi.Input[str]:
+        """
+        The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         return pulumi.get(self, "nwk_key")
 
     @nwk_key.setter
@@ -1012,12 +1374,19 @@ class WirelessDeviceSessionKeysAbpV10xArgs:
     def __init__(__self__, *,
                  app_s_key: pulumi.Input[str],
                  nwk_s_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] app_s_key: The AppSKey value.
+        :param pulumi.Input[str] nwk_s_key: The NwkKey value.
+        """
         pulumi.set(__self__, "app_s_key", app_s_key)
         pulumi.set(__self__, "nwk_s_key", nwk_s_key)
 
     @property
     @pulumi.getter(name="appSKey")
     def app_s_key(self) -> pulumi.Input[str]:
+        """
+        The AppSKey value.
+        """
         return pulumi.get(self, "app_s_key")
 
     @app_s_key.setter
@@ -1027,6 +1396,9 @@ class WirelessDeviceSessionKeysAbpV10xArgs:
     @property
     @pulumi.getter(name="nwkSKey")
     def nwk_s_key(self) -> pulumi.Input[str]:
+        """
+        The NwkKey value.
+        """
         return pulumi.get(self, "nwk_s_key")
 
     @nwk_s_key.setter
@@ -1041,6 +1413,12 @@ class WirelessDeviceSessionKeysAbpV11Args:
                  f_nwk_s_int_key: pulumi.Input[str],
                  nwk_s_enc_key: pulumi.Input[str],
                  s_nwk_s_int_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] app_s_key: The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        :param pulumi.Input[str] f_nwk_s_int_key: The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        :param pulumi.Input[str] nwk_s_enc_key: The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        :param pulumi.Input[str] s_nwk_s_int_key: The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         pulumi.set(__self__, "app_s_key", app_s_key)
         pulumi.set(__self__, "f_nwk_s_int_key", f_nwk_s_int_key)
         pulumi.set(__self__, "nwk_s_enc_key", nwk_s_enc_key)
@@ -1049,6 +1427,9 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="appSKey")
     def app_s_key(self) -> pulumi.Input[str]:
+        """
+        The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         return pulumi.get(self, "app_s_key")
 
     @app_s_key.setter
@@ -1058,6 +1439,9 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="fNwkSIntKey")
     def f_nwk_s_int_key(self) -> pulumi.Input[str]:
+        """
+        The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         return pulumi.get(self, "f_nwk_s_int_key")
 
     @f_nwk_s_int_key.setter
@@ -1067,6 +1451,9 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="nwkSEncKey")
     def nwk_s_enc_key(self) -> pulumi.Input[str]:
+        """
+        The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         return pulumi.get(self, "nwk_s_enc_key")
 
     @nwk_s_enc_key.setter
@@ -1076,6 +1463,9 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="sNwkSIntKey")
     def s_nwk_s_int_key(self) -> pulumi.Input[str]:
+        """
+        The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        """
         return pulumi.get(self, "s_nwk_s_int_key")
 
     @s_nwk_s_int_key.setter
@@ -1088,12 +1478,19 @@ class WirelessGatewayLoRaWanGatewayArgs:
     def __init__(__self__, *,
                  gateway_eui: pulumi.Input[str],
                  rf_region: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] gateway_eui: The gateway's EUI value.
+        :param pulumi.Input[str] rf_region: The frequency band (RFRegion) value.
+        """
         pulumi.set(__self__, "gateway_eui", gateway_eui)
         pulumi.set(__self__, "rf_region", rf_region)
 
     @property
     @pulumi.getter(name="gatewayEui")
     def gateway_eui(self) -> pulumi.Input[str]:
+        """
+        The gateway's EUI value.
+        """
         return pulumi.get(self, "gateway_eui")
 
     @gateway_eui.setter
@@ -1103,6 +1500,9 @@ class WirelessGatewayLoRaWanGatewayArgs:
     @property
     @pulumi.getter(name="rfRegion")
     def rf_region(self) -> pulumi.Input[str]:
+        """
+        The frequency band (RFRegion) value.
+        """
         return pulumi.get(self, "rf_region")
 
     @rf_region.setter

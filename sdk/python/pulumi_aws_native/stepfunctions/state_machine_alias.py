@@ -23,8 +23,14 @@ class StateMachineAliasArgs:
                  routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None):
         """
         The set of arguments for constructing a StateMachineAlias resource.
+        :param pulumi.Input['StateMachineAliasDeploymentPreferenceArgs'] deployment_preference: Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
         :param pulumi.Input[str] description: An optional description of the alias.
         :param pulumi.Input[str] name: The alias name.
+        :param pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]] routing_configuration: The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+               
+               Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+               
+               > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
         """
         if deployment_preference is not None:
             pulumi.set(__self__, "deployment_preference", deployment_preference)
@@ -38,6 +44,9 @@ class StateMachineAliasArgs:
     @property
     @pulumi.getter(name="deploymentPreference")
     def deployment_preference(self) -> Optional[pulumi.Input['StateMachineAliasDeploymentPreferenceArgs']]:
+        """
+        Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
+        """
         return pulumi.get(self, "deployment_preference")
 
     @deployment_preference.setter
@@ -71,6 +80,13 @@ class StateMachineAliasArgs:
     @property
     @pulumi.getter(name="routingConfiguration")
     def routing_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]]:
+        """
+        The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+
+        Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+
+        > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+        """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
@@ -93,8 +109,14 @@ class StateMachineAlias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['StateMachineAliasDeploymentPreferenceArgs']] deployment_preference: Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
         :param pulumi.Input[str] description: An optional description of the alias.
         :param pulumi.Input[str] name: The alias name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineAliasRoutingConfigurationVersionArgs']]]] routing_configuration: The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+               
+               Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+               
+               > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
         """
         ...
     @overload
@@ -180,6 +202,9 @@ class StateMachineAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentPreference")
     def deployment_preference(self) -> pulumi.Output[Optional['outputs.StateMachineAliasDeploymentPreference']]:
+        """
+        Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
+        """
         return pulumi.get(self, "deployment_preference")
 
     @property
@@ -201,5 +226,12 @@ class StateMachineAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routingConfiguration")
     def routing_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.StateMachineAliasRoutingConfigurationVersion']]]:
+        """
+        The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+
+        Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+
+        > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+        """
         return pulumi.get(self, "routing_configuration")
 

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the package.
+        /// </summary>
         [Output("packageArn")]
         public Output<string> PackageArn { get; private set; } = null!;
 

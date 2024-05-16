@@ -21,6 +21,9 @@ class KeyValueStoreArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KeyValueStore resource.
+        :param pulumi.Input[str] comment: A comment for the key value store.
+        :param pulumi.Input['KeyValueStoreImportSourceArgs'] import_source: The import source for the key value store.
+        :param pulumi.Input[str] name: The name of the key value store.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -32,6 +35,9 @@ class KeyValueStoreArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment for the key value store.
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -41,6 +47,9 @@ class KeyValueStoreArgs:
     @property
     @pulumi.getter(name="importSource")
     def import_source(self) -> Optional[pulumi.Input['KeyValueStoreImportSourceArgs']]:
+        """
+        The import source for the key value store.
+        """
         return pulumi.get(self, "import_source")
 
     @import_source.setter
@@ -50,6 +59,9 @@ class KeyValueStoreArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key value store.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,6 +83,9 @@ class KeyValueStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] comment: A comment for the key value store.
+        :param pulumi.Input[pulumi.InputType['KeyValueStoreImportSourceArgs']] import_source: The import source for the key value store.
+        :param pulumi.Input[str] name: The name of the key value store.
         """
         ...
     @overload
@@ -149,26 +164,41 @@ class KeyValueStore(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the key value store.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique Id for the key value store.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
+        """
+        A comment for the key value store.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="importSource")
     def import_source(self) -> pulumi.Output[Optional['outputs.KeyValueStoreImportSource']]:
+        """
+        The import source for the key value store.
+        """
         return pulumi.get(self, "import_source")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the key value store.
+        """
         return pulumi.get(self, "name")
 
     @property

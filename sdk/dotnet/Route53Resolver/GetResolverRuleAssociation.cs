@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class GetResolverRuleAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+        /// </summary>
         [Input("resolverRuleAssociationId", required: true)]
         public string ResolverRuleAssociationId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class GetResolverRuleAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+        /// </summary>
         [Input("resolverRuleAssociationId", required: true)]
         public Input<string> ResolverRuleAssociationId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Route53Resolver
     [OutputType]
     public sealed class GetResolverRuleAssociationResult
     {
+        /// <summary>
+        /// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+        /// </summary>
         public readonly string? ResolverRuleAssociationId;
 
         [OutputConstructor]

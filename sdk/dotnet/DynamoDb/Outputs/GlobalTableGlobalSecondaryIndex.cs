@@ -13,10 +13,29 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTableGlobalSecondaryIndex
     {
+        /// <summary>
+        /// The name of the global secondary index. The name must be unique among all other indexes on this table.
+        /// </summary>
         public readonly string IndexName;
+        /// <summary>
+        /// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+        /// 
+        /// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+        /// 
+        /// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableKeySchema> KeySchema;
+        /// <summary>
+        /// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        /// </summary>
         public readonly Outputs.GlobalTableProjection Projection;
+        /// <summary>
+        /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// </summary>
         public readonly Outputs.GlobalTableWriteOnDemandThroughputSettings? WriteOnDemandThroughputSettings;
+        /// <summary>
+        /// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        /// </summary>
         public readonly Outputs.GlobalTableWriteProvisionedThroughputSettings? WriteProvisionedThroughputSettings;
 
         [OutputConstructor]

@@ -27,6 +27,14 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Listener resource.
+        :param pulumi.Input['ListenerDefaultActionArgs'] default_action: The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+        :param pulumi.Input['ListenerProtocol'] protocol: The listener protocol.
+        :param pulumi.Input[str] name: The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[int] port: The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the listener.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "protocol", protocol)
@@ -42,6 +50,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Input['ListenerDefaultActionArgs']:
+        """
+        The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+        """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
@@ -51,6 +62,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['ListenerProtocol']:
+        """
+        The listener protocol.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -60,6 +74,11 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -69,6 +88,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -78,6 +100,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @service_identifier.setter
@@ -87,6 +112,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the listener.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,6 +139,14 @@ class Listener(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']] default_action: The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+        :param pulumi.Input[str] name: The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[int] port: The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+        :param pulumi.Input['ListenerProtocol'] protocol: The listener protocol.
+        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the listener.
         """
         ...
     @overload
@@ -204,50 +240,82 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the listener.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output['outputs.ListenerDefaultAction']:
+        """
+        The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+        """
         return pulumi.get(self, "default_action")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output['ListenerProtocol']:
+        """
+        The listener protocol.
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_arn")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service.
+        """
         return pulumi.get(self, "service_id")
 
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the listener.
+        """
         return pulumi.get(self, "tags")
 

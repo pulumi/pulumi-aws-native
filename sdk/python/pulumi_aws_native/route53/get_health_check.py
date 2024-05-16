@@ -42,6 +42,9 @@ class GetHealthCheckResult:
     @property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> Optional[str]:
+        """
+        The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+        """
         return pulumi.get(self, "health_check_id")
 
     @property
@@ -68,6 +71,9 @@ def get_health_check(health_check_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHealthCheckResult:
     """
     Resource schema for AWS::Route53::HealthCheck.
+
+
+    :param str health_check_id: The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
     """
     __args__ = dict()
     __args__['healthCheckId'] = health_check_id
@@ -85,5 +91,8 @@ def get_health_check_output(health_check_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHealthCheckResult]:
     """
     Resource schema for AWS::Route53::HealthCheck.
+
+
+    :param str health_check_id: The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
     """
     ...

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class SpaceSharingSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the sharing type of the space.
+        /// </summary>
         [Input("sharingType", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.SpaceSharingSettingsSharingType> SharingType { get; set; } = null!;
 

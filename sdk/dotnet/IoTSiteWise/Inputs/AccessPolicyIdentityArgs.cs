@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// </summary>
     public sealed class AccessPolicyIdentityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+        /// </summary>
         [Input("iamRole")]
         public Input<Inputs.AccessPolicyIamRoleArgs>? IamRole { get; set; }
 
+        /// <summary>
+        /// Contains information about an AWS Identity and Access Management user.
+        /// </summary>
         [Input("iamUser")]
         public Input<Inputs.AccessPolicyIamUserArgs>? IamUser { get; set; }
 
+        /// <summary>
+        /// Contains information for a user identity in an access policy.
+        /// </summary>
         [Input("user")]
         public Input<Inputs.AccessPolicyUserArgs>? User { get; set; }
 

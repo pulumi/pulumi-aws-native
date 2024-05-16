@@ -62,61 +62,97 @@ class GetServiceNetworkServiceAssociationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the association between the service network and the service.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The date and time that the association was created, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional['outputs.ServiceNetworkServiceAssociationDnsEntry']:
+        """
+        The DNS information.
+        """
         return pulumi.get(self, "dns_entry")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the of the association between the service network and the service.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_arn")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[str]:
+        """
+        The ID of the service.
+        """
         return pulumi.get(self, "service_id")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[str]:
+        """
+        The name of the service.
+        """
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the service network
+        """
         return pulumi.get(self, "service_network_arn")
 
     @property
     @pulumi.getter(name="serviceNetworkId")
     def service_network_id(self) -> Optional[str]:
+        """
+        The ID of the service network.
+        """
         return pulumi.get(self, "service_network_id")
 
     @property
     @pulumi.getter(name="serviceNetworkName")
     def service_network_name(self) -> Optional[str]:
+        """
+        The name of the service network.
+        """
         return pulumi.get(self, "service_network_name")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['ServiceNetworkServiceAssociationStatus']:
+        """
+        The status of the association between the service network and the service.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the association.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -144,6 +180,9 @@ def get_service_network_service_association(arn: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkServiceAssociationResult:
     """
     Associates a service with a service network.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the association between the service network and the service.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -170,5 +209,8 @@ def get_service_network_service_association_output(arn: Optional[pulumi.Input[st
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkServiceAssociationResult]:
     """
     Associates a service with a service network.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the association between the service network and the service.
     """
     ...

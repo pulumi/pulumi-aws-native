@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The regular expression patterns in the set.
+        /// </summary>
         [Output("regularExpressionList")]
         public Output<ImmutableArray<string>> RegularExpressionList { get; private set; } = null!;
 
@@ -48,6 +51,11 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("scope")]
         public Output<Pulumi.AwsNative.WaFv2.RegexPatternSetScope> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+        /// 
+        /// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -115,6 +123,10 @@ namespace Pulumi.AwsNative.WaFv2
 
         [Input("regularExpressionList", required: true)]
         private InputList<string>? _regularExpressionList;
+
+        /// <summary>
+        /// The regular expression patterns in the set.
+        /// </summary>
         public InputList<string> RegularExpressionList
         {
             get => _regularExpressionList ?? (_regularExpressionList = new InputList<string>());
@@ -129,6 +141,12 @@ namespace Pulumi.AwsNative.WaFv2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+        /// 
+        /// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

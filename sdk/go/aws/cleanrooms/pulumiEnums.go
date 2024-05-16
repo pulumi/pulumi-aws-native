@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of parameter.
 type AnalysisTemplateAnalysisParameterType string
 
 const (
@@ -201,6 +202,7 @@ func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisPa
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateAnalysisParameterTypePtrOutput)
 }
 
+// The format of the analysis template.
 type AnalysisTemplateFormat string
 
 const (
@@ -2360,6 +2362,9 @@ func (in *membershipResultFormatPtr) ToMembershipResultFormatPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(MembershipResultFormatPtrOutput)
 }
 
+// How often the privacy budget refreshes.
+//
+// > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
 type PrivacyBudgetTemplateAutoRefresh string
 
 const (
@@ -2525,6 +2530,7 @@ func (in *privacyBudgetTemplateAutoRefreshPtr) ToPrivacyBudgetTemplateAutoRefres
 	return pulumi.ToOutputWithContext(ctx, in).(PrivacyBudgetTemplateAutoRefreshPtrOutput)
 }
 
+// Specifies the type of the privacy budget template.
 type PrivacyBudgetTemplatePrivacyBudgetType string
 
 const (

@@ -8,6 +8,17 @@ export const ClusterEncryptionInTransitClientBroker = {
     Plaintext: "PLAINTEXT",
 } as const;
 
+/**
+ * Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+ *
+ * `TLS` means that client-broker communication is enabled with TLS only.
+ *
+ * `TLS_PLAINTEXT` means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+ *
+ * `PLAINTEXT` means that client-broker communication is enabled in plaintext only.
+ *
+ * The default value is `TLS` .
+ */
 export type ClusterEncryptionInTransitClientBroker = (typeof ClusterEncryptionInTransitClientBroker)[keyof typeof ClusterEncryptionInTransitClientBroker];
 
 export const ClusterEnhancedMonitoring = {
@@ -17,6 +28,9 @@ export const ClusterEnhancedMonitoring = {
     PerTopicPerPartition: "PER_TOPIC_PER_PARTITION",
 } as const;
 
+/**
+ * Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+ */
 export type ClusterEnhancedMonitoring = (typeof ClusterEnhancedMonitoring)[keyof typeof ClusterEnhancedMonitoring];
 
 export const ClusterStorageMode = {
@@ -24,6 +38,9 @@ export const ClusterStorageMode = {
     Tiered: "TIERED",
 } as const;
 
+/**
+ * This controls storage mode for supported storage tiers.
+ */
 export type ClusterStorageMode = (typeof ClusterStorageMode)[keyof typeof ClusterStorageMode];
 
 export const ReplicatorReplicationInfoTargetCompressionType = {

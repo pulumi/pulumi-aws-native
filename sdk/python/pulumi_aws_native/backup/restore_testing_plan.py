@@ -27,6 +27,24 @@ class RestoreTestingPlanArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
+        :param pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs'] recovery_point_selection: `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+               
+               `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+               
+               `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+               
+               `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+               
+               `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+               
+               `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed.
+        :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
+               
+               A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the restore testing plan.
         """
         pulumi.set(__self__, "recovery_point_selection", recovery_point_selection)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -42,6 +60,19 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs']:
+        """
+        `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+
+        `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+
+        `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+
+        `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+
+        `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+
+        `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        """
         return pulumi.get(self, "recovery_point_selection")
 
     @recovery_point_selection.setter
@@ -51,6 +82,9 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[str]:
+        """
+        A CRON expression in specified timezone when a restore testing plan is executed.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -60,6 +94,9 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter(name="restoreTestingPlanName")
     def restore_testing_plan_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        """
         return pulumi.get(self, "restore_testing_plan_name")
 
     @restore_testing_plan_name.setter
@@ -69,6 +106,9 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
@@ -78,6 +118,11 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defaults to 24 hours.
+
+        A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        """
         return pulumi.get(self, "start_window_hours")
 
     @start_window_hours.setter
@@ -87,6 +132,9 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to assign to the restore testing plan.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,6 +159,24 @@ class RestoreTestingPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs']] recovery_point_selection: `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+               
+               `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+               
+               `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+               
+               `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+               
+               `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+               
+               `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed.
+        :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
+               
+               A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the restore testing plan.
         """
         ...
     @overload
@@ -198,35 +264,68 @@ class RestoreTestingPlan(pulumi.CustomResource):
     @property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> pulumi.Output['outputs.RestoreTestingPlanRestoreTestingRecoveryPointSelection']:
+        """
+        `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+
+        `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+
+        `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+
+        `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+
+        `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+
+        `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        """
         return pulumi.get(self, "recovery_point_selection")
 
     @property
     @pulumi.getter(name="restoreTestingPlanArn")
     def restore_testing_plan_arn(self) -> pulumi.Output[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+        """
         return pulumi.get(self, "restore_testing_plan_arn")
 
     @property
     @pulumi.getter(name="restoreTestingPlanName")
     def restore_testing_plan_name(self) -> pulumi.Output[str]:
+        """
+        The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        """
         return pulumi.get(self, "restore_testing_plan_name")
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[str]:
+        """
+        A CRON expression in specified timezone when a restore testing plan is executed.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> pulumi.Output[Optional[int]]:
+        """
+        Defaults to 24 hours.
+
+        A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        """
         return pulumi.get(self, "start_window_hours")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to assign to the restore testing plan.
+        """
         return pulumi.get(self, "tags")
 

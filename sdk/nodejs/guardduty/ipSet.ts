@@ -37,12 +37,34 @@ export class IpSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpSet.__pulumiType;
     }
 
+    /**
+     * Indicates whether or not GuardDuty uses the `IPSet` .
+     */
     public readonly activate!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+     */
     public readonly detectorId!: pulumi.Output<string | undefined>;
+    /**
+     * The format of the file that contains the IPSet.
+     */
     public readonly format!: pulumi.Output<string>;
+    /**
+     * The URI of the file that contains the IPSet.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The user-friendly name to identify the IPSet.
+     *
+     * Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -89,10 +111,32 @@ export class IpSet extends pulumi.CustomResource {
  * The set of arguments for constructing a IpSet resource.
  */
 export interface IpSetArgs {
+    /**
+     * Indicates whether or not GuardDuty uses the `IPSet` .
+     */
     activate?: pulumi.Input<boolean>;
+    /**
+     * The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+     */
     detectorId?: pulumi.Input<string>;
+    /**
+     * The format of the file that contains the IPSet.
+     */
     format: pulumi.Input<string>;
+    /**
+     * The URI of the file that contains the IPSet.
+     */
     location: pulumi.Input<string>;
+    /**
+     * The user-friendly name to identify the IPSet.
+     *
+     * Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

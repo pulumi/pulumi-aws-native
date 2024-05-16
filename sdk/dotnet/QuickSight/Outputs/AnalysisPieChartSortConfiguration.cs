@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPieChartSortConfiguration
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> CategorySort;
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? SmallMultiplesLimitConfiguration;
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> SmallMultiplesSort;
 
         [OutputConstructor]

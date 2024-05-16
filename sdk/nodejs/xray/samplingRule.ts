@@ -37,11 +37,20 @@ export class SamplingRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SamplingRule.__pulumiType;
     }
 
+    /**
+     * The sampling rule ARN that was created or updated.
+     */
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
     public readonly ruleName!: pulumi.Output<string | undefined>;
+    /**
+     * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+     */
     public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRule | undefined>;
     public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
     public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleUpdate | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -70,8 +79,6 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["samplingRule.version", "samplingRuleRecord.samplingRule.version"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SamplingRule.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -81,8 +88,14 @@ export class SamplingRule extends pulumi.CustomResource {
  */
 export interface SamplingRuleArgs {
     ruleName?: pulumi.Input<string>;
+    /**
+     * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+     */
     samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
     samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleRecordArgs>;
     samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleUpdateArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

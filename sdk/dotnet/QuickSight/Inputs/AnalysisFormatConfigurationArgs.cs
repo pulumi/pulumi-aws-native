@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         [Input("dateTimeFormatConfiguration")]
         public Input<Inputs.AnalysisDateTimeFormatConfigurationArgs>? DateTimeFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         [Input("numberFormatConfiguration")]
         public Input<Inputs.AnalysisNumberFormatConfigurationArgs>? NumberFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Formatting configuration for string fields.
+        /// </summary>
         [Input("stringFormatConfiguration")]
         public Input<Inputs.AnalysisStringFormatConfigurationArgs>? StringFormatConfiguration { get; set; }
 

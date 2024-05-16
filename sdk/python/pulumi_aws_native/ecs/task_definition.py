@@ -1143,6 +1143,9 @@ class TaskDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="taskDefinitionArn")
     def task_definition_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the task definition.
+        """
         return pulumi.get(self, "task_definition_arn")
 
     @property

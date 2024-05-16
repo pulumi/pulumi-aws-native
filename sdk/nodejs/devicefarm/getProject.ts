@@ -19,14 +19,32 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetProjectArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetProjectResult {
+    /**
+     * The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+     */
     readonly defaultJobTimeoutMinutes?: number;
+    /**
+     * The project's name.
+     */
     readonly name?: string;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The VPC security groups and subnets that are attached to a project.
+     */
     readonly vpcConfig?: outputs.devicefarm.ProjectVpcConfig;
 }
 /**
@@ -37,5 +55,8 @@ export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetProjectOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

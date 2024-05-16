@@ -15,24 +15,69 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:RouteCalculator")]
     public partial class RouteCalculator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        /// </summary>
         [Output("calculatorArn")]
         public Output<string> CalculatorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the route calculator resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique Route calculator resource name.
+        /// - No spaces allowed. For example, `ExampleRouteCalculator` .
+        /// </summary>
         [Output("calculatorName")]
         public Output<string> CalculatorName { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the data provider of traffic and road network data.
+        /// 
+        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on street networks and traffic coverage](https://docs.aws.amazon.com/https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm) .
+        /// 
+        /// Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.
+        /// - `Grab` – Grab provides routing functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+        /// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
+        /// 
+        /// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The optional description for the route calculator resource.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.RouteCalculatorPricingPlan?> PricingPlan { get; private set; } = null!;
 
@@ -42,6 +87,9 @@ namespace Pulumi.AwsNative.Location
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -95,15 +143,47 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class RouteCalculatorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the route calculator resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique Route calculator resource name.
+        /// - No spaces allowed. For example, `ExampleRouteCalculator` .
+        /// </summary>
         [Input("calculatorName")]
         public Input<string>? CalculatorName { get; set; }
 
+        /// <summary>
+        /// Specifies the data provider of traffic and road network data.
+        /// 
+        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on street networks and traffic coverage](https://docs.aws.amazon.com/https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm) .
+        /// 
+        /// Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.
+        /// - `Grab` – Grab provides routing functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+        /// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
+        /// 
+        /// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
+        /// <summary>
+        /// The optional description for the route calculator resource.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.RouteCalculatorPricingPlan>? PricingPlan { get; set; }
 

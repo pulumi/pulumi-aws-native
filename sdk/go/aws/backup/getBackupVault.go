@@ -23,16 +23,23 @@ func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ..
 }
 
 type LookupBackupVaultArgs struct {
+	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
 	BackupVaultName string `pulumi:"backupVaultName"`
 }
 
 type LookupBackupVaultResult struct {
+	// A resource-based policy that is used to manage access permissions on the target backup vault.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
-	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
-	BackupVaultArn    *string                            `pulumi:"backupVaultArn"`
-	BackupVaultTags   map[string]string                  `pulumi:"backupVaultTags"`
-	LockConfiguration *BackupVaultLockConfigurationType  `pulumi:"lockConfiguration"`
-	Notifications     *BackupVaultNotificationObjectType `pulumi:"notifications"`
+	AccessPolicy interface{} `pulumi:"accessPolicy"`
+	// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+	BackupVaultArn *string `pulumi:"backupVaultArn"`
+	// The tags to assign to the backup vault.
+	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
+	// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+	LockConfiguration *BackupVaultLockConfigurationType `pulumi:"lockConfiguration"`
+	// Specifies an object containing SNS event notification properties for the target backup vault.
+	Notifications *BackupVaultNotificationObjectType `pulumi:"notifications"`
 }
 
 func LookupBackupVaultOutput(ctx *pulumi.Context, args LookupBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupBackupVaultResultOutput {
@@ -49,6 +56,7 @@ func LookupBackupVaultOutput(ctx *pulumi.Context, args LookupBackupVaultOutputAr
 }
 
 type LookupBackupVaultOutputArgs struct {
+	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
 	BackupVaultName pulumi.StringInput `pulumi:"backupVaultName"`
 }
 
@@ -70,23 +78,29 @@ func (o LookupBackupVaultResultOutput) ToLookupBackupVaultResultOutputWithContex
 	return o
 }
 
+// A resource-based policy that is used to manage access permissions on the target backup vault.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 func (o LookupBackupVaultResultOutput) AccessPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) interface{} { return v.AccessPolicy }).(pulumi.AnyOutput)
 }
 
+// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
 func (o LookupBackupVaultResultOutput) BackupVaultArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) *string { return v.BackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags to assign to the backup vault.
 func (o LookupBackupVaultResultOutput) BackupVaultTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) map[string]string { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
+// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 func (o LookupBackupVaultResultOutput) LockConfiguration() BackupVaultLockConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) *BackupVaultLockConfigurationType { return v.LockConfiguration }).(BackupVaultLockConfigurationTypePtrOutput)
 }
 
+// Specifies an object containing SNS event notification properties for the target backup vault.
 func (o LookupBackupVaultResultOutput) Notifications() BackupVaultNotificationObjectTypePtrOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) *BackupVaultNotificationObjectType { return v.Notifications }).(BackupVaultNotificationObjectTypePtrOutput)
 }

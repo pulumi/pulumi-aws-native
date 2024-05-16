@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class DomainRuleBasedMatchingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures information about the `AttributeTypesSelector` which rule-based identity resolution uses to match profiles.
+        /// </summary>
         [Input("attributeTypesSelector")]
         public Input<Inputs.DomainAttributeTypesSelectorArgs>? AttributeTypesSelector { get; set; }
 
+        /// <summary>
+        /// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+        /// </summary>
         [Input("conflictResolution")]
         public Input<Inputs.DomainConflictResolutionArgs>? ConflictResolution { get; set; }
 
@@ -27,6 +33,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        /// </summary>
         [Input("exportingConfig")]
         public Input<Inputs.DomainExportingConfigArgs>? ExportingConfig { get; set; }
 
@@ -54,6 +63,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         [Input("maxAllowedRuleLevelForMerging")]
         public Input<int>? MaxAllowedRuleLevelForMerging { get; set; }
 
+        /// <summary>
+        /// The status of rule-based matching rule.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.CustomerProfiles.DomainRuleBasedMatchingStatus>? Status { get; set; }
 

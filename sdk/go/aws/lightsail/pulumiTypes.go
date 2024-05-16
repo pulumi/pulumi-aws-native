@@ -325,7 +325,9 @@ func (o ContainerTypeArrayOutput) Index(i pulumi.IntInput) ContainerTypeOutput {
 }
 
 type ContainerEnvironmentVariable struct {
-	Value    *string `pulumi:"value"`
+	// The environment variable value.
+	Value *string `pulumi:"value"`
+	// The environment variable key.
 	Variable *string `pulumi:"variable"`
 }
 
@@ -341,7 +343,9 @@ type ContainerEnvironmentVariableInput interface {
 }
 
 type ContainerEnvironmentVariableArgs struct {
-	Value    pulumi.StringPtrInput `pulumi:"value"`
+	// The environment variable value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The environment variable key.
 	Variable pulumi.StringPtrInput `pulumi:"variable"`
 }
 
@@ -396,10 +400,12 @@ func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutput
 	return o
 }
 
+// The environment variable value.
 func (o ContainerEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+// The environment variable key.
 func (o ContainerEnvironmentVariableOutput) Variable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Variable }).(pulumi.StringPtrOutput)
 }
@@ -660,7 +666,11 @@ func (o ContainerHealthCheckConfigPtrOutput) UnhealthyThreshold() pulumi.IntPtrO
 }
 
 type ContainerPortInfo struct {
-	Port     *string `pulumi:"port"`
+	// The open firewall ports of the container.
+	Port *string `pulumi:"port"`
+	// The protocol name for the open ports.
+	//
+	// *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -676,7 +686,11 @@ type ContainerPortInfoInput interface {
 }
 
 type ContainerPortInfoArgs struct {
-	Port     pulumi.StringPtrInput `pulumi:"port"`
+	// The open firewall ports of the container.
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// The protocol name for the open ports.
+	//
+	// *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -731,10 +745,14 @@ func (o ContainerPortInfoOutput) ToContainerPortInfoOutputWithContext(ctx contex
 	return o
 }
 
+// The open firewall ports of the container.
 func (o ContainerPortInfoOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPortInfo) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
+// The protocol name for the open ports.
+//
+// *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
 func (o ContainerPortInfoOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPortInfo) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -1062,6 +1080,7 @@ func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) Pri
 
 // The public domain name to use with the container service, such as example.com and www.example.com.
 type ContainerPublicDomainName struct {
+	// The name of the certificate for the public domains.
 	CertificateName *string `pulumi:"certificateName"`
 	// An object that describes the configuration for the containers of the deployment.
 	DomainNames []string `pulumi:"domainNames"`
@@ -1080,6 +1099,7 @@ type ContainerPublicDomainNameInput interface {
 
 // The public domain name to use with the container service, such as example.com and www.example.com.
 type ContainerPublicDomainNameArgs struct {
+	// The name of the certificate for the public domains.
 	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
 	// An object that describes the configuration for the containers of the deployment.
 	DomainNames pulumi.StringArrayInput `pulumi:"domainNames"`
@@ -1137,6 +1157,7 @@ func (o ContainerPublicDomainNameOutput) ToContainerPublicDomainNameOutputWithCo
 	return o
 }
 
+// The name of the certificate for the public domains.
 func (o ContainerPublicDomainNameOutput) CertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPublicDomainName) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
 }
@@ -1685,7 +1706,8 @@ type DatabaseTag struct {
 // A addon associate with a resource.
 type DiskAddOn struct {
 	// The add-on type
-	AddOnType                string                 `pulumi:"addOnType"`
+	AddOnType string `pulumi:"addOnType"`
+	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
 	AutoSnapshotAddOnRequest *DiskAutoSnapshotAddOn `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status *DiskAddOnStatus `pulumi:"status"`
@@ -1705,7 +1727,8 @@ type DiskAddOnInput interface {
 // A addon associate with a resource.
 type DiskAddOnArgs struct {
 	// The add-on type
-	AddOnType                pulumi.StringInput            `pulumi:"addOnType"`
+	AddOnType pulumi.StringInput `pulumi:"addOnType"`
+	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
 	AutoSnapshotAddOnRequest DiskAutoSnapshotAddOnPtrInput `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status DiskAddOnStatusPtrInput `pulumi:"status"`
@@ -1768,6 +1791,7 @@ func (o DiskAddOnOutput) AddOnType() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskAddOn) string { return v.AddOnType }).(pulumi.StringOutput)
 }
 
+// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
 func (o DiskAddOnOutput) AutoSnapshotAddOnRequest() DiskAutoSnapshotAddOnPtrOutput {
 	return o.ApplyT(func(v DiskAddOn) *DiskAutoSnapshotAddOn { return v.AutoSnapshotAddOnRequest }).(DiskAutoSnapshotAddOnPtrOutput)
 }
@@ -2107,7 +2131,8 @@ type DiskTag struct {
 // A addon associate with a resource.
 type InstanceAddOn struct {
 	// The add-on type
-	AddOnType                string                     `pulumi:"addOnType"`
+	AddOnType string `pulumi:"addOnType"`
+	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
 	AutoSnapshotAddOnRequest *InstanceAutoSnapshotAddOn `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status *InstanceAddOnStatus `pulumi:"status"`
@@ -2127,7 +2152,8 @@ type InstanceAddOnInput interface {
 // A addon associate with a resource.
 type InstanceAddOnArgs struct {
 	// The add-on type
-	AddOnType                pulumi.StringInput                `pulumi:"addOnType"`
+	AddOnType pulumi.StringInput `pulumi:"addOnType"`
+	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
 	AutoSnapshotAddOnRequest InstanceAutoSnapshotAddOnPtrInput `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status InstanceAddOnStatusPtrInput `pulumi:"status"`
@@ -2190,6 +2216,7 @@ func (o InstanceAddOnOutput) AddOnType() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.AddOnType }).(pulumi.StringOutput)
 }
 
+// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
 func (o InstanceAddOnOutput) AutoSnapshotAddOnRequest() InstanceAutoSnapshotAddOnPtrOutput {
 	return o.ApplyT(func(v InstanceAddOn) *InstanceAutoSnapshotAddOn { return v.AutoSnapshotAddOnRequest }).(InstanceAutoSnapshotAddOnPtrOutput)
 }
@@ -2992,6 +3019,7 @@ func (o InstanceMonthlyTransferPtrOutput) GbPerMonthAllocated() pulumi.StringPtr
 
 // Networking of the Instance.
 type InstanceNetworking struct {
+	// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
 	MonthlyTransfer *InstanceMonthlyTransfer `pulumi:"monthlyTransfer"`
 	// Ports to the Instance.
 	Ports []InstancePort `pulumi:"ports"`
@@ -3010,6 +3038,7 @@ type InstanceNetworkingInput interface {
 
 // Networking of the Instance.
 type InstanceNetworkingArgs struct {
+	// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
 	MonthlyTransfer InstanceMonthlyTransferPtrInput `pulumi:"monthlyTransfer"`
 	// Ports to the Instance.
 	Ports InstancePortArrayInput `pulumi:"ports"`
@@ -3093,6 +3122,7 @@ func (o InstanceNetworkingOutput) ToInstanceNetworkingPtrOutputWithContext(ctx c
 	}).(InstanceNetworkingPtrOutput)
 }
 
+// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
 func (o InstanceNetworkingOutput) MonthlyTransfer() InstanceMonthlyTransferPtrOutput {
 	return o.ApplyT(func(v InstanceNetworking) *InstanceMonthlyTransfer { return v.MonthlyTransfer }).(InstanceMonthlyTransferPtrOutput)
 }
@@ -3126,6 +3156,7 @@ func (o InstanceNetworkingPtrOutput) Elem() InstanceNetworkingOutput {
 	}).(InstanceNetworkingOutput)
 }
 
+// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
 func (o InstanceNetworkingPtrOutput) MonthlyTransfer() InstanceMonthlyTransferPtrOutput {
 	return o.ApplyT(func(v *InstanceNetworking) *InstanceMonthlyTransfer {
 		if v == nil {
@@ -3152,13 +3183,27 @@ type InstancePort struct {
 	// Access From Protocol of the Instance.
 	AccessFrom *string `pulumi:"accessFrom"`
 	// Access Type Protocol of the Instance.
-	AccessType      *string  `pulumi:"accessType"`
+	AccessType *string `pulumi:"accessType"`
+	// An alias that defines access for a preconfigured range of IP addresses.
+	//
+	// The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
 	CidrListAliases []string `pulumi:"cidrListAliases"`
-	Cidrs           []string `pulumi:"cidrs"`
+	// The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+	//
+	// > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
+	//
+	// Examples:
+	//
+	// - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+	// - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
+	Cidrs []string `pulumi:"cidrs"`
 	// CommonName for Protocol of the Instance.
 	CommonName *string `pulumi:"commonName"`
 	// From Port of the Instance.
-	FromPort  *int     `pulumi:"fromPort"`
+	FromPort *int `pulumi:"fromPort"`
+	// The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+	//
+	// > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
 	Ipv6Cidrs []string `pulumi:"ipv6Cidrs"`
 	// Port Protocol of the Instance.
 	Protocol *string `pulumi:"protocol"`
@@ -3184,13 +3229,27 @@ type InstancePortArgs struct {
 	// Access From Protocol of the Instance.
 	AccessFrom pulumi.StringPtrInput `pulumi:"accessFrom"`
 	// Access Type Protocol of the Instance.
-	AccessType      pulumi.StringPtrInput   `pulumi:"accessType"`
+	AccessType pulumi.StringPtrInput `pulumi:"accessType"`
+	// An alias that defines access for a preconfigured range of IP addresses.
+	//
+	// The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
 	CidrListAliases pulumi.StringArrayInput `pulumi:"cidrListAliases"`
-	Cidrs           pulumi.StringArrayInput `pulumi:"cidrs"`
+	// The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+	//
+	// > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
+	//
+	// Examples:
+	//
+	// - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+	// - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
+	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
 	// CommonName for Protocol of the Instance.
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
 	// From Port of the Instance.
-	FromPort  pulumi.IntPtrInput      `pulumi:"fromPort"`
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+	//
+	// > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
 	Ipv6Cidrs pulumi.StringArrayInput `pulumi:"ipv6Cidrs"`
 	// Port Protocol of the Instance.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -3265,10 +3324,21 @@ func (o InstancePortOutput) AccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstancePort) *string { return v.AccessType }).(pulumi.StringPtrOutput)
 }
 
+// An alias that defines access for a preconfigured range of IP addresses.
+//
+// The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
 func (o InstancePortOutput) CidrListAliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePort) []string { return v.CidrListAliases }).(pulumi.StringArrayOutput)
 }
 
+// The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+//
+// > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
+//
+// Examples:
+//
+// - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+// - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
 func (o InstancePortOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePort) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
@@ -3283,6 +3353,9 @@ func (o InstancePortOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstancePort) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
+// The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+//
+// > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
 func (o InstancePortOutput) Ipv6Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePort) []string { return v.Ipv6Cidrs }).(pulumi.StringArrayOutput)
 }

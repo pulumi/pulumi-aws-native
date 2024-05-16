@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AssistantAssociationAssociationData
     {
+        /// <summary>
+        /// The identifier of the knowledge base.
+        /// </summary>
         public readonly string KnowledgeBaseId;
 
         [OutputConstructor]

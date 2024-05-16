@@ -26,6 +26,9 @@ export interface GetModelCardArgs {
 }
 
 export interface GetModelCardResult {
+    /**
+     * The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+     */
     readonly content?: outputs.sagemaker.ModelCardContent;
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.

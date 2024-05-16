@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
     [OutputType]
     public sealed class LicenseIssuerData
     {
+        /// <summary>
+        /// Issuer name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        /// </summary>
         public readonly string? SignKey;
 
         [OutputConstructor]

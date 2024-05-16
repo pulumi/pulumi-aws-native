@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class PluginCustomPluginConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains details about the OpenAPI schema for a custom plugin. For more information, see [custom plugin OpenAPI schemas](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema) . You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        /// </summary>
         [Input("apiSchema", required: true)]
         public InputUnion<Inputs.PluginApiSchema0PropertiesArgs, Inputs.PluginApiSchema1PropertiesArgs> ApiSchema { get; set; } = null!;
 
+        /// <summary>
+        /// The type of OpenAPI schema to use.
+        /// </summary>
         [Input("apiSchemaType", required: true)]
         public Input<Pulumi.AwsNative.QBusiness.PluginApiSchemaType> ApiSchemaType { get; set; } = null!;
 
+        /// <summary>
+        /// A description for your custom plugin configuration.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 

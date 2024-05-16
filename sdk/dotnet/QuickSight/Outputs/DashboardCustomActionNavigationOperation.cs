@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCustomActionNavigationOperation
     {
+        /// <summary>
+        /// The navigation configuration for `CustomActionNavigationOperation` .
+        /// </summary>
         public readonly Outputs.DashboardLocalNavigationConfiguration? LocalNavigationConfiguration;
 
         [OutputConstructor]

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("identityProviderConfigName")]
         public Output<string?> IdentityProviderConfigName { get; private set; } = null!;
 
+        /// <summary>
+        /// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+        /// </summary>
         [Output("oidc")]
         public Output<Outputs.IdentityProviderConfigOidcIdentityProviderConfig?> Oidc { get; private set; } = null!;
 
@@ -112,6 +115,9 @@ namespace Pulumi.AwsNative.Eks
         [Input("identityProviderConfigName")]
         public Input<string>? IdentityProviderConfigName { get; set; }
 
+        /// <summary>
+        /// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+        /// </summary>
         [Input("oidc")]
         public Input<Inputs.IdentityProviderConfigOidcIdentityProviderConfigArgs>? Oidc { get; set; }
 

@@ -20,18 +20,53 @@ export function getBudgetsAction(args: GetBudgetsActionArgs, opts?: pulumi.Invok
 }
 
 export interface GetBudgetsActionArgs {
+    /**
+     * A system-generated universally unique identifier (UUID) for the action.
+     */
     actionId: string;
+    /**
+     * A string that represents the budget name. ":" and "\" characters aren't allowed.
+     */
     budgetName: string;
 }
 
 export interface GetBudgetsActionResult {
+    /**
+     * A system-generated universally unique identifier (UUID) for the action.
+     */
     readonly actionId?: string;
+    /**
+     * The trigger threshold of the action.
+     */
     readonly actionThreshold?: outputs.budgets.BudgetsActionActionThreshold;
+    /**
+     * This specifies if the action needs manual or automatic approval.
+     */
     readonly approvalModel?: enums.budgets.BudgetsActionApprovalModel;
+    /**
+     * The definition is where you specify all of the type-specific parameters.
+     */
     readonly definition?: outputs.budgets.BudgetsActionDefinition;
+    /**
+     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     */
     readonly executionRoleArn?: string;
+    /**
+     * The type of a notification.
+     */
     readonly notificationType?: enums.budgets.BudgetsActionNotificationType;
+    /**
+     * The tag structure that contains a tag key and value.
+     */
     readonly resourceTags?: outputs.Tag[];
+    /**
+     * The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+     *
+     * For example, an email subscriber has the following parameters:
+     *
+     * - A `subscriptionType` of `EMAIL`
+     * - An `address` of `example@example.com`
+     */
     readonly subscribers?: outputs.budgets.BudgetsActionSubscriber[];
 }
 /**
@@ -42,6 +77,12 @@ export function getBudgetsActionOutput(args: GetBudgetsActionOutputArgs, opts?: 
 }
 
 export interface GetBudgetsActionOutputArgs {
+    /**
+     * A system-generated universally unique identifier (UUID) for the action.
+     */
     actionId: pulumi.Input<string>;
+    /**
+     * A string that represents the budget name. ":" and "\" characters aren't allowed.
+     */
     budgetName: pulumi.Input<string>;
 }

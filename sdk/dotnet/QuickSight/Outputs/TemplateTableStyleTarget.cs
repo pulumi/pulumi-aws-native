@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableStyleTarget
     {
+        /// <summary>
+        /// The cell type of the table style target.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateStyledCellType CellType;
 
         [OutputConstructor]

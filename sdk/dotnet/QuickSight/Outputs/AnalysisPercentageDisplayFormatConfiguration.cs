@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPercentageDisplayFormatConfiguration
     {
+        /// <summary>
+        /// The option that determines the decimal places configuration.
+        /// </summary>
         public readonly Outputs.AnalysisDecimalPlacesConfiguration? DecimalPlacesConfiguration;
+        /// <summary>
+        /// The options that determine the negative value configuration.
+        /// </summary>
         public readonly Outputs.AnalysisNegativeValueConfiguration? NegativeValueConfiguration;
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         public readonly Outputs.AnalysisNullValueFormatConfiguration? NullValueFormatConfiguration;
+        /// <summary>
+        /// Determines the prefix value of the percentage format.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// The options that determine the numeric separator configuration.
+        /// </summary>
         public readonly Outputs.AnalysisNumericSeparatorConfiguration? SeparatorConfiguration;
+        /// <summary>
+        /// Determines the suffix value of the percentage format.
+        /// </summary>
         public readonly string? Suffix;
 
         [OutputConstructor]

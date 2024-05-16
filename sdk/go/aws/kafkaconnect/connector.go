@@ -17,6 +17,7 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
+	// Information about the capacity of the connector, whether it is auto scaled or provisioned.
 	Capacity ConnectorCapacityOutput `pulumi:"capacity"`
 	// Amazon Resource Name for the created Connector.
 	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
@@ -25,19 +26,24 @@ type Connector struct {
 	// A summary description of the connector.
 	ConnectorDescription pulumi.StringPtrOutput `pulumi:"connectorDescription"`
 	// The name of the connector.
-	ConnectorName                    pulumi.StringOutput                             `pulumi:"connectorName"`
-	KafkaCluster                     ConnectorKafkaClusterOutput                     `pulumi:"kafkaCluster"`
+	ConnectorName pulumi.StringOutput `pulumi:"connectorName"`
+	// The details of the Apache Kafka cluster to which the connector is connected.
+	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
+	// The client authentication information used in order to authenticate with the Apache Kafka cluster.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationOutput `pulumi:"kafkaClusterClientAuthentication"`
-	KafkaClusterEncryptionInTransit  ConnectorKafkaClusterEncryptionInTransitOutput  `pulumi:"kafkaClusterEncryptionInTransit"`
+	// Details of encryption in transit to the Apache Kafka cluster.
+	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitOutput `pulumi:"kafkaClusterEncryptionInTransit"`
 	// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
-	KafkaConnectVersion pulumi.StringOutput           `pulumi:"kafkaConnectVersion"`
-	LogDelivery         ConnectorLogDeliveryPtrOutput `pulumi:"logDelivery"`
+	KafkaConnectVersion pulumi.StringOutput `pulumi:"kafkaConnectVersion"`
+	// Details about log delivery.
+	LogDelivery ConnectorLogDeliveryPtrOutput `pulumi:"logDelivery"`
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayOutput `pulumi:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
 	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
 	// A collection of tags associated with a resource
-	Tags                aws.TagArrayOutput                    `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The configuration of the workers, which are the processes that run the connector logic.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrOutput `pulumi:"workerConfiguration"`
 }
 
@@ -119,49 +125,61 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
+	// Information about the capacity of the connector, whether it is auto scaled or provisioned.
 	Capacity ConnectorCapacity `pulumi:"capacity"`
 	// The configuration for the connector.
 	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
 	// A summary description of the connector.
 	ConnectorDescription *string `pulumi:"connectorDescription"`
 	// The name of the connector.
-	ConnectorName                    *string                                   `pulumi:"connectorName"`
-	KafkaCluster                     ConnectorKafkaCluster                     `pulumi:"kafkaCluster"`
+	ConnectorName *string `pulumi:"connectorName"`
+	// The details of the Apache Kafka cluster to which the connector is connected.
+	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
+	// The client authentication information used in order to authenticate with the Apache Kafka cluster.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthentication `pulumi:"kafkaClusterClientAuthentication"`
-	KafkaClusterEncryptionInTransit  ConnectorKafkaClusterEncryptionInTransit  `pulumi:"kafkaClusterEncryptionInTransit"`
+	// Details of encryption in transit to the Apache Kafka cluster.
+	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransit `pulumi:"kafkaClusterEncryptionInTransit"`
 	// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
-	KafkaConnectVersion string                `pulumi:"kafkaConnectVersion"`
-	LogDelivery         *ConnectorLogDelivery `pulumi:"logDelivery"`
+	KafkaConnectVersion string `pulumi:"kafkaConnectVersion"`
+	// Details about log delivery.
+	LogDelivery *ConnectorLogDelivery `pulumi:"logDelivery"`
 	// List of plugins to use with the connector.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
 	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
 	// A collection of tags associated with a resource
-	Tags                []aws.Tag                     `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The configuration of the workers, which are the processes that run the connector logic.
 	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
+	// Information about the capacity of the connector, whether it is auto scaled or provisioned.
 	Capacity ConnectorCapacityInput
 	// The configuration for the connector.
 	ConnectorConfiguration pulumi.StringMapInput
 	// A summary description of the connector.
 	ConnectorDescription pulumi.StringPtrInput
 	// The name of the connector.
-	ConnectorName                    pulumi.StringPtrInput
-	KafkaCluster                     ConnectorKafkaClusterInput
+	ConnectorName pulumi.StringPtrInput
+	// The details of the Apache Kafka cluster to which the connector is connected.
+	KafkaCluster ConnectorKafkaClusterInput
+	// The client authentication information used in order to authenticate with the Apache Kafka cluster.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationInput
-	KafkaClusterEncryptionInTransit  ConnectorKafkaClusterEncryptionInTransitInput
+	// Details of encryption in transit to the Apache Kafka cluster.
+	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitInput
 	// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
 	KafkaConnectVersion pulumi.StringInput
-	LogDelivery         ConnectorLogDeliveryPtrInput
+	// Details about log delivery.
+	LogDelivery ConnectorLogDeliveryPtrInput
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
 	ServiceExecutionRoleArn pulumi.StringInput
 	// A collection of tags associated with a resource
-	Tags                aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The configuration of the workers, which are the processes that run the connector logic.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrInput
 }
 
@@ -202,6 +220,7 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+// Information about the capacity of the connector, whether it is auto scaled or provisioned.
 func (o ConnectorOutput) Capacity() ConnectorCapacityOutput {
 	return o.ApplyT(func(v *Connector) ConnectorCapacityOutput { return v.Capacity }).(ConnectorCapacityOutput)
 }
@@ -226,16 +245,19 @@ func (o ConnectorOutput) ConnectorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorName }).(pulumi.StringOutput)
 }
 
+// The details of the Apache Kafka cluster to which the connector is connected.
 func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
 }
 
+// The client authentication information used in order to authenticate with the Apache Kafka cluster.
 func (o ConnectorOutput) KafkaClusterClientAuthentication() ConnectorKafkaClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterClientAuthenticationOutput {
 		return v.KafkaClusterClientAuthentication
 	}).(ConnectorKafkaClusterClientAuthenticationOutput)
 }
 
+// Details of encryption in transit to the Apache Kafka cluster.
 func (o ConnectorOutput) KafkaClusterEncryptionInTransit() ConnectorKafkaClusterEncryptionInTransitOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterEncryptionInTransitOutput {
 		return v.KafkaClusterEncryptionInTransit
@@ -247,6 +269,7 @@ func (o ConnectorOutput) KafkaConnectVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.KafkaConnectVersion }).(pulumi.StringOutput)
 }
 
+// Details about log delivery.
 func (o ConnectorOutput) LogDelivery() ConnectorLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorLogDeliveryPtrOutput { return v.LogDelivery }).(ConnectorLogDeliveryPtrOutput)
 }
@@ -266,6 +289,7 @@ func (o ConnectorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Connector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The configuration of the workers, which are the processes that run the connector logic.
 func (o ConnectorOutput) WorkerConfiguration() ConnectorWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorWorkerConfigurationPtrOutput { return v.WorkerConfiguration }).(ConnectorWorkerConfigurationPtrOutput)
 }

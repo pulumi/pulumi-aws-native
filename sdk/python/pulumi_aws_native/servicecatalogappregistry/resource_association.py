@@ -172,6 +172,9 @@ class ResourceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) that specifies the application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
@@ -185,6 +188,9 @@ class ResourceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) that specifies the resource.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property

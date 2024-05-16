@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisForecastConfiguration
     {
+        /// <summary>
+        /// The forecast properties setup of a forecast in the line chart.
+        /// </summary>
         public readonly Outputs.AnalysisTimeBasedForecastProperties? ForecastProperties;
+        /// <summary>
+        /// The forecast scenario of a forecast in the line chart.
+        /// </summary>
         public readonly Outputs.AnalysisForecastScenario? Scenario;
 
         [OutputConstructor]

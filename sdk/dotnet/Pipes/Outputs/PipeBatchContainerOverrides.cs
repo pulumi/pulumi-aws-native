@@ -13,9 +13,25 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeBatchContainerOverrides
     {
+        /// <summary>
+        /// The command to send to the container that overrides the default command from the Docker image or the task definition.
+        /// </summary>
         public readonly ImmutableArray<string> Command;
+        /// <summary>
+        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition.
+        /// 
+        /// &gt; Environment variables cannot start with " `AWS Batch` ". This naming convention is reserved for variables that AWS Batch sets.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeBatchEnvironmentVariable> Environment;
+        /// <summary>
+        /// The instance type to use for a multi-node parallel job.
+        /// 
+        /// &gt; This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// The type and amount of a resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeBatchResourceRequirement> ResourceRequirements;
 
         [OutputConstructor]

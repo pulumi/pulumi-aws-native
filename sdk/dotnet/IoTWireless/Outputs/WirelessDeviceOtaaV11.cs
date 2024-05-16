@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class WirelessDeviceOtaaV11
     {
+        /// <summary>
+        /// The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        /// </summary>
         public readonly string AppKey;
+        /// <summary>
+        /// The JoinEUI value.
+        /// </summary>
         public readonly string JoinEui;
+        /// <summary>
+        /// The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+        /// </summary>
         public readonly string NwkKey;
 
         [OutputConstructor]

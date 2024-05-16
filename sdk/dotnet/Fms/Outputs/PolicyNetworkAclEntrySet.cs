@@ -16,9 +16,33 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyNetworkAclEntrySet
     {
+        /// <summary>
+        /// The rules that you want to run first in the Firewall Manager managed network ACLs.
+        /// 
+        /// &gt; Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+        /// 
+        /// You must specify at least one first entry or one last entry in any network ACL policy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyNetworkAclEntry> FirstEntries;
+        /// <summary>
+        /// Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries.
+        /// 
+        /// If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to remediate. For more information about the remediation behavior, see [Remediation for managed network ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html#network-acls-remediation) in the *AWS Firewall Manager Developer Guide* .
+        /// </summary>
         public readonly bool ForceRemediateForFirstEntries;
+        /// <summary>
+        /// Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries.
+        /// 
+        /// If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to remediate. For more information about the remediation behavior, see [Remediation for managed network ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html#network-acls-remediation) in the *AWS Firewall Manager Developer Guide* .
+        /// </summary>
         public readonly bool ForceRemediateForLastEntries;
+        /// <summary>
+        /// The rules that you want to run last in the Firewall Manager managed network ACLs.
+        /// 
+        /// &gt; Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+        /// 
+        /// You must specify at least one first entry or one last entry in any network ACL policy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyNetworkAclEntry> LastEntries;
 
         [OutputConstructor]

@@ -13,13 +13,40 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTopBottomMoversComputation
     {
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.AnalysisDimensionField? Category;
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The mover size setup of the top and bottom movers computation.
+        /// </summary>
         public readonly double? MoverSize;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The sort order setup of the top and bottom movers computation.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTopBottomSortOrder? SortOrder;
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.AnalysisDimensionField? Time;
+        /// <summary>
+        /// The computation type. Choose from the following options:
+        /// 
+        /// - TOP: Top movers computation.
+        /// - BOTTOM: Bottom movers computation.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTopBottomComputationType Type;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.AnalysisMeasureField? Value;
 
         [OutputConstructor]

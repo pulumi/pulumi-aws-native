@@ -41,6 +41,9 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      * Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+     */
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
     /**
      * Recording Configuration Name.
@@ -50,6 +53,9 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      * Recording Reconnect Window Seconds. (0 means disabled)
      */
     public readonly recordingReconnectWindowSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+     */
     public readonly renditionConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationRenditionConfiguration | undefined>;
     /**
      * Recording Configuration State.
@@ -59,6 +65,9 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      * A list of key-value pairs that contain metadata for the asset model.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+     */
     public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
 
     /**
@@ -104,6 +113,9 @@ export class RecordingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a RecordingConfiguration resource.
  */
 export interface RecordingConfigurationArgs {
+    /**
+     * The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+     */
     destinationConfiguration: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfigurationArgs>;
     /**
      * Recording Configuration Name.
@@ -113,10 +125,16 @@ export interface RecordingConfigurationArgs {
      * Recording Reconnect Window Seconds. (0 means disabled)
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    /**
+     * The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+     */
     renditionConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationRenditionConfigurationArgs>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+     */
     thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfigurationArgs>;
 }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionRepositoryCredentials
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+        /// </summary>
         public readonly string CredentialsParameter;
 
         [OutputConstructor]

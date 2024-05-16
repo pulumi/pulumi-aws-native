@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisMappedDataSetParameter
     {
+        /// <summary>
+        /// A unique name that identifies a dataset within the analysis or dashboard.
+        /// </summary>
         public readonly string DataSetIdentifier;
+        /// <summary>
+        /// The name of the dataset parameter.
+        /// </summary>
         public readonly string DataSetParameterName;
 
         [OutputConstructor]

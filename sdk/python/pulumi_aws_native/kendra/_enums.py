@@ -151,6 +151,9 @@ class DataSourceServiceNowBuildVersionType(str, Enum):
 
 
 class DataSourceSharePointConfigurationSharePointVersion(str, Enum):
+    """
+    The version of Microsoft SharePoint that you use.
+    """
     SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE"
     SHAREPOINT2013 = "SHAREPOINT_2013"
     SHAREPOINT2016 = "SHAREPOINT_2016"
@@ -174,6 +177,15 @@ class DataSourceType(str, Enum):
 
 
 class DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(str, Enum):
+    """
+    You can choose one of the following modes:
+
+    - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+    - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+    - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+
+    The default mode is set to `HOST_ONLY` .
+    """
     HOST_ONLY = "HOST_ONLY"
     SUBDOMAINS = "SUBDOMAINS"
     EVERYTHING = "EVERYTHING"

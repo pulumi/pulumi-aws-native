@@ -23,7 +23,9 @@ class AccountAuditConfigurationArgs:
         """
         The set of arguments for constructing a AccountAuditConfiguration resource.
         :param pulumi.Input[str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'] audit_check_configurations: The types of audit checks that can be performed.
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
+        :param pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs'] audit_notification_target_configurations: The configuration of the audit notification target.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "audit_check_configurations", audit_check_configurations)
@@ -46,6 +48,9 @@ class AccountAuditConfigurationArgs:
     @property
     @pulumi.getter(name="auditCheckConfigurations")
     def audit_check_configurations(self) -> pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs']:
+        """
+        The types of audit checks that can be performed.
+        """
         return pulumi.get(self, "audit_check_configurations")
 
     @audit_check_configurations.setter
@@ -67,6 +72,9 @@ class AccountAuditConfigurationArgs:
     @property
     @pulumi.getter(name="auditNotificationTargetConfigurations")
     def audit_notification_target_configurations(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']]:
+        """
+        The configuration of the audit notification target.
+        """
         return pulumi.get(self, "audit_notification_target_configurations")
 
     @audit_notification_target_configurations.setter
@@ -90,6 +98,8 @@ class AccountAuditConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+        :param pulumi.Input[pulumi.InputType['AccountAuditConfigurationAuditCheckConfigurationsArgs']] audit_check_configurations: The types of audit checks that can be performed.
+        :param pulumi.Input[pulumi.InputType['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] audit_notification_target_configurations: The configuration of the audit notification target.
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
         ...
@@ -180,11 +190,17 @@ class AccountAuditConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="auditCheckConfigurations")
     def audit_check_configurations(self) -> pulumi.Output['outputs.AccountAuditConfigurationAuditCheckConfigurations']:
+        """
+        The types of audit checks that can be performed.
+        """
         return pulumi.get(self, "audit_check_configurations")
 
     @property
     @pulumi.getter(name="auditNotificationTargetConfigurations")
     def audit_notification_target_configurations(self) -> pulumi.Output[Optional['outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']]:
+        """
+        The configuration of the audit notification target.
+        """
         return pulumi.get(self, "audit_notification_target_configurations")
 
     @property

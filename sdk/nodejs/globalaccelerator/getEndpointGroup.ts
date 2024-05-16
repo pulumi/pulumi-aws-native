@@ -38,6 +38,9 @@ export interface GetEndpointGroupResult {
      * The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
      */
     readonly healthCheckIntervalSeconds?: number;
+    /**
+     * If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+     */
     readonly healthCheckPath?: string;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
@@ -47,6 +50,11 @@ export interface GetEndpointGroupResult {
      * The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
     readonly healthCheckProtocol?: enums.globalaccelerator.EndpointGroupHealthCheckProtocol;
+    /**
+     * Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
+     *
+     * For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     readonly portOverrides?: outputs.globalaccelerator.EndpointGroupPortOverride[];
     /**
      * The number of consecutive health checks required to set the state of the endpoint to unhealthy.

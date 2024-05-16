@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigDataflowEndpointConfig
     {
+        /// <summary>
+        /// The name of the dataflow endpoint to use during contacts.
+        /// </summary>
         public readonly string? DataflowEndpointName;
+        /// <summary>
+        /// The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
+        /// </summary>
         public readonly string? DataflowEndpointRegion;
 
         [OutputConstructor]

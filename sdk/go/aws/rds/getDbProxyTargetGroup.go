@@ -28,9 +28,12 @@ type LookupDbProxyTargetGroupArgs struct {
 }
 
 type LookupDbProxyTargetGroupResult struct {
+	// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 	ConnectionPoolConfigurationInfo *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
-	DbClusterIdentifiers            []string                                                 `pulumi:"dbClusterIdentifiers"`
-	DbInstanceIdentifiers           []string                                                 `pulumi:"dbInstanceIdentifiers"`
+	// One or more DB cluster identifiers.
+	DbClusterIdentifiers []string `pulumi:"dbClusterIdentifiers"`
+	// One or more DB instance identifiers.
+	DbInstanceIdentifiers []string `pulumi:"dbInstanceIdentifiers"`
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
@@ -71,16 +74,19 @@ func (o LookupDbProxyTargetGroupResultOutput) ToLookupDbProxyTargetGroupResultOu
 	return o
 }
 
+// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 func (o LookupDbProxyTargetGroupResultOutput) ConnectionPoolConfigurationInfo() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o.ApplyT(func(v LookupDbProxyTargetGroupResult) *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat {
 		return v.ConnectionPoolConfigurationInfo
 	}).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
+// One or more DB cluster identifiers.
 func (o LookupDbProxyTargetGroupResultOutput) DbClusterIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDbProxyTargetGroupResult) []string { return v.DbClusterIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// One or more DB instance identifiers.
 func (o LookupDbProxyTargetGroupResultOutput) DbInstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDbProxyTargetGroupResult) []string { return v.DbInstanceIdentifiers }).(pulumi.StringArrayOutput)
 }

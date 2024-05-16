@@ -19,11 +19,20 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetDomainArgs {
+    /**
+     * The identifier of the domain.
+     */
     domainId: string;
 }
 
 export interface GetDomainResult {
+    /**
+     * The identifier of the domain.
+     */
     readonly domainId?: string;
+    /**
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -34,5 +43,8 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetDomainOutputArgs {
+    /**
+     * The identifier of the domain.
+     */
     domainId: pulumi.Input<string>;
 }

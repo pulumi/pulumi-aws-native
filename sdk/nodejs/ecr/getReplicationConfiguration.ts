@@ -30,6 +30,9 @@ export interface GetReplicationConfigurationResult {
      * The RegistryId associated with the aws account.
      */
     readonly registryId?: string;
+    /**
+     * The replication configuration for a registry.
+     */
     readonly replicationConfiguration?: outputs.ecr.ReplicationConfiguration;
 }
 /**

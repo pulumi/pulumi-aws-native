@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensDataExportArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
+        /// 
+        /// For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
+        /// </summary>
         [Input("cloudWatchMetrics")]
         public Input<Inputs.StorageLensCloudWatchMetricsArgs>? CloudWatchMetrics { get; set; }
 
+        /// <summary>
+        /// This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+        /// </summary>
         [Input("s3BucketDestination")]
         public Input<Inputs.StorageLensS3BucketDestinationArgs>? S3BucketDestination { get; set; }
 

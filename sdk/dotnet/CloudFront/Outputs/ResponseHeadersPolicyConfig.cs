@@ -13,12 +13,39 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyConfig
     {
+        /// <summary>
+        /// A comment to describe the response headers policy.
+        /// 
+        /// The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
+        /// 
+        /// For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfig? CorsConfig;
+        /// <summary>
+        /// A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig;
+        /// <summary>
+        /// A name to identify the response headers policy.
+        /// 
+        /// The name must be unique for response headers policies in this AWS account .
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig;
+        /// <summary>
+        /// A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig;
+        /// <summary>
+        /// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig;
 
         [OutputConstructor]

@@ -13,13 +13,25 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSalesforceDestinationProperties
     {
+        /// <summary>
+        /// The API of the connector application that Amazon AppFlow uses to transfer your data.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowDataTransferApi? DataTransferApi;
+        /// <summary>
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+        /// </summary>
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
         /// List of fields used as ID when performing a write operation.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
+        /// <summary>
+        /// The object specified in the Salesforce flow destination.
+        /// </summary>
         public readonly string Object;
+        /// <summary>
+        /// This specifies the type of write operation to be performed in Salesforce. When the value is `UPSERT` , then `idFieldNames` is required.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowWriteOperationType? WriteOperationType;
 
         [OutputConstructor]

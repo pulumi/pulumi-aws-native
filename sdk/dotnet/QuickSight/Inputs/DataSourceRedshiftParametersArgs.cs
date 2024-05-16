@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        /// <summary>
+        /// The parameters for an IAM Identity Center configuration.
+        /// </summary>
         [Input("identityCenterConfiguration")]
         public Input<Inputs.DataSourceIdentityCenterConfigurationArgs>? IdentityCenterConfiguration { get; set; }
 

@@ -16,10 +16,20 @@ export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetMountTargetArgs {
+    /**
+     * The ID of the Amazon EFS file system that the mount target provides access to.
+     *
+     * Example: `fs-0123456789111222a`
+     */
     id: string;
 }
 
 export interface GetMountTargetResult {
+    /**
+     * The ID of the Amazon EFS file system that the mount target provides access to.
+     *
+     * Example: `fs-0123456789111222a`
+     */
     readonly id?: string;
     /**
      * Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
@@ -34,5 +44,10 @@ export function getMountTargetOutput(args: GetMountTargetOutputArgs, opts?: pulu
 }
 
 export interface GetMountTargetOutputArgs {
+    /**
+     * The ID of the Amazon EFS file system that the mount target provides access to.
+     *
+     * Example: `fs-0123456789111222a`
+     */
     id: pulumi.Input<string>;
 }

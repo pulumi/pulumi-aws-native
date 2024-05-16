@@ -16,10 +16,16 @@ export function getDirectoryRegistration(args: GetDirectoryRegistrationArgs, opt
 }
 
 export interface GetDirectoryRegistrationArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+     */
     directoryRegistrationArn: string;
 }
 
 export interface GetDirectoryRegistrationResult {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+     */
     readonly directoryRegistrationArn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getDirectoryRegistrationOutput(args: GetDirectoryRegistrationOut
 }
 
 export interface GetDirectoryRegistrationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+     */
     directoryRegistrationArn: pulumi.Input<string>;
 }

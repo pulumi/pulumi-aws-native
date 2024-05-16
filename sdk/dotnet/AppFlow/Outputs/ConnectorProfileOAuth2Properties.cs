@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileOAuth2Properties
     {
+        /// <summary>
+        /// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.ConnectorProfileOAuth2GrantType? OAuth2GrantType;
+        /// <summary>
+        /// The token URL required for OAuth 2.0 authentication.
+        /// </summary>
         public readonly string? TokenUrl;
+        /// <summary>
+        /// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? TokenUrlCustomProperties;
 
         [OutputConstructor]

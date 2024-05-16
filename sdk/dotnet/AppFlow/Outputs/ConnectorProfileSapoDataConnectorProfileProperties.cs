@@ -13,16 +13,37 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileSapoDataConnectorProfileProperties
     {
+        /// <summary>
+        /// The location of the SAPOData resource.
+        /// </summary>
         public readonly string? ApplicationHostUrl;
+        /// <summary>
+        /// The application path to catalog service.
+        /// </summary>
         public readonly string? ApplicationServicePath;
+        /// <summary>
+        /// The client number for the client creating the connection.
+        /// </summary>
         public readonly string? ClientNumber;
         /// <summary>
         /// If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
         /// </summary>
         public readonly bool? DisableSso;
+        /// <summary>
+        /// The logon language of SAPOData instance.
+        /// </summary>
         public readonly string? LogonLanguage;
+        /// <summary>
+        /// The OAuth properties required for OAuth type authentication.
+        /// </summary>
         public readonly Outputs.ConnectorProfileOAuthProperties? OAuthProperties;
+        /// <summary>
+        /// The port number of the SAPOData instance.
+        /// </summary>
         public readonly int? PortNumber;
+        /// <summary>
+        /// The SAPOData Private Link service name to be used for private data transfers.
+        /// </summary>
         public readonly string? PrivateLinkServiceName;
 
         [OutputConstructor]

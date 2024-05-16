@@ -64,11 +64,17 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="insightsConfiguration")
     def insights_configuration(self) -> Optional['outputs.GroupInsightsConfiguration']:
+        """
+        The structure containing configurations related to insights.
+        """
         return pulumi.get(self, "insights_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 

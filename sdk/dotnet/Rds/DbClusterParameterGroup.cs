@@ -15,6 +15,17 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbClusterParameterGroup")]
     public partial class DbClusterParameterGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the DB cluster parameter group.
+        /// 
+        /// Constraints:
+        /// 
+        /// - Must not match the name of an existing DB cluster parameter group.
+        /// 
+        /// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+        /// 
+        /// &gt; This value is stored as a lowercase string.
+        /// </summary>
         [Output("dbClusterParameterGroupName")]
         public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
 
@@ -95,6 +106,17 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class DbClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the DB cluster parameter group.
+        /// 
+        /// Constraints:
+        /// 
+        /// - Must not match the name of an existing DB cluster parameter group.
+        /// 
+        /// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+        /// 
+        /// &gt; This value is stored as a lowercase string.
+        /// </summary>
         [Input("dbClusterParameterGroupName")]
         public Input<string>? DbClusterParameterGroupName { get; set; }
 

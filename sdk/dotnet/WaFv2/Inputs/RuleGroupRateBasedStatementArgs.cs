@@ -12,6 +12,28 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
     public sealed class RuleGroupRateBasedStatementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Setting that indicates how to aggregate the request counts.
+        /// 
+        /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+        /// 
+        /// - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+        /// 
+        /// With this option, you must configure the `ScopeDownStatement` property.
+        /// - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+        /// 
+        /// With this option, you must specify the aggregate keys in the `CustomKeys` property.
+        /// 
+        /// To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+        /// - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+        /// 
+        /// With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+        /// 
+        /// To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+        /// - `IP` - Aggregate the request counts on the IP address from the web request origin.
+        /// 
+        /// To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+        /// </summary>
         [Input("aggregateKeyType", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.RuleGroupRateBasedStatementAggregateKeyType> AggregateKeyType { get; set; } = null!;
 
@@ -27,15 +49,42 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
             set => _customKeys = value;
         }
 
+        /// <summary>
+        /// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. For example, for a setting of 120, when AWS WAF checks the rate, it counts the requests for the 2 minutes immediately preceding the current time. Valid settings are 60, 120, 300, and 600.
+        /// 
+        /// This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+        /// 
+        /// Default: `300` (5 minutes)
+        /// </summary>
         [Input("evaluationWindowSec")]
         public Input<int>? EvaluationWindowSec { get; set; }
 
+        /// <summary>
+        /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        /// 
+        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        /// 
+        /// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
+        /// 
+        /// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+        /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.RuleGroupForwardedIpConfigurationArgs>? ForwardedIpConfig { get; set; }
 
+        /// <summary>
+        /// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        /// 
+        /// Examples:
+        /// 
+        /// - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
+        /// - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
+        /// </summary>
         [Input("limit", required: true)]
         public Input<int> Limit { get; set; } = null!;
 
+        /// <summary>
+        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.RuleGroupStatementArgs>? ScopeDownStatement { get; set; }
 

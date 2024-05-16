@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardRadarChartSeriesSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configured style settings of a radar chart.
+        /// </summary>
         [Input("areaStyleSettings")]
         public Input<Inputs.DashboardRadarChartAreaStyleSettingsArgs>? AreaStyleSettings { get; set; }
 

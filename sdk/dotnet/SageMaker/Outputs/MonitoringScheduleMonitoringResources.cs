@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleMonitoringResources
     {
+        /// <summary>
+        /// Configuration for the cluster used to run model monitoring jobs.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleClusterConfig ClusterConfig;
 
         [OutputConstructor]

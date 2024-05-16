@@ -269,6 +269,9 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of attributes that describe the key schema for the table and indexes.
@@ -341,6 +344,11 @@ export class Table extends pulumi.CustomResource {
      * Specifies the settings to enable server-side encryption.
      */
     public readonly sseSpecification!: pulumi.Output<outputs.dynamodb.TableSseSpecification | undefined>;
+    /**
+     * The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
+     *
+     * > You must specify the `StreamSpecification` property to use this attribute.
+     */
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
      * The settings for the DDB table stream, which capture changes to items stored in the table.

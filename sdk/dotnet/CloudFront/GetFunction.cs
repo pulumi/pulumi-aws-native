@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the function. For example:
+        /// 
+        /// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+        /// 
+        /// To get the function ARN, use the following syntax:
+        /// 
+        /// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+        /// </summary>
         [Input("functionArn", required: true)]
         public string FunctionArn { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the function. For example:
+        /// 
+        /// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+        /// 
+        /// To get the function ARN, use the following syntax:
+        /// 
+        /// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
@@ -51,10 +69,31 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetFunctionResult
     {
+        /// <summary>
+        /// The ARN of the function. For example:
+        /// 
+        /// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+        /// 
+        /// To get the function ARN, use the following syntax:
+        /// 
+        /// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+        /// </summary>
         public readonly string? FunctionArn;
+        /// <summary>
+        /// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         public readonly string? FunctionCode;
+        /// <summary>
+        /// Contains configuration information about a CloudFront function.
+        /// </summary>
         public readonly Outputs.FunctionConfig? FunctionConfig;
+        /// <summary>
+        /// Contains metadata about a CloudFront function.
+        /// </summary>
         public readonly Outputs.FunctionMetadata? FunctionMetadata;
+        /// <summary>
+        /// A name to identify the function.
+        /// </summary>
         public readonly string? Name;
         public readonly string? Stage;
 

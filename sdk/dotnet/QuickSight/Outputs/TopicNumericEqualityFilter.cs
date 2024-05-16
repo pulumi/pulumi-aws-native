@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicNumericEqualityFilter
     {
+        /// <summary>
+        /// An aggregation function that specifies how to calculate the value of a numeric field for a topic. Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNamedFilterAggType? Aggregation;
+        /// <summary>
+        /// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+        /// </summary>
         public readonly Outputs.TopicSingularFilterConstant? Constant;
 
         [OutputConstructor]

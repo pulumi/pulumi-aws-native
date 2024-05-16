@@ -23,12 +23,26 @@ func LookupIntegrationAssociation(ctx *pulumi.Context, args *LookupIntegrationAs
 }
 
 type LookupIntegrationAssociationArgs struct {
-	InstanceId      string                                `pulumi:"instanceId"`
-	IntegrationArn  string                                `pulumi:"integrationArn"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId string `pulumi:"instanceId"`
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`
+	IntegrationArn string `pulumi:"integrationArn"`
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationType `pulumi:"integrationType"`
 }
 
 type LookupIntegrationAssociationResult struct {
+	// Identifier of the association with an Amazon Connect instance.
 	IntegrationAssociationId *string `pulumi:"integrationAssociationId"`
 }
 
@@ -46,8 +60,21 @@ func LookupIntegrationAssociationOutput(ctx *pulumi.Context, args LookupIntegrat
 }
 
 type LookupIntegrationAssociationOutputArgs struct {
-	InstanceId      pulumi.StringInput                         `pulumi:"instanceId"`
-	IntegrationArn  pulumi.StringInput                         `pulumi:"integrationArn"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`
+	IntegrationArn pulumi.StringInput `pulumi:"integrationArn"`
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationTypeInput `pulumi:"integrationType"`
 }
 
@@ -69,6 +96,7 @@ func (o LookupIntegrationAssociationResultOutput) ToLookupIntegrationAssociation
 	return o
 }
 
+// Identifier of the association with an Amazon Connect instance.
 func (o LookupIntegrationAssociationResultOutput) IntegrationAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationAssociationResult) *string { return v.IntegrationAssociationId }).(pulumi.StringPtrOutput)
 }

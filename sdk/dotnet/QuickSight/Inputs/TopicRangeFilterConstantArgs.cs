@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicRangeFilterConstantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data type of the constant value that is used in a range filter. Valid values for this structure are `RANGE` .
+        /// </summary>
         [Input("constantType")]
         public Input<Pulumi.AwsNative.QuickSight.TopicConstantType>? ConstantType { get; set; }
 
+        /// <summary>
+        /// The value of the constant that is used to specify the endpoints of a range filter.
+        /// </summary>
         [Input("rangeConstant")]
         public Input<Inputs.TopicRangeConstantArgs>? RangeConstant { get; set; }
 

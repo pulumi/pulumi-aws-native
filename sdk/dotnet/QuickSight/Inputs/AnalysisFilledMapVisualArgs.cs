@@ -14,32 +14,55 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.AnalysisVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.AnalysisVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AnalysisVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The configuration for a `FilledMapVisual` .
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.AnalysisFilledMapConfigurationArgs>? ChartConfiguration { get; set; }
 
         [Input("columnHierarchies")]
         private InputList<Inputs.AnalysisColumnHierarchyArgs>? _columnHierarchies;
+
+        /// <summary>
+        /// The column hierarchy that is used during drill-downs and drill-ups.
+        /// </summary>
         public InputList<Inputs.AnalysisColumnHierarchyArgs> ColumnHierarchies
         {
             get => _columnHierarchies ?? (_columnHierarchies = new InputList<Inputs.AnalysisColumnHierarchyArgs>());
             set => _columnHierarchies = value;
         }
 
+        /// <summary>
+        /// The conditional formatting of a `FilledMapVisual` .
+        /// </summary>
         [Input("conditionalFormatting")]
         public Input<Inputs.AnalysisFilledMapConditionalFormattingArgs>? ConditionalFormatting { get; set; }
 
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.AnalysisVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

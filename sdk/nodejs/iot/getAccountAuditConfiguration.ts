@@ -26,7 +26,13 @@ export interface GetAccountAuditConfigurationArgs {
 }
 
 export interface GetAccountAuditConfigurationResult {
+    /**
+     * The types of audit checks that can be performed.
+     */
     readonly auditCheckConfigurations?: outputs.iot.AccountAuditConfigurationAuditCheckConfigurations;
+    /**
+     * The configuration of the audit notification target.
+     */
     readonly auditNotificationTargetConfigurations?: outputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurations;
     /**
      * The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.

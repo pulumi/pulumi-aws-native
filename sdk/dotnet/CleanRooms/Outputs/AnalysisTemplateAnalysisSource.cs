@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class AnalysisTemplateAnalysisSource
     {
+        /// <summary>
+        /// The query text.
+        /// </summary>
         public readonly string Text;
 
         [OutputConstructor]

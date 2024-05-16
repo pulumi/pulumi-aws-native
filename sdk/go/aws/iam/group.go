@@ -17,6 +17,7 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
+	// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::Group` resource. For example: `arn:aws:iam::123456789012:group/mystack-mygroup-1DZETITOWEKVO` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the group to create. Do not include the path in this value.
 	//  The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins". If you don't specify a name, CFN generates a unique physical ID and uses that ID for the group name.
@@ -158,6 +159,7 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::Group` resource. For example: `arn:aws:iam::123456789012:group/mystack-mygroup-1DZETITOWEKVO` .
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

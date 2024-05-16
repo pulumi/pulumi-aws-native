@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDataPathLabelType
     {
+        /// <summary>
+        /// The field ID of the field that the data label needs to be applied to.
+        /// </summary>
         public readonly string? FieldId;
+        /// <summary>
+        /// The actual value of the field that is labeled.
+        /// </summary>
         public readonly string? FieldValue;
+        /// <summary>
+        /// The visibility of the data label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class KnowledgeBaseSourceConfiguration
     {
+        /// <summary>
+        /// Configuration information for Amazon AppIntegrations to automatically ingest content.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseAppIntegrationsConfiguration? AppIntegrations;
 
         [OutputConstructor]

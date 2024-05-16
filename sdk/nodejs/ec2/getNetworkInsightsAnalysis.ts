@@ -19,22 +19,64 @@ export function getNetworkInsightsAnalysis(args: GetNetworkInsightsAnalysisArgs,
 }
 
 export interface GetNetworkInsightsAnalysisArgs {
+    /**
+     * The ID of the network insights analysis.
+     */
     networkInsightsAnalysisId: string;
 }
 
 export interface GetNetworkInsightsAnalysisResult {
+    /**
+     * The member accounts that contain resources that the path can traverse.
+     */
     readonly additionalAccounts?: string[];
+    /**
+     * Describes an potential intermediate component of a feasible path.
+     */
     readonly alternatePathHints?: outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[];
+    /**
+     * Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+     */
     readonly explanations?: outputs.ec2.NetworkInsightsAnalysisExplanation[];
+    /**
+     * Describes a path component.
+     */
     readonly forwardPathComponents?: outputs.ec2.NetworkInsightsAnalysisPathComponent[];
+    /**
+     * The Amazon Resource Name (ARN) of the network insights analysis.
+     */
     readonly networkInsightsAnalysisArn?: string;
+    /**
+     * The ID of the network insights analysis.
+     */
     readonly networkInsightsAnalysisId?: string;
+    /**
+     * Indicates whether the destination is reachable from the source.
+     */
     readonly networkPathFound?: boolean;
+    /**
+     * Describes a path component.
+     */
     readonly returnPathComponents?: outputs.ec2.NetworkInsightsAnalysisPathComponent[];
+    /**
+     * The time the analysis started.
+     */
     readonly startDate?: string;
+    /**
+     * The status of the network insights analysis.
+     */
     readonly status?: enums.ec2.NetworkInsightsAnalysisStatus;
+    /**
+     * The status message, if the status is `failed` .
+     */
     readonly statusMessage?: string;
+    /**
+     * The IDs of potential intermediate accounts.
+     */
     readonly suggestedAccounts?: string[];
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -45,5 +87,8 @@ export function getNetworkInsightsAnalysisOutput(args: GetNetworkInsightsAnalysi
 }
 
 export interface GetNetworkInsightsAnalysisOutputArgs {
+    /**
+     * The ID of the network insights analysis.
+     */
     networkInsightsAnalysisId: pulumi.Input<string>;
 }

@@ -27,6 +27,9 @@ class StreamingImageArgs:
         :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         :param pulumi.Input[str] description: <p>A human-readable description of the streaming image.</p>
         :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "ec2_image_id", ec2_image_id)
         pulumi.set(__self__, "studio_id", studio_id)
@@ -88,6 +91,11 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,6 +123,9 @@ class StreamingImage(pulumi.CustomResource):
         :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
         :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
         :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -223,6 +234,9 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.StreamingImageEncryptionConfiguration']:
+        """
+        Specifies how a streaming image is encrypted.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
@@ -260,6 +274,9 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="streamingImageId")
     def streaming_image_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the streaming image resource.
+        """
         return pulumi.get(self, "streaming_image_id")
 
     @property
@@ -273,5 +290,10 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

@@ -30,6 +30,9 @@ export interface GetReplicationSetResult {
      * The ARN of the ReplicationSet.
      */
     readonly arn?: string;
+    /**
+     * Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+     */
     readonly deletionProtected?: boolean;
     /**
      * The ReplicationSet configuration.

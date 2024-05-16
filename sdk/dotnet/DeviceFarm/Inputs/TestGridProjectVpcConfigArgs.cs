@@ -39,6 +39,11 @@ namespace Pulumi.AwsNative.DeviceFarm.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// A list of VPC IDs.
+        /// 
+        /// Each VPC is given a unique ID upon creation.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

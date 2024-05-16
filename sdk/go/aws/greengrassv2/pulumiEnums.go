@@ -175,6 +175,10 @@ func (in *componentVersionComponentDependencyRequirementDependencyTypePtr) ToCom
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput)
 }
 
+// The type of event source. Choose from the following options:
+//
+// - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+// - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
 type ComponentVersionLambdaEventSourceType string
 
 const (
@@ -340,6 +344,9 @@ func (in *componentVersionLambdaEventSourceTypePtr) ToComponentVersionLambdaEven
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaEventSourceTypePtrOutput)
 }
 
+// The encoding type that the Lambda function supports.
+//
+// Default: `json`
 type ComponentVersionLambdaExecutionParametersInputPayloadEncodingType string
 
 const (
@@ -670,6 +677,9 @@ func (in *componentVersionLambdaFilesystemPermissionPtr) ToComponentVersionLambd
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaFilesystemPermissionPtrOutput)
 }
 
+// The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+//
+// Default: `GreengrassContainer`
 type ComponentVersionLambdaLinuxProcessParamsIsolationMode string
 
 const (
@@ -835,6 +845,12 @@ func (in *componentVersionLambdaLinuxProcessParamsIsolationModePtr) ToComponentV
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput)
 }
 
+// Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
+//
+// - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+// - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
+//
+// Default: `NOTIFY_COMPONENTS`
 type DeploymentComponentUpdatePolicyAction string
 
 const (
@@ -1000,6 +1016,7 @@ func (in *deploymentComponentUpdatePolicyActionPtr) ToDeploymentComponentUpdateP
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentComponentUpdatePolicyActionPtrOutput)
 }
 
+// The action to perform when the criteria are met.
 type DeploymentIoTJobAbortCriteriaAction string
 
 const (
@@ -1163,6 +1180,7 @@ func (in *deploymentIoTJobAbortCriteriaActionPtr) ToDeploymentIoTJobAbortCriteri
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentIoTJobAbortCriteriaActionPtrOutput)
 }
 
+// The type of job deployment failure that can cancel a job.
 type DeploymentIoTJobAbortCriteriaFailureType string
 
 const (
@@ -1332,6 +1350,9 @@ func (in *deploymentIoTJobAbortCriteriaFailureTypePtr) ToDeploymentIoTJobAbortCr
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput)
 }
 
+// The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+//
+// Default: `ROLLBACK`
 type DeploymentPoliciesFailureHandlingPolicy string
 
 const (

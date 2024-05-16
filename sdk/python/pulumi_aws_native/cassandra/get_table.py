@@ -44,6 +44,9 @@ class GetTableResult:
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional['outputs.TableBillingMode']:
+        """
+        Determines the billing mode for the table - on-demand or provisioned.
+        """
         return pulumi.get(self, "billing_mode")
 
     @property
@@ -57,6 +60,9 @@ class GetTableResult:
     @property
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> Optional['outputs.TableEncryptionSpecification']:
+        """
+        Specifies the encryption at rest option selected for the table.
+        """
         return pulumi.get(self, "encryption_specification")
 
     @property

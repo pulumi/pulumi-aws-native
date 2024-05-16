@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:Assistant")]
     public partial class Assistant : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Wisdom assistant.
+        /// </summary>
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the assistant.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the assistant.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration information for the customer managed key used for encryption.
+        /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.AssistantServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of assistant.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Wisdom.AssistantType> Type { get; private set; } = null!;
 
@@ -89,23 +110,39 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AssistantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the assistant.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the assistant.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The configuration information for the customer managed key used for encryption.
+        /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AssistantServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of assistant.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AssistantType> Type { get; set; } = null!;
 

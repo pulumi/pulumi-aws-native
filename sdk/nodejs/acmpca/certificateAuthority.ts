@@ -264,6 +264,9 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     public readonly subject!: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
+    /**
+     * Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the [TagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html) action. To remove a tag, call the [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html) action.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the certificate authority.
@@ -356,6 +359,9 @@ export interface CertificateAuthorityArgs {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     subject: pulumi.Input<inputs.acmpca.CertificateAuthoritySubjectArgs>;
+    /**
+     * Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the [TagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html) action. To remove a tag, call the [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html) action.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the certificate authority.

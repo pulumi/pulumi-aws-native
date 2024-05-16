@@ -12,21 +12,41 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFilledMapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field wells of a `FilledMapVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisFilledMapFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The map style options of the geospatial map.
+        /// </summary>
         [Input("mapStyleOptions")]
         public Input<Inputs.AnalysisGeospatialMapStyleOptionsArgs>? MapStyleOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a `FilledMapVisual` .
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisFilledMapSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The window options of the geospatial map visual.
+        /// </summary>
         [Input("windowOptions")]
         public Input<Inputs.AnalysisGeospatialWindowOptionsArgs>? WindowOptions { get; set; }
 

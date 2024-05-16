@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     /// </summary>
     public sealed class ListenerPortRangeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The first port in the range of ports, inclusive.
+        /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
+        /// <summary>
+        /// The last port in the range of ports, inclusive.
+        /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;
 

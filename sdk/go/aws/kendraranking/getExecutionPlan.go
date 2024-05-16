@@ -24,17 +24,21 @@ func LookupExecutionPlan(ctx *pulumi.Context, args *LookupExecutionPlanArgs, opt
 }
 
 type LookupExecutionPlanArgs struct {
+	// The identifier of the rescore execution plan.
 	Id string `pulumi:"id"`
 }
 
 type LookupExecutionPlanResult struct {
+	// The Amazon Resource Name (ARN) of the rescore execution plan.
 	Arn *string `pulumi:"arn"`
 	// Capacity units
 	CapacityUnits *ExecutionPlanCapacityUnitsConfiguration `pulumi:"capacityUnits"`
 	// A description for the execution plan
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
-	Name        *string `pulumi:"name"`
+	// The identifier of the rescore execution plan.
+	Id *string `pulumi:"id"`
+	// A name for the rescore execution plan.
+	Name *string `pulumi:"name"`
 	// Tags for labeling the execution plan
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -53,6 +57,7 @@ func LookupExecutionPlanOutput(ctx *pulumi.Context, args LookupExecutionPlanOutp
 }
 
 type LookupExecutionPlanOutputArgs struct {
+	// The identifier of the rescore execution plan.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -74,6 +79,7 @@ func (o LookupExecutionPlanResultOutput) ToLookupExecutionPlanResultOutputWithCo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the rescore execution plan.
 func (o LookupExecutionPlanResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExecutionPlanResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -88,10 +94,12 @@ func (o LookupExecutionPlanResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExecutionPlanResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the rescore execution plan.
 func (o LookupExecutionPlanResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExecutionPlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A name for the rescore execution plan.
 func (o LookupExecutionPlanResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExecutionPlanResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

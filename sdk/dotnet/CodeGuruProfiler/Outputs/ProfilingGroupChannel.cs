@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Outputs
     [OutputType]
     public sealed class ProfilingGroupChannel
     {
+        /// <summary>
+        /// The channel ID.
+        /// </summary>
         public readonly string? ChannelId;
+        /// <summary>
+        /// The channel URI.
+        /// </summary>
         public readonly string ChannelUri;
 
         [OutputConstructor]

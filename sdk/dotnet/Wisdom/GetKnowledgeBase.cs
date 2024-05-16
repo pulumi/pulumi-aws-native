@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetKnowledgeBaseArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the knowledge base.
+        /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public string KnowledgeBaseId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetKnowledgeBaseInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the knowledge base.
+        /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetKnowledgeBaseResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the knowledge base.
+        /// </summary>
         public readonly string? KnowledgeBaseArn;
+        /// <summary>
+        /// The ID of the knowledge base.
+        /// </summary>
         public readonly string? KnowledgeBaseId;
+        /// <summary>
+        /// Information about how to render the content.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseRenderingConfiguration? RenderingConfiguration;
 
         [OutputConstructor]

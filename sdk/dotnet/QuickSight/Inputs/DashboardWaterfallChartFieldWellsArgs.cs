@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardWaterfallChartFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a waterfall visual.
+        /// </summary>
         [Input("waterfallChartAggregatedFieldWells")]
         public Input<Inputs.DashboardWaterfallChartAggregatedFieldWellsArgs>? WaterfallChartAggregatedFieldWells { get; set; }
 

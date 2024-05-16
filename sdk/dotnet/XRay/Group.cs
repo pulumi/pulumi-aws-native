@@ -83,9 +83,15 @@ namespace Pulumi.AwsNative.XRay
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The structure containing configurations related to insights.
+        /// </summary>
         [Output("insightsConfiguration")]
         public Output<Outputs.GroupInsightsConfiguration?> InsightsConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -146,11 +152,18 @@ namespace Pulumi.AwsNative.XRay
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
+        /// <summary>
+        /// The structure containing configurations related to insights.
+        /// </summary>
         [Input("insightsConfiguration")]
         public Input<Inputs.GroupInsightsConfigurationArgs>? InsightsConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

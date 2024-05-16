@@ -37,6 +37,7 @@ class FlowLogArgs:
         :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         :param pulumi.Input[str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
+        :param pulumi.Input['DestinationOptionsPropertiesArgs'] destination_options: The destination options.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
@@ -119,6 +120,9 @@ class FlowLogArgs:
     @property
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> Optional[pulumi.Input['DestinationOptionsPropertiesArgs']]:
+        """
+        The destination options.
+        """
         return pulumi.get(self, "destination_options")
 
     @destination_options.setter
@@ -235,6 +239,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
+        :param pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']] destination_options: The destination options.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
@@ -373,6 +378,9 @@ class FlowLog(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> pulumi.Output[Optional['outputs.DestinationOptionsProperties']]:
+        """
+        The destination options.
+        """
         return pulumi.get(self, "destination_options")
 
     @property

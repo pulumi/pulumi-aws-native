@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     [OutputType]
     public sealed class ScheduledQueryErrorReportConfiguration
     {
+        /// <summary>
+        /// Details on S3 location for error reports that result from running a query.
+        /// </summary>
         public readonly Outputs.ScheduledQueryS3Configuration S3Configuration;
 
         [OutputConstructor]

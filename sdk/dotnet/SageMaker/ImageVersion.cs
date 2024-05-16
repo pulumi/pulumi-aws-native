@@ -21,21 +21,46 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("aliases")]
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
 
+        /// <summary>
+        /// The container image that the SageMaker image version is based on.
+        /// </summary>
         [Output("baseImage")]
         public Output<string> BaseImage { get; private set; } = null!;
 
+        /// <summary>
+        /// The URI of the container image version referenced by ImageVersion.
+        /// </summary>
         [Output("containerImage")]
         public Output<string> ContainerImage { get; private set; } = null!;
 
         [Output("horovod")]
         public Output<bool?> Horovod { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the parent Image.
+        /// </summary>
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the parent image.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        /// </summary>
         [Output("imageName")]
         public Output<string> ImageName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image version.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
+        /// </summary>
         [Output("imageVersionArn")]
         public Output<string> ImageVersionArn { get; private set; } = null!;
 
@@ -57,6 +82,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("vendorGuidance")]
         public Output<Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance?> VendorGuidance { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the image.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -121,12 +149,22 @@ namespace Pulumi.AwsNative.SageMaker
             set => _aliases = value;
         }
 
+        /// <summary>
+        /// The container image that the SageMaker image version is based on.
+        /// </summary>
         [Input("baseImage", required: true)]
         public Input<string> BaseImage { get; set; } = null!;
 
         [Input("horovod")]
         public Input<bool>? Horovod { get; set; }
 
+        /// <summary>
+        /// The name of the parent image.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
 

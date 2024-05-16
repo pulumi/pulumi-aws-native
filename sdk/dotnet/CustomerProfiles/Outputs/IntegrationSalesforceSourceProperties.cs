@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationSalesforceSourceProperties
     {
+        /// <summary>
+        /// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        /// </summary>
         public readonly bool? EnableDynamicFieldUpdate;
+        /// <summary>
+        /// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+        /// </summary>
         public readonly bool? IncludeDeletedRecords;
+        /// <summary>
+        /// The object specified in the Salesforce flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

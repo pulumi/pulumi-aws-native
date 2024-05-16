@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamDynamicPartitioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamRetryOptionsArgs>? RetryOptions { get; set; }
 

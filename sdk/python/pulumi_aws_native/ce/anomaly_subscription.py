@@ -498,6 +498,9 @@ class AnomalySubscription(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subscriptionArn")
     def subscription_arn(self) -> pulumi.Output[str]:
+        """
+        The `AnomalySubscription` Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "subscription_arn")
 
     @property

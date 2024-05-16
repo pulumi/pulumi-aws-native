@@ -68,6 +68,9 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly ImmutableArray<Outputs.SchemaMappingSchemaInputAttribute> MappedInputFields;
         public readonly string? SchemaArn;
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
 

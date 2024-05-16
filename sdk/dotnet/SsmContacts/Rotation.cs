@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+        /// </summary>
         [Output("recurrence")]
         public Output<Outputs.RotationRecurrenceSettings> Recurrence { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A container of a key-value name pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -114,6 +120,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+        /// </summary>
         [Input("recurrence", required: true)]
         public Input<Inputs.RotationRecurrenceSettingsArgs> Recurrence { get; set; } = null!;
 
@@ -125,6 +134,10 @@ namespace Pulumi.AwsNative.SsmContacts
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A container of a key-value name pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

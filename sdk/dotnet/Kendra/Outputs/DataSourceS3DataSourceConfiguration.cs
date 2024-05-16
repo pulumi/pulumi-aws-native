@@ -16,11 +16,51 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceS3DataSourceConfiguration
     {
+        /// <summary>
+        /// Specifies access control list files for the documents in a data source.
+        /// </summary>
         public readonly Outputs.DataSourceAccessControlListConfiguration? AccessControlListConfiguration;
+        /// <summary>
+        /// The name of the bucket that contains the documents.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentsMetadataConfiguration? DocumentsMetadataConfiguration;
+        /// <summary>
+        /// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+        /// 
+        /// - */myapp/config/** —All files inside config directory.
+        /// - ***/*.png* —All .png files in all directories.
+        /// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+        /// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+        /// - ***/!(*.module).ts* —All .ts files but not .module.ts
+        /// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+        /// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+        /// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+        /// 
+        /// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+        /// </summary>
         public readonly ImmutableArray<string> ExclusionPatterns;
+        /// <summary>
+        /// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+        /// 
+        /// - */myapp/config/** —All files inside config directory.
+        /// - ***/*.png* —All .png files in all directories.
+        /// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+        /// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+        /// - ***/!(*.module).ts* —All .ts files but not .module.ts
+        /// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+        /// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+        /// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+        /// 
+        /// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+        /// </summary>
         public readonly ImmutableArray<string> InclusionPatterns;
+        /// <summary>
+        /// A list of S3 prefixes for the documents that should be included in the index.
+        /// </summary>
         public readonly ImmutableArray<string> InclusionPrefixes;
 
         [OutputConstructor]

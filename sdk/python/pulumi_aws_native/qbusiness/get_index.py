@@ -59,56 +59,91 @@ class GetIndexResult:
     @property
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> Optional['outputs.IndexCapacityConfiguration']:
+        """
+        Provides information about index capacity configuration.
+        """
         return pulumi.get(self, "capacity_configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the index was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the Amazon Q Business index.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the index.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="documentAttributeConfigurations")
     def document_attribute_configurations(self) -> Optional[Sequence['outputs.IndexDocumentAttributeConfiguration']]:
+        """
+        Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+
+        For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        """
         return pulumi.get(self, "document_attribute_configurations")
 
     @property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an Amazon Q Business index.
+        """
         return pulumi.get(self, "index_arn")
 
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> Optional[str]:
+        """
+        The identifier for the index.
+        """
         return pulumi.get(self, "index_id")
 
     @property
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> Optional['outputs.IndexStatistics']:
+        """
+        Provides information about the number of documents in an index.
+        """
         return pulumi.get(self, "index_statistics")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['IndexStatus']:
+        """
+        The current status of the index. When the status is `ACTIVE` , the index is ready.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the index was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -136,6 +171,10 @@ def get_index(application_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
     Definition of AWS::QBusiness::Index Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business application using the index.
+    :param str index_id: The identifier for the index.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -163,5 +202,9 @@ def get_index_output(application_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
     Definition of AWS::QBusiness::Index Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business application using the index.
+    :param str index_id: The identifier for the index.
     """
     ...

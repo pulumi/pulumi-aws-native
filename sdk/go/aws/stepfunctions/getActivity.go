@@ -24,11 +24,14 @@ func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulum
 }
 
 type LookupActivityArgs struct {
+	// Returns the ARN of the resource.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupActivityResult struct {
-	Arn  *string   `pulumi:"arn"`
+	// Returns the ARN of the resource.
+	Arn *string `pulumi:"arn"`
+	// The `TagsEntry` property specifies *tags* to identify an activity.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -46,6 +49,7 @@ func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, op
 }
 
 type LookupActivityOutputArgs struct {
+	// Returns the ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -67,10 +71,12 @@ func (o LookupActivityResultOutput) ToLookupActivityResultOutputWithContext(ctx 
 	return o
 }
 
+// Returns the ARN of the resource.
 func (o LookupActivityResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupActivityResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The `TagsEntry` property specifies *tags* to identify an activity.
 func (o LookupActivityResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupActivityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

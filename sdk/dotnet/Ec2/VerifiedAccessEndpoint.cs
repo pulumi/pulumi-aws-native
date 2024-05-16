@@ -171,8 +171,6 @@ namespace Pulumi.AwsNative.Ec2
                     "domainCertificateArn",
                     "endpointDomainPrefix",
                     "endpointType",
-                    "loadBalancerOptions.loadBalancerArn",
-                    "networkInterfaceOptions.networkInterfaceId",
                     "securityGroupIds[*]",
                 },
             };

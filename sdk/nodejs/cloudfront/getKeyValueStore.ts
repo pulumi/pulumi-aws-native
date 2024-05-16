@@ -16,12 +16,24 @@ export function getKeyValueStore(args: GetKeyValueStoreArgs, opts?: pulumi.Invok
 }
 
 export interface GetKeyValueStoreArgs {
+    /**
+     * The name of the key value store.
+     */
     name: string;
 }
 
 export interface GetKeyValueStoreResult {
+    /**
+     * The Amazon Resource Name (ARN) of the key value store.
+     */
     readonly arn?: string;
+    /**
+     * A comment for the key value store.
+     */
     readonly comment?: string;
+    /**
+     * The unique Id for the key value store.
+     */
     readonly id?: string;
     readonly status?: string;
 }
@@ -33,5 +45,8 @@ export function getKeyValueStoreOutput(args: GetKeyValueStoreOutputArgs, opts?: 
 }
 
 export interface GetKeyValueStoreOutputArgs {
+    /**
+     * The name of the key value store.
+     */
     name: pulumi.Input<string>;
 }

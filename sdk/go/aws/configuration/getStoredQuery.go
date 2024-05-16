@@ -24,14 +24,19 @@ func LookupStoredQuery(ctx *pulumi.Context, args *LookupStoredQueryArgs, opts ..
 }
 
 type LookupStoredQueryArgs struct {
+	// The name of the query.
 	QueryName string `pulumi:"queryName"`
 }
 
 type LookupStoredQueryResult struct {
-	QueryArn         *string `pulumi:"queryArn"`
+	// Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+	QueryArn *string `pulumi:"queryArn"`
+	// A unique description for the query.
 	QueryDescription *string `pulumi:"queryDescription"`
-	QueryExpression  *string `pulumi:"queryExpression"`
-	QueryId          *string `pulumi:"queryId"`
+	// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+	QueryExpression *string `pulumi:"queryExpression"`
+	// The ID of the query.
+	QueryId *string `pulumi:"queryId"`
 	// The tags for the stored query.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -50,6 +55,7 @@ func LookupStoredQueryOutput(ctx *pulumi.Context, args LookupStoredQueryOutputAr
 }
 
 type LookupStoredQueryOutputArgs struct {
+	// The name of the query.
 	QueryName pulumi.StringInput `pulumi:"queryName"`
 }
 
@@ -71,18 +77,22 @@ func (o LookupStoredQueryResultOutput) ToLookupStoredQueryResultOutputWithContex
 	return o
 }
 
+// Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
 func (o LookupStoredQueryResultOutput) QueryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStoredQueryResult) *string { return v.QueryArn }).(pulumi.StringPtrOutput)
 }
 
+// A unique description for the query.
 func (o LookupStoredQueryResultOutput) QueryDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStoredQueryResult) *string { return v.QueryDescription }).(pulumi.StringPtrOutput)
 }
 
+// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
 func (o LookupStoredQueryResultOutput) QueryExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStoredQueryResult) *string { return v.QueryExpression }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the query.
 func (o LookupStoredQueryResultOutput) QueryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStoredQueryResult) *string { return v.QueryId }).(pulumi.StringPtrOutput)
 }

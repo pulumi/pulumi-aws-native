@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,17 +57,50 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetTransitGatewayResult
     {
+        /// <summary>
+        /// The ID of the default association route table.
+        /// </summary>
         public readonly string? AssociationDefaultRouteTableId;
+        /// <summary>
+        /// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        /// </summary>
         public readonly string? AutoAcceptSharedAttachments;
+        /// <summary>
+        /// Enable or disable automatic association with the default association route table. Enabled by default.
+        /// </summary>
         public readonly string? DefaultRouteTableAssociation;
+        /// <summary>
+        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        /// </summary>
         public readonly string? DefaultRouteTablePropagation;
+        /// <summary>
+        /// The description of the transit gateway.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Enable or disable DNS support. Enabled by default.
+        /// </summary>
         public readonly string? DnsSupport;
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The ID of the default propagation route table.
+        /// </summary>
         public readonly string? PropagationDefaultRouteTableId;
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TransitGatewayArn;
+        /// <summary>
+        /// The transit gateway CIDR blocks.
+        /// </summary>
         public readonly ImmutableArray<string> TransitGatewayCidrBlocks;
+        /// <summary>
+        /// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+        /// </summary>
         public readonly string? VpnEcmpSupport;
 
         [OutputConstructor]

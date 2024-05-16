@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetDirectoryConfigArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The fully qualified name of the directory (for example, corp.example.com).
+        /// </summary>
         [Input("directoryName", required: true)]
         public string DirectoryName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetDirectoryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The fully qualified name of the directory (for example, corp.example.com).
+        /// </summary>
         [Input("directoryName", required: true)]
         public Input<string> DirectoryName { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetDirectoryConfigResult
     {
+        /// <summary>
+        /// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        /// </summary>
         public readonly Outputs.DirectoryConfigCertificateBasedAuthProperties? CertificateBasedAuthProperties;
+        /// <summary>
+        /// The distinguished names of the organizational units for computer accounts.
+        /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitDistinguishedNames;
+        /// <summary>
+        /// The credentials for the service account used by the streaming instance to connect to the directory.
+        /// </summary>
         public readonly Outputs.DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials;
 
         [OutputConstructor]

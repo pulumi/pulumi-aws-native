@@ -18,33 +18,63 @@ namespace Pulumi.AwsNative.HealthLake
         [Output("createdAt")]
         public Output<Outputs.FhirDatastoreCreatedAt> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+        /// </summary>
         [Output("datastoreArn")]
         public Output<string> DatastoreArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The endpoint for the created Data Store.
+        /// </summary>
         [Output("datastoreEndpoint")]
         public Output<string> DatastoreEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        /// </summary>
         [Output("datastoreId")]
         public Output<string> DatastoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The user generated name for the data store.
+        /// </summary>
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+        /// </summary>
         [Output("datastoreStatus")]
         public Output<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus> DatastoreStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The FHIR version of the data store. The only supported version is R4.
+        /// </summary>
         [Output("datastoreTypeVersion")]
         public Output<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The identity provider configuration that you gave when the data store was created.
+        /// </summary>
         [Output("identityProviderConfiguration")]
         public Output<Outputs.FhirDatastoreIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+        /// </summary>
         [Output("preloadDataConfig")]
         public Output<Outputs.FhirDatastorePreloadDataConfig?> PreloadDataConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The server-side encryption key configuration for a customer provided encryption key.
+        /// </summary>
         [Output("sseConfiguration")]
         public Output<Outputs.FhirDatastoreSseConfiguration?> SseConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -101,23 +131,42 @@ namespace Pulumi.AwsNative.HealthLake
 
     public sealed class FhirDatastoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user generated name for the data store.
+        /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
 
+        /// <summary>
+        /// The FHIR version of the data store. The only supported version is R4.
+        /// </summary>
         [Input("datastoreTypeVersion", required: true)]
         public Input<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The identity provider configuration that you gave when the data store was created.
+        /// </summary>
         [Input("identityProviderConfiguration")]
         public Input<Inputs.FhirDatastoreIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
+        /// <summary>
+        /// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+        /// </summary>
         [Input("preloadDataConfig")]
         public Input<Inputs.FhirDatastorePreloadDataConfigArgs>? PreloadDataConfig { get; set; }
 
+        /// <summary>
+        /// The server-side encryption key configuration for a customer provided encryption key.
+        /// </summary>
         [Input("sseConfiguration")]
         public Input<Inputs.FhirDatastoreSseConfigurationArgs>? SseConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

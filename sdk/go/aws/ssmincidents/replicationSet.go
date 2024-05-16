@@ -18,7 +18,8 @@ type ReplicationSet struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the ReplicationSet.
-	Arn               pulumi.StringOutput  `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected pulumi.BoolPtrOutput `pulumi:"deletionProtected"`
 	// The ReplicationSet configuration.
 	Regions ReplicationSetReplicationRegionArrayOutput `pulumi:"regions"`
@@ -69,6 +70,7 @@ func (ReplicationSetState) ElementType() reflect.Type {
 }
 
 type replicationSetArgs struct {
+	// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected *bool `pulumi:"deletionProtected"`
 	// The ReplicationSet configuration.
 	Regions []ReplicationSetReplicationRegion `pulumi:"regions"`
@@ -78,6 +80,7 @@ type replicationSetArgs struct {
 
 // The set of arguments for constructing a ReplicationSet resource.
 type ReplicationSetArgs struct {
+	// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected pulumi.BoolPtrInput
 	// The ReplicationSet configuration.
 	Regions ReplicationSetReplicationRegionArrayInput
@@ -127,6 +130,7 @@ func (o ReplicationSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
 func (o ReplicationSetOutput) DeletionProtected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.BoolPtrOutput { return v.DeletionProtected }).(pulumi.BoolPtrOutput)
 }

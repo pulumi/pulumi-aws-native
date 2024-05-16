@@ -16,10 +16,14 @@ import (
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
 
-	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrOutput `pulumi:"certificateBasedAuthProperties"`
-	DirectoryName                        pulumi.StringOutput                                    `pulumi:"directoryName"`
-	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput                               `pulumi:"organizationalUnitDistinguishedNames"`
-	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsOutput         `pulumi:"serviceAccountCredentials"`
+	// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrOutput `pulumi:"certificateBasedAuthProperties"`
+	// The fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName pulumi.StringOutput `pulumi:"directoryName"`
+	// The distinguished names of the organizational units for computer accounts.
+	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput `pulumi:"organizationalUnitDistinguishedNames"`
+	// The credentials for the service account used by the streaming instance to connect to the directory.
+	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
 }
 
 // NewDirectoryConfig registers a new resource with the given unique name, arguments, and options.
@@ -75,18 +79,26 @@ func (DirectoryConfigState) ElementType() reflect.Type {
 }
 
 type directoryConfigArgs struct {
-	CertificateBasedAuthProperties       *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
-	DirectoryName                        string                                         `pulumi:"directoryName"`
-	OrganizationalUnitDistinguishedNames []string                                       `pulumi:"organizationalUnitDistinguishedNames"`
-	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentials       `pulumi:"serviceAccountCredentials"`
+	// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
+	// The fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName string `pulumi:"directoryName"`
+	// The distinguished names of the organizational units for computer accounts.
+	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
+	// The credentials for the service account used by the streaming instance to connect to the directory.
+	ServiceAccountCredentials DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
 }
 
 // The set of arguments for constructing a DirectoryConfig resource.
 type DirectoryConfigArgs struct {
-	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrInput
-	DirectoryName                        pulumi.StringInput
+	// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrInput
+	// The fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName pulumi.StringInput
+	// The distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsInput
+	// The credentials for the service account used by the streaming instance to connect to the directory.
+	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsInput
 }
 
 func (DirectoryConfigArgs) ElementType() reflect.Type {
@@ -126,20 +138,24 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 	return o
 }
 
+// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
 func (o DirectoryConfigOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
 		return v.CertificateBasedAuthProperties
 	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
+// The fully qualified name of the directory (for example, corp.example.com).
 func (o DirectoryConfigOutput) DirectoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.DirectoryName }).(pulumi.StringOutput)
 }
 
+// The distinguished names of the organizational units for computer accounts.
 func (o DirectoryConfigOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringArrayOutput { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
 }
 
+// The credentials for the service account used by the streaming instance to connect to the directory.
 func (o DirectoryConfigOutput) ServiceAccountCredentials() DirectoryConfigServiceAccountCredentialsOutput {
 	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigServiceAccountCredentialsOutput {
 		return v.ServiceAccountCredentials

@@ -16,9 +16,12 @@ import (
 type RobotApplicationVersion struct {
 	pulumi.CustomResourceState
 
-	Application        pulumi.StringOutput `pulumi:"application"`
+	// The application information for the robot application.
+	Application pulumi.StringOutput `pulumi:"application"`
+	// The robot application version.
 	ApplicationVersion pulumi.StringOutput `pulumi:"applicationVersion"`
-	Arn                pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the robot application version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
 }
@@ -71,6 +74,7 @@ func (RobotApplicationVersionState) ElementType() reflect.Type {
 }
 
 type robotApplicationVersionArgs struct {
+	// The application information for the robot application.
 	Application string `pulumi:"application"`
 	// The revision ID of robot application.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
@@ -78,6 +82,7 @@ type robotApplicationVersionArgs struct {
 
 // The set of arguments for constructing a RobotApplicationVersion resource.
 type RobotApplicationVersionArgs struct {
+	// The application information for the robot application.
 	Application pulumi.StringInput
 	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrInput
@@ -120,14 +125,17 @@ func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutputWithContex
 	return o
 }
 
+// The application information for the robot application.
 func (o RobotApplicationVersionOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
+// The robot application version.
 func (o RobotApplicationVersionOutput) ApplicationVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringOutput { return v.ApplicationVersion }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the robot application version.
 func (o RobotApplicationVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

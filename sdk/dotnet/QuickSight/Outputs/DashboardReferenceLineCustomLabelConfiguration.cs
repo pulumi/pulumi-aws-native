@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardReferenceLineCustomLabelConfiguration
     {
+        /// <summary>
+        /// The string text of the custom label.
+        /// </summary>
         public readonly string CustomLabel;
 
         [OutputConstructor]

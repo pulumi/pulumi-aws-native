@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     [OutputType]
     public sealed class InAppTemplateInAppMessageContent
     {
+        /// <summary>
+        /// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// Specifies the configuration of the main body text of the in-app message.
+        /// </summary>
         public readonly Outputs.InAppTemplateBodyConfig? BodyConfig;
+        /// <summary>
+        /// Specifies the configuration and content of the header or title text of the in-app message.
+        /// </summary>
         public readonly Outputs.InAppTemplateHeaderConfig? HeaderConfig;
+        /// <summary>
+        /// The URL of the image that appears on an in-app message banner.
+        /// </summary>
         public readonly string? ImageUrl;
+        /// <summary>
+        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// </summary>
         public readonly Outputs.InAppTemplateButtonConfig? PrimaryBtn;
+        /// <summary>
+        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// </summary>
         public readonly Outputs.InAppTemplateButtonConfig? SecondaryBtn;
 
         [OutputConstructor]

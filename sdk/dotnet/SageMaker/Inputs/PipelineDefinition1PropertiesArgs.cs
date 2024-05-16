@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
+    /// <summary>
+    /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+    /// </summary>
     public sealed class PipelineDefinition1PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("pipelineDefinitionS3Location", required: true)]

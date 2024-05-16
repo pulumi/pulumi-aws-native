@@ -44,6 +44,9 @@ class GetDataflowEndpointGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -65,16 +68,25 @@ class GetDataflowEndpointGroupResult:
     @property
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> Optional[Sequence['outputs.DataflowEndpointGroupEndpointDetails']]:
+        """
+        The security details and endpoint information.
+        """
         return pulumi.get(self, "endpoint_details")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        UUID of a dataflow endpoint group.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -96,6 +108,9 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataflowEndpointGroupResult:
     """
     AWS Ground Station DataflowEndpointGroup schema for CloudFormation
+
+
+    :param str id: UUID of a dataflow endpoint group.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -116,5 +131,8 @@ def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataflowEndpointGroupResult]:
     """
     AWS Ground Station DataflowEndpointGroup schema for CloudFormation
+
+
+    :param str id: UUID of a dataflow endpoint group.
     """
     ...

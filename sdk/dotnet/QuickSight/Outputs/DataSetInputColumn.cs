@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The name of this column in the underlying data source.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? SubType;
+        /// <summary>
+        /// The data type of the column.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetInputColumnDataType Type;
 
         [OutputConstructor]

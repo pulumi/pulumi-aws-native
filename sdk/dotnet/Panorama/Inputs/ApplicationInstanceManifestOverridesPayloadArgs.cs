@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Panorama.Inputs
 
     public sealed class ApplicationInstanceManifestOverridesPayloadArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The overrides document.
+        /// </summary>
         [Input("payloadData")]
         public Input<string>? PayloadData { get; set; }
 

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
@@ -51,12 +54,21 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Output("dataSetId")]
         public Output<string?> DataSetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The refresh properties of a dataset.
+        /// </summary>
         [Output("dataSetRefreshProperties")]
         public Output<Outputs.DataSetRefreshProperties?> DataSetRefreshProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The usage configuration to apply to child datasets that reference this dataset as a source.
+        /// </summary>
         [Output("dataSetUsageConfiguration")]
         public Output<Outputs.DataSetUsageConfiguration?> DataSetUsageConfiguration { get; private set; } = null!;
 
@@ -66,12 +78,21 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("datasetParameters")]
         public Output<ImmutableArray<Outputs.DataSetDatasetParameter>> DatasetParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The folder that contains fields and nested subfolders for your dataset.
+        /// </summary>
         [Output("fieldFolders")]
         public Output<ImmutableDictionary<string, Outputs.DataSetFieldFolder>?> FieldFolders { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether you want to import the data into SPICE.
+        /// </summary>
         [Output("importMode")]
         public Output<Pulumi.AwsNative.QuickSight.DataSetImportMode?> ImportMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        /// </summary>
         [Output("ingestionWaitPolicy")]
         public Output<Outputs.DataSetIngestionWaitPolicy?> IngestionWaitPolicy { get; private set; } = null!;
 
@@ -81,6 +102,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures the combination and transformation of the data from the physical tables.
+        /// </summary>
         [Output("logicalTableMap")]
         public Output<ImmutableDictionary<string, Outputs.DataSetLogicalTable>?> LogicalTableMap { get; private set; } = null!;
 
@@ -103,12 +127,23 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSetResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// Declares the physical tables that are available in the underlying data sources.
+        /// </summary>
         [Output("physicalTableMap")]
         public Output<ImmutableDictionary<string, Outputs.DataSetPhysicalTable>?> PhysicalTableMap { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+        /// </summary>
         [Output("rowLevelPermissionDataSet")]
         public Output<Outputs.DataSetRowLevelPermissionDataSet?> RowLevelPermissionDataSet { get; private set; } = null!;
 
+        /// <summary>
+        /// The element you can use to define tags for row-level security.
+        /// </summary>
         [Output("rowLevelPermissionTagConfiguration")]
         public Output<Outputs.DataSetRowLevelPermissionTagConfiguration?> RowLevelPermissionTagConfiguration { get; private set; } = null!;
 
@@ -168,6 +203,9 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class DataSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -197,12 +235,21 @@ namespace Pulumi.AwsNative.QuickSight
             set => _columnLevelPermissionRules = value;
         }
 
+        /// <summary>
+        /// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
+        /// <summary>
+        /// The refresh properties of a dataset.
+        /// </summary>
         [Input("dataSetRefreshProperties")]
         public Input<Inputs.DataSetRefreshPropertiesArgs>? DataSetRefreshProperties { get; set; }
 
+        /// <summary>
+        /// The usage configuration to apply to child datasets that reference this dataset as a source.
+        /// </summary>
         [Input("dataSetUsageConfiguration")]
         public Input<Inputs.DataSetUsageConfigurationArgs>? DataSetUsageConfiguration { get; set; }
 
@@ -220,20 +267,34 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("fieldFolders")]
         private InputMap<Inputs.DataSetFieldFolderArgs>? _fieldFolders;
+
+        /// <summary>
+        /// The folder that contains fields and nested subfolders for your dataset.
+        /// </summary>
         public InputMap<Inputs.DataSetFieldFolderArgs> FieldFolders
         {
             get => _fieldFolders ?? (_fieldFolders = new InputMap<Inputs.DataSetFieldFolderArgs>());
             set => _fieldFolders = value;
         }
 
+        /// <summary>
+        /// Indicates whether you want to import the data into SPICE.
+        /// </summary>
         [Input("importMode")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetImportMode>? ImportMode { get; set; }
 
+        /// <summary>
+        /// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        /// </summary>
         [Input("ingestionWaitPolicy")]
         public Input<Inputs.DataSetIngestionWaitPolicyArgs>? IngestionWaitPolicy { get; set; }
 
         [Input("logicalTableMap")]
         private InputMap<Inputs.DataSetLogicalTableArgs>? _logicalTableMap;
+
+        /// <summary>
+        /// Configures the combination and transformation of the data from the physical tables.
+        /// </summary>
         public InputMap<Inputs.DataSetLogicalTableArgs> LogicalTableMap
         {
             get => _logicalTableMap ?? (_logicalTableMap = new InputMap<Inputs.DataSetLogicalTableArgs>());
@@ -260,15 +321,27 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("physicalTableMap")]
         private InputMap<Inputs.DataSetPhysicalTableArgs>? _physicalTableMap;
+
+        /// <summary>
+        /// Declares the physical tables that are available in the underlying data sources.
+        /// </summary>
         public InputMap<Inputs.DataSetPhysicalTableArgs> PhysicalTableMap
         {
             get => _physicalTableMap ?? (_physicalTableMap = new InputMap<Inputs.DataSetPhysicalTableArgs>());
             set => _physicalTableMap = value;
         }
 
+        /// <summary>
+        /// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+        /// </summary>
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetArgs>? RowLevelPermissionDataSet { get; set; }
 
+        /// <summary>
+        /// The element you can use to define tags for row-level security.
+        /// </summary>
         [Input("rowLevelPermissionTagConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionTagConfigurationArgs>? RowLevelPermissionTagConfiguration { get; set; }
 

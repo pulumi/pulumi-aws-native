@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisBoxPlotOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the visibility of all data points of the box plot.
+        /// </summary>
         [Input("allDataPointsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? AllDataPointsVisibility { get; set; }
 
+        /// <summary>
+        /// Determines the visibility of the outlier in a box plot.
+        /// </summary>
         [Input("outlierVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? OutlierVisibility { get; set; }
 
+        /// <summary>
+        /// The style options of the box plot.
+        /// </summary>
         [Input("styleOptions")]
         public Input<Inputs.AnalysisBoxPlotStyleOptionsArgs>? StyleOptions { get; set; }
 

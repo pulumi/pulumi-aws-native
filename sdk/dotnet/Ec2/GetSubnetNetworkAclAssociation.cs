@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetNetworkAclAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the value of this object's AssociationId property.
+        /// </summary>
         [Input("associationId", required: true)]
         public string AssociationId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetNetworkAclAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the value of this object's AssociationId property.
+        /// </summary>
         [Input("associationId", required: true)]
         public Input<string> AssociationId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetSubnetNetworkAclAssociationResult
     {
+        /// <summary>
+        /// Returns the value of this object's AssociationId property.
+        /// </summary>
         public readonly string? AssociationId;
 
         [OutputConstructor]

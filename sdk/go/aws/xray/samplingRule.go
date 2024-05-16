@@ -16,12 +16,15 @@ import (
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
-	RuleArn            pulumi.StringOutput         `pulumi:"ruleArn"`
-	RuleName           pulumi.StringPtrOutput      `pulumi:"ruleName"`
+	// The sampling rule ARN that was created or updated.
+	RuleArn  pulumi.StringOutput    `pulumi:"ruleArn"`
+	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
+	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 	SamplingRule       SamplingRuleTypePtrOutput   `pulumi:"samplingRule"`
 	SamplingRuleRecord SamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate SamplingRuleUpdatePtrOutput `pulumi:"samplingRuleUpdate"`
-	Tags               aws.TagArrayOutput          `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSamplingRule registers a new resource with the given unique name, arguments, and options.
@@ -31,11 +34,6 @@ func NewSamplingRule(ctx *pulumi.Context,
 		args = &SamplingRuleArgs{}
 	}
 
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"samplingRule.version",
-		"samplingRuleRecord.samplingRule.version",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamplingRule
 	err := ctx.RegisterResource("aws-native:xray:SamplingRule", name, args, &resource, opts...)
@@ -69,20 +67,24 @@ func (SamplingRuleState) ElementType() reflect.Type {
 }
 
 type samplingRuleArgs struct {
-	RuleName           *string             `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
+	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
-	Tags               []aws.Tag           `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SamplingRule resource.
 type SamplingRuleArgs struct {
-	RuleName           pulumi.StringPtrInput
+	RuleName pulumi.StringPtrInput
+	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 	SamplingRule       SamplingRuleTypePtrInput
 	SamplingRuleRecord SamplingRuleRecordPtrInput
 	SamplingRuleUpdate SamplingRuleUpdatePtrInput
-	Tags               aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (SamplingRuleArgs) ElementType() reflect.Type {
@@ -122,6 +124,7 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The sampling rule ARN that was created or updated.
 func (o SamplingRuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
@@ -130,6 +133,7 @@ func (o SamplingRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
+// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 func (o SamplingRuleOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v *SamplingRule) SamplingRuleTypePtrOutput { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }
@@ -142,6 +146,7 @@ func (o SamplingRuleOutput) SamplingRuleUpdate() SamplingRuleUpdatePtrOutput {
 	return o.ApplyT(func(v *SamplingRule) SamplingRuleUpdatePtrOutput { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o SamplingRuleOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *SamplingRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

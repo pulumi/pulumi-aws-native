@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetIdentityProviderArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the identity provider.
+        /// </summary>
         [Input("identityProviderArn", required: true)]
         public string IdentityProviderArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetIdentityProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the identity provider.
+        /// </summary>
         [Input("identityProviderArn", required: true)]
         public Input<string> IdentityProviderArn { get; set; } = null!;
 
@@ -51,9 +57,58 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetIdentityProviderResult
     {
+        /// <summary>
+        /// The ARN of the identity provider.
+        /// </summary>
         public readonly string? IdentityProviderArn;
+        /// <summary>
+        /// The identity provider details. The following list describes the provider detail keys for each identity provider type.
+        /// 
+        /// - For Google and Login with Amazon:
+        /// 
+        /// - `client_id`
+        /// - `client_secret`
+        /// - `authorize_scopes`
+        /// - For Facebook:
+        /// 
+        /// - `client_id`
+        /// - `client_secret`
+        /// - `authorize_scopes`
+        /// - `api_version`
+        /// - For Sign in with Apple:
+        /// 
+        /// - `client_id`
+        /// - `team_id`
+        /// - `key_id`
+        /// - `private_key`
+        /// - `authorize_scopes`
+        /// - For OIDC providers:
+        /// 
+        /// - `client_id`
+        /// - `client_secret`
+        /// - `attributes_request_method`
+        /// - `oidc_issuer`
+        /// - `authorize_scopes`
+        /// - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+        /// - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+        /// - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+        /// - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+        /// - For SAML providers:
+        /// 
+        /// - `MetadataFile` OR `MetadataURL`
+        /// - `IDPSignout` (boolean) *optional*
+        /// - `IDPInit` (boolean) *optional*
+        /// - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+        /// - `EncryptedResponses` (boolean) *optional*
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? IdentityProviderDetails;
+        /// <summary>
+        /// The identity provider name.
+        /// </summary>
         public readonly string? IdentityProviderName;
+        /// <summary>
+        /// The identity provider type.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.IdentityProviderType? IdentityProviderType;
 
         [OutputConstructor]

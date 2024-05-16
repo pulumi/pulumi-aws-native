@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisHistogramBinOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the bin count of a histogram.
+        /// </summary>
         [Input("binCount")]
         public Input<Inputs.AnalysisBinCountOptionsArgs>? BinCount { get; set; }
 
+        /// <summary>
+        /// The options that determine the bin width of a histogram.
+        /// </summary>
         [Input("binWidth")]
         public Input<Inputs.AnalysisBinWidthOptionsArgs>? BinWidth { get; set; }
 
+        /// <summary>
+        /// The options that determine the selected bin type.
+        /// </summary>
         [Input("selectedBinType")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisHistogramBinType>? SelectedBinType { get; set; }
 
+        /// <summary>
+        /// The options that determine the bin start value.
+        /// </summary>
         [Input("startValue")]
         public Input<double>? StartValue { get; set; }
 

@@ -15,15 +15,29 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:TopicRule")]
     public partial class TopicRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// *Pattern* : `[a-zA-Z0-9:_-]+`
+        /// </summary>
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key/value pairs that are used to manage the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a rule.
+        /// </summary>
         [Output("topicRulePayload")]
         public Output<Outputs.TopicRulePayload> TopicRulePayload { get; private set; } = null!;
 
@@ -76,17 +90,29 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class TopicRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// *Pattern* : `[a-zA-Z0-9:_-]+`
+        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of key/value pairs that are used to manage the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Describes a rule.
+        /// </summary>
         [Input("topicRulePayload", required: true)]
         public Input<Inputs.TopicRulePayloadArgs> TopicRulePayload { get; set; } = null!;
 

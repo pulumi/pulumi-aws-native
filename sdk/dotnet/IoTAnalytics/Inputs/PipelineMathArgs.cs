@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineMathArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the attribute that contains the result of the math operation.
+        /// </summary>
         [Input("attribute", required: true)]
         public Input<string> Attribute { get; set; } = null!;
 
+        /// <summary>
+        /// An expression that uses one or more existing attributes and must return an integer value.
+        /// </summary>
         [Input("math", required: true)]
         public Input<string> Math { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the 'math' activity.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         [Input("next")]
         public Input<string>? Next { get; set; }
 

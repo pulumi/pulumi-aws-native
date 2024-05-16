@@ -16,18 +16,33 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotLocale
     {
+        /// <summary>
+        /// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+        /// </summary>
         public readonly Outputs.BotCustomVocabulary? CustomVocabulary;
+        /// <summary>
+        /// A description of the bot locale. Use this to help identify the bot locale in lists.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// List of intents
         /// </summary>
         public readonly ImmutableArray<Outputs.BotIntent> Intents;
+        /// <summary>
+        /// The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
+        /// </summary>
         public readonly string LocaleId;
+        /// <summary>
+        /// Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
+        /// </summary>
         public readonly double NluConfidenceThreshold;
         /// <summary>
         /// List of SlotTypes
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotType> SlotTypes;
+        /// <summary>
+        /// Defines settings for using an Amazon Polly voice to communicate with a user.
+        /// </summary>
         public readonly Outputs.BotVoiceSettings? VoiceSettings;
 
         [OutputConstructor]

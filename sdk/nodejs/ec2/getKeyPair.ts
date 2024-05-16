@@ -30,7 +30,21 @@ export interface GetKeyPairArgs {
 }
 
 export interface GetKeyPairResult {
+    /**
+     * If you created the key pair using Amazon EC2:
+     *
+     * - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+     * - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+     *
+     * If you imported the key pair to Amazon EC2:
+     *
+     * - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+     */
     readonly keyFingerprint?: string;
+    /**
+     * The ID of the key pair.
+     */
     readonly keyPairId?: string;
 }
 /**

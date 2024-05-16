@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A collection of settings that configure the domain's Docker interaction.
+        /// </summary>
         [Input("dockerSettings")]
         public Input<Inputs.DomainDockerSettingsArgs>? DockerSettings { get; set; }
 
+        /// <summary>
+        /// A collection of settings that configure the `RStudioServerPro` Domain-level app.
+        /// </summary>
         [Input("rStudioServerProDomainSettings")]
         public Input<Inputs.DomainRStudioServerProDomainSettingsArgs>? RStudioServerProDomainSettings { get; set; }
 

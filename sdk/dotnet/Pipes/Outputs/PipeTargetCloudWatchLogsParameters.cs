@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetCloudWatchLogsParameters
     {
+        /// <summary>
+        /// The name of the log stream.
+        /// </summary>
         public readonly string? LogStreamName;
+        /// <summary>
+        /// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        /// </summary>
         public readonly string? Timestamp;
 
         [OutputConstructor]

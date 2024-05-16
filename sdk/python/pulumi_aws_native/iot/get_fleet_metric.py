@@ -72,6 +72,9 @@ class GetFleetMetricResult:
     @property
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> Optional['outputs.FleetMetricAggregationType']:
+        """
+        The type of aggregation queries.
+        """
         return pulumi.get(self, "aggregation_type")
 
     @property

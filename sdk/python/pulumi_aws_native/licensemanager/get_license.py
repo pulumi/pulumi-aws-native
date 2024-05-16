@@ -68,11 +68,17 @@ class GetLicenseResult:
     @property
     @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> Optional['outputs.LicenseConsumptionConfiguration']:
+        """
+        Details about a consumption configuration.
+        """
         return pulumi.get(self, "consumption_configuration")
 
     @property
     @pulumi.getter
     def entitlements(self) -> Optional[Sequence['outputs.LicenseEntitlement']]:
+        """
+        Describes a resource entitled for use with a license.
+        """
         return pulumi.get(self, "entitlements")
 
     @property
@@ -86,6 +92,9 @@ class GetLicenseResult:
     @property
     @pulumi.getter
     def issuer(self) -> Optional['outputs.LicenseIssuerData']:
+        """
+        Details associated with the issuer of a license.
+        """
         return pulumi.get(self, "issuer")
 
     @property
@@ -99,6 +108,9 @@ class GetLicenseResult:
     @property
     @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> Optional[Sequence['outputs.LicenseMetadata']]:
+        """
+        Describes key/value pairs.
+        """
         return pulumi.get(self, "license_metadata")
 
     @property
@@ -128,6 +140,9 @@ class GetLicenseResult:
     @property
     @pulumi.getter
     def validity(self) -> Optional['outputs.LicenseValidityDateFormat']:
+        """
+        Date and time range during which the license is valid, in ISO8601-UTC format.
+        """
         return pulumi.get(self, "validity")
 
     @property

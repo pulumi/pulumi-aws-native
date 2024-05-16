@@ -73,6 +73,9 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
         return obj['__pulumiType'] === InstanceAccessControlAttributeConfiguration.__pulumiType;
     }
 
+    /**
+     * Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+     */
     public readonly accessControlAttributes!: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
@@ -116,6 +119,9 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
  * The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
  */
 export interface InstanceAccessControlAttributeConfigurationArgs {
+    /**
+     * Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+     */
     accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.

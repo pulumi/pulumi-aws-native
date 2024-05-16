@@ -37,8 +37,17 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggingConfiguration.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     */
     public readonly firewallArn!: pulumi.Output<string>;
+    /**
+     * The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     */
     public readonly firewallName!: pulumi.Output<string | undefined>;
+    /**
+     * Defines how AWS Network Firewall performs logging for a `Firewall` .
+     */
     public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfiguration>;
 
     /**
@@ -77,7 +86,16 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     */
     firewallArn: pulumi.Input<string>;
+    /**
+     * The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     */
     firewallName?: pulumi.Input<string>;
+    /**
+     * Defines how AWS Network Firewall performs logging for a `Firewall` .
+     */
     loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationArgs>;
 }

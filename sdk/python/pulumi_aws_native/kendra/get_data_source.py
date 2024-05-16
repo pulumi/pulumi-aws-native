@@ -59,51 +59,91 @@ class GetDataSourceResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the data source. For example:
+
+        `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfiguration']:
+        """
+        Provides the configuration information for altering document metadata and content during the document ingestion process.
+
+        For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional['outputs.DataSourceConfiguration']:
+        """
+        Provides the configuration information for an Amazon Kendra data source.
+        """
         return pulumi.get(self, "data_source_configuration")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the data source connector.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier for the data source. For example:
+
+        `b8cae438-6787-4091-8897-684a652bbb0a` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> Optional[str]:
+        """
+        The identifier of the index you want to use with the data source connector.
+        """
         return pulumi.get(self, "index_id")
 
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[str]:
+        """
+        The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        """
         return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the data source.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access the data source.
+
+        You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+
+        The `RoleArn` parameter is required for all other data sources.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def schedule(self) -> Optional[str]:
+        """
+        Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+        """
         return pulumi.get(self, "schedule")
 
     @property
@@ -139,6 +179,12 @@ def get_data_source(id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
     Kendra DataSource
+
+
+    :param str id: The identifier for the data source. For example:
+           
+           `b8cae438-6787-4091-8897-684a652bbb0a` .
+    :param str index_id: The identifier of the index you want to use with the data source connector.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -166,5 +212,11 @@ def get_data_source_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Kendra DataSource
+
+
+    :param str id: The identifier for the data source. For example:
+           
+           `b8cae438-6787-4091-8897-684a652bbb0a` .
+    :param str index_id: The identifier of the index you want to use with the data source connector.
     """
     ...

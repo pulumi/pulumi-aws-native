@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetRegistryPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetRegistryPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,12 +57,23 @@ namespace Pulumi.AwsNative.EventSchemas
     [OutputType]
     public sealed class GetRegistryPolicyResult
     {
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// A resource-based policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
+        /// <summary>
+        /// The name of the registry.
+        /// </summary>
         public readonly string? RegistryName;
+        /// <summary>
+        /// The revision ID of the policy.
+        /// </summary>
         public readonly string? RevisionId;
 
         [OutputConstructor]

@@ -84,6 +84,7 @@ class ResponsePlanActionArgs:
                  ssm_automation: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']] = None):
         """
         The automation configuration to launch.
+        :param pulumi.Input['ResponsePlanSsmAutomationArgs'] ssm_automation: The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
         """
         if ssm_automation is not None:
             pulumi.set(__self__, "ssm_automation", ssm_automation)
@@ -91,6 +92,9 @@ class ResponsePlanActionArgs:
     @property
     @pulumi.getter(name="ssmAutomation")
     def ssm_automation(self) -> Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']]:
+        """
+        The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+        """
         return pulumi.get(self, "ssm_automation")
 
     @ssm_automation.setter
@@ -104,6 +108,7 @@ class ResponsePlanChatChannelArgs:
                  chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The chat channel configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] chatbot_sns: The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         """
         if chatbot_sns is not None:
             pulumi.set(__self__, "chatbot_sns", chatbot_sns)
@@ -111,6 +116,9 @@ class ResponsePlanChatChannelArgs:
     @property
     @pulumi.getter(name="chatbotSns")
     def chatbot_sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        """
         return pulumi.get(self, "chatbot_sns")
 
     @chatbot_sns.setter
@@ -124,6 +132,7 @@ class ResponsePlanDynamicSsmParameterValueArgs:
                  variable: Optional[pulumi.Input['ResponsePlanVariableType']] = None):
         """
         Value of the dynamic parameter to set when starting the SSM automation document.
+        :param pulumi.Input['ResponsePlanVariableType'] variable: Variable dynamic parameters. A parameter value is determined when an incident is created.
         """
         if variable is not None:
             pulumi.set(__self__, "variable", variable)
@@ -131,6 +140,9 @@ class ResponsePlanDynamicSsmParameterValueArgs:
     @property
     @pulumi.getter
     def variable(self) -> Optional[pulumi.Input['ResponsePlanVariableType']]:
+        """
+        Variable dynamic parameters. A parameter value is determined when an incident is created.
+        """
         return pulumi.get(self, "variable")
 
     @variable.setter
@@ -145,6 +157,8 @@ class ResponsePlanDynamicSsmParameterArgs:
                  value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']):
         """
         A parameter with a dynamic value to set when starting the SSM automation document.
+        :param pulumi.Input[str] key: The key parameter to use when running the Systems Manager Automation runbook.
+        :param pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs'] value: The dynamic parameter value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -152,6 +166,9 @@ class ResponsePlanDynamicSsmParameterArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key parameter to use when running the Systems Manager Automation runbook.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -161,6 +178,9 @@ class ResponsePlanDynamicSsmParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']:
+        """
+        The dynamic parameter value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -274,12 +294,18 @@ class ResponsePlanIncidentTemplateArgs:
 class ResponsePlanIntegrationArgs:
     def __init__(__self__, *,
                  pager_duty_configuration: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['ResponsePlanPagerDutyConfigurationArgs'] pager_duty_configuration: Details about the PagerDuty configuration for a response plan.
+        """
         if pager_duty_configuration is not None:
             pulumi.set(__self__, "pager_duty_configuration", pager_duty_configuration)
 
     @property
     @pulumi.getter(name="pagerDutyConfiguration")
     def pager_duty_configuration(self) -> Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']]:
+        """
+        Details about the PagerDuty configuration for a response plan.
+        """
         return pulumi.get(self, "pager_duty_configuration")
 
     @pager_duty_configuration.setter
@@ -293,6 +319,7 @@ class ResponsePlanNotificationTargetItemArgs:
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
         A notification target.
+        :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
         """
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -300,6 +327,9 @@ class ResponsePlanNotificationTargetItemArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -316,6 +346,7 @@ class ResponsePlanPagerDutyConfigurationArgs:
         """
         The pagerDuty configuration to use when starting the incident.
         :param pulumi.Input[str] name: The name of the pagerDuty configuration.
+        :param pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs'] pager_duty_incident_configuration: Details about the PagerDuty service where the response plan creates an incident.
         :param pulumi.Input[str] secret_id: The AWS secrets manager secretId storing the pagerDuty token.
         """
         pulumi.set(__self__, "name", name)
@@ -337,6 +368,9 @@ class ResponsePlanPagerDutyConfigurationArgs:
     @property
     @pulumi.getter(name="pagerDutyIncidentConfiguration")
     def pager_duty_incident_configuration(self) -> pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs']:
+        """
+        Details about the PagerDuty service where the response plan creates an incident.
+        """
         return pulumi.get(self, "pager_duty_incident_configuration")
 
     @pager_duty_incident_configuration.setter
@@ -488,6 +522,8 @@ class ResponsePlanSsmParameterArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         A parameter to set when starting the SSM automation document.
+        :param pulumi.Input[str] key: The key parameter to use when running the Automation runbook.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value parameter to use when running the Automation runbook.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -495,6 +531,9 @@ class ResponsePlanSsmParameterArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key parameter to use when running the Automation runbook.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -504,6 +543,9 @@ class ResponsePlanSsmParameterArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The value parameter to use when running the Automation runbook.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -518,6 +560,8 @@ class ResponsePlanTagArgs:
                  value: pulumi.Input[str]):
         """
         A key-value pair to tag a resource.
+        :param pulumi.Input[str] key: The tag key.
+        :param pulumi.Input[str] value: The tag value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -525,6 +569,9 @@ class ResponsePlanTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -534,6 +581,9 @@ class ResponsePlanTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

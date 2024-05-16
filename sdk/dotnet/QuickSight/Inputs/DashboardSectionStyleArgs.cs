@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The configuration of spacing (often a margin or padding).
+        /// </summary>
         [Input("padding")]
         public Input<Inputs.DashboardSpacingArgs>? Padding { get; set; }
 

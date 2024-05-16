@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableReadOnDemandThroughputSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum number of read request units for the specified replica of a global table.
+        /// </summary>
         [Input("maxReadRequestUnits")]
         public Input<int>? MaxReadRequestUnits { get; set; }
 

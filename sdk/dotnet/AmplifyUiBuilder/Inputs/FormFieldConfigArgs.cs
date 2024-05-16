@@ -12,20 +12,36 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class FormFieldConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether to hide a field.
+        /// </summary>
         [Input("excluded")]
         public Input<bool>? Excluded { get; set; }
 
+        /// <summary>
+        /// The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+        /// </summary>
         [Input("inputType")]
         public Input<Inputs.FormFieldInputConfigArgs>? InputType { get; set; }
 
+        /// <summary>
+        /// The label for the field.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The `FieldPosition` property specifies the field position.
+        /// </summary>
         [Input("position")]
         public object? Position { get; set; }
 
         [Input("validations")]
         private InputList<Inputs.FormFieldValidationConfigurationArgs>? _validations;
+
+        /// <summary>
+        /// The `FieldValidationConfiguration` property specifies the validation configuration for a field.
+        /// </summary>
         public InputList<Inputs.FormFieldValidationConfigurationArgs> Validations
         {
             get => _validations ?? (_validations = new InputList<Inputs.FormFieldValidationConfigurationArgs>());

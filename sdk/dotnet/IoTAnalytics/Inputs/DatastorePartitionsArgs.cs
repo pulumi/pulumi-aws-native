@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("partitions")]
         private InputList<Inputs.DatastorePartitionArgs>? _partitions;
+
+        /// <summary>
+        /// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+        /// </summary>
         public InputList<Inputs.DatastorePartitionArgs> Partitions
         {
             get => _partitions ?? (_partitions = new InputList<Inputs.DatastorePartitionArgs>());

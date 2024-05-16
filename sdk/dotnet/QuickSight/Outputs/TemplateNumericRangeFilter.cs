@@ -13,15 +13,53 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateNumericRangeFilter
     {
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// Determines whether the maximum value in the filter value range should be included in the filtered results.
+        /// </summary>
         public readonly bool? IncludeMaximum;
+        /// <summary>
+        /// Determines whether the minimum value in the filter value range should be included in the filtered results.
+        /// </summary>
         public readonly bool? IncludeMinimum;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterNullOption NullOption;
+        /// <summary>
+        /// The value input pf the numeric range filter.
+        /// </summary>
         public readonly Outputs.TemplateNumericRangeFilterValue? RangeMaximum;
+        /// <summary>
+        /// The value input pf the numeric range filter.
+        /// </summary>
         public readonly Outputs.TemplateNumericRangeFilterValue? RangeMinimum;
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateNumericFilterSelectAllOptions? SelectAllOptions;
 
         [OutputConstructor]

@@ -13,17 +13,53 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicDisplayFormatOptions
     {
+        /// <summary>
+        /// Determines the blank cell format.
+        /// </summary>
         public readonly string? BlankCellFormat;
+        /// <summary>
+        /// The currency symbol, such as `USD` .
+        /// </summary>
         public readonly string? CurrencySymbol;
+        /// <summary>
+        /// Determines the `DateTime` format.
+        /// </summary>
         public readonly string? DateFormat;
+        /// <summary>
+        /// Determines the decimal separator.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNumericSeparatorSymbol? DecimalSeparator;
+        /// <summary>
+        /// Determines the number of fraction digits.
+        /// </summary>
         public readonly double? FractionDigits;
+        /// <summary>
+        /// Determines the grouping separator.
+        /// </summary>
         public readonly string? GroupingSeparator;
+        /// <summary>
+        /// A structure that represents a negative format.
+        /// </summary>
         public readonly Outputs.TopicNegativeFormat? NegativeFormat;
+        /// <summary>
+        /// The prefix value for a display format.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// The suffix value for a display format.
+        /// </summary>
         public readonly string? Suffix;
+        /// <summary>
+        /// The unit scaler. Valid values for this structure are: `NONE` , `AUTO` , `THOUSANDS` , `MILLIONS` , `BILLIONS` , and `TRILLIONS` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNumberScale? UnitScaler;
+        /// <summary>
+        /// A Boolean value that indicates whether to use blank cell format.
+        /// </summary>
         public readonly bool? UseBlankCellFormat;
+        /// <summary>
+        /// A Boolean value that indicates whether to use grouping.
+        /// </summary>
         public readonly bool? UseGrouping;
 
         [OutputConstructor]

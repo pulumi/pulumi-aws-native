@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWordCloudAggregatedFieldWells
     {
+        /// <summary>
+        /// The group by field well of a word cloud. Values are grouped by group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> GroupBy;
+        /// <summary>
+        /// The size field well of a word cloud. Values are aggregated based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Size;
 
         [OutputConstructor]

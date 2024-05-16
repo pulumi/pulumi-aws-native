@@ -15,26 +15,47 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotSlotTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the slot type. Use the description to help identify the slot type in lists.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Provides information about the external source of the slot type's definition.
+        /// </summary>
         [Input("externalSourceSetting")]
         public Input<Inputs.BotExternalSourceSettingArgs>? ExternalSourceSetting { get; set; }
 
+        /// <summary>
+        /// The name of the slot type. A slot type name must be unique withing the account.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent lot type.
+        /// 
+        /// Only `AMAZON.AlphaNumeric` is supported.
+        /// </summary>
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
 
         [Input("slotTypeValues")]
         private InputList<Inputs.BotSlotTypeValueArgs>? _slotTypeValues;
+
+        /// <summary>
+        /// A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
+        /// </summary>
         public InputList<Inputs.BotSlotTypeValueArgs> SlotTypeValues
         {
             get => _slotTypeValues ?? (_slotTypeValues = new InputList<Inputs.BotSlotTypeValueArgs>());
             set => _slotTypeValues = value;
         }
 
+        /// <summary>
+        /// Contains settings used by Amazon Lex to select a slot value.
+        /// </summary>
         [Input("valueSelectionSetting")]
         public Input<Inputs.BotSlotValueSelectionSettingArgs>? ValueSelectionSetting { get; set; }
 

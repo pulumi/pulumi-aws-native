@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobStatisticOverride
     {
+        /// <summary>
+        /// A map that includes overrides of an evaluation’s parameters.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
+        /// <summary>
+        /// The name of an evaluation
+        /// </summary>
         public readonly string Statistic;
 
         [OutputConstructor]

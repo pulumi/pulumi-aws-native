@@ -33,16 +33,25 @@ class GetKnowledgeBaseResult:
     @property
     @pulumi.getter(name="knowledgeBaseArn")
     def knowledge_base_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_arn")
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> Optional[str]:
+        """
+        The ID of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_id")
 
     @property
     @pulumi.getter(name="renderingConfiguration")
     def rendering_configuration(self) -> Optional['outputs.KnowledgeBaseRenderingConfiguration']:
+        """
+        Information about how to render the content.
+        """
         return pulumi.get(self, "rendering_configuration")
 
 
@@ -61,6 +70,9 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKnowledgeBaseResult:
     """
     Definition of AWS::Wisdom::KnowledgeBase Resource Type
+
+
+    :param str knowledge_base_id: The ID of the knowledge base.
     """
     __args__ = dict()
     __args__['knowledgeBaseId'] = knowledge_base_id
@@ -78,5 +90,8 @@ def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = N
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
     Definition of AWS::Wisdom::KnowledgeBase Resource Type
+
+
+    :param str knowledge_base_id: The ID of the knowledge base.
     """
     ...

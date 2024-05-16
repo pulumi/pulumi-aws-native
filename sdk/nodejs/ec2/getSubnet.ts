@@ -21,6 +21,9 @@ export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetSubnetArgs {
+    /**
+     * The ID of the subnet.
+     */
     subnetId: string;
 }
 
@@ -48,6 +51,9 @@ export interface GetSubnetResult {
      *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
     readonly mapPublicIpOnLaunch?: boolean;
+    /**
+     * The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
+     */
     readonly networkAclAssociationId?: string;
     /**
      * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -57,6 +63,9 @@ export interface GetSubnetResult {
      *   +  HostnameType (ip-name | resource-name)
      */
     readonly privateDnsNameOptionsOnLaunch?: outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties;
+    /**
+     * The ID of the subnet.
+     */
     readonly subnetId?: string;
     /**
      * Any tags assigned to the subnet.
@@ -73,5 +82,8 @@ export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetSubnetOutputArgs {
+    /**
+     * The ID of the subnet.
+     */
     subnetId: pulumi.Input<string>;
 }

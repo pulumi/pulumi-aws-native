@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Amplify
 {
+    /// <summary>
+    /// Stage for the auto created branch.
+    /// </summary>
     [EnumType]
     public readonly struct AppAutoBranchCreationConfigStage : IEquatable<AppAutoBranchCreationConfigStage>
     {
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Amplify
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+    /// </summary>
     [EnumType]
     public readonly struct AppPlatform : IEquatable<AppPlatform>
     {
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.Amplify
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Describes the current stage for the branch.
+    /// </summary>
     [EnumType]
     public readonly struct BranchStage : IEquatable<BranchStage>
     {
@@ -98,6 +107,13 @@ namespace Pulumi.AwsNative.Amplify
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of SSL/TLS certificate that you want to use.
+    /// 
+    /// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+    /// 
+    /// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+    /// </summary>
     [EnumType]
     public readonly struct DomainCertificateCertificateType : IEquatable<DomainCertificateCertificateType>
     {
@@ -126,6 +142,13 @@ namespace Pulumi.AwsNative.Amplify
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The certificate type.
+    /// 
+    /// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+    /// 
+    /// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+    /// </summary>
     [EnumType]
     public readonly struct DomainCertificateSettingsCertificateType : IEquatable<DomainCertificateSettingsCertificateType>
     {

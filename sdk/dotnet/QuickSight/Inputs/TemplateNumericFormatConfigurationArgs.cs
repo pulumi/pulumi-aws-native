@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateNumericFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the currency display format configuration.
+        /// </summary>
         [Input("currencyDisplayFormatConfiguration")]
         public Input<Inputs.TemplateCurrencyDisplayFormatConfigurationArgs>? CurrencyDisplayFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the number display format configuration.
+        /// </summary>
         [Input("numberDisplayFormatConfiguration")]
         public Input<Inputs.TemplateNumberDisplayFormatConfigurationArgs>? NumberDisplayFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the percentage display format configuration.
+        /// </summary>
         [Input("percentageDisplayFormatConfiguration")]
         public Input<Inputs.TemplatePercentageDisplayFormatConfigurationArgs>? PercentageDisplayFormatConfiguration { get; set; }
 

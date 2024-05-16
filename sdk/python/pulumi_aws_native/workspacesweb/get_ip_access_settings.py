@@ -46,36 +46,57 @@ class GetIpAccessSettingsResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that this IP access settings resource is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
+        """
+        The creation date timestamp of the IP access settings.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the IP access settings.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the IP access settings.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the IP access settings resource.
+        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[Sequence['outputs.IpAccessSettingsIpRule']]:
+        """
+        The IP rules of the IP access settings.
+        """
         return pulumi.get(self, "ip_rules")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -98,6 +119,9 @@ def get_ip_access_settings(ip_access_settings_arn: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAccessSettingsResult:
     """
     Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
+
+
+    :param str ip_access_settings_arn: The ARN of the IP access settings resource.
     """
     __args__ = dict()
     __args__['ipAccessSettingsArn'] = ip_access_settings_arn
@@ -119,5 +143,8 @@ def get_ip_access_settings_output(ip_access_settings_arn: Optional[pulumi.Input[
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAccessSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
+
+
+    :param str ip_access_settings_arn: The ARN of the IP access settings resource.
     """
     ...

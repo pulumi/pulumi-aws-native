@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardParameterSelectableValues
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier? LinkToDataSetColumn;
+        /// <summary>
+        /// The values that are used in `ParameterSelectableValues` .
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

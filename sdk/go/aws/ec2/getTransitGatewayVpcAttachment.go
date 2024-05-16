@@ -24,14 +24,17 @@ func LookupTransitGatewayVpcAttachment(ctx *pulumi.Context, args *LookupTransitG
 }
 
 type LookupTransitGatewayVpcAttachmentArgs struct {
+	// The ID of the attachment.
 	Id string `pulumi:"id"`
 }
 
 type LookupTransitGatewayVpcAttachmentResult struct {
+	// The ID of the attachment.
 	Id *string `pulumi:"id"`
 	// The options for the transit gateway vpc attachment.
 	Options *OptionsProperties `pulumi:"options"`
-	Tags    []aws.Tag          `pulumi:"tags"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTransitGatewayVpcAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayVpcAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayVpcAttachmentResultOutput {
@@ -48,6 +51,7 @@ func LookupTransitGatewayVpcAttachmentOutput(ctx *pulumi.Context, args LookupTra
 }
 
 type LookupTransitGatewayVpcAttachmentOutputArgs struct {
+	// The ID of the attachment.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -69,6 +73,7 @@ func (o LookupTransitGatewayVpcAttachmentResultOutput) ToLookupTransitGatewayVpc
 	return o
 }
 
+// The ID of the attachment.
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -78,6 +83,7 @@ func (o LookupTransitGatewayVpcAttachmentResultOutput) Options() OptionsProperti
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) *OptionsProperties { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

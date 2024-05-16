@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisStringDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines different defaults to the users or groups based on mapping.
+        /// </summary>
         [Input("dynamicValue")]
         public Input<Inputs.AnalysisDynamicDefaultValueArgs>? DynamicValue { get; set; }
 
         [Input("staticValues")]
         private InputList<string>? _staticValues;
+
+        /// <summary>
+        /// The static values of the `DecimalDefaultValues` .
+        /// </summary>
         public InputList<string> StaticValues
         {
             get => _staticValues ?? (_staticValues = new InputList<string>());

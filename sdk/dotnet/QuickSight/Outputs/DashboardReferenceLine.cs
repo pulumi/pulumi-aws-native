@@ -13,9 +13,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardReferenceLine
     {
+        /// <summary>
+        /// The data configuration of the reference line.
+        /// </summary>
         public readonly Outputs.DashboardReferenceLineDataConfiguration DataConfiguration;
+        /// <summary>
+        /// The label configuration of a reference line.
+        /// </summary>
         public readonly Outputs.DashboardReferenceLineLabelConfiguration? LabelConfiguration;
+        /// <summary>
+        /// The status of the reference line. Choose one of the following options:
+        /// 
+        /// - `ENABLE`
+        /// - `DISABLE`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardWidgetStatus? Status;
+        /// <summary>
+        /// The style configuration of the reference line.
+        /// </summary>
         public readonly Outputs.DashboardReferenceLineStyleConfiguration? StyleConfiguration;
 
         [OutputConstructor]

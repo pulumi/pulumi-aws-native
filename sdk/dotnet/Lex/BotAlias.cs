@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Lex
     [AwsNativeResourceType("aws-native:lex:BotAlias")]
     public partial class BotAlias : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot alias.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the bot alias.
+        /// </summary>
         [Output("botAliasId")]
         public Output<string> BotAliasId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        /// </summary>
         [Output("botAliasLocaleSettings")]
         public Output<ImmutableArray<Outputs.BotAliasLocaleSettingsItem>> BotAliasLocaleSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the bot alias.
+        /// </summary>
         [Output("botAliasName")]
         public Output<string> BotAliasName { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+        /// </summary>
         [Output("botAliasStatus")]
         public Output<Pulumi.AwsNative.Lex.BotAliasStatus> BotAliasStatus { get; private set; } = null!;
 
@@ -36,15 +51,27 @@ namespace Pulumi.AwsNative.Lex
         [Output("botAliasTags")]
         public Output<ImmutableArray<Outputs.BotAliasTag>> BotAliasTags { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Output("botId")]
         public Output<string> BotId { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the bot that the bot alias references.
+        /// </summary>
         [Output("botVersion")]
         public Output<string?> BotVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        /// </summary>
         [Output("conversationLogSettings")]
         public Output<Outputs.BotAliasConversationLogSettings?> ConversationLogSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the bot alias.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -105,12 +132,19 @@ namespace Pulumi.AwsNative.Lex
     {
         [Input("botAliasLocaleSettings")]
         private InputList<Inputs.BotAliasLocaleSettingsItemArgs>? _botAliasLocaleSettings;
+
+        /// <summary>
+        /// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        /// </summary>
         public InputList<Inputs.BotAliasLocaleSettingsItemArgs> BotAliasLocaleSettings
         {
             get => _botAliasLocaleSettings ?? (_botAliasLocaleSettings = new InputList<Inputs.BotAliasLocaleSettingsItemArgs>());
             set => _botAliasLocaleSettings = value;
         }
 
+        /// <summary>
+        /// The name of the bot alias.
+        /// </summary>
         [Input("botAliasName")]
         public Input<string>? BotAliasName { get; set; }
 
@@ -126,15 +160,27 @@ namespace Pulumi.AwsNative.Lex
             set => _botAliasTags = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the bot that the bot alias references.
+        /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
+        /// <summary>
+        /// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        /// </summary>
         [Input("conversationLogSettings")]
         public Input<Inputs.BotAliasConversationLogSettingsArgs>? ConversationLogSettings { get; set; }
 
+        /// <summary>
+        /// The description of the bot alias.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDateMeasureFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation function of the measure field.
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateDateAggregationFunction>? AggregationFunction { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.TemplateDateTimeFormatConfigurationArgs>? FormatConfiguration { get; set; }
 

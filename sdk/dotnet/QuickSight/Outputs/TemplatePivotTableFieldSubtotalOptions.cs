@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePivotTableFieldSubtotalOptions
     {
+        /// <summary>
+        /// The field ID of the subtotal options.
+        /// </summary>
         public readonly string? FieldId;
 
         [OutputConstructor]

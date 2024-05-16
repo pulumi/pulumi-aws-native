@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("creationTime", required: true)]
         public Input<string> CreationTime { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the endpoint used to run the monitoring job.
+        /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("monitoringExecutionStatus", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus> MonitoringExecutionStatus { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the monitoring schedule.
+        /// </summary>
         [Input("monitoringScheduleName", required: true)]
         public Input<string> MonitoringScheduleName { get; set; } = null!;
 

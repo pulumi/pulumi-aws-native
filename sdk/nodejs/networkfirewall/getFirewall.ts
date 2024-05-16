@@ -19,19 +19,54 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetFirewallArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `Firewall` .
+     */
     firewallArn: string;
 }
 
 export interface GetFirewallResult {
+    /**
+     * A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+     */
     readonly deleteProtection?: boolean;
+    /**
+     * A description of the firewall.
+     */
     readonly description?: string;
+    /**
+     * The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
+     */
     readonly endpointIds?: string[];
+    /**
+     * The Amazon Resource Name (ARN) of the `Firewall` .
+     */
     readonly firewallArn?: string;
+    /**
+     * The name of the `Firewall` resource.
+     */
     readonly firewallId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the firewall policy.
+     *
+     * The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+     */
     readonly firewallPolicyArn?: string;
+    /**
+     * A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+     */
     readonly firewallPolicyChangeProtection?: boolean;
+    /**
+     * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+     */
     readonly subnetChangeProtection?: boolean;
+    /**
+     * The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+     */
     readonly subnetMappings?: outputs.networkfirewall.FirewallSubnetMapping[];
+    /**
+     * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -42,5 +77,8 @@ export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetFirewallOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `Firewall` .
+     */
     firewallArn: pulumi.Input<string>;
 }

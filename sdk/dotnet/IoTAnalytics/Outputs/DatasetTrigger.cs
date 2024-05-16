@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetTrigger
     {
+        /// <summary>
+        /// The schedule for when to trigger an update.
+        /// </summary>
         public readonly Outputs.DatasetSchedule? Schedule;
+        /// <summary>
+        /// Information about the dataset whose content generation triggers the new dataset content generation.
+        /// </summary>
         public readonly Outputs.DatasetTriggeringDataset? TriggeringDataset;
 
         [OutputConstructor]

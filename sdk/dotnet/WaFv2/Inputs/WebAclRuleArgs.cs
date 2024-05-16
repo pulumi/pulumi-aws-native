@@ -15,21 +15,45 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// </summary>
         [Input("action")]
         public Input<Inputs.WebAclRuleActionArgs>? Action { get; set; }
 
+        /// <summary>
+        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+        /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
+        /// <summary>
+        /// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+        /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.WebAclChallengeConfigArgs>? ChallengeConfig { get; set; }
 
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
+        /// 
+        /// You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+        /// 
+        /// &gt; This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+        /// </summary>
         [Input("overrideAction")]
         public Input<Inputs.WebAclOverrideActionArgs>? OverrideAction { get; set; }
 
+        /// <summary>
+        /// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
@@ -45,9 +69,15 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
             set => _ruleLabels = value;
         }
 
+        /// <summary>
+        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.WebAclStatementArgs> Statement { get; set; } = null!;
 
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebAclVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 

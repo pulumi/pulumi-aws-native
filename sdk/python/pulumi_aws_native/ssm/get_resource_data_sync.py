@@ -27,6 +27,9 @@ class GetResourceDataSyncResult:
     @property
     @pulumi.getter(name="syncSource")
     def sync_source(self) -> Optional['outputs.ResourceDataSyncSyncSource']:
+        """
+        Information about the source of the data included in the resource data sync.
+        """
         return pulumi.get(self, "sync_source")
 
 
@@ -43,6 +46,9 @@ def get_resource_data_sync(sync_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceDataSyncResult:
     """
     Resource Type definition for AWS::SSM::ResourceDataSync
+
+
+    :param str sync_name: The name of the resource data sync.
     """
     __args__ = dict()
     __args__['syncName'] = sync_name
@@ -58,5 +64,8 @@ def get_resource_data_sync_output(sync_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceDataSyncResult]:
     """
     Resource Type definition for AWS::SSM::ResourceDataSync
+
+
+    :param str sync_name: The name of the resource data sync.
     """
     ...

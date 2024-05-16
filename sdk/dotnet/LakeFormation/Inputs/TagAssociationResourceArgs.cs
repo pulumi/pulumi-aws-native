@@ -12,15 +12,29 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
 
     public sealed class TagAssociationResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+        /// </summary>
         [Input("catalog")]
         public Input<Inputs.TagAssociationCatalogResourceArgs>? Catalog { get; set; }
 
+        /// <summary>
+        /// A structure for the database object.
+        /// </summary>
         [Input("database")]
         public Input<Inputs.TagAssociationDatabaseResourceArgs>? Database { get; set; }
 
+        /// <summary>
+        /// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        /// </summary>
         [Input("table")]
         public Input<Inputs.TagAssociationTableResourceArgs>? Table { get; set; }
 
+        /// <summary>
+        /// A structure for a table with columns object. This object is only used when granting a SELECT permission.
+        /// 
+        /// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+        /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.TagAssociationTableWithColumnsResourceArgs>? TableWithColumns { get; set; }
 

@@ -37,6 +37,9 @@ export class ReplicationConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationConfig.__pulumiType;
     }
 
+    /**
+     * Configuration parameters for provisioning an AWS DMS Serverless replication.
+     */
     public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Replication Config
@@ -131,6 +134,9 @@ export class ReplicationConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a ReplicationConfig resource.
  */
 export interface ReplicationConfigArgs {
+    /**
+     * Configuration parameters for provisioning an AWS DMS Serverless replication.
+     */
     computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of the Replication Config

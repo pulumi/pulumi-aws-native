@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineChannel
     {
+        /// <summary>
+        /// The name of the channel from which the messages are processed.
+        /// </summary>
         public readonly string ChannelName;
+        /// <summary>
+        /// The name of the 'channel' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
 
         [OutputConstructor]

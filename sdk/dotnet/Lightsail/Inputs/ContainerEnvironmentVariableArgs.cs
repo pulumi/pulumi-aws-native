@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
 
     public sealed class ContainerEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The environment variable value.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
+        /// <summary>
+        /// The environment variable key.
+        /// </summary>
         [Input("variable")]
         public Input<string>? Variable { get; set; }
 

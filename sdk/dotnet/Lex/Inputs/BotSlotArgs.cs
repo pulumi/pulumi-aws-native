@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotSlotArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the slot.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Indicates whether a slot can return multiple values.
+        /// </summary>
         [Input("multipleValuesSetting")]
         public Input<Inputs.BotMultipleValuesSettingArgs>? MultipleValuesSetting { get; set; }
 
+        /// <summary>
+        /// The name given to the slot.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Determines whether Amazon Lex obscures slot values in conversation logs.
+        /// </summary>
         [Input("obfuscationSetting")]
         public Input<Inputs.BotObfuscationSettingArgs>? ObfuscationSetting { get; set; }
 
+        /// <summary>
+        /// The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
+        /// </summary>
         [Input("slotTypeName", required: true)]
         public Input<string> SlotTypeName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the elicitation setting details eliciting a slot.
+        /// </summary>
         [Input("valueElicitationSetting", required: true)]
         public Input<Inputs.BotSlotValueElicitationSettingArgs> ValueElicitationSetting { get; set; } = null!;
 

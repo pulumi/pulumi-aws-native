@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Fis
 
     public sealed class GetExperimentTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Fis
 
     public sealed class GetExperimentTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,13 +57,39 @@ namespace Pulumi.AwsNative.Fis
     [OutputType]
     public sealed class GetExperimentTemplateResult
     {
+        /// <summary>
+        /// The actions for the experiment.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ExperimentTemplateAction>? Actions;
+        /// <summary>
+        /// The description for the experiment template.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Describes the experiment options for an experiment template.
+        /// </summary>
         public readonly Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions;
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the configuration for experiment logging.
+        /// 
+        /// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        /// </summary>
         public readonly Outputs.ExperimentTemplateLogConfiguration? LogConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The stop conditions for the experiment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateStopCondition> StopConditions;
+        /// <summary>
+        /// The targets for the experiment.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>? Targets;
 
         [OutputConstructor]

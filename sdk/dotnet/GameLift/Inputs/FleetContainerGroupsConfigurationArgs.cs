@@ -15,6 +15,13 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class FleetContainerGroupsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        /// 
+        /// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+        /// </summary>
         [Input("connectionPortRange", required: true)]
         public Input<Inputs.FleetConnectionPortRangeArgs> ConnectionPortRange { get; set; } = null!;
 
@@ -30,6 +37,21 @@ namespace Pulumi.AwsNative.GameLift.Inputs
             set => _containerGroupDefinitionNames = value;
         }
 
+        /// <summary>
+        /// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
+        /// 
+        /// Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
+        /// 
+        /// - If no desired value is set, Amazon GameLift places the calculated maximum.
+        /// - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
+        /// - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
+        /// 
+        /// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+        /// 
+        /// *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
+        /// </summary>
         [Input("containerGroupsPerInstance")]
         public Input<Inputs.FleetContainerGroupsPerInstanceArgs>? ContainerGroupsPerInstance { get; set; }
 

@@ -14,17 +14,40 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppAutoBranchCreationConfig struct {
-	AutoBranchCreationPatterns []string                          `pulumi:"autoBranchCreationPatterns"`
-	BasicAuthConfig            *AppBasicAuthConfig               `pulumi:"basicAuthConfig"`
-	BuildSpec                  *string                           `pulumi:"buildSpec"`
-	EnableAutoBranchCreation   *bool                             `pulumi:"enableAutoBranchCreation"`
-	EnableAutoBuild            *bool                             `pulumi:"enableAutoBuild"`
-	EnablePerformanceMode      *bool                             `pulumi:"enablePerformanceMode"`
-	EnablePullRequestPreview   *bool                             `pulumi:"enablePullRequestPreview"`
-	EnvironmentVariables       []AppEnvironmentVariable          `pulumi:"environmentVariables"`
-	Framework                  *string                           `pulumi:"framework"`
-	PullRequestEnvironmentName *string                           `pulumi:"pullRequestEnvironmentName"`
-	Stage                      *AppAutoBranchCreationConfigStage `pulumi:"stage"`
+	// Automated branch creation glob patterns for the Amplify app.
+	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
+	// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+	BasicAuthConfig *AppBasicAuthConfig `pulumi:"basicAuthConfig"`
+	// The build specification (build spec) for the autocreated branch.
+	BuildSpec *string `pulumi:"buildSpec"`
+	// Enables automated branch creation for the Amplify app.
+	EnableAutoBranchCreation *bool `pulumi:"enableAutoBranchCreation"`
+	// Enables auto building for the auto created branch.
+	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
+	// Enables performance mode for the branch.
+	//
+	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
+	// Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+	//
+	// To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+	//
+	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
+	// The framework for the autocreated branch.
+	Framework *string `pulumi:"framework"`
+	// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+	//
+	// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+	//
+	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+	//
+	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
+	// Stage for the auto created branch.
+	Stage *AppAutoBranchCreationConfigStage `pulumi:"stage"`
 }
 
 // AppAutoBranchCreationConfigInput is an input type that accepts AppAutoBranchCreationConfigArgs and AppAutoBranchCreationConfigOutput values.
@@ -39,17 +62,40 @@ type AppAutoBranchCreationConfigInput interface {
 }
 
 type AppAutoBranchCreationConfigArgs struct {
-	AutoBranchCreationPatterns pulumi.StringArrayInput                  `pulumi:"autoBranchCreationPatterns"`
-	BasicAuthConfig            AppBasicAuthConfigPtrInput               `pulumi:"basicAuthConfig"`
-	BuildSpec                  pulumi.StringPtrInput                    `pulumi:"buildSpec"`
-	EnableAutoBranchCreation   pulumi.BoolPtrInput                      `pulumi:"enableAutoBranchCreation"`
-	EnableAutoBuild            pulumi.BoolPtrInput                      `pulumi:"enableAutoBuild"`
-	EnablePerformanceMode      pulumi.BoolPtrInput                      `pulumi:"enablePerformanceMode"`
-	EnablePullRequestPreview   pulumi.BoolPtrInput                      `pulumi:"enablePullRequestPreview"`
-	EnvironmentVariables       AppEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
-	Framework                  pulumi.StringPtrInput                    `pulumi:"framework"`
-	PullRequestEnvironmentName pulumi.StringPtrInput                    `pulumi:"pullRequestEnvironmentName"`
-	Stage                      AppAutoBranchCreationConfigStagePtrInput `pulumi:"stage"`
+	// Automated branch creation glob patterns for the Amplify app.
+	AutoBranchCreationPatterns pulumi.StringArrayInput `pulumi:"autoBranchCreationPatterns"`
+	// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+	BasicAuthConfig AppBasicAuthConfigPtrInput `pulumi:"basicAuthConfig"`
+	// The build specification (build spec) for the autocreated branch.
+	BuildSpec pulumi.StringPtrInput `pulumi:"buildSpec"`
+	// Enables automated branch creation for the Amplify app.
+	EnableAutoBranchCreation pulumi.BoolPtrInput `pulumi:"enableAutoBranchCreation"`
+	// Enables auto building for the auto created branch.
+	EnableAutoBuild pulumi.BoolPtrInput `pulumi:"enableAutoBuild"`
+	// Enables performance mode for the branch.
+	//
+	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+	EnablePerformanceMode pulumi.BoolPtrInput `pulumi:"enablePerformanceMode"`
+	// Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+	//
+	// To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+	//
+	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+	EnablePullRequestPreview pulumi.BoolPtrInput `pulumi:"enablePullRequestPreview"`
+	// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+	EnvironmentVariables AppEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	// The framework for the autocreated branch.
+	Framework pulumi.StringPtrInput `pulumi:"framework"`
+	// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+	//
+	// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+	//
+	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+	//
+	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+	PullRequestEnvironmentName pulumi.StringPtrInput `pulumi:"pullRequestEnvironmentName"`
+	// Stage for the auto created branch.
+	Stage AppAutoBranchCreationConfigStagePtrInput `pulumi:"stage"`
 }
 
 func (AppAutoBranchCreationConfigArgs) ElementType() reflect.Type {
@@ -129,46 +175,69 @@ func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutpu
 	}).(AppAutoBranchCreationConfigPtrOutput)
 }
 
+// Automated branch creation glob patterns for the Amplify app.
 func (o AppAutoBranchCreationConfigOutput) AutoBranchCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []string { return v.AutoBranchCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
 func (o AppAutoBranchCreationConfigOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *AppBasicAuthConfig { return v.BasicAuthConfig }).(AppBasicAuthConfigPtrOutput)
 }
 
+// The build specification (build spec) for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+// Enables automated branch creation for the Amplify app.
 func (o AppAutoBranchCreationConfigOutput) EnableAutoBranchCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnableAutoBranchCreation }).(pulumi.BoolPtrOutput)
 }
 
+// Enables auto building for the auto created branch.
 func (o AppAutoBranchCreationConfigOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnableAutoBuild }).(pulumi.BoolPtrOutput)
 }
 
+// Enables performance mode for the branch.
+//
+// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
 func (o AppAutoBranchCreationConfigOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePerformanceMode }).(pulumi.BoolPtrOutput)
 }
 
+// Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+//
+// To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+//
+// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 func (o AppAutoBranchCreationConfigOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
+// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
 func (o AppAutoBranchCreationConfigOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
 
+// The framework for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) Framework() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.Framework }).(pulumi.StringPtrOutput)
 }
 
+// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+//
+// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+//
+// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+//
+// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 func (o AppAutoBranchCreationConfigOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
+// Stage for the auto created branch.
 func (o AppAutoBranchCreationConfigOutput) Stage() AppAutoBranchCreationConfigStagePtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *AppAutoBranchCreationConfigStage { return v.Stage }).(AppAutoBranchCreationConfigStagePtrOutput)
 }
@@ -197,6 +266,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) Elem() AppAutoBranchCreationConfig
 	}).(AppAutoBranchCreationConfigOutput)
 }
 
+// Automated branch creation glob patterns for the Amplify app.
 func (o AppAutoBranchCreationConfigPtrOutput) AutoBranchCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) []string {
 		if v == nil {
@@ -206,6 +276,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) AutoBranchCreationPatterns() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
 func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *AppBasicAuthConfig {
 		if v == nil {
@@ -215,6 +286,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthConfig() AppBasicAuthConf
 	}).(AppBasicAuthConfigPtrOutput)
 }
 
+// The build specification (build spec) for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -224,6 +296,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) BuildSpec() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables automated branch creation for the Amplify app.
 func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBranchCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -233,6 +306,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBranchCreation() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Enables auto building for the auto created branch.
 func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -242,6 +316,9 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBuild() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Enables performance mode for the branch.
+//
+// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
 func (o AppAutoBranchCreationConfigPtrOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -251,6 +328,11 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnablePerformanceMode() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+//
+// To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+//
+// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 func (o AppAutoBranchCreationConfigPtrOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -260,6 +342,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnablePullRequestPreview() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
 func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) []AppEnvironmentVariable {
 		if v == nil {
@@ -269,6 +352,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() AppEnvironm
 	}).(AppEnvironmentVariableArrayOutput)
 }
 
+// The framework for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) Framework() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -278,6 +362,13 @@ func (o AppAutoBranchCreationConfigPtrOutput) Framework() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+//
+// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+//
+// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+//
+// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -287,6 +378,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stage for the auto created branch.
 func (o AppAutoBranchCreationConfigPtrOutput) Stage() AppAutoBranchCreationConfigStagePtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *AppAutoBranchCreationConfigStage {
 		if v == nil {
@@ -297,9 +389,12 @@ func (o AppAutoBranchCreationConfigPtrOutput) Stage() AppAutoBranchCreationConfi
 }
 
 type AppBasicAuthConfig struct {
-	EnableBasicAuth *bool   `pulumi:"enableBasicAuth"`
-	Password        *string `pulumi:"password"`
-	Username        *string `pulumi:"username"`
+	// Enables basic authorization for the Amplify app's branches.
+	EnableBasicAuth *bool `pulumi:"enableBasicAuth"`
+	// The password for basic authorization.
+	Password *string `pulumi:"password"`
+	// The user name for basic authorization.
+	Username *string `pulumi:"username"`
 }
 
 // AppBasicAuthConfigInput is an input type that accepts AppBasicAuthConfigArgs and AppBasicAuthConfigOutput values.
@@ -314,9 +409,12 @@ type AppBasicAuthConfigInput interface {
 }
 
 type AppBasicAuthConfigArgs struct {
-	EnableBasicAuth pulumi.BoolPtrInput   `pulumi:"enableBasicAuth"`
-	Password        pulumi.StringPtrInput `pulumi:"password"`
-	Username        pulumi.StringPtrInput `pulumi:"username"`
+	// Enables basic authorization for the Amplify app's branches.
+	EnableBasicAuth pulumi.BoolPtrInput `pulumi:"enableBasicAuth"`
+	// The password for basic authorization.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The user name for basic authorization.
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (AppBasicAuthConfigArgs) ElementType() reflect.Type {
@@ -396,14 +494,17 @@ func (o AppBasicAuthConfigOutput) ToAppBasicAuthConfigPtrOutputWithContext(ctx c
 	}).(AppBasicAuthConfigPtrOutput)
 }
 
+// Enables basic authorization for the Amplify app's branches.
 func (o AppBasicAuthConfigOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppBasicAuthConfig) *bool { return v.EnableBasicAuth }).(pulumi.BoolPtrOutput)
 }
 
+// The password for basic authorization.
 func (o AppBasicAuthConfigOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppBasicAuthConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The user name for basic authorization.
 func (o AppBasicAuthConfigOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppBasicAuthConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -432,6 +533,7 @@ func (o AppBasicAuthConfigPtrOutput) Elem() AppBasicAuthConfigOutput {
 	}).(AppBasicAuthConfigOutput)
 }
 
+// Enables basic authorization for the Amplify app's branches.
 func (o AppBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppBasicAuthConfig) *bool {
 		if v == nil {
@@ -441,6 +543,7 @@ func (o AppBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The password for basic authorization.
 func (o AppBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBasicAuthConfig) *string {
 		if v == nil {
@@ -450,6 +553,7 @@ func (o AppBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user name for basic authorization.
 func (o AppBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBasicAuthConfig) *string {
 		if v == nil {
@@ -460,10 +564,20 @@ func (o AppBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type AppCustomRule struct {
+	// The condition for a URL rewrite or redirect rule, such as a country code.
 	Condition *string `pulumi:"condition"`
-	Source    string  `pulumi:"source"`
-	Status    *string `pulumi:"status"`
-	Target    string  `pulumi:"target"`
+	// The source pattern for a URL rewrite or redirect rule.
+	Source string `pulumi:"source"`
+	// The status code for a URL rewrite or redirect rule.
+	//
+	// - **200** - Represents a 200 rewrite rule.
+	// - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
+	// - **302** - Represents a 302 temporary redirect rule.
+	// - **404** - Represents a 404 redirect rule.
+	// - **404-200** - Represents a 404 rewrite rule.
+	Status *string `pulumi:"status"`
+	// The target pattern for a URL rewrite or redirect rule.
+	Target string `pulumi:"target"`
 }
 
 // AppCustomRuleInput is an input type that accepts AppCustomRuleArgs and AppCustomRuleOutput values.
@@ -478,10 +592,20 @@ type AppCustomRuleInput interface {
 }
 
 type AppCustomRuleArgs struct {
+	// The condition for a URL rewrite or redirect rule, such as a country code.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	Source    pulumi.StringInput    `pulumi:"source"`
-	Status    pulumi.StringPtrInput `pulumi:"status"`
-	Target    pulumi.StringInput    `pulumi:"target"`
+	// The source pattern for a URL rewrite or redirect rule.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The status code for a URL rewrite or redirect rule.
+	//
+	// - **200** - Represents a 200 rewrite rule.
+	// - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
+	// - **302** - Represents a 302 temporary redirect rule.
+	// - **404** - Represents a 404 redirect rule.
+	// - **404-200** - Represents a 404 rewrite rule.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The target pattern for a URL rewrite or redirect rule.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (AppCustomRuleArgs) ElementType() reflect.Type {
@@ -535,18 +659,28 @@ func (o AppCustomRuleOutput) ToAppCustomRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The condition for a URL rewrite or redirect rule, such as a country code.
 func (o AppCustomRuleOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCustomRule) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// The source pattern for a URL rewrite or redirect rule.
 func (o AppCustomRuleOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AppCustomRule) string { return v.Source }).(pulumi.StringOutput)
 }
 
+// The status code for a URL rewrite or redirect rule.
+//
+// - **200** - Represents a 200 rewrite rule.
+// - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
+// - **302** - Represents a 302 temporary redirect rule.
+// - **404** - Represents a 404 redirect rule.
+// - **404-200** - Represents a 404 rewrite rule.
 func (o AppCustomRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCustomRule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The target pattern for a URL rewrite or redirect rule.
 func (o AppCustomRuleOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v AppCustomRule) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -572,7 +706,9 @@ func (o AppCustomRuleArrayOutput) Index(i pulumi.IntInput) AppCustomRuleOutput {
 }
 
 type AppEnvironmentVariable struct {
-	Name  string `pulumi:"name"`
+	// The environment variable name.
+	Name string `pulumi:"name"`
+	// The environment variable value.
 	Value string `pulumi:"value"`
 }
 
@@ -588,7 +724,9 @@ type AppEnvironmentVariableInput interface {
 }
 
 type AppEnvironmentVariableArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The environment variable name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The environment variable value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -643,10 +781,12 @@ func (o AppEnvironmentVariableOutput) ToAppEnvironmentVariableOutputWithContext(
 	return o
 }
 
+// The environment variable name.
 func (o AppEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The environment variable value.
 func (o AppEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AppEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -672,11 +812,14 @@ func (o AppEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) AppEnvironme
 }
 
 type AppTag struct {
-	Key   string `pulumi:"key"`
+	// Specifies the key for the tag.
+	Key string `pulumi:"key"`
+	// Specifies the value for the tag.
 	Value string `pulumi:"value"`
 }
 
 type BranchBackend struct {
+	// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
 	StackArn *string `pulumi:"stackArn"`
 }
 
@@ -692,6 +835,7 @@ type BranchBackendInput interface {
 }
 
 type BranchBackendArgs struct {
+	// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
 	StackArn pulumi.StringPtrInput `pulumi:"stackArn"`
 }
 
@@ -772,6 +916,7 @@ func (o BranchBackendOutput) ToBranchBackendPtrOutputWithContext(ctx context.Con
 	}).(BranchBackendPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
 func (o BranchBackendOutput) StackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchBackend) *string { return v.StackArn }).(pulumi.StringPtrOutput)
 }
@@ -800,6 +945,7 @@ func (o BranchBackendPtrOutput) Elem() BranchBackendOutput {
 	}).(BranchBackendOutput)
 }
 
+// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
 func (o BranchBackendPtrOutput) StackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BranchBackend) *string {
 		if v == nil {
@@ -810,9 +956,11 @@ func (o BranchBackendPtrOutput) StackArn() pulumi.StringPtrOutput {
 }
 
 type BranchBasicAuthConfig struct {
-	EnableBasicAuth *bool  `pulumi:"enableBasicAuth"`
-	Password        string `pulumi:"password"`
-	Username        string `pulumi:"username"`
+	// Enables basic authorization for the branch.
+	EnableBasicAuth *bool `pulumi:"enableBasicAuth"`
+	// The password for basic authorization.
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
 }
 
 // BranchBasicAuthConfigInput is an input type that accepts BranchBasicAuthConfigArgs and BranchBasicAuthConfigOutput values.
@@ -827,9 +975,11 @@ type BranchBasicAuthConfigInput interface {
 }
 
 type BranchBasicAuthConfigArgs struct {
+	// Enables basic authorization for the branch.
 	EnableBasicAuth pulumi.BoolPtrInput `pulumi:"enableBasicAuth"`
-	Password        pulumi.StringInput  `pulumi:"password"`
-	Username        pulumi.StringInput  `pulumi:"username"`
+	// The password for basic authorization.
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (BranchBasicAuthConfigArgs) ElementType() reflect.Type {
@@ -909,10 +1059,12 @@ func (o BranchBasicAuthConfigOutput) ToBranchBasicAuthConfigPtrOutputWithContext
 	}).(BranchBasicAuthConfigPtrOutput)
 }
 
+// Enables basic authorization for the branch.
 func (o BranchBasicAuthConfigOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchBasicAuthConfig) *bool { return v.EnableBasicAuth }).(pulumi.BoolPtrOutput)
 }
 
+// The password for basic authorization.
 func (o BranchBasicAuthConfigOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchBasicAuthConfig) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -945,6 +1097,7 @@ func (o BranchBasicAuthConfigPtrOutput) Elem() BranchBasicAuthConfigOutput {
 	}).(BranchBasicAuthConfigOutput)
 }
 
+// Enables basic authorization for the branch.
 func (o BranchBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchBasicAuthConfig) *bool {
 		if v == nil {
@@ -954,6 +1107,7 @@ func (o BranchBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The password for basic authorization.
 func (o BranchBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BranchBasicAuthConfig) *string {
 		if v == nil {
@@ -973,7 +1127,9 @@ func (o BranchBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type BranchEnvironmentVariable struct {
-	Name  string `pulumi:"name"`
+	// The environment variable name.
+	Name string `pulumi:"name"`
+	// The environment variable value.
 	Value string `pulumi:"value"`
 }
 
@@ -989,7 +1145,9 @@ type BranchEnvironmentVariableInput interface {
 }
 
 type BranchEnvironmentVariableArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The environment variable name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The environment variable value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1044,10 +1202,12 @@ func (o BranchEnvironmentVariableOutput) ToBranchEnvironmentVariableOutputWithCo
 	return o
 }
 
+// The environment variable name.
 func (o BranchEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The environment variable value.
 func (o BranchEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1073,14 +1233,25 @@ func (o BranchEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) BranchEnv
 }
 
 type BranchTag struct {
-	Key   string `pulumi:"key"`
+	// Specifies the key for the tag.
+	Key string `pulumi:"key"`
+	// Specifies the value for the tag.
 	Value string `pulumi:"value"`
 }
 
 type DomainCertificate struct {
-	CertificateArn                   *string                           `pulumi:"certificateArn"`
-	CertificateType                  *DomainCertificateCertificateType `pulumi:"certificateType"`
-	CertificateVerificationDnsRecord *string                           `pulumi:"certificateVerificationDnsRecord"`
+	// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+	//
+	// This field is required only when the certificate type is `CUSTOM` .
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The type of SSL/TLS certificate that you want to use.
+	//
+	// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+	//
+	// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+	CertificateType *DomainCertificateCertificateType `pulumi:"certificateType"`
+	// The DNS record for certificate verification.
+	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
 }
 
 type DomainCertificateOutput struct{ *pulumi.OutputState }
@@ -1097,14 +1268,23 @@ func (o DomainCertificateOutput) ToDomainCertificateOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+//
+// This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCertificate) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of SSL/TLS certificate that you want to use.
+//
+// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+//
+// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificateOutput) CertificateType() DomainCertificateCertificateTypePtrOutput {
 	return o.ApplyT(func(v DomainCertificate) *DomainCertificateCertificateType { return v.CertificateType }).(DomainCertificateCertificateTypePtrOutput)
 }
 
+// The DNS record for certificate verification.
 func (o DomainCertificateOutput) CertificateVerificationDnsRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCertificate) *string { return v.CertificateVerificationDnsRecord }).(pulumi.StringPtrOutput)
 }
@@ -1133,6 +1313,9 @@ func (o DomainCertificatePtrOutput) Elem() DomainCertificateOutput {
 	}).(DomainCertificateOutput)
 }
 
+// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+//
+// This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainCertificate) *string {
 		if v == nil {
@@ -1142,6 +1325,11 @@ func (o DomainCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of SSL/TLS certificate that you want to use.
+//
+// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+//
+// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificatePtrOutput) CertificateType() DomainCertificateCertificateTypePtrOutput {
 	return o.ApplyT(func(v *DomainCertificate) *DomainCertificateCertificateType {
 		if v == nil {
@@ -1151,6 +1339,7 @@ func (o DomainCertificatePtrOutput) CertificateType() DomainCertificateCertifica
 	}).(DomainCertificateCertificateTypePtrOutput)
 }
 
+// The DNS record for certificate verification.
 func (o DomainCertificatePtrOutput) CertificateVerificationDnsRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainCertificate) *string {
 		if v == nil {
@@ -1161,8 +1350,16 @@ func (o DomainCertificatePtrOutput) CertificateVerificationDnsRecord() pulumi.St
 }
 
 type DomainCertificateSettings struct {
-	CertificateType      *DomainCertificateSettingsCertificateType `pulumi:"certificateType"`
-	CustomCertificateArn *string                                   `pulumi:"customCertificateArn"`
+	// The certificate type.
+	//
+	// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+	//
+	// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+	CertificateType *DomainCertificateSettingsCertificateType `pulumi:"certificateType"`
+	// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+	//
+	// This field is required only when the certificate type is `CUSTOM` .
+	CustomCertificateArn *string `pulumi:"customCertificateArn"`
 }
 
 // DomainCertificateSettingsInput is an input type that accepts DomainCertificateSettingsArgs and DomainCertificateSettingsOutput values.
@@ -1177,8 +1374,16 @@ type DomainCertificateSettingsInput interface {
 }
 
 type DomainCertificateSettingsArgs struct {
-	CertificateType      DomainCertificateSettingsCertificateTypePtrInput `pulumi:"certificateType"`
-	CustomCertificateArn pulumi.StringPtrInput                            `pulumi:"customCertificateArn"`
+	// The certificate type.
+	//
+	// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+	//
+	// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+	CertificateType DomainCertificateSettingsCertificateTypePtrInput `pulumi:"certificateType"`
+	// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+	//
+	// This field is required only when the certificate type is `CUSTOM` .
+	CustomCertificateArn pulumi.StringPtrInput `pulumi:"customCertificateArn"`
 }
 
 func (DomainCertificateSettingsArgs) ElementType() reflect.Type {
@@ -1258,10 +1463,18 @@ func (o DomainCertificateSettingsOutput) ToDomainCertificateSettingsPtrOutputWit
 	}).(DomainCertificateSettingsPtrOutput)
 }
 
+// The certificate type.
+//
+// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+//
+// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificateSettingsOutput) CertificateType() DomainCertificateSettingsCertificateTypePtrOutput {
 	return o.ApplyT(func(v DomainCertificateSettings) *DomainCertificateSettingsCertificateType { return v.CertificateType }).(DomainCertificateSettingsCertificateTypePtrOutput)
 }
 
+// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+//
+// This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificateSettingsOutput) CustomCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCertificateSettings) *string { return v.CustomCertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -1290,6 +1503,11 @@ func (o DomainCertificateSettingsPtrOutput) Elem() DomainCertificateSettingsOutp
 	}).(DomainCertificateSettingsOutput)
 }
 
+// The certificate type.
+//
+// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+//
+// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificateSettingsPtrOutput) CertificateType() DomainCertificateSettingsCertificateTypePtrOutput {
 	return o.ApplyT(func(v *DomainCertificateSettings) *DomainCertificateSettingsCertificateType {
 		if v == nil {
@@ -1299,6 +1517,9 @@ func (o DomainCertificateSettingsPtrOutput) CertificateType() DomainCertificateS
 	}).(DomainCertificateSettingsCertificateTypePtrOutput)
 }
 
+// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+//
+// This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificateSettingsPtrOutput) CustomCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainCertificateSettings) *string {
 		if v == nil {
@@ -1309,8 +1530,14 @@ func (o DomainCertificateSettingsPtrOutput) CustomCertificateArn() pulumi.String
 }
 
 type DomainSubDomainSetting struct {
+	// The branch name setting for the subdomain.
+	//
+	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+	//
+	// *Pattern:* (?s).+
 	BranchName string `pulumi:"branchName"`
-	Prefix     string `pulumi:"prefix"`
+	// The prefix setting for the subdomain.
+	Prefix string `pulumi:"prefix"`
 }
 
 // DomainSubDomainSettingInput is an input type that accepts DomainSubDomainSettingArgs and DomainSubDomainSettingOutput values.
@@ -1325,8 +1552,14 @@ type DomainSubDomainSettingInput interface {
 }
 
 type DomainSubDomainSettingArgs struct {
+	// The branch name setting for the subdomain.
+	//
+	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+	//
+	// *Pattern:* (?s).+
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	Prefix     pulumi.StringInput `pulumi:"prefix"`
+	// The prefix setting for the subdomain.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
 }
 
 func (DomainSubDomainSettingArgs) ElementType() reflect.Type {
@@ -1380,10 +1613,16 @@ func (o DomainSubDomainSettingOutput) ToDomainSubDomainSettingOutputWithContext(
 	return o
 }
 
+// The branch name setting for the subdomain.
+//
+// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+//
+// *Pattern:* (?s).+
 func (o DomainSubDomainSettingOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSubDomainSetting) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
+// The prefix setting for the subdomain.
 func (o DomainSubDomainSettingOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSubDomainSetting) string { return v.Prefix }).(pulumi.StringOutput)
 }

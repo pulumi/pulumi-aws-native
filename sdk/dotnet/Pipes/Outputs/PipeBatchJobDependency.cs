@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeBatchJobDependency
     {
+        /// <summary>
+        /// The job ID of the AWS Batch job that's associated with this dependency.
+        /// </summary>
         public readonly string? JobId;
+        /// <summary>
+        /// The type of the job dependency.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeBatchJobDependencyType? Type;
 
         [OutputConstructor]

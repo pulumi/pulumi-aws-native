@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolInviteMessageTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+        /// </summary>
         [Input("emailMessage")]
         public Input<string>? EmailMessage { get; set; }
 
+        /// <summary>
+        /// The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+        /// </summary>
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }
 
+        /// <summary>
+        /// The message template for SMS messages.
+        /// </summary>
         [Input("smsMessage")]
         public Input<string>? SmsMessage { get; set; }
 

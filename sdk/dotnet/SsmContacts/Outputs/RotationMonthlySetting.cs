@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SsmContacts.Outputs
         /// The day of the month when monthly recurring on-call rotations begin.
         /// </summary>
         public readonly int DayOfMonth;
+        /// <summary>
+        /// The time of day when a monthly recurring on-call shift rotation begins.
+        /// </summary>
         public readonly string HandOffTime;
 
         [OutputConstructor]

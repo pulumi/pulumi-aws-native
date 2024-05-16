@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobProfileConfiguration
     {
+        /// <summary>
+        /// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobColumnStatisticsConfiguration> ColumnStatisticsConfigurations;
+        /// <summary>
+        /// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        /// </summary>
         public readonly Outputs.JobStatisticsConfiguration? DatasetStatisticsConfiguration;
+        /// <summary>
+        /// Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
+        /// </summary>
         public readonly Outputs.JobEntityDetectorConfiguration? EntityDetectorConfiguration;
+        /// <summary>
+        /// List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobColumnSelector> ProfileColumns;
 
         [OutputConstructor]

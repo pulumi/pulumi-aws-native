@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleSageMakerPipelineParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

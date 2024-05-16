@@ -128,15 +128,27 @@ namespace Pulumi.AwsNative.IoTAnalytics
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Output("channelName")]
         public Output<string?> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        /// </summary>
         [Output("channelStorage")]
         public Output<Outputs.ChannelStorage?> ChannelStorage { get; private set; } = null!;
 
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.ChannelRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -189,17 +201,30 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
 
+        /// <summary>
+        /// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        /// </summary>
         [Input("channelStorage")]
         public Input<Inputs.ChannelStorageArgs>? ChannelStorage { get; set; }
 
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.ChannelRetentionPeriodArgs>? RetentionPeriod { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -24,7 +24,8 @@ type CrossAccountAttachment struct {
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
 	// Resources shared using the attachment.
 	Resources CrossAccountAttachmentResourceArrayOutput `pulumi:"resources"`
-	Tags      aws.TagArrayOutput                        `pulumi:"tags"`
+	// A complex type that contains a `Tag` key and `Tag` value.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCrossAccountAttachment registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +74,8 @@ type crossAccountAttachmentArgs struct {
 	Principals []string `pulumi:"principals"`
 	// Resources shared using the attachment.
 	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	Tags      []aws.Tag                        `pulumi:"tags"`
+	// A complex type that contains a `Tag` key and `Tag` value.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CrossAccountAttachment resource.
@@ -84,7 +86,8 @@ type CrossAccountAttachmentArgs struct {
 	Principals pulumi.StringArrayInput
 	// Resources shared using the attachment.
 	Resources CrossAccountAttachmentResourceArrayInput
-	Tags      aws.TagArrayInput
+	// A complex type that contains a `Tag` key and `Tag` value.
+	Tags aws.TagArrayInput
 }
 
 func (CrossAccountAttachmentArgs) ElementType() reflect.Type {
@@ -144,6 +147,7 @@ func (o CrossAccountAttachmentOutput) Resources() CrossAccountAttachmentResource
 	return o.ApplyT(func(v *CrossAccountAttachment) CrossAccountAttachmentResourceArrayOutput { return v.Resources }).(CrossAccountAttachmentResourceArrayOutput)
 }
 
+// A complex type that contains a `Tag` key and `Tag` value.
 func (o CrossAccountAttachmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

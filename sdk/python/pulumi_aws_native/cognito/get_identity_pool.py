@@ -54,21 +54,37 @@ class GetIdentityPoolResult:
     @property
     @pulumi.getter(name="allowClassicFlow")
     def allow_classic_flow(self) -> Optional[bool]:
+        """
+        Enables the Basic (Classic) authentication flow.
+        """
         return pulumi.get(self, "allow_classic_flow")
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
     def allow_unauthenticated_identities(self) -> Optional[bool]:
+        """
+        Specifies whether the identity pool supports unauthenticated logins.
+        """
         return pulumi.get(self, "allow_unauthenticated_identities")
 
     @property
     @pulumi.getter(name="cognitoIdentityProviders")
     def cognito_identity_providers(self) -> Optional[Sequence['outputs.IdentityPoolCognitoIdentityProvider']]:
+        """
+        `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+        """
         return pulumi.get(self, "cognito_identity_providers")
 
     @property
     @pulumi.getter(name="developerProviderName")
     def developer_provider_name(self) -> Optional[str]:
+        """
+        The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
+
+        *Minimum length* : 1
+
+        *Maximum length* : 100
+        """
         return pulumi.get(self, "developer_provider_name")
 
     @property
@@ -79,27 +95,47 @@ class GetIdentityPoolResult:
     @property
     @pulumi.getter(name="identityPoolName")
     def identity_pool_name(self) -> Optional[str]:
+        """
+        The name of your Amazon Cognito identity pool.
+
+        *Minimum length* : 1
+
+        *Maximum length* : 128
+
+        *Pattern* : `[\\w\\s+=,.@-]+`
+        """
         return pulumi.get(self, "identity_pool_name")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the Amazon Cognito identity pool, returned as a string.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="openIdConnectProviderArns")
     def open_id_connect_provider_arns(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARNs) of the OpenID connect providers.
+        """
         return pulumi.get(self, "open_id_connect_provider_arns")
 
     @property
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
+        """
         return pulumi.get(self, "saml_provider_arns")
 
     @property
     @pulumi.getter(name="supportedLoginProviders")
     def supported_login_providers(self) -> Optional[Any]:
         """
+        Key-value pairs that map provider names to provider app IDs.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "supported_login_providers")

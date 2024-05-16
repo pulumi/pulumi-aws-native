@@ -71,6 +71,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) that specifies the application across services.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -84,6 +87,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier of the application.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -97,6 +103,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value pairs you can use to associate with the application.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -120,6 +129,9 @@ def get_application(id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::Application
+
+
+    :param str id: The identifier of the application.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -142,5 +154,8 @@ def get_application_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::Application
+
+
+    :param str id: The identifier of the application.
     """
     ...

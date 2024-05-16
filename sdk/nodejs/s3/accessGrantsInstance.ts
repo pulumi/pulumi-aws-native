@@ -49,6 +49,9 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the specified AWS Identity Center.
      */
     public readonly identityCenterArn!: pulumi.Output<string | undefined>;
+    /**
+     * A container of a key value name pair.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -87,5 +90,8 @@ export interface AccessGrantsInstanceArgs {
      * The Amazon Resource Name (ARN) of the specified AWS Identity Center.
      */
     identityCenterArn?: pulumi.Input<string>;
+    /**
+     * A container of a key value name pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

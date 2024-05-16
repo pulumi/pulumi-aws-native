@@ -23,14 +23,19 @@ func LookupPolicyTemplate(ctx *pulumi.Context, args *LookupPolicyTemplateArgs, o
 }
 
 type LookupPolicyTemplateArgs struct {
-	PolicyStoreId    string `pulumi:"policyStoreId"`
+	// The unique identifier of the policy store that contains the template.
+	PolicyStoreId string `pulumi:"policyStoreId"`
+	// The unique identifier of the new or modified policy template.
 	PolicyTemplateId string `pulumi:"policyTemplateId"`
 }
 
 type LookupPolicyTemplateResult struct {
-	Description      *string `pulumi:"description"`
+	// The description to attach to the new or updated policy template.
+	Description *string `pulumi:"description"`
+	// The unique identifier of the new or modified policy template.
 	PolicyTemplateId *string `pulumi:"policyTemplateId"`
-	Statement        *string `pulumi:"statement"`
+	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+	Statement *string `pulumi:"statement"`
 }
 
 func LookupPolicyTemplateOutput(ctx *pulumi.Context, args LookupPolicyTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyTemplateResultOutput {
@@ -47,7 +52,9 @@ func LookupPolicyTemplateOutput(ctx *pulumi.Context, args LookupPolicyTemplateOu
 }
 
 type LookupPolicyTemplateOutputArgs struct {
-	PolicyStoreId    pulumi.StringInput `pulumi:"policyStoreId"`
+	// The unique identifier of the policy store that contains the template.
+	PolicyStoreId pulumi.StringInput `pulumi:"policyStoreId"`
+	// The unique identifier of the new or modified policy template.
 	PolicyTemplateId pulumi.StringInput `pulumi:"policyTemplateId"`
 }
 
@@ -69,14 +76,17 @@ func (o LookupPolicyTemplateResultOutput) ToLookupPolicyTemplateResultOutputWith
 	return o
 }
 
+// The description to attach to the new or updated policy template.
 func (o LookupPolicyTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the new or modified policy template.
 func (o LookupPolicyTemplateResultOutput) PolicyTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyTemplateResult) *string { return v.PolicyTemplateId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
 func (o LookupPolicyTemplateResultOutput) Statement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyTemplateResult) *string { return v.Statement }).(pulumi.StringPtrOutput)
 }

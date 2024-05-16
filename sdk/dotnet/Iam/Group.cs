@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::Group` resource. For example: `arn:aws:iam::123456789012:group/mystack-mygroup-1DZETITOWEKVO` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

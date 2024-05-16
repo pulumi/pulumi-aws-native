@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateVisualTitleLabelOptions
     {
+        /// <summary>
+        /// The text format for the title.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateShortFormatText? FormatText;
+        /// <summary>
+        /// The visibility of the title label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

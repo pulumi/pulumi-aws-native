@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.LookoutMetrics
 {
+    /// <summary>
+    /// The level of compression of the source CSV file.
+    /// </summary>
     [EnumType]
     public readonly struct AnomalyDetectorCsvFormatDescriptorFileCompression : IEquatable<AnomalyDetectorCsvFormatDescriptorFileCompression>
     {
@@ -68,6 +71,9 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The level of compression of the source CSV file.
+    /// </summary>
     [EnumType]
     public readonly struct AnomalyDetectorJsonFormatDescriptorFileCompression : IEquatable<AnomalyDetectorJsonFormatDescriptorFileCompression>
     {

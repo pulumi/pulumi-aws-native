@@ -24,6 +24,11 @@ namespace Pulumi.AwsNative.Kms
     [AwsNativeResourceType("aws-native:kms:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -60,6 +65,11 @@ namespace Pulumi.AwsNative.Kms
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
@@ -161,6 +171,15 @@ namespace Pulumi.AwsNative.Kms
         [Output("pendingWindowInDays")]
         public Output<int?> PendingWindowInDays { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.
+        /// 
+        /// The rotation period defines the number of days after you enable automatic key rotation that AWS KMS will rotate your key material, and the number of days between each automatic rotation thereafter.
+        /// 
+        /// You can use the [`kms:RotationPeriodInDays`](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days) condition key to further constrain the values that principals can specify in the `RotationPeriodInDays` parameter.
+        /// 
+        /// For more information about rotating KMS keys and automatic rotation, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("rotationPeriodInDays")]
         public Output<int?> RotationPeriodInDays { get; private set; } = null!;
 
@@ -348,6 +367,15 @@ namespace Pulumi.AwsNative.Kms
         [Input("pendingWindowInDays")]
         public Input<int>? PendingWindowInDays { get; set; }
 
+        /// <summary>
+        /// Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.
+        /// 
+        /// The rotation period defines the number of days after you enable automatic key rotation that AWS KMS will rotate your key material, and the number of days between each automatic rotation thereafter.
+        /// 
+        /// You can use the [`kms:RotationPeriodInDays`](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days) condition key to further constrain the values that principals can specify in the `RotationPeriodInDays` parameter.
+        /// 
+        /// For more information about rotating KMS keys and automatic rotation, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Input("rotationPeriodInDays")]
         public Input<int>? RotationPeriodInDays { get; set; }
 

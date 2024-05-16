@@ -12,27 +12,51 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableCellStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color for the table cells.
+        /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// Determines the border options for a table visual.
+        /// </summary>
         [Input("border")]
         public Input<Inputs.TemplateGlobalTableBorderOptionsArgs>? Border { get; set; }
 
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? FontConfiguration { get; set; }
 
+        /// <summary>
+        /// The height color for the table cells.
+        /// </summary>
         [Input("height")]
         public Input<double>? Height { get; set; }
 
+        /// <summary>
+        /// The horizontal text alignment (left, center, right, auto) for the table cells.
+        /// </summary>
         [Input("horizontalTextAlignment")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateHorizontalTextAlignment>? HorizontalTextAlignment { get; set; }
 
+        /// <summary>
+        /// The text wrap (none, wrap) for the table cells.
+        /// </summary>
         [Input("textWrap")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTextWrap>? TextWrap { get; set; }
 
+        /// <summary>
+        /// The vertical text alignment (top, middle, bottom) for the table cells.
+        /// </summary>
         [Input("verticalTextAlignment")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVerticalTextAlignment>? VerticalTextAlignment { get; set; }
 
+        /// <summary>
+        /// The visibility of the table cells.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

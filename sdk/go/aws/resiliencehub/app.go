@@ -29,13 +29,15 @@ type App struct {
 	// The list of events you would like to subscribe and get notification for.
 	EventSubscriptions AppEventSubscriptionArrayOutput `pulumi:"eventSubscriptions"`
 	// Name of the app.
-	Name            pulumi.StringOutput         `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel AppPermissionModelPtrOutput `pulumi:"permissionModel"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn pulumi.StringPtrOutput `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
 	ResourceMappings AppResourceMappingArrayOutput `pulumi:"resourceMappings"`
-	Tags             pulumi.StringMapOutput        `pulumi:"tags"`
+	// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -97,13 +99,15 @@ type appArgs struct {
 	// The list of events you would like to subscribe and get notification for.
 	EventSubscriptions []AppEventSubscription `pulumi:"eventSubscriptions"`
 	// Name of the app.
-	Name            *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel *AppPermissionModel `pulumi:"permissionModel"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
 	ResourceMappings []AppResourceMapping `pulumi:"resourceMappings"`
-	Tags             map[string]string    `pulumi:"tags"`
+	// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
@@ -117,13 +121,15 @@ type AppArgs struct {
 	// The list of events you would like to subscribe and get notification for.
 	EventSubscriptions AppEventSubscriptionArrayInput
 	// Name of the app.
-	Name            pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel AppPermissionModelPtrInput
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn pulumi.StringPtrInput
 	// An array of ResourceMapping objects.
 	ResourceMappings AppResourceMappingArrayInput
-	Tags             pulumi.StringMapInput
+	// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+	Tags pulumi.StringMapInput
 }
 
 func (AppArgs) ElementType() reflect.Type {
@@ -198,6 +204,7 @@ func (o AppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 func (o AppOutput) PermissionModel() AppPermissionModelPtrOutput {
 	return o.ApplyT(func(v *App) AppPermissionModelPtrOutput { return v.PermissionModel }).(AppPermissionModelPtrOutput)
 }
@@ -212,6 +219,7 @@ func (o AppOutput) ResourceMappings() AppResourceMappingArrayOutput {
 	return o.ApplyT(func(v *App) AppResourceMappingArrayOutput { return v.ResourceMappings }).(AppResourceMappingArrayOutput)
 }
 
+// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
 func (o AppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

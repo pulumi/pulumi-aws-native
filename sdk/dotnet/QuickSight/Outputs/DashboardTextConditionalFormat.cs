@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTextConditionalFormat
     {
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? BackgroundColor;
+        /// <summary>
+        /// The formatting configuration for the icon.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingIcon? Icon;
+        /// <summary>
+        /// The formatting configuration for the color.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? TextColor;
 
         [OutputConstructor]

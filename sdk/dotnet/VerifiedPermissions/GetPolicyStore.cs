@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetPolicyStoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the new or updated policy store.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public string PolicyStoreId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetPolicyStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the new or updated policy store.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [OutputType]
     public sealed class GetPolicyStoreResult
     {
+        /// <summary>
+        /// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Descriptive text that you can provide to help with identification of the current policy store.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique ID of the new or updated policy store.
+        /// </summary>
         public readonly string? PolicyStoreId;
+        /// <summary>
+        /// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        /// </summary>
         public readonly Outputs.PolicyStoreSchemaDefinition? Schema;
+        /// <summary>
+        /// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        /// </summary>
         public readonly Outputs.PolicyStoreValidationSettings? ValidationSettings;
 
         [OutputConstructor]

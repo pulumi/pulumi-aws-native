@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class UserProfileJupyterServerAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.UserProfileResourceSpecArgs>? DefaultResourceSpec { get; set; }
 

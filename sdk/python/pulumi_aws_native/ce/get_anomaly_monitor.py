@@ -73,6 +73,9 @@ class GetAnomalyMonitorResult:
     @property
     @pulumi.getter(name="monitorArn")
     def monitor_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) value for the monitor.
+        """
         return pulumi.get(self, "monitor_arn")
 
     @property
@@ -102,6 +105,9 @@ def get_anomaly_monitor(monitor_arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnomalyMonitorResult:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
+
+
+    :param str monitor_arn: The Amazon Resource Name (ARN) value for the monitor.
     """
     __args__ = dict()
     __args__['monitorArn'] = monitor_arn
@@ -122,5 +128,8 @@ def get_anomaly_monitor_output(monitor_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyMonitorResult]:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
+
+
+    :param str monitor_arn: The Amazon Resource Name (ARN) value for the monitor.
     """
     ...

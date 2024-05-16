@@ -23,15 +23,21 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServic
 }
 
 type LookupVpcEndpointServiceArgs struct {
+	// The ID of the endpoint service.
 	ServiceId string `pulumi:"serviceId"`
 }
 
 type LookupVpcEndpointServiceResult struct {
-	AcceptanceRequired      *bool    `pulumi:"acceptanceRequired"`
+	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
+	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
+	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility     *string  `pulumi:"payerResponsibility"`
-	ServiceId               *string  `pulumi:"serviceId"`
+	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+	PayerResponsibility *string `pulumi:"payerResponsibility"`
+	// The ID of the endpoint service.
+	ServiceId *string `pulumi:"serviceId"`
 }
 
 func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointServiceResultOutput {
@@ -48,6 +54,7 @@ func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointS
 }
 
 type LookupVpcEndpointServiceOutputArgs struct {
+	// The ID of the endpoint service.
 	ServiceId pulumi.StringInput `pulumi:"serviceId"`
 }
 
@@ -69,22 +76,27 @@ func (o LookupVpcEndpointServiceResultOutput) ToLookupVpcEndpointServiceResultOu
 	return o
 }
 
+// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 func (o LookupVpcEndpointServiceResultOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *bool { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 func (o LookupVpcEndpointServiceResultOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.GatewayLoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 func (o LookupVpcEndpointServiceResultOutput) NetworkLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.NetworkLoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
+// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 func (o LookupVpcEndpointServiceResultOutput) PayerResponsibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the endpoint service.
 func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }

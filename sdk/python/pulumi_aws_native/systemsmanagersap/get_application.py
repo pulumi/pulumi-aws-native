@@ -37,11 +37,17 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
+        """
+        The ID of the application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> Optional['ApplicationType']:
+        """
+        The type of the application.
+        """
         return pulumi.get(self, "application_type")
 
     @property

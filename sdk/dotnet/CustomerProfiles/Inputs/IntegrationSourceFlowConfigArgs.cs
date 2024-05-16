@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationSourceFlowConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
+        /// </summary>
         [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
 
+        /// <summary>
+        /// The type of connector, such as Salesforce, Marketo, and so on.
+        /// </summary>
         [Input("connectorType", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationConnectorType> ConnectorType { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration used when importing incremental records from the source.
+        /// </summary>
         [Input("incrementalPullConfig")]
         public Input<Inputs.IntegrationIncrementalPullConfigArgs>? IncrementalPullConfig { get; set; }
 
+        /// <summary>
+        /// Specifies the information that is required to query a particular Amazon AppFlow connector. Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.
+        /// </summary>
         [Input("sourceConnectorProperties", required: true)]
         public Input<Inputs.IntegrationSourceConnectorPropertiesArgs> SourceConnectorProperties { get; set; } = null!;
 

@@ -12,27 +12,53 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardHeatMapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color scale that is applied to the visual.
+        /// </summary>
         [Input("colorScale")]
         public Input<Inputs.DashboardColorScaleArgs>? ColorScale { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("columnLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? ColumnLabelOptions { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a heat map.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.DashboardHeatMapFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("rowLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? RowLabelOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a heat map.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.DashboardHeatMapSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.DashboardTooltipOptionsArgs>? Tooltip { get; set; }
 

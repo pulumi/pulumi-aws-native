@@ -26,6 +26,9 @@ export interface GetIntegrationArgs {
 }
 
 export interface GetIntegrationResult {
+    /**
+     * The time when the integration was created, in Universal Coordinated Time (UTC).
+     */
     readonly createTime?: string;
     /**
      * The data filter for the integration.

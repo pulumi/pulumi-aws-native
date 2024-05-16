@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineDeviceRegistryEnrich
     {
+        /// <summary>
+        /// The name of the attribute that is added to the message.
+        /// </summary>
         public readonly string Attribute;
+        /// <summary>
+        /// The name of the 'deviceRegistryEnrich' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
+        /// <summary>
+        /// The ARN of the role that allows access to the device's registry information.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The name of the IoT device whose registry information is added to the message.
+        /// </summary>
         public readonly string ThingName;
 
         [OutputConstructor]

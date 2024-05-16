@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
     [OutputType]
     public sealed class AssessmentReportsDestination
     {
+        /// <summary>
+        /// The destination bucket where Audit Manager stores assessment reports.
+        /// </summary>
         public readonly string? Destination;
+        /// <summary>
+        /// The destination type, such as Amazon S3.
+        /// </summary>
         public readonly Pulumi.AwsNative.AuditManager.AssessmentReportDestinationType? DestinationType;
 
         [OutputConstructor]

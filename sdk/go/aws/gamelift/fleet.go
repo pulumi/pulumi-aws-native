@@ -24,7 +24,12 @@ type Fleet struct {
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration FleetCertificateConfigurationPtrOutput `pulumi:"certificateConfiguration"`
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ComputeType                  FleetComputeTypePtrOutput                  `pulumi:"computeType"`
+	ComputeType FleetComputeTypePtrOutput `pulumi:"computeType"`
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+	//
+	// *Used with:* `CreateFleet`
 	ContainerGroupsConfiguration FleetContainerGroupsConfigurationPtrOutput `pulumi:"containerGroupsConfiguration"`
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -42,7 +47,10 @@ type Fleet struct {
 	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrOutput `pulumi:"instanceRoleCredentialsProvider"`
-	Locations                       FleetLocationConfigurationArrayOutput         `pulumi:"locations"`
+	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// A remote location where a multi-location fleet can deploy game servers for game hosting.
+	Locations FleetLocationConfigurationArrayOutput `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -144,7 +152,12 @@ type fleetArgs struct {
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ComputeType                  *FleetComputeType                  `pulumi:"computeType"`
+	ComputeType *FleetComputeType `pulumi:"computeType"`
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+	//
+	// *Used with:* `CreateFleet`
 	ContainerGroupsConfiguration *FleetContainerGroupsConfiguration `pulumi:"containerGroupsConfiguration"`
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
@@ -160,7 +173,10 @@ type fleetArgs struct {
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider *FleetInstanceRoleCredentialsProvider `pulumi:"instanceRoleCredentialsProvider"`
-	Locations                       []FleetLocationConfiguration          `pulumi:"locations"`
+	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// A remote location where a multi-location fleet can deploy game servers for game hosting.
+	Locations []FleetLocationConfiguration `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths []string `pulumi:"logPaths"`
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -206,7 +222,12 @@ type FleetArgs struct {
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ComputeType                  FleetComputeTypePtrInput
+	ComputeType FleetComputeTypePtrInput
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+	//
+	// *Used with:* `CreateFleet`
 	ContainerGroupsConfiguration FleetContainerGroupsConfigurationPtrInput
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrInput
@@ -222,7 +243,10 @@ type FleetArgs struct {
 	InstanceRoleArn pulumi.StringPtrInput
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrInput
-	Locations                       FleetLocationConfigurationArrayInput
+	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	//
+	// A remote location where a multi-location fleet can deploy game servers for game hosting.
+	Locations FleetLocationConfigurationArrayInput
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayInput
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -319,6 +343,11 @@ func (o FleetOutput) ComputeType() FleetComputeTypePtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeTypePtrOutput { return v.ComputeType }).(FleetComputeTypePtrOutput)
 }
 
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+//
+// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+//
+// *Used with:* `CreateFleet`
 func (o FleetOutput) ContainerGroupsConfiguration() FleetContainerGroupsConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetContainerGroupsConfigurationPtrOutput { return v.ContainerGroupsConfiguration }).(FleetContainerGroupsConfigurationPtrOutput)
 }
@@ -363,6 +392,9 @@ func (o FleetOutput) InstanceRoleCredentialsProvider() FleetInstanceRoleCredenti
 	return o.ApplyT(func(v *Fleet) FleetInstanceRoleCredentialsProviderPtrOutput { return v.InstanceRoleCredentialsProvider }).(FleetInstanceRoleCredentialsProviderPtrOutput)
 }
 
+// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+//
+// A remote location where a multi-location fleet can deploy game servers for game hosting.
 func (o FleetOutput) Locations() FleetLocationConfigurationArrayOutput {
 	return o.ApplyT(func(v *Fleet) FleetLocationConfigurationArrayOutput { return v.Locations }).(FleetLocationConfigurationArrayOutput)
 }

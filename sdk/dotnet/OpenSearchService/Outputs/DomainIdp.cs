@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainIdp
     {
+        /// <summary>
+        /// The unique entity ID of the application in the SAML identity provider.
+        /// </summary>
         public readonly string EntityId;
+        /// <summary>
+        /// The metadata of the SAML application, in XML format.
+        /// </summary>
         public readonly string MetadataContent;
 
         [OutputConstructor]

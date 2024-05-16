@@ -72,6 +72,9 @@ class GetCrossAccountAttachmentResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A complex type that contains a `Tag` key and `Tag` value.
+        """
         return pulumi.get(self, "tags")
 
 

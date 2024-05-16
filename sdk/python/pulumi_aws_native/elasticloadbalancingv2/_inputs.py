@@ -2362,6 +2362,12 @@ class TrustStoreRevocationRevocationContentArgs:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] revocation_type: The type of revocation file.
+        :param pulumi.Input[str] s3_bucket: The Amazon S3 bucket for the revocation file.
+        :param pulumi.Input[str] s3_key: The Amazon S3 path for the revocation file.
+        :param pulumi.Input[str] s3_object_version: The Amazon S3 object version of the revocation file.
+        """
         if revocation_type is not None:
             pulumi.set(__self__, "revocation_type", revocation_type)
         if s3_bucket is not None:
@@ -2374,6 +2380,9 @@ class TrustStoreRevocationRevocationContentArgs:
     @property
     @pulumi.getter(name="revocationType")
     def revocation_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of revocation file.
+        """
         return pulumi.get(self, "revocation_type")
 
     @revocation_type.setter
@@ -2383,6 +2392,9 @@ class TrustStoreRevocationRevocationContentArgs:
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 bucket for the revocation file.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -2392,6 +2404,9 @@ class TrustStoreRevocationRevocationContentArgs:
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 path for the revocation file.
+        """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
@@ -2401,6 +2416,9 @@ class TrustStoreRevocationRevocationContentArgs:
     @property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 object version of the revocation file.
+        """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter

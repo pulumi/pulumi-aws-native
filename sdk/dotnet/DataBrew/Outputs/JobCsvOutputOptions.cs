@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobCsvOutputOptions
     {
+        /// <summary>
+        /// A single character that specifies the delimiter used to create CSV job output.
+        /// </summary>
         public readonly string? Delimiter;
 
         [OutputConstructor]

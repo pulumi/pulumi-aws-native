@@ -45,6 +45,9 @@ class GetCustomPluginResult:
     @property
     @pulumi.getter(name="fileDescription")
     def file_description(self) -> Optional['outputs.CustomPluginFileDescription']:
+        """
+        Details about a custom plugin file.
+        """
         return pulumi.get(self, "file_description")
 
     @property

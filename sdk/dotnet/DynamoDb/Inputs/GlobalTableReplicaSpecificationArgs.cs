@@ -12,49 +12,110 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableReplicaSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures contributor insights settings for a replica or one of its indexes.
+        /// </summary>
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.GlobalTableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
 
+        /// <summary>
+        /// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
+        /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         [Input("globalSecondaryIndexes")]
         private InputList<Inputs.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs>? _globalSecondaryIndexes;
+
+        /// <summary>
+        /// Represents the properties of a global secondary index that can be set on a per-replica basis.
+        /// </summary>
         public InputList<Inputs.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs> GlobalSecondaryIndexes
         {
             get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs>());
             set => _globalSecondaryIndexes = value;
         }
 
+        /// <summary>
+        /// The Kinesis Data Streams configuration for the specified global table replica.
+        /// </summary>
         [Input("kinesisStreamSpecification")]
         public Input<Inputs.GlobalTableKinesisStreamSpecificationArgs>? KinesisStreamSpecification { get; set; }
 
+        /// <summary>
+        /// Represents the settings used to enable point in time recovery.
+        /// </summary>
         [Input("pointInTimeRecoverySpecification")]
         public Input<Inputs.GlobalTablePointInTimeRecoverySpecificationArgs>? PointInTimeRecoverySpecification { get; set; }
 
+        /// <summary>
+        /// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// </summary>
         [Input("readOnDemandThroughputSettings")]
         public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
 
+        /// <summary>
+        /// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+        /// </summary>
         [Input("readProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }
 
+        /// <summary>
+        /// The region in which this replica exists.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// Represents the DynamoDB Streams configuration for a global table replica.
+        /// </summary>
         [Input("replicaStreamSpecification")]
         public Input<Inputs.GlobalTableReplicaStreamSpecificationArgs>? ReplicaStreamSpecification { get; set; }
 
+        /// <summary>
+        /// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+        /// 
+        /// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+        /// 
+        /// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+        /// 
+        /// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+        /// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+        /// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+        /// 
+        /// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+        /// 
+        /// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+        /// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+        /// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+        /// 
+        /// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+        /// </summary>
         [Input("resourcePolicy")]
         public Input<Inputs.GlobalTableResourcePolicyArgs>? ResourcePolicy { get; set; }
 
+        /// <summary>
+        /// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+        /// </summary>
         [Input("sseSpecification")]
         public Input<Inputs.GlobalTableReplicaSseSpecificationArgs>? SseSpecification { get; set; }
 
+        /// <summary>
+        /// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
+        /// </summary>
         [Input("tableClass")]
         public Input<string>? TableClass { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.GlobalTableTagArgs>? _tags;
+
+        /// <summary>
+        /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+        /// 
+        /// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
+        /// 
+        /// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+        /// </summary>
         public InputList<Inputs.GlobalTableTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.GlobalTableTagArgs>());

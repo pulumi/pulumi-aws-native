@@ -16,15 +16,45 @@ export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: 
 }
 
 export interface GetCapacityReservationArgs {
+    /**
+     * The ID of the Capacity Reservation.
+     */
     id: string;
 }
 
 export interface GetCapacityReservationResult {
+    /**
+     * Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+     */
     readonly availableInstanceCount?: number;
+    /**
+     * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+     *
+     * You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+     *
+     * If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+     */
     readonly endDate?: string;
+    /**
+     * Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+     *
+     * - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+     * - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+     */
     readonly endDateType?: string;
+    /**
+     * The ID of the Capacity Reservation.
+     */
     readonly id?: string;
+    /**
+     * The number of instances for which to reserve capacity.
+     *
+     * Valid range: 1 - 1000
+     */
     readonly instanceCount?: number;
+    /**
+     * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+     */
     readonly totalInstanceCount?: number;
 }
 /**
@@ -35,5 +65,8 @@ export function getCapacityReservationOutput(args: GetCapacityReservationOutputA
 }
 
 export interface GetCapacityReservationOutputArgs {
+    /**
+     * The ID of the Capacity Reservation.
+     */
     id: pulumi.Input<string>;
 }

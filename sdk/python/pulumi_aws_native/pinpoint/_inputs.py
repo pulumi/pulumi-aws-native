@@ -25,6 +25,11 @@ class InAppTemplateBodyConfigArgs:
                  alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InAppTemplateAlignment'] alignment: The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+        :param pulumi.Input[str] body: The main body text of the message.
+        :param pulumi.Input[str] text_color: The color of the body text, expressed as a hex color code (such as #000000 for black).
+        """
         if alignment is not None:
             pulumi.set(__self__, "alignment", alignment)
         if body is not None:
@@ -35,6 +40,9 @@ class InAppTemplateBodyConfigArgs:
     @property
     @pulumi.getter
     def alignment(self) -> Optional[pulumi.Input['InAppTemplateAlignment']]:
+        """
+        The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+        """
         return pulumi.get(self, "alignment")
 
     @alignment.setter
@@ -44,6 +52,9 @@ class InAppTemplateBodyConfigArgs:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The main body text of the message.
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -53,6 +64,9 @@ class InAppTemplateBodyConfigArgs:
     @property
     @pulumi.getter(name="textColor")
     def text_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color of the body text, expressed as a hex color code (such as #000000 for black).
+        """
         return pulumi.get(self, "text_color")
 
     @text_color.setter
@@ -67,6 +81,12 @@ class InAppTemplateButtonConfigArgs:
                  default_config: Optional[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs']] = None,
                  ios: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
                  web: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs'] android: Specifies the configuration of a button with settings that are specific to a certain device type.
+        :param pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs'] default_config: Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
+        :param pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs'] ios: Specifies the configuration of a button with settings that are specific to a certain device type.
+        :param pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs'] web: Specifies the configuration of a button with settings that are specific to a certain device type.
+        """
         if android is not None:
             pulumi.set(__self__, "android", android)
         if default_config is not None:
@@ -79,6 +99,9 @@ class InAppTemplateButtonConfigArgs:
     @property
     @pulumi.getter
     def android(self) -> Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]:
+        """
+        Specifies the configuration of a button with settings that are specific to a certain device type.
+        """
         return pulumi.get(self, "android")
 
     @android.setter
@@ -88,6 +111,9 @@ class InAppTemplateButtonConfigArgs:
     @property
     @pulumi.getter(name="defaultConfig")
     def default_config(self) -> Optional[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs']]:
+        """
+        Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
+        """
         return pulumi.get(self, "default_config")
 
     @default_config.setter
@@ -97,6 +123,9 @@ class InAppTemplateButtonConfigArgs:
     @property
     @pulumi.getter
     def ios(self) -> Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]:
+        """
+        Specifies the configuration of a button with settings that are specific to a certain device type.
+        """
         return pulumi.get(self, "ios")
 
     @ios.setter
@@ -106,6 +135,9 @@ class InAppTemplateButtonConfigArgs:
     @property
     @pulumi.getter
     def web(self) -> Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]:
+        """
+        Specifies the configuration of a button with settings that are specific to a certain device type.
+        """
         return pulumi.get(self, "web")
 
     @web.setter
@@ -122,6 +154,18 @@ class InAppTemplateDefaultButtonConfigurationArgs:
                  link: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] background_color: The background color of a button, expressed as a hex color code (such as #000000 for black).
+        :param pulumi.Input[int] border_radius: The border radius of a button.
+        :param pulumi.Input['InAppTemplateButtonAction'] button_action: The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+               
+               - `LINK` – A link to a web destination.
+               - `DEEP_LINK` – A link to a specific page in an application.
+               - `CLOSE` – Dismisses the message.
+        :param pulumi.Input[str] link: The destination (such as a URL) for a button.
+        :param pulumi.Input[str] text: The text that appears on a button in an in-app message.
+        :param pulumi.Input[str] text_color: The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
+        """
         if background_color is not None:
             pulumi.set(__self__, "background_color", background_color)
         if border_radius is not None:
@@ -138,6 +182,9 @@ class InAppTemplateDefaultButtonConfigurationArgs:
     @property
     @pulumi.getter(name="backgroundColor")
     def background_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The background color of a button, expressed as a hex color code (such as #000000 for black).
+        """
         return pulumi.get(self, "background_color")
 
     @background_color.setter
@@ -147,6 +194,9 @@ class InAppTemplateDefaultButtonConfigurationArgs:
     @property
     @pulumi.getter(name="borderRadius")
     def border_radius(self) -> Optional[pulumi.Input[int]]:
+        """
+        The border radius of a button.
+        """
         return pulumi.get(self, "border_radius")
 
     @border_radius.setter
@@ -156,6 +206,13 @@ class InAppTemplateDefaultButtonConfigurationArgs:
     @property
     @pulumi.getter(name="buttonAction")
     def button_action(self) -> Optional[pulumi.Input['InAppTemplateButtonAction']]:
+        """
+        The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+
+        - `LINK` – A link to a web destination.
+        - `DEEP_LINK` – A link to a specific page in an application.
+        - `CLOSE` – Dismisses the message.
+        """
         return pulumi.get(self, "button_action")
 
     @button_action.setter
@@ -165,6 +222,9 @@ class InAppTemplateDefaultButtonConfigurationArgs:
     @property
     @pulumi.getter
     def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination (such as a URL) for a button.
+        """
         return pulumi.get(self, "link")
 
     @link.setter
@@ -174,6 +234,9 @@ class InAppTemplateDefaultButtonConfigurationArgs:
     @property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text that appears on a button in an in-app message.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -183,6 +246,9 @@ class InAppTemplateDefaultButtonConfigurationArgs:
     @property
     @pulumi.getter(name="textColor")
     def text_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
+        """
         return pulumi.get(self, "text_color")
 
     @text_color.setter
@@ -196,6 +262,11 @@ class InAppTemplateHeaderConfigArgs:
                  alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
                  header: Optional[pulumi.Input[str]] = None,
                  text_color: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InAppTemplateAlignment'] alignment: The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+        :param pulumi.Input[str] header: The title text of the in-app message.
+        :param pulumi.Input[str] text_color: The color of the title text, expressed as a hex color code (such as #000000 for black).
+        """
         if alignment is not None:
             pulumi.set(__self__, "alignment", alignment)
         if header is not None:
@@ -206,6 +277,9 @@ class InAppTemplateHeaderConfigArgs:
     @property
     @pulumi.getter
     def alignment(self) -> Optional[pulumi.Input['InAppTemplateAlignment']]:
+        """
+        The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
+        """
         return pulumi.get(self, "alignment")
 
     @alignment.setter
@@ -215,6 +289,9 @@ class InAppTemplateHeaderConfigArgs:
     @property
     @pulumi.getter
     def header(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title text of the in-app message.
+        """
         return pulumi.get(self, "header")
 
     @header.setter
@@ -224,6 +301,9 @@ class InAppTemplateHeaderConfigArgs:
     @property
     @pulumi.getter(name="textColor")
     def text_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color of the title text, expressed as a hex color code (such as #000000 for black).
+        """
         return pulumi.get(self, "text_color")
 
     @text_color.setter
@@ -240,6 +320,14 @@ class InAppTemplateInAppMessageContentArgs:
                  image_url: Optional[pulumi.Input[str]] = None,
                  primary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None,
                  secondary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] background_color: The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
+        :param pulumi.Input['InAppTemplateBodyConfigArgs'] body_config: Specifies the configuration of the main body text of the in-app message.
+        :param pulumi.Input['InAppTemplateHeaderConfigArgs'] header_config: Specifies the configuration and content of the header or title text of the in-app message.
+        :param pulumi.Input[str] image_url: The URL of the image that appears on an in-app message banner.
+        :param pulumi.Input['InAppTemplateButtonConfigArgs'] primary_btn: Specifies the behavior of buttons that appear in an in-app message template.
+        :param pulumi.Input['InAppTemplateButtonConfigArgs'] secondary_btn: Specifies the behavior of buttons that appear in an in-app message template.
+        """
         if background_color is not None:
             pulumi.set(__self__, "background_color", background_color)
         if body_config is not None:
@@ -256,6 +344,9 @@ class InAppTemplateInAppMessageContentArgs:
     @property
     @pulumi.getter(name="backgroundColor")
     def background_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
+        """
         return pulumi.get(self, "background_color")
 
     @background_color.setter
@@ -265,6 +356,9 @@ class InAppTemplateInAppMessageContentArgs:
     @property
     @pulumi.getter(name="bodyConfig")
     def body_config(self) -> Optional[pulumi.Input['InAppTemplateBodyConfigArgs']]:
+        """
+        Specifies the configuration of the main body text of the in-app message.
+        """
         return pulumi.get(self, "body_config")
 
     @body_config.setter
@@ -274,6 +368,9 @@ class InAppTemplateInAppMessageContentArgs:
     @property
     @pulumi.getter(name="headerConfig")
     def header_config(self) -> Optional[pulumi.Input['InAppTemplateHeaderConfigArgs']]:
+        """
+        Specifies the configuration and content of the header or title text of the in-app message.
+        """
         return pulumi.get(self, "header_config")
 
     @header_config.setter
@@ -283,6 +380,9 @@ class InAppTemplateInAppMessageContentArgs:
     @property
     @pulumi.getter(name="imageUrl")
     def image_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the image that appears on an in-app message banner.
+        """
         return pulumi.get(self, "image_url")
 
     @image_url.setter
@@ -292,6 +392,9 @@ class InAppTemplateInAppMessageContentArgs:
     @property
     @pulumi.getter(name="primaryBtn")
     def primary_btn(self) -> Optional[pulumi.Input['InAppTemplateButtonConfigArgs']]:
+        """
+        Specifies the behavior of buttons that appear in an in-app message template.
+        """
         return pulumi.get(self, "primary_btn")
 
     @primary_btn.setter
@@ -301,6 +404,9 @@ class InAppTemplateInAppMessageContentArgs:
     @property
     @pulumi.getter(name="secondaryBtn")
     def secondary_btn(self) -> Optional[pulumi.Input['InAppTemplateButtonConfigArgs']]:
+        """
+        Specifies the behavior of buttons that appear in an in-app message template.
+        """
         return pulumi.get(self, "secondary_btn")
 
     @secondary_btn.setter
@@ -313,6 +419,14 @@ class InAppTemplateOverrideButtonConfigurationArgs:
     def __init__(__self__, *,
                  button_action: Optional[pulumi.Input['InAppTemplateButtonAction']] = None,
                  link: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InAppTemplateButtonAction'] button_action: The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+               
+               - `LINK` – A link to a web destination.
+               - `DEEP_LINK` – A link to a specific page in an application.
+               - `CLOSE` – Dismisses the message.
+        :param pulumi.Input[str] link: The destination (such as a URL) for a button.
+        """
         if button_action is not None:
             pulumi.set(__self__, "button_action", button_action)
         if link is not None:
@@ -321,6 +435,13 @@ class InAppTemplateOverrideButtonConfigurationArgs:
     @property
     @pulumi.getter(name="buttonAction")
     def button_action(self) -> Optional[pulumi.Input['InAppTemplateButtonAction']]:
+        """
+        The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+
+        - `LINK` – A link to a web destination.
+        - `DEEP_LINK` – A link to a specific page in an application.
+        - `CLOSE` – Dismisses the message.
+        """
         return pulumi.get(self, "button_action")
 
     @button_action.setter
@@ -330,6 +451,9 @@ class InAppTemplateOverrideButtonConfigurationArgs:
     @property
     @pulumi.getter
     def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination (such as a URL) for a button.
+        """
         return pulumi.get(self, "link")
 
     @link.setter

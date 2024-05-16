@@ -24,13 +24,17 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 }
 
 type LookupStreamArgs struct {
-	Id         string `pulumi:"id"`
+	// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+	Id string `pulumi:"id"`
+	// The name of the ledger.
 	LedgerName string `pulumi:"ledgerName"`
 }
 
 type LookupStreamResult struct {
+	// The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
+	// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+	Id *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -49,7 +53,9 @@ func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts .
 }
 
 type LookupStreamOutputArgs struct {
-	Id         pulumi.StringInput `pulumi:"id"`
+	// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the ledger.
 	LedgerName pulumi.StringInput `pulumi:"ledgerName"`
 }
 
@@ -71,10 +77,12 @@ func (o LookupStreamResultOutput) ToLookupStreamResultOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
 func (o LookupStreamResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
 func (o LookupStreamResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

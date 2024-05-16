@@ -151,42 +151,109 @@ namespace Pulumi.AwsNative.StepFunctions
     [AwsNativeResourceType("aws-native:stepfunctions:StateMachine")]
     public partial class StateMachine : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.StateMachineDefinition?> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        /// </summary>
         [Output("definitionS3Location")]
         public Output<Outputs.StateMachineS3Location?> DefinitionS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        /// </summary>
         [Output("definitionString")]
         public Output<string?> DefinitionString { get; private set; } = null!;
 
+        /// <summary>
+        /// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
+        /// 
+        /// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        /// </summary>
         [Output("definitionSubstitutions")]
         public Output<ImmutableDictionary<string, object>?> DefinitionSubstitutions { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines what execution history events are logged and where they are logged.
+        /// 
+        /// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
+        /// 
+        /// &gt; By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.StateMachineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the name of the state machine. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyStateMachine", "Name"] }`
+        /// 
+        /// Returns the name of your state machine:
+        /// 
+        /// `HelloWorld-StateMachine`
+        /// 
+        /// If you did not specify the name it will be similar to the following:
+        /// 
+        /// `MyStateMachine-1234abcdefgh`
+        /// 
+        /// For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the state machine.
+        /// 
+        /// A name must *not* contain:
+        /// 
+        /// - white space
+        /// - brackets `&lt; &gt; { } [ ]`
+        /// - wildcard characters `? *`
+        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - control characters ( `U+0000-001F` , `U+007F-009F` )
+        /// 
+        /// &gt; If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        /// </summary>
         [Output("stateMachineName")]
         public Output<string?> StateMachineName { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+        /// </summary>
         [Output("stateMachineRevisionId")]
         public Output<string> StateMachineRevisionId { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        /// </summary>
         [Output("stateMachineType")]
         public Output<Pulumi.AwsNative.StepFunctions.StateMachineType?> StateMachineType { get; private set; } = null!;
 
+        /// <summary>
+        /// The `TagsEntry` property specifies *tags* to identify a state machine.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        /// </summary>
         [Output("tracingConfiguration")]
         public Output<Outputs.StateMachineTracingConfiguration?> TracingConfiguration { get; private set; } = null!;
 
@@ -240,43 +307,91 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class StateMachineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        /// </summary>
         [Input("definition")]
         public Input<Inputs.StateMachineDefinitionArgs>? Definition { get; set; }
 
+        /// <summary>
+        /// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        /// </summary>
         [Input("definitionS3Location")]
         public Input<Inputs.StateMachineS3LocationArgs>? DefinitionS3Location { get; set; }
 
+        /// <summary>
+        /// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        /// </summary>
         [Input("definitionString")]
         public Input<string>? DefinitionString { get; set; }
 
         [Input("definitionSubstitutions")]
         private InputMap<object>? _definitionSubstitutions;
+
+        /// <summary>
+        /// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
+        /// 
+        /// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        /// </summary>
         public InputMap<object> DefinitionSubstitutions
         {
             get => _definitionSubstitutions ?? (_definitionSubstitutions = new InputMap<object>());
             set => _definitionSubstitutions = value;
         }
 
+        /// <summary>
+        /// Defines what execution history events are logged and where they are logged.
+        /// 
+        /// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
+        /// 
+        /// &gt; By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.StateMachineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the state machine.
+        /// 
+        /// A name must *not* contain:
+        /// 
+        /// - white space
+        /// - brackets `&lt; &gt; { } [ ]`
+        /// - wildcard characters `? *`
+        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - control characters ( `U+0000-001F` , `U+007F-009F` )
+        /// 
+        /// &gt; If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        /// </summary>
         [Input("stateMachineName")]
         public Input<string>? StateMachineName { get; set; }
 
+        /// <summary>
+        /// Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        /// </summary>
         [Input("stateMachineType")]
         public Input<Pulumi.AwsNative.StepFunctions.StateMachineType>? StateMachineType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The `TagsEntry` property specifies *tags* to identify a state machine.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        /// </summary>
         [Input("tracingConfiguration")]
         public Input<Inputs.StateMachineTracingConfigurationArgs>? TracingConfiguration { get; set; }
 

@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.CodeStarNotifications.Outputs
     [OutputType]
     public sealed class NotificationRuleTarget
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+        /// </summary>
         public readonly string TargetAddress;
+        /// <summary>
+        /// The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+        /// 
+        /// - Amazon Simple Notification Service topics are specified as `SNS` .
+        /// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
+        /// - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+        /// </summary>
         public readonly string TargetType;
 
         [OutputConstructor]

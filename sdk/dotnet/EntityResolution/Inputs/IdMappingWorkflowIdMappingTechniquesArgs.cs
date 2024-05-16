@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class IdMappingWorkflowIdMappingTechniquesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of ID mapping.
+        /// </summary>
         [Input("idMappingType")]
         public Input<Pulumi.AwsNative.EntityResolution.IdMappingWorkflowIdMappingTechniquesIdMappingType>? IdMappingType { get; set; }
 
+        /// <summary>
+        /// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        /// </summary>
         [Input("providerProperties")]
         public Input<Inputs.IdMappingWorkflowProviderPropertiesArgs>? ProviderProperties { get; set; }
 

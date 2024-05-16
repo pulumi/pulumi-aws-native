@@ -317,7 +317,8 @@ type FunctionConfigurationSyncConfig struct {
 	// The Conflict Detection strategy to use.
 	ConflictDetection string `pulumi:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
-	ConflictHandler             *string                                           `pulumi:"conflictHandler"`
+	ConflictHandler *string `pulumi:"conflictHandler"`
+	// The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
 	LambdaConflictHandlerConfig *FunctionConfigurationLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -337,7 +338,8 @@ type FunctionConfigurationSyncConfigArgs struct {
 	// The Conflict Detection strategy to use.
 	ConflictDetection pulumi.StringInput `pulumi:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
-	ConflictHandler             pulumi.StringPtrInput                                    `pulumi:"conflictHandler"`
+	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
+	// The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
 	LambdaConflictHandlerConfig FunctionConfigurationLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -429,6 +431,7 @@ func (o FunctionConfigurationSyncConfigOutput) ConflictHandler() pulumi.StringPt
 	return o.ApplyT(func(v FunctionConfigurationSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
+// The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
 func (o FunctionConfigurationSyncConfigOutput) LambdaConflictHandlerConfig() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v FunctionConfigurationSyncConfig) *FunctionConfigurationLambdaConflictHandlerConfig {
 		return v.LambdaConflictHandlerConfig
@@ -479,6 +482,7 @@ func (o FunctionConfigurationSyncConfigPtrOutput) ConflictHandler() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
 func (o FunctionConfigurationSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) *FunctionConfigurationLambdaConflictHandlerConfig {
 		if v == nil {

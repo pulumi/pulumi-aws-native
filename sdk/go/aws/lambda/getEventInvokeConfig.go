@@ -30,6 +30,7 @@ type LookupEventInvokeConfigArgs struct {
 }
 
 type LookupEventInvokeConfigResult struct {
+	// A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -75,6 +76,7 @@ func (o LookupEventInvokeConfigResultOutput) ToLookupEventInvokeConfigResultOutp
 	return o
 }
 
+// A configuration object that specifies the destination of an event after Lambda processes it.
 func (o LookupEventInvokeConfigResultOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventInvokeConfigResult) *EventInvokeConfigDestinationConfig { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
 }

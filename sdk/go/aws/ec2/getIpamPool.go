@@ -40,7 +40,8 @@ type LookupIpamPoolResult struct {
 	// The Amazon Resource Name (ARN) of the IPAM Pool.
 	Arn *string `pulumi:"arn"`
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
-	AutoImport  *bool   `pulumi:"autoImport"`
+	AutoImport *bool `pulumi:"autoImport"`
+	// The description of the IPAM pool.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
 	IpamArn *string `pulumi:"ipamArn"`
@@ -128,6 +129,7 @@ func (o LookupIpamPoolResultOutput) AutoImport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupIpamPoolResult) *bool { return v.AutoImport }).(pulumi.BoolPtrOutput)
 }
 
+// The description of the IPAM pool.
 func (o LookupIpamPoolResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamPoolResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

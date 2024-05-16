@@ -23,20 +23,41 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 }
 
 type LookupDomainArgs struct {
+	// ARN for the Domain Association.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupDomainResult struct {
-	Arn                           *string                  `pulumi:"arn"`
-	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIamRole          *string                  `pulumi:"autoSubDomainIamRole"`
-	Certificate                   *DomainCertificate       `pulumi:"certificate"`
-	CertificateRecord             *string                  `pulumi:"certificateRecord"`
-	DomainStatus                  *string                  `pulumi:"domainStatus"`
-	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
-	StatusReason                  *string                  `pulumi:"statusReason"`
-	SubDomainSettings             []DomainSubDomainSetting `pulumi:"subDomainSettings"`
-	UpdateStatus                  *string                  `pulumi:"updateStatus"`
+	// ARN for the Domain Association.
+	Arn *string `pulumi:"arn"`
+	// Sets the branch patterns for automatic subdomain creation.
+	AutoSubDomainCreationPatterns []string `pulumi:"autoSubDomainCreationPatterns"`
+	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
+	AutoSubDomainIamRole *string `pulumi:"autoSubDomainIamRole"`
+	// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
+	//
+	// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
+	Certificate *DomainCertificate `pulumi:"certificate"`
+	// DNS Record for certificate verification.
+	CertificateRecord *string `pulumi:"certificateRecord"`
+	// Status for the Domain Association.
+	DomainStatus *string `pulumi:"domainStatus"`
+	// Enables the automated creation of subdomains for branches.
+	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
+	// Reason for the current status of the domain.
+	StatusReason *string `pulumi:"statusReason"`
+	// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+	SubDomainSettings []DomainSubDomainSetting `pulumi:"subDomainSettings"`
+	// The status of the domain update operation that is currently in progress. The following list describes the valid update states.
+	//
+	// - **REQUESTING_CERTIFICATE** - The certificate is in the process of being updated.
+	// - **PENDING_VERIFICATION** - Indicates that an Amplify managed certificate is in the process of being verified. This occurs during the creation of a custom domain or when a custom domain is updated to use a managed certificate.
+	// - **IMPORTING_CUSTOM_CERTIFICATE** - Indicates that an Amplify custom certificate is in the process of being imported. This occurs during the creation of a custom domain or when a custom domain is updated to use a custom certificate.
+	// - **PENDING_DEPLOYMENT** - Indicates that the subdomain or certificate changes are being propagated.
+	// - **AWAITING_APP_CNAME** - Amplify is waiting for CNAME records corresponding to subdomains to be propagated. If your custom domain is on Route 53, Amplify handles this for you automatically. For more information about custom domains, see [Setting up custom domains](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html) in the *Amplify Hosting User Guide* .
+	// - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
+	// - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
+	UpdateStatus *string `pulumi:"updateStatus"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -53,6 +74,7 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 }
 
 type LookupDomainOutputArgs struct {
+	// ARN for the Domain Association.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -74,42 +96,62 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
+// ARN for the Domain Association.
 func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Sets the branch patterns for automatic subdomain creation.
 func (o LookupDomainResultOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []string { return v.AutoSubDomainCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
+// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 func (o LookupDomainResultOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
+// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
+//
+// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
 func (o LookupDomainResultOutput) Certificate() DomainCertificatePtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainCertificate { return v.Certificate }).(DomainCertificatePtrOutput)
 }
 
+// DNS Record for certificate verification.
 func (o LookupDomainResultOutput) CertificateRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.CertificateRecord }).(pulumi.StringPtrOutput)
 }
 
+// Status for the Domain Association.
 func (o LookupDomainResultOutput) DomainStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainStatus }).(pulumi.StringPtrOutput)
 }
 
+// Enables the automated creation of subdomains for branches.
 func (o LookupDomainResultOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *bool { return v.EnableAutoSubDomain }).(pulumi.BoolPtrOutput)
 }
 
+// Reason for the current status of the domain.
 func (o LookupDomainResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
+// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
 func (o LookupDomainResultOutput) SubDomainSettings() DomainSubDomainSettingArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []DomainSubDomainSetting { return v.SubDomainSettings }).(DomainSubDomainSettingArrayOutput)
 }
 
+// The status of the domain update operation that is currently in progress. The following list describes the valid update states.
+//
+// - **REQUESTING_CERTIFICATE** - The certificate is in the process of being updated.
+// - **PENDING_VERIFICATION** - Indicates that an Amplify managed certificate is in the process of being verified. This occurs during the creation of a custom domain or when a custom domain is updated to use a managed certificate.
+// - **IMPORTING_CUSTOM_CERTIFICATE** - Indicates that an Amplify custom certificate is in the process of being imported. This occurs during the creation of a custom domain or when a custom domain is updated to use a custom certificate.
+// - **PENDING_DEPLOYMENT** - Indicates that the subdomain or certificate changes are being propagated.
+// - **AWAITING_APP_CNAME** - Amplify is waiting for CNAME records corresponding to subdomains to be propagated. If your custom domain is on Route 53, Amplify handles this for you automatically. For more information about custom domains, see [Setting up custom domains](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html) in the *Amplify Hosting User Guide* .
+// - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
+// - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
 func (o LookupDomainResultOutput) UpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.UpdateStatus }).(pulumi.StringPtrOutput)
 }

@@ -20,21 +20,62 @@ export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetIndexArgs {
+    /**
+     * The identifier of the Amazon Q Business application using the index.
+     */
     applicationId: string;
+    /**
+     * The identifier for the index.
+     */
     indexId: string;
 }
 
 export interface GetIndexResult {
+    /**
+     * Provides information about index capacity configuration.
+     */
     readonly capacityConfiguration?: outputs.qbusiness.IndexCapacityConfiguration;
+    /**
+     * The Unix timestamp when the index was created.
+     */
     readonly createdAt?: string;
+    /**
+     * A description for the Amazon Q Business index.
+     */
     readonly description?: string;
+    /**
+     * The name of the index.
+     */
     readonly displayName?: string;
+    /**
+     * Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+     *
+     * For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+     */
     readonly documentAttributeConfigurations?: outputs.qbusiness.IndexDocumentAttributeConfiguration[];
+    /**
+     * The Amazon Resource Name (ARN) of an Amazon Q Business index.
+     */
     readonly indexArn?: string;
+    /**
+     * The identifier for the index.
+     */
     readonly indexId?: string;
+    /**
+     * Provides information about the number of documents in an index.
+     */
     readonly indexStatistics?: outputs.qbusiness.IndexStatistics;
+    /**
+     * The current status of the index. When the status is `ACTIVE` , the index is ready.
+     */
     readonly status?: enums.qbusiness.IndexStatus;
+    /**
+     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The Unix timestamp when the index was last updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -45,6 +86,12 @@ export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetIndexOutputArgs {
+    /**
+     * The identifier of the Amazon Q Business application using the index.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The identifier for the index.
+     */
     indexId: pulumi.Input<string>;
 }

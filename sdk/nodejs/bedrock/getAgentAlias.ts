@@ -47,6 +47,15 @@ export interface GetAgentAliasResult {
      * Name for a resource.
      */
     readonly agentAliasName?: string;
+    /**
+     * The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+     *
+     * - CREATING – The agent alias is being created.
+     * - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+     * - FAILED – The agent alias API operation failed.
+     * - UPDATING – The agent alias is being updated.
+     * - DELETING – The agent alias is being deleted.
+     */
     readonly agentAliasStatus?: enums.bedrock.AgentAliasStatus;
     /**
      * Time Stamp.
@@ -60,6 +69,12 @@ export interface GetAgentAliasResult {
      * Routing configuration for an Agent alias.
      */
     readonly routingConfiguration?: outputs.bedrock.AgentAliasRoutingConfigurationListItem[];
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     readonly tags?: {[key: string]: string};
     /**
      * Time Stamp.

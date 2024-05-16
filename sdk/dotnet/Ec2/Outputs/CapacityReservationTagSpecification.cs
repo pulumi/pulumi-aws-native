@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class CapacityReservationTagSpecification
     {
+        /// <summary>
+        /// The type of resource to tag. Specify `capacity-reservation` .
+        /// </summary>
         public readonly string? ResourceType;
+        /// <summary>
+        /// Describes a tag.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CapacityReservationTag> Tags;
 
         [OutputConstructor]

@@ -31,22 +31,28 @@ type LookupPermissionSetArgs struct {
 }
 
 type LookupPermissionSetResult struct {
+	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
 	CustomerManagedPolicyReferences []PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReferences"`
 	// The permission set description.
 	Description *string `pulumi:"description"`
 	// The inline policy to put in permission set.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
-	InlinePolicy    interface{} `pulumi:"inlinePolicy"`
-	ManagedPolicies []string    `pulumi:"managedPolicies"`
+	InlinePolicy interface{} `pulumi:"inlinePolicy"`
+	// A structure that stores the details of the AWS managed policy.
+	ManagedPolicies []string `pulumi:"managedPolicies"`
 	// The permission set that the policy will be attached to
-	PermissionSetArn    *string                           `pulumi:"permissionSetArn"`
+	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+	//
+	// > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
 	PermissionsBoundary *PermissionSetPermissionsBoundary `pulumi:"permissionsBoundary"`
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
-	SessionDuration *string   `pulumi:"sessionDuration"`
-	Tags            []aws.Tag `pulumi:"tags"`
+	SessionDuration *string `pulumi:"sessionDuration"`
+	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionSetResultOutput {
@@ -87,6 +93,7 @@ func (o LookupPermissionSetResultOutput) ToLookupPermissionSetResultOutputWithCo
 	return o
 }
 
+// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
 func (o LookupPermissionSetResultOutput) CustomerManagedPolicyReferences() PermissionSetCustomerManagedPolicyReferenceArrayOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) []PermissionSetCustomerManagedPolicyReference {
 		return v.CustomerManagedPolicyReferences
@@ -105,6 +112,7 @@ func (o LookupPermissionSetResultOutput) InlinePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) interface{} { return v.InlinePolicy }).(pulumi.AnyOutput)
 }
 
+// A structure that stores the details of the AWS managed policy.
 func (o LookupPermissionSetResultOutput) ManagedPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) []string { return v.ManagedPolicies }).(pulumi.StringArrayOutput)
 }
@@ -114,6 +122,9 @@ func (o LookupPermissionSetResultOutput) PermissionSetArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupPermissionSetResult) *string { return v.PermissionSetArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+//
+// > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
 func (o LookupPermissionSetResultOutput) PermissionsBoundary() PermissionSetPermissionsBoundaryPtrOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) *PermissionSetPermissionsBoundary { return v.PermissionsBoundary }).(PermissionSetPermissionsBoundaryPtrOutput)
 }
@@ -128,6 +139,7 @@ func (o LookupPermissionSetResultOutput) SessionDuration() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupPermissionSetResult) *string { return v.SessionDuration }).(pulumi.StringPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
 func (o LookupPermissionSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

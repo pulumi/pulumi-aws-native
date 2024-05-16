@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationFlowDefinition
     {
+        /// <summary>
+        /// A description of the flow you want to create.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+        /// </summary>
         public readonly string FlowName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+        /// </summary>
         public readonly string KmsArn;
+        /// <summary>
+        /// The configuration that controls how Customer Profiles retrieves data from the source.
+        /// </summary>
         public readonly Outputs.IntegrationSourceFlowConfig SourceFlowConfig;
+        /// <summary>
+        /// The `Task` property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationTask> Tasks;
+        /// <summary>
+        /// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+        /// </summary>
         public readonly Outputs.IntegrationTriggerConfig TriggerConfig;
 
         [OutputConstructor]

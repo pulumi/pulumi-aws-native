@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class GetTopicPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class GetTopicPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Sns
     [OutputType]
     public sealed class GetTopicPolicyResult
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// A policy document that contains permissions to add to the specified SNS topics.

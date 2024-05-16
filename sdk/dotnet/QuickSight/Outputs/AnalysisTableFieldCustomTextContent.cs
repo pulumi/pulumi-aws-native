@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableFieldCustomTextContent
     {
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.AnalysisFontConfiguration FontConfiguration;
+        /// <summary>
+        /// The string value of the custom text content for the table URL link content.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

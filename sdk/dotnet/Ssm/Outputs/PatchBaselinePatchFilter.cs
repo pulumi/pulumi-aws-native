@@ -16,7 +16,17 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class PatchBaselinePatchFilter
     {
+        /// <summary>
+        /// The key for the filter.
+        /// 
+        /// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        /// </summary>
         public readonly Pulumi.AwsNative.Ssm.PatchBaselinePatchFilterKey? Key;
+        /// <summary>
+        /// The value for the filter key.
+        /// 
+        /// For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

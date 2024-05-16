@@ -20,6 +20,10 @@ class TargetAccountConfigurationArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TargetAccountConfiguration resource.
+        :param pulumi.Input[str] account_id: The AWS account ID of the target account.
+        :param pulumi.Input[str] experiment_template_id: The ID of the experiment template.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role for the target account.
+        :param pulumi.Input[str] description: The description of the target account.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "experiment_template_id", experiment_template_id)
@@ -30,6 +34,9 @@ class TargetAccountConfigurationArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
+        """
+        The AWS account ID of the target account.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -39,6 +46,9 @@ class TargetAccountConfigurationArgs:
     @property
     @pulumi.getter(name="experimentTemplateId")
     def experiment_template_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the experiment template.
+        """
         return pulumi.get(self, "experiment_template_id")
 
     @experiment_template_id.setter
@@ -48,6 +58,9 @@ class TargetAccountConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role for the target account.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -57,6 +70,9 @@ class TargetAccountConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the target account.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -79,6 +95,10 @@ class TargetAccountConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID of the target account.
+        :param pulumi.Input[str] description: The description of the target account.
+        :param pulumi.Input[str] experiment_template_id: The ID of the experiment template.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role for the target account.
         """
         ...
     @overload
@@ -160,20 +180,32 @@ class TargetAccountConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID of the target account.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the target account.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="experimentTemplateId")
     def experiment_template_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the experiment template.
+        """
         return pulumi.get(self, "experiment_template_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role for the target account.
+        """
         return pulumi.get(self, "role_arn")
 

@@ -229,6 +229,7 @@ class BucketRuleArgs:
         :param pulumi.Input[int] expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
         :param pulumi.Input['BucketRuleFilterPropertiesArgs'] filter: The container for the filter of the lifecycle rule.
         :param pulumi.Input[str] id: Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
+        :param pulumi.Input['BucketRuleStatus'] status: If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
         """
         if abort_incomplete_multipart_upload is not None:
             pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
@@ -306,6 +307,9 @@ class BucketRuleArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['BucketRuleStatus']]:
+        """
+        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        """
         return pulumi.get(self, "status")
 
     @status.setter

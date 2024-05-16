@@ -32,6 +32,7 @@ class SolutionArgs:
         :param pulumi.Input[bool] perform_auto_ml: Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
         :param pulumi.Input[bool] perform_hpo: Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         :param pulumi.Input[str] recipe_arn: The ARN of the recipe to use for model training. Only specified when performAutoML is false.
+        :param pulumi.Input['SolutionConfigArgs'] solution_config: Describes the configuration properties for the solution.
         """
         pulumi.set(__self__, "dataset_group_arn", dataset_group_arn)
         if event_type is not None:
@@ -122,6 +123,9 @@ class SolutionArgs:
     @property
     @pulumi.getter(name="solutionConfig")
     def solution_config(self) -> Optional[pulumi.Input['SolutionConfigArgs']]:
+        """
+        Describes the configuration properties for the solution.
+        """
         return pulumi.get(self, "solution_config")
 
     @solution_config.setter
@@ -185,6 +189,7 @@ class Solution(pulumi.CustomResource):
         :param pulumi.Input[bool] perform_auto_ml: Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
         :param pulumi.Input[bool] perform_hpo: Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         :param pulumi.Input[str] recipe_arn: The ARN of the recipe to use for model training. Only specified when performAutoML is false.
+        :param pulumi.Input[pulumi.InputType['SolutionConfigArgs']] solution_config: Describes the configuration properties for the solution.
         """
         ...
     @overload
@@ -353,10 +358,16 @@ class Solution(pulumi.CustomResource):
     @property
     @pulumi.getter(name="solutionArn")
     def solution_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the solution.
+        """
         return pulumi.get(self, "solution_arn")
 
     @property
     @pulumi.getter(name="solutionConfig")
     def solution_config(self) -> pulumi.Output[Optional['outputs.SolutionConfig']]:
+        """
+        Describes the configuration properties for the solution.
+        """
         return pulumi.get(self, "solution_config")
 

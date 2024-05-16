@@ -33,6 +33,15 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+        /// 
+        /// Example load balancer URL:
+        /// 
+        /// Example instance IP address:
+        /// 
+        /// `192.0.2.0`
+        /// </summary>
         [Output("endpointUrl")]
         public Output<string> EndpointUrl { get; private set; } = null!;
 
@@ -119,8 +128,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
                     "cnamePrefix",
                     "environmentName",
                     "solutionStackName",
-                    "tier.name",
-                    "tier.type",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

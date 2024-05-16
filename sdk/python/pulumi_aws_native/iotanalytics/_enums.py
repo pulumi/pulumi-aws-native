@@ -10,5 +10,8 @@ __all__ = [
 
 
 class DatasetResourceConfigurationComputeType(str, Enum):
+    """
+    The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
+    """
     ACU1 = "ACU_1"
     ACU2 = "ACU_2"

@@ -48,6 +48,9 @@ class GetBotResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -61,11 +64,17 @@ class GetBotResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier of the bot.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -79,16 +88,25 @@ class GetBotResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the bot locale.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="testBotAliasSettings")
     def test_bot_alias_settings(self) -> Optional['outputs.BotTestBotAliasSettings']:
+        """
+        Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+        """
         return pulumi.get(self, "test_bot_alias_settings")
 
 
@@ -112,6 +130,9 @@ def get_bot(id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
     Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+
+
+    :param str id: The unique identifier of the bot.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -134,5 +155,8 @@ def get_bot_output(id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
     Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+
+
+    :param str id: The unique identifier of the bot.
     """
     ...

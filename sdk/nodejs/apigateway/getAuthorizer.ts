@@ -17,6 +17,9 @@ export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetAuthorizerArgs {
+    /**
+     * The ID for the authorizer. For example: `abc123` .
+     */
     authorizerId: string;
     /**
      * The string identifier of the associated RestApi.
@@ -33,6 +36,9 @@ export interface GetAuthorizerResult {
      * Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
      */
     readonly authorizerCredentials?: string;
+    /**
+     * The ID for the authorizer. For example: `abc123` .
+     */
     readonly authorizerId?: string;
     /**
      * The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
@@ -71,6 +77,9 @@ export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi
 }
 
 export interface GetAuthorizerOutputArgs {
+    /**
+     * The ID for the authorizer. For example: `abc123` .
+     */
     authorizerId: pulumi.Input<string>;
     /**
      * The string identifier of the associated RestApi.

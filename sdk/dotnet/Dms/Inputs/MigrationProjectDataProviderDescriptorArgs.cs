@@ -15,18 +15,30 @@ namespace Pulumi.AwsNative.Dms.Inputs
     /// </summary>
     public sealed class MigrationProjectDataProviderDescriptorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data provider.
+        /// </summary>
         [Input("dataProviderArn")]
         public Input<string>? DataProviderArn { get; set; }
 
         [Input("dataProviderIdentifier")]
         public Input<string>? DataProviderIdentifier { get; set; }
 
+        /// <summary>
+        /// The user-friendly name of the data provider.
+        /// </summary>
         [Input("dataProviderName")]
         public Input<string>? DataProviderName { get; set; }
 
+        /// <summary>
+        /// The ARN of the role used to access AWS Secrets Manager.
+        /// </summary>
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
+        /// <summary>
+        /// The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
+        /// </summary>
         [Input("secretsManagerSecretId")]
         public Input<string>? SecretsManagerSecretId { get; set; }
 

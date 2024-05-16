@@ -41,7 +41,13 @@ export class Certificate extends pulumi.CustomResource {
      * Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
      */
     public readonly apiPassthrough!: pulumi.Output<outputs.acmpca.CertificateApiPassthrough | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the issued certificate.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The issued Base64 PEM-encoded certificate.
+     */
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the private CA issues the certificate.

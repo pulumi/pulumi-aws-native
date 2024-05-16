@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
         /// The type of DNS record of the target resource.
         /// </summary>
         public readonly string? RecordType;
+        /// <summary>
+        /// The target resource that the Route 53 record points to.
+        /// </summary>
         public readonly Outputs.ResourceSetTargetResource? TargetResource;
 
         [OutputConstructor]

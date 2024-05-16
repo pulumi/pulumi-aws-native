@@ -45,6 +45,9 @@ class GetReplicationSetResult:
     @property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> Optional[bool]:
+        """
+        Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+        """
         return pulumi.get(self, "deletion_protected")
 
     @property

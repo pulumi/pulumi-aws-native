@@ -13,20 +13,65 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentProperty
     {
+        /// <summary>
+        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// </summary>
         public readonly Outputs.ComponentPropertyBindingProperties? BindingProperties;
+        /// <summary>
+        /// The information to bind the component property to form data.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentFormBindingElement>? Bindings;
+        /// <summary>
+        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// </summary>
         public readonly Outputs.ComponentPropertyBindingProperties? CollectionBindingProperties;
+        /// <summary>
+        /// The name of the component that is affected by an event.
+        /// </summary>
         public readonly string? ComponentName;
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentProperty> Concat;
+        /// <summary>
+        /// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+        /// </summary>
         public readonly Outputs.ComponentConditionProperty? Condition;
+        /// <summary>
+        /// Specifies whether the user configured the property in Amplify Studio after importing it.
+        /// </summary>
         public readonly bool? Configured;
+        /// <summary>
+        /// The default value to assign to the component property.
+        /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// An event that occurs in your app. Use this for workflow data binding.
+        /// </summary>
         public readonly string? Event;
+        /// <summary>
+        /// The default value assigned to the property when the component is imported into an app.
+        /// </summary>
         public readonly string? ImportedValue;
+        /// <summary>
+        /// The data model to use to assign a value to the component property.
+        /// </summary>
         public readonly string? Model;
+        /// <summary>
+        /// The name of the component's property that is affected by an event.
+        /// </summary>
         public readonly string? Property;
+        /// <summary>
+        /// The component type.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// An authenticated user attribute to use to assign a value to the component property.
+        /// </summary>
         public readonly string? UserAttribute;
+        /// <summary>
+        /// The value to assign to the component property.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleLambdaActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 

@@ -24,13 +24,25 @@ func LookupDocumentClassifier(ctx *pulumi.Context, args *LookupDocumentClassifie
 }
 
 type LookupDocumentClassifierArgs struct {
+	// The Amazon Resource Name (ARN) of the document classifier.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupDocumentClassifierResult struct {
-	Arn         *string   `pulumi:"arn"`
-	ModelPolicy *string   `pulumi:"modelPolicy"`
-	Tags        []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the document classifier.
+	Arn *string `pulumi:"arn"`
+	// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+	//
+	// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+	//
+	// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+	//
+	// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+	//
+	// `'{"attribute": "value", "attribute": ["value"]}'`
+	ModelPolicy *string `pulumi:"modelPolicy"`
+	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDocumentClassifierOutput(ctx *pulumi.Context, args LookupDocumentClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentClassifierResultOutput {
@@ -47,6 +59,7 @@ func LookupDocumentClassifierOutput(ctx *pulumi.Context, args LookupDocumentClas
 }
 
 type LookupDocumentClassifierOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the document classifier.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68,14 +81,25 @@ func (o LookupDocumentClassifierResultOutput) ToLookupDocumentClassifierResultOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the document classifier.
 func (o LookupDocumentClassifierResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentClassifierResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+//
+// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+//
+// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+//
+// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+//
+// `'{"attribute": "value", "attribute": ["value"]}'`
 func (o LookupDocumentClassifierResultOutput) ModelPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentClassifierResult) *string { return v.ModelPolicy }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
 func (o LookupDocumentClassifierResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDocumentClassifierResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

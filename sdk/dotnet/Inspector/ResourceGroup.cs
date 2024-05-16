@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Inspector
     [AwsNativeResourceType("aws-native:inspector:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the resource group that is created.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        /// </summary>
         [Output("resourceGroupTags")]
         public Output<ImmutableArray<Outputs.ResourceGroupTag>> ResourceGroupTags { get; private set; } = null!;
 
@@ -72,6 +78,10 @@ namespace Pulumi.AwsNative.Inspector
     {
         [Input("resourceGroupTags", required: true)]
         private InputList<Inputs.ResourceGroupTagArgs>? _resourceGroupTags;
+
+        /// <summary>
+        /// A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        /// </summary>
         public InputList<Inputs.ResourceGroupTagArgs> ResourceGroupTags
         {
             get => _resourceGroupTags ?? (_resourceGroupTags = new InputList<Inputs.ResourceGroupTagArgs>());

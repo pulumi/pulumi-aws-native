@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class TemplateSourceEntityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source analysis of the template.
+        /// </summary>
         [Input("sourceAnalysis")]
         public Input<Inputs.TemplateSourceAnalysisArgs>? SourceAnalysis { get; set; }
 
+        /// <summary>
+        /// The source template of the template.
+        /// </summary>
         [Input("sourceTemplate")]
         public Input<Inputs.TemplateSourceTemplateArgs>? SourceTemplate { get; set; }
 

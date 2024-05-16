@@ -48,41 +48,65 @@ class GetPartnershipResult:
     @property
     @pulumi.getter
     def capabilities(self) -> Optional[Sequence[str]]:
+        """
+        Returns one or more capabilities associated with this partnership.
+        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        Returns a timestamp for creation date and time of the partnership.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Returns the name of the partnership.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="partnershipArn")
     def partnership_arn(self) -> Optional[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        """
         return pulumi.get(self, "partnership_arn")
 
     @property
     @pulumi.getter(name="partnershipId")
     def partnership_id(self) -> Optional[str]:
+        """
+        Returns the unique, system-generated identifier for a partnership.
+        """
         return pulumi.get(self, "partnership_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tradingPartnerId")
     def trading_partner_id(self) -> Optional[str]:
+        """
+        Returns the unique, system-generated identifier for a trading partner.
+        """
         return pulumi.get(self, "trading_partner_id")
 
 
@@ -106,6 +130,9 @@ def get_partnership(partnership_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnershipResult:
     """
     Definition of AWS::B2BI::Partnership Resource Type
+
+
+    :param str partnership_id: Returns the unique, system-generated identifier for a partnership.
     """
     __args__ = dict()
     __args__['partnershipId'] = partnership_id
@@ -128,5 +155,8 @@ def get_partnership_output(partnership_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnershipResult]:
     """
     Definition of AWS::B2BI::Partnership Resource Type
+
+
+    :param str partnership_id: Returns the unique, system-generated identifier for a partnership.
     """
     ...

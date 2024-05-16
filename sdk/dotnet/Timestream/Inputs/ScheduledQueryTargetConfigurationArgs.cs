@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// </summary>
     public sealed class ScheduledQueryTargetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+        /// </summary>
         [Input("timestreamConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryTimestreamConfigurationArgs> TimestreamConfiguration { get; set; } = null!;
 

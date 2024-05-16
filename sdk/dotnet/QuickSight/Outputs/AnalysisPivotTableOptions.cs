@@ -13,21 +13,60 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPivotTableOptions
     {
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? CellStyle;
+        /// <summary>
+        /// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? CollapsedRowDimensionsVisibility;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? ColumnHeaderStyle;
+        /// <summary>
+        /// The visibility of the column names.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? ColumnNamesVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? DefaultCellWidth;
+        /// <summary>
+        /// The metric placement (row, column) options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPivotTableMetricPlacement? MetricPlacement;
+        /// <summary>
+        /// Determines the row alternate color options.
+        /// </summary>
         public readonly Outputs.AnalysisRowAlternateColorOptions? RowAlternateColorOptions;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? RowFieldNamesStyle;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? RowHeaderStyle;
+        /// <summary>
+        /// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// </summary>
         public readonly Outputs.AnalysisPivotTableRowsLabelOptions? RowsLabelOptions;
+        /// <summary>
+        /// The layout for the row dimension headers of a pivot table. Choose one of the following options.
+        /// 
+        /// - `TABULAR` : (Default) Each row field is displayed in a separate column.
+        /// - `HIERARCHY` : All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPivotTableRowsLayout? RowsLayout;
+        /// <summary>
+        /// The visibility of the single metric options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? SingleMetricVisibility;
+        /// <summary>
+        /// Determines the visibility of the pivot table.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? ToggleButtonsVisibility;
 
         [OutputConstructor]

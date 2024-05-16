@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSeriesItem
     {
+        /// <summary>
+        /// The data field series item configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardDataFieldSeriesItem? DataFieldSeriesItem;
+        /// <summary>
+        /// The field series item configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardFieldSeriesItem? FieldSeriesItem;
 
         [OutputConstructor]

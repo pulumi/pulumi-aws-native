@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("ec2SubnetIds")]
         public Output<ImmutableArray<string>> Ec2SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the launch profile resource.
+        /// </summary>
         [Output("launchProfileId")]
         public Output<string> LaunchProfileId { get; private set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A configuration for a streaming session.
+        /// </summary>
         [Output("streamConfiguration")]
         public Output<Outputs.LaunchProfileStreamConfiguration> StreamConfiguration { get; private set; } = null!;
 
@@ -60,6 +66,11 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -152,6 +163,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A configuration for a streaming session.
+        /// </summary>
         [Input("streamConfiguration", required: true)]
         public Input<Inputs.LaunchProfileStreamConfigurationArgs> StreamConfiguration { get; set; } = null!;
 
@@ -176,6 +190,12 @@ namespace Pulumi.AwsNative.NimbleStudio
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

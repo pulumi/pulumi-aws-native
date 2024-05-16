@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("destination")]
         private InputList<Inputs.TemplateDimensionFieldArgs>? _destination;
+
+        /// <summary>
+        /// The destination field wells of a sankey diagram.
+        /// </summary>
         public InputList<Inputs.TemplateDimensionFieldArgs> Destination
         {
             get => _destination ?? (_destination = new InputList<Inputs.TemplateDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("source")]
         private InputList<Inputs.TemplateDimensionFieldArgs>? _source;
+
+        /// <summary>
+        /// The source field wells of a sankey diagram.
+        /// </summary>
         public InputList<Inputs.TemplateDimensionFieldArgs> Source
         {
             get => _source ?? (_source = new InputList<Inputs.TemplateDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("weight")]
         private InputList<Inputs.TemplateMeasureFieldArgs>? _weight;
+
+        /// <summary>
+        /// The weight field wells of a sankey diagram.
+        /// </summary>
         public InputList<Inputs.TemplateMeasureFieldArgs> Weight
         {
             get => _weight ?? (_weight = new InputList<Inputs.TemplateMeasureFieldArgs>());

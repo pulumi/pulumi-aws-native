@@ -30,24 +30,45 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("jobDefinitionArn")]
         public Output<string> JobDefinitionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+        /// </summary>
         [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Output("jobResources")]
         public Output<Outputs.ModelBiasJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
+        /// <summary>
+        /// Docker container image configuration object for the model bias job.
+        /// </summary>
         [Output("modelBiasAppSpecification")]
         public Output<Outputs.ModelBiasJobDefinitionModelBiasAppSpecification> ModelBiasAppSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for a baseline model bias job.
+        /// </summary>
         [Output("modelBiasBaselineConfig")]
         public Output<Outputs.ModelBiasJobDefinitionModelBiasBaselineConfig?> ModelBiasBaselineConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Inputs for the model bias job.
+        /// </summary>
         [Output("modelBiasJobInput")]
         public Output<Outputs.ModelBiasJobDefinitionModelBiasJobInput> ModelBiasJobInput { get; private set; } = null!;
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Output("modelBiasJobOutputConfig")]
         public Output<Outputs.ModelBiasJobDefinitionMonitoringOutputConfig> ModelBiasJobOutputConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// </summary>
         [Output("networkConfig")]
         public Output<Outputs.ModelBiasJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
 
@@ -57,6 +78,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+        /// 
+        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+        /// 
+        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+        /// 
+        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// </summary>
         [Output("stoppingCondition")]
         public Output<Outputs.ModelBiasJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
 
@@ -128,24 +158,45 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
+        /// <summary>
+        /// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+        /// </summary>
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Input("jobResources", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
+        /// <summary>
+        /// Docker container image configuration object for the model bias job.
+        /// </summary>
         [Input("modelBiasAppSpecification", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionModelBiasAppSpecificationArgs> ModelBiasAppSpecification { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration for a baseline model bias job.
+        /// </summary>
         [Input("modelBiasBaselineConfig")]
         public Input<Inputs.ModelBiasJobDefinitionModelBiasBaselineConfigArgs>? ModelBiasBaselineConfig { get; set; }
 
+        /// <summary>
+        /// Inputs for the model bias job.
+        /// </summary>
         [Input("modelBiasJobInput", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionModelBiasJobInputArgs> ModelBiasJobInput { get; set; } = null!;
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Input("modelBiasJobOutputConfig", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringOutputConfigArgs> ModelBiasJobOutputConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.ModelBiasJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
 
@@ -155,6 +206,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+        /// 
+        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+        /// 
+        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+        /// 
+        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.ModelBiasJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
 

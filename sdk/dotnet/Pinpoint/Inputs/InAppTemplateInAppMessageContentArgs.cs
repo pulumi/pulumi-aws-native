@@ -12,21 +12,39 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
 
     public sealed class InAppTemplateInAppMessageContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
+        /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration of the main body text of the in-app message.
+        /// </summary>
         [Input("bodyConfig")]
         public Input<Inputs.InAppTemplateBodyConfigArgs>? BodyConfig { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration and content of the header or title text of the in-app message.
+        /// </summary>
         [Input("headerConfig")]
         public Input<Inputs.InAppTemplateHeaderConfigArgs>? HeaderConfig { get; set; }
 
+        /// <summary>
+        /// The URL of the image that appears on an in-app message banner.
+        /// </summary>
         [Input("imageUrl")]
         public Input<string>? ImageUrl { get; set; }
 
+        /// <summary>
+        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// </summary>
         [Input("primaryBtn")]
         public Input<Inputs.InAppTemplateButtonConfigArgs>? PrimaryBtn { get; set; }
 
+        /// <summary>
+        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// </summary>
         [Input("secondaryBtn")]
         public Input<Inputs.InAppTemplateButtonConfigArgs>? SecondaryBtn { get; set; }
 

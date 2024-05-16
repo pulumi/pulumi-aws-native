@@ -36,21 +36,33 @@ class GetResourcePolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier of the resource policy.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ResourcePolicyPolicy']:
+        """
+        A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[str]:
+        """
+        Specifies the current revision of a resource policy.
+        """
         return pulumi.get(self, "revision_id")
 
 
@@ -70,6 +82,9 @@ def get_resource_policy(id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
     A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+
+
+    :param str id: The identifier of the resource policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -88,5 +103,8 @@ def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+
+
+    :param str id: The identifier of the resource policy.
     """
     ...

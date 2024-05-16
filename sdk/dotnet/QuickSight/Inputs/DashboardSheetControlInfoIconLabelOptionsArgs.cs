@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSheetControlInfoIconLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The text content of info icon.
+        /// </summary>
         [Input("infoIconText")]
         public Input<string>? InfoIconText { get; set; }
 
+        /// <summary>
+        /// The visibility configuration of info icon label options.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

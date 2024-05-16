@@ -15,6 +15,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// </summary>
     public sealed class AssetModelMetricWindowArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
+        /// 
+        /// You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
+        /// 
+        /// The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+        /// </summary>
         [Input("tumbling")]
         public Input<Inputs.AssetModelTumblingWindowArgs>? Tumbling { get; set; }
 

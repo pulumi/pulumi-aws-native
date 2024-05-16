@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Lightsail
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate.
+        /// </summary>
         public readonly string? CertificateArn;
         /// <summary>
         /// The validation status of the certificate.

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAdditionalDetail
     {
+        /// <summary>
+        /// The additional detail code.
+        /// </summary>
         public readonly string? AdditionalDetailType;
+        /// <summary>
+        /// Describes a path component.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
+        /// <summary>
+        /// Describes a path component.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> LoadBalancers;
+        /// <summary>
+        /// The name of the VPC endpoint service.
+        /// </summary>
         public readonly string? ServiceName;
 
         [OutputConstructor]

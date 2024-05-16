@@ -31,14 +31,19 @@ type LookupMatchingWorkflowArgs struct {
 type LookupMatchingWorkflowResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
-	Description          *string                               `pulumi:"description"`
-	InputSourceConfig    []MatchingWorkflowInputSource         `pulumi:"inputSourceConfig"`
-	OutputSourceConfig   []MatchingWorkflowOutputSource        `pulumi:"outputSourceConfig"`
+	Description *string `pulumi:"description"`
+	// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
+	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	OutputSourceConfig []MatchingWorkflowOutputSource `pulumi:"outputSourceConfig"`
+	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques *MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
-	RoleArn              *string                               `pulumi:"roleArn"`
-	Tags                 []aws.Tag                             `pulumi:"tags"`
-	UpdatedAt            *string                               `pulumi:"updatedAt"`
-	WorkflowArn          *string                               `pulumi:"workflowArn"`
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+	RoleArn *string `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags        []aws.Tag `pulumi:"tags"`
+	UpdatedAt   *string   `pulumi:"updatedAt"`
+	WorkflowArn *string   `pulumi:"workflowArn"`
 }
 
 func LookupMatchingWorkflowOutput(ctx *pulumi.Context, args LookupMatchingWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupMatchingWorkflowResultOutput {
@@ -86,24 +91,29 @@ func (o LookupMatchingWorkflowResultOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
 func (o LookupMatchingWorkflowResultOutput) InputSourceConfig() MatchingWorkflowInputSourceArrayOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowInputSource { return v.InputSourceConfig }).(MatchingWorkflowInputSourceArrayOutput)
 }
 
+// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
 func (o LookupMatchingWorkflowResultOutput) OutputSourceConfig() MatchingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowOutputSource { return v.OutputSourceConfig }).(MatchingWorkflowOutputSourceArrayOutput)
 }
 
+// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 func (o LookupMatchingWorkflowResultOutput) ResolutionTechniques() MatchingWorkflowResolutionTechniquesPtrOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *MatchingWorkflowResolutionTechniques {
 		return v.ResolutionTechniques
 	}).(MatchingWorkflowResolutionTechniquesPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 func (o LookupMatchingWorkflowResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o LookupMatchingWorkflowResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

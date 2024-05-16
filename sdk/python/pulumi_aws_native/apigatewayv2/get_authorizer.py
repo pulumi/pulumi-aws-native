@@ -65,6 +65,9 @@ class GetAuthorizerResult:
     @property
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[str]:
+        """
+        The authorizer ID.
+        """
         return pulumi.get(self, "authorizer_id")
 
     @property
@@ -169,6 +172,7 @@ def get_authorizer(api_id: Optional[str] = None,
 
 
     :param str api_id: The API identifier.
+    :param str authorizer_id: The authorizer ID.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -199,5 +203,6 @@ def get_authorizer_output(api_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str api_id: The API identifier.
+    :param str authorizer_id: The authorizer ID.
     """
     ...

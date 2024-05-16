@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.Panorama.Outputs
     [OutputType]
     public sealed class PackageStorageLocation
     {
+        /// <summary>
+        /// The location's binary prefix.
+        /// </summary>
         public readonly string? BinaryPrefixLocation;
+        /// <summary>
+        /// The location's bucket.
+        /// </summary>
         public readonly string? Bucket;
+        /// <summary>
+        /// The location's generated prefix.
+        /// </summary>
         public readonly string? GeneratedPrefixLocation;
+        /// <summary>
+        /// The location's manifest prefix.
+        /// </summary>
         public readonly string? ManifestPrefixLocation;
+        /// <summary>
+        /// The location's repo prefix.
+        /// </summary>
         public readonly string? RepoPrefixLocation;
 
         [OutputConstructor]

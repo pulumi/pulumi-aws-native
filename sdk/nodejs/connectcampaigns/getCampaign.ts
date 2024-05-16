@@ -30,11 +30,17 @@ export interface GetCampaignResult {
      * Amazon Connect Campaign Arn
      */
     readonly arn?: string;
+    /**
+     * Contains dialer configuration for an outbound campaign.
+     */
     readonly dialerConfig?: outputs.connectcampaigns.CampaignDialerConfig;
     /**
      * Amazon Connect Campaign Name
      */
     readonly name?: string;
+    /**
+     * Contains outbound call configuration for an outbound campaign.
+     */
     readonly outboundCallConfig?: outputs.connectcampaigns.CampaignOutboundCallConfig;
     /**
      * One or more tags.

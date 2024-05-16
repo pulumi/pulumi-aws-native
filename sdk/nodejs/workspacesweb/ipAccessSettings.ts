@@ -37,14 +37,43 @@ export class IpAccessSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpAccessSettings.__pulumiType;
     }
 
+    /**
+     * Additional encryption context of the IP access settings.
+     */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A list of web portal ARNs that this IP access settings resource is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * The creation date timestamp of the IP access settings.
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The custom managed key of the IP access settings.
+     *
+     * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+     */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the IP access settings.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the IP access settings.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the IP access settings resource.
+     */
     public /*out*/ readonly ipAccessSettingsArn!: pulumi.Output<string>;
+    /**
+     * The IP rules of the IP access settings.
+     */
     public readonly ipRules!: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[]>;
+    /**
+     * The tag.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -92,10 +121,30 @@ export class IpAccessSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a IpAccessSettings resource.
  */
 export interface IpAccessSettingsArgs {
+    /**
+     * Additional encryption context of the IP access settings.
+     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The custom managed key of the IP access settings.
+     *
+     * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+     */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * The description of the IP access settings.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the IP access settings.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The IP rules of the IP access settings.
+     */
     ipRules: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRuleArgs>[]>;
+    /**
+     * The tag.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

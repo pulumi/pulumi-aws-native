@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ChannelTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 
@@ -27,7 +29,9 @@ type EncoderConfigurationTag struct {
 }
 
 type PlaybackKeyPairTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 
@@ -41,6 +45,7 @@ type PlaybackRestrictionPolicyTag struct {
 
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfiguration struct {
+	// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
 	S3 *RecordingConfigurationS3DestinationConfiguration `pulumi:"s3"`
 }
 
@@ -57,6 +62,7 @@ type RecordingConfigurationDestinationConfigurationInput interface {
 
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationArgs struct {
+	// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
 	S3 RecordingConfigurationS3DestinationConfigurationPtrInput `pulumi:"s3"`
 }
 
@@ -87,6 +93,7 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	return o
 }
 
+// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
 		return v.S3
@@ -258,6 +265,7 @@ func (o RecordingConfigurationRenditionConfigurationPtrOutput) Renditions() Reco
 
 // Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfiguration struct {
+	// Location (S3 bucket name) where recorded videos will be stored.
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -274,6 +282,7 @@ type RecordingConfigurationS3DestinationConfigurationInput interface {
 
 // Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfigurationArgs struct {
+	// Location (S3 bucket name) where recorded videos will be stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -355,6 +364,7 @@ func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfi
 	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
+// Location (S3 bucket name) where recorded videos will be stored.
 func (o RecordingConfigurationS3DestinationConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationS3DestinationConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -383,6 +393,7 @@ func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) Elem() Record
 	}).(RecordingConfigurationS3DestinationConfigurationOutput)
 }
 
+// Location (S3 bucket name) where recorded videos will be stored.
 func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationS3DestinationConfiguration) *string {
 		if v == nil {
@@ -393,7 +404,9 @@ func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() 
 }
 
 type RecordingConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 
@@ -601,7 +614,9 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSec
 }
 
 type StageTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 
@@ -661,12 +676,16 @@ func (o StorageConfigurationS3StorageConfigurationOutput) BucketName() pulumi.St
 }
 
 type StorageConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 
 type StreamKeyTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 

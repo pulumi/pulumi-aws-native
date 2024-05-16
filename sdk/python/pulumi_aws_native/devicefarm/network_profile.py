@@ -30,6 +30,18 @@ class NetworkProfileArgs:
                  uplink_loss_percent: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
+        :param pulumi.Input[str] project_arn: The Amazon Resource Name (ARN) of the specified project.
+        :param pulumi.Input[str] description: The description of the network profile.
+        :param pulumi.Input[int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        :param pulumi.Input[int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] downlink_loss_percent: Proportion of received packets that fail to arrive from 0 to 100 percent.
+        :param pulumi.Input[str] name: The name of the network profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        :param pulumi.Input[int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] uplink_loss_percent: Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
         """
         pulumi.set(__self__, "project_arn", project_arn)
         if description is not None:
@@ -58,6 +70,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified project.
+        """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
@@ -67,6 +82,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the network profile.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -76,6 +94,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="downlinkBandwidthBits")
     def downlink_bandwidth_bits(self) -> Optional[pulumi.Input[int]]:
+        """
+        The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @downlink_bandwidth_bits.setter
@@ -85,6 +106,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="downlinkDelayMs")
     def downlink_delay_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "downlink_delay_ms")
 
     @downlink_delay_ms.setter
@@ -94,6 +118,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="downlinkJitterMs")
     def downlink_jitter_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @downlink_jitter_ms.setter
@@ -103,6 +130,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="downlinkLossPercent")
     def downlink_loss_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Proportion of received packets that fail to arrive from 0 to 100 percent.
+        """
         return pulumi.get(self, "downlink_loss_percent")
 
     @downlink_loss_percent.setter
@@ -112,6 +142,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network profile.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -121,6 +154,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -130,6 +166,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="uplinkBandwidthBits")
     def uplink_bandwidth_bits(self) -> Optional[pulumi.Input[int]]:
+        """
+        The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @uplink_bandwidth_bits.setter
@@ -139,6 +178,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="uplinkDelayMs")
     def uplink_delay_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "uplink_delay_ms")
 
     @uplink_delay_ms.setter
@@ -148,6 +190,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="uplinkJitterMs")
     def uplink_jitter_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @uplink_jitter_ms.setter
@@ -157,6 +202,9 @@ class NetworkProfileArgs:
     @property
     @pulumi.getter(name="uplinkLossPercent")
     def uplink_loss_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+        """
         return pulumi.get(self, "uplink_loss_percent")
 
     @uplink_loss_percent.setter
@@ -187,6 +235,18 @@ class NetworkProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the network profile.
+        :param pulumi.Input[int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        :param pulumi.Input[int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] downlink_loss_percent: Proportion of received packets that fail to arrive from 0 to 100 percent.
+        :param pulumi.Input[str] name: The name of the network profile.
+        :param pulumi.Input[str] project_arn: The Amazon Resource Name (ARN) of the specified project.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        :param pulumi.Input[int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        :param pulumi.Input[int] uplink_loss_percent: Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
         """
         ...
     @overload
@@ -290,65 +350,104 @@ class NetworkProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the network profile.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="downlinkBandwidthBits")
     def downlink_bandwidth_bits(self) -> pulumi.Output[Optional[int]]:
+        """
+        The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @property
     @pulumi.getter(name="downlinkDelayMs")
     def downlink_delay_ms(self) -> pulumi.Output[Optional[int]]:
+        """
+        Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "downlink_delay_ms")
 
     @property
     @pulumi.getter(name="downlinkJitterMs")
     def downlink_jitter_ms(self) -> pulumi.Output[Optional[int]]:
+        """
+        Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @property
     @pulumi.getter(name="downlinkLossPercent")
     def downlink_loss_percent(self) -> pulumi.Output[Optional[int]]:
+        """
+        Proportion of received packets that fail to arrive from 0 to 100 percent.
+        """
         return pulumi.get(self, "downlink_loss_percent")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the network profile.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified project.
+        """
         return pulumi.get(self, "project_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="uplinkBandwidthBits")
     def uplink_bandwidth_bits(self) -> pulumi.Output[Optional[int]]:
+        """
+        The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @property
     @pulumi.getter(name="uplinkDelayMs")
     def uplink_delay_ms(self) -> pulumi.Output[Optional[int]]:
+        """
+        Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "uplink_delay_ms")
 
     @property
     @pulumi.getter(name="uplinkJitterMs")
     def uplink_jitter_ms(self) -> pulumi.Output[Optional[int]]:
+        """
+        Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @property
     @pulumi.getter(name="uplinkLossPercent")
     def uplink_loss_percent(self) -> pulumi.Output[Optional[int]]:
+        """
+        Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+        """
         return pulumi.get(self, "uplink_loss_percent")
 

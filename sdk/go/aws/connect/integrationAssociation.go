@@ -99,10 +99,24 @@ import (
 type IntegrationAssociation struct {
 	pulumi.CustomResourceState
 
-	InstanceId               pulumi.StringOutput                         `pulumi:"instanceId"`
-	IntegrationArn           pulumi.StringOutput                         `pulumi:"integrationArn"`
-	IntegrationAssociationId pulumi.StringOutput                         `pulumi:"integrationAssociationId"`
-	IntegrationType          IntegrationAssociationIntegrationTypeOutput `pulumi:"integrationType"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`
+	IntegrationArn pulumi.StringOutput `pulumi:"integrationArn"`
+	// Identifier of the association with an Amazon Connect instance.
+	IntegrationAssociationId pulumi.StringOutput `pulumi:"integrationAssociationId"`
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+	IntegrationType IntegrationAssociationIntegrationTypeOutput `pulumi:"integrationType"`
 }
 
 // NewIntegrationAssociation registers a new resource with the given unique name, arguments, and options.
@@ -160,15 +174,41 @@ func (IntegrationAssociationState) ElementType() reflect.Type {
 }
 
 type integrationAssociationArgs struct {
-	InstanceId      string                                `pulumi:"instanceId"`
-	IntegrationArn  string                                `pulumi:"integrationArn"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId string `pulumi:"instanceId"`
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`
+	IntegrationArn string `pulumi:"integrationArn"`
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationType `pulumi:"integrationType"`
 }
 
 // The set of arguments for constructing a IntegrationAssociation resource.
 type IntegrationAssociationArgs struct {
-	InstanceId      pulumi.StringInput
-	IntegrationArn  pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId pulumi.StringInput
+	// ARN of the integration being associated with the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `140`
+	IntegrationArn pulumi.StringInput
+	// Specifies the integration type to be associated with the instance.
+	//
+	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationTypeInput
 }
 
@@ -209,18 +249,32 @@ func (o IntegrationAssociationOutput) ToIntegrationAssociationOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the instance.
+//
+// *Minimum* : `1`
+//
+// *Maximum* : `100`
 func (o IntegrationAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// ARN of the integration being associated with the instance.
+//
+// *Minimum* : `1`
+//
+// *Maximum* : `140`
 func (o IntegrationAssociationOutput) IntegrationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAssociation) pulumi.StringOutput { return v.IntegrationArn }).(pulumi.StringOutput)
 }
 
+// Identifier of the association with an Amazon Connect instance.
 func (o IntegrationAssociationOutput) IntegrationAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAssociation) pulumi.StringOutput { return v.IntegrationAssociationId }).(pulumi.StringOutput)
 }
 
+// Specifies the integration type to be associated with the instance.
+//
+// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 func (o IntegrationAssociationOutput) IntegrationType() IntegrationAssociationIntegrationTypeOutput {
 	return o.ApplyT(func(v *IntegrationAssociation) IntegrationAssociationIntegrationTypeOutput { return v.IntegrationType }).(IntegrationAssociationIntegrationTypeOutput)
 }

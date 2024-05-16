@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardBoxPlotStyleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fill styles (solid, transparent) of the box plot.
+        /// </summary>
         [Input("fillStyle")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBoxPlotFillStyle>? FillStyle { get; set; }
 

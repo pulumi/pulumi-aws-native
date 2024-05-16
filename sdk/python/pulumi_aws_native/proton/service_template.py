@@ -28,6 +28,8 @@ class ServiceTemplateArgs:
         :param pulumi.Input[str] description: <p>A description of the service template.</p>
         :param pulumi.Input[str] display_name: <p>The name of the service template as displayed in the developer interface.</p>
         :param pulumi.Input[str] encryption_key: <p>A customer provided encryption key that's used to encrypt data.</p>
+        :param pulumi.Input[str] name: The name of the service template.
+        :param pulumi.Input['ServiceTemplateProvisioning'] pipeline_provisioning: If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
@@ -84,6 +86,9 @@ class ServiceTemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service template.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,6 +98,9 @@ class ServiceTemplateArgs:
     @property
     @pulumi.getter(name="pipelineProvisioning")
     def pipeline_provisioning(self) -> Optional[pulumi.Input['ServiceTemplateProvisioning']]:
+        """
+        If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
+        """
         return pulumi.get(self, "pipeline_provisioning")
 
     @pipeline_provisioning.setter
@@ -134,6 +142,8 @@ class ServiceTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: <p>A description of the service template.</p>
         :param pulumi.Input[str] display_name: <p>The name of the service template as displayed in the developer interface.</p>
         :param pulumi.Input[str] encryption_key: <p>A customer provided encryption key that's used to encrypt data.</p>
+        :param pulumi.Input[str] name: The name of the service template.
+        :param pulumi.Input['ServiceTemplateProvisioning'] pipeline_provisioning: If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
@@ -252,11 +262,17 @@ class ServiceTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the service template.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="pipelineProvisioning")
     def pipeline_provisioning(self) -> pulumi.Output[Optional['ServiceTemplateProvisioning']]:
+        """
+        If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
+        """
         return pulumi.get(self, "pipeline_provisioning")
 
     @property

@@ -27,7 +27,11 @@ class SourceLocationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SourceLocation resource.
+        :param pulumi.Input['SourceLocationHttpConfigurationArgs'] http_configuration: The HTTP configuration for the source location.
+        :param pulumi.Input['SourceLocationAccessConfigurationArgs'] access_configuration: Access configuration parameters.
+        :param pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs'] default_segment_delivery_configuration: The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
         :param pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]] segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
+        :param pulumi.Input[str] source_location_name: The name of the source location.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the source location.
         """
         pulumi.set(__self__, "http_configuration", http_configuration)
@@ -45,6 +49,9 @@ class SourceLocationArgs:
     @property
     @pulumi.getter(name="httpConfiguration")
     def http_configuration(self) -> pulumi.Input['SourceLocationHttpConfigurationArgs']:
+        """
+        The HTTP configuration for the source location.
+        """
         return pulumi.get(self, "http_configuration")
 
     @http_configuration.setter
@@ -54,6 +61,9 @@ class SourceLocationArgs:
     @property
     @pulumi.getter(name="accessConfiguration")
     def access_configuration(self) -> Optional[pulumi.Input['SourceLocationAccessConfigurationArgs']]:
+        """
+        Access configuration parameters.
+        """
         return pulumi.get(self, "access_configuration")
 
     @access_configuration.setter
@@ -63,6 +73,9 @@ class SourceLocationArgs:
     @property
     @pulumi.getter(name="defaultSegmentDeliveryConfiguration")
     def default_segment_delivery_configuration(self) -> Optional[pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs']]:
+        """
+        The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+        """
         return pulumi.get(self, "default_segment_delivery_configuration")
 
     @default_segment_delivery_configuration.setter
@@ -84,6 +97,9 @@ class SourceLocationArgs:
     @property
     @pulumi.getter(name="sourceLocationName")
     def source_location_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the source location.
+        """
         return pulumi.get(self, "source_location_name")
 
     @source_location_name.setter
@@ -120,7 +136,11 @@ class SourceLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SourceLocationAccessConfigurationArgs']] access_configuration: Access configuration parameters.
+        :param pulumi.Input[pulumi.InputType['SourceLocationDefaultSegmentDeliveryConfigurationArgs']] default_segment_delivery_configuration: The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+        :param pulumi.Input[pulumi.InputType['SourceLocationHttpConfigurationArgs']] http_configuration: The HTTP configuration for the source location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationSegmentDeliveryConfigurationArgs']]]] segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
+        :param pulumi.Input[str] source_location_name: The name of the source location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the source location.
         """
         ...
@@ -207,6 +227,9 @@ class SourceLocation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessConfiguration")
     def access_configuration(self) -> pulumi.Output[Optional['outputs.SourceLocationAccessConfiguration']]:
+        """
+        Access configuration parameters.
+        """
         return pulumi.get(self, "access_configuration")
 
     @property
@@ -220,11 +243,17 @@ class SourceLocation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultSegmentDeliveryConfiguration")
     def default_segment_delivery_configuration(self) -> pulumi.Output[Optional['outputs.SourceLocationDefaultSegmentDeliveryConfiguration']]:
+        """
+        The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+        """
         return pulumi.get(self, "default_segment_delivery_configuration")
 
     @property
     @pulumi.getter(name="httpConfiguration")
     def http_configuration(self) -> pulumi.Output['outputs.SourceLocationHttpConfiguration']:
+        """
+        The HTTP configuration for the source location.
+        """
         return pulumi.get(self, "http_configuration")
 
     @property
@@ -238,6 +267,9 @@ class SourceLocation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceLocationName")
     def source_location_name(self) -> pulumi.Output[str]:
+        """
+        The name of the source location.
+        """
         return pulumi.get(self, "source_location_name")
 
     @property

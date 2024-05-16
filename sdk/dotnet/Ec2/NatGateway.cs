@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("maxDrainDurationSeconds")]
         public Output<int?> MaxDrainDurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the NAT gateway.
+        /// </summary>
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 

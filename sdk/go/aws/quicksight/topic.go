@@ -15,12 +15,19 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
-	AwsAccountId          pulumi.StringPtrOutput              `pulumi:"awsAccountId"`
-	DataSets              TopicDatasetMetadataArrayOutput     `pulumi:"dataSets"`
-	Description           pulumi.StringPtrOutput              `pulumi:"description"`
-	Name                  pulumi.StringPtrOutput              `pulumi:"name"`
-	TopicId               pulumi.StringPtrOutput              `pulumi:"topicId"`
+	// The Amazon Resource Name (ARN) of the topic.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the AWS account that you want to create a topic in.
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
+	// A structure that represents a dataset.
+	DataSets TopicDatasetMetadataArrayOutput `pulumi:"dataSets"`
+	// The description of the topic.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the topic.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+	TopicId pulumi.StringPtrOutput `pulumi:"topicId"`
+	// The user experience version of the topic.
 	UserExperienceVersion TopicUserExperienceVersionPtrOutput `pulumi:"userExperienceVersion"`
 }
 
@@ -69,21 +76,33 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	AwsAccountId          *string                     `pulumi:"awsAccountId"`
-	DataSets              []TopicDatasetMetadata      `pulumi:"dataSets"`
-	Description           *string                     `pulumi:"description"`
-	Name                  *string                     `pulumi:"name"`
-	TopicId               *string                     `pulumi:"topicId"`
+	// The ID of the AWS account that you want to create a topic in.
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// A structure that represents a dataset.
+	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
+	// The description of the topic.
+	Description *string `pulumi:"description"`
+	// The name of the topic.
+	Name *string `pulumi:"name"`
+	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+	TopicId *string `pulumi:"topicId"`
+	// The user experience version of the topic.
 	UserExperienceVersion *TopicUserExperienceVersion `pulumi:"userExperienceVersion"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	AwsAccountId          pulumi.StringPtrInput
-	DataSets              TopicDatasetMetadataArrayInput
-	Description           pulumi.StringPtrInput
-	Name                  pulumi.StringPtrInput
-	TopicId               pulumi.StringPtrInput
+	// The ID of the AWS account that you want to create a topic in.
+	AwsAccountId pulumi.StringPtrInput
+	// A structure that represents a dataset.
+	DataSets TopicDatasetMetadataArrayInput
+	// The description of the topic.
+	Description pulumi.StringPtrInput
+	// The name of the topic.
+	Name pulumi.StringPtrInput
+	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+	TopicId pulumi.StringPtrInput
+	// The user experience version of the topic.
 	UserExperienceVersion TopicUserExperienceVersionPtrInput
 }
 
@@ -124,30 +143,37 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the topic.
 func (o TopicOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the AWS account that you want to create a topic in.
 func (o TopicOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
+// A structure that represents a dataset.
 func (o TopicOutput) DataSets() TopicDatasetMetadataArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicDatasetMetadataArrayOutput { return v.DataSets }).(TopicDatasetMetadataArrayOutput)
 }
 
+// The description of the topic.
 func (o TopicOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the topic.
 func (o TopicOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the topic. This ID is unique per AWS Region for each AWS account.
 func (o TopicOutput) TopicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TopicId }).(pulumi.StringPtrOutput)
 }
 
+// The user experience version of the topic.
 func (o TopicOutput) UserExperienceVersion() TopicUserExperienceVersionPtrOutput {
 	return o.ApplyT(func(v *Topic) TopicUserExperienceVersionPtrOutput { return v.UserExperienceVersion }).(TopicUserExperienceVersionPtrOutput)
 }

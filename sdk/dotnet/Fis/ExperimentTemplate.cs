@@ -120,30 +120,59 @@ namespace Pulumi.AwsNative.Fis
     [AwsNativeResourceType("aws-native:fis:ExperimentTemplate")]
     public partial class ExperimentTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The actions for the experiment.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableDictionary<string, Outputs.ExperimentTemplateAction>?> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the experiment template.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the experiment options for an experiment template.
+        /// </summary>
         [Output("experimentOptions")]
         public Output<Outputs.ExperimentTemplateExperimentOptions?> ExperimentOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration for experiment logging.
+        /// 
+        /// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The stop conditions for the experiment.
+        /// </summary>
         [Output("stopConditions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the experiment template.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The targets for the experiment.
+        /// </summary>
         [Output("targets")]
         public Output<ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>> Targets { get; private set; } = null!;
 
@@ -172,7 +201,6 @@ namespace Pulumi.AwsNative.Fis
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "experimentOptions.accountTargeting",
                     "tags.*",
                 },
             };
@@ -199,26 +227,48 @@ namespace Pulumi.AwsNative.Fis
     {
         [Input("actions")]
         private InputMap<Inputs.ExperimentTemplateActionArgs>? _actions;
+
+        /// <summary>
+        /// The actions for the experiment.
+        /// </summary>
         public InputMap<Inputs.ExperimentTemplateActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputMap<Inputs.ExperimentTemplateActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The description for the experiment template.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the experiment options for an experiment template.
+        /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration for experiment logging.
+        /// 
+        /// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("stopConditions", required: true)]
         private InputList<Inputs.ExperimentTemplateStopConditionArgs>? _stopConditions;
+
+        /// <summary>
+        /// The stop conditions for the experiment.
+        /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionArgs> StopConditions
         {
             get => _stopConditions ?? (_stopConditions = new InputList<Inputs.ExperimentTemplateStopConditionArgs>());
@@ -227,6 +277,10 @@ namespace Pulumi.AwsNative.Fis
 
         [Input("tags", required: true)]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags for the experiment template.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -235,6 +289,10 @@ namespace Pulumi.AwsNative.Fis
 
         [Input("targets", required: true)]
         private InputMap<Inputs.ExperimentTemplateTargetArgs>? _targets;
+
+        /// <summary>
+        /// The targets for the experiment.
+        /// </summary>
         public InputMap<Inputs.ExperimentTemplateTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputMap<Inputs.ExperimentTemplateTargetArgs>());

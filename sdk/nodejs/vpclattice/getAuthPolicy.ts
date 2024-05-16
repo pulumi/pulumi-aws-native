@@ -19,14 +19,22 @@ export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetAuthPolicyArgs {
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     */
     resourceIdentifier: string;
 }
 
 export interface GetAuthPolicyResult {
     /**
+     * The auth policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
      */
     readonly policy?: any;
+    /**
+     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+     */
     readonly state?: enums.vpclattice.AuthPolicyState;
 }
 /**
@@ -37,5 +45,8 @@ export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi
 }
 
 export interface GetAuthPolicyOutputArgs {
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     */
     resourceIdentifier: pulumi.Input<string>;
 }

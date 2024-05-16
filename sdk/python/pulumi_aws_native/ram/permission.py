@@ -27,6 +27,9 @@ class PermissionArgs:
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_type: The resource type this permission can be used with.
         :param pulumi.Input[str] name: The name of the permission.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+               
+               For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
         """
         pulumi.set(__self__, "policy_template", policy_template)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -76,6 +79,11 @@ class PermissionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+
+        For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,6 +111,9 @@ class Permission(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_type: The resource type this permission can be used with.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+               
+               For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
         """
         ...
     @overload
@@ -190,6 +201,9 @@ class Permission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the new permission.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -211,6 +225,12 @@ class Permission(pulumi.CustomResource):
     @property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> pulumi.Output[str]:
+        """
+        The type of managed permission. This can be one of the following values:
+
+        - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+        - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
+        """
         return pulumi.get(self, "permission_type")
 
     @property
@@ -234,6 +254,11 @@ class Permission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
+
+        For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property

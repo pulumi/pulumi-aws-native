@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcEndpointServicePermissionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         [Input("serviceId", required: true)]
         public string ServiceId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcEndpointServicePermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcEndpointServicePermissionsResult
     {
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedPrincipals;
 
         [OutputConstructor]

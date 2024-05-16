@@ -190,6 +190,9 @@ class ApiMapping(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiMappingId")
     def api_mapping_id(self) -> pulumi.Output[str]:
+        """
+        The API mapping resource ID.
+        """
         return pulumi.get(self, "api_mapping_id")
 
     @property

@@ -41,11 +41,17 @@ export class Space extends pulumi.CustomResource {
      * The ID of the associated Domain.
      */
     public readonly domainId!: pulumi.Output<string>;
+    /**
+     * The collection of ownership settings for a space.
+     */
     public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
      * The space Amazon Resource Name (ARN).
      */
     public /*out*/ readonly spaceArn!: pulumi.Output<string>;
+    /**
+     * The name of the space that appears in the Studio UI.
+     */
     public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
     /**
      * A name for the Space.
@@ -55,11 +61,23 @@ export class Space extends pulumi.CustomResource {
      * A collection of settings.
      */
     public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSettings | undefined>;
+    /**
+     * A collection of space sharing settings.
+     */
     public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSharingSettings | undefined>;
     /**
      * A list of tags to apply to the space.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+     *
+     * The following application types are supported:
+     *
+     * - Studio Classic: `&redirect=JupyterServer`
+     * - JupyterLab: `&redirect=JupyterLab`
+     * - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -111,7 +129,13 @@ export interface SpaceArgs {
      * The ID of the associated Domain.
      */
     domainId: pulumi.Input<string>;
+    /**
+     * The collection of ownership settings for a space.
+     */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettingsArgs>;
+    /**
+     * The name of the space that appears in the Studio UI.
+     */
     spaceDisplayName?: pulumi.Input<string>;
     /**
      * A name for the Space.
@@ -121,6 +145,9 @@ export interface SpaceArgs {
      * A collection of settings.
      */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSettingsArgs>;
+    /**
+     * A collection of space sharing settings.
+     */
     spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSharingSettingsArgs>;
     /**
      * A list of tags to apply to the space.

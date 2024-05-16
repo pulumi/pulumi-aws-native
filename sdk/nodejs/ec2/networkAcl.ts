@@ -37,6 +37,9 @@ export class NetworkAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAcl.__pulumiType;
     }
 
+    /**
+     * The ID of the network ACL.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The tags for the network ACL.

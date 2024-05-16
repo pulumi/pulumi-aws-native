@@ -1062,6 +1062,9 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the function.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -1230,6 +1233,9 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="snapStartResponse")
     def snap_start_response(self) -> pulumi.Output['outputs.FunctionSnapStartResponse']:
+        """
+        The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        """
         return pulumi.get(self, "snap_start_response")
 
     @property

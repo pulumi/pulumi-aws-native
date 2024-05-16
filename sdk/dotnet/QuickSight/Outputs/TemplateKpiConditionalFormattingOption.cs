@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateKpiConditionalFormattingOption
     {
+        /// <summary>
+        /// The conditional formatting for the actual value of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiActualValueConditionalFormatting? ActualValue;
+        /// <summary>
+        /// The conditional formatting for the comparison value of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiComparisonValueConditionalFormatting? ComparisonValue;
+        /// <summary>
+        /// The conditional formatting for the primary value of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiPrimaryValueConditionalFormatting? PrimaryValue;
+        /// <summary>
+        /// The conditional formatting for the progress bar of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiProgressBarConditionalFormatting? ProgressBar;
 
         [OutputConstructor]

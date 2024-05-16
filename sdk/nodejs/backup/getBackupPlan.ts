@@ -19,14 +19,32 @@ export function getBackupPlan(args: GetBackupPlanArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetBackupPlanArgs {
+    /**
+     * Uniquely identifies a backup plan.
+     */
     backupPlanId: string;
 }
 
 export interface GetBackupPlanResult {
+    /**
+     * Specifies an object containing properties used to create a backup plan.
+     */
     readonly backupPlan?: outputs.backup.BackupPlanResourceType;
+    /**
+     * An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+     */
     readonly backupPlanArn?: string;
+    /**
+     * Uniquely identifies a backup plan.
+     */
     readonly backupPlanId?: string;
+    /**
+     * The tags to assign to the backup plan.
+     */
     readonly backupPlanTags?: {[key: string]: string};
+    /**
+     * Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+     */
     readonly versionId?: string;
 }
 /**
@@ -37,5 +55,8 @@ export function getBackupPlanOutput(args: GetBackupPlanOutputArgs, opts?: pulumi
 }
 
 export interface GetBackupPlanOutputArgs {
+    /**
+     * Uniquely identifies a backup plan.
+     */
     backupPlanId: pulumi.Input<string>;
 }

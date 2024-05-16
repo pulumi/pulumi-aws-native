@@ -23,10 +23,12 @@ func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulum
 }
 
 type LookupSolutionArgs struct {
+	// The Amazon Resource Name (ARN) of the solution.
 	SolutionArn string `pulumi:"solutionArn"`
 }
 
 type LookupSolutionResult struct {
+	// The Amazon Resource Name (ARN) of the solution.
 	SolutionArn *string `pulumi:"solutionArn"`
 }
 
@@ -44,6 +46,7 @@ func LookupSolutionOutput(ctx *pulumi.Context, args LookupSolutionOutputArgs, op
 }
 
 type LookupSolutionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the solution.
 	SolutionArn pulumi.StringInput `pulumi:"solutionArn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupSolutionResultOutput) ToLookupSolutionResultOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the solution.
 func (o LookupSolutionResultOutput) SolutionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSolutionResult) *string { return v.SolutionArn }).(pulumi.StringPtrOutput)
 }

@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class CollaborationMemberSpecification
     {
+        /// <summary>
+        /// The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+        /// </summary>
         public readonly string AccountId;
+        /// <summary>
+        /// The member's display name.
+        /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// The abilities granted to the collaboration member.
+        /// 
+        /// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> MemberAbilities;
+        /// <summary>
+        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        /// </summary>
         public readonly Outputs.CollaborationPaymentConfiguration? PaymentConfiguration;
 
         [OutputConstructor]

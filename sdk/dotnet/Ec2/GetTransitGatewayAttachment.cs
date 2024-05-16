@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayAttachmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetTransitGatewayAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,12 +57,21 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetTransitGatewayAttachmentResult
     {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The options for the transit gateway vpc attachment.
         /// </summary>
         public readonly Outputs.OptionsProperties? Options;
+        /// <summary>
+        /// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

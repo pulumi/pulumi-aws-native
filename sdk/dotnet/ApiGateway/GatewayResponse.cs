@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:GatewayResponse")]
     public partial class GatewayResponse : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID for the gateway response. For example: `abc123` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

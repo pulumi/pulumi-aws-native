@@ -23,12 +23,16 @@ func LookupAttributeGroupAssociation(ctx *pulumi.Context, args *LookupAttributeG
 }
 
 type LookupAttributeGroupAssociationArgs struct {
-	ApplicationArn    string `pulumi:"applicationArn"`
+	// The Amazon resource name (ARN) of the application that was augmented with attributes.
+	ApplicationArn string `pulumi:"applicationArn"`
+	// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 	AttributeGroupArn string `pulumi:"attributeGroupArn"`
 }
 
 type LookupAttributeGroupAssociationResult struct {
-	ApplicationArn    *string `pulumi:"applicationArn"`
+	// The Amazon resource name (ARN) of the application that was augmented with attributes.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 	AttributeGroupArn *string `pulumi:"attributeGroupArn"`
 }
 
@@ -46,7 +50,9 @@ func LookupAttributeGroupAssociationOutput(ctx *pulumi.Context, args LookupAttri
 }
 
 type LookupAttributeGroupAssociationOutputArgs struct {
-	ApplicationArn    pulumi.StringInput `pulumi:"applicationArn"`
+	// The Amazon resource name (ARN) of the application that was augmented with attributes.
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 	AttributeGroupArn pulumi.StringInput `pulumi:"attributeGroupArn"`
 }
 
@@ -68,10 +74,12 @@ func (o LookupAttributeGroupAssociationResultOutput) ToLookupAttributeGroupAssoc
 	return o
 }
 
+// The Amazon resource name (ARN) of the application that was augmented with attributes.
 func (o LookupAttributeGroupAssociationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 func (o LookupAttributeGroupAssociationResultOutput) AttributeGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.AttributeGroupArn }).(pulumi.StringPtrOutput)
 }

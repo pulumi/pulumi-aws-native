@@ -32,7 +32,19 @@ export interface GetSpaceResult {
      * The space Amazon Resource Name (ARN).
      */
     readonly spaceArn?: string;
+    /**
+     * The name of the space that appears in the Studio UI.
+     */
     readonly spaceDisplayName?: string;
+    /**
+     * Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+     *
+     * The following application types are supported:
+     *
+     * - Studio Classic: `&redirect=JupyterServer`
+     * - JupyterLab: `&redirect=JupyterLab`
+     * - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
+     */
     readonly url?: string;
 }
 /**

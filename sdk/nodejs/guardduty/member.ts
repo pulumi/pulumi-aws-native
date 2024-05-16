@@ -34,11 +34,29 @@ export class Member extends pulumi.CustomResource {
         return obj['__pulumiType'] === Member.__pulumiType;
     }
 
+    /**
+     * The ID of the detector associated with the GuardDuty service to add the member to.
+     */
     public readonly detectorId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether or not to disable email notification for the member account that you invite.
+     */
     public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * The email address associated with the member account.
+     */
     public readonly email!: pulumi.Output<string>;
+    /**
+     * The AWS account ID of the account to designate as a member.
+     */
     public readonly memberId!: pulumi.Output<string | undefined>;
+    /**
+     * The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+     */
     public readonly message!: pulumi.Output<string | undefined>;
+    /**
+     * You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
 
     /**
@@ -80,10 +98,28 @@ export class Member extends pulumi.CustomResource {
  * The set of arguments for constructing a Member resource.
  */
 export interface MemberArgs {
+    /**
+     * The ID of the detector associated with the GuardDuty service to add the member to.
+     */
     detectorId?: pulumi.Input<string>;
+    /**
+     * Specifies whether or not to disable email notification for the member account that you invite.
+     */
     disableEmailNotification?: pulumi.Input<boolean>;
+    /**
+     * The email address associated with the member account.
+     */
     email: pulumi.Input<string>;
+    /**
+     * The AWS account ID of the account to designate as a member.
+     */
     memberId?: pulumi.Input<string>;
+    /**
+     * The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+     */
     message?: pulumi.Input<string>;
+    /**
+     * You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+     */
     status?: pulumi.Input<string>;
 }

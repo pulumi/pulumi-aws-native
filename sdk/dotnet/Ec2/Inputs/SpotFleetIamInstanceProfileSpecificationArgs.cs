@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetIamInstanceProfileSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

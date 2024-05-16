@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPivotTableConditionalFormattingScopeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The role (field, field total, grand total) of the cell for conditional formatting.
+        /// </summary>
         [Input("role")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardPivotTableConditionalFormattingScopeRole>? Role { get; set; }
 

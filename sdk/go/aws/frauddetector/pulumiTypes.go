@@ -14,15 +14,20 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DetectorEntityType struct {
+	// The entity type ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the entity type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the entity type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The entity type name.
+	Name *string `pulumi:"name"`
 	// Tags associated with this entity type.
 	Tags []DetectorTag `pulumi:"tags"`
 }
@@ -39,15 +44,20 @@ type DetectorEntityTypeInput interface {
 }
 
 type DetectorEntityTypeArgs struct {
+	// The entity type ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the entity type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the entity type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The entity type name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this entity type.
 	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
@@ -103,6 +113,7 @@ func (o DetectorEntityTypeOutput) ToDetectorEntityTypeOutputWithContext(ctx cont
 	return o
 }
 
+// The entity type ARN.
 func (o DetectorEntityTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -117,6 +128,9 @@ func (o DetectorEntityTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 func (o DetectorEntityTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -126,6 +140,7 @@ func (o DetectorEntityTypeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The entity type name.
 func (o DetectorEntityTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -161,11 +176,17 @@ type DetectorEventType struct {
 	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description of the event type.
-	Description    *string                 `pulumi:"description"`
-	EntityTypes    []DetectorEntityType    `pulumi:"entityTypes"`
+	Description *string `pulumi:"description"`
+	// The entity type details.
+	EntityTypes []DetectorEntityType `pulumi:"entityTypes"`
+	// The event type variable for the detector.
 	EventVariables []DetectorEventVariable `pulumi:"eventVariables"`
-	Inline         *bool                   `pulumi:"inline"`
-	Labels         []DetectorLabel         `pulumi:"labels"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
+	// The label details.
+	Labels []DetectorLabel `pulumi:"labels"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// The name for the event type
@@ -191,11 +212,17 @@ type DetectorEventTypeArgs struct {
 	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description of the event type.
-	Description    pulumi.StringPtrInput           `pulumi:"description"`
-	EntityTypes    DetectorEntityTypeArrayInput    `pulumi:"entityTypes"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The entity type details.
+	EntityTypes DetectorEntityTypeArrayInput `pulumi:"entityTypes"`
+	// The event type variable for the detector.
 	EventVariables DetectorEventVariableArrayInput `pulumi:"eventVariables"`
-	Inline         pulumi.BoolPtrInput             `pulumi:"inline"`
-	Labels         DetectorLabelArrayInput         `pulumi:"labels"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
+	// The label details.
+	Labels DetectorLabelArrayInput `pulumi:"labels"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
 	// The name for the event type
@@ -245,18 +272,24 @@ func (o DetectorEventTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The entity type details.
 func (o DetectorEventTypeOutput) EntityTypes() DetectorEntityTypeArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorEntityType { return v.EntityTypes }).(DetectorEntityTypeArrayOutput)
 }
 
+// The event type variable for the detector.
 func (o DetectorEventTypeOutput) EventVariables() DetectorEventVariableArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorEventVariable { return v.EventVariables }).(DetectorEventVariableArrayOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 func (o DetectorEventTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
+// The label details.
 func (o DetectorEventTypeOutput) Labels() DetectorLabelArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorLabel { return v.Labels }).(DetectorLabelArrayOutput)
 }
@@ -330,6 +363,7 @@ func (o DetectorEventTypePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The entity type details.
 func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorEntityType {
 		if v == nil {
@@ -339,6 +373,7 @@ func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput 
 	}).(DetectorEntityTypeArrayOutput)
 }
 
+// The event type variable for the detector.
 func (o DetectorEventTypePtrOutput) EventVariables() DetectorEventVariableArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorEventVariable {
 		if v == nil {
@@ -348,6 +383,9 @@ func (o DetectorEventTypePtrOutput) EventVariables() DetectorEventVariableArrayO
 	}).(DetectorEventVariableArrayOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 func (o DetectorEventTypePtrOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *bool {
 		if v == nil {
@@ -357,6 +395,7 @@ func (o DetectorEventTypePtrOutput) Inline() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The label details.
 func (o DetectorEventTypePtrOutput) Labels() DetectorLabelArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorLabel {
 		if v == nil {
@@ -397,20 +436,35 @@ func (o DetectorEventTypePtrOutput) Tags() DetectorTagArrayOutput {
 }
 
 type DetectorEventVariable struct {
+	// The event variable ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the event variable was created.
-	CreatedTime  *string                          `pulumi:"createdTime"`
-	DataSource   *DetectorEventVariableDataSource `pulumi:"dataSource"`
-	DataType     *DetectorEventVariableDataType   `pulumi:"dataType"`
-	DefaultValue *string                          `pulumi:"defaultValue"`
+	CreatedTime *string `pulumi:"createdTime"`
+	// The data source of the event variable.
+	//
+	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+	//
+	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+	DataSource *DetectorEventVariableDataSource `pulumi:"dataSource"`
+	// The data type of the event variable.
+	//
+	// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+	DataType *DetectorEventVariableDataType `pulumi:"dataType"`
+	// The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
+	DefaultValue *string `pulumi:"defaultValue"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the event variable was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The name of the event variable.
+	Name *string `pulumi:"name"`
 	// Tags associated with this event variable.
-	Tags         []DetectorTag                      `pulumi:"tags"`
+	Tags []DetectorTag `pulumi:"tags"`
+	// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 	VariableType *DetectorEventVariableVariableType `pulumi:"variableType"`
 }
 
@@ -426,20 +480,35 @@ type DetectorEventVariableInput interface {
 }
 
 type DetectorEventVariableArgs struct {
+	// The event variable ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event variable was created.
-	CreatedTime  pulumi.StringPtrInput                   `pulumi:"createdTime"`
-	DataSource   DetectorEventVariableDataSourcePtrInput `pulumi:"dataSource"`
-	DataType     DetectorEventVariableDataTypePtrInput   `pulumi:"dataType"`
-	DefaultValue pulumi.StringPtrInput                   `pulumi:"defaultValue"`
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// The data source of the event variable.
+	//
+	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+	//
+	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+	DataSource DetectorEventVariableDataSourcePtrInput `pulumi:"dataSource"`
+	// The data type of the event variable.
+	//
+	// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+	DataType DetectorEventVariableDataTypePtrInput `pulumi:"dataType"`
+	// The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the event variable was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the event variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this event variable.
-	Tags         DetectorTagArrayInput                     `pulumi:"tags"`
+	Tags DetectorTagArrayInput `pulumi:"tags"`
+	// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 	VariableType DetectorEventVariableVariableTypePtrInput `pulumi:"variableType"`
 }
 
@@ -494,6 +563,7 @@ func (o DetectorEventVariableOutput) ToDetectorEventVariableOutputWithContext(ct
 	return o
 }
 
+// The event variable ARN.
 func (o DetectorEventVariableOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -503,14 +573,23 @@ func (o DetectorEventVariableOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The data source of the event variable.
+//
+// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+//
+// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
 func (o DetectorEventVariableOutput) DataSource() DetectorEventVariableDataSourcePtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *DetectorEventVariableDataSource { return v.DataSource }).(DetectorEventVariableDataSourcePtrOutput)
 }
 
+// The data type of the event variable.
+//
+// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
 func (o DetectorEventVariableOutput) DataType() DetectorEventVariableDataTypePtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *DetectorEventVariableDataType { return v.DataType }).(DetectorEventVariableDataTypePtrOutput)
 }
 
+// The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
 func (o DetectorEventVariableOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -520,6 +599,9 @@ func (o DetectorEventVariableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 func (o DetectorEventVariableOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -529,6 +611,7 @@ func (o DetectorEventVariableOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The name of the event variable.
 func (o DetectorEventVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -538,6 +621,7 @@ func (o DetectorEventVariableOutput) Tags() DetectorTagArrayOutput {
 	return o.ApplyT(func(v DetectorEventVariable) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
+// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 func (o DetectorEventVariableOutput) VariableType() DetectorEventVariableVariableTypePtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *DetectorEventVariableVariableType { return v.VariableType }).(DetectorEventVariableVariableTypePtrOutput)
 }
@@ -563,15 +647,20 @@ func (o DetectorEventVariableArrayOutput) Index(i pulumi.IntInput) DetectorEvent
 }
 
 type DetectorLabel struct {
+	// The label ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the label was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the label was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The label name.
+	Name *string `pulumi:"name"`
 	// Tags associated with this label.
 	Tags []DetectorTag `pulumi:"tags"`
 }
@@ -588,15 +677,20 @@ type DetectorLabelInput interface {
 }
 
 type DetectorLabelArgs struct {
+	// The label ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the label was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the label was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The label name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this label.
 	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
@@ -652,6 +746,7 @@ func (o DetectorLabelOutput) ToDetectorLabelOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The label ARN.
 func (o DetectorLabelOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -666,6 +761,9 @@ func (o DetectorLabelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 func (o DetectorLabelOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -675,6 +773,7 @@ func (o DetectorLabelOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The label name.
 func (o DetectorLabelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -706,6 +805,7 @@ func (o DetectorLabelArrayOutput) Index(i pulumi.IntInput) DetectorLabelOutput {
 
 // A model to associate with a detector.
 type DetectorModel struct {
+	// The ARN of the model.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -722,6 +822,7 @@ type DetectorModelInput interface {
 
 // A model to associate with a detector.
 type DetectorModelArgs struct {
+	// The ARN of the model.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -777,6 +878,7 @@ func (o DetectorModelOutput) ToDetectorModelOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ARN of the model.
 func (o DetectorModelOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModel) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -802,15 +904,20 @@ func (o DetectorModelArrayOutput) Index(i pulumi.IntInput) DetectorModelOutput {
 }
 
 type DetectorOutcome struct {
+	// The outcome ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the outcome was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the outcome was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The outcome name.
+	Name *string `pulumi:"name"`
 	// Tags associated with this outcome.
 	Tags []DetectorTag `pulumi:"tags"`
 }
@@ -827,15 +934,20 @@ type DetectorOutcomeInput interface {
 }
 
 type DetectorOutcomeArgs struct {
+	// The outcome ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the outcome was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the outcome was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The outcome name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this outcome.
 	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
@@ -891,6 +1003,7 @@ func (o DetectorOutcomeOutput) ToDetectorOutcomeOutputWithContext(ctx context.Co
 	return o
 }
 
+// The outcome ARN.
 func (o DetectorOutcomeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -905,6 +1018,9 @@ func (o DetectorOutcomeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 func (o DetectorOutcomeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -914,6 +1030,7 @@ func (o DetectorOutcomeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The outcome name.
 func (o DetectorOutcomeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -944,19 +1061,28 @@ func (o DetectorOutcomeArrayOutput) Index(i pulumi.IntInput) DetectorOutcomeOutp
 }
 
 type DetectorRule struct {
+	// The rule ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
-	Description *string               `pulumi:"description"`
-	DetectorId  *string               `pulumi:"detectorId"`
-	Expression  *string               `pulumi:"expression"`
-	Language    *DetectorRuleLanguage `pulumi:"language"`
+	Description *string `pulumi:"description"`
+	// The detector for which the rule is associated.
+	DetectorId *string `pulumi:"detectorId"`
+	// The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
+	Expression *string `pulumi:"expression"`
+	// The rule language.
+	//
+	// Valid Value: DETECTORPL
+	Language *DetectorRuleLanguage `pulumi:"language"`
 	// The time when the event type was last updated.
-	LastUpdatedTime *string           `pulumi:"lastUpdatedTime"`
-	Outcomes        []DetectorOutcome `pulumi:"outcomes"`
-	RuleId          *string           `pulumi:"ruleId"`
-	RuleVersion     *string           `pulumi:"ruleVersion"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The outcome.
+	Outcomes []DetectorOutcome `pulumi:"outcomes"`
+	// The rule ID.
+	RuleId *string `pulumi:"ruleId"`
+	// The rule version.
+	RuleVersion *string `pulumi:"ruleVersion"`
 	// Tags associated with this event type.
 	Tags []DetectorTag `pulumi:"tags"`
 }
@@ -973,19 +1099,28 @@ type DetectorRuleInput interface {
 }
 
 type DetectorRuleArgs struct {
+	// The rule ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
-	Description pulumi.StringPtrInput        `pulumi:"description"`
-	DetectorId  pulumi.StringPtrInput        `pulumi:"detectorId"`
-	Expression  pulumi.StringPtrInput        `pulumi:"expression"`
-	Language    DetectorRuleLanguagePtrInput `pulumi:"language"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The detector for which the rule is associated.
+	DetectorId pulumi.StringPtrInput `pulumi:"detectorId"`
+	// The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// The rule language.
+	//
+	// Valid Value: DETECTORPL
+	Language DetectorRuleLanguagePtrInput `pulumi:"language"`
 	// The time when the event type was last updated.
-	LastUpdatedTime pulumi.StringPtrInput     `pulumi:"lastUpdatedTime"`
-	Outcomes        DetectorOutcomeArrayInput `pulumi:"outcomes"`
-	RuleId          pulumi.StringPtrInput     `pulumi:"ruleId"`
-	RuleVersion     pulumi.StringPtrInput     `pulumi:"ruleVersion"`
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// The outcome.
+	Outcomes DetectorOutcomeArrayInput `pulumi:"outcomes"`
+	// The rule ID.
+	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
+	// The rule version.
+	RuleVersion pulumi.StringPtrInput `pulumi:"ruleVersion"`
 	// Tags associated with this event type.
 	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
@@ -1041,6 +1176,7 @@ func (o DetectorRuleOutput) ToDetectorRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The rule ARN.
 func (o DetectorRuleOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1055,14 +1191,19 @@ func (o DetectorRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The detector for which the rule is associated.
 func (o DetectorRuleOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
+// The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
 func (o DetectorRuleOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// The rule language.
+//
+// Valid Value: DETECTORPL
 func (o DetectorRuleOutput) Language() DetectorRuleLanguagePtrOutput {
 	return o.ApplyT(func(v DetectorRule) *DetectorRuleLanguage { return v.Language }).(DetectorRuleLanguagePtrOutput)
 }
@@ -1072,14 +1213,17 @@ func (o DetectorRuleOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The outcome.
 func (o DetectorRuleOutput) Outcomes() DetectorOutcomeArrayOutput {
 	return o.ApplyT(func(v DetectorRule) []DetectorOutcome { return v.Outcomes }).(DetectorOutcomeArrayOutput)
 }
 
+// The rule ID.
 func (o DetectorRuleOutput) RuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
+// The rule version.
 func (o DetectorRuleOutput) RuleVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.RuleVersion }).(pulumi.StringPtrOutput)
 }
@@ -1110,7 +1254,9 @@ func (o DetectorRuleArrayOutput) Index(i pulumi.IntInput) DetectorRuleOutput {
 }
 
 type DetectorTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1126,7 +1272,9 @@ type DetectorTagInput interface {
 }
 
 type DetectorTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// A tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1181,10 +1329,12 @@ func (o DetectorTagOutput) ToDetectorTagOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// A tag key.
 func (o DetectorTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A value assigned to a tag key.
 func (o DetectorTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1210,20 +1360,29 @@ func (o DetectorTagArrayOutput) Index(i pulumi.IntInput) DetectorTagOutput {
 }
 
 type EntityTypeTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
 type EventTypeEntityType struct {
+	// The entity type ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The entity type name.
+	//
+	// `^[0-9a-z_-]+$`
+	Name *string `pulumi:"name"`
 	// Tags associated with this event type.
 	Tags []EventTypeTag `pulumi:"tags"`
 }
@@ -1240,15 +1399,22 @@ type EventTypeEntityTypeInput interface {
 }
 
 type EventTypeEntityTypeArgs struct {
+	// The entity type ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The entity type name.
+	//
+	// `^[0-9a-z_-]+$`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this event type.
 	Tags EventTypeTagArrayInput `pulumi:"tags"`
 }
@@ -1304,6 +1470,7 @@ func (o EventTypeEntityTypeOutput) ToEventTypeEntityTypeOutputWithContext(ctx co
 	return o
 }
 
+// The entity type ARN.
 func (o EventTypeEntityTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1318,6 +1485,9 @@ func (o EventTypeEntityTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
 func (o EventTypeEntityTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -1327,6 +1497,9 @@ func (o EventTypeEntityTypeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The entity type name.
+//
+// `^[0-9a-z_-]+$`
 func (o EventTypeEntityTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1357,20 +1530,33 @@ func (o EventTypeEntityTypeArrayOutput) Index(i pulumi.IntInput) EventTypeEntity
 }
 
 type EventTypeEventVariable struct {
+	// The event variable ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the event type was created.
-	CreatedTime  *string                           `pulumi:"createdTime"`
-	DataSource   *EventTypeEventVariableDataSource `pulumi:"dataSource"`
-	DataType     *EventTypeEventVariableDataType   `pulumi:"dataType"`
-	DefaultValue *string                           `pulumi:"defaultValue"`
+	CreatedTime *string `pulumi:"createdTime"`
+	// The source of the event variable.
+	//
+	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+	//
+	// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+	DataSource *EventTypeEventVariableDataSource `pulumi:"dataSource"`
+	// The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+	DataType *EventTypeEventVariableDataType `pulumi:"dataType"`
+	// The default value of the event variable
+	DefaultValue *string `pulumi:"defaultValue"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The name of the event variable.
+	Name *string `pulumi:"name"`
 	// Tags associated with this event type.
-	Tags         []EventTypeTag                      `pulumi:"tags"`
+	Tags []EventTypeTag `pulumi:"tags"`
+	// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
 	VariableType *EventTypeEventVariableVariableType `pulumi:"variableType"`
 }
 
@@ -1386,20 +1572,33 @@ type EventTypeEventVariableInput interface {
 }
 
 type EventTypeEventVariableArgs struct {
+	// The event variable ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event type was created.
-	CreatedTime  pulumi.StringPtrInput                    `pulumi:"createdTime"`
-	DataSource   EventTypeEventVariableDataSourcePtrInput `pulumi:"dataSource"`
-	DataType     EventTypeEventVariableDataTypePtrInput   `pulumi:"dataType"`
-	DefaultValue pulumi.StringPtrInput                    `pulumi:"defaultValue"`
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// The source of the event variable.
+	//
+	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+	//
+	// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+	DataSource EventTypeEventVariableDataSourcePtrInput `pulumi:"dataSource"`
+	// The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+	DataType EventTypeEventVariableDataTypePtrInput `pulumi:"dataType"`
+	// The default value of the event variable
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the event variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this event type.
-	Tags         EventTypeTagArrayInput                     `pulumi:"tags"`
+	Tags EventTypeTagArrayInput `pulumi:"tags"`
+	// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
 	VariableType EventTypeEventVariableVariableTypePtrInput `pulumi:"variableType"`
 }
 
@@ -1454,6 +1653,7 @@ func (o EventTypeEventVariableOutput) ToEventTypeEventVariableOutputWithContext(
 	return o
 }
 
+// The event variable ARN.
 func (o EventTypeEventVariableOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1463,14 +1663,21 @@ func (o EventTypeEventVariableOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The source of the event variable.
+//
+// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+//
+// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
 func (o EventTypeEventVariableOutput) DataSource() EventTypeEventVariableDataSourcePtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *EventTypeEventVariableDataSource { return v.DataSource }).(EventTypeEventVariableDataSourcePtrOutput)
 }
 
+// The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
 func (o EventTypeEventVariableOutput) DataType() EventTypeEventVariableDataTypePtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *EventTypeEventVariableDataType { return v.DataType }).(EventTypeEventVariableDataTypePtrOutput)
 }
 
+// The default value of the event variable
 func (o EventTypeEventVariableOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -1480,6 +1687,9 @@ func (o EventTypeEventVariableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
 func (o EventTypeEventVariableOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -1489,6 +1699,7 @@ func (o EventTypeEventVariableOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The name of the event variable.
 func (o EventTypeEventVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1498,6 +1709,7 @@ func (o EventTypeEventVariableOutput) Tags() EventTypeTagArrayOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) []EventTypeTag { return v.Tags }).(EventTypeTagArrayOutput)
 }
 
+// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
 func (o EventTypeEventVariableOutput) VariableType() EventTypeEventVariableVariableTypePtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *EventTypeEventVariableVariableType { return v.VariableType }).(EventTypeEventVariableVariableTypePtrOutput)
 }
@@ -1523,15 +1735,20 @@ func (o EventTypeEventVariableArrayOutput) Index(i pulumi.IntInput) EventTypeEve
 }
 
 type EventTypeLabel struct {
+	// The label ARN.
 	Arn *string `pulumi:"arn"`
 	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
 	Description *string `pulumi:"description"`
-	Inline      *bool   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
+	Inline *bool `pulumi:"inline"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The label name.
+	Name *string `pulumi:"name"`
 	// Tags associated with this event type.
 	Tags []EventTypeTag `pulumi:"tags"`
 }
@@ -1548,15 +1765,20 @@ type EventTypeLabelInput interface {
 }
 
 type EventTypeLabelArgs struct {
+	// The label ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+	//
+	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
+	Inline pulumi.BoolPtrInput `pulumi:"inline"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// The label name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this event type.
 	Tags EventTypeTagArrayInput `pulumi:"tags"`
 }
@@ -1612,6 +1834,7 @@ func (o EventTypeLabelOutput) ToEventTypeLabelOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The label ARN.
 func (o EventTypeLabelOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1626,6 +1849,9 @@ func (o EventTypeLabelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+//
+// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
 func (o EventTypeLabelOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
@@ -1635,6 +1861,7 @@ func (o EventTypeLabelOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The label name.
 func (o EventTypeLabelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1665,7 +1892,9 @@ func (o EventTypeLabelArrayOutput) Index(i pulumi.IntInput) EventTypeLabelOutput
 }
 
 type EventTypeTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1681,7 +1910,9 @@ type EventTypeTagInput interface {
 }
 
 type EventTypeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// A tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1736,10 +1967,12 @@ func (o EventTypeTagOutput) ToEventTypeTagOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A tag key.
 func (o EventTypeTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTypeTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A value assigned to a tag key.
 func (o EventTypeTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTypeTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1765,7 +1998,9 @@ func (o EventTypeTagArrayOutput) Index(i pulumi.IntInput) EventTypeTagOutput {
 }
 
 type LabelTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1778,12 +2013,16 @@ type ListTag struct {
 }
 
 type OutcomeTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 
 type VariableTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key.
+	Key string `pulumi:"key"`
+	// A value assigned to a tag key.
 	Value string `pulumi:"value"`
 }
 

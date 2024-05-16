@@ -28,7 +28,12 @@ class MatchingWorkflowArgs:
                  workflow_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MatchingWorkflow resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]] input_source_config: An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]] output_source_config: A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        :param pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
         :param pulumi.Input[str] description: The description of the MatchingWorkflow
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[str] workflow_name: The name of the MatchingWorkflow
         """
         pulumi.set(__self__, "input_source_config", input_source_config)
@@ -45,6 +50,9 @@ class MatchingWorkflowArgs:
     @property
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]]:
+        """
+        An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        """
         return pulumi.get(self, "input_source_config")
 
     @input_source_config.setter
@@ -54,6 +62,9 @@ class MatchingWorkflowArgs:
     @property
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]]:
+        """
+        A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        """
         return pulumi.get(self, "output_source_config")
 
     @output_source_config.setter
@@ -63,6 +74,9 @@ class MatchingWorkflowArgs:
     @property
     @pulumi.getter(name="resolutionTechniques")
     def resolution_techniques(self) -> pulumi.Input['MatchingWorkflowResolutionTechniquesArgs']:
+        """
+        An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        """
         return pulumi.get(self, "resolution_techniques")
 
     @resolution_techniques.setter
@@ -72,6 +86,9 @@ class MatchingWorkflowArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -93,6 +110,9 @@ class MatchingWorkflowArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -131,6 +151,11 @@ class MatchingWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the MatchingWorkflow
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowInputSourceArgs']]]] input_source_config: An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowOutputSourceArgs']]]] output_source_config: A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        :param pulumi.Input[pulumi.InputType['MatchingWorkflowResolutionTechniquesArgs']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[str] workflow_name: The name of the MatchingWorkflow
         """
         ...
@@ -243,26 +268,41 @@ class MatchingWorkflow(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> pulumi.Output[Sequence['outputs.MatchingWorkflowInputSource']]:
+        """
+        An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        """
         return pulumi.get(self, "input_source_config")
 
     @property
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> pulumi.Output[Sequence['outputs.MatchingWorkflowOutputSource']]:
+        """
+        A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        """
         return pulumi.get(self, "output_source_config")
 
     @property
     @pulumi.getter(name="resolutionTechniques")
     def resolution_techniques(self) -> pulumi.Output['outputs.MatchingWorkflowResolutionTechniques']:
+        """
+        An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        """
         return pulumi.get(self, "resolution_techniques")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property

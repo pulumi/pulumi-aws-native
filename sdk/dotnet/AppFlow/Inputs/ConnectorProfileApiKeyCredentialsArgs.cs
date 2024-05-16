@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileApiKeyCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API key required for API key authentication.
+        /// </summary>
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
+        /// <summary>
+        /// The API secret key required for API key authentication.
+        /// </summary>
         [Input("apiSecretKey")]
         public Input<string>? ApiSecretKey { get; set; }
 

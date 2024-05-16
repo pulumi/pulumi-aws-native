@@ -37,7 +37,13 @@ export class Index extends pulumi.CustomResource {
         return obj['__pulumiType'] === Index.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Capacity units
@@ -51,8 +57,17 @@ export class Index extends pulumi.CustomResource {
      * Document metadata configurations
      */
     public readonly documentMetadataConfigurations!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfiguration[] | undefined>;
+    /**
+     * Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+     */
     public readonly edition!: pulumi.Output<enums.kendra.IndexEdition>;
+    /**
+     * The name of the index.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+     */
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * Server side encryption configuration
@@ -62,7 +77,21 @@ export class Index extends pulumi.CustomResource {
      * Tags for labeling the index
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The user context policy.
+     *
+     * ATTRIBUTE_FILTER
+     *
+     * - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+     *
+     * USER_TOKEN
+     *
+     * - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+     */
     public readonly userContextPolicy!: pulumi.Output<enums.kendra.IndexUserContextPolicy | undefined>;
+    /**
+     * Defines the type of user token used for the index.
+     */
     public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfiguration[] | undefined>;
 
     /**
@@ -131,8 +160,17 @@ export interface IndexArgs {
      * Document metadata configurations
      */
     documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[]>;
+    /**
+     * Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+     */
     edition: pulumi.Input<enums.kendra.IndexEdition>;
+    /**
+     * The name of the index.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+     */
     roleArn: pulumi.Input<string>;
     /**
      * Server side encryption configuration
@@ -142,6 +180,20 @@ export interface IndexArgs {
      * Tags for labeling the index
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The user context policy.
+     *
+     * ATTRIBUTE_FILTER
+     *
+     * - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+     *
+     * USER_TOKEN
+     *
+     * - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+     */
     userContextPolicy?: pulumi.Input<enums.kendra.IndexUserContextPolicy>;
+    /**
+     * Defines the type of user token used for the index.
+     */
     userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexUserTokenConfigurationArgs>[]>;
 }

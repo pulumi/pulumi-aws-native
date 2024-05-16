@@ -279,6 +279,9 @@ class Multiplex(pulumi.CustomResource):
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output['MultiplexState']:
+        """
+        The current state of the multiplex.
+        """
         return pulumi.get(self, "state")
 
     @property

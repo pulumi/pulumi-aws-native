@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetAccountAuditConfigurationResult
     {
+        /// <summary>
+        /// The types of audit checks that can be performed.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfigurations? AuditCheckConfigurations;
+        /// <summary>
+        /// The configuration of the audit notification target.
+        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations? AuditNotificationTargetConfigurations;
         /// <summary>
         /// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.

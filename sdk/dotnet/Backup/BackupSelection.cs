@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Backup
     [AwsNativeResourceType("aws-native:backup:BackupSelection")]
     public partial class BackupSelection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Uniquely identifies the backup selection.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Uniquely identifies a backup plan.
+        /// </summary>
         [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies an object containing properties used to assign a set of resources to a backup plan.
+        /// </summary>
         [Output("backupSelection")]
         public Output<Outputs.BackupSelectionResourceType> BackupSelectionValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Uniquely identifies a request to assign a set of resources to a backup plan.
+        /// </summary>
         [Output("selectionId")]
         public Output<string> SelectionId { get; private set; } = null!;
 
@@ -77,9 +89,15 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class BackupSelectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Uniquely identifies a backup plan.
+        /// </summary>
         [Input("backupPlanId", required: true)]
         public Input<string> BackupPlanId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies an object containing properties used to assign a set of resources to a backup plan.
+        /// </summary>
         [Input("backupSelection", required: true)]
         public Input<Inputs.BackupSelectionResourceTypeArgs> BackupSelectionValue { get; set; } = null!;
 

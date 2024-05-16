@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTextFieldControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The configuration of the placeholder options in a text control.
+        /// </summary>
         [Input("placeholderOptions")]
         public Input<Inputs.TemplateTextControlPlaceholderOptionsArgs>? PlaceholderOptions { get; set; }
 
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.TemplateLabelOptionsArgs>? TitleOptions { get; set; }
 

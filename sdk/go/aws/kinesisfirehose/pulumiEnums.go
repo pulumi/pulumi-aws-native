@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode string
 
 const (
@@ -175,6 +176,7 @@ func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Back
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
 }
 
+// The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod string
 
 const (
@@ -346,6 +348,7 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRota
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
+// Defines how documents should be delivered to Amazon S3.
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode string
 
 const (
@@ -511,6 +514,7 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupM
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
+// The type of connectivity used to access the Amazon MSK cluster.
 type DeliveryStreamAuthenticationConfigurationConnectivity string
 
 const (
@@ -676,6 +680,9 @@ func (in *deliveryStreamAuthenticationConfigurationConnectivityPtr) ToDeliverySt
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput)
 }
 
+// When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
+//
+// When the `NO_DOCUMENT_ID` option is chosen, Firehose does not include any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts, this may cause the same record to be indexed more than once with different document IDs. This option enables write-heavy operations, such as the ingestion of logs and observability data, to consume less resources in the Amazon OpenSearch Service domain, resulting in improved performance.
 type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat string
 
 const (
@@ -841,6 +848,7 @@ func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryS
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
 }
 
+// The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod string
 
 const (
@@ -1012,6 +1020,7 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
+// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 type DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode string
 
 const (
@@ -1177,6 +1186,11 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) To
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
+// Indicates the type of customer master key (CMK) to use for encryption. The default setting is `AWS_OWNED_CMK` . For more information about CMKs, see [Customer Master Keys (CMKs)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) .
+//
+// You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
+//
+// > To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see [About Symmetric and Asymmetric CMKs](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html) in the AWS Key Management Service developer guide.
 type DeliveryStreamEncryptionConfigurationInputKeyType string
 
 const (
@@ -1342,6 +1356,7 @@ func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
 }
 
+// Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfig string
 
 const (
@@ -1505,6 +1520,7 @@ func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToDelivery
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
 }
 
+// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
 type DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat string
 
 const (
@@ -1676,6 +1692,7 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) 
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
+// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 type DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode string
 
 const (
@@ -1841,6 +1858,7 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToDel
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
 }
 
+// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
 type DeliveryStreamHttpEndpointRequestConfigurationContentEncoding string
 
 const (
@@ -2006,6 +2024,7 @@ func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDe
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
+// The type of processor. Valid values: `Lambda` .
 type DeliveryStreamProcessorType string
 
 const (
@@ -2179,6 +2198,7 @@ func (in *deliveryStreamProcessorTypePtr) ToDeliveryStreamProcessorTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamProcessorTypePtrOutput)
 }
 
+// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 type DeliveryStreamRedshiftDestinationConfigurationS3BackupMode string
 
 const (
@@ -2344,6 +2364,7 @@ func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToDeliv
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
+// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 type DeliveryStreamS3DestinationConfigurationCompressionFormat string
 
 const (
@@ -2515,6 +2536,7 @@ func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDelive
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
+// Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
 type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption string
 
 const (
@@ -2682,6 +2704,7 @@ func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) T
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
 }
 
+// Choose an S3 backup mode
 type DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode string
 
 const (
@@ -2847,6 +2870,7 @@ func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToDeli
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
 }
 
+// This type can be either `Raw` or `Event` .
 type DeliveryStreamSplunkDestinationConfigurationHecEndpointType string
 
 const (
@@ -3012,6 +3036,10 @@ func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeli
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
+// The delivery stream type. This can be one of the following values:
+//
+// - `DirectPut` : Provider applications access the delivery stream directly.
+// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
 type DeliveryStreamType string
 
 const (

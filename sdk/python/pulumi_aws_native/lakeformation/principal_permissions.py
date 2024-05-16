@@ -241,6 +241,9 @@ class PrincipalPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter(name="principalIdentifier")
     def principal_identifier(self) -> pulumi.Output[str]:
+        """
+        Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+        """
         return pulumi.get(self, "principal_identifier")
 
     @property
@@ -254,5 +257,8 @@ class PrincipalPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[str]:
+        """
+        Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+        """
         return pulumi.get(self, "resource_identifier")
 

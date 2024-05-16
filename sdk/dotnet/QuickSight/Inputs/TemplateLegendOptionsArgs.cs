@@ -18,12 +18,26 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The positions for the legend. Choose one of the following options:
+        /// 
+        /// - `AUTO`
+        /// - `RIGHT`
+        /// - `BOTTOM`
+        /// - `LEFT`
+        /// </summary>
         [Input("position")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateLegendPosition>? Position { get; set; }
 
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.TemplateLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// Determines whether or not the legend is visible.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDomainNameArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The custom domain name as an API host name, for example, `my-api.example.com` .
+        /// </summary>
         [Input("domainName", required: true)]
         public string DomainNameValue { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDomainNameInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The custom domain name as an API host name, for example, `my-api.example.com` .
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -51,16 +57,55 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetDomainNameResult
     {
+        /// <summary>
+        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// </summary>
         public readonly string? CertificateArn;
+        /// <summary>
+        /// The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
+        /// 
+        /// Example: `d111111abcdef8.cloudfront.net`
+        /// </summary>
         public readonly string? DistributionDomainName;
+        /// <summary>
+        /// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
+        /// </summary>
         public readonly string? DistributionHostedZoneId;
+        /// <summary>
+        /// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+        /// 
+        /// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+        /// </summary>
         public readonly Outputs.DomainNameEndpointConfiguration? EndpointConfiguration;
+        /// <summary>
+        /// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+        /// </summary>
         public readonly Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication;
+        /// <summary>
+        /// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+        /// </summary>
         public readonly string? OwnershipVerificationCertificateArn;
+        /// <summary>
+        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        /// </summary>
         public readonly string? RegionalCertificateArn;
+        /// <summary>
+        /// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+        /// </summary>
         public readonly string? RegionalDomainName;
+        /// <summary>
+        /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+        /// </summary>
         public readonly string? RegionalHostedZoneId;
+        /// <summary>
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        /// </summary>
         public readonly string? SecurityPolicy;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

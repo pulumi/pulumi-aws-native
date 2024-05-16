@@ -16,22 +16,44 @@ import (
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
-	AwsId               pulumi.StringOutput                       `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
 	ContainerProperties JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
-	EcsProperties       JobDefinitionEcsPropertiesPtrOutput       `pulumi:"ecsProperties"`
-	EksProperties       JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
-	JobDefinitionName   pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
-	NodeProperties      JobDefinitionNodePropertiesPtrOutput      `pulumi:"nodeProperties"`
+	// An object that contains the properties for the Amazon ECS resources of a job.
+	EcsProperties JobDefinitionEcsPropertiesPtrOutput `pulumi:"ecsProperties"`
+	// An object that contains the properties for the Kubernetes resources of a job.
+	EksProperties JobDefinitionEksPropertiesPtrOutput `pulumi:"eksProperties"`
+	// The name of the job definition.
+	JobDefinitionName pulumi.StringPtrOutput `pulumi:"jobDefinitionName"`
+	// An object that represents the node properties of a multi-node parallel job.
+	//
+	// > Node properties can't be specified for Amazon EKS based job definitions.
+	NodeProperties JobDefinitionNodePropertiesPtrOutput `pulumi:"nodeProperties"`
+	// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Parameters           pulumi.AnyOutput                    `pulumi:"parameters"`
-	PlatformCapabilities pulumi.StringArrayOutput            `pulumi:"platformCapabilities"`
-	PropagateTags        pulumi.BoolPtrOutput                `pulumi:"propagateTags"`
-	RetryStrategy        JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
-	SchedulingPriority   pulumi.IntPtrOutput                 `pulumi:"schedulingPriority"`
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+	PlatformCapabilities pulumi.StringArrayOutput `pulumi:"platformCapabilities"`
+	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+	PropagateTags pulumi.BoolPtrOutput `pulumi:"propagateTags"`
+	// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+	SchedulingPriority pulumi.IntPtrOutput `pulumi:"schedulingPriority"`
+	// The tags that are applied to the job definition.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Tags    pulumi.AnyOutput              `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// An object that represents a job timeout configuration.
 	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
-	Type    pulumi.StringOutput           `pulumi:"type"`
+	// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+	//
+	// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+	// - If the value is `multinode` , then `nodeProperties` is required.
+	//
+	// > If the job is run on Fargate resources, then `multinode` isn't supported.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -82,40 +104,84 @@ func (JobDefinitionState) ElementType() reflect.Type {
 }
 
 type jobDefinitionArgs struct {
+	// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
 	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
-	EcsProperties       *JobDefinitionEcsProperties       `pulumi:"ecsProperties"`
-	EksProperties       *JobDefinitionEksProperties       `pulumi:"eksProperties"`
-	JobDefinitionName   *string                           `pulumi:"jobDefinitionName"`
-	NodeProperties      *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
+	// An object that contains the properties for the Amazon ECS resources of a job.
+	EcsProperties *JobDefinitionEcsProperties `pulumi:"ecsProperties"`
+	// An object that contains the properties for the Kubernetes resources of a job.
+	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
+	// The name of the job definition.
+	JobDefinitionName *string `pulumi:"jobDefinitionName"`
+	// An object that represents the node properties of a multi-node parallel job.
+	//
+	// > Node properties can't be specified for Amazon EKS based job definitions.
+	NodeProperties *JobDefinitionNodeProperties `pulumi:"nodeProperties"`
+	// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Parameters           interface{}                 `pulumi:"parameters"`
-	PlatformCapabilities []string                    `pulumi:"platformCapabilities"`
-	PropagateTags        *bool                       `pulumi:"propagateTags"`
-	RetryStrategy        *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
-	SchedulingPriority   *int                        `pulumi:"schedulingPriority"`
+	Parameters interface{} `pulumi:"parameters"`
+	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+	PlatformCapabilities []string `pulumi:"platformCapabilities"`
+	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+	PropagateTags *bool `pulumi:"propagateTags"`
+	// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+	SchedulingPriority *int `pulumi:"schedulingPriority"`
+	// The tags that are applied to the job definition.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Tags    interface{}           `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
+	// An object that represents a job timeout configuration.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	Type    string                `pulumi:"type"`
+	// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+	//
+	// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+	// - If the value is `multinode` , then `nodeProperties` is required.
+	//
+	// > If the job is run on Fargate resources, then `multinode` isn't supported.
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
+	// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
 	ContainerProperties JobDefinitionContainerPropertiesPtrInput
-	EcsProperties       JobDefinitionEcsPropertiesPtrInput
-	EksProperties       JobDefinitionEksPropertiesPtrInput
-	JobDefinitionName   pulumi.StringPtrInput
-	NodeProperties      JobDefinitionNodePropertiesPtrInput
+	// An object that contains the properties for the Amazon ECS resources of a job.
+	EcsProperties JobDefinitionEcsPropertiesPtrInput
+	// An object that contains the properties for the Kubernetes resources of a job.
+	EksProperties JobDefinitionEksPropertiesPtrInput
+	// The name of the job definition.
+	JobDefinitionName pulumi.StringPtrInput
+	// An object that represents the node properties of a multi-node parallel job.
+	//
+	// > Node properties can't be specified for Amazon EKS based job definitions.
+	NodeProperties JobDefinitionNodePropertiesPtrInput
+	// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Parameters           pulumi.Input
+	Parameters pulumi.Input
+	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 	PlatformCapabilities pulumi.StringArrayInput
-	PropagateTags        pulumi.BoolPtrInput
-	RetryStrategy        JobDefinitionRetryStrategyPtrInput
-	SchedulingPriority   pulumi.IntPtrInput
+	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+	PropagateTags pulumi.BoolPtrInput
+	// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+	RetryStrategy JobDefinitionRetryStrategyPtrInput
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+	SchedulingPriority pulumi.IntPtrInput
+	// The tags that are applied to the job definition.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Tags    pulumi.Input
+	Tags pulumi.Input
+	// An object that represents a job timeout configuration.
 	Timeout JobDefinitionTimeoutPtrInput
-	Type    pulumi.StringInput
+	// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+	//
+	// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+	// - If the value is `multinode` , then `nodeProperties` is required.
+	//
+	// > If the job is run on Fargate resources, then `multinode` isn't supported.
+	Type pulumi.StringInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {
@@ -159,56 +225,78 @@ func (o JobDefinitionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
 func (o JobDefinitionOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionContainerPropertiesPtrOutput { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
 }
 
+// An object that contains the properties for the Amazon ECS resources of a job.
 func (o JobDefinitionOutput) EcsProperties() JobDefinitionEcsPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionEcsPropertiesPtrOutput { return v.EcsProperties }).(JobDefinitionEcsPropertiesPtrOutput)
 }
 
+// An object that contains the properties for the Kubernetes resources of a job.
 func (o JobDefinitionOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionEksPropertiesPtrOutput { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
 
+// The name of the job definition.
 func (o JobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
+// An object that represents the node properties of a multi-node parallel job.
+//
+// > Node properties can't be specified for Amazon EKS based job definitions.
 func (o JobDefinitionOutput) NodeProperties() JobDefinitionNodePropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionNodePropertiesPtrOutput { return v.NodeProperties }).(JobDefinitionNodePropertiesPtrOutput)
 }
 
+// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
 func (o JobDefinitionOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 func (o JobDefinitionOutput) PlatformCapabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringArrayOutput { return v.PlatformCapabilities }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
 func (o JobDefinitionOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.BoolPtrOutput { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
+// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
 func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionRetryStrategyPtrOutput { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
 }
 
+// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 func (o JobDefinitionOutput) SchedulingPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }
 
+// The tags that are applied to the job definition.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
 func (o JobDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }
 
+// An object that represents a job timeout configuration.
 func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionTimeoutPtrOutput { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
 }
 
+// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+//
+// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+// - If the value is `multinode` , then `nodeProperties` is required.
+//
+// > If the job is run on Fargate resources, then `multinode` isn't supported.
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

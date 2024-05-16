@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetTriggerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The schedule for when to trigger an update.
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.DatasetScheduleArgs>? Schedule { get; set; }
 
+        /// <summary>
+        /// Information about the dataset whose content generation triggers the new dataset content generation.
+        /// </summary>
         [Input("triggeringDataset")]
         public Input<Inputs.DatasetTriggeringDatasetArgs>? TriggeringDataset { get; set; }
 

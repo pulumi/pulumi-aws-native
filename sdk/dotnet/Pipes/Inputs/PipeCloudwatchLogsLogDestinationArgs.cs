@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeCloudwatchLogsLogDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+        /// </summary>
         [Input("logGroupArn")]
         public Input<string>? LogGroupArn { get; set; }
 

@@ -367,7 +367,8 @@ type TaskDefinition struct {
 	//   +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 	//   +  Tag keys and values are case-sensitive.
 	//   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-	Tags              aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ARN of the task definition.
 	TaskDefinitionArn pulumi.StringOutput `pulumi:"taskDefinitionArn"`
 	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -788,6 +789,7 @@ func (o TaskDefinitionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the task definition.
 func (o TaskDefinitionOutput) TaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.TaskDefinitionArn }).(pulumi.StringOutput)
 }

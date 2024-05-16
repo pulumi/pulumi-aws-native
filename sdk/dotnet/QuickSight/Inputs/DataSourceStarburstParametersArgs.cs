@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The product type for the Starburst data source.
+        /// </summary>
         [Input("productType")]
         public Input<Pulumi.AwsNative.QuickSight.DataSourceStarburstProductType>? ProductType { get; set; }
 

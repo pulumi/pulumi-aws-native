@@ -26,6 +26,9 @@ class GetSubnetRouteTableAssociationResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the subnet route table association.
+        """
         return pulumi.get(self, "id")
 
 
@@ -42,6 +45,9 @@ def get_subnet_route_table_association(id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetRouteTableAssociationResult:
     """
     Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
+
+
+    :param str id: The ID of the subnet route table association.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -57,5 +63,8 @@ def get_subnet_route_table_association_output(id: Optional[pulumi.Input[str]] = 
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetRouteTableAssociationResult]:
     """
     Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
+
+
+    :param str id: The ID of the subnet route table association.
     """
     ...

@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetPluginArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the application that will contain the plugin.
+        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the plugin.
+        /// </summary>
         [Input("pluginId", required: true)]
         public string PluginId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetPluginInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the application that will contain the plugin.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the plugin.
+        /// </summary>
         [Input("pluginId", required: true)]
         public Input<string> PluginId { get; set; } = null!;
 
@@ -57,16 +69,49 @@ namespace Pulumi.AwsNative.QBusiness
     [OutputType]
     public sealed class GetPluginResult
     {
+        /// <summary>
+        /// Authentication configuration information for an Amazon Q Business plugin.
+        /// </summary>
         public readonly object? AuthConfiguration;
+        /// <summary>
+        /// The current status of a plugin. A plugin is modified asynchronously.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.PluginBuildStatus? BuildStatus;
+        /// <summary>
+        /// The timestamp for when the plugin was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Configuration information required to create a custom plugin.
+        /// </summary>
         public readonly Outputs.PluginCustomPluginConfiguration? CustomPluginConfiguration;
+        /// <summary>
+        /// The name of the plugin.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a plugin.
+        /// </summary>
         public readonly string? PluginArn;
+        /// <summary>
+        /// The identifier of the plugin.
+        /// </summary>
         public readonly string? PluginId;
+        /// <summary>
+        /// The plugin server URL used for configuration.
+        /// </summary>
         public readonly string? ServerUrl;
+        /// <summary>
+        /// The current status of the plugin.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.PluginState? State;
+        /// <summary>
+        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp for when the plugin was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

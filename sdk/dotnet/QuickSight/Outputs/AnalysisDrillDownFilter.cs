@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDrillDownFilter
     {
+        /// <summary>
+        /// The category drill down filter.
+        /// </summary>
         public readonly Outputs.AnalysisCategoryDrillDownFilter? CategoryFilter;
+        /// <summary>
+        /// The numeric equality type drill down filter.
+        /// </summary>
         public readonly Outputs.AnalysisNumericEqualityDrillDownFilter? NumericEqualityFilter;
+        /// <summary>
+        /// The time range drill down filter.
+        /// </summary>
         public readonly Outputs.AnalysisTimeRangeDrillDownFilter? TimeRangeFilter;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSplunkRetryOptions
     {
+        /// <summary>
+        /// The total amount of time that Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Firehose waits for acknowledgment from Splunk after each attempt.
+        /// </summary>
         public readonly int? DurationInSeconds;
 
         [OutputConstructor]

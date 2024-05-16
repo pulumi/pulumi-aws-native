@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class RulePathMatchTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An exact match of the path.
+        /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
+        /// <summary>
+        /// A prefix match of the path.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The ARN of the OpenSearch Service vector store.
         /// </summary>
         public readonly string CollectionArn;
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseOpenSearchServerlessFieldMapping FieldMapping;
         /// <summary>
         /// The name of the vector store.

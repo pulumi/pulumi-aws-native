@@ -70,6 +70,9 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.WorkspaceLoggingConfiguration']:
+        """
+        Contains information about the logging configuration for the workspace.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @property

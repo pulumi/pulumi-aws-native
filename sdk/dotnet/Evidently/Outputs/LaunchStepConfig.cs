@@ -13,8 +13,21 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class LaunchStepConfig
     {
+        /// <summary>
+        /// A structure containing the percentage of launch traffic to allocate to one launch group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchGroupToWeight> GroupWeights;
+        /// <summary>
+        /// Use this structure to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+        /// 
+        /// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
+        /// 
+        /// This sructure is an array of up to six segment override objects. Each of these objects specifies a segment that you have already created, and defines the traffic split for that segment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchSegmentOverride> SegmentOverrides;
+        /// <summary>
+        /// The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
+        /// </summary>
         public readonly string StartTime;
 
         [OutputConstructor]

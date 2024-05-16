@@ -13,10 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDateDimensionField
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The date granularity of the `DateDimensionField` . Choose one of the following options:
+        /// 
+        /// - `YEAR`
+        /// - `QUARTER`
+        /// - `MONTH`
+        /// - `WEEK`
+        /// - `DAY`
+        /// - `HOUR`
+        /// - `MINUTE`
+        /// - `SECOND`
+        /// - `MILLISECOND`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? DateGranularity;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         public readonly Outputs.TemplateDateTimeFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         public readonly string? HierarchyId;
 
         [OutputConstructor]

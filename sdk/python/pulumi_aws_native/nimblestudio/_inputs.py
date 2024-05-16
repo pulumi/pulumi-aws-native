@@ -40,6 +40,9 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
                     profile.</p>
         :param pulumi.Input[float] max_backups_to_retain: <p>The maximum number of backups that each streaming session created from this launch
                            profile can have.</p>
+        :param pulumi.Input['LaunchProfileSessionBackupMode'] mode: Specifies how artists sessions are backed up.
+               
+               Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
         """
         if max_backups_to_retain is not None:
             pulumi.set(__self__, "max_backups_to_retain", max_backups_to_retain)
@@ -62,6 +65,11 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input['LaunchProfileSessionBackupMode']]:
+        """
+        Specifies how artists sessions are backed up.
+
+        Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -78,6 +86,7 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
         <p>The configuration for a streaming session’s upload storage.</p>
         :param pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]] mode: <p>Allows artists to upload files to their workstations. The only valid option is
                                <code>UPLOAD</code>.</p>
+        :param pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs'] root: The upload storage root location (folder) on streaming workstations where files are uploaded.
         """
         pulumi.set(__self__, "mode", mode)
         if root is not None:
@@ -99,6 +108,9 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
     @property
     @pulumi.getter
     def root(self) -> Optional[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs']]:
+        """
+        The upload storage root location (folder) on streaming workstations where files are uploaded.
+        """
         return pulumi.get(self, "root")
 
     @root.setter
@@ -121,10 +133,17 @@ class LaunchProfileStreamConfigurationArgs:
                  volume_configuration: Optional[pulumi.Input['LaunchProfileVolumeConfigurationArgs']] = None):
         """
         <p>A configuration for a streaming session.</p>
+        :param pulumi.Input['LaunchProfileStreamingClipboardMode'] clipboard_mode: Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]] ec2_instance_types: <p>The EC2 instance types that users can select from when launching a streaming session
                            with this launch profile.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_image_ids: <p>The streaming images that users can select from when launching a streaming session
                            with this launch profile.</p>
+        :param pulumi.Input['LaunchProfileAutomaticTerminationMode'] automatic_termination_mode: Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+               
+               - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+               - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+               
+               This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
         :param pulumi.Input[float] max_session_length_in_minutes: <p>The length of time, in minutes, that a streaming session can be active before it is
                            stopped or terminated. After this point, Nimble Studio automatically terminates or
                            stops the session. The default length of time is 690 minutes, and the maximum length of
@@ -145,6 +164,12 @@ class LaunchProfileStreamConfigurationArgs:
                            If the time that a session stays in the <code>READY</code> state exceeds the
                                <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                            stopped (instead of terminated).</p>
+        :param pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs'] session_backup: Configures how streaming sessions are backed up when launched from this launch profile.
+        :param pulumi.Input['LaunchProfileSessionPersistenceMode'] session_persistence_mode: Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+        :param pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs'] session_storage: The configuration for a streaming session’s upload storage.
+        :param pulumi.Input['LaunchProfileVolumeConfigurationArgs'] volume_configuration: Custom volume configuration for the root volumes that are attached to streaming sessions.
+               
+               This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
         """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
@@ -167,6 +192,9 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="clipboardMode")
     def clipboard_mode(self) -> pulumi.Input['LaunchProfileStreamingClipboardMode']:
+        """
+        Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
+        """
         return pulumi.get(self, "clipboard_mode")
 
     @clipboard_mode.setter
@@ -202,6 +230,14 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="automaticTerminationMode")
     def automatic_termination_mode(self) -> Optional[pulumi.Input['LaunchProfileAutomaticTerminationMode']]:
+        """
+        Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+
+        - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+        - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+
+        This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
+        """
         return pulumi.get(self, "automatic_termination_mode")
 
     @automatic_termination_mode.setter
@@ -253,6 +289,9 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="sessionBackup")
     def session_backup(self) -> Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs']]:
+        """
+        Configures how streaming sessions are backed up when launched from this launch profile.
+        """
         return pulumi.get(self, "session_backup")
 
     @session_backup.setter
@@ -262,6 +301,9 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="sessionPersistenceMode")
     def session_persistence_mode(self) -> Optional[pulumi.Input['LaunchProfileSessionPersistenceMode']]:
+        """
+        Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+        """
         return pulumi.get(self, "session_persistence_mode")
 
     @session_persistence_mode.setter
@@ -271,6 +313,9 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="sessionStorage")
     def session_storage(self) -> Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs']]:
+        """
+        The configuration for a streaming session’s upload storage.
+        """
         return pulumi.get(self, "session_storage")
 
     @session_storage.setter
@@ -280,6 +325,11 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="volumeConfiguration")
     def volume_configuration(self) -> Optional[pulumi.Input['LaunchProfileVolumeConfigurationArgs']]:
+        """
+        Custom volume configuration for the root volumes that are attached to streaming sessions.
+
+        This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
+        """
         return pulumi.get(self, "volume_configuration")
 
     @volume_configuration.setter
@@ -626,6 +676,8 @@ class StudioComponentInitializationScriptArgs:
         <p>Initialization scripts for studio components.</p>
         :param pulumi.Input[str] launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid
                            version is "2021-03-31".</p>
+        :param pulumi.Input['StudioComponentLaunchProfilePlatform'] platform: The platform of the initialization script, either Windows or Linux.
+        :param pulumi.Input['StudioComponentInitializationScriptRunContext'] run_context: The method to use when running the initialization script.
         :param pulumi.Input[str] script: <p>The initialization script.</p>
         """
         if launch_profile_protocol_version is not None:
@@ -653,6 +705,9 @@ class StudioComponentInitializationScriptArgs:
     @property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input['StudioComponentLaunchProfilePlatform']]:
+        """
+        The platform of the initialization script, either Windows or Linux.
+        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -662,6 +717,9 @@ class StudioComponentInitializationScriptArgs:
     @property
     @pulumi.getter(name="runContext")
     def run_context(self) -> Optional[pulumi.Input['StudioComponentInitializationScriptRunContext']]:
+        """
+        The method to use when running the initialization script.
+        """
         return pulumi.get(self, "run_context")
 
     @run_context.setter
@@ -846,6 +904,7 @@ class StudioEncryptionConfigurationArgs:
                  key_arn: Optional[pulumi.Input[str]] = None):
         """
         <p>Configuration of the encryption method that is used for the studio.</p>
+        :param pulumi.Input['StudioEncryptionConfigurationKeyType'] key_type: The type of KMS key that is used to encrypt studio data.
         :param pulumi.Input[str] key_arn: <p>The ARN for a KMS key that is used to encrypt studio data.</p>
         """
         pulumi.set(__self__, "key_type", key_type)
@@ -855,6 +914,9 @@ class StudioEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input['StudioEncryptionConfigurationKeyType']:
+        """
+        The type of KMS key that is used to encrypt studio data.
+        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter

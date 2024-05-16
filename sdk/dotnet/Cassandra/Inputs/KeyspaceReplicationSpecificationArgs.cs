@@ -14,12 +14,24 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     {
         [Input("regionList")]
         private InputList<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem>? _regionList;
+
+        /// <summary>
+        /// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem> RegionList
         {
             get => _regionList ?? (_regionList = new InputList<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem>());
             set => _regionList = value;
         }
 
+        /// <summary>
+        /// The options are:
+        /// 
+        /// - `SINGLE_REGION` (optional)
+        /// - `MULTI_REGION`
+        /// 
+        /// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
+        /// </summary>
         [Input("replicationStrategy")]
         public Input<Pulumi.AwsNative.Cassandra.KeyspaceReplicationSpecificationReplicationStrategy>? ReplicationStrategy { get; set; }
 

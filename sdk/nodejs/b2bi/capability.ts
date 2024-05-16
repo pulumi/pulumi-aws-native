@@ -37,14 +37,41 @@ export class Capability extends pulumi.CustomResource {
         return obj['__pulumiType'] === Capability.__pulumiType;
     }
 
+    /**
+     * Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+     */
     public /*out*/ readonly capabilityArn!: pulumi.Output<string>;
+    /**
+     * Returns a system-assigned unique identifier for the capability.
+     */
     public /*out*/ readonly capabilityId!: pulumi.Output<string>;
+    /**
+     * A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+     */
     public readonly configuration!: pulumi.Output<outputs.b2bi.CapabilityConfigurationProperties>;
+    /**
+     * Returns a timestamp for creation date and time of the capability.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+     */
     public readonly instructionsDocuments!: pulumi.Output<outputs.b2bi.CapabilityS3Location[] | undefined>;
+    /**
+     * Returns a timestamp that identifies the most recent date and time that the capability was modified.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The display name of the capability.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Returns the type of the capability. Currently, only `edi` is supported.
+     */
     public readonly type!: pulumi.Output<enums.b2bi.CapabilityType>;
 
     /**
@@ -95,9 +122,24 @@ export class Capability extends pulumi.CustomResource {
  * The set of arguments for constructing a Capability resource.
  */
 export interface CapabilityArgs {
+    /**
+     * A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+     */
     configuration: pulumi.Input<inputs.b2bi.CapabilityConfigurationPropertiesArgs>;
+    /**
+     * Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+     */
     instructionsDocuments?: pulumi.Input<pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>[]>;
+    /**
+     * The display name of the capability.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Returns the type of the capability. Currently, only `edi` is supported.
+     */
     type: pulumi.Input<enums.b2bi.CapabilityType>;
 }

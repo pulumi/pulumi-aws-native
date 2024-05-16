@@ -219,7 +219,13 @@ export class Simulation extends pulumi.CustomResource {
      * Role ARN.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+     */
     public readonly schemaS3Location!: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
+    /**
+     * A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+     */
     public readonly snapshotS3Location!: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
 
     /**
@@ -273,6 +279,12 @@ export interface SimulationArgs {
      * Role ARN.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+     */
     schemaS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs>;
+    /**
+     * A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+     */
     snapshotS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs>;
 }

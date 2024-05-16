@@ -30,22 +30,37 @@ export interface GetOriginEndpointResult {
      * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
      */
     readonly arn?: string;
+    /**
+     * Parameters for enabling CDN authorization on the endpoint.
+     */
     readonly authorization?: outputs.mediapackage.OriginEndpointAuthorization;
     /**
      * The ID of the Channel the OriginEndpoint is associated with.
      */
     readonly channelId?: string;
+    /**
+     * Parameters for Common Media Application Format (CMAF) packaging.
+     */
     readonly cmafPackage?: outputs.mediapackage.OriginEndpointCmafPackage;
+    /**
+     * Parameters for DASH packaging.
+     */
     readonly dashPackage?: outputs.mediapackage.OriginEndpointDashPackage;
     /**
      * A short text description of the OriginEndpoint.
      */
     readonly description?: string;
+    /**
+     * Parameters for Apple HLS packaging.
+     */
     readonly hlsPackage?: outputs.mediapackage.OriginEndpointHlsPackage;
     /**
      * A short string appended to the end of the OriginEndpoint URL.
      */
     readonly manifestName?: string;
+    /**
+     * Parameters for Microsoft Smooth Streaming packaging.
+     */
     readonly mssPackage?: outputs.mediapackage.OriginEndpointMssPackage;
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination

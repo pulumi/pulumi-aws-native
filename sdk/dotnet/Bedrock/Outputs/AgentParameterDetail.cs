@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Information about if a parameter is required for function call. Default to false.
         /// </summary>
         public readonly bool? Required;
+        /// <summary>
+        /// The data type of the parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentType Type;
 
         [OutputConstructor]

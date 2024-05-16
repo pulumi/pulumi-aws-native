@@ -38,6 +38,9 @@ export interface GetEnvironmentResult {
      * The unique identifier of the environment.
      */
     readonly environmentId?: string;
+    /**
+     * Defines the details of a high availability configuration.
+     */
     readonly highAvailabilityConfig?: outputs.m2.EnvironmentHighAvailabilityConfig;
     /**
      * The type of instance underlying the environment.

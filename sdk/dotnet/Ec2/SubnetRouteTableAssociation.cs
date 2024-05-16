@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:SubnetRouteTableAssociation")]
     public partial class SubnetRouteTableAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the subnet route table association.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

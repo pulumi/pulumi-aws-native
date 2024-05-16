@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAnchorDateConfiguration
     {
+        /// <summary>
+        /// The options for the date configuration. Choose one of the options below:
+        /// 
+        /// - `NOW`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateAnchorOption? AnchorOption;
+        /// <summary>
+        /// The name of the parameter that is used for the anchor date configuration.
+        /// </summary>
         public readonly string? ParameterName;
 
         [OutputConstructor]

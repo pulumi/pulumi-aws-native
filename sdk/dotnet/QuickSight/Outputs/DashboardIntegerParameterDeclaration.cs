@@ -13,10 +13,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardIntegerParameterDeclaration
     {
+        /// <summary>
+        /// The default values of the `IntegerParameterDeclaration` .
+        /// </summary>
         public readonly Outputs.DashboardIntegerDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.DashboardMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardParameterValueType ParameterValueType;
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardIntegerValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

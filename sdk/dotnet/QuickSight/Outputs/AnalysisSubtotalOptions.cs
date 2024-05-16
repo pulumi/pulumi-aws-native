@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSubtotalOptions
     {
+        /// <summary>
+        /// The custom label string for the subtotal cells.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The field level (all, custom, last) for the subtotal cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPivotTableSubtotalLevel? FieldLevel;
+        /// <summary>
+        /// The optional configuration of subtotals cells.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisPivotTableFieldSubtotalOptions> FieldLevelOptions;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? MetricHeaderCellStyle;
+        /// <summary>
+        /// The table style target.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisTableStyleTarget> StyleTargets;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? TotalCellStyle;
+        /// <summary>
+        /// The visibility configuration for the subtotal cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? TotalsVisibility;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? ValueCellStyle;
 
         [OutputConstructor]

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     /// </summary>
     public sealed class DomainSingleSignOnArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of single sign-on in Amazon DataZone.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.DataZone.DomainAuthType>? Type { get; set; }
 
+        /// <summary>
+        /// The single sign-on user assignment in Amazon DataZone.
+        /// </summary>
         [Input("userAssignment")]
         public Input<Pulumi.AwsNative.DataZone.DomainUserAssignment>? UserAssignment { get; set; }
 

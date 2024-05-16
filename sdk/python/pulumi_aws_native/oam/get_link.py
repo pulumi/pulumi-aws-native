@@ -40,21 +40,33 @@ class GetLinkResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def label(self) -> Optional[str]:
+        """
+        The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+        """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="linkConfiguration")
     def link_configuration(self) -> Optional['outputs.LinkConfiguration']:
+        """
+        Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        """
         return pulumi.get(self, "link_configuration")
 
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence['LinkResourceType']]:
+        """
+        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        """
         return pulumi.get(self, "resource_types")
 
     @property
@@ -83,6 +95,9 @@ def get_link(arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkResult:
     """
     Definition of AWS::Oam::Link Resource Type
+
+
+    :param str arn: The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -102,5 +117,8 @@ def get_link_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
     """
     Definition of AWS::Oam::Link Resource Type
+
+
+    :param str arn: The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
     """
     ...

@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Ec2
         /// The last updated time.
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+        /// </summary>
         public readonly Outputs.VerifiedAccessTrustProviderOidcOptions? OidcOptions;
         /// <summary>
         /// The configuration options for customer provided KMS encryption.

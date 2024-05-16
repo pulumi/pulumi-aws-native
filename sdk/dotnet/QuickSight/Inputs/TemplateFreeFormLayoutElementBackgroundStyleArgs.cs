@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFreeFormLayoutElementBackgroundStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color of a free-form layout element.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// The background visibility of a free-form layout element.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

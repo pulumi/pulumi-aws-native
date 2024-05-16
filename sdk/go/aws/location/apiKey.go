@@ -17,18 +17,40 @@ import (
 type ApiKey struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput      `pulumi:"arn"`
-	CreateTime   pulumi.StringOutput      `pulumi:"createTime"`
-	Description  pulumi.StringPtrOutput   `pulumi:"description"`
-	ExpireTime   pulumi.StringPtrOutput   `pulumi:"expireTime"`
-	ForceDelete  pulumi.BoolPtrOutput     `pulumi:"forceDelete"`
-	ForceUpdate  pulumi.BoolPtrOutput     `pulumi:"forceUpdate"`
-	KeyArn       pulumi.StringOutput      `pulumi:"keyArn"`
-	KeyName      pulumi.StringOutput      `pulumi:"keyName"`
-	NoExpiry     pulumi.BoolPtrOutput     `pulumi:"noExpiry"`
+	// The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	// Updates the description for the API key resource.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+	ExpireTime pulumi.StringPtrOutput `pulumi:"expireTime"`
+	// ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+	//
+	// Valid values: `true` , or `false` .
+	//
+	// > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	// The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+	// Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+	ForceUpdate pulumi.BoolPtrOutput `pulumi:"forceUpdate"`
+	// The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+	KeyArn pulumi.StringOutput `pulumi:"keyArn"`
+	// A custom name for the API key resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique API key name.
+	// - No spaces allowed. For example, `ExampleAPIKey` .
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+	NoExpiry pulumi.BoolPtrOutput `pulumi:"noExpiry"`
+	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
 	Restrictions ApiKeyRestrictionsOutput `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -79,12 +101,30 @@ func (ApiKeyState) ElementType() reflect.Type {
 }
 
 type apiKeyArgs struct {
-	Description  *string            `pulumi:"description"`
-	ExpireTime   *string            `pulumi:"expireTime"`
-	ForceDelete  *bool              `pulumi:"forceDelete"`
-	ForceUpdate  *bool              `pulumi:"forceUpdate"`
-	KeyName      *string            `pulumi:"keyName"`
-	NoExpiry     *bool              `pulumi:"noExpiry"`
+	// Updates the description for the API key resource.
+	Description *string `pulumi:"description"`
+	// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+	ExpireTime *string `pulumi:"expireTime"`
+	// ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+	//
+	// Valid values: `true` , or `false` .
+	//
+	// > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+	ForceDelete *bool `pulumi:"forceDelete"`
+	// The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+	// Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+	ForceUpdate *bool `pulumi:"forceUpdate"`
+	// A custom name for the API key resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique API key name.
+	// - No spaces allowed. For example, `ExampleAPIKey` .
+	KeyName *string `pulumi:"keyName"`
+	// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+	NoExpiry *bool `pulumi:"noExpiry"`
+	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
 	Restrictions ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -92,12 +132,30 @@ type apiKeyArgs struct {
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
-	Description  pulumi.StringPtrInput
-	ExpireTime   pulumi.StringPtrInput
-	ForceDelete  pulumi.BoolPtrInput
-	ForceUpdate  pulumi.BoolPtrInput
-	KeyName      pulumi.StringPtrInput
-	NoExpiry     pulumi.BoolPtrInput
+	// Updates the description for the API key resource.
+	Description pulumi.StringPtrInput
+	// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+	ExpireTime pulumi.StringPtrInput
+	// ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+	//
+	// Valid values: `true` , or `false` .
+	//
+	// > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+	ForceDelete pulumi.BoolPtrInput
+	// The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+	// Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+	ForceUpdate pulumi.BoolPtrInput
+	// A custom name for the API key resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique API key name.
+	// - No spaces allowed. For example, `ExampleAPIKey` .
+	KeyName pulumi.StringPtrInput
+	// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+	NoExpiry pulumi.BoolPtrInput
+	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
 	Restrictions ApiKeyRestrictionsInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -140,42 +198,63 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
 func (o ApiKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
 func (o ApiKeyOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
+// Updates the description for the API key resource.
 func (o ApiKeyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
 func (o ApiKeyOutput) ExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.ExpireTime }).(pulumi.StringPtrOutput)
 }
 
+// ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+//
+// Valid values: `true` , or `false` .
+//
+// > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
 func (o ApiKeyOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
+// The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+// Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
 func (o ApiKeyOutput) ForceUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.ForceUpdate }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
 func (o ApiKeyOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.KeyArn }).(pulumi.StringOutput)
 }
 
+// A custom name for the API key resource.
+//
+// Requirements:
+//
+// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+// - Must be a unique API key name.
+// - No spaces allowed. For example, `ExampleAPIKey` .
 func (o ApiKeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
+// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
 func (o ApiKeyOutput) NoExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.NoExpiry }).(pulumi.BoolPtrOutput)
 }
 
+// API Restrictions on the allowed actions, resources, and referers for an API key resource.
 func (o ApiKeyOutput) Restrictions() ApiKeyRestrictionsOutput {
 	return o.ApplyT(func(v *ApiKey) ApiKeyRestrictionsOutput { return v.Restrictions }).(ApiKeyRestrictionsOutput)
 }
@@ -185,6 +264,7 @@ func (o ApiKeyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ApiKey) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o ApiKeyOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

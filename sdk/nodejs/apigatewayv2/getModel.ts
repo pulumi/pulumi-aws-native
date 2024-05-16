@@ -21,6 +21,9 @@ export interface GetModelArgs {
      * The API identifier.
      */
     apiId: string;
+    /**
+     * The model ID.
+     */
     modelId: string;
 }
 
@@ -33,6 +36,9 @@ export interface GetModelResult {
      * The description of the model.
      */
     readonly description?: string;
+    /**
+     * The model ID.
+     */
     readonly modelId?: string;
     /**
      * The name of the model.
@@ -57,5 +63,8 @@ export interface GetModelOutputArgs {
      * The API identifier.
      */
     apiId: pulumi.Input<string>;
+    /**
+     * The model ID.
+     */
     modelId: pulumi.Input<string>;
 }

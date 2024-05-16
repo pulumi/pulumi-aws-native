@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("trendGroupSort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _trendGroupSort;
+
+        /// <summary>
+        /// The sort configuration of the trend group fields.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> TrendGroupSort
         {
             get => _trendGroupSort ?? (_trendGroupSort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());

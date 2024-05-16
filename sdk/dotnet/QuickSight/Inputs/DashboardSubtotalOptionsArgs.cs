@@ -12,37 +12,63 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSubtotalOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom label string for the subtotal cells.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// The field level (all, custom, last) for the subtotal cells.
+        /// </summary>
         [Input("fieldLevel")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardPivotTableSubtotalLevel>? FieldLevel { get; set; }
 
         [Input("fieldLevelOptions")]
         private InputList<Inputs.DashboardPivotTableFieldSubtotalOptionsArgs>? _fieldLevelOptions;
+
+        /// <summary>
+        /// The optional configuration of subtotals cells.
+        /// </summary>
         public InputList<Inputs.DashboardPivotTableFieldSubtotalOptionsArgs> FieldLevelOptions
         {
             get => _fieldLevelOptions ?? (_fieldLevelOptions = new InputList<Inputs.DashboardPivotTableFieldSubtotalOptionsArgs>());
             set => _fieldLevelOptions = value;
         }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
 
         [Input("styleTargets")]
         private InputList<Inputs.DashboardTableStyleTargetArgs>? _styleTargets;
+
+        /// <summary>
+        /// The table style target.
+        /// </summary>
         public InputList<Inputs.DashboardTableStyleTargetArgs> StyleTargets
         {
             get => _styleTargets ?? (_styleTargets = new InputList<Inputs.DashboardTableStyleTargetArgs>());
             set => _styleTargets = value;
         }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? TotalCellStyle { get; set; }
 
+        /// <summary>
+        /// The visibility configuration for the subtotal cells.
+        /// </summary>
         [Input("totalsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? TotalsVisibility { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("valueCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? ValueCellStyle { get; set; }
 

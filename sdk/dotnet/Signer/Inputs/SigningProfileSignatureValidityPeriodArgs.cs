@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Signer.Inputs
 
     public sealed class SigningProfileSignatureValidityPeriodArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The time unit for signature validity: DAYS | MONTHS | YEARS.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Signer.SigningProfileSignatureValidityPeriodType>? Type { get; set; }
 
+        /// <summary>
+        /// The numerical value of the time unit for signature validity.
+        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

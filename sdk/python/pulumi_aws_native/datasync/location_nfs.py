@@ -26,6 +26,8 @@ class LocationNfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationNfs resource.
+        :param pulumi.Input['LocationNfsOnPremConfigArgs'] on_prem_config: The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        :param pulumi.Input['LocationNfsMountOptionsArgs'] mount_options: Specifies the options that DataSync can use to mount your NFS file server.
         :param pulumi.Input[str] server_hostname: The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -43,6 +45,9 @@ class LocationNfsArgs:
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Input['LocationNfsOnPremConfigArgs']:
+        """
+        The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        """
         return pulumi.get(self, "on_prem_config")
 
     @on_prem_config.setter
@@ -52,6 +57,9 @@ class LocationNfsArgs:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['LocationNfsMountOptionsArgs']]:
+        """
+        Specifies the options that DataSync can use to mount your NFS file server.
+        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -111,6 +119,8 @@ class LocationNfs(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['LocationNfsMountOptionsArgs']] mount_options: Specifies the options that DataSync can use to mount your NFS file server.
+        :param pulumi.Input[pulumi.InputType['LocationNfsOnPremConfigArgs']] on_prem_config: The AWS DataSync agents that are connecting to a Network File System (NFS) location.
         :param pulumi.Input[str] server_hostname: The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -214,11 +224,17 @@ class LocationNfs(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Output[Optional['outputs.LocationNfsMountOptions']]:
+        """
+        Specifies the options that DataSync can use to mount your NFS file server.
+        """
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Output['outputs.LocationNfsOnPremConfig']:
+        """
+        The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        """
         return pulumi.get(self, "on_prem_config")
 
     @property

@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardNumericAxisOptions
     {
+        /// <summary>
+        /// The range setup of a numeric axis display range.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayRange? Range;
+        /// <summary>
+        /// The scale setup options for a numeric axis display.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardAxisScale? Scale;
 
         [OutputConstructor]

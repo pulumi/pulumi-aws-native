@@ -18,13 +18,24 @@ export function getOriginEndpointPolicy(args: GetOriginEndpointPolicyArgs, opts?
 }
 
 export interface GetOriginEndpointPolicyArgs {
+    /**
+     * The name of the channel group associated with the origin endpoint policy.
+     */
     channelGroupName: string;
+    /**
+     * The channel name associated with the origin endpoint policy.
+     */
     channelName: string;
+    /**
+     * The name of the origin endpoint associated with the origin endpoint policy.
+     */
     originEndpointName: string;
 }
 
 export interface GetOriginEndpointPolicyResult {
     /**
+     * The policy associated with the origin endpoint.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
      */
     readonly policy?: any;
@@ -37,7 +48,16 @@ export function getOriginEndpointPolicyOutput(args: GetOriginEndpointPolicyOutpu
 }
 
 export interface GetOriginEndpointPolicyOutputArgs {
+    /**
+     * The name of the channel group associated with the origin endpoint policy.
+     */
     channelGroupName: pulumi.Input<string>;
+    /**
+     * The channel name associated with the origin endpoint policy.
+     */
     channelName: pulumi.Input<string>;
+    /**
+     * The name of the origin endpoint associated with the origin endpoint policy.
+     */
     originEndpointName: pulumi.Input<string>;
 }

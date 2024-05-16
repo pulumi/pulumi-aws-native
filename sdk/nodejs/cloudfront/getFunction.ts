@@ -19,14 +19,44 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetFunctionArgs {
+    /**
+     * The ARN of the function. For example:
+     *
+     * `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+     *
+     * To get the function ARN, use the following syntax:
+     *
+     * `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+     */
     functionArn: string;
 }
 
 export interface GetFunctionResult {
+    /**
+     * The ARN of the function. For example:
+     *
+     * `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+     *
+     * To get the function ARN, use the following syntax:
+     *
+     * `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+     */
     readonly functionArn?: string;
+    /**
+     * The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+     */
     readonly functionCode?: string;
+    /**
+     * Contains configuration information about a CloudFront function.
+     */
     readonly functionConfig?: outputs.cloudfront.FunctionConfig;
+    /**
+     * Contains metadata about a CloudFront function.
+     */
     readonly functionMetadata?: outputs.cloudfront.FunctionMetadata;
+    /**
+     * A name to identify the function.
+     */
     readonly name?: string;
     readonly stage?: string;
 }
@@ -38,5 +68,14 @@ export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetFunctionOutputArgs {
+    /**
+     * The ARN of the function. For example:
+     *
+     * `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+     *
+     * To get the function ARN, use the following syntax:
+     *
+     * `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+     */
     functionArn: pulumi.Input<string>;
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetSegmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetSegmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetSegmentResult
     {
+        /// <summary>
+        /// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// An optional description for this segment.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A name for the segment.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        /// </summary>
         public readonly string? Pattern;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

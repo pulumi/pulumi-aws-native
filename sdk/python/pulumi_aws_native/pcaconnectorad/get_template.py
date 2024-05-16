@@ -26,6 +26,9 @@ class GetTemplateResult:
     @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        """
         return pulumi.get(self, "template_arn")
 
 
@@ -42,6 +45,9 @@ def get_template(template_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateResult:
     """
     Represents a template that defines certificate configurations, both for issuance and client handling
+
+
+    :param str template_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
     """
     __args__ = dict()
     __args__['templateArn'] = template_arn
@@ -57,5 +63,8 @@ def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Represents a template that defines certificate configurations, both for issuance and client handling
+
+
+    :param str template_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
     """
     ...

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class ListenerFixedResponseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP response code.
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<int> StatusCode { get; set; } = null!;
 

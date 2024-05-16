@@ -19,10 +19,16 @@ export function getCollection(args: GetCollectionArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetCollectionArgs {
+    /**
+     * ID for the collection that you are creating.
+     */
     collectionId: string;
 }
 
 export interface GetCollectionResult {
+    /**
+     * Returns the Amazon Resource Name of the collection.
+     */
     readonly arn?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -37,5 +43,8 @@ export function getCollectionOutput(args: GetCollectionOutputArgs, opts?: pulumi
 }
 
 export interface GetCollectionOutputArgs {
+    /**
+     * ID for the collection that you are creating.
+     */
     collectionId: pulumi.Input<string>;
 }

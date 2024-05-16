@@ -12,32 +12,57 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePivotTotalOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom label string for the total cells.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
 
+        /// <summary>
+        /// The placement (start, end) for the total cells.
+        /// </summary>
         [Input("placement")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTableTotalsPlacement>? Placement { get; set; }
 
+        /// <summary>
+        /// The scroll status (pinned, scrolled) for the total cells.
+        /// </summary>
         [Input("scrollStatus")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTableTotalsScrollStatus>? ScrollStatus { get; set; }
 
         [Input("totalAggregationOptions")]
         private InputList<Inputs.TemplateTotalAggregationOptionArgs>? _totalAggregationOptions;
+
+        /// <summary>
+        /// The total aggregation settings map of a field id.
+        /// </summary>
         public InputList<Inputs.TemplateTotalAggregationOptionArgs> TotalAggregationOptions
         {
             get => _totalAggregationOptions ?? (_totalAggregationOptions = new InputList<Inputs.TemplateTotalAggregationOptionArgs>());
             set => _totalAggregationOptions = value;
         }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? TotalCellStyle { get; set; }
 
+        /// <summary>
+        /// The visibility configuration for the total cells.
+        /// </summary>
         [Input("totalsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TotalsVisibility { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("valueCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? ValueCellStyle { get; set; }
 

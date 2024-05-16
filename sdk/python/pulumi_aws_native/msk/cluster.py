@@ -32,7 +32,18 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Describes the setup to be used for the broker nodes in the cluster.
+        :param pulumi.Input[str] kafka_version: The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        :param pulumi.Input[int] number_of_broker_nodes: The number of broker nodes in the cluster.
+        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Includes all client authentication information.
+        :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Specifies the configuration to use for the brokers.
         :param pulumi.Input[str] current_version: The current version of the MSK cluster
+        :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        :param pulumi.Input['ClusterEnhancedMonitoring'] enhanced_monitoring: Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: JMX and Node monitoring for the MSK cluster.
+        :param pulumi.Input['ClusterStorageMode'] storage_mode: This controls storage mode for supported storage tiers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
@@ -62,6 +73,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> pulumi.Input['ClusterBrokerNodeGroupInfoArgs']:
+        """
+        Describes the setup to be used for the broker nodes in the cluster.
+        """
         return pulumi.get(self, "broker_node_group_info")
 
     @broker_node_group_info.setter
@@ -71,6 +85,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="kafkaVersion")
     def kafka_version(self) -> pulumi.Input[str]:
+        """
+        The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        """
         return pulumi.get(self, "kafka_version")
 
     @kafka_version.setter
@@ -80,6 +97,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="numberOfBrokerNodes")
     def number_of_broker_nodes(self) -> pulumi.Input[int]:
+        """
+        The number of broker nodes in the cluster.
+        """
         return pulumi.get(self, "number_of_broker_nodes")
 
     @number_of_broker_nodes.setter
@@ -89,6 +109,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional[pulumi.Input['ClusterClientAuthenticationArgs']]:
+        """
+        Includes all client authentication information.
+        """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
@@ -98,6 +121,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster.
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -107,6 +133,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> Optional[pulumi.Input['ClusterConfigurationInfoArgs']]:
+        """
+        Specifies the configuration to use for the brokers.
+        """
         return pulumi.get(self, "configuration_info")
 
     @configuration_info.setter
@@ -128,6 +157,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> Optional[pulumi.Input['ClusterEncryptionInfoArgs']]:
+        """
+        Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        """
         return pulumi.get(self, "encryption_info")
 
     @encryption_info.setter
@@ -137,6 +169,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enhancedMonitoring")
     def enhanced_monitoring(self) -> Optional[pulumi.Input['ClusterEnhancedMonitoring']]:
+        """
+        Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        """
         return pulumi.get(self, "enhanced_monitoring")
 
     @enhanced_monitoring.setter
@@ -146,6 +181,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> Optional[pulumi.Input['ClusterLoggingInfoArgs']]:
+        """
+        You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        """
         return pulumi.get(self, "logging_info")
 
     @logging_info.setter
@@ -155,6 +193,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> Optional[pulumi.Input['ClusterOpenMonitoringArgs']]:
+        """
+        JMX and Node monitoring for the MSK cluster.
+        """
         return pulumi.get(self, "open_monitoring")
 
     @open_monitoring.setter
@@ -164,6 +205,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="storageMode")
     def storage_mode(self) -> Optional[pulumi.Input['ClusterStorageMode']]:
+        """
+        This controls storage mode for supported storage tiers.
+        """
         return pulumi.get(self, "storage_mode")
 
     @storage_mode.setter
@@ -207,7 +251,18 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Describes the setup to be used for the broker nodes in the cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Includes all client authentication information.
+        :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Specifies the configuration to use for the brokers.
         :param pulumi.Input[str] current_version: The current version of the MSK cluster
+        :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        :param pulumi.Input['ClusterEnhancedMonitoring'] enhanced_monitoring: Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        :param pulumi.Input[str] kafka_version: The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        :param pulumi.Input[int] number_of_broker_nodes: The number of broker nodes in the cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: JMX and Node monitoring for the MSK cluster.
+        :param pulumi.Input['ClusterStorageMode'] storage_mode: This controls storage mode for supported storage tiers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
@@ -276,7 +331,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["brokerNodeGroupInfo.brokerAzDistribution", "brokerNodeGroupInfo.clientSubnets[*]", "brokerNodeGroupInfo.securityGroups[*]", "clusterName", "encryptionInfo.encryptionAtRest", "encryptionInfo.encryptionInTransit.inCluster"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:msk:Cluster',
@@ -324,21 +379,33 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> pulumi.Output['outputs.ClusterBrokerNodeGroupInfo']:
+        """
+        Describes the setup to be used for the broker nodes in the cluster.
+        """
         return pulumi.get(self, "broker_node_group_info")
 
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Output[Optional['outputs.ClusterClientAuthentication']]:
+        """
+        Includes all client authentication information.
+        """
         return pulumi.get(self, "client_authentication")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
+        """
+        The name of the cluster.
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> pulumi.Output[Optional['outputs.ClusterConfigurationInfo']]:
+        """
+        Specifies the configuration to use for the brokers.
+        """
         return pulumi.get(self, "configuration_info")
 
     @property
@@ -352,36 +419,57 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> pulumi.Output[Optional['outputs.ClusterEncryptionInfo']]:
+        """
+        Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        """
         return pulumi.get(self, "encryption_info")
 
     @property
     @pulumi.getter(name="enhancedMonitoring")
     def enhanced_monitoring(self) -> pulumi.Output[Optional['ClusterEnhancedMonitoring']]:
+        """
+        Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        """
         return pulumi.get(self, "enhanced_monitoring")
 
     @property
     @pulumi.getter(name="kafkaVersion")
     def kafka_version(self) -> pulumi.Output[str]:
+        """
+        The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        """
         return pulumi.get(self, "kafka_version")
 
     @property
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> pulumi.Output[Optional['outputs.ClusterLoggingInfo']]:
+        """
+        You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        """
         return pulumi.get(self, "logging_info")
 
     @property
     @pulumi.getter(name="numberOfBrokerNodes")
     def number_of_broker_nodes(self) -> pulumi.Output[int]:
+        """
+        The number of broker nodes in the cluster.
+        """
         return pulumi.get(self, "number_of_broker_nodes")
 
     @property
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> pulumi.Output[Optional['outputs.ClusterOpenMonitoring']]:
+        """
+        JMX and Node monitoring for the MSK cluster.
+        """
         return pulumi.get(self, "open_monitoring")
 
     @property
     @pulumi.getter(name="storageMode")
     def storage_mode(self) -> pulumi.Output[Optional['ClusterStorageMode']]:
+        """
+        This controls storage mode for supported storage tiers.
+        """
         return pulumi.get(self, "storage_mode")
 
     @property

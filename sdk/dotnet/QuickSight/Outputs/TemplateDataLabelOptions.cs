@@ -13,15 +13,47 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDataLabelOptions
     {
+        /// <summary>
+        /// Determines the visibility of the category field labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CategoryLabelVisibility;
+        /// <summary>
+        /// The option that determines the data label type.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataLabelType> DataLabelTypes;
+        /// <summary>
+        /// Determines the color of the data labels.
+        /// </summary>
         public readonly string? LabelColor;
+        /// <summary>
+        /// Determines the content of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateDataLabelContent? LabelContent;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.TemplateFontConfiguration? LabelFontConfiguration;
+        /// <summary>
+        /// Determines the visibility of the measure field labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? MeasureLabelVisibility;
+        /// <summary>
+        /// Determines whether overlap is enabled or disabled for the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateDataLabelOverlap? Overlap;
+        /// <summary>
+        /// Determines the position of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateDataLabelPosition? Position;
+        /// <summary>
+        /// Determines the visibility of the total.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
+        /// <summary>
+        /// Determines the visibility of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

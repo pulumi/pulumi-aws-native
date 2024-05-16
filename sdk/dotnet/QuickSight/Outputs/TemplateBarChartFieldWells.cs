@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBarChartFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a bar chart.
+        /// </summary>
         public readonly Outputs.TemplateBarChartAggregatedFieldWells? BarChartAggregatedFieldWells;
 
         [OutputConstructor]

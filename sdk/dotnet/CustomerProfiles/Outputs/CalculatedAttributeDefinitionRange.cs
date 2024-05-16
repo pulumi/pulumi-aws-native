@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class CalculatedAttributeDefinitionRange
     {
+        /// <summary>
+        /// The unit of time.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit Unit;
+        /// <summary>
+        /// The amount of time of the specified unit.
+        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

@@ -27,6 +27,8 @@ class GetResourcePolicyResult:
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
+        The Amazon Resource Name (ARN) of the service network or service.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -45,6 +47,9 @@ def get_resource_policy(resource_arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
     Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
+
+
+    :param str resource_arn: An IAM policy.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
@@ -60,5 +65,8 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
+
+
+    :param str resource_arn: An IAM policy.
     """
     ...

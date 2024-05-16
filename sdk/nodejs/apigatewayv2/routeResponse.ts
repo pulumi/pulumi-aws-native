@@ -59,6 +59,9 @@ export class RouteResponse extends pulumi.CustomResource {
      * The route ID.
      */
     public readonly routeId!: pulumi.Output<string>;
+    /**
+     * The route response ID.
+     */
     public /*out*/ readonly routeResponseId!: pulumi.Output<string>;
     /**
      * The route response key.

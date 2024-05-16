@@ -20,6 +20,10 @@ class EnabledBaselineParameterArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]] = None):
+        """
+        :param pulumi.Input[str] key: A string denoting the parameter key.
+        :param pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]] value: A low-level `Document` object of any type (for example, a Java Object).
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -28,6 +32,9 @@ class EnabledBaselineParameterArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string denoting the parameter key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -37,6 +44,9 @@ class EnabledBaselineParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]]:
+        """
+        A low-level `Document` object of any type (for example, a Java Object).
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -49,12 +59,19 @@ class EnabledControlParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[Union[Sequence[pulumi.Input[Union[str, float, Any, bool]]], str, float, Any, bool]]):
+        """
+        :param pulumi.Input[str] key: The key of a key/value pair. It is of type `string` .
+        :param pulumi.Input[Union[Sequence[pulumi.Input[Union[str, float, Any, bool]]], str, float, Any, bool]] value: The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key of a key/value pair. It is of type `string` .
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -64,6 +81,9 @@ class EnabledControlParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[Union[Sequence[pulumi.Input[Union[str, float, Any, bool]]], str, float, Any, bool]]:
+        """
+        The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+        """
         return pulumi.get(self, "value")
 
     @value.setter

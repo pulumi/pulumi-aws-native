@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCalculatedFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data set that is used in this calculated field.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The expression of the calculated field.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the calculated field.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

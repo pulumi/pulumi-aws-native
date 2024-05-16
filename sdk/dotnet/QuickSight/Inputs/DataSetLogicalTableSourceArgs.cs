@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataSetArn")]
         public Input<string>? DataSetArn { get; set; }
 
+        /// <summary>
+        /// The instructions associated with a join.
+        /// </summary>
         [Input("joinInstruction")]
         public Input<Inputs.DataSetJoinInstructionArgs>? JoinInstruction { get; set; }
 

@@ -39,6 +39,9 @@ class GetStandardResult:
     @property
     @pulumi.getter(name="standardsSubscriptionArn")
     def standards_subscription_arn(self) -> Optional[str]:
+        """
+        The ARN of a resource that represents your subscription to a supported standard.
+        """
         return pulumi.get(self, "standards_subscription_arn")
 
 
@@ -58,6 +61,9 @@ def get_standard(standards_subscription_arn: Optional[str] = None,
     The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
      For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
+
+
+    :param str standards_subscription_arn: The ARN of a resource that represents your subscription to a supported standard.
     """
     __args__ = dict()
     __args__['standardsSubscriptionArn'] = standards_subscription_arn
@@ -76,5 +82,8 @@ def get_standard_output(standards_subscription_arn: Optional[pulumi.Input[str]] 
     The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
      For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
+
+
+    :param str standards_subscription_arn: The ARN of a resource that represents your subscription to a supported standard.
     """
     ...

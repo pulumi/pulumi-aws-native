@@ -12,30 +12,57 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardKpiOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The comparison display configuration of a KPI or gauge chart.
+        /// </summary>
         [Input("comparison")]
         public Input<Inputs.DashboardComparisonConfigurationArgs>? Comparison { get; set; }
 
+        /// <summary>
+        /// The options that determine the primary value display type.
+        /// </summary>
         [Input("primaryValueDisplayType")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardPrimaryValueDisplayType>? PrimaryValueDisplayType { get; set; }
 
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("primaryValueFontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? PrimaryValueFontConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the progress bar of a KPI visual.
+        /// </summary>
         [Input("progressBar")]
         public Input<Inputs.DashboardProgressBarOptionsArgs>? ProgressBar { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the secondary value of a KPI visual.
+        /// </summary>
         [Input("secondaryValue")]
         public Input<Inputs.DashboardSecondaryValueOptionsArgs>? SecondaryValue { get; set; }
 
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("secondaryValueFontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? SecondaryValueFontConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.
+        /// </summary>
         [Input("sparkline")]
         public Input<Inputs.DashboardKpiSparklineOptionsArgs>? Sparkline { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of trend arrows in a KPI visual.
+        /// </summary>
         [Input("trendArrows")]
         public Input<Inputs.DashboardTrendArrowOptionsArgs>? TrendArrows { get; set; }
 
+        /// <summary>
+        /// The options that determine the layout a KPI visual.
+        /// </summary>
         [Input("visualLayoutOptions")]
         public Input<Inputs.DashboardKpiVisualLayoutOptionsArgs>? VisualLayoutOptions { get; set; }
 

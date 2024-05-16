@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
     public sealed class BackupSelectionConditionResourceTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key in a key-value pair. For example, in `"Department": "accounting"` , `"Department"` is the key.
+        /// </summary>
         [Input("conditionKey", required: true)]
         public Input<string> ConditionKey { get; set; } = null!;
 
+        /// <summary>
+        /// An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
+        /// </summary>
         [Input("conditionType", required: true)]
         public Input<string> ConditionType { get; set; } = null!;
 
+        /// <summary>
+        /// The value in a key-value pair. For example, in `"Department": "accounting"` , `"accounting"` is the value.
+        /// </summary>
         [Input("conditionValue", required: true)]
         public Input<string> ConditionValue { get; set; } = null!;
 

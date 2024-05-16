@@ -48,12 +48,18 @@ class AssociationInstanceAssociationOutputLocation(dict):
 
     def __init__(__self__, *,
                  s3_location: Optional['outputs.AssociationS3OutputLocation'] = None):
+        """
+        :param 'AssociationS3OutputLocation' s3_location: `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+        """
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
 
     @property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AssociationS3OutputLocation']:
+        """
+        `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+        """
         return pulumi.get(self, "s3_location")
 
 
@@ -84,6 +90,11 @@ class AssociationS3OutputLocation(dict):
                  output_s3_bucket_name: Optional[str] = None,
                  output_s3_key_prefix: Optional[str] = None,
                  output_s3_region: Optional[str] = None):
+        """
+        :param str output_s3_bucket_name: The name of the S3 bucket.
+        :param str output_s3_key_prefix: The S3 bucket subfolder.
+        :param str output_s3_region: The AWS Region of the S3 bucket.
+        """
         if output_s3_bucket_name is not None:
             pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
         if output_s3_key_prefix is not None:
@@ -94,16 +105,25 @@ class AssociationS3OutputLocation(dict):
     @property
     @pulumi.getter(name="outputS3BucketName")
     def output_s3_bucket_name(self) -> Optional[str]:
+        """
+        The name of the S3 bucket.
+        """
         return pulumi.get(self, "output_s3_bucket_name")
 
     @property
     @pulumi.getter(name="outputS3KeyPrefix")
     def output_s3_key_prefix(self) -> Optional[str]:
+        """
+        The S3 bucket subfolder.
+        """
         return pulumi.get(self, "output_s3_key_prefix")
 
     @property
     @pulumi.getter(name="outputS3Region")
     def output_s3_region(self) -> Optional[str]:
+        """
+        The AWS Region of the S3 bucket.
+        """
         return pulumi.get(self, "output_s3_region")
 
 
@@ -112,17 +132,31 @@ class AssociationTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
+        """
+        :param str key: User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        :param Sequence[str] values: User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
+               
+               Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
+
+        Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
+        """
         return pulumi.get(self, "values")
 
 
@@ -210,6 +244,12 @@ class PatchBaselinePatchFilter(dict):
                  values: Optional[Sequence[str]] = None):
         """
         Defines which patches should be included in a patch baseline.
+        :param 'PatchBaselinePatchFilterKey' key: The key for the filter.
+               
+               For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        :param Sequence[str] values: The value for the filter key.
+               
+               For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -219,11 +259,21 @@ class PatchBaselinePatchFilter(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional['PatchBaselinePatchFilterKey']:
+        """
+        The key for the filter.
+
+        For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
+        """
+        The value for the filter key.
+
+        For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        """
         return pulumi.get(self, "values")
 
 
@@ -253,6 +303,11 @@ class PatchBaselinePatchFilterGroup(dict):
                  patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None):
         """
         The patch filter group that defines the criteria for the rule.
+        :param Sequence['PatchBaselinePatchFilter'] patch_filters: The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
+               
+               The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
+               
+               You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
         """
         if patch_filters is not None:
             pulumi.set(__self__, "patch_filters", patch_filters)
@@ -260,6 +315,13 @@ class PatchBaselinePatchFilterGroup(dict):
     @property
     @pulumi.getter(name="patchFilters")
     def patch_filters(self) -> Optional[Sequence['outputs.PatchBaselinePatchFilter']]:
+        """
+        The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
+
+        The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
+
+        You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
+        """
         return pulumi.get(self, "patch_filters")
 
 
@@ -274,6 +336,19 @@ class PatchBaselinePatchSource(dict):
                  products: Optional[Sequence[str]] = None):
         """
         Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+        :param str configuration: The value of the yum repo configuration. For example:
+               
+               `[main]`
+               
+               `name=MyCustomRepository`
+               
+               `baseurl=https://my-custom-repository`
+               
+               `enabled=1`
+               
+               > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+        :param str name: The name specified to identify the patch source.
+        :param Sequence[str] products: The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -285,16 +360,35 @@ class PatchBaselinePatchSource(dict):
     @property
     @pulumi.getter
     def configuration(self) -> Optional[str]:
+        """
+        The value of the yum repo configuration. For example:
+
+        `[main]`
+
+        `name=MyCustomRepository`
+
+        `baseurl=https://my-custom-repository`
+
+        `enabled=1`
+
+        > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name specified to identify the patch source.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def products(self) -> Optional[Sequence[str]]:
+        """
+        The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+        """
         return pulumi.get(self, "products")
 
 
@@ -336,6 +430,19 @@ class PatchBaselineRule(dict):
                  patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None):
         """
         Defines an approval rule for a patch baseline.
+        :param int approve_after_days: The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+               
+               You must specify a value for `ApproveAfterDays` .
+               
+               Exception: Not supported on Debian Server or Ubuntu Server.
+        :param str approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+               
+               Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+        :param 'PatchBaselineRuleComplianceLevel' compliance_level: A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+        :param bool enable_non_security: For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
+        :param 'PatchBaselinePatchFilterGroup' patch_filter_group: The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
+               
+               `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
         """
         if approve_after_days is not None:
             pulumi.set(__self__, "approve_after_days", approve_after_days)
@@ -351,26 +458,49 @@ class PatchBaselineRule(dict):
     @property
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> Optional[int]:
+        """
+        The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+
+        You must specify a value for `ApproveAfterDays` .
+
+        Exception: Not supported on Debian Server or Ubuntu Server.
+        """
         return pulumi.get(self, "approve_after_days")
 
     @property
     @pulumi.getter(name="approveUntilDate")
     def approve_until_date(self) -> Optional[str]:
+        """
+        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+
+        Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+        """
         return pulumi.get(self, "approve_until_date")
 
     @property
     @pulumi.getter(name="complianceLevel")
     def compliance_level(self) -> Optional['PatchBaselineRuleComplianceLevel']:
+        """
+        A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+        """
         return pulumi.get(self, "compliance_level")
 
     @property
     @pulumi.getter(name="enableNonSecurity")
     def enable_non_security(self) -> Optional[bool]:
+        """
+        For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
+        """
         return pulumi.get(self, "enable_non_security")
 
     @property
     @pulumi.getter(name="patchFilterGroup")
     def patch_filter_group(self) -> Optional['outputs.PatchBaselinePatchFilterGroup']:
+        """
+        The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
+
+        `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+        """
         return pulumi.get(self, "patch_filter_group")
 
 
@@ -400,6 +530,9 @@ class PatchBaselineRuleGroup(dict):
                  patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None):
         """
         A set of rules defining the approval rules for a patch baseline.
+        :param Sequence['PatchBaselineRule'] patch_rules: The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+               
+               The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
         """
         if patch_rules is not None:
             pulumi.set(__self__, "patch_rules", patch_rules)
@@ -407,6 +540,11 @@ class PatchBaselineRuleGroup(dict):
     @property
     @pulumi.getter(name="patchRules")
     def patch_rules(self) -> Optional[Sequence['outputs.PatchBaselineRule']]:
+        """
+        The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+
+        The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+        """
         return pulumi.get(self, "patch_rules")
 
 
@@ -434,6 +572,10 @@ class ResourceDataSyncAwsOrganizationsSource(dict):
     def __init__(__self__, *,
                  organization_source_type: str,
                  organizational_units: Optional[Sequence[str]] = None):
+        """
+        :param str organization_source_type: If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+        :param Sequence[str] organizational_units: The AWS Organizations organization units included in the sync.
+        """
         pulumi.set(__self__, "organization_source_type", organization_source_type)
         if organizational_units is not None:
             pulumi.set(__self__, "organizational_units", organizational_units)
@@ -441,11 +583,17 @@ class ResourceDataSyncAwsOrganizationsSource(dict):
     @property
     @pulumi.getter(name="organizationSourceType")
     def organization_source_type(self) -> str:
+        """
+        If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+        """
         return pulumi.get(self, "organization_source_type")
 
     @property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Optional[Sequence[str]]:
+        """
+        The AWS Organizations organization units included in the sync.
+        """
         return pulumi.get(self, "organizational_units")
 
 
@@ -482,6 +630,13 @@ class ResourceDataSyncS3Destination(dict):
                  sync_format: str,
                  bucket_prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
+        """
+        :param str bucket_name: The name of the S3 bucket where the aggregated data is stored.
+        :param str bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
+        :param str sync_format: A supported sync format. The following format is currently supported: JsonSerDe
+        :param str bucket_prefix: An Amazon S3 prefix for the bucket.
+        :param str kms_key_arn: The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_region", bucket_region)
         pulumi.set(__self__, "sync_format", sync_format)
@@ -493,26 +648,41 @@ class ResourceDataSyncS3Destination(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
+        """
+        The name of the S3 bucket where the aggregated data is stored.
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> str:
+        """
+        The AWS Region with the S3 bucket targeted by the resource data sync.
+        """
         return pulumi.get(self, "bucket_region")
 
     @property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> str:
+        """
+        A supported sync format. The following format is currently supported: JsonSerDe
+        """
         return pulumi.get(self, "sync_format")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
+        """
+        An Amazon S3 prefix for the bucket.
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
+        """
+        The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -546,6 +716,12 @@ class ResourceDataSyncSyncSource(dict):
                  source_type: str,
                  aws_organizations_source: Optional['outputs.ResourceDataSyncAwsOrganizationsSource'] = None,
                  include_future_regions: Optional[bool] = None):
+        """
+        :param Sequence[str] source_regions: The `SyncSource` AWS Regions included in the resource data sync.
+        :param str source_type: The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
+        :param 'ResourceDataSyncAwsOrganizationsSource' aws_organizations_source: Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+        :param bool include_future_regions: Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+        """
         pulumi.set(__self__, "source_regions", source_regions)
         pulumi.set(__self__, "source_type", source_type)
         if aws_organizations_source is not None:
@@ -556,21 +732,33 @@ class ResourceDataSyncSyncSource(dict):
     @property
     @pulumi.getter(name="sourceRegions")
     def source_regions(self) -> Sequence[str]:
+        """
+        The `SyncSource` AWS Regions included in the resource data sync.
+        """
         return pulumi.get(self, "source_regions")
 
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> str:
+        """
+        The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
+        """
         return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="awsOrganizationsSource")
     def aws_organizations_source(self) -> Optional['outputs.ResourceDataSyncAwsOrganizationsSource']:
+        """
+        Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+        """
         return pulumi.get(self, "aws_organizations_source")
 
     @property
     @pulumi.getter(name="includeFutureRegions")
     def include_future_regions(self) -> Optional[bool]:
+        """
+        Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+        """
         return pulumi.get(self, "include_future_regions")
 
 

@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Eks
     [OutputType]
     public sealed class GetNodegroupResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) associated with the managed node group.
+        /// </summary>
         public readonly string? Arn;
         public readonly string? Id;
         /// <summary>

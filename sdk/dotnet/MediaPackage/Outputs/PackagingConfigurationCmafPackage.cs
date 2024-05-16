@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationCmafPackage
     {
+        /// <summary>
+        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationCmafEncryption? Encryption;
         /// <summary>
         /// A list of HLS manifest configurations.
@@ -25,6 +28,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         /// </summary>
         public readonly bool? IncludeEncoderConfigurationInSegments;
+        /// <summary>
+        /// Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
+        /// </summary>
         public readonly int? SegmentDurationSeconds;
 
         [OutputConstructor]

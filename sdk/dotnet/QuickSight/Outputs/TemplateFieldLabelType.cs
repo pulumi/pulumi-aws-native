@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFieldLabelType
     {
+        /// <summary>
+        /// Indicates the field that is targeted by the field label.
+        /// </summary>
         public readonly string? FieldId;
+        /// <summary>
+        /// The visibility of the field label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

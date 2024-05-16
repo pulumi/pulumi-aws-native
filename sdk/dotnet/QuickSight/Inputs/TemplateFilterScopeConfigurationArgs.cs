@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFilterScopeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration` , this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
+        /// </summary>
         [Input("allSheets")]
         public Input<Inputs.TemplateAllSheetsFilterScopeConfigurationArgs>? AllSheets { get; set; }
 
+        /// <summary>
+        /// The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("selectedSheets")]
         public Input<Inputs.TemplateSelectedSheetsFilterScopeConfigurationArgs>? SelectedSheets { get; set; }
 

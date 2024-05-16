@@ -77,15 +77,37 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:IntegrationAssociation")]
     public partial class IntegrationAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the integration being associated with the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `140`
+        /// </summary>
         [Output("integrationArn")]
         public Output<string> IntegrationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier of the association with an Amazon Connect instance.
+        /// </summary>
         [Output("integrationAssociationId")]
         public Output<string> IntegrationAssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the integration type to be associated with the instance.
+        /// 
+        /// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        /// </summary>
         [Output("integrationType")]
         public Output<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; private set; } = null!;
 
@@ -140,12 +162,31 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class IntegrationAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the integration being associated with the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `140`
+        /// </summary>
         [Input("integrationArn", required: true)]
         public Input<string> IntegrationArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the integration type to be associated with the instance.
+        /// 
+        /// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        /// </summary>
         [Input("integrationType", required: true)]
         public Input<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; set; } = null!;
 

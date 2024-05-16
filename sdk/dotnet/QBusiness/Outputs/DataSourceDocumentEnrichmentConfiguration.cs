@@ -13,8 +13,37 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceDocumentEnrichmentConfiguration
     {
+        /// <summary>
+        /// Provides the configuration information for applying basic logic to alter document metadata and content when ingesting documents into Amazon Q Business.
+        /// 
+        /// To apply advanced logic, to go beyond what you can do with basic logic, see [`HookConfiguration`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_HookConfiguration.html) .
+        /// 
+        /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceInlineDocumentEnrichmentConfiguration> InlineConfigurations;
+        /// <summary>
+        /// Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.
+        /// 
+        /// You can configure your Lambda function using the `PreExtractionHookConfiguration` parameter if you want to apply advanced alterations on the original or raw documents.
+        /// 
+        /// If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using `PostExtractionHookConfiguration` .
+        /// 
+        /// You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+        /// 
+        /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        /// </summary>
         public readonly Outputs.DataSourceHookConfiguration? PostExtractionHookConfiguration;
+        /// <summary>
+        /// Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.
+        /// 
+        /// You can configure your Lambda function using the `PreExtractionHookConfiguration` parameter if you want to apply advanced alterations on the original or raw documents.
+        /// 
+        /// If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using `PostExtractionHookConfiguration` .
+        /// 
+        /// You can only invoke one Lambda function. However, this function can invoke other functions it requires.
+        /// 
+        /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        /// </summary>
         public readonly Outputs.DataSourceHookConfiguration? PreExtractionHookConfiguration;
 
         [OutputConstructor]

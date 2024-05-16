@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Detective
         [Output("autoEnableMembers")]
         public Output<bool?> AutoEnableMembers { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag values to assign to the new behavior graph.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -83,6 +86,10 @@ namespace Pulumi.AwsNative.Detective
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tag values to assign to the new behavior graph.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

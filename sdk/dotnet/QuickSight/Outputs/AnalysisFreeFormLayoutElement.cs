@@ -13,17 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFreeFormLayoutElement
     {
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         public readonly Outputs.AnalysisFreeFormLayoutElementBackgroundStyle? BackgroundStyle;
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         public readonly Outputs.AnalysisFreeFormLayoutElementBorderStyle? BorderStyle;
+        /// <summary>
+        /// A unique identifier for an element within a free-form layout.
+        /// </summary>
         public readonly string ElementId;
+        /// <summary>
+        /// The type of element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisLayoutElementType ElementType;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string Height;
+        /// <summary>
+        /// The configuration of loading animation in free-form layout.
+        /// </summary>
         public readonly Outputs.AnalysisLoadingAnimation? LoadingAnimation;
+        /// <summary>
+        /// The rendering rules of a sheet that uses a free-form layout.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetElementRenderingRule> RenderingRules;
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         public readonly Outputs.AnalysisFreeFormLayoutElementBorderStyle? SelectedBorderStyle;
+        /// <summary>
+        /// The visibility of an element within a free-form layout.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px

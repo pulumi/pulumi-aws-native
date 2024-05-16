@@ -20,6 +20,9 @@ export function getStreamingImage(args: GetStreamingImageArgs, opts?: pulumi.Inv
 }
 
 export interface GetStreamingImageArgs {
+    /**
+     * The unique identifier for the streaming image resource.
+     */
     streamingImageId: string;
     /**
      * <p>The studioId. </p>
@@ -32,6 +35,9 @@ export interface GetStreamingImageResult {
      * <p>A human-readable description of the streaming image.</p>
      */
     readonly description?: string;
+    /**
+     * Specifies how a streaming image is encrypted.
+     */
     readonly encryptionConfiguration?: outputs.nimblestudio.StreamingImageEncryptionConfiguration;
     /**
      * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
@@ -49,6 +55,9 @@ export interface GetStreamingImageResult {
      * <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
      */
     readonly platform?: string;
+    /**
+     * The unique identifier for the streaming image resource.
+     */
     readonly streamingImageId?: string;
 }
 /**
@@ -59,6 +68,9 @@ export function getStreamingImageOutput(args: GetStreamingImageOutputArgs, opts?
 }
 
 export interface GetStreamingImageOutputArgs {
+    /**
+     * The unique identifier for the streaming image resource.
+     */
     streamingImageId: pulumi.Input<string>;
     /**
      * <p>The studioId. </p>

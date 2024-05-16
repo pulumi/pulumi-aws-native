@@ -41,9 +41,21 @@ export class MitigationAction extends pulumi.CustomResource {
      * A unique identifier for the mitigation action.
      */
     public readonly actionName!: pulumi.Output<string | undefined>;
+    /**
+     * Defines the type of action and the parameters for that action.
+     */
     public readonly actionParams!: pulumi.Output<outputs.iot.MitigationActionActionParams>;
+    /**
+     * The Amazon Resource Name (ARN) of the mitigation action.
+     */
     public /*out*/ readonly mitigationActionArn!: pulumi.Output<string>;
+    /**
+     * The ID of the mitigation action.
+     */
     public /*out*/ readonly mitigationActionId!: pulumi.Output<string>;
+    /**
+     * The IAM role ARN used to apply this mitigation action.
+     */
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -96,7 +108,13 @@ export interface MitigationActionArgs {
      * A unique identifier for the mitigation action.
      */
     actionName?: pulumi.Input<string>;
+    /**
+     * Defines the type of action and the parameters for that action.
+     */
     actionParams: pulumi.Input<inputs.iot.MitigationActionActionParamsArgs>;
+    /**
+     * The IAM role ARN used to apply this mitigation action.
+     */
     roleArn: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -37,11 +37,39 @@ export class GeofenceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === GeofenceCollection.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+     */
     public /*out*/ readonly collectionArn!: pulumi.Output<string>;
+    /**
+     * A custom name for the geofence collection.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique geofence collection name.
+     * - No spaces allowed. For example, `ExampleGeofenceCollection` .
+     */
     public readonly collectionName!: pulumi.Output<string>;
+    /**
+     * The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
+     * An optional description for the geofence collection.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan | undefined>;
     /**
@@ -52,6 +80,9 @@ export class GeofenceCollection extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -98,8 +129,23 @@ export class GeofenceCollection extends pulumi.CustomResource {
  * The set of arguments for constructing a GeofenceCollection resource.
  */
 export interface GeofenceCollectionArgs {
+    /**
+     * A custom name for the geofence collection.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique geofence collection name.
+     * - No spaces allowed. For example, `ExampleGeofenceCollection` .
+     */
     collectionName?: pulumi.Input<string>;
+    /**
+     * An optional description for the geofence collection.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+     */
     kmsKeyId?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
     /**

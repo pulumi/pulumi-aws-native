@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
         [Input("serverName", required: true)]
         public string ServerName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
 
@@ -51,11 +57,40 @@ namespace Pulumi.AwsNative.OpsWorksCm
     [OutputType]
     public sealed class GetServerResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+        /// </summary>
         public readonly int? BackupRetentionCount;
+        /// <summary>
+        /// Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+        /// </summary>
         public readonly bool? DisableAutomatedBackup;
+        /// <summary>
+        /// A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
+        /// </summary>
         public readonly string? Endpoint;
+        /// <summary>
+        /// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+        /// 
+        /// - `HH:MM` for daily backups
+        /// - `DDD:HH:MM` for weekly backups
+        /// 
+        /// `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+        /// 
+        /// *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+        /// 
+        /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        /// </summary>
         public readonly string? PreferredBackupWindow;
+        /// <summary>
+        /// The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+        /// 
+        /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+        /// </summary>
         public readonly string? PreferredMaintenanceWindow;
 
         [OutputConstructor]

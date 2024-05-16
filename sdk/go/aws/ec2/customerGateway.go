@@ -19,9 +19,11 @@ type CustomerGateway struct {
 
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn            pulumi.IntPtrOutput    `pulumi:"bgpAsn"`
-	CertificateArn    pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	CustomerGatewayId pulumi.StringOutput    `pulumi:"customerGatewayId"`
+	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
+	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
+	// The ID of the customer gateway.
+	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// IPv4 address for the customer gateway device's outside interface. The address must be static.
@@ -88,7 +90,8 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 type customerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn         *int    `pulumi:"bgpAsn"`
+	BgpAsn *int `pulumi:"bgpAsn"`
+	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
@@ -104,7 +107,8 @@ type customerGatewayArgs struct {
 type CustomerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn         pulumi.IntPtrInput
+	BgpAsn pulumi.IntPtrInput
+	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrInput
@@ -160,10 +164,12 @@ func (o CustomerGatewayOutput) BgpAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the customer gateway certificate.
 func (o CustomerGatewayOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the customer gateway.
 func (o CustomerGatewayOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
 }

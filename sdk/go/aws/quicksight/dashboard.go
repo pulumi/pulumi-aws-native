@@ -18,28 +18,43 @@ type Dashboard struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the AWS account where you want to create the dashboard.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// <p>The time that this dashboard was created.</p>
-	CreatedTime             pulumi.StringOutput                 `pulumi:"createdTime"`
-	DashboardId             pulumi.StringOutput                 `pulumi:"dashboardId"`
-	DashboardPublishOptions DashboardPublishOptionsPtrOutput    `pulumi:"dashboardPublishOptions"`
-	Definition              DashboardVersionDefinitionPtrOutput `pulumi:"definition"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The ID for the dashboard, also added to the IAM policy.
+	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
+	// Dashboard publish options.
+	DashboardPublishOptions DashboardPublishOptionsPtrOutput `pulumi:"dashboardPublishOptions"`
+	// The contents of a dashboard.
+	Definition DashboardVersionDefinitionPtrOutput `pulumi:"definition"`
 	// <p>The last time that this dashboard was published.</p>
 	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
 	// <p>The last time that this dashboard was updated.</p>
-	LastUpdatedTime          pulumi.StringOutput                        `pulumi:"lastUpdatedTime"`
-	LinkEntities             pulumi.StringArrayOutput                   `pulumi:"linkEntities"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+	LinkEntities pulumi.StringArrayOutput `pulumi:"linkEntities"`
+	// A structure that contains the configuration of a shareable link to the dashboard.
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrOutput `pulumi:"linkSharingConfiguration"`
-	Name                     pulumi.StringOutput                        `pulumi:"name"`
-	Parameters               DashboardParametersPtrOutput               `pulumi:"parameters"`
-	Permissions              DashboardResourcePermissionArrayOutput     `pulumi:"permissions"`
-	SourceEntity             DashboardSourceEntityPtrOutput             `pulumi:"sourceEntity"`
-	Tags                     aws.TagArrayOutput                         `pulumi:"tags"`
-	ThemeArn                 pulumi.StringPtrOutput                     `pulumi:"themeArn"`
-	ValidationStrategy       DashboardValidationStrategyPtrOutput       `pulumi:"validationStrategy"`
-	Version                  DashboardVersionOutput                     `pulumi:"version"`
-	VersionDescription       pulumi.StringPtrOutput                     `pulumi:"versionDescription"`
+	// The display name of the dashboard.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of Amazon QuickSight parameters and the list's override values.
+	Parameters DashboardParametersPtrOutput `pulumi:"parameters"`
+	// Permission for the resource.
+	Permissions DashboardResourcePermissionArrayOutput `pulumi:"permissions"`
+	// Dashboard source entity.
+	SourceEntity DashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+	ValidationStrategy DashboardValidationStrategyPtrOutput `pulumi:"validationStrategy"`
+	// Dashboard version.
+	Version DashboardVersionOutput `pulumi:"version"`
+	// A description for the first version of the dashboard being created.
+	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -93,38 +108,66 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	AwsAccountId             string                             `pulumi:"awsAccountId"`
-	DashboardId              string                             `pulumi:"dashboardId"`
-	DashboardPublishOptions  *DashboardPublishOptions           `pulumi:"dashboardPublishOptions"`
-	Definition               *DashboardVersionDefinition        `pulumi:"definition"`
-	LinkEntities             []string                           `pulumi:"linkEntities"`
+	// The ID of the AWS account where you want to create the dashboard.
+	AwsAccountId string `pulumi:"awsAccountId"`
+	// The ID for the dashboard, also added to the IAM policy.
+	DashboardId string `pulumi:"dashboardId"`
+	// Dashboard publish options.
+	DashboardPublishOptions *DashboardPublishOptions `pulumi:"dashboardPublishOptions"`
+	// The contents of a dashboard.
+	Definition *DashboardVersionDefinition `pulumi:"definition"`
+	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+	LinkEntities []string `pulumi:"linkEntities"`
+	// A structure that contains the configuration of a shareable link to the dashboard.
 	LinkSharingConfiguration *DashboardLinkSharingConfiguration `pulumi:"linkSharingConfiguration"`
-	Name                     *string                            `pulumi:"name"`
-	Parameters               *DashboardParameters               `pulumi:"parameters"`
-	Permissions              []DashboardResourcePermission      `pulumi:"permissions"`
-	SourceEntity             *DashboardSourceEntity             `pulumi:"sourceEntity"`
-	Tags                     []aws.Tag                          `pulumi:"tags"`
-	ThemeArn                 *string                            `pulumi:"themeArn"`
-	ValidationStrategy       *DashboardValidationStrategy       `pulumi:"validationStrategy"`
-	VersionDescription       *string                            `pulumi:"versionDescription"`
+	// The display name of the dashboard.
+	Name *string `pulumi:"name"`
+	// A list of Amazon QuickSight parameters and the list's override values.
+	Parameters *DashboardParameters `pulumi:"parameters"`
+	// Permission for the resource.
+	Permissions []DashboardResourcePermission `pulumi:"permissions"`
+	// Dashboard source entity.
+	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+	ThemeArn *string `pulumi:"themeArn"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+	ValidationStrategy *DashboardValidationStrategy `pulumi:"validationStrategy"`
+	// A description for the first version of the dashboard being created.
+	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	AwsAccountId             pulumi.StringInput
-	DashboardId              pulumi.StringInput
-	DashboardPublishOptions  DashboardPublishOptionsPtrInput
-	Definition               DashboardVersionDefinitionPtrInput
-	LinkEntities             pulumi.StringArrayInput
+	// The ID of the AWS account where you want to create the dashboard.
+	AwsAccountId pulumi.StringInput
+	// The ID for the dashboard, also added to the IAM policy.
+	DashboardId pulumi.StringInput
+	// Dashboard publish options.
+	DashboardPublishOptions DashboardPublishOptionsPtrInput
+	// The contents of a dashboard.
+	Definition DashboardVersionDefinitionPtrInput
+	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+	LinkEntities pulumi.StringArrayInput
+	// A structure that contains the configuration of a shareable link to the dashboard.
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrInput
-	Name                     pulumi.StringPtrInput
-	Parameters               DashboardParametersPtrInput
-	Permissions              DashboardResourcePermissionArrayInput
-	SourceEntity             DashboardSourceEntityPtrInput
-	Tags                     aws.TagArrayInput
-	ThemeArn                 pulumi.StringPtrInput
-	ValidationStrategy       DashboardValidationStrategyPtrInput
-	VersionDescription       pulumi.StringPtrInput
+	// The display name of the dashboard.
+	Name pulumi.StringPtrInput
+	// A list of Amazon QuickSight parameters and the list's override values.
+	Parameters DashboardParametersPtrInput
+	// Permission for the resource.
+	Permissions DashboardResourcePermissionArrayInput
+	// Dashboard source entity.
+	SourceEntity DashboardSourceEntityPtrInput
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+	Tags aws.TagArrayInput
+	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+	ThemeArn pulumi.StringPtrInput
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+	ValidationStrategy DashboardValidationStrategyPtrInput
+	// A description for the first version of the dashboard being created.
+	VersionDescription pulumi.StringPtrInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -169,6 +212,7 @@ func (o DashboardOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the AWS account where you want to create the dashboard.
 func (o DashboardOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
@@ -178,14 +222,17 @@ func (o DashboardOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The ID for the dashboard, also added to the IAM policy.
 func (o DashboardOutput) DashboardId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardId }).(pulumi.StringOutput)
 }
 
+// Dashboard publish options.
 func (o DashboardOutput) DashboardPublishOptions() DashboardPublishOptionsPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardPublishOptionsPtrOutput { return v.DashboardPublishOptions }).(DashboardPublishOptionsPtrOutput)
 }
 
+// The contents of a dashboard.
 func (o DashboardOutput) Definition() DashboardVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardVersionDefinitionPtrOutput { return v.Definition }).(DashboardVersionDefinitionPtrOutput)
 }
@@ -200,46 +247,57 @@ func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 func (o DashboardOutput) LinkEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.LinkEntities }).(pulumi.StringArrayOutput)
 }
 
+// A structure that contains the configuration of a shareable link to the dashboard.
 func (o DashboardOutput) LinkSharingConfiguration() DashboardLinkSharingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardLinkSharingConfigurationPtrOutput { return v.LinkSharingConfiguration }).(DashboardLinkSharingConfigurationPtrOutput)
 }
 
+// The display name of the dashboard.
 func (o DashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of Amazon QuickSight parameters and the list's override values.
 func (o DashboardOutput) Parameters() DashboardParametersPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardParametersPtrOutput { return v.Parameters }).(DashboardParametersPtrOutput)
 }
 
+// Permission for the resource.
 func (o DashboardOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardResourcePermissionArrayOutput { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
 
+// Dashboard source entity.
 func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityPtrOutput { return v.SourceEntity }).(DashboardSourceEntityPtrOutput)
 }
 
+// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 func (o DashboardOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Dashboard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
 func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }
 
+// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
 func (o DashboardOutput) ValidationStrategy() DashboardValidationStrategyPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardValidationStrategyPtrOutput { return v.ValidationStrategy }).(DashboardValidationStrategyPtrOutput)
 }
 
+// Dashboard version.
 func (o DashboardOutput) Version() DashboardVersionOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardVersionOutput { return v.Version }).(DashboardVersionOutput)
 }
 
+// A description for the first version of the dashboard being created.
 func (o DashboardOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleHttpActionHeader
     {
+        /// <summary>
+        /// The HTTP header key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The HTTP header value. Substitution templates are supported.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

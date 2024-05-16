@@ -29,6 +29,7 @@ type LookupInputArgs struct {
 }
 
 type LookupInputResult struct {
+	// The definition of the input.
 	InputDefinition *InputDefinition `pulumi:"inputDefinition"`
 	// A brief description of the input.
 	InputDescription *string `pulumi:"inputDescription"`
@@ -74,6 +75,7 @@ func (o LookupInputResultOutput) ToLookupInputResultOutputWithContext(ctx contex
 	return o
 }
 
+// The definition of the input.
 func (o LookupInputResultOutput) InputDefinition() InputDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupInputResult) *InputDefinition { return v.InputDefinition }).(InputDefinitionPtrOutput)
 }

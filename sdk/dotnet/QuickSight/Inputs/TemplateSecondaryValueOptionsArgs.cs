@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSecondaryValueOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the visibility of the secondary value.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

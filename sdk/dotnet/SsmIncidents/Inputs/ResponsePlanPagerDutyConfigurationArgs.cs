@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Details about the PagerDuty service where the response plan creates an incident.
+        /// </summary>
         [Input("pagerDutyIncidentConfiguration", required: true)]
         public Input<Inputs.ResponsePlanPagerDutyIncidentConfigurationArgs> PagerDutyIncidentConfiguration { get; set; } = null!;
 

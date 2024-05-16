@@ -37,13 +37,45 @@ export class Membership extends pulumi.CustomResource {
         return obj['__pulumiType'] === Membership.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified membership.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified collaboration.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    /**
+     * Returns the unique identifier of the specified collaboration creator account.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     public /*out*/ readonly collaborationCreatorAccountId!: pulumi.Output<string>;
+    /**
+     * The unique ID for the associated collaboration.
+     */
     public readonly collaborationIdentifier!: pulumi.Output<string>;
+    /**
+     * Contains configurations for protected query results.
+     */
     public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
+    /**
+     * Returns the unique identifier of the specified membership.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+     */
     public /*out*/ readonly membershipIdentifier!: pulumi.Output<string>;
+    /**
+     * An object representing the payment responsibilities accepted by the collaboration member.
+     */
     public readonly paymentConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
+    /**
+     * An indicator as to whether query logging has been enabled or disabled for the membership.
+     */
     public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
@@ -98,9 +130,21 @@ export class Membership extends pulumi.CustomResource {
  * The set of arguments for constructing a Membership resource.
  */
 export interface MembershipArgs {
+    /**
+     * The unique ID for the associated collaboration.
+     */
     collaborationIdentifier: pulumi.Input<string>;
+    /**
+     * Contains configurations for protected query results.
+     */
     defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
+    /**
+     * An object representing the payment responsibilities accepted by the collaboration member.
+     */
     paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfigurationArgs>;
+    /**
+     * An indicator as to whether query logging has been enabled or disabled for the membership.
+     */
     queryLogStatus: pulumi.Input<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.

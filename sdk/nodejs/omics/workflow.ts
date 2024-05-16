@@ -38,18 +38,57 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     public readonly accelerators!: pulumi.Output<enums.omics.WorkflowAccelerators | undefined>;
+    /**
+     * The ARN for the workflow.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The workflow's ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * When the workflow was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The URI of a definition for the workflow.
+     */
     public readonly definitionUri!: pulumi.Output<string | undefined>;
+    /**
+     * The parameter's description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An engine for the workflow.
+     */
     public readonly engine!: pulumi.Output<enums.omics.WorkflowEngine | undefined>;
+    /**
+     * The path of the main definition file for the workflow.
+     */
     public readonly main!: pulumi.Output<string | undefined>;
+    /**
+     * The workflow's name.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The workflow's parameter template.
+     */
     public readonly parameterTemplate!: pulumi.Output<{[key: string]: outputs.omics.WorkflowParameter} | undefined>;
+    /**
+     * The workflow's status.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.omics.WorkflowStatus>;
+    /**
+     * The default storage capacity for the workflow runs, in gibibytes.
+     */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * Tags for the workflow.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The workflow's type.
+     */
     public /*out*/ readonly type!: pulumi.Output<enums.omics.WorkflowType>;
 
     /**
@@ -105,12 +144,36 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowArgs {
     accelerators?: pulumi.Input<enums.omics.WorkflowAccelerators>;
+    /**
+     * The URI of a definition for the workflow.
+     */
     definitionUri?: pulumi.Input<string>;
+    /**
+     * The parameter's description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * An engine for the workflow.
+     */
     engine?: pulumi.Input<enums.omics.WorkflowEngine>;
+    /**
+     * The path of the main definition file for the workflow.
+     */
     main?: pulumi.Input<string>;
+    /**
+     * The workflow's name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The workflow's parameter template.
+     */
     parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowParameterArgs>}>;
+    /**
+     * The default storage capacity for the workflow runs, in gibibytes.
+     */
     storageCapacity?: pulumi.Input<number>;
+    /**
+     * Tags for the workflow.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

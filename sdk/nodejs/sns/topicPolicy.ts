@@ -34,6 +34,9 @@ export class TopicPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicPolicy.__pulumiType;
     }
 
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * A policy document that contains permissions to add to the specified SNS topics.

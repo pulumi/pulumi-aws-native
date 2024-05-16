@@ -148,11 +148,15 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
-	AwsId           pulumi.StringOutput             `pulumi:"awsId"`
-	ChannelName     pulumi.StringPtrOutput          `pulumi:"channelName"`
-	ChannelStorage  ChannelStoragePtrOutput         `pulumi:"channelStorage"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The name of the channel.
+	ChannelName pulumi.StringPtrOutput `pulumi:"channelName"`
+	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	ChannelStorage ChannelStoragePtrOutput `pulumi:"channelStorage"`
+	// How long, in days, message data is kept.
 	RetentionPeriod ChannelRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
-	Tags            aws.TagArrayOutput              `pulumi:"tags"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -199,18 +203,26 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	ChannelName     *string                 `pulumi:"channelName"`
-	ChannelStorage  *ChannelStorage         `pulumi:"channelStorage"`
+	// The name of the channel.
+	ChannelName *string `pulumi:"channelName"`
+	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	ChannelStorage *ChannelStorage `pulumi:"channelStorage"`
+	// How long, in days, message data is kept.
 	RetentionPeriod *ChannelRetentionPeriod `pulumi:"retentionPeriod"`
-	Tags            []aws.Tag               `pulumi:"tags"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	ChannelName     pulumi.StringPtrInput
-	ChannelStorage  ChannelStoragePtrInput
+	// The name of the channel.
+	ChannelName pulumi.StringPtrInput
+	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	ChannelStorage ChannelStoragePtrInput
+	// How long, in days, message data is kept.
 	RetentionPeriod ChannelRetentionPeriodPtrInput
-	Tags            aws.TagArrayInput
+	// A set of key-value pairs that are used to manage the resource.
+	Tags aws.TagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -254,18 +266,22 @@ func (o ChannelOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The name of the channel.
 func (o ChannelOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
 }
 
+// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
 func (o ChannelOutput) ChannelStorage() ChannelStoragePtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelStoragePtrOutput { return v.ChannelStorage }).(ChannelStoragePtrOutput)
 }
 
+// How long, in days, message data is kept.
 func (o ChannelOutput) RetentionPeriod() ChannelRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelRetentionPeriodPtrOutput { return v.RetentionPeriod }).(ChannelRetentionPeriodPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource.
 func (o ChannelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -18,6 +18,8 @@ class VpcEndpointServicePermissionsArgs:
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointServicePermissions resource.
+        :param pulumi.Input[str] service_id: The ID of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_principals: The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
         """
         pulumi.set(__self__, "service_id", service_id)
         if allowed_principals is not None:
@@ -26,6 +28,9 @@ class VpcEndpointServicePermissionsArgs:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the service.
+        """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
@@ -35,6 +40,9 @@ class VpcEndpointServicePermissionsArgs:
     @property
     @pulumi.getter(name="allowedPrincipals")
     def allowed_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        """
         return pulumi.get(self, "allowed_principals")
 
     @allowed_principals.setter
@@ -55,6 +63,8 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_principals: The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        :param pulumi.Input[str] service_id: The ID of the service.
         """
         ...
     @overload
@@ -126,10 +136,16 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedPrincipals")
     def allowed_principals(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        """
         return pulumi.get(self, "allowed_principals")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service.
+        """
         return pulumi.get(self, "service_id")
 

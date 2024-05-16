@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.AppRunner
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+        /// </summary>
         [Output("ingressVpcConfiguration")]
         public Output<Outputs.VpcIngressConnectionIngressVpcConfiguration> IngressVpcConfiguration { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.AppRunner
         [Output("status")]
         public Output<Pulumi.AwsNative.AppRunner.VpcIngressConnectionStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -102,6 +108,9 @@ namespace Pulumi.AwsNative.AppRunner
 
     public sealed class VpcIngressConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+        /// </summary>
         [Input("ingressVpcConfiguration", required: true)]
         public Input<Inputs.VpcIngressConnectionIngressVpcConfigurationArgs> IngressVpcConfiguration { get; set; } = null!;
 
@@ -113,6 +122,10 @@ namespace Pulumi.AwsNative.AppRunner
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

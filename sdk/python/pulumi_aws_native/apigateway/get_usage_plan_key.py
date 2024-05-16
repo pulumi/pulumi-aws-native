@@ -26,6 +26,9 @@ class GetUsagePlanKeyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID for the usage plan key. For example: `abc123` .
+        """
         return pulumi.get(self, "id")
 
 
@@ -42,6 +45,9 @@ def get_usage_plan_key(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsagePlanKeyResult:
     """
     The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
+
+
+    :param str id: The ID for the usage plan key. For example: `abc123` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -57,5 +63,8 @@ def get_usage_plan_key_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsagePlanKeyResult]:
     """
     The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
+
+
+    :param str id: The ID for the usage plan key. For example: `abc123` .
     """
     ...

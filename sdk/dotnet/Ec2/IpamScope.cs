@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the scope.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -115,6 +118,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class IpamScopeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the scope.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

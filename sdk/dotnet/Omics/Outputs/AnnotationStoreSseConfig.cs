@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Omics.Outputs
     [OutputType]
     public sealed class AnnotationStoreSseConfig
     {
+        /// <summary>
+        /// An encryption key ARN.
+        /// </summary>
         public readonly string? KeyArn;
+        /// <summary>
+        /// The encryption type.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.AnnotationStoreEncryptionType Type;
 
         [OutputConstructor]

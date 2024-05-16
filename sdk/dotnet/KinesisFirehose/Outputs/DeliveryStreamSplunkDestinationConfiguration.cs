@@ -13,15 +13,47 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSplunkDestinationConfiguration
     {
+        /// <summary>
+        /// The buffering options. If no value is specified, the default values for Splunk are used.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSplunkBufferingHints? BufferingHints;
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
+        /// </summary>
         public readonly int? HecAcknowledgmentTimeoutInSeconds;
+        /// <summary>
+        /// The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.
+        /// </summary>
         public readonly string HecEndpoint;
+        /// <summary>
+        /// This type can be either `Raw` or `Event` .
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHecEndpointType HecEndpointType;
+        /// <summary>
+        /// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+        /// </summary>
         public readonly string HecToken;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSplunkRetryOptions? RetryOptions;
+        /// <summary>
+        /// Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
+        /// 
+        /// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
+        /// </summary>
         public readonly string? S3BackupMode;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
 
         [OutputConstructor]

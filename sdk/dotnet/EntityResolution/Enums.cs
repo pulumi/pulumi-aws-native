@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.EntityResolution
 {
+    /// <summary>
+    /// The type of ID mapping.
+    /// </summary>
     [EnumType]
     public readonly struct IdMappingWorkflowIdMappingTechniquesIdMappingType : IEquatable<IdMappingWorkflowIdMappingTechniquesIdMappingType>
     {
@@ -34,6 +37,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+    /// 
+    /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+    /// 
+    /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+    /// </summary>
     [EnumType]
     public readonly struct IdMappingWorkflowInputSourceType : IEquatable<IdMappingWorkflowInputSourceType>
     {
@@ -62,6 +72,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of ID mapping.
+    /// </summary>
     [EnumType]
     public readonly struct IdNamespaceIdMappingWorkflowPropertiesIdMappingType : IEquatable<IdNamespaceIdMappingWorkflowPropertiesIdMappingType>
     {
@@ -89,6 +102,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+    /// 
+    /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+    /// 
+    /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+    /// </summary>
     [EnumType]
     public readonly struct IdNamespaceType : IEquatable<IdNamespaceType>
     {
@@ -117,6 +137,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+    /// </summary>
     [EnumType]
     public readonly struct MatchingWorkflowResolutionTechniquesResolutionType : IEquatable<MatchingWorkflowResolutionTechniquesResolutionType>
     {
@@ -146,6 +169,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+    /// </summary>
     [EnumType]
     public readonly struct MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel : IEquatable<MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel>
     {

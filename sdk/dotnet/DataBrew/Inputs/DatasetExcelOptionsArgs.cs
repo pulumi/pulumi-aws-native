@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
     public sealed class DatasetExcelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+        /// </summary>
         [Input("headerRow")]
         public Input<bool>? HeaderRow { get; set; }
 
         [Input("sheetIndexes")]
         private InputList<int>? _sheetIndexes;
+
+        /// <summary>
+        /// One or more sheet numbers in the Excel file that will be included in the dataset.
+        /// </summary>
         public InputList<int> SheetIndexes
         {
             get => _sheetIndexes ?? (_sheetIndexes = new InputList<int>());
@@ -25,6 +32,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
         [Input("sheetNames")]
         private InputList<string>? _sheetNames;
+
+        /// <summary>
+        /// One or more named sheets in the Excel file that will be included in the dataset.
+        /// </summary>
         public InputList<string> SheetNames
         {
             get => _sheetNames ?? (_sheetNames = new InputList<string>());

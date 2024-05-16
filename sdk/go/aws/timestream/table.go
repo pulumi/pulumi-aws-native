@@ -17,6 +17,7 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
+	// The `arn` of the table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name for the database which the table to be created belongs to.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -149,6 +150,7 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+// The `arn` of the table.
 func (o TableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAxisLogarithmicScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The base setup of a logarithmic axis scale.
+        /// </summary>
         [Input("base")]
         public Input<double>? Base { get; set; }
 

@@ -64,7 +64,8 @@ type RegistryPolicy struct {
 	// The JSON policy text for your registry.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
-	PolicyText pulumi.AnyOutput    `pulumi:"policyText"`
+	PolicyText pulumi.AnyOutput `pulumi:"policyText"`
+	// The account ID of the private registry the policy is associated with.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 }
 
@@ -169,6 +170,7 @@ func (o RegistryPolicyOutput) PolicyText() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.AnyOutput { return v.PolicyText }).(pulumi.AnyOutput)
 }
 
+// The account ID of the private registry the policy is associated with.
 func (o RegistryPolicyOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }

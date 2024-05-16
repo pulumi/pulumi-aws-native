@@ -16,10 +16,16 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetProjectArgs {
+    /**
+     * The name of the project.
+     */
     projectName: string;
 }
 
 export interface GetProjectResult {
+    /**
+     * Returns the Amazon Resource Name of the project.
+     */
     readonly arn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetProjectOutputArgs {
+    /**
+     * The name of the project.
+     */
     projectName: pulumi.Input<string>;
 }

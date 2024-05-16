@@ -49,6 +49,9 @@ class GetGraphResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag values to assign to the new behavior graph.
+        """
         return pulumi.get(self, "tags")
 
 

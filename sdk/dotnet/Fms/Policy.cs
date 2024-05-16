@@ -15,51 +15,142 @@ namespace Pulumi.AwsNative.Fms
     [AwsNativeResourceType("aws-native:fms:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the policy.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
+        /// 
+        /// For AWS WAF and Shield Advanced policies, Firewall Manager does the following:
+        /// 
+        /// - Deletes rule groups created by Firewall Manager
+        /// - Removes web ACLs from in-scope resources
+        /// - Deletes web ACLs that contain no rules or rule groups
+        /// 
+        /// For security group policies, Firewall Manager does the following for each security group in the policy:
+        /// 
+        /// - Disassociates the security group from in-scope resources
+        /// - Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
+        /// 
+        /// After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
+        /// </summary>
         [Output("deleteAllPolicyResources")]
         public Output<bool?> DeleteAllPolicyResources { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// 
+        /// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+        /// 
+        /// You can specify account IDs, OUs, or a combination:
+        /// 
+        /// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        /// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// </summary>
         [Output("excludeMap")]
         public Output<Outputs.PolicyIeMap?> ExcludeMap { get; private set; } = null!;
 
+        /// <summary>
+        /// Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
+        /// </summary>
         [Output("excludeResourceTags")]
         public Output<bool> ExcludeResourceTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// 
+        /// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+        /// 
+        /// You can specify account IDs, OUs, or a combination:
+        /// 
+        /// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        /// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// </summary>
         [Output("includeMap")]
         public Output<Outputs.PolicyIeMap?> IncludeMap { get; private set; } = null!;
 
+        /// <summary>
+        /// Your description of the AWS Firewall Manager policy.
+        /// </summary>
         [Output("policyDescription")]
         public Output<string?> PolicyDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the AWS Firewall Manager policy.
+        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates if the policy should be automatically applied to new resources.
+        /// </summary>
         [Output("remediationEnabled")]
         public Output<bool> RemediationEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifiers of the resource sets used by the policy.
+        /// </summary>
         [Output("resourceSetIds")]
         public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
+        /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Outputs.PolicyResourceTag>> ResourceTags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+        /// 
+        /// The following are valid resource types for each Firewall Manager policy type:
+        /// 
+        /// - AWS WAF Classic - `AWS::ApiGateway::Stage` , `AWS::CloudFront::Distribution` , and `AWS::ElasticLoadBalancingV2::LoadBalancer` .
+        /// - AWS WAF - `AWS::ApiGateway::Stage` , `AWS::ElasticLoadBalancingV2::LoadBalancer` , and `AWS::CloudFront::Distribution` .
+        /// - Shield Advanced - `AWS::ElasticLoadBalancingV2::LoadBalancer` , `AWS::ElasticLoadBalancing::LoadBalancer` , `AWS::EC2::EIP` , and `AWS::CloudFront::Distribution` .
+        /// - Network ACL - `AWS::EC2::Subnet` .
+        /// - Security group usage audit - `AWS::EC2::SecurityGroup` .
+        /// - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
+        /// - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
+        /// </summary>
         [Output("resourceType")]
         public Output<string?> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
+        /// </summary>
         [Output("resourceTypeList")]
         public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+        /// 
+        /// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+        /// 
+        /// This option is not available for Shield Advanced or AWS WAF Classic policies.
+        /// </summary>
         [Output("resourcesCleanUp")]
         public Output<bool?> ResourcesCleanUp { get; private set; } = null!;
 
+        /// <summary>
+        /// Details about the security service that is being used to protect the resources.
+        /// </summary>
         [Output("securityServicePolicyData")]
         public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -108,29 +199,83 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
+        /// 
+        /// For AWS WAF and Shield Advanced policies, Firewall Manager does the following:
+        /// 
+        /// - Deletes rule groups created by Firewall Manager
+        /// - Removes web ACLs from in-scope resources
+        /// - Deletes web ACLs that contain no rules or rule groups
+        /// 
+        /// For security group policies, Firewall Manager does the following for each security group in the policy:
+        /// 
+        /// - Disassociates the security group from in-scope resources
+        /// - Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
+        /// 
+        /// After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
+        /// </summary>
         [Input("deleteAllPolicyResources")]
         public Input<bool>? DeleteAllPolicyResources { get; set; }
 
+        /// <summary>
+        /// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// 
+        /// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+        /// 
+        /// You can specify account IDs, OUs, or a combination:
+        /// 
+        /// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        /// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyIeMapArgs>? ExcludeMap { get; set; }
 
+        /// <summary>
+        /// Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
+        /// </summary>
         [Input("excludeResourceTags", required: true)]
         public Input<bool> ExcludeResourceTags { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// 
+        /// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+        /// 
+        /// You can specify account IDs, OUs, or a combination:
+        /// 
+        /// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        /// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIeMapArgs>? IncludeMap { get; set; }
 
+        /// <summary>
+        /// Your description of the AWS Firewall Manager policy.
+        /// </summary>
         [Input("policyDescription")]
         public Input<string>? PolicyDescription { get; set; }
 
+        /// <summary>
+        /// The name of the AWS Firewall Manager policy.
+        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
+        /// <summary>
+        /// Indicates if the policy should be automatically applied to new resources.
+        /// </summary>
         [Input("remediationEnabled", required: true)]
         public Input<bool> RemediationEnabled { get; set; } = null!;
 
         [Input("resourceSetIds")]
         private InputList<string>? _resourceSetIds;
+
+        /// <summary>
+        /// The unique identifiers of the resource sets used by the policy.
+        /// </summary>
         public InputList<string> ResourceSetIds
         {
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
@@ -139,31 +284,66 @@ namespace Pulumi.AwsNative.Fms
 
         [Input("resourceTags")]
         private InputList<Inputs.PolicyResourceTagArgs>? _resourceTags;
+
+        /// <summary>
+        /// The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
+        /// </summary>
         public InputList<Inputs.PolicyResourceTagArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.PolicyResourceTagArgs>());
             set => _resourceTags = value;
         }
 
+        /// <summary>
+        /// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+        /// 
+        /// The following are valid resource types for each Firewall Manager policy type:
+        /// 
+        /// - AWS WAF Classic - `AWS::ApiGateway::Stage` , `AWS::CloudFront::Distribution` , and `AWS::ElasticLoadBalancingV2::LoadBalancer` .
+        /// - AWS WAF - `AWS::ApiGateway::Stage` , `AWS::ElasticLoadBalancingV2::LoadBalancer` , and `AWS::CloudFront::Distribution` .
+        /// - Shield Advanced - `AWS::ElasticLoadBalancingV2::LoadBalancer` , `AWS::ElasticLoadBalancing::LoadBalancer` , `AWS::EC2::EIP` , and `AWS::CloudFront::Distribution` .
+        /// - Network ACL - `AWS::EC2::Subnet` .
+        /// - Security group usage audit - `AWS::EC2::SecurityGroup` .
+        /// - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
+        /// - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
+        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         [Input("resourceTypeList")]
         private InputList<string>? _resourceTypeList;
+
+        /// <summary>
+        /// An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
+        /// </summary>
         public InputList<string> ResourceTypeList
         {
             get => _resourceTypeList ?? (_resourceTypeList = new InputList<string>());
             set => _resourceTypeList = value;
         }
 
+        /// <summary>
+        /// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+        /// 
+        /// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+        /// 
+        /// This option is not available for Shield Advanced or AWS WAF Classic policies.
+        /// </summary>
         [Input("resourcesCleanUp")]
         public Input<bool>? ResourcesCleanUp { get; set; }
 
+        /// <summary>
+        /// Details about the security service that is being used to protect the resources.
+        /// </summary>
         [Input("securityServicePolicyData", required: true)]
         public Input<Inputs.PolicySecurityServicePolicyDataArgs> SecurityServicePolicyData { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

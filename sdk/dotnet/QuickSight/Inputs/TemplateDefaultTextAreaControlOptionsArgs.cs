@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDefaultTextAreaControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The delimiter that is used to separate the lines in text.
+        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.TemplateTextAreaControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 

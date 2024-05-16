@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("permissions")]
         private InputList<Inputs.DashboardResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         public InputList<Inputs.DashboardResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.DashboardResourcePermissionArgs>());

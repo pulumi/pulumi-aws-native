@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationServiceNowSourceProperties
     {
+        /// <summary>
+        /// The object specified in the ServiceNow flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

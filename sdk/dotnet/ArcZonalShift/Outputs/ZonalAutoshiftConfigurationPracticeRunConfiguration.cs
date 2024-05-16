@@ -13,9 +13,29 @@ namespace Pulumi.AwsNative.ArcZonalShift.Outputs
     [OutputType]
     public sealed class ZonalAutoshiftConfigurationPracticeRunConfiguration
     {
+        /// <summary>
+        /// An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+        /// 
+        /// Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+        /// </summary>
         public readonly ImmutableArray<string> BlockedDates;
+        /// <summary>
+        /// An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+        /// 
+        /// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+        /// </summary>
         public readonly ImmutableArray<string> BlockedWindows;
+        /// <summary>
+        /// A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an *outcome alarm* , to monitor application health during practice runs and, optionally, a *blocking alarm* , to block practice runs from starting or to interrupt a practice run in progress.
+        /// 
+        /// Control condition alarms do not apply for autoshifts.
+        /// 
+        /// For more information, see [Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html) in the Route 53 ARC Developer Guide.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ZonalAutoshiftConfigurationControlCondition> BlockingAlarms;
+        /// <summary>
+        /// The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.ZonalAutoshiftConfigurationControlCondition> OutcomeAlarms;
 
         [OutputConstructor]

@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCustomContentVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration of a `CustomContentVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisCustomContentConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        /// </summary>
         public readonly string DataSetIdentifier;
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

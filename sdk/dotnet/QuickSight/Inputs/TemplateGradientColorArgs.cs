@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("stops")]
         private InputList<Inputs.TemplateGradientStopArgs>? _stops;
+
+        /// <summary>
+        /// Determines the gradient stop configuration.
+        /// </summary>
         public InputList<Inputs.TemplateGradientStopArgs> Stops
         {
             get => _stops ?? (_stops = new InputList<Inputs.TemplateGradientStopArgs>());

@@ -13,14 +13,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardNumericEqualityFilter
     {
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The match operator that is used to determine if a filter should be applied.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardNumericEqualityMatchOperator MatchOperator;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardFilterNullOption NullOption;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardNumericFilterSelectAllOptions? SelectAllOptions;
+        /// <summary>
+        /// The input value.
+        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

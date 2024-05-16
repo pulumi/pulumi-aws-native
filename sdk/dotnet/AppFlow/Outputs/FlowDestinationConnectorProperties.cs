@@ -16,16 +16,49 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationConnectorProperties
     {
+        /// <summary>
+        /// The properties that are applied when the custom connector is being used as a destination.
+        /// </summary>
         public readonly Outputs.FlowCustomConnectorDestinationProperties? CustomConnector;
+        /// <summary>
+        /// The properties that are applied when Amazon EventBridge is being used as a destination.
+        /// </summary>
         public readonly Outputs.FlowEventBridgeDestinationProperties? EventBridge;
+        /// <summary>
+        /// The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+        /// </summary>
         public readonly Outputs.FlowLookoutMetricsDestinationProperties? LookoutMetrics;
+        /// <summary>
+        /// The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+        /// </summary>
         public readonly Outputs.FlowMarketoDestinationProperties? Marketo;
+        /// <summary>
+        /// The properties that are applied when Amazon Redshift is being used as a destination.
+        /// </summary>
         public readonly Outputs.FlowRedshiftDestinationProperties? Redshift;
+        /// <summary>
+        /// The properties that are applied when Amazon S3 is used as a destination.
+        /// </summary>
         public readonly Outputs.FlowS3DestinationProperties? S3;
+        /// <summary>
+        /// The properties that are applied when Salesforce is being used as a destination.
+        /// </summary>
         public readonly Outputs.FlowSalesforceDestinationProperties? Salesforce;
+        /// <summary>
+        /// The properties that are applied when using SAPOData as a flow destination
+        /// </summary>
         public readonly Outputs.FlowSapoDataDestinationProperties? SapoData;
+        /// <summary>
+        /// The properties that are applied when Snowflake is being used as a destination.
+        /// </summary>
         public readonly Outputs.FlowSnowflakeDestinationProperties? Snowflake;
+        /// <summary>
+        /// The properties that are applied when Upsolver is used as a destination.
+        /// </summary>
         public readonly Outputs.FlowUpsolverDestinationProperties? Upsolver;
+        /// <summary>
+        /// The properties that are applied when Zendesk is used as a destination.
+        /// </summary>
         public readonly Outputs.FlowZendeskDestinationProperties? Zendesk;
 
         [OutputConstructor]

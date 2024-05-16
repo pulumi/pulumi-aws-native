@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleMonitoringOutput
     {
+        /// <summary>
+        /// Information about where and how you want to store the results of a monitoring job.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleS3Output S3Output;
 
         [OutputConstructor]

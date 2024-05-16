@@ -345,6 +345,9 @@ class DomainUserSettingsStudioWebPortal(str, Enum):
 
 
 class FeatureGroupFeatureDefinitionFeatureType(str, Enum):
+    """
+    The value type of a feature. Valid values are Integral, Fractional, or String.
+    """
     INTEGRAL = "Integral"
     FRACTIONAL = "Fractional"
     STRING = "String"
@@ -932,6 +935,9 @@ class SpaceResourceSpecInstanceType(str, Enum):
 
 
 class SpaceSharingSettingsSharingType(str, Enum):
+    """
+    Specifies the sharing type of the space.
+    """
     PRIVATE = "Private"
     SHARED = "Shared"
 

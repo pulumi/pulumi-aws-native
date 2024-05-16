@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.DeviceFarm
     [AwsNativeResourceType("aws-native:devicefarm:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        /// </summary>
         [Output("defaultJobTimeoutMinutes")]
         public Output<int?> DefaultJobTimeoutMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// The project's name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC security groups and subnets that are attached to a project.
+        /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.ProjectVpcConfig?> VpcConfig { get; private set; } = null!;
 
@@ -75,20 +90,33 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        /// </summary>
         [Input("defaultJobTimeoutMinutes")]
         public Input<int>? DefaultJobTimeoutMinutes { get; set; }
 
+        /// <summary>
+        /// The project's name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The VPC security groups and subnets that are attached to a project.
+        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ProjectVpcConfigArgs>? VpcConfig { get; set; }
 

@@ -37,20 +37,60 @@ export class EmailIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentity.__pulumiType;
     }
 
+    /**
+     * Used to associate a configuration set with an email identity.
+     */
     public readonly configurationSetAttributes!: pulumi.Output<outputs.ses.EmailIdentityConfigurationSetAttributes | undefined>;
+    /**
+     * Used to enable or disable DKIM authentication for an email identity.
+     */
     public readonly dkimAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimAttributes | undefined>;
+    /**
+     * The host name for the first token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenName1!: pulumi.Output<string>;
+    /**
+     * The host name for the second token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenName2!: pulumi.Output<string>;
+    /**
+     * The host name for the third token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenName3!: pulumi.Output<string>;
+    /**
+     * The record value for the first token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenValue1!: pulumi.Output<string>;
+    /**
+     * The record value for the second token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenValue2!: pulumi.Output<string>;
+    /**
+     * The record value for the third token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenValue3!: pulumi.Output<string>;
+    /**
+     * Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+     *
+     * - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+     * - Update the key length that should be used for Easy DKIM.
+     * - Change from using no DKIM authentication to using Easy DKIM.
+     * - Change from using no DKIM authentication to using BYODKIM.
+     * - Change from using Easy DKIM to using BYODKIM.
+     * - Change from using BYODKIM to using Easy DKIM.
+     */
     public readonly dkimSigningAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
      */
     public readonly emailIdentity!: pulumi.Output<string>;
+    /**
+     * Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+     */
     public readonly feedbackAttributes!: pulumi.Output<outputs.ses.EmailIdentityFeedbackAttributes | undefined>;
+    /**
+     * Used to enable or disable the custom Mail-From domain configuration for an email identity.
+     */
     public readonly mailFromAttributes!: pulumi.Output<outputs.ses.EmailIdentityMailFromAttributes | undefined>;
 
     /**
@@ -104,13 +144,35 @@ export class EmailIdentity extends pulumi.CustomResource {
  * The set of arguments for constructing a EmailIdentity resource.
  */
 export interface EmailIdentityArgs {
+    /**
+     * Used to associate a configuration set with an email identity.
+     */
     configurationSetAttributes?: pulumi.Input<inputs.ses.EmailIdentityConfigurationSetAttributesArgs>;
+    /**
+     * Used to enable or disable DKIM authentication for an email identity.
+     */
     dkimAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimAttributesArgs>;
+    /**
+     * Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+     *
+     * - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+     * - Update the key length that should be used for Easy DKIM.
+     * - Change from using no DKIM authentication to using Easy DKIM.
+     * - Change from using no DKIM authentication to using BYODKIM.
+     * - Change from using Easy DKIM to using BYODKIM.
+     * - Change from using BYODKIM to using Easy DKIM.
+     */
     dkimSigningAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimSigningAttributesArgs>;
     /**
      * The email address or domain to verify.
      */
     emailIdentity: pulumi.Input<string>;
+    /**
+     * Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+     */
     feedbackAttributes?: pulumi.Input<inputs.ses.EmailIdentityFeedbackAttributesArgs>;
+    /**
+     * Used to enable or disable the custom Mail-From domain configuration for an email identity.
+     */
     mailFromAttributes?: pulumi.Input<inputs.ses.EmailIdentityMailFromAttributesArgs>;
 }

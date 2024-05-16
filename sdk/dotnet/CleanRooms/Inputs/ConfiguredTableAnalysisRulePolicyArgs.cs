@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class ConfiguredTableAnalysisRulePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Controls on the query specifications that can be run on a configured table.
+        /// </summary>
         [Input("v1", required: true)]
         public object V1 { get; set; } = null!;
 

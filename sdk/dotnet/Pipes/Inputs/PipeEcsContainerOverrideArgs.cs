@@ -14,17 +14,28 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     {
         [Input("command")]
         private InputList<string>? _command;
+
+        /// <summary>
+        /// The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+        /// </summary>
         public InputList<string> Command
         {
             get => _command ?? (_command = new InputList<string>());
             set => _command = value;
         }
 
+        /// <summary>
+        /// The number of `cpu` units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
         [Input("environment")]
         private InputList<Inputs.PipeEcsEnvironmentVariableArgs>? _environment;
+
+        /// <summary>
+        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
+        /// </summary>
         public InputList<Inputs.PipeEcsEnvironmentVariableArgs> Environment
         {
             get => _environment ?? (_environment = new InputList<Inputs.PipeEcsEnvironmentVariableArgs>());
@@ -33,23 +44,47 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
         [Input("environmentFiles")]
         private InputList<Inputs.PipeEcsEnvironmentFileArgs>? _environmentFiles;
+
+        /// <summary>
+        /// A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/) .
+        /// 
+        /// If there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// 
+        /// This parameter is only supported for tasks hosted on Fargate using the following platform versions:
+        /// 
+        /// - Linux platform version `1.4.0` or later.
+        /// - Windows platform version `1.0.0` or later.
+        /// </summary>
         public InputList<Inputs.PipeEcsEnvironmentFileArgs> EnvironmentFiles
         {
             get => _environmentFiles ?? (_environmentFiles = new InputList<Inputs.PipeEcsEnvironmentFileArgs>());
             set => _environmentFiles = value;
         }
 
+        /// <summary>
+        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
+        /// <summary>
+        /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// </summary>
         [Input("memoryReservation")]
         public Input<int>? MemoryReservation { get; set; }
 
+        /// <summary>
+        /// The name of the container that receives the override. This parameter is required if any override is specified.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("resourceRequirements")]
         private InputList<Inputs.PipeEcsResourceRequirementArgs>? _resourceRequirements;
+
+        /// <summary>
+        /// The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+        /// </summary>
         public InputList<Inputs.PipeEcsResourceRequirementArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.PipeEcsResourceRequirementArgs>());

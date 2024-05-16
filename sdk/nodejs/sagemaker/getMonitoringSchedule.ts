@@ -30,6 +30,9 @@ export interface GetMonitoringScheduleResult {
      * The time at which the schedule was created.
      */
     readonly creationTime?: string;
+    /**
+     * The name of the endpoint using the monitoring schedule.
+     */
     readonly endpointName?: string;
     /**
      * Contains the reason a monitoring job failed, if it failed.
@@ -47,6 +50,9 @@ export interface GetMonitoringScheduleResult {
      * The Amazon Resource Name (ARN) of the monitoring schedule.
      */
     readonly monitoringScheduleArn?: string;
+    /**
+     * Configures the monitoring schedule and defines the monitoring job.
+     */
     readonly monitoringScheduleConfig?: outputs.sagemaker.MonitoringScheduleConfig;
     /**
      * The status of a schedule job.

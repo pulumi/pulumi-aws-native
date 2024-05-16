@@ -23,20 +23,59 @@ export interface GetJobDefinitionArgs {
 }
 
 export interface GetJobDefinitionResult {
+    /**
+     * Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+     */
     readonly containerProperties?: outputs.batch.JobDefinitionContainerProperties;
+    /**
+     * An object that contains the properties for the Amazon ECS resources of a job.
+     */
     readonly ecsProperties?: outputs.batch.JobDefinitionEcsProperties;
+    /**
+     * An object that contains the properties for the Kubernetes resources of a job.
+     */
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
     readonly id?: string;
+    /**
+     * An object that represents the node properties of a multi-node parallel job.
+     *
+     * > Node properties can't be specified for Amazon EKS based job definitions.
+     */
     readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;
     /**
+     * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
     readonly parameters?: any;
+    /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+     */
     readonly platformCapabilities?: string[];
+    /**
+     * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+     */
     readonly propagateTags?: boolean;
+    /**
+     * The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+     */
     readonly retryStrategy?: outputs.batch.JobDefinitionRetryStrategy;
+    /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+     */
     readonly schedulingPriority?: number;
+    /**
+     * An object that represents a job timeout configuration.
+     */
     readonly timeout?: outputs.batch.JobDefinitionTimeout;
+    /**
+     * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+     *
+     * - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+     * - If the value is `multinode` , then `nodeProperties` is required.
+     *
+     * > If the job is run on Fargate resources, then `multinode` isn't supported.
+     */
     readonly type?: string;
 }
 /**

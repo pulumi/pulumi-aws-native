@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class ConfiguredTableTableReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A reference to a table within an AWS Glue data catalog.
+        /// </summary>
         [Input("glue", required: true)]
         public Input<Inputs.ConfiguredTableGlueTableReferenceArgs> Glue { get; set; } = null!;
 

@@ -26,16 +26,56 @@ export interface GetEmailIdentityArgs {
 }
 
 export interface GetEmailIdentityResult {
+    /**
+     * Used to associate a configuration set with an email identity.
+     */
     readonly configurationSetAttributes?: outputs.ses.EmailIdentityConfigurationSetAttributes;
+    /**
+     * Used to enable or disable DKIM authentication for an email identity.
+     */
     readonly dkimAttributes?: outputs.ses.EmailIdentityDkimAttributes;
+    /**
+     * The host name for the first token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenName1?: string;
+    /**
+     * The host name for the second token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenName2?: string;
+    /**
+     * The host name for the third token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenName3?: string;
+    /**
+     * The record value for the first token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenValue1?: string;
+    /**
+     * The record value for the second token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenValue2?: string;
+    /**
+     * The record value for the third token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenValue3?: string;
+    /**
+     * Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+     *
+     * - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+     * - Update the key length that should be used for Easy DKIM.
+     * - Change from using no DKIM authentication to using Easy DKIM.
+     * - Change from using no DKIM authentication to using BYODKIM.
+     * - Change from using Easy DKIM to using BYODKIM.
+     * - Change from using BYODKIM to using Easy DKIM.
+     */
     readonly dkimSigningAttributes?: outputs.ses.EmailIdentityDkimSigningAttributes;
+    /**
+     * Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+     */
     readonly feedbackAttributes?: outputs.ses.EmailIdentityFeedbackAttributes;
+    /**
+     * Used to enable or disable the custom Mail-From domain configuration for an email identity.
+     */
     readonly mailFromAttributes?: outputs.ses.EmailIdentityMailFromAttributes;
 }
 /**

@@ -24,16 +24,25 @@ func LookupDevicePool(ctx *pulumi.Context, args *LookupDevicePoolArgs, opts ...p
 }
 
 type LookupDevicePoolArgs struct {
+	// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupDevicePoolResult struct {
-	Arn         *string          `pulumi:"arn"`
-	Description *string          `pulumi:"description"`
-	MaxDevices  *int             `pulumi:"maxDevices"`
-	Name        *string          `pulumi:"name"`
-	Rules       []DevicePoolRule `pulumi:"rules"`
-	Tags        []aws.Tag        `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn *string `pulumi:"arn"`
+	// The device pool's description.
+	Description *string `pulumi:"description"`
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices *int `pulumi:"maxDevices"`
+	// The device pool's name.
+	Name *string `pulumi:"name"`
+	// Represents a condition for a device pool.
+	Rules []DevicePoolRule `pulumi:"rules"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDevicePoolOutput(ctx *pulumi.Context, args LookupDevicePoolOutputArgs, opts ...pulumi.InvokeOption) LookupDevicePoolResultOutput {
@@ -50,6 +59,7 @@ func LookupDevicePoolOutput(ctx *pulumi.Context, args LookupDevicePoolOutputArgs
 }
 
 type LookupDevicePoolOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,26 +81,34 @@ func (o LookupDevicePoolResultOutput) ToLookupDevicePoolResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o LookupDevicePoolResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The device pool's description.
 func (o LookupDevicePoolResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+//
+// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
 func (o LookupDevicePoolResultOutput) MaxDevices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) *int { return v.MaxDevices }).(pulumi.IntPtrOutput)
 }
 
+// The device pool's name.
 func (o LookupDevicePoolResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Represents a condition for a device pool.
 func (o LookupDevicePoolResultOutput) Rules() DevicePoolRuleArrayOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) []DevicePoolRule { return v.Rules }).(DevicePoolRuleArrayOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o LookupDevicePoolResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.IoT
     public sealed class GetSoftwarePackageResult
     {
         public readonly string? Description;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the package.
+        /// </summary>
         public readonly string? PackageArn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

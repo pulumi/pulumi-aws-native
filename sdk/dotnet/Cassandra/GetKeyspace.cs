@@ -57,6 +57,13 @@ namespace Pulumi.AwsNative.Cassandra
     [OutputType]
     public sealed class GetKeyspaceResult
     {
+        /// <summary>
+        /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+        /// 
+        /// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
+        /// 
+        /// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -50,31 +50,55 @@ class GetPlaceIndexResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional['outputs.PlaceIndexDataSourceConfiguration']:
+        """
+        Specifies the data storage option requesting Places.
+        """
         return pulumi.get(self, "data_source_configuration")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The optional description for the place index resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> Optional[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+        """
         return pulumi.get(self, "index_arn")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> Optional['PlaceIndexPricingPlan']:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @property
@@ -88,6 +112,9 @@ class GetPlaceIndexResult:
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -111,6 +138,15 @@ def get_place_index(index_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlaceIndexResult:
     """
     Definition of AWS::Location::PlaceIndex Resource Type
+
+
+    :param str index_name: The name of the place index resource.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique place index resource name.
+           - No spaces allowed. For example, `ExamplePlaceIndex` .
     """
     __args__ = dict()
     __args__['indexName'] = index_name
@@ -133,5 +169,14 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
     Definition of AWS::Location::PlaceIndex Resource Type
+
+
+    :param str index_name: The name of the place index resource.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique place index resource name.
+           - No spaces allowed. For example, `ExamplePlaceIndex` .
     """
     ...

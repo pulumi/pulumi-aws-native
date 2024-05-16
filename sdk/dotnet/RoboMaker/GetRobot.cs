@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.RoboMaker
     [OutputType]
     public sealed class GetRobotResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the robot.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

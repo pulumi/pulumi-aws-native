@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamCopyCommand
     {
+        /// <summary>
+        /// Parameters to use with the Amazon Redshift `COPY` command. For examples, see the `CopyOptions` content for the [CopyCommand](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        /// </summary>
         public readonly string? CopyOptions;
+        /// <summary>
+        /// A comma-separated list of column names.
+        /// </summary>
         public readonly string? DataTableColumns;
+        /// <summary>
+        /// The name of the target table. The table must already exist in the database.
+        /// </summary>
         public readonly string DataTableName;
 
         [OutputConstructor]

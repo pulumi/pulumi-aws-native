@@ -34,11 +34,29 @@ export class MeteredProduct extends pulumi.CustomResource {
         return obj['__pulumiType'] === MeteredProduct.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the metered product.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The family to which the metered product belongs.
+     */
     public readonly family!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon EC2 identifier of the license endpoint.
+     */
     public readonly licenseEndpointId!: pulumi.Output<string | undefined>;
+    /**
+     * The port on which the metered product should run.
+     */
     public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * The product ID.
+     */
     public readonly productId!: pulumi.Output<string | undefined>;
+    /**
+     * The vendor.
+     */
     public readonly vendor!: pulumi.Output<string | undefined>;
 
     /**
@@ -77,9 +95,24 @@ export class MeteredProduct extends pulumi.CustomResource {
  * The set of arguments for constructing a MeteredProduct resource.
  */
 export interface MeteredProductArgs {
+    /**
+     * The family to which the metered product belongs.
+     */
     family?: pulumi.Input<string>;
+    /**
+     * The Amazon EC2 identifier of the license endpoint.
+     */
     licenseEndpointId?: pulumi.Input<string>;
+    /**
+     * The port on which the metered product should run.
+     */
     port?: pulumi.Input<number>;
+    /**
+     * The product ID.
+     */
     productId?: pulumi.Input<string>;
+    /**
+     * The vendor.
+     */
     vendor?: pulumi.Input<string>;
 }

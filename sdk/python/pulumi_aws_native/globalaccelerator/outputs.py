@@ -44,6 +44,10 @@ class CrossAccountAttachmentResource(dict):
                  region: Optional[str] = None):
         """
         ARN of resource to share.
+        :param str endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
+               
+               An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+        :param str region: The AWS Region where a shared endpoint resource is located.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         if region is not None:
@@ -52,11 +56,19 @@ class CrossAccountAttachmentResource(dict):
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> str:
+        """
+        The endpoint ID for the endpoint that is specified as a AWS resource.
+
+        An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        The AWS Region where a shared endpoint resource is located.
+        """
         return pulumi.get(self, "region")
 
 
@@ -168,6 +180,8 @@ class EndpointGroupPortOverride(dict):
                  listener_port: int):
         """
         listener to endpoint port mapping.
+        :param int endpoint_port: The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        :param int listener_port: The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
         """
         pulumi.set(__self__, "endpoint_port", endpoint_port)
         pulumi.set(__self__, "listener_port", listener_port)
@@ -175,11 +189,17 @@ class EndpointGroupPortOverride(dict):
     @property
     @pulumi.getter(name="endpointPort")
     def endpoint_port(self) -> int:
+        """
+        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        """
         return pulumi.get(self, "endpoint_port")
 
     @property
     @pulumi.getter(name="listenerPort")
     def listener_port(self) -> int:
+        """
+        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+        """
         return pulumi.get(self, "listener_port")
 
 
@@ -212,6 +232,8 @@ class ListenerPortRange(dict):
                  to_port: int):
         """
         A port range to support for connections from  clients to your accelerator.
+        :param int from_port: The first port in the range of ports, inclusive.
+        :param int to_port: The last port in the range of ports, inclusive.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
@@ -219,11 +241,17 @@ class ListenerPortRange(dict):
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
+        """
+        The first port in the range of ports, inclusive.
+        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
+        """
+        The last port in the range of ports, inclusive.
+        """
         return pulumi.get(self, "to_port")
 
 

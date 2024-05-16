@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetPublicKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the public key.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetPublicKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the public key.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetPublicKeyResult
     {
+        /// <summary>
+        /// The date and time when the public key was uploaded.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The identifier of the public key.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        /// </summary>
         public readonly Outputs.PublicKeyConfig? PublicKeyConfig;
 
         [OutputConstructor]

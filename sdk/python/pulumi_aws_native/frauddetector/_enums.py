@@ -21,10 +21,22 @@ __all__ = [
 
 
 class DetectorEventVariableDataSource(str, Enum):
+    """
+    The data source of the event variable.
+
+    Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+
+    When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+    """
     EVENT = "EVENT"
 
 
 class DetectorEventVariableDataType(str, Enum):
+    """
+    The data type of the event variable.
+
+    Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+    """
     STRING = "STRING"
     INTEGER = "INTEGER"
     FLOAT = "FLOAT"
@@ -32,6 +44,9 @@ class DetectorEventVariableDataType(str, Enum):
 
 
 class DetectorEventVariableVariableType(str, Enum):
+    """
+    The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+    """
     AUTH_CODE = "AUTH_CODE"
     AVS = "AVS"
     BILLING_ADDRESS_L1 = "BILLING_ADDRESS_L1"
@@ -68,11 +83,27 @@ class DetectorEventVariableVariableType(str, Enum):
 
 
 class DetectorRuleExecutionMode(str, Enum):
+    """
+    The rule execution mode for the rules included in the detector version.
+
+    Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+
+    You can define and edit the rule mode at the detector version level, when it is in draft status.
+
+    If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+
+    If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+    """
     FIRST_MATCHED = "FIRST_MATCHED"
     ALL_MATCHED = "ALL_MATCHED"
 
 
 class DetectorRuleLanguage(str, Enum):
+    """
+    The rule language.
+
+    Valid Value: DETECTORPL
+    """
     DETECTORPL = "DETECTORPL"
 
 
@@ -85,10 +116,20 @@ class DetectorVersionStatus(str, Enum):
 
 
 class EventTypeEventVariableDataSource(str, Enum):
+    """
+    The source of the event variable.
+
+    Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+
+    When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+    """
     EVENT = "EVENT"
 
 
 class EventTypeEventVariableDataType(str, Enum):
+    """
+    The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+    """
     STRING = "STRING"
     INTEGER = "INTEGER"
     FLOAT = "FLOAT"
@@ -96,6 +137,9 @@ class EventTypeEventVariableDataType(str, Enum):
 
 
 class EventTypeEventVariableVariableType(str, Enum):
+    """
+    The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
+    """
     AUTH_CODE = "AUTH_CODE"
     AVS = "AVS"
     BILLING_ADDRESS_L1 = "BILLING_ADDRESS_L1"

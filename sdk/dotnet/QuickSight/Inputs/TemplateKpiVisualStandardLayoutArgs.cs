@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateKpiVisualStandardLayoutArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The standard layout type.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateKpiVisualStandardLayoutType> Type { get; set; } = null!;
 

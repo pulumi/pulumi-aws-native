@@ -73,6 +73,10 @@ def get_live_source(live_source_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveSourceResult:
     """
     Definition of AWS::MediaTailor::LiveSource Resource Type
+
+
+    :param str live_source_name: The name that's used to refer to a live source.
+    :param str source_location_name: The name of the source location.
     """
     __args__ = dict()
     __args__['liveSourceName'] = live_source_name
@@ -92,5 +96,9 @@ def get_live_source_output(live_source_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveSourceResult]:
     """
     Definition of AWS::MediaTailor::LiveSource Resource Type
+
+
+    :param str live_source_name: The name that's used to refer to a live source.
+    :param str source_location_name: The name of the source location.
     """
     ...

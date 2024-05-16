@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the application.
+        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("resource")]
         public Output<string> Resource { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the resource.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 

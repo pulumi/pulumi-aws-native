@@ -23,16 +23,52 @@ export interface GetIdentityPoolArgs {
 }
 
 export interface GetIdentityPoolResult {
+    /**
+     * Enables the Basic (Classic) authentication flow.
+     */
     readonly allowClassicFlow?: boolean;
+    /**
+     * Specifies whether the identity pool supports unauthenticated logins.
+     */
     readonly allowUnauthenticatedIdentities?: boolean;
+    /**
+     * `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+     */
     readonly cognitoIdentityProviders?: outputs.cognito.IdentityPoolCognitoIdentityProvider[];
+    /**
+     * The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
+     *
+     * *Minimum length* : 1
+     *
+     * *Maximum length* : 100
+     */
     readonly developerProviderName?: string;
     readonly id?: string;
+    /**
+     * The name of your Amazon Cognito identity pool.
+     *
+     * *Minimum length* : 1
+     *
+     * *Maximum length* : 128
+     *
+     * *Pattern* : `[\w\s+=,.@-]+`
+     */
     readonly identityPoolName?: string;
+    /**
+     * The name of the Amazon Cognito identity pool, returned as a string.
+     */
     readonly name?: string;
+    /**
+     * The Amazon Resource Names (ARNs) of the OpenID connect providers.
+     */
     readonly openIdConnectProviderArns?: string[];
+    /**
+     * The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
+     */
     readonly samlProviderArns?: string[];
     /**
+     * Key-value pairs that map provider names to provider app IDs.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
      */
     readonly supportedLoginProviders?: any;

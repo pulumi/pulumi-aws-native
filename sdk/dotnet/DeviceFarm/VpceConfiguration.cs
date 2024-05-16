@@ -15,21 +15,41 @@ namespace Pulumi.AwsNative.DeviceFarm
     [AwsNativeResourceType("aws-native:devicefarm:VpceConfiguration")]
     public partial class VpceConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS name that Device Farm will use to map to the private service you want to access.
+        /// </summary>
         [Output("serviceDnsName")]
         public Output<string> ServiceDnsName { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description that provides details about your VPC endpoint configuration.
+        /// </summary>
         [Output("vpceConfigurationDescription")]
         public Output<string?> VpceConfigurationDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        /// </summary>
         [Output("vpceConfigurationName")]
         public Output<string> VpceConfigurationName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the VPC endpoint service that you want to access from Device Farm.
+        /// 
+        /// The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        /// </summary>
         [Output("vpceServiceName")]
         public Output<string> VpceServiceName { get; private set; } = null!;
 
@@ -78,23 +98,41 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class VpceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS name that Device Farm will use to map to the private service you want to access.
+        /// </summary>
         [Input("serviceDnsName", required: true)]
         public Input<string> ServiceDnsName { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// An optional description that provides details about your VPC endpoint configuration.
+        /// </summary>
         [Input("vpceConfigurationDescription")]
         public Input<string>? VpceConfigurationDescription { get; set; }
 
+        /// <summary>
+        /// The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        /// </summary>
         [Input("vpceConfigurationName")]
         public Input<string>? VpceConfigurationName { get; set; }
 
+        /// <summary>
+        /// The name of the VPC endpoint service that you want to access from Device Farm.
+        /// 
+        /// The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        /// </summary>
         [Input("vpceServiceName", required: true)]
         public Input<string> VpceServiceName { get; set; } = null!;
 

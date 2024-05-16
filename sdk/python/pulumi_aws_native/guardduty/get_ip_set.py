@@ -41,16 +41,29 @@ class GetIpSetResult:
     @property
     @pulumi.getter
     def location(self) -> Optional[str]:
+        """
+        The URI of the file that contains the IPSet.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The user-friendly name to identify the IPSet.
+
+        Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -71,6 +84,9 @@ def get_ip_set(detector_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpSetResult:
     """
     Resource Type definition for AWS::GuardDuty::IPSet
+
+
+    :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
@@ -91,5 +107,8 @@ def get_ip_set_output(detector_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Resource Type definition for AWS::GuardDuty::IPSet
+
+
+    :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
     """
     ...

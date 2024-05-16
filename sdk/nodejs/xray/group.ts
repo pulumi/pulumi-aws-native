@@ -83,7 +83,13 @@ export class Group extends pulumi.CustomResource {
      * The case-sensitive name of the new group. Names must be unique.
      */
     public readonly groupName!: pulumi.Output<string>;
+    /**
+     * The structure containing configurations related to insights.
+     */
     public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -126,6 +132,12 @@ export interface GroupArgs {
      * The case-sensitive name of the new group. Names must be unique.
      */
     groupName?: pulumi.Input<string>;
+    /**
+     * The structure containing configurations related to insights.
+     */
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfigurationArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

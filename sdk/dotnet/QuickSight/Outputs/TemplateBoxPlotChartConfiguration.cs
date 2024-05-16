@@ -13,16 +13,51 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBoxPlotChartConfiguration
     {
+        /// <summary>
+        /// The options of a box plot visual.
+        /// </summary>
         public readonly Outputs.TemplateBoxPlotOptions? BoxPlotOptions;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of a `BoxPlotVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateBoxPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The sort configuration of a `BoxPlotVisual` .
+        /// </summary>
         public readonly Outputs.TemplateBoxPlotSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 
         [OutputConstructor]

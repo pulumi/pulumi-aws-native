@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        /// </summary>
         [Input("templateId", required: true)]
         public string TemplateId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        /// </summary>
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 
@@ -69,9 +81,21 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;Time when this was last updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// A display name for the template.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Permission for the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateResourcePermission> Permissions;
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// A version of a template.
+        /// </summary>
         public readonly Outputs.TemplateVersion? Version;
 
         [OutputConstructor]

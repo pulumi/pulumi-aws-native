@@ -37,6 +37,9 @@ export class EventInvokeConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventInvokeConfig.__pulumiType;
     }
 
+    /**
+     * A configuration object that specifies the destination of an event after Lambda processes it.
+     */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventInvokeConfigDestinationConfig | undefined>;
     /**
      * The name of the Lambda function.
@@ -95,6 +98,9 @@ export class EventInvokeConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a EventInvokeConfig resource.
  */
 export interface EventInvokeConfigArgs {
+    /**
+     * A configuration object that specifies the destination of an event after Lambda processes it.
+     */
     destinationConfig?: pulumi.Input<inputs.lambda.EventInvokeConfigDestinationConfigArgs>;
     /**
      * The name of the Lambda function.

@@ -19,10 +19,16 @@ export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetDatasetArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the dataset.
+     */
     arn: string;
 }
 
 export interface GetDatasetResult {
+    /**
+     * The Amazon Resource Name (ARN) of the dataset.
+     */
     readonly arn?: string;
     /**
      * Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
@@ -36,8 +42,19 @@ export interface GetDatasetResult {
      * The domain associated with the dataset
      */
     readonly domain?: enums.forecast.DatasetDomain;
+    /**
+     * A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+     */
     readonly encryptionConfig?: outputs.forecast.EncryptionConfigProperties;
+    /**
+     * The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+     */
     readonly schema?: outputs.forecast.SchemaProperties;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -48,5 +65,8 @@ export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetDatasetOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the dataset.
+     */
     arn: pulumi.Input<string>;
 }

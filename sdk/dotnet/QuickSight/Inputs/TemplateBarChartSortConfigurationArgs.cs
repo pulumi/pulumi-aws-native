@@ -12,33 +12,54 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateBarChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The field sort options in a chart configuration.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }
 
         [Input("colorSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _colorSort;
+
+        /// <summary>
+        /// The sort configuration of color fields in a bar chart.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> ColorSort
         {
             get => _colorSort ?? (_colorSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());
             set => _colorSort = value;
         }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }
 
         [Input("smallMultiplesSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _smallMultiplesSort;
+
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> SmallMultiplesSort
         {
             get => _smallMultiplesSort ?? (_smallMultiplesSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());

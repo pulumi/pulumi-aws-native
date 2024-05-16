@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFilledMapConditionalFormattingOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The conditional formatting that determines the shape of the filled map.
+        /// </summary>
         [Input("shape", required: true)]
         public Input<Inputs.TemplateFilledMapShapeConditionalFormattingArgs> Shape { get; set; } = null!;
 

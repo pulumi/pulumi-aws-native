@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcPeeringConnectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the peering connection.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcPeeringConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the peering connection.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcPeeringConnectionResult
     {
+        /// <summary>
+        /// The ID of the peering connection.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

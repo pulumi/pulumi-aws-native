@@ -23,10 +23,12 @@ func LookupDirectoryRegistration(ctx *pulumi.Context, args *LookupDirectoryRegis
 }
 
 type LookupDirectoryRegistrationArgs struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn string `pulumi:"directoryRegistrationArn"`
 }
 
 type LookupDirectoryRegistrationResult struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn *string `pulumi:"directoryRegistrationArn"`
 }
 
@@ -44,6 +46,7 @@ func LookupDirectoryRegistrationOutput(ctx *pulumi.Context, args LookupDirectory
 }
 
 type LookupDirectoryRegistrationOutputArgs struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn pulumi.StringInput `pulumi:"directoryRegistrationArn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupDirectoryRegistrationResultOutput) ToLookupDirectoryRegistrationRe
 	return o
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 func (o LookupDirectoryRegistrationResultOutput) DirectoryRegistrationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryRegistrationResult) *string { return v.DirectoryRegistrationArn }).(pulumi.StringPtrOutput)
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class ObjectTypeKeyMap
     {
+        /// <summary>
+        /// Name of the key.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ObjectTypeKey> ObjectTypeKeyList;
 
         [OutputConstructor]

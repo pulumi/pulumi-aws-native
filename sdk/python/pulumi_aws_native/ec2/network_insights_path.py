@@ -30,6 +30,15 @@ class NetworkInsightsPathArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
+        :param pulumi.Input['NetworkInsightsPathProtocol'] protocol: The protocol.
+        :param pulumi.Input[str] source: The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination: The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination_ip: The IP address of the destination.
+        :param pulumi.Input[int] destination_port: The destination port.
+        :param pulumi.Input['NetworkInsightsPathPathFilterArgs'] filter_at_destination: Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        :param pulumi.Input['NetworkInsightsPathPathFilterArgs'] filter_at_source: Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        :param pulumi.Input[str] source_ip: The IP address of the source.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
         """
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "source", source)
@@ -51,6 +60,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['NetworkInsightsPathProtocol']:
+        """
+        The protocol.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -60,6 +72,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
+        """
+        The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -69,6 +84,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -78,6 +96,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of the destination.
+        """
         return pulumi.get(self, "destination_ip")
 
     @destination_ip.setter
@@ -87,6 +108,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The destination port.
+        """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
@@ -96,6 +120,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="filterAtDestination")
     def filter_at_destination(self) -> Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']]:
+        """
+        Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        """
         return pulumi.get(self, "filter_at_destination")
 
     @filter_at_destination.setter
@@ -105,6 +132,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="filterAtSource")
     def filter_at_source(self) -> Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']]:
+        """
+        Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        """
         return pulumi.get(self, "filter_at_source")
 
     @filter_at_source.setter
@@ -114,6 +144,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of the source.
+        """
         return pulumi.get(self, "source_ip")
 
     @source_ip.setter
@@ -123,6 +156,9 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,6 +186,15 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination: The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination_ip: The IP address of the destination.
+        :param pulumi.Input[int] destination_port: The destination port.
+        :param pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']] filter_at_destination: Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        :param pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']] filter_at_source: Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        :param pulumi.Input['NetworkInsightsPathProtocol'] protocol: The protocol.
+        :param pulumi.Input[str] source: The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] source_ip: The IP address of the source.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
         """
         ...
     @overload
@@ -254,70 +299,112 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
+        """
+        The time stamp when the path was created.
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination.
+        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IP address of the destination.
+        """
         return pulumi.get(self, "destination_ip")
 
     @property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The destination port.
+        """
         return pulumi.get(self, "destination_port")
 
     @property
     @pulumi.getter(name="filterAtDestination")
     def filter_at_destination(self) -> pulumi.Output[Optional['outputs.NetworkInsightsPathPathFilter']]:
+        """
+        Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        """
         return pulumi.get(self, "filter_at_destination")
 
     @property
     @pulumi.getter(name="filterAtSource")
     def filter_at_source(self) -> pulumi.Output[Optional['outputs.NetworkInsightsPathPathFilter']]:
+        """
+        Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        """
         return pulumi.get(self, "filter_at_source")
 
     @property
     @pulumi.getter(name="networkInsightsPathArn")
     def network_insights_path_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the path.
+        """
         return pulumi.get(self, "network_insights_path_arn")
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the path.
+        """
         return pulumi.get(self, "network_insights_path_id")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output['NetworkInsightsPathProtocol']:
+        """
+        The protocol.
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
+        """
+        The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the source.
+        """
         return pulumi.get(self, "source_arn")
 
     @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IP address of the source.
+        """
         return pulumi.get(self, "source_ip")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 

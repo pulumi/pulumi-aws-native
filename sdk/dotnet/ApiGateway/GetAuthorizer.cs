@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetAuthorizerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the authorizer. For example: `abc123` .
+        /// </summary>
         [Input("authorizerId", required: true)]
         public string AuthorizerId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetAuthorizerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the authorizer. For example: `abc123` .
+        /// </summary>
         [Input("authorizerId", required: true)]
         public Input<string> AuthorizerId { get; set; } = null!;
 
@@ -71,6 +77,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         /// </summary>
         public readonly string? AuthorizerCredentials;
+        /// <summary>
+        /// The ID for the authorizer. For example: `abc123` .
+        /// </summary>
         public readonly string? AuthorizerId;
         /// <summary>
         /// The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.

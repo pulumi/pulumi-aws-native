@@ -64,6 +64,7 @@ class AccessEntryAccessPolicy(dict):
                  policy_arn: str):
         """
         An access policy to associate with the current access entry.
+        :param 'AccessEntryAccessScope' access_scope: The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
         :param str policy_arn: The ARN of the access policy to add to the access entry.
         """
         pulumi.set(__self__, "access_scope", access_scope)
@@ -72,6 +73,9 @@ class AccessEntryAccessPolicy(dict):
     @property
     @pulumi.getter(name="accessScope")
     def access_scope(self) -> 'outputs.AccessEntryAccessScope':
+        """
+        The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
+        """
         return pulumi.get(self, "access_scope")
 
     @property
@@ -340,6 +344,9 @@ class ClusterLoggingEnabledTypes(dict):
                  enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None):
         """
         The cluster control plane logging configuration for your cluster. 
+        :param Sequence['ClusterLoggingTypeConfig'] enabled_types: The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+               
+               > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
         """
         if enabled_types is not None:
             pulumi.set(__self__, "enabled_types", enabled_types)
@@ -347,6 +354,11 @@ class ClusterLoggingEnabledTypes(dict):
     @property
     @pulumi.getter(name="enabledTypes")
     def enabled_types(self) -> Optional[Sequence['outputs.ClusterLoggingTypeConfig']]:
+        """
+        The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+
+        > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
+        """
         return pulumi.get(self, "enabled_types")
 
 
@@ -608,6 +620,10 @@ class FargateProfileSelector(dict):
     def __init__(__self__, *,
                  namespace: str,
                  labels: Optional[Sequence['outputs.FargateProfileLabel']] = None):
+        """
+        :param str namespace: The Kubernetes `namespace` that the selector should match.
+        :param Sequence['FargateProfileLabel'] labels: A key-value pair.
+        """
         pulumi.set(__self__, "namespace", namespace)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -615,11 +631,17 @@ class FargateProfileSelector(dict):
     @property
     @pulumi.getter
     def namespace(self) -> str:
+        """
+        The Kubernetes `namespace` that the selector should match.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter
     def labels(self) -> Optional[Sequence['outputs.FargateProfileLabel']]:
+        """
+        A key-value pair.
+        """
         return pulumi.get(self, "labels")
 
 
@@ -671,6 +693,7 @@ class IdentityProviderConfigOidcIdentityProviderConfig(dict):
         :param str issuer_url: The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
         :param str groups_claim: The JWT claim that the provider uses to return your groups.
         :param str groups_prefix: The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+        :param Sequence['IdentityProviderConfigRequiredClaim'] required_claims: A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
         :param str username_claim: The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
         :param str username_prefix: The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
         """
@@ -722,6 +745,9 @@ class IdentityProviderConfigOidcIdentityProviderConfig(dict):
     @property
     @pulumi.getter(name="requiredClaims")
     def required_claims(self) -> Optional[Sequence['outputs.IdentityProviderConfigRequiredClaim']]:
+        """
+        A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        """
         return pulumi.get(self, "required_claims")
 
     @property
@@ -825,6 +851,13 @@ class NodegroupLaunchTemplateSpecification(dict):
                  version: Optional[str] = None):
         """
         An object representing a launch template specification for AWS EKS Nodegroup.
+        :param str id: The ID of the launch template.
+               
+               You must specify either the launch template ID or the launch template name in the request, but not both.
+        :param str name: The name of the launch template.
+               
+               You must specify either the launch template name or the launch template ID in the request, but not both.
+        :param str version: The version number of the launch template to use. If no version is specified, then the template's default version is used.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -836,16 +869,29 @@ class NodegroupLaunchTemplateSpecification(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the launch template.
+
+        You must specify either the launch template ID or the launch template name in the request, but not both.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the launch template.
+
+        You must specify either the launch template name or the launch template ID in the request, but not both.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        """
         return pulumi.get(self, "version")
 
 
@@ -878,6 +924,8 @@ class NodegroupRemoteAccess(dict):
                  source_security_groups: Optional[Sequence[str]] = None):
         """
         An object representing a remote access configuration specification for AWS EKS Nodegroup.
+        :param str ec2_ssh_key: The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
+        :param Sequence[str] source_security_groups: The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
         """
         pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
         if source_security_groups is not None:
@@ -886,11 +934,17 @@ class NodegroupRemoteAccess(dict):
     @property
     @pulumi.getter(name="ec2SshKey")
     def ec2_ssh_key(self) -> str:
+        """
+        The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
+        """
         return pulumi.get(self, "ec2_ssh_key")
 
     @property
     @pulumi.getter(name="sourceSecurityGroups")
     def source_security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
+        """
         return pulumi.get(self, "source_security_groups")
 
 
@@ -926,6 +980,15 @@ class NodegroupScalingConfig(dict):
                  min_size: Optional[int] = None):
         """
         An object representing a auto scaling group specification for AWS EKS Nodegroup.
+        :param int desired_size: The current number of nodes that the managed node group should maintain.
+               
+               > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down. 
+               
+               Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
+               
+               This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
+        :param int max_size: The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
+        :param int min_size: The minimum number of nodes that the managed node group can scale in to.
         """
         if desired_size is not None:
             pulumi.set(__self__, "desired_size", desired_size)
@@ -937,16 +1000,31 @@ class NodegroupScalingConfig(dict):
     @property
     @pulumi.getter(name="desiredSize")
     def desired_size(self) -> Optional[int]:
+        """
+        The current number of nodes that the managed node group should maintain.
+
+        > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down. 
+
+        Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
+
+        This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
+        """
         return pulumi.get(self, "desired_size")
 
     @property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[int]:
+        """
+        The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
+        """
         return pulumi.get(self, "max_size")
 
     @property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[int]:
+        """
+        The minimum number of nodes that the managed node group can scale in to.
+        """
         return pulumi.get(self, "min_size")
 
 
@@ -961,6 +1039,9 @@ class NodegroupTaint(dict):
                  value: Optional[str] = None):
         """
         An object representing a Taint specification for AWS EKS Nodegroup.
+        :param str effect: The effect of the taint.
+        :param str key: The key of the taint.
+        :param str value: The value of the taint.
         """
         if effect is not None:
             pulumi.set(__self__, "effect", effect)
@@ -972,16 +1053,25 @@ class NodegroupTaint(dict):
     @property
     @pulumi.getter
     def effect(self) -> Optional[str]:
+        """
+        The effect of the taint.
+        """
         return pulumi.get(self, "effect")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        The key of the taint.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of the taint.
+        """
         return pulumi.get(self, "value")
 
 

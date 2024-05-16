@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class RuleGroupCustomActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A custom action to use in stateless rule actions settings.
+        /// </summary>
         [Input("actionDefinition", required: true)]
         public Input<Inputs.RuleGroupActionDefinitionArgs> ActionDefinition { get; set; } = null!;
 
+        /// <summary>
+        /// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+        /// </summary>
         [Input("actionName", required: true)]
         public Input<string> ActionName { get; set; } = null!;
 

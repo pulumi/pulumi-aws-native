@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// The ARN of the ReplicationSet.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+        /// </summary>
         public readonly bool? DeletionProtected;
         /// <summary>
         /// The ReplicationSet configuration.

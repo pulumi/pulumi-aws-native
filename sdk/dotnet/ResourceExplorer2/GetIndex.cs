@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class GetIndexArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the new index for the AWS Region . For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class GetIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the new index for the AWS Region . For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +61,25 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     [OutputType]
     public sealed class GetIndexResult
     {
+        /// <summary>
+        /// The ARN of the new index for the AWS Region . For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Indicates the current state of the index. For example:
+        /// 
+        /// `CREATING`
+        /// </summary>
         public readonly Pulumi.AwsNative.ResourceExplorer2.IndexState? IndexState;
+        /// <summary>
+        /// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        /// </summary>
         public readonly Pulumi.AwsNative.ResourceExplorer2.IndexType? Type;
 
         [OutputConstructor]

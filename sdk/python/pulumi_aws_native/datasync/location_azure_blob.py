@@ -33,6 +33,9 @@ class LocationAzureBlobArgs:
         :param pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'] azure_blob_authentication_type: The specific authentication type that you want DataSync to use to access your Azure Blob Container.
         :param pulumi.Input['LocationAzureBlobAzureAccessTier'] azure_access_tier: Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input[str] azure_blob_container_url: The URL of the Azure Blob container that was described.
+        :param pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs'] azure_blob_sas_configuration: The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
+               
+               For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input[str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -103,6 +106,11 @@ class LocationAzureBlobArgs:
     @property
     @pulumi.getter(name="azureBlobSasConfiguration")
     def azure_blob_sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs']]:
+        """
+        The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
+
+        For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+        """
         return pulumi.get(self, "azure_blob_sas_configuration")
 
     @azure_blob_sas_configuration.setter
@@ -169,6 +177,9 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input['LocationAzureBlobAzureAccessTier'] azure_access_tier: Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'] azure_blob_authentication_type: The specific authentication type that you want DataSync to use to access your Azure Blob Container.
         :param pulumi.Input[str] azure_blob_container_url: The URL of the Azure Blob container that was described.
+        :param pulumi.Input[pulumi.InputType['LocationAzureBlobAzureBlobSasConfigurationArgs']] azure_blob_sas_configuration: The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
+               
+               For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input[str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -299,6 +310,11 @@ class LocationAzureBlob(pulumi.CustomResource):
     @property
     @pulumi.getter(name="azureBlobSasConfiguration")
     def azure_blob_sas_configuration(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobAzureBlobSasConfiguration']]:
+        """
+        The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
+
+        For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+        """
         return pulumi.get(self, "azure_blob_sas_configuration")
 
     @property

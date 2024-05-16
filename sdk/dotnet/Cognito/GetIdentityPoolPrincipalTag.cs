@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetIdentityPoolPrincipalTagArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identity pool that you want to associate with this principal tag map.
+        /// </summary>
         [Input("identityPoolId", required: true)]
         public string IdentityPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+        /// </summary>
         [Input("identityProviderName", required: true)]
         public string IdentityProviderName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetIdentityPoolPrincipalTagInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identity pool that you want to associate with this principal tag map.
+        /// </summary>
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+        /// </summary>
         [Input("identityProviderName", required: true)]
         public Input<string> IdentityProviderName { get; set; } = null!;
 
@@ -58,9 +70,14 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetIdentityPoolPrincipalTagResult
     {
         /// <summary>
+        /// A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PrincipalTags;
+        /// <summary>
+        /// Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+        /// </summary>
         public readonly bool? UseDefaults;
 
         [OutputConstructor]

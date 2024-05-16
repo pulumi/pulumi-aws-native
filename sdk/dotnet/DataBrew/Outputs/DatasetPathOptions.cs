@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetPathOptions
     {
+        /// <summary>
+        /// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+        /// </summary>
         public readonly Outputs.DatasetFilesLimit? FilesLimit;
+        /// <summary>
+        /// Represents a structure for defining parameter conditions.
+        /// </summary>
         public readonly Outputs.DatasetFilterExpression? LastModifiedDateCondition;
+        /// <summary>
+        /// Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetPathParameter> Parameters;
 
         [OutputConstructor]

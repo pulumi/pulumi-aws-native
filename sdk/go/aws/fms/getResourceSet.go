@@ -24,16 +24,22 @@ func LookupResourceSet(ctx *pulumi.Context, args *LookupResourceSetArgs, opts ..
 }
 
 type LookupResourceSetArgs struct {
+	// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
 	Id string `pulumi:"id"`
 }
 
 type LookupResourceSetResult struct {
-	Description      *string   `pulumi:"description"`
-	Id               *string   `pulumi:"id"`
-	Name             *string   `pulumi:"name"`
-	ResourceTypeList []string  `pulumi:"resourceTypeList"`
-	Resources        []string  `pulumi:"resources"`
-	Tags             []aws.Tag `pulumi:"tags"`
+	// A description of the resource set.
+	Description *string `pulumi:"description"`
+	// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+	Id *string `pulumi:"id"`
+	// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+	Name *string `pulumi:"name"`
+	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	ResourceTypeList []string `pulumi:"resourceTypeList"`
+	Resources        []string `pulumi:"resources"`
+	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputArgs, opts ...pulumi.InvokeOption) LookupResourceSetResultOutput {
@@ -50,6 +56,7 @@ func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputAr
 }
 
 type LookupResourceSetOutputArgs struct {
+	// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -71,18 +78,22 @@ func (o LookupResourceSetResultOutput) ToLookupResourceSetResultOutputWithContex
 	return o
 }
 
+// A description of the resource set.
 func (o LookupResourceSetResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
 func (o LookupResourceSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
 func (o LookupResourceSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 func (o LookupResourceSetResultOutput) ResourceTypeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) []string { return v.ResourceTypeList }).(pulumi.StringArrayOutput)
 }
@@ -91,6 +102,7 @@ func (o LookupResourceSetResultOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
+// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 func (o LookupResourceSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

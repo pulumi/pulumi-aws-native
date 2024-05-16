@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Lightsail
     [OutputType]
     public sealed class GetAlarmResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the alarm.
+        /// </summary>
         public readonly string? AlarmArn;
         /// <summary>
         /// The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCustomNarrativeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The string input of custom narrative.
+        /// </summary>
         [Input("narrative", required: true)]
         public Input<string> Narrative { get; set; } = null!;
 

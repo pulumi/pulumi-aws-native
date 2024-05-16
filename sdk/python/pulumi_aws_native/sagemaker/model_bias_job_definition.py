@@ -32,7 +32,21 @@ class ModelBiasJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelBiasJobDefinition resource.
+        :param pulumi.Input['ModelBiasJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['ModelBiasJobDefinitionModelBiasAppSpecificationArgs'] model_bias_app_specification: Docker container image configuration object for the model bias job.
+        :param pulumi.Input['ModelBiasJobDefinitionModelBiasJobInputArgs'] model_bias_job_input: Inputs for the model bias job.
+        :param pulumi.Input['ModelBiasJobDefinitionMonitoringOutputConfigArgs'] model_bias_job_output_config: The output configuration for monitoring jobs.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[str] job_definition_name: The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+        :param pulumi.Input['ModelBiasJobDefinitionModelBiasBaselineConfigArgs'] model_bias_baseline_config: The configuration for a baseline model bias job.
+        :param pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs'] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs'] stopping_condition: Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+               
+               To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+               
+               The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+               
+               > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "job_resources", job_resources)
@@ -56,6 +70,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Input['ModelBiasJobDefinitionMonitoringResourcesArgs']:
+        """
+        Identifies the resources to deploy for a monitoring job.
+        """
         return pulumi.get(self, "job_resources")
 
     @job_resources.setter
@@ -65,6 +82,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelBiasAppSpecification")
     def model_bias_app_specification(self) -> pulumi.Input['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']:
+        """
+        Docker container image configuration object for the model bias job.
+        """
         return pulumi.get(self, "model_bias_app_specification")
 
     @model_bias_app_specification.setter
@@ -74,6 +94,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelBiasJobInput")
     def model_bias_job_input(self) -> pulumi.Input['ModelBiasJobDefinitionModelBiasJobInputArgs']:
+        """
+        Inputs for the model bias job.
+        """
         return pulumi.get(self, "model_bias_job_input")
 
     @model_bias_job_input.setter
@@ -83,6 +106,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelBiasJobOutputConfig")
     def model_bias_job_output_config(self) -> pulumi.Input['ModelBiasJobDefinitionMonitoringOutputConfigArgs']:
+        """
+        The output configuration for monitoring jobs.
+        """
         return pulumi.get(self, "model_bias_job_output_config")
 
     @model_bias_job_output_config.setter
@@ -113,6 +139,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+        """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
@@ -122,6 +151,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelBiasBaselineConfig")
     def model_bias_baseline_config(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]:
+        """
+        The configuration for a baseline model bias job.
+        """
         return pulumi.get(self, "model_bias_baseline_config")
 
     @model_bias_baseline_config.setter
@@ -131,6 +163,9 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs']]:
+        """
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
@@ -140,6 +175,15 @@ class ModelBiasJobDefinitionArgs:
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs']]:
+        """
+        Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+
+        To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+
+        The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+
+        > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
@@ -181,7 +225,21 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] job_definition_name: The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringResourcesArgs']] job_resources: Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']] model_bias_app_specification: Docker container image configuration object for the model bias job.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']] model_bias_baseline_config: The configuration for a baseline model bias job.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasJobInputArgs']] model_bias_job_input: Inputs for the model bias job.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringOutputConfigArgs']] model_bias_job_output_config: The output configuration for monitoring jobs.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionNetworkConfigArgs']] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionStoppingConditionArgs']] stopping_condition: Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+               
+               To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+               
+               The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+               
+               > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -314,36 +372,57 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+        """
         return pulumi.get(self, "job_definition_name")
 
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionMonitoringResources']:
+        """
+        Identifies the resources to deploy for a monitoring job.
+        """
         return pulumi.get(self, "job_resources")
 
     @property
     @pulumi.getter(name="modelBiasAppSpecification")
     def model_bias_app_specification(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionModelBiasAppSpecification']:
+        """
+        Docker container image configuration object for the model bias job.
+        """
         return pulumi.get(self, "model_bias_app_specification")
 
     @property
     @pulumi.getter(name="modelBiasBaselineConfig")
     def model_bias_baseline_config(self) -> pulumi.Output[Optional['outputs.ModelBiasJobDefinitionModelBiasBaselineConfig']]:
+        """
+        The configuration for a baseline model bias job.
+        """
         return pulumi.get(self, "model_bias_baseline_config")
 
     @property
     @pulumi.getter(name="modelBiasJobInput")
     def model_bias_job_input(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionModelBiasJobInput']:
+        """
+        Inputs for the model bias job.
+        """
         return pulumi.get(self, "model_bias_job_input")
 
     @property
     @pulumi.getter(name="modelBiasJobOutputConfig")
     def model_bias_job_output_config(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionMonitoringOutputConfig']:
+        """
+        The output configuration for monitoring jobs.
+        """
         return pulumi.get(self, "model_bias_job_output_config")
 
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.ModelBiasJobDefinitionNetworkConfig']]:
+        """
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        """
         return pulumi.get(self, "network_config")
 
     @property
@@ -357,6 +436,15 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.ModelBiasJobDefinitionStoppingCondition']]:
+        """
+        Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+
+        To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+
+        The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
+
+        > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        """
         return pulumi.get(self, "stopping_condition")
 
     @property

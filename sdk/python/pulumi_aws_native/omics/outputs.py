@@ -44,11 +44,17 @@ class AnnotationStoreReferenceItem(dict):
 
     def __init__(__self__, *,
                  reference_arn: str):
+        """
+        :param str reference_arn: The reference's ARN.
+        """
         pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> str:
+        """
+        The reference's ARN.
+        """
         return pulumi.get(self, "reference_arn")
 
 
@@ -74,6 +80,10 @@ class AnnotationStoreSseConfig(dict):
     def __init__(__self__, *,
                  type: 'AnnotationStoreEncryptionType',
                  key_arn: Optional[str] = None):
+        """
+        :param 'AnnotationStoreEncryptionType' type: The encryption type.
+        :param str key_arn: An encryption key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -81,11 +91,17 @@ class AnnotationStoreSseConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'AnnotationStoreEncryptionType':
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
+        """
+        An encryption key ARN.
+        """
         return pulumi.get(self, "key_arn")
 
 
@@ -193,6 +209,7 @@ class ReferenceStoreSseConfig(dict):
                  key_arn: Optional[str] = None):
         """
         Server-side encryption (SSE) settings for a store.
+        :param 'ReferenceStoreEncryptionType' type: The encryption type.
         :param str key_arn: An encryption key ARN.
         """
         pulumi.set(__self__, "type", type)
@@ -202,6 +219,9 @@ class ReferenceStoreSseConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'ReferenceStoreEncryptionType':
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -240,6 +260,7 @@ class SequenceStoreSseConfig(dict):
                  key_arn: Optional[str] = None):
         """
         Server-side encryption (SSE) settings for a store.
+        :param 'SequenceStoreEncryptionType' type: The encryption type.
         :param str key_arn: An encryption key ARN.
         """
         pulumi.set(__self__, "type", type)
@@ -249,6 +270,9 @@ class SequenceStoreSseConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'SequenceStoreEncryptionType':
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -281,11 +305,17 @@ class VariantStoreReferenceItem(dict):
 
     def __init__(__self__, *,
                  reference_arn: str):
+        """
+        :param str reference_arn: The reference's ARN.
+        """
         pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> str:
+        """
+        The reference's ARN.
+        """
         return pulumi.get(self, "reference_arn")
 
 
@@ -311,6 +341,10 @@ class VariantStoreSseConfig(dict):
     def __init__(__self__, *,
                  type: 'VariantStoreEncryptionType',
                  key_arn: Optional[str] = None):
+        """
+        :param 'VariantStoreEncryptionType' type: The encryption type.
+        :param str key_arn: An encryption key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -318,11 +352,17 @@ class VariantStoreSseConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'VariantStoreEncryptionType':
+        """
+        The encryption type.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
+        """
+        An encryption key ARN.
+        """
         return pulumi.get(self, "key_arn")
 
 
@@ -331,6 +371,10 @@ class WorkflowParameter(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  optional: Optional[bool] = None):
+        """
+        :param str description: The parameter's description.
+        :param bool optional: Whether the parameter is optional.
+        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if optional is not None:
@@ -339,11 +383,17 @@ class WorkflowParameter(dict):
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The parameter's description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def optional(self) -> Optional[bool]:
+        """
+        Whether the parameter is optional.
+        """
         return pulumi.get(self, "optional")
 
 

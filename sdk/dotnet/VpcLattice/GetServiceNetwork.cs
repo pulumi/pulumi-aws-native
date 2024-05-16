@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,32 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetServiceNetworkResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The type of IAM policy.
+        /// 
+        /// - `NONE` : The resource does not use an IAM policy. This is the default.
+        /// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkAuthType? AuthType;
+        /// <summary>
+        /// The date and time that the service network was created, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The ID of the service network.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time of the last update, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// The tags for the service network.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

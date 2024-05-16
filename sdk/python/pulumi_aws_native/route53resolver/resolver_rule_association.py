@@ -168,6 +168,9 @@ class ResolverRuleAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resolverRuleAssociationId")
     def resolver_rule_association_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+        """
         return pulumi.get(self, "resolver_rule_association_id")
 
     @property

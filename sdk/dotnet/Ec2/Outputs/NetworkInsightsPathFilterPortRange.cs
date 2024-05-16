@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsPathFilterPortRange
     {
+        /// <summary>
+        /// The first port in the range.
+        /// </summary>
         public readonly int? FromPort;
+        /// <summary>
+        /// The last port in the range.
+        /// </summary>
         public readonly int? ToPort;
 
         [OutputConstructor]

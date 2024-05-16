@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardWordCloudFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field wells of a word cloud.
+        /// </summary>
         [Input("wordCloudAggregatedFieldWells")]
         public Input<Inputs.DashboardWordCloudAggregatedFieldWellsArgs>? WordCloudAggregatedFieldWells { get; set; }
 

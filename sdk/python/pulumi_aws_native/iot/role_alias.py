@@ -22,6 +22,10 @@ class RoleAliasArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RoleAlias resource.
+        :param pulumi.Input[str] role_arn: The role ARN.
+        :param pulumi.Input[int] credential_duration_seconds: The number of seconds for which the credential is valid.
+        :param pulumi.Input[str] role_alias: The role alias.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if credential_duration_seconds is not None:
@@ -34,6 +38,9 @@ class RoleAliasArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The role ARN.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -43,6 +50,9 @@ class RoleAliasArgs:
     @property
     @pulumi.getter(name="credentialDurationSeconds")
     def credential_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds for which the credential is valid.
+        """
         return pulumi.get(self, "credential_duration_seconds")
 
     @credential_duration_seconds.setter
@@ -52,6 +62,9 @@ class RoleAliasArgs:
     @property
     @pulumi.getter(name="roleAlias")
     def role_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role alias.
+        """
         return pulumi.get(self, "role_alias")
 
     @role_alias.setter
@@ -61,6 +74,9 @@ class RoleAliasArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -83,6 +99,10 @@ class RoleAlias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] credential_duration_seconds: The number of seconds for which the credential is valid.
+        :param pulumi.Input[str] role_alias: The role alias.
+        :param pulumi.Input[str] role_arn: The role ARN.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
         """
         ...
     @overload
@@ -162,25 +182,40 @@ class RoleAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="credentialDurationSeconds")
     def credential_duration_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of seconds for which the credential is valid.
+        """
         return pulumi.get(self, "credential_duration_seconds")
 
     @property
     @pulumi.getter(name="roleAlias")
     def role_alias(self) -> pulumi.Output[Optional[str]]:
+        """
+        The role alias.
+        """
         return pulumi.get(self, "role_alias")
 
     @property
     @pulumi.getter(name="roleAliasArn")
     def role_alias_arn(self) -> pulumi.Output[str]:
+        """
+        The role alias ARN.
+        """
         return pulumi.get(self, "role_alias_arn")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The role ARN.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 

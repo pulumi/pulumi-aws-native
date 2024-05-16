@@ -21,18 +21,57 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("allQueryArguments")]
         public Input<object>? AllQueryArguments { get; set; }
 
+        /// <summary>
+        /// Inspect the body of the web request. The body immediately follows the request headers.
+        /// 
+        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+        /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclBodyArgs>? Body { get; set; }
 
+        /// <summary>
+        /// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+        /// 
+        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+        /// 
+        /// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+        /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclCookiesArgs>? Cookies { get; set; }
 
+        /// <summary>
+        /// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+        /// 
+        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+        /// 
+        /// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
+        /// 
+        /// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+        /// </summary>
         [Input("headers")]
         public Input<Inputs.WebAclHeadersArgs>? Headers { get; set; }
 
+        /// <summary>
+        /// Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+        /// 
+        /// &gt; You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+        /// 
+        /// You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+        /// 
+        /// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.WebAclJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
 
+        /// <summary>
+        /// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+        /// 
+        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+        /// 
+        /// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+        /// 
+        /// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+        /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclJsonBodyArgs>? JsonBody { get; set; }
 
@@ -48,6 +87,13 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("queryString")]
         public Input<object>? QueryString { get; set; }
 
+        /// <summary>
+        /// Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+        /// 
+        /// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+        /// 
+        /// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+        /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclFieldToMatchSingleHeaderPropertiesArgs>? SingleHeader { get; set; }
 

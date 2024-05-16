@@ -37,19 +37,61 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsPath.__pulumiType;
     }
 
+    /**
+     * The time stamp when the path was created.
+     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+     */
     public readonly destination!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the destination.
+     */
     public /*out*/ readonly destinationArn!: pulumi.Output<string>;
+    /**
+     * The IP address of the destination.
+     */
     public readonly destinationIp!: pulumi.Output<string | undefined>;
+    /**
+     * The destination port.
+     */
     public readonly destinationPort!: pulumi.Output<number | undefined>;
+    /**
+     * Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+     */
     public readonly filterAtDestination!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    /**
+     * Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+     */
     public readonly filterAtSource!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the path.
+     */
     public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
+    /**
+     * The ID of the path.
+     */
     public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
+    /**
+     * The protocol.
+     */
     public readonly protocol!: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
+    /**
+     * The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+     */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the source.
+     */
     public /*out*/ readonly sourceArn!: pulumi.Output<string>;
+    /**
+     * The IP address of the source.
+     */
     public readonly sourceIp!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -110,13 +152,40 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsPath resource.
  */
 export interface NetworkInsightsPathArgs {
+    /**
+     * The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+     */
     destination?: pulumi.Input<string>;
+    /**
+     * The IP address of the destination.
+     */
     destinationIp?: pulumi.Input<string>;
+    /**
+     * The destination port.
+     */
     destinationPort?: pulumi.Input<number>;
+    /**
+     * Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+     */
     filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    /**
+     * Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+     */
     filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    /**
+     * The protocol.
+     */
     protocol: pulumi.Input<enums.ec2.NetworkInsightsPathProtocol>;
+    /**
+     * The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+     */
     source: pulumi.Input<string>;
+    /**
+     * The IP address of the source.
+     */
     sourceIp?: pulumi.Input<string>;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

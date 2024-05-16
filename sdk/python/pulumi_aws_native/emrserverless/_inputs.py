@@ -624,6 +624,7 @@ class ApplicationWorkerTypeSpecificationInputArgs:
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None):
         """
         The specifications for a worker type.
+        :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration.
         """
         if image_configuration is not None:
             pulumi.set(__self__, "image_configuration", image_configuration)
@@ -631,6 +632,9 @@ class ApplicationWorkerTypeSpecificationInputArgs:
     @property
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]:
+        """
+        The image configuration.
+        """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter

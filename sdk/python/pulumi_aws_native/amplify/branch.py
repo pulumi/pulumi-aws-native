@@ -35,6 +35,34 @@ class BranchArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Branch resource.
+        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
+        :param pulumi.Input['BranchBackendArgs'] backend: Describes the backend associated with an Amplify `Branch` .
+               
+               This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        :param pulumi.Input['BranchBasicAuthConfigArgs'] basic_auth_config: Use the BasicAuthConfig property type to set password protection for a specific branch.
+        :param pulumi.Input[str] branch_name: The name for the branch.
+        :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
+        :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
+        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
+        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
+               
+               Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        :param pulumi.Input[bool] enable_pull_request_preview: Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+               
+               To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+               
+               For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]] environment_variables: The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        :param pulumi.Input[str] framework: The framework for the branch.
+        :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
+               
+               To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+               
+               If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
+               
+               For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        :param pulumi.Input['BranchStage'] stage: Describes the current stage for the branch.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
         """
         pulumi.set(__self__, "app_id", app_id)
         if backend is not None:
@@ -67,6 +95,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
+        """
+        The unique ID for an Amplify app.
+        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -76,6 +107,11 @@ class BranchArgs:
     @property
     @pulumi.getter
     def backend(self) -> Optional[pulumi.Input['BranchBackendArgs']]:
+        """
+        Describes the backend associated with an Amplify `Branch` .
+
+        This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        """
         return pulumi.get(self, "backend")
 
     @backend.setter
@@ -85,6 +121,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['BranchBasicAuthConfigArgs']]:
+        """
+        Use the BasicAuthConfig property type to set password protection for a specific branch.
+        """
         return pulumi.get(self, "basic_auth_config")
 
     @basic_auth_config.setter
@@ -94,6 +133,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the branch.
+        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -103,6 +145,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[pulumi.Input[str]]:
+        """
+        The build specification (build spec) for the branch.
+        """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
@@ -112,6 +157,9 @@ class BranchArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the branch that is part of an Amplify app.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -121,6 +169,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables auto building for the branch.
+        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -130,6 +181,11 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables performance mode for the branch.
+
+        Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -139,6 +195,13 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+
+        To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+
+        For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -148,6 +211,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]]:
+        """
+        The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -157,6 +223,9 @@ class BranchArgs:
     @property
     @pulumi.getter
     def framework(self) -> Optional[pulumi.Input[str]]:
+        """
+        The framework for the branch.
+        """
         return pulumi.get(self, "framework")
 
     @framework.setter
@@ -166,6 +235,15 @@ class BranchArgs:
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
+
+        To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+
+        If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
+
+        For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -175,6 +253,9 @@ class BranchArgs:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input['BranchStage']]:
+        """
+        Describes the current stage for the branch.
+        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -184,6 +265,9 @@ class BranchArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -216,6 +300,34 @@ class Branch(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
+        :param pulumi.Input[pulumi.InputType['BranchBackendArgs']] backend: Describes the backend associated with an Amplify `Branch` .
+               
+               This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        :param pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']] basic_auth_config: Use the BasicAuthConfig property type to set password protection for a specific branch.
+        :param pulumi.Input[str] branch_name: The name for the branch.
+        :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
+        :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
+        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
+        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
+               
+               Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        :param pulumi.Input[bool] enable_pull_request_preview: Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+               
+               To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+               
+               For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]] environment_variables: The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        :param pulumi.Input[str] framework: The framework for the branch.
+        :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
+               
+               To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+               
+               If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
+               
+               For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        :param pulumi.Input['BranchStage'] stage: Describes the current stage for the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
         """
         ...
     @overload
@@ -325,75 +437,134 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID for an Amplify app.
+        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN for a branch, part of an Amplify App.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def backend(self) -> pulumi.Output[Optional['outputs.BranchBackend']]:
+        """
+        Describes the backend associated with an Amplify `Branch` .
+
+        This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        """
         return pulumi.get(self, "backend")
 
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> pulumi.Output[Optional['outputs.BranchBasicAuthConfig']]:
+        """
+        Use the BasicAuthConfig property type to set password protection for a specific branch.
+        """
         return pulumi.get(self, "basic_auth_config")
 
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Output[str]:
+        """
+        The name for the branch.
+        """
         return pulumi.get(self, "branch_name")
 
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> pulumi.Output[Optional[str]]:
+        """
+        The build specification (build spec) for the branch.
+        """
         return pulumi.get(self, "build_spec")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description for the branch that is part of an Amplify app.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables auto building for the branch.
+        """
         return pulumi.get(self, "enable_auto_build")
 
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables performance mode for the branch.
+
+        Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        """
         return pulumi.get(self, "enable_performance_mode")
 
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+
+        To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+
+        For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.BranchEnvironmentVariable']]]:
+        """
+        The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter
     def framework(self) -> pulumi.Output[Optional[str]]:
+        """
+        The framework for the branch.
+        """
         return pulumi.get(self, "framework")
 
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
+
+        To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+
+        If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
+
+        For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Output[Optional['BranchStage']]:
+        """
+        Describes the current stage for the branch.
+        """
         return pulumi.get(self, "stage")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        """
         return pulumi.get(self, "tags")
 

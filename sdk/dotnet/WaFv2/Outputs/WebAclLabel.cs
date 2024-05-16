@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclLabel
     {
+        /// <summary>
+        /// The label string.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

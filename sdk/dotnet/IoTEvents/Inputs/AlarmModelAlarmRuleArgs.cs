@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// </summary>
     public sealed class AlarmModelAlarmRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A rule that compares an input property value to a threshold value with a comparison operator.
+        /// </summary>
         [Input("simpleRule")]
         public Input<Inputs.AlarmModelSimpleRuleArgs>? SimpleRule { get; set; }
 

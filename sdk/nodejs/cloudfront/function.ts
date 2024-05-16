@@ -37,11 +37,35 @@ export class Function extends pulumi.CustomResource {
         return obj['__pulumiType'] === Function.__pulumiType;
     }
 
+    /**
+     * A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+     */
     public readonly autoPublish!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ARN of the function. For example:
+     *
+     * `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+     *
+     * To get the function ARN, use the following syntax:
+     *
+     * `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+     */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    /**
+     * The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+     */
     public readonly functionCode!: pulumi.Output<string>;
+    /**
+     * Contains configuration information about a CloudFront function.
+     */
     public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionConfig>;
+    /**
+     * Contains metadata about a CloudFront function.
+     */
     public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionMetadata | undefined>;
+    /**
+     * A name to identify the function.
+     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly stage!: pulumi.Output<string>;
 
@@ -87,9 +111,24 @@ export class Function extends pulumi.CustomResource {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
+    /**
+     * A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+     */
     autoPublish?: pulumi.Input<boolean>;
+    /**
+     * The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+     */
     functionCode: pulumi.Input<string>;
+    /**
+     * Contains configuration information about a CloudFront function.
+     */
     functionConfig: pulumi.Input<inputs.cloudfront.FunctionConfigArgs>;
+    /**
+     * Contains metadata about a CloudFront function.
+     */
     functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionMetadataArgs>;
+    /**
+     * A name to identify the function.
+     */
     name?: pulumi.Input<string>;
 }

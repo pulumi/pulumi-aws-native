@@ -19,13 +19,28 @@ export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.Inv
 }
 
 export interface GetResourcePolicyArgs {
+    /**
+     * The identifier of the resource policy.
+     */
     id: string;
 }
 
 export interface GetResourcePolicyResult {
+    /**
+     * The identifier of the resource policy.
+     */
     readonly id?: string;
+    /**
+     * A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+     */
     readonly policy?: outputs.lex.ResourcePolicyPolicy;
+    /**
+     * The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+     */
     readonly resourceArn?: string;
+    /**
+     * Specifies the current revision of a resource policy.
+     */
     readonly revisionId?: string;
 }
 /**
@@ -36,5 +51,8 @@ export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?
 }
 
 export interface GetResourcePolicyOutputArgs {
+    /**
+     * The identifier of the resource policy.
+     */
     id: pulumi.Input<string>;
 }

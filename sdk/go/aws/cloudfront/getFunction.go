@@ -23,16 +23,34 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 }
 
 type LookupFunctionArgs struct {
+	// The ARN of the function. For example:
+	//
+	// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+	//
+	// To get the function ARN, use the following syntax:
+	//
+	// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
 	FunctionArn string `pulumi:"functionArn"`
 }
 
 type LookupFunctionResult struct {
-	FunctionArn      *string           `pulumi:"functionArn"`
-	FunctionCode     *string           `pulumi:"functionCode"`
-	FunctionConfig   *FunctionConfig   `pulumi:"functionConfig"`
+	// The ARN of the function. For example:
+	//
+	// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+	//
+	// To get the function ARN, use the following syntax:
+	//
+	// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+	FunctionArn *string `pulumi:"functionArn"`
+	// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+	FunctionCode *string `pulumi:"functionCode"`
+	// Contains configuration information about a CloudFront function.
+	FunctionConfig *FunctionConfig `pulumi:"functionConfig"`
+	// Contains metadata about a CloudFront function.
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
-	Name             *string           `pulumi:"name"`
-	Stage            *string           `pulumi:"stage"`
+	// A name to identify the function.
+	Name  *string `pulumi:"name"`
+	Stage *string `pulumi:"stage"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -49,6 +67,13 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 }
 
 type LookupFunctionOutputArgs struct {
+	// The ARN of the function. For example:
+	//
+	// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+	//
+	// To get the function ARN, use the following syntax:
+	//
+	// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -70,22 +95,33 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 	return o
 }
 
+// The ARN of the function. For example:
+//
+// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+//
+// To get the function ARN, use the following syntax:
+//
+// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
 func (o LookupFunctionResultOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
+// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
 func (o LookupFunctionResultOutput) FunctionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.FunctionCode }).(pulumi.StringPtrOutput)
 }
 
+// Contains configuration information about a CloudFront function.
 func (o LookupFunctionResultOutput) FunctionConfig() FunctionConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionConfig { return v.FunctionConfig }).(FunctionConfigPtrOutput)
 }
 
+// Contains metadata about a CloudFront function.
 func (o LookupFunctionResultOutput) FunctionMetadata() FunctionMetadataPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionMetadata { return v.FunctionMetadata }).(FunctionMetadataPtrOutput)
 }
 
+// A name to identify the function.
 func (o LookupFunctionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

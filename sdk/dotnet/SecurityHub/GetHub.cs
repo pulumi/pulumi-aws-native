@@ -73,6 +73,11 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The date and time when Security Hub was enabled in the account.
         /// </summary>
         public readonly string? SubscribedAt;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

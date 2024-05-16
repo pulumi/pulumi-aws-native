@@ -731,6 +731,10 @@ class ComponentTypeStatus(dict):
     def __init__(__self__, *,
                  error: Optional[Any] = None,
                  state: Optional['ComponentTypeStatusState'] = None):
+        """
+        :param Union[Any, 'ComponentTypeStatusErrorProperties'] error: The component type error.
+        :param 'ComponentTypeStatusState' state: The component type status state.
+        """
         if error is not None:
             pulumi.set(__self__, "error", error)
         if state is not None:
@@ -739,11 +743,17 @@ class ComponentTypeStatus(dict):
     @property
     @pulumi.getter
     def error(self) -> Optional[Any]:
+        """
+        The component type error.
+        """
         return pulumi.get(self, "error")
 
     @property
     @pulumi.getter
     def state(self) -> Optional['ComponentTypeStatusState']:
+        """
+        The component type status state.
+        """
         return pulumi.get(self, "state")
 
 
@@ -1602,6 +1612,12 @@ class EntityStatus(dict):
     def __init__(__self__, *,
                  error: Optional[Any] = None,
                  state: Optional['EntityStatusState'] = None):
+        """
+        :param Union[Any, 'EntityStatusErrorProperties'] error: The error message.
+        :param 'EntityStatusState' state: The current state of the entity, component, component type, or workspace.
+               
+               Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
+        """
         if error is not None:
             pulumi.set(__self__, "error", error)
         if state is not None:
@@ -1610,11 +1626,19 @@ class EntityStatus(dict):
     @property
     @pulumi.getter
     def error(self) -> Optional[Any]:
+        """
+        The error message.
+        """
         return pulumi.get(self, "error")
 
     @property
     @pulumi.getter
     def state(self) -> Optional['EntityStatusState']:
+        """
+        The current state of the entity, component, component type, or workspace.
+
+        Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
+        """
         return pulumi.get(self, "state")
 
 

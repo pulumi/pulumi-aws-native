@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// </summary>
     public sealed class ServiceCodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
+        /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.ServiceCodeConfigurationArgs>? CodeConfiguration { get; set; }
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         [Input("repositoryUrl", required: true)]
         public Input<string> RepositoryUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Identifies a version of code that AWS App Runner refers to within a source code repository.
+        /// </summary>
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;
 

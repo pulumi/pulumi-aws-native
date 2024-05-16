@@ -292,12 +292,21 @@ namespace Pulumi.AwsNative.IoTAnalytics
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// An activity that performs a transformation on a message.
+        /// </summary>
         [Output("pipelineActivities")]
         public Output<ImmutableArray<Outputs.PipelineActivity>> PipelineActivities { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Output("pipelineName")]
         public Output<string?> PipelineName { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -352,17 +361,28 @@ namespace Pulumi.AwsNative.IoTAnalytics
     {
         [Input("pipelineActivities", required: true)]
         private InputList<Inputs.PipelineActivityArgs>? _pipelineActivities;
+
+        /// <summary>
+        /// An activity that performs a transformation on a message.
+        /// </summary>
         public InputList<Inputs.PipelineActivityArgs> PipelineActivities
         {
             get => _pipelineActivities ?? (_pipelineActivities = new InputList<Inputs.PipelineActivityArgs>());
             set => _pipelineActivities = value;
         }
 
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

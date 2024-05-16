@@ -17,11 +17,16 @@ import (
 type RoleAlias struct {
 	pulumi.CustomResourceState
 
-	CredentialDurationSeconds pulumi.IntPtrOutput    `pulumi:"credentialDurationSeconds"`
-	RoleAlias                 pulumi.StringPtrOutput `pulumi:"roleAlias"`
-	RoleAliasArn              pulumi.StringOutput    `pulumi:"roleAliasArn"`
-	RoleArn                   pulumi.StringOutput    `pulumi:"roleArn"`
-	Tags                      aws.TagArrayOutput     `pulumi:"tags"`
+	// The number of seconds for which the credential is valid.
+	CredentialDurationSeconds pulumi.IntPtrOutput `pulumi:"credentialDurationSeconds"`
+	// The role alias.
+	RoleAlias pulumi.StringPtrOutput `pulumi:"roleAlias"`
+	// The role alias ARN.
+	RoleAliasArn pulumi.StringOutput `pulumi:"roleAliasArn"`
+	// The role ARN.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRoleAlias registers a new resource with the given unique name, arguments, and options.
@@ -71,18 +76,26 @@ func (RoleAliasState) ElementType() reflect.Type {
 }
 
 type roleAliasArgs struct {
-	CredentialDurationSeconds *int      `pulumi:"credentialDurationSeconds"`
-	RoleAlias                 *string   `pulumi:"roleAlias"`
-	RoleArn                   string    `pulumi:"roleArn"`
-	Tags                      []aws.Tag `pulumi:"tags"`
+	// The number of seconds for which the credential is valid.
+	CredentialDurationSeconds *int `pulumi:"credentialDurationSeconds"`
+	// The role alias.
+	RoleAlias *string `pulumi:"roleAlias"`
+	// The role ARN.
+	RoleArn string `pulumi:"roleArn"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RoleAlias resource.
 type RoleAliasArgs struct {
+	// The number of seconds for which the credential is valid.
 	CredentialDurationSeconds pulumi.IntPtrInput
-	RoleAlias                 pulumi.StringPtrInput
-	RoleArn                   pulumi.StringInput
-	Tags                      aws.TagArrayInput
+	// The role alias.
+	RoleAlias pulumi.StringPtrInput
+	// The role ARN.
+	RoleArn pulumi.StringInput
+	// A set of key/value pairs that are used to manage the resource.
+	Tags aws.TagArrayInput
 }
 
 func (RoleAliasArgs) ElementType() reflect.Type {
@@ -122,22 +135,27 @@ func (o RoleAliasOutput) ToRoleAliasOutputWithContext(ctx context.Context) RoleA
 	return o
 }
 
+// The number of seconds for which the credential is valid.
 func (o RoleAliasOutput) CredentialDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.IntPtrOutput { return v.CredentialDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The role alias.
 func (o RoleAliasOutput) RoleAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.StringPtrOutput { return v.RoleAlias }).(pulumi.StringPtrOutput)
 }
 
+// The role alias ARN.
 func (o RoleAliasOutput) RoleAliasArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.RoleAliasArn }).(pulumi.StringOutput)
 }
 
+// The role ARN.
 func (o RoleAliasOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A set of key/value pairs that are used to manage the resource.
 func (o RoleAliasOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RoleAlias) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

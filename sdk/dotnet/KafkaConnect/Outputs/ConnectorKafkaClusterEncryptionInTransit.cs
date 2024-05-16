@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class ConnectorKafkaClusterEncryptionInTransit
     {
+        /// <summary>
+        /// The type of encryption in transit to the Apache Kafka cluster.
+        /// </summary>
         public readonly Pulumi.AwsNative.KafkaConnect.ConnectorKafkaClusterEncryptionInTransitType EncryptionType;
 
         [OutputConstructor]

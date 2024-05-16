@@ -37,7 +37,8 @@ type LookupCrossAccountAttachmentResult struct {
 	Principals []string `pulumi:"principals"`
 	// Resources shared using the attachment.
 	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	Tags      []aws.Tag                        `pulumi:"tags"`
+	// A complex type that contains a `Tag` key and `Tag` value.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCrossAccountAttachmentOutput(ctx *pulumi.Context, args LookupCrossAccountAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupCrossAccountAttachmentResultOutput {
@@ -96,6 +97,7 @@ func (o LookupCrossAccountAttachmentResultOutput) Resources() CrossAccountAttach
 	return o.ApplyT(func(v LookupCrossAccountAttachmentResult) []CrossAccountAttachmentResource { return v.Resources }).(CrossAccountAttachmentResourceArrayOutput)
 }
 
+// A complex type that contains a `Tag` key and `Tag` value.
 func (o LookupCrossAccountAttachmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCrossAccountAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

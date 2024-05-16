@@ -26,6 +26,9 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
+    /**
+     * The access configuration for the cluster.
+     */
     readonly accessConfig?: outputs.eks.ClusterAccessConfig;
     /**
      * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
@@ -51,11 +54,25 @@ export interface GetClusterResult {
      * The unique ID given to your cluster.
      */
     readonly id?: string;
+    /**
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+     *
+     * > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+     */
     readonly logging?: outputs.eks.Logging;
     /**
      * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
      */
     readonly openIdConnectIssuerUrl?: string;
+    /**
+     * An object representing the VPC configuration to use for an Amazon EKS cluster.
+     *
+     * > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+     * > 
+     * > - `EndpointPublicAccess`
+     * > - `EndpointPrivateAccess`
+     * > - `PublicAccessCidrs`
+     */
     readonly resourcesVpcConfig?: outputs.eks.ClusterResourcesVpcConfig;
     /**
      * An array of key-value pairs to apply to this resource.

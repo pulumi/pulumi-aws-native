@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Efs
     [AwsNativeResourceType("aws-native:efs:AccessPoint")]
     public partial class AccessPoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the EFS access point.
+        /// </summary>
         [Output("accessPointId")]
         public Output<string> AccessPointId { get; private set; } = null!;
 
@@ -26,6 +29,9 @@ namespace Pulumi.AwsNative.Efs
         [Output("accessPointTags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> AccessPointTags { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the access point.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

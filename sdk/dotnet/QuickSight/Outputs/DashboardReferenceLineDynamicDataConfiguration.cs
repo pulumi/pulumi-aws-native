@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardReferenceLineDynamicDataConfiguration
     {
+        /// <summary>
+        /// Aggregation for numerical values.
+        /// </summary>
         public readonly Outputs.DashboardNumericalAggregationFunction Calculation;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardAggregationFunction? MeasureAggregationFunction;
 
         [OutputConstructor]

@@ -37,11 +37,17 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    /**
+     * `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+     */
     public /*out*/ readonly channelArn!: pulumi.Output<string>;
     /**
      * One or more resources to which events arriving through a channel are logged and stored.
      */
     public readonly destinations!: pulumi.Output<outputs.cloudtrail.ChannelDestination[] | undefined>;
+    /**
+     * The name of the channel.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The ARN of an on-premises storage solution or application, or a partner event source.
@@ -90,6 +96,9 @@ export interface ChannelArgs {
      * One or more resources to which events arriving through a channel are logged and stored.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.cloudtrail.ChannelDestinationArgs>[]>;
+    /**
+     * The name of the channel.
+     */
     name?: pulumi.Input<string>;
     /**
      * The ARN of an on-premises storage solution or application, or a partner event source.

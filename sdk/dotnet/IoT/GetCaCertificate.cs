@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCaCertificateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The CA certificate ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCaCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The CA certificate ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,10 +57,33 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetCaCertificateResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+        /// 
+        /// A value similar to the following is returned:
+        /// 
+        /// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.CaCertificateAutoRegistrationStatus? AutoRegistrationStatus;
+        /// <summary>
+        /// The CA certificate ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The registration configuration.
+        /// </summary>
         public readonly Outputs.CaCertificateRegistrationConfig? RegistrationConfig;
+        /// <summary>
+        /// The status of the CA certificate.
+        /// 
+        /// Valid values are "ACTIVE" and "INACTIVE".
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.CaCertificateStatus? Status;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

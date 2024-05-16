@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class FeatureVariationObjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is boolean.
+        /// </summary>
         [Input("booleanValue")]
         public Input<bool>? BooleanValue { get; set; }
 
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is a double.
+        /// </summary>
         [Input("doubleValue")]
         public Input<double>? DoubleValue { get; set; }
 
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is a long.
+        /// </summary>
         [Input("longValue")]
         public Input<double>? LongValue { get; set; }
 
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is a string.
+        /// </summary>
         [Input("stringValue")]
         public Input<string>? StringValue { get; set; }
 
+        /// <summary>
+        /// A name for the variation. It can include up to 127 characters.
+        /// </summary>
         [Input("variationName")]
         public Input<string>? VariationName { get; set; }
 

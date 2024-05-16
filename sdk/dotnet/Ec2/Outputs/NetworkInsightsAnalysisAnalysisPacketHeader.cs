@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAnalysisPacketHeader
     {
+        /// <summary>
+        /// The destination addresses.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> DestinationPortRanges;
+        /// <summary>
+        /// The protocol.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// The source addresses.
+        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> SourcePortRanges;
 
         [OutputConstructor]

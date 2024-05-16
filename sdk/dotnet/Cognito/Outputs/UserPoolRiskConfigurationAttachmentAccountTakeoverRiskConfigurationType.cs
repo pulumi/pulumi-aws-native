@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType
     {
+        /// <summary>
+        /// Account takeover actions type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType Actions;
+        /// <summary>
+        /// The notify configuration type.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationType? NotifyConfiguration;
 
         [OutputConstructor]

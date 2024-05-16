@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class WirelessDeviceAbpV10xArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DevAddr value.
+        /// </summary>
         [Input("devAddr", required: true)]
         public Input<string> DevAddr { get; set; } = null!;
 
+        /// <summary>
+        /// Session keys for ABP v1.0.x.
+        /// </summary>
         [Input("sessionKeys", required: true)]
         public Input<Inputs.WirelessDeviceSessionKeysAbpV10xArgs> SessionKeys { get; set; } = null!;
 

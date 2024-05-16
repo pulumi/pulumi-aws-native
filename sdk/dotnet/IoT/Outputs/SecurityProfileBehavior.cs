@@ -16,12 +16,21 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class SecurityProfileBehavior
     {
+        /// <summary>
+        /// The criteria by which the behavior is determined to be normal.
+        /// </summary>
         public readonly Outputs.SecurityProfileBehaviorCriteria? Criteria;
+        /// <summary>
+        /// Value indicates exporting metrics related to the behavior when it is true.
+        /// </summary>
         public readonly bool? ExportMetric;
         /// <summary>
         /// What is measured by the behavior.
         /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// The dimension of the metric.
+        /// </summary>
         public readonly Outputs.SecurityProfileMetricDimension? MetricDimension;
         /// <summary>
         /// The name for the behavior.

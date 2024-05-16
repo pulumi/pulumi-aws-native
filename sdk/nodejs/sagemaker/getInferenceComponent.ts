@@ -19,21 +19,54 @@ export function getInferenceComponent(args: GetInferenceComponentArgs, opts?: pu
 }
 
 export interface GetInferenceComponentArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the inference component.
+     */
     inferenceComponentArn: string;
 }
 
 export interface GetInferenceComponentResult {
+    /**
+     * The time when the inference component was created.
+     */
     readonly creationTime?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+     */
     readonly endpointArn?: string;
+    /**
+     * The name of the endpoint that hosts the inference component.
+     */
     readonly endpointName?: string;
     readonly failureReason?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the inference component.
+     */
     readonly inferenceComponentArn?: string;
+    /**
+     * The name of the inference component.
+     */
     readonly inferenceComponentName?: string;
+    /**
+     * The status of the inference component.
+     */
     readonly inferenceComponentStatus?: enums.sagemaker.InferenceComponentStatus;
+    /**
+     * The time when the inference component was last updated.
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * Runtime settings for a model that is deployed with an inference component.
+     */
     readonly runtimeConfig?: outputs.sagemaker.InferenceComponentRuntimeConfig;
+    /**
+     * Details about the resources to deploy with this inference component, including the model, container, and compute resources.
+     */
     readonly specification?: outputs.sagemaker.InferenceComponentSpecification;
     readonly tags?: outputs.Tag[];
+    /**
+     * The name of the production variant that hosts the inference component.
+     */
     readonly variantName?: string;
 }
 /**
@@ -44,5 +77,8 @@ export function getInferenceComponentOutput(args: GetInferenceComponentOutputArg
 }
 
 export interface GetInferenceComponentOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the inference component.
+     */
     inferenceComponentArn: pulumi.Input<string>;
 }

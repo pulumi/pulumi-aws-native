@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAnalysisLoadBalancerTarget
     {
+        /// <summary>
+        /// The IP address.
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// The Availability Zone.
+        /// </summary>
         public readonly string? AvailabilityZone;
+        /// <summary>
+        /// Describes a path component.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Instance;
+        /// <summary>
+        /// The port on which the target is listening.
+        /// </summary>
         public readonly int? Port;
 
         [OutputConstructor]

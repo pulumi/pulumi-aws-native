@@ -136,6 +136,9 @@ class DrtAccess(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the account that submitted the template.
+        """
         return pulumi.get(self, "account_id")
 
     @property

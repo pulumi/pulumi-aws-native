@@ -37,6 +37,9 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="channelStorage")
     def channel_storage(self) -> Optional['outputs.ChannelStorage']:
+        """
+        Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        """
         return pulumi.get(self, "channel_storage")
 
     @property
@@ -47,11 +50,17 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional['outputs.ChannelRetentionPeriod']:
+        """
+        How long, in days, message data is kept.
+        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -71,6 +80,9 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Resource Type definition for AWS::IoTAnalytics::Channel
+
+
+    :param str channel_name: The name of the channel.
     """
     __args__ = dict()
     __args__['channelName'] = channel_name
@@ -89,5 +101,8 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Channel
+
+
+    :param str channel_name: The name of the channel.
     """
     ...

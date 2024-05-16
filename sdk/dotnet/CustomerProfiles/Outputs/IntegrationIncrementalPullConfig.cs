@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationIncrementalPullConfig
     {
+        /// <summary>
+        /// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+        /// </summary>
         public readonly string? DatetimeTypeFieldName;
 
         [OutputConstructor]

@@ -13,12 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTimeEqualityFilter
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// 
+        /// This field is mutually exclusive to `Value` and `RollingDate` .
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// The rolling date configuration of a date time filter.
+        /// </summary>
         public readonly Outputs.DashboardRollingDateConfiguration? RollingDate;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? TimeGranularity;
+        /// <summary>
+        /// The value of a `TimeEquality` filter.
+        /// 
+        /// This field is mutually exclusive to `RollingDate` and `ParameterName` .
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

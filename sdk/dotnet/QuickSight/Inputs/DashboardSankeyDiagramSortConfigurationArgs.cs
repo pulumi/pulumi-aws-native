@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSankeyDiagramSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("destinationItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? DestinationItemsLimit { get; set; }
 
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("sourceItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? SourceItemsLimit { get; set; }
 
         [Input("weightSort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _weightSort;
+
+        /// <summary>
+        /// The sort configuration of the weight fields.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> WeightSort
         {
             get => _weightSort ?? (_weightSort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());

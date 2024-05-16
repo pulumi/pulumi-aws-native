@@ -23,13 +23,15 @@ func LookupHealthCheck(ctx *pulumi.Context, args *LookupHealthCheckArgs, opts ..
 }
 
 type LookupHealthCheckArgs struct {
+	// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 	HealthCheckId string `pulumi:"healthCheckId"`
 }
 
 type LookupHealthCheckResult struct {
 	// A complex type that contains information about the health check.
 	HealthCheckConfig *HealthCheckConfigProperties `pulumi:"healthCheckConfig"`
-	HealthCheckId     *string                      `pulumi:"healthCheckId"`
+	// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+	HealthCheckId *string `pulumi:"healthCheckId"`
 	// An array of key-value pairs to apply to this resource.
 	HealthCheckTags []HealthCheckTag `pulumi:"healthCheckTags"`
 }
@@ -48,6 +50,7 @@ func LookupHealthCheckOutput(ctx *pulumi.Context, args LookupHealthCheckOutputAr
 }
 
 type LookupHealthCheckOutputArgs struct {
+	// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 	HealthCheckId pulumi.StringInput `pulumi:"healthCheckId"`
 }
 
@@ -74,6 +77,7 @@ func (o LookupHealthCheckResultOutput) HealthCheckConfig() HealthCheckConfigProp
 	return o.ApplyT(func(v LookupHealthCheckResult) *HealthCheckConfigProperties { return v.HealthCheckConfig }).(HealthCheckConfigPropertiesPtrOutput)
 }
 
+// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 func (o LookupHealthCheckResultOutput) HealthCheckId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHealthCheckResult) *string { return v.HealthCheckId }).(pulumi.StringPtrOutput)
 }

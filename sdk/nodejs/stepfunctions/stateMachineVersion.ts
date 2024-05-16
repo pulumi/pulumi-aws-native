@@ -34,9 +34,25 @@ export class StateMachineVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === StateMachineVersion.__pulumiType;
     }
 
+    /**
+     * Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An optional description of the state machine version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the state machine.
+     */
     public readonly stateMachineArn!: pulumi.Output<string>;
+    /**
+     * Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+     *
+     * Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+     *
+     * To specify the initial state machine revision, set the value as `INITIAL` .
+     */
     public readonly stateMachineRevisionId!: pulumi.Output<string | undefined>;
 
     /**
@@ -74,7 +90,20 @@ export class StateMachineVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a StateMachineVersion resource.
  */
 export interface StateMachineVersionArgs {
+    /**
+     * An optional description of the state machine version.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the state machine.
+     */
     stateMachineArn: pulumi.Input<string>;
+    /**
+     * Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+     *
+     * Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+     *
+     * To specify the initial state machine revision, set the value as `INITIAL` .
+     */
     stateMachineRevisionId?: pulumi.Input<string>;
 }

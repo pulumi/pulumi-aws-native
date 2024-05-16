@@ -37,14 +37,48 @@ export class ScheduledQuery extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledQuery.__pulumiType;
     }
 
+    /**
+     * The `ARN` of the scheduled query.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+     *
+     * - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+     * - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+     */
     public readonly clientToken!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration required for error reporting.
+     */
     public readonly errorReportConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryErrorReportConfiguration>;
+    /**
+     * The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+     *
+     * If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+     */
     public readonly notificationConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryNotificationConfiguration>;
+    /**
+     * The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+     *
+     * The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+     */
     public readonly queryString!: pulumi.Output<string>;
+    /**
+     * Configuration of the schedule of the query.
+     */
     public readonly scheduleConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryScheduleConfiguration>;
+    /**
+     * The ARN for the IAM role that Timestream will assume when running the scheduled query.
+     */
     public readonly scheduledQueryExecutionRoleArn!: pulumi.Output<string>;
+    /**
+     * A name for the query. Scheduled query names must be unique within each Region.
+     */
     public readonly scheduledQueryName!: pulumi.Output<string | undefined>;
     /**
      * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
@@ -78,7 +112,13 @@ export class ScheduledQuery extends pulumi.CustomResource {
      * Configuration of target store where scheduled query results are written to.
      */
     public /*out*/ readonly sqTargetConfiguration!: pulumi.Output<string>;
+    /**
+     * A list of key-value pairs to label the scheduled query.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Configuration used for writing the output of a query.
+     */
     public readonly targetConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryTargetConfiguration | undefined>;
 
     /**
@@ -158,14 +198,51 @@ export class ScheduledQuery extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledQuery resource.
  */
 export interface ScheduledQueryArgs {
+    /**
+     * Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+     *
+     * - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+     * - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+     */
     clientToken?: pulumi.Input<string>;
+    /**
+     * Configuration required for error reporting.
+     */
     errorReportConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryErrorReportConfigurationArgs>;
+    /**
+     * The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+     *
+     * If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+     */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+     */
     notificationConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryNotificationConfigurationArgs>;
+    /**
+     * The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+     *
+     * The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+     */
     queryString: pulumi.Input<string>;
+    /**
+     * Configuration of the schedule of the query.
+     */
     scheduleConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryScheduleConfigurationArgs>;
+    /**
+     * The ARN for the IAM role that Timestream will assume when running the scheduled query.
+     */
     scheduledQueryExecutionRoleArn: pulumi.Input<string>;
+    /**
+     * A name for the query. Scheduled query names must be unique within each Region.
+     */
     scheduledQueryName?: pulumi.Input<string>;
+    /**
+     * A list of key-value pairs to label the scheduled query.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Configuration used for writing the output of a query.
+     */
     targetConfiguration?: pulumi.Input<inputs.timestream.ScheduledQueryTargetConfigurationArgs>;
 }

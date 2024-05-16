@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// </summary>
     public sealed class ServiceSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
+        /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.ServiceAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         [Input("autoDeploymentsEnabled")]
         public Input<bool>? AutoDeploymentsEnabled { get; set; }
 
+        /// <summary>
+        /// Describes a source code repository.
+        /// </summary>
         [Input("codeRepository")]
         public Input<Inputs.ServiceCodeRepositoryArgs>? CodeRepository { get; set; }
 
+        /// <summary>
+        /// Describes a source image repository.
+        /// </summary>
         [Input("imageRepository")]
         public Input<Inputs.ServiceImageRepositoryArgs>? ImageRepository { get; set; }
 

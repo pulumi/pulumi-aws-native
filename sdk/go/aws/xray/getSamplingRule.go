@@ -24,16 +24,20 @@ func LookupSamplingRule(ctx *pulumi.Context, args *LookupSamplingRuleArgs, opts 
 }
 
 type LookupSamplingRuleArgs struct {
+	// The sampling rule ARN that was created or updated.
 	RuleArn string `pulumi:"ruleArn"`
 }
 
 type LookupSamplingRuleResult struct {
-	RuleArn            *string             `pulumi:"ruleArn"`
-	RuleName           *string             `pulumi:"ruleName"`
+	// The sampling rule ARN that was created or updated.
+	RuleArn  *string `pulumi:"ruleArn"`
+	RuleName *string `pulumi:"ruleName"`
+	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
-	Tags               []aws.Tag           `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSamplingRuleResultOutput {
@@ -50,6 +54,7 @@ func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutput
 }
 
 type LookupSamplingRuleOutputArgs struct {
+	// The sampling rule ARN that was created or updated.
 	RuleArn pulumi.StringInput `pulumi:"ruleArn"`
 }
 
@@ -71,6 +76,7 @@ func (o LookupSamplingRuleResultOutput) ToLookupSamplingRuleResultOutputWithCont
 	return o
 }
 
+// The sampling rule ARN that was created or updated.
 func (o LookupSamplingRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamplingRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }
@@ -79,6 +85,7 @@ func (o LookupSamplingRuleResultOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamplingRuleResult) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
+// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 func (o LookupSamplingRuleResultOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v LookupSamplingRuleResult) *SamplingRuleType { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }
@@ -91,6 +98,7 @@ func (o LookupSamplingRuleResultOutput) SamplingRuleUpdate() SamplingRuleUpdateP
 	return o.ApplyT(func(v LookupSamplingRuleResult) *SamplingRuleUpdate { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LookupSamplingRuleResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupSamplingRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

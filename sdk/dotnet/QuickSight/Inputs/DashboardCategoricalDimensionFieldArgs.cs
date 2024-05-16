@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardCategoricalDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// Formatting configuration for string fields.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.DashboardStringFormatConfigurationArgs>? FormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         [Input("hierarchyId")]
         public Input<string>? HierarchyId { get; set; }
 

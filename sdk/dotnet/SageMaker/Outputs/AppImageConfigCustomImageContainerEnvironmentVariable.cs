@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class AppImageConfigCustomImageContainerEnvironmentVariable
     {
+        /// <summary>
+        /// The key that identifies a container environment variable.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the container environment variable.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

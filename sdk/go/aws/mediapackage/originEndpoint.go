@@ -18,20 +18,25 @@ type OriginEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-	Arn           pulumi.StringOutput                  `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Parameters for enabling CDN authorization on the endpoint.
 	Authorization OriginEndpointAuthorizationPtrOutput `pulumi:"authorization"`
 	// The ID of the OriginEndpoint.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID of the Channel the OriginEndpoint is associated with.
-	ChannelId   pulumi.StringOutput                `pulumi:"channelId"`
+	ChannelId pulumi.StringOutput `pulumi:"channelId"`
+	// Parameters for Common Media Application Format (CMAF) packaging.
 	CmafPackage OriginEndpointCmafPackagePtrOutput `pulumi:"cmafPackage"`
+	// Parameters for DASH packaging.
 	DashPackage OriginEndpointDashPackagePtrOutput `pulumi:"dashPackage"`
 	// A short text description of the OriginEndpoint.
-	Description pulumi.StringPtrOutput            `pulumi:"description"`
-	HlsPackage  OriginEndpointHlsPackagePtrOutput `pulumi:"hlsPackage"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Parameters for Apple HLS packaging.
+	HlsPackage OriginEndpointHlsPackagePtrOutput `pulumi:"hlsPackage"`
 	// A short string appended to the end of the OriginEndpoint URL.
-	ManifestName pulumi.StringPtrOutput            `pulumi:"manifestName"`
-	MssPackage   OriginEndpointMssPackagePtrOutput `pulumi:"mssPackage"`
+	ManifestName pulumi.StringPtrOutput `pulumi:"manifestName"`
+	// Parameters for Microsoft Smooth Streaming packaging.
+	MssPackage OriginEndpointMssPackagePtrOutput `pulumi:"mssPackage"`
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
 	Origination OriginEndpointOriginationPtrOutput `pulumi:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -92,19 +97,24 @@ func (OriginEndpointState) ElementType() reflect.Type {
 }
 
 type originEndpointArgs struct {
+	// Parameters for enabling CDN authorization on the endpoint.
 	Authorization *OriginEndpointAuthorization `pulumi:"authorization"`
 	// The ID of the OriginEndpoint.
 	AwsId string `pulumi:"awsId"`
 	// The ID of the Channel the OriginEndpoint is associated with.
-	ChannelId   string                     `pulumi:"channelId"`
+	ChannelId string `pulumi:"channelId"`
+	// Parameters for Common Media Application Format (CMAF) packaging.
 	CmafPackage *OriginEndpointCmafPackage `pulumi:"cmafPackage"`
+	// Parameters for DASH packaging.
 	DashPackage *OriginEndpointDashPackage `pulumi:"dashPackage"`
 	// A short text description of the OriginEndpoint.
-	Description *string                   `pulumi:"description"`
-	HlsPackage  *OriginEndpointHlsPackage `pulumi:"hlsPackage"`
+	Description *string `pulumi:"description"`
+	// Parameters for Apple HLS packaging.
+	HlsPackage *OriginEndpointHlsPackage `pulumi:"hlsPackage"`
 	// A short string appended to the end of the OriginEndpoint URL.
-	ManifestName *string                   `pulumi:"manifestName"`
-	MssPackage   *OriginEndpointMssPackage `pulumi:"mssPackage"`
+	ManifestName *string `pulumi:"manifestName"`
+	// Parameters for Microsoft Smooth Streaming packaging.
+	MssPackage *OriginEndpointMssPackage `pulumi:"mssPackage"`
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
 	Origination *OriginEndpointOrigination `pulumi:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -119,19 +129,24 @@ type originEndpointArgs struct {
 
 // The set of arguments for constructing a OriginEndpoint resource.
 type OriginEndpointArgs struct {
+	// Parameters for enabling CDN authorization on the endpoint.
 	Authorization OriginEndpointAuthorizationPtrInput
 	// The ID of the OriginEndpoint.
 	AwsId pulumi.StringInput
 	// The ID of the Channel the OriginEndpoint is associated with.
-	ChannelId   pulumi.StringInput
+	ChannelId pulumi.StringInput
+	// Parameters for Common Media Application Format (CMAF) packaging.
 	CmafPackage OriginEndpointCmafPackagePtrInput
+	// Parameters for DASH packaging.
 	DashPackage OriginEndpointDashPackagePtrInput
 	// A short text description of the OriginEndpoint.
 	Description pulumi.StringPtrInput
-	HlsPackage  OriginEndpointHlsPackagePtrInput
+	// Parameters for Apple HLS packaging.
+	HlsPackage OriginEndpointHlsPackagePtrInput
 	// A short string appended to the end of the OriginEndpoint URL.
 	ManifestName pulumi.StringPtrInput
-	MssPackage   OriginEndpointMssPackagePtrInput
+	// Parameters for Microsoft Smooth Streaming packaging.
+	MssPackage OriginEndpointMssPackagePtrInput
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
 	Origination OriginEndpointOriginationPtrInput
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -186,6 +201,7 @@ func (o OriginEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Parameters for enabling CDN authorization on the endpoint.
 func (o OriginEndpointOutput) Authorization() OriginEndpointAuthorizationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointAuthorizationPtrOutput { return v.Authorization }).(OriginEndpointAuthorizationPtrOutput)
 }
@@ -200,10 +216,12 @@ func (o OriginEndpointOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }
 
+// Parameters for Common Media Application Format (CMAF) packaging.
 func (o OriginEndpointOutput) CmafPackage() OriginEndpointCmafPackagePtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointCmafPackagePtrOutput { return v.CmafPackage }).(OriginEndpointCmafPackagePtrOutput)
 }
 
+// Parameters for DASH packaging.
 func (o OriginEndpointOutput) DashPackage() OriginEndpointDashPackagePtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointDashPackagePtrOutput { return v.DashPackage }).(OriginEndpointDashPackagePtrOutput)
 }
@@ -213,6 +231,7 @@ func (o OriginEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Parameters for Apple HLS packaging.
 func (o OriginEndpointOutput) HlsPackage() OriginEndpointHlsPackagePtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointHlsPackagePtrOutput { return v.HlsPackage }).(OriginEndpointHlsPackagePtrOutput)
 }
@@ -222,6 +241,7 @@ func (o OriginEndpointOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
+// Parameters for Microsoft Smooth Streaming packaging.
 func (o OriginEndpointOutput) MssPackage() OriginEndpointMssPackagePtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointMssPackagePtrOutput { return v.MssPackage }).(OriginEndpointMssPackagePtrOutput)
 }

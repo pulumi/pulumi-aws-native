@@ -25,6 +25,9 @@ class ScraperArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Scraper resource.
+        :param pulumi.Input['ScraperDestinationArgs'] destination: Where to send the metrics from a scraper.
+        :param pulumi.Input['ScraperScrapeConfigurationArgs'] scrape_configuration: A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+        :param pulumi.Input['ScraperSourceArgs'] source: The source of collected metrics for a scraper.
         :param pulumi.Input[str] alias: Scraper alias.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -39,6 +42,9 @@ class ScraperArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input['ScraperDestinationArgs']:
+        """
+        Where to send the metrics from a scraper.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -48,6 +54,9 @@ class ScraperArgs:
     @property
     @pulumi.getter(name="scrapeConfiguration")
     def scrape_configuration(self) -> pulumi.Input['ScraperScrapeConfigurationArgs']:
+        """
+        A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+        """
         return pulumi.get(self, "scrape_configuration")
 
     @scrape_configuration.setter
@@ -57,6 +66,9 @@ class ScraperArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input['ScraperSourceArgs']:
+        """
+        The source of collected metrics for a scraper.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -105,6 +117,9 @@ class Scraper(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Scraper alias.
+        :param pulumi.Input[pulumi.InputType['ScraperDestinationArgs']] destination: Where to send the metrics from a scraper.
+        :param pulumi.Input[pulumi.InputType['ScraperScrapeConfigurationArgs']] scrape_configuration: A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+        :param pulumi.Input[pulumi.InputType['ScraperSourceArgs']] source: The source of collected metrics for a scraper.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -212,6 +227,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output['outputs.ScraperDestination']:
+        """
+        Where to send the metrics from a scraper.
+        """
         return pulumi.get(self, "destination")
 
     @property
@@ -225,6 +243,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter(name="scrapeConfiguration")
     def scrape_configuration(self) -> pulumi.Output['outputs.ScraperScrapeConfiguration']:
+        """
+        A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+        """
         return pulumi.get(self, "scrape_configuration")
 
     @property
@@ -238,6 +259,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.ScraperSource']:
+        """
+        The source of collected metrics for a scraper.
+        """
         return pulumi.get(self, "source")
 
     @property

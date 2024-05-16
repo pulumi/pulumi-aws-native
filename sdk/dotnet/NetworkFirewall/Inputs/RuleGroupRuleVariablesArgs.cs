@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     {
         [Input("ipSets")]
         private InputMap<Inputs.RuleGroupIpSetArgs>? _ipSets;
+
+        /// <summary>
+        /// A list of IP addresses and address ranges, in CIDR notation.
+        /// </summary>
         public InputMap<Inputs.RuleGroupIpSetArgs> IpSets
         {
             get => _ipSets ?? (_ipSets = new InputMap<Inputs.RuleGroupIpSetArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("portSets")]
         private InputMap<Inputs.RuleGroupPortSetArgs>? _portSets;
+
+        /// <summary>
+        /// A list of port ranges.
+        /// </summary>
         public InputMap<Inputs.RuleGroupPortSetArgs> PortSets
         {
             get => _portSets ?? (_portSets = new InputMap<Inputs.RuleGroupPortSetArgs>());

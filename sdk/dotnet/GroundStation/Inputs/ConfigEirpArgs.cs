@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigEirpArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The units of the EIRP.
+        /// </summary>
         [Input("units")]
         public Input<Pulumi.AwsNative.GroundStation.ConfigEirpUnits>? Units { get; set; }
 
+        /// <summary>
+        /// The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
+        /// </summary>
         [Input("value")]
         public Input<double>? Value { get; set; }
 

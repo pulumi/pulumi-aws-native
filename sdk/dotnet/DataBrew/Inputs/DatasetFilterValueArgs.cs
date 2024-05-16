@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetFilterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value to be associated with the substitution variable.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

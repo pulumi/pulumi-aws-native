@@ -29,6 +29,7 @@ type LookupIntegrationArgs struct {
 }
 
 type LookupIntegrationResult struct {
+	// The time when the integration was created, in Universal Coordinated Time (UTC).
 	CreateTime *string `pulumi:"createTime"`
 	// The data filter for the integration.
 	DataFilter *string `pulumi:"dataFilter"`
@@ -78,6 +79,7 @@ func (o LookupIntegrationResultOutput) ToLookupIntegrationResultOutputWithContex
 	return o
 }
 
+// The time when the integration was created, in Universal Coordinated Time (UTC).
 func (o LookupIntegrationResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }

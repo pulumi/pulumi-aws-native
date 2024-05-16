@@ -31,9 +31,19 @@ class DetectorArgs:
         The set of arguments for constructing a Detector resource.
         :param pulumi.Input[str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorEventTypeArgs'] event_type: The event type to associate this detector with.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]] rules: A rule.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]] associated_models: The models to associate with this detector.
         :param pulumi.Input[str] description: The description of the detector.
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
+        :param pulumi.Input['DetectorRuleExecutionMode'] rule_execution_mode: The rule execution mode for the rules included in the detector version.
+               
+               Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+               
+               You can define and edit the rule mode at the detector version level, when it is in draft status.
+               
+               If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+               
+               If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with this detector.
         """
         pulumi.set(__self__, "detector_id", detector_id)
@@ -77,6 +87,9 @@ class DetectorArgs:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]]:
+        """
+        A rule.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -122,6 +135,17 @@ class DetectorArgs:
     @property
     @pulumi.getter(name="ruleExecutionMode")
     def rule_execution_mode(self) -> Optional[pulumi.Input['DetectorRuleExecutionMode']]:
+        """
+        The rule execution mode for the rules included in the detector version.
+
+        Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+
+        You can define and edit the rule mode at the detector version level, when it is in draft status.
+
+        If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+
+        If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+        """
         return pulumi.get(self, "rule_execution_mode")
 
     @rule_execution_mode.setter
@@ -165,6 +189,16 @@ class Detector(pulumi.CustomResource):
         :param pulumi.Input[str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
         :param pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']] event_type: The event type to associate this detector with.
+        :param pulumi.Input['DetectorRuleExecutionMode'] rule_execution_mode: The rule execution mode for the rules included in the detector version.
+               
+               Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+               
+               You can define and edit the rule mode at the detector version level, when it is in draft status.
+               
+               If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+               
+               If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]] rules: A rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this detector.
         """
         ...
@@ -339,11 +373,25 @@ class Detector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ruleExecutionMode")
     def rule_execution_mode(self) -> pulumi.Output[Optional['DetectorRuleExecutionMode']]:
+        """
+        The rule execution mode for the rules included in the detector version.
+
+        Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+
+        You can define and edit the rule mode at the detector version level, when it is in draft status.
+
+        If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+
+        If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+        """
         return pulumi.get(self, "rule_execution_mode")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.DetectorRule']]:
+        """
+        A rule.
+        """
         return pulumi.get(self, "rules")
 
     @property

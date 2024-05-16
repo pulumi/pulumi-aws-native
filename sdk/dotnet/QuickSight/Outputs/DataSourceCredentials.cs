@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             &lt;code&gt;DataSourceCredentials&lt;/code&gt; structure.&lt;/p&gt;
         /// </summary>
         public readonly string? CopySourceArn;
+        /// <summary>
+        /// The combination of user name and password that are used as credentials.
+        /// </summary>
         public readonly Outputs.DataSourceCredentialPair? CredentialPair;
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.&lt;/p&gt;

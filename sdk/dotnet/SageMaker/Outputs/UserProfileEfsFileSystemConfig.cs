@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class UserProfileEfsFileSystemConfig
     {
+        /// <summary>
+        /// The ID of your Amazon EFS file system.
+        /// </summary>
         public readonly string FileSystemId;
+        /// <summary>
+        /// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        /// </summary>
         public readonly string? FileSystemPath;
 
         [OutputConstructor]

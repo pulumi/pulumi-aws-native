@@ -12,15 +12,30 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowS3OutputFormatConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation settings that you can use to customize the output format of your flow data.
+        /// </summary>
         [Input("aggregationConfig")]
         public Input<Inputs.FlowAggregationConfigArgs>? AggregationConfig { get; set; }
 
+        /// <summary>
+        /// Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
+        /// </summary>
         [Input("fileType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowFileType>? FileType { get; set; }
 
+        /// <summary>
+        /// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+        /// </summary>
         [Input("prefixConfig")]
         public Input<Inputs.FlowPrefixConfigArgs>? PrefixConfig { get; set; }
 
+        /// <summary>
+        /// If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3.
+        /// 
+        /// - `true` : Amazon AppFlow preserves the data types when it writes to Amazon S3. For example, an integer or `1` in your source data is still an integer in your output.
+        /// - `false` : Amazon AppFlow converts all of the source data into strings when it writes to Amazon S3. For example, an integer of `1` in your source data becomes the string `"1"` in the output.
+        /// </summary>
         [Input("preserveSourceDataTyping")]
         public Input<bool>? PreserveSourceDataTyping { get; set; }
 

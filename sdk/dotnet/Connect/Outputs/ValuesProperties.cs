@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class ValuesProperties
     {
+        /// <summary>
+        /// Predefined attribute values of type string list.
+        /// </summary>
         public readonly ImmutableArray<string> StringList;
 
         [OutputConstructor]

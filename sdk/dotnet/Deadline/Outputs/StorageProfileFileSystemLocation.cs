@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class StorageProfileFileSystemLocation
     {
+        /// <summary>
+        /// The location name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The file path.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// The type of file.
+        /// </summary>
         public readonly Pulumi.AwsNative.Deadline.StorageProfileFileSystemLocationType Type;
 
         [OutputConstructor]

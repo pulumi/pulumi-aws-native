@@ -37,12 +37,21 @@ export class Bot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Bot.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the bot.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether to build the bot locales after bot creation completes.
      */
     public readonly autoBuildBotLocales!: pulumi.Output<boolean | undefined>;
+    /**
+     * The unique identifier of the bot.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Defines an Amazon S3 bucket location.
+     */
     public readonly botFileS3Location!: pulumi.Output<outputs.lex.BotS3Location | undefined>;
     /**
      * List of bot locales
@@ -56,13 +65,25 @@ export class Bot extends pulumi.CustomResource {
      * Data privacy setting of the Bot.
      */
     public readonly dataPrivacy!: pulumi.Output<outputs.lex.DataPrivacyProperties>;
+    /**
+     * The description of the version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * IdleSessionTTLInSeconds of the resource
      */
     public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
+    /**
+     * The name of the bot locale.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+     */
     public readonly testBotAliasSettings!: pulumi.Output<outputs.lex.BotTestBotAliasSettings | undefined>;
     /**
      * A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
@@ -130,6 +151,9 @@ export interface BotArgs {
      * Specifies whether to build the bot locales after bot creation completes.
      */
     autoBuildBotLocales?: pulumi.Input<boolean>;
+    /**
+     * Defines an Amazon S3 bucket location.
+     */
     botFileS3Location?: pulumi.Input<inputs.lex.BotS3LocationArgs>;
     /**
      * List of bot locales
@@ -143,13 +167,25 @@ export interface BotArgs {
      * Data privacy setting of the Bot.
      */
     dataPrivacy: pulumi.Input<inputs.lex.DataPrivacyPropertiesArgs>;
+    /**
+     * The description of the version.
+     */
     description?: pulumi.Input<string>;
     /**
      * IdleSessionTTLInSeconds of the resource
      */
     idleSessionTtlInSeconds: pulumi.Input<number>;
+    /**
+     * The name of the bot locale.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+     */
     testBotAliasSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsArgs>;
     /**
      * A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.

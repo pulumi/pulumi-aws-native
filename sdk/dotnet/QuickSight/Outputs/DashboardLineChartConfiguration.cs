@@ -13,24 +13,83 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLineChartConfiguration
     {
+        /// <summary>
+        /// The default configuration of a line chart's contribution analysis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The options that determine the default presentation of all line series in `LineChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardLineChartDefaultSeriesSettings? DefaultSeriesSettings;
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineChartFieldWells? FieldWells;
+        /// <summary>
+        /// The forecast configuration that is used in a line chart's display properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardForecastConfiguration> ForecastConfigurations;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineSeriesAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference lines configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineSeriesAxisDisplayOptions? SecondaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        /// <summary>
+        /// The series item configuration of a line chart.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSeriesItem> Series;
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         public readonly Outputs.DashboardSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// The sort configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// Determines the type of the line chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardLineChartType? Type;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? XAxisLabelOptions;
 
         [OutputConstructor]

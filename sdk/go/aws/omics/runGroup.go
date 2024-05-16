@@ -15,15 +15,24 @@ import (
 type RunGroup struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput     `pulumi:"arn"`
-	AwsId        pulumi.StringOutput     `pulumi:"awsId"`
-	CreationTime pulumi.StringOutput     `pulumi:"creationTime"`
-	MaxCpus      pulumi.Float64PtrOutput `pulumi:"maxCpus"`
-	MaxDuration  pulumi.Float64PtrOutput `pulumi:"maxDuration"`
-	MaxGpus      pulumi.Float64PtrOutput `pulumi:"maxGpus"`
-	MaxRuns      pulumi.Float64PtrOutput `pulumi:"maxRuns"`
-	Name         pulumi.StringPtrOutput  `pulumi:"name"`
-	Tags         pulumi.StringMapOutput  `pulumi:"tags"`
+	// The run group's ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The run group's ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// When the run group was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The group's maximum CPU count setting.
+	MaxCpus pulumi.Float64PtrOutput `pulumi:"maxCpus"`
+	// The group's maximum duration setting in minutes.
+	MaxDuration pulumi.Float64PtrOutput `pulumi:"maxDuration"`
+	// The maximum GPUs that can be used by a run group.
+	MaxGpus pulumi.Float64PtrOutput `pulumi:"maxGpus"`
+	// The group's maximum concurrent run setting.
+	MaxRuns pulumi.Float64PtrOutput `pulumi:"maxRuns"`
+	// The group's name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Tags for the group.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRunGroup registers a new resource with the given unique name, arguments, and options.
@@ -66,22 +75,34 @@ func (RunGroupState) ElementType() reflect.Type {
 }
 
 type runGroupArgs struct {
-	MaxCpus     *float64          `pulumi:"maxCpus"`
-	MaxDuration *float64          `pulumi:"maxDuration"`
-	MaxGpus     *float64          `pulumi:"maxGpus"`
-	MaxRuns     *float64          `pulumi:"maxRuns"`
-	Name        *string           `pulumi:"name"`
-	Tags        map[string]string `pulumi:"tags"`
+	// The group's maximum CPU count setting.
+	MaxCpus *float64 `pulumi:"maxCpus"`
+	// The group's maximum duration setting in minutes.
+	MaxDuration *float64 `pulumi:"maxDuration"`
+	// The maximum GPUs that can be used by a run group.
+	MaxGpus *float64 `pulumi:"maxGpus"`
+	// The group's maximum concurrent run setting.
+	MaxRuns *float64 `pulumi:"maxRuns"`
+	// The group's name.
+	Name *string `pulumi:"name"`
+	// Tags for the group.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RunGroup resource.
 type RunGroupArgs struct {
-	MaxCpus     pulumi.Float64PtrInput
+	// The group's maximum CPU count setting.
+	MaxCpus pulumi.Float64PtrInput
+	// The group's maximum duration setting in minutes.
 	MaxDuration pulumi.Float64PtrInput
-	MaxGpus     pulumi.Float64PtrInput
-	MaxRuns     pulumi.Float64PtrInput
-	Name        pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// The maximum GPUs that can be used by a run group.
+	MaxGpus pulumi.Float64PtrInput
+	// The group's maximum concurrent run setting.
+	MaxRuns pulumi.Float64PtrInput
+	// The group's name.
+	Name pulumi.StringPtrInput
+	// Tags for the group.
+	Tags pulumi.StringMapInput
 }
 
 func (RunGroupArgs) ElementType() reflect.Type {
@@ -121,38 +142,47 @@ func (o RunGroupOutput) ToRunGroupOutputWithContext(ctx context.Context) RunGrou
 	return o
 }
 
+// The run group's ARN.
 func (o RunGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The run group's ID.
 func (o RunGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// When the run group was created.
 func (o RunGroupOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The group's maximum CPU count setting.
 func (o RunGroupOutput) MaxCpus() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.Float64PtrOutput { return v.MaxCpus }).(pulumi.Float64PtrOutput)
 }
 
+// The group's maximum duration setting in minutes.
 func (o RunGroupOutput) MaxDuration() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.Float64PtrOutput { return v.MaxDuration }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum GPUs that can be used by a run group.
 func (o RunGroupOutput) MaxGpus() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.Float64PtrOutput { return v.MaxGpus }).(pulumi.Float64PtrOutput)
 }
 
+// The group's maximum concurrent run setting.
 func (o RunGroupOutput) MaxRuns() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.Float64PtrOutput { return v.MaxRuns }).(pulumi.Float64PtrOutput)
 }
 
+// The group's name.
 func (o RunGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Tags for the group.
 func (o RunGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

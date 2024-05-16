@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetStorageLensGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// This property contains the Storage Lens group name.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetStorageLensGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// This property contains the Storage Lens group name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.S3
     [OutputType]
     public sealed class GetStorageLensGroupResult
     {
+        /// <summary>
+        /// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        /// </summary>
         public readonly Outputs.StorageLensGroupFilter? Filter;
         /// <summary>
         /// The ARN for the Amazon S3 Storage Lens Group.

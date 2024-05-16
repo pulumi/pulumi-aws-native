@@ -29,6 +29,17 @@ class FirewallArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
+        :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
+               
+               The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        :param pulumi.Input[bool] delete_protection: A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        :param pulumi.Input[str] description: A description of the firewall.
+        :param pulumi.Input[str] firewall_name: The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+        :param pulumi.Input[bool] firewall_policy_change_protection: A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[bool] subnet_change_protection: A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
         """
         pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
         pulumi.set(__self__, "subnet_mappings", subnet_mappings)
@@ -49,6 +60,11 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the firewall policy.
+
+        The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @firewall_policy_arn.setter
@@ -58,6 +74,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]:
+        """
+        The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -67,6 +86,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -76,6 +98,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
@@ -85,6 +110,9 @@ class FirewallArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the firewall.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -94,6 +122,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+        """
         return pulumi.get(self, "firewall_name")
 
     @firewall_name.setter
@@ -103,6 +134,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @firewall_policy_change_protection.setter
@@ -112,6 +146,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        """
         return pulumi.get(self, "subnet_change_protection")
 
     @subnet_change_protection.setter
@@ -121,6 +158,9 @@ class FirewallArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -148,6 +188,17 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_protection: A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        :param pulumi.Input[str] description: A description of the firewall.
+        :param pulumi.Input[str] firewall_name: The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+        :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
+               
+               The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        :param pulumi.Input[bool] firewall_policy_change_protection: A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[bool] subnet_change_protection: A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]] subnet_mappings: The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         """
         ...
     @overload
@@ -250,60 +301,98 @@ class Firewall(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        """
         return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the firewall.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endpointIds")
     def endpoint_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
+        """
         return pulumi.get(self, "endpoint_ids")
 
     @property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the `Firewall` .
+        """
         return pulumi.get(self, "firewall_arn")
 
     @property
     @pulumi.getter(name="firewallId")
     def firewall_id(self) -> pulumi.Output[str]:
+        """
+        The name of the `Firewall` resource.
+        """
         return pulumi.get(self, "firewall_id")
 
     @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> pulumi.Output[str]:
+        """
+        The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+        """
         return pulumi.get(self, "firewall_name")
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the firewall policy.
+
+        The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        """
         return pulumi.get(self, "subnet_change_protection")
 
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallSubnetMapping']]:
+        """
+        The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        """
         return pulumi.get(self, "vpc_id")
 

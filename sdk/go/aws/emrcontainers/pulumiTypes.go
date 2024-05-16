@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type VirtualClusterContainerInfo struct {
+	// The information about the Amazon EKS cluster.
 	EksInfo VirtualClusterEksInfo `pulumi:"eksInfo"`
 }
 
@@ -29,6 +30,7 @@ type VirtualClusterContainerInfoInput interface {
 }
 
 type VirtualClusterContainerInfoArgs struct {
+	// The information about the Amazon EKS cluster.
 	EksInfo VirtualClusterEksInfoInput `pulumi:"eksInfo"`
 }
 
@@ -58,13 +60,15 @@ func (o VirtualClusterContainerInfoOutput) ToVirtualClusterContainerInfoOutputWi
 	return o
 }
 
+// The information about the Amazon EKS cluster.
 func (o VirtualClusterContainerInfoOutput) EksInfo() VirtualClusterEksInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerInfo) VirtualClusterEksInfo { return v.EksInfo }).(VirtualClusterEksInfoOutput)
 }
 
 type VirtualClusterContainerProvider struct {
 	// The ID of the container cluster
-	Id   string                      `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The information about the container used for a job run or a managed endpoint.
 	Info VirtualClusterContainerInfo `pulumi:"info"`
 	// The type of the container provider
 	Type string `pulumi:"type"`
@@ -83,7 +87,8 @@ type VirtualClusterContainerProviderInput interface {
 
 type VirtualClusterContainerProviderArgs struct {
 	// The ID of the container cluster
-	Id   pulumi.StringInput               `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The information about the container used for a job run or a managed endpoint.
 	Info VirtualClusterContainerInfoInput `pulumi:"info"`
 	// The type of the container provider
 	Type pulumi.StringInput `pulumi:"type"`
@@ -120,6 +125,7 @@ func (o VirtualClusterContainerProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The information about the container used for a job run or a managed endpoint.
 func (o VirtualClusterContainerProviderOutput) Info() VirtualClusterContainerInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) VirtualClusterContainerInfo { return v.Info }).(VirtualClusterContainerInfoOutput)
 }
@@ -130,6 +136,13 @@ func (o VirtualClusterContainerProviderOutput) Type() pulumi.StringOutput {
 }
 
 type VirtualClusterEksInfo struct {
+	// The namespaces of the EKS cluster.
+	//
+	// *Minimum* : 1
+	//
+	// *Maximum* : 63
+	//
+	// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -145,6 +158,13 @@ type VirtualClusterEksInfoInput interface {
 }
 
 type VirtualClusterEksInfoArgs struct {
+	// The namespaces of the EKS cluster.
+	//
+	// *Minimum* : 1
+	//
+	// *Maximum* : 63
+	//
+	// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -174,6 +194,13 @@ func (o VirtualClusterEksInfoOutput) ToVirtualClusterEksInfoOutputWithContext(ct
 	return o
 }
 
+// The namespaces of the EKS cluster.
+//
+// *Minimum* : 1
+//
+// *Maximum* : 63
+//
+// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
 func (o VirtualClusterEksInfoOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterEksInfo) string { return v.Namespace }).(pulumi.StringOutput)
 }

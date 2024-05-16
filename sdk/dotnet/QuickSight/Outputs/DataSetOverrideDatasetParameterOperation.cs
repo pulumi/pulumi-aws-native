@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetOverrideDatasetParameterOperation
     {
+        /// <summary>
+        /// The new default values for the parameter.
+        /// </summary>
         public readonly Outputs.DataSetNewDefaultValues? NewDefaultValues;
         /// <summary>
         /// &lt;p&gt;The new name for the parameter.&lt;/p&gt;

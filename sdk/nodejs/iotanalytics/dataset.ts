@@ -167,14 +167,38 @@ export class Dataset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dataset.__pulumiType;
     }
 
+    /**
+     * Information needed to run the "containerAction" to produce data set contents.
+     */
     public readonly actions!: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * When dataset contents are created, they are delivered to destination specified here.
+     */
     public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
+    /**
+     * The name of the dataset.
+     */
     public readonly datasetName!: pulumi.Output<string | undefined>;
+    /**
+     * A structure that contains the name and configuration information of a late data rule.
+     */
     public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
+    /**
+     * How long, in days, message data is kept.
+     */
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The "DatasetTrigger" that specifies when the data set is automatically updated.
+     */
     public readonly triggers!: pulumi.Output<outputs.iotanalytics.DatasetTrigger[] | undefined>;
+    /**
+     * Information about the versioning of dataset contents.
+     */
     public readonly versioningConfiguration!: pulumi.Output<outputs.iotanalytics.DatasetVersioningConfiguration | undefined>;
 
     /**
@@ -222,12 +246,36 @@ export class Dataset extends pulumi.CustomResource {
  * The set of arguments for constructing a Dataset resource.
  */
 export interface DatasetArgs {
+    /**
+     * Information needed to run the "containerAction" to produce data set contents.
+     */
     actions: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetActionArgs>[]>;
+    /**
+     * When dataset contents are created, they are delivered to destination specified here.
+     */
     contentDeliveryRules?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetContentDeliveryRuleArgs>[]>;
+    /**
+     * The name of the dataset.
+     */
     datasetName?: pulumi.Input<string>;
+    /**
+     * A structure that contains the name and configuration information of a late data rule.
+     */
     lateDataRules?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetLateDataRuleArgs>[]>;
+    /**
+     * How long, in days, message data is kept.
+     */
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatasetRetentionPeriodArgs>;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The "DatasetTrigger" that specifies when the data set is automatically updated.
+     */
     triggers?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetTriggerArgs>[]>;
+    /**
+     * Information about the versioning of dataset contents.
+     */
     versioningConfiguration?: pulumi.Input<inputs.iotanalytics.DatasetVersioningConfigurationArgs>;
 }

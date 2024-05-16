@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.AppSync
     public sealed class GetDomainNameApiAssociationResult
     {
         public readonly string? ApiAssociationIdentifier;
+        /// <summary>
+        /// The API ID.
+        /// </summary>
         public readonly string? ApiId;
 
         [OutputConstructor]

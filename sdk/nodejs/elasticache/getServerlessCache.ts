@@ -30,6 +30,9 @@ export interface GetServerlessCacheResult {
      * The ARN of the Serverless Cache.
      */
     readonly arn?: string;
+    /**
+     * The usage limits for storage and ElastiCache Processing Units for the cache.
+     */
     readonly cacheUsageLimits?: outputs.elasticache.ServerlessCacheCacheUsageLimits;
     /**
      * The creation time of the Serverless Cache.
@@ -43,11 +46,17 @@ export interface GetServerlessCacheResult {
      * The description of the Serverless Cache.
      */
     readonly description?: string;
+    /**
+     * Represents the information required for client programs to connect to a cache node. This value is read-only.
+     */
     readonly endpoint?: outputs.elasticache.ServerlessCacheEndpoint;
     /**
      * The full engine version of the Serverless Cache.
      */
     readonly fullEngineVersion?: string;
+    /**
+     * Represents the information required for client programs to connect to a cache node. This value is read-only.
+     */
     readonly readerEndpoint?: outputs.elasticache.ServerlessCacheEndpoint;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionRepositoryCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+        /// </summary>
         [Input("credentialsParameter", required: true)]
         public Input<string> CredentialsParameter { get; set; } = null!;
 

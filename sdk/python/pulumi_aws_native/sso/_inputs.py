@@ -166,6 +166,10 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
+        :param pulumi.Input[str] path: The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
+        """
         pulumi.set(__self__, "name", name)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -173,6 +177,9 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -182,6 +189,9 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -194,6 +204,10 @@ class PermissionSetPermissionsBoundaryArgs:
     def __init__(__self__, *,
                  customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
                  managed_policy_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        :param pulumi.Input[str] managed_policy_arn: The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
+        """
         if customer_managed_policy_reference is not None:
             pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
@@ -202,6 +216,9 @@ class PermissionSetPermissionsBoundaryArgs:
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]:
+        """
+        Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
@@ -211,6 +228,9 @@ class PermissionSetPermissionsBoundaryArgs:
     @property
     @pulumi.getter(name="managedPolicyArn")
     def managed_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
+        """
         return pulumi.get(self, "managed_policy_arn")
 
     @managed_policy_arn.setter

@@ -13,22 +13,73 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicCalculatedField
     {
+        /// <summary>
+        /// The default aggregation. Valid values for this structure are `SUM` , `MAX` , `MIN` , `COUNT` , `DISTINCT_COUNT` , and `AVERAGE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicDefaultAggregation? Aggregation;
+        /// <summary>
+        /// The list of aggregation types that are allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> AllowedAggregations;
+        /// <summary>
+        /// The calculated field description.
+        /// </summary>
         public readonly string? CalculatedFieldDescription;
+        /// <summary>
+        /// The calculated field name.
+        /// </summary>
         public readonly string CalculatedFieldName;
+        /// <summary>
+        /// The other names or aliases for the calculated field.
+        /// </summary>
         public readonly ImmutableArray<string> CalculatedFieldSynonyms;
+        /// <summary>
+        /// A structure that represents the cell value synonym.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicCellValueSynonym> CellValueSynonyms;
+        /// <summary>
+        /// The column data role for a calculated field. Valid values for this structure are `DIMENSION` and `MEASURE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicColumnDataRole? ColumnDataRole;
+        /// <summary>
+        /// The order in which data is displayed for the column when it's used in a comparative context.
+        /// </summary>
         public readonly Outputs.TopicComparativeOrder? ComparativeOrder;
+        /// <summary>
+        /// A structure that represents a default formatting definition.
+        /// </summary>
         public readonly Outputs.TopicDefaultFormatting? DefaultFormatting;
+        /// <summary>
+        /// A Boolean value that indicates if a calculated field is visible in the autocomplete.
+        /// </summary>
         public readonly bool? DisableIndexing;
+        /// <summary>
+        /// The calculated field expression.
+        /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// A boolean value that indicates if a calculated field is included in the topic.
+        /// </summary>
         public readonly bool? IsIncludedInTopic;
+        /// <summary>
+        /// A Boolean value that indicates whether to never aggregate calculated field in filters.
+        /// </summary>
         public readonly bool? NeverAggregateInFilter;
+        /// <summary>
+        /// The non additive for the table style target.
+        /// </summary>
         public readonly bool? NonAdditive;
+        /// <summary>
+        /// The list of aggregation types that are not allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> NotAllowedAggregations;
+        /// <summary>
+        /// A structure that represents a semantic type.
+        /// </summary>
         public readonly Outputs.TopicSemanticType? SemanticType;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicTimeGranularity? TimeGranularity;
 
         [OutputConstructor]

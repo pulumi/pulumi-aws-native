@@ -37,8 +37,19 @@ export class KeyGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyGroup.__pulumiType;
     }
 
+    /**
+     * The identifier for the key group.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A key group configuration.
+     *
+     * A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+     */
     public readonly keyGroupConfig!: pulumi.Output<outputs.cloudfront.KeyGroupConfig>;
+    /**
+     * The date and time when the key group was last modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -72,5 +83,10 @@ export class KeyGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a KeyGroup resource.
  */
 export interface KeyGroupArgs {
+    /**
+     * A key group configuration.
+     *
+     * A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+     */
     keyGroupConfig: pulumi.Input<inputs.cloudfront.KeyGroupConfigArgs>;
 }

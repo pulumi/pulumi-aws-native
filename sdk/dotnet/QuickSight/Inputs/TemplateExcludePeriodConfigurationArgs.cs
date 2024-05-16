@@ -12,12 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateExcludePeriodConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount or number of the exclude period.
+        /// </summary>
         [Input("amount", required: true)]
         public Input<double> Amount { get; set; } = null!;
 
+        /// <summary>
+        /// The granularity or unit (day, month, year) of the exclude period.
+        /// </summary>
         [Input("granularity", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTimeGranularity> Granularity { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the exclude period. Choose from the following options:
+        /// 
+        /// - `ENABLED`
+        /// - `DISABLED`
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateWidgetStatus>? Status { get; set; }
 

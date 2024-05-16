@@ -13,11 +13,32 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTopBottomRankedComputation
     {
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.TemplateDimensionField? Category;
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The result size of a top and bottom ranked computation.
+        /// </summary>
         public readonly double? ResultSize;
+        /// <summary>
+        /// The computation type. Choose one of the following options:
+        /// 
+        /// - TOP: A top ranked computation.
+        /// - BOTTOM: A bottom ranked computation.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTopBottomComputationType Type;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.TemplateMeasureField? Value;
 
         [OutputConstructor]

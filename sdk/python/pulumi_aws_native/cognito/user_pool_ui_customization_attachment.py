@@ -19,6 +19,9 @@ class UserPoolUiCustomizationAttachmentArgs:
                  css: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
+        :param pulumi.Input[str] client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] css: The CSS values in the UI customization.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -28,6 +31,9 @@ class UserPoolUiCustomizationAttachmentArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
+        """
+        The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -37,6 +43,9 @@ class UserPoolUiCustomizationAttachmentArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -46,6 +55,9 @@ class UserPoolUiCustomizationAttachmentArgs:
     @property
     @pulumi.getter
     def css(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CSS values in the UI customization.
+        """
         return pulumi.get(self, "css")
 
     @css.setter
@@ -67,6 +79,9 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        :param pulumi.Input[str] css: The CSS values in the UI customization.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
         ...
     @overload
@@ -145,20 +160,32 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
+        """
+        The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter
     def css(self) -> pulumi.Output[Optional[str]]:
+        """
+        The CSS values in the UI customization.
+        """
         return pulumi.get(self, "css")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 

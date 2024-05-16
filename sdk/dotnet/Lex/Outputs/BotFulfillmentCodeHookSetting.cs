@@ -16,12 +16,21 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotFulfillmentCodeHookSetting
     {
+        /// <summary>
+        /// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Provides information for updating the user on the progress of fulfilling an intent.
+        /// </summary>
         public readonly Outputs.BotFulfillmentUpdatesSpecification? FulfillmentUpdatesSpecification;
         /// <summary>
         /// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
         /// </summary>
         public readonly bool? IsActive;
+        /// <summary>
+        /// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+        /// </summary>
         public readonly Outputs.BotPostFulfillmentStatusSpecification? PostFulfillmentStatusSpecification;
 
         [OutputConstructor]

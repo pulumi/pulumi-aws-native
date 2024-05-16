@@ -26,6 +26,16 @@ class AppBlockArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag1PropertiesArgs']]]]] = None):
         """
         The set of arguments for constructing a AppBlock resource.
+        :param pulumi.Input['AppBlockS3LocationArgs'] source_s3_location: The S3 location of the app block.
+        :param pulumi.Input[str] description: The description of the app block.
+        :param pulumi.Input[str] display_name: The display name of the app block.
+        :param pulumi.Input[str] name: The name of the app block.
+               
+               *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        :param pulumi.Input[str] packaging_type: The packaging type of the app block.
+        :param pulumi.Input['AppBlockScriptDetailsArgs'] post_setup_script_details: The details of the script.
+        :param pulumi.Input['AppBlockScriptDetailsArgs'] setup_script_details: The details of the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag1PropertiesArgs']]]] tags: The tag of the app block.
         """
         pulumi.set(__self__, "source_s3_location", source_s3_location)
         if description is not None:
@@ -46,6 +56,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter(name="sourceS3Location")
     def source_s3_location(self) -> pulumi.Input['AppBlockS3LocationArgs']:
+        """
+        The S3 location of the app block.
+        """
         return pulumi.get(self, "source_s3_location")
 
     @source_s3_location.setter
@@ -55,6 +68,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the app block.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,6 +80,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the app block.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -73,6 +92,11 @@ class AppBlockArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app block.
+
+        *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -82,6 +106,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter(name="packagingType")
     def packaging_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The packaging type of the app block.
+        """
         return pulumi.get(self, "packaging_type")
 
     @packaging_type.setter
@@ -91,6 +118,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter(name="postSetupScriptDetails")
     def post_setup_script_details(self) -> Optional[pulumi.Input['AppBlockScriptDetailsArgs']]:
+        """
+        The details of the script.
+        """
         return pulumi.get(self, "post_setup_script_details")
 
     @post_setup_script_details.setter
@@ -100,6 +130,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter(name="setupScriptDetails")
     def setup_script_details(self) -> Optional[pulumi.Input['AppBlockScriptDetailsArgs']]:
+        """
+        The details of the script.
+        """
         return pulumi.get(self, "setup_script_details")
 
     @setup_script_details.setter
@@ -109,6 +142,9 @@ class AppBlockArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag1PropertiesArgs']]]]]:
+        """
+        The tag of the app block.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,6 +171,16 @@ class AppBlock(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the app block.
+        :param pulumi.Input[str] display_name: The display name of the app block.
+        :param pulumi.Input[str] name: The name of the app block.
+               
+               *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        :param pulumi.Input[str] packaging_type: The packaging type of the app block.
+        :param pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']] post_setup_script_details: The details of the script.
+        :param pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']] setup_script_details: The details of the script.
+        :param pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']] source_s3_location: The S3 location of the app block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AppBlockTag0PropertiesArgs'], pulumi.InputType['AppBlockTag1PropertiesArgs']]]]] tags: The tag of the app block.
         """
         ...
     @overload
@@ -228,50 +274,82 @@ class AppBlock(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the app block.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the app block was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the app block.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the app block.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the app block.
+
+        *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="packagingType")
     def packaging_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The packaging type of the app block.
+        """
         return pulumi.get(self, "packaging_type")
 
     @property
     @pulumi.getter(name="postSetupScriptDetails")
     def post_setup_script_details(self) -> pulumi.Output[Optional['outputs.AppBlockScriptDetails']]:
+        """
+        The details of the script.
+        """
         return pulumi.get(self, "post_setup_script_details")
 
     @property
     @pulumi.getter(name="setupScriptDetails")
     def setup_script_details(self) -> pulumi.Output[Optional['outputs.AppBlockScriptDetails']]:
+        """
+        The details of the script.
+        """
         return pulumi.get(self, "setup_script_details")
 
     @property
     @pulumi.getter(name="sourceS3Location")
     def source_s3_location(self) -> pulumi.Output['outputs.AppBlockS3Location']:
+        """
+        The S3 location of the app block.
+        """
         return pulumi.get(self, "source_s3_location")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+        """
+        The tag of the app block.
+        """
         return pulumi.get(self, "tags")
 

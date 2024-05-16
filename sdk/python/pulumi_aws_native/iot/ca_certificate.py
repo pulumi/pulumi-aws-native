@@ -29,6 +29,18 @@ class CaCertificateArgs:
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
+        :param pulumi.Input[str] ca_certificate_pem: The certificate data in PEM format.
+        :param pulumi.Input['CaCertificateStatus'] status: The status of the CA certificate.
+               
+               Valid values are "ACTIVE" and "INACTIVE".
+        :param pulumi.Input['CaCertificateAutoRegistrationStatus'] auto_registration_status: Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        :param pulumi.Input['CaCertificateCertificateMode'] certificate_mode: The mode of the CA.
+               
+               All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+               
+               Valid values are "DEFAULT" and "SNI_ONLY".
+        :param pulumi.Input['CaCertificateRegistrationConfigArgs'] registration_config: The registration configuration.
+        :param pulumi.Input[bool] remove_auto_registration: If true, removes auto registration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verification_certificate_pem: The private key verification certificate.
         """
@@ -50,6 +62,9 @@ class CaCertificateArgs:
     @property
     @pulumi.getter(name="caCertificatePem")
     def ca_certificate_pem(self) -> pulumi.Input[str]:
+        """
+        The certificate data in PEM format.
+        """
         return pulumi.get(self, "ca_certificate_pem")
 
     @ca_certificate_pem.setter
@@ -59,6 +74,11 @@ class CaCertificateArgs:
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input['CaCertificateStatus']:
+        """
+        The status of the CA certificate.
+
+        Valid values are "ACTIVE" and "INACTIVE".
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -68,6 +88,9 @@ class CaCertificateArgs:
     @property
     @pulumi.getter(name="autoRegistrationStatus")
     def auto_registration_status(self) -> Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']]:
+        """
+        Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        """
         return pulumi.get(self, "auto_registration_status")
 
     @auto_registration_status.setter
@@ -77,6 +100,13 @@ class CaCertificateArgs:
     @property
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> Optional[pulumi.Input['CaCertificateCertificateMode']]:
+        """
+        The mode of the CA.
+
+        All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+
+        Valid values are "DEFAULT" and "SNI_ONLY".
+        """
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
@@ -86,6 +116,9 @@ class CaCertificateArgs:
     @property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
+        """
+        The registration configuration.
+        """
         return pulumi.get(self, "registration_config")
 
     @registration_config.setter
@@ -95,6 +128,9 @@ class CaCertificateArgs:
     @property
     @pulumi.getter(name="removeAutoRegistration")
     def remove_auto_registration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, removes auto registration.
+        """
         return pulumi.get(self, "remove_auto_registration")
 
     @remove_auto_registration.setter
@@ -145,6 +181,18 @@ class CaCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['CaCertificateAutoRegistrationStatus'] auto_registration_status: Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        :param pulumi.Input[str] ca_certificate_pem: The certificate data in PEM format.
+        :param pulumi.Input['CaCertificateCertificateMode'] certificate_mode: The mode of the CA.
+               
+               All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+               
+               Valid values are "DEFAULT" and "SNI_ONLY".
+        :param pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']] registration_config: The registration configuration.
+        :param pulumi.Input[bool] remove_auto_registration: If true, removes auto registration.
+        :param pulumi.Input['CaCertificateStatus'] status: The status of the CA certificate.
+               
+               Valid values are "ACTIVE" and "INACTIVE".
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verification_certificate_pem: The private key verification certificate.
         """
@@ -242,41 +290,77 @@ class CaCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+
+        `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+
+        A value similar to the following is returned:
+
+        `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoRegistrationStatus")
     def auto_registration_status(self) -> pulumi.Output[Optional['CaCertificateAutoRegistrationStatus']]:
+        """
+        Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        """
         return pulumi.get(self, "auto_registration_status")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The CA certificate ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="caCertificatePem")
     def ca_certificate_pem(self) -> pulumi.Output[str]:
+        """
+        The certificate data in PEM format.
+        """
         return pulumi.get(self, "ca_certificate_pem")
 
     @property
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> pulumi.Output[Optional['CaCertificateCertificateMode']]:
+        """
+        The mode of the CA.
+
+        All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+
+        Valid values are "DEFAULT" and "SNI_ONLY".
+        """
         return pulumi.get(self, "certificate_mode")
 
     @property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> pulumi.Output[Optional['outputs.CaCertificateRegistrationConfig']]:
+        """
+        The registration configuration.
+        """
         return pulumi.get(self, "registration_config")
 
     @property
     @pulumi.getter(name="removeAutoRegistration")
     def remove_auto_registration(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, removes auto registration.
+        """
         return pulumi.get(self, "remove_auto_registration")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['CaCertificateStatus']:
+        """
+        The status of the CA certificate.
+
+        Valid values are "ACTIVE" and "INACTIVE".
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorRedshiftSourceConfig
     {
+        /// <summary>
+        /// A string identifying the Redshift cluster.
+        /// </summary>
         public readonly string ClusterIdentifier;
+        /// <summary>
+        /// The name of the database host.
+        /// </summary>
         public readonly string DatabaseHost;
+        /// <summary>
+        /// The Redshift database name.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The port number where the database can be accessed.
+        /// </summary>
         public readonly int DatabasePort;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role providing access to the database.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        /// </summary>
         public readonly string SecretManagerArn;
+        /// <summary>
+        /// The table name of the Redshift database.
+        /// </summary>
         public readonly string TableName;
+        /// <summary>
+        /// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        /// </summary>
         public readonly Outputs.AnomalyDetectorVpcConfiguration VpcConfiguration;
 
         [OutputConstructor]

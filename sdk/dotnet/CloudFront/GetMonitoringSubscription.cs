@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetMonitoringSubscriptionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the distribution that you are enabling metrics for.
+        /// </summary>
         [Input("distributionId", required: true)]
         public string DistributionId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetMonitoringSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the distribution that you are enabling metrics for.
+        /// </summary>
         [Input("distributionId", required: true)]
         public Input<string> DistributionId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetMonitoringSubscriptionResult
     {
+        /// <summary>
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
         public readonly Outputs.MonitoringSubscription? MonitoringSubscriptionValue;
 
         [OutputConstructor]

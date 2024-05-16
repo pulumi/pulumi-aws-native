@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+        /// </summary>
         [Input("awsVpcConfiguration")]
         public Input<Inputs.RuleAwsVpcConfigurationArgs>? AwsVpcConfiguration { get; set; }
 

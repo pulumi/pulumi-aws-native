@@ -13,7 +13,24 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyReferrerPolicy
     {
+        /// <summary>
+        /// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+        /// </summary>
         public readonly bool Override;
+        /// <summary>
+        /// The value of the `Referrer-Policy` HTTP response header. Valid values are:
+        /// 
+        /// - `no-referrer`
+        /// - `no-referrer-when-downgrade`
+        /// - `origin`
+        /// - `origin-when-cross-origin`
+        /// - `same-origin`
+        /// - `strict-origin`
+        /// - `strict-origin-when-cross-origin`
+        /// - `unsafe-url`
+        /// 
+        /// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+        /// </summary>
         public readonly string ReferrerPolicy;
 
         [OutputConstructor]

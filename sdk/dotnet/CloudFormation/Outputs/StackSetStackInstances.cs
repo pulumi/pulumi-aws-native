@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetStackInstances
     {
+        /// <summary>
+        /// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+        /// </summary>
         public readonly Outputs.StackSetDeploymentTargets DeploymentTargets;
         /// <summary>
         /// A list of stack set parameters whose values you want to override in the selected stack instances.

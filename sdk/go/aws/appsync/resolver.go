@@ -86,7 +86,8 @@ type Resolver struct {
 	RequestMappingTemplate pulumi.StringPtrOutput `pulumi:"requestMappingTemplate"`
 	// The location of a request mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
 	RequestMappingTemplateS3Location pulumi.StringPtrOutput `pulumi:"requestMappingTemplateS3Location"`
-	ResolverArn                      pulumi.StringOutput    `pulumi:"resolverArn"`
+	// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+	ResolverArn pulumi.StringOutput `pulumi:"resolverArn"`
 	// The response mapping template.
 	ResponseMappingTemplate pulumi.StringPtrOutput `pulumi:"responseMappingTemplate"`
 	// The location of a response mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
@@ -335,6 +336,7 @@ func (o ResolverOutput) RequestMappingTemplateS3Location() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.RequestMappingTemplateS3Location }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
 func (o ResolverOutput) ResolverArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.ResolverArn }).(pulumi.StringOutput)
 }

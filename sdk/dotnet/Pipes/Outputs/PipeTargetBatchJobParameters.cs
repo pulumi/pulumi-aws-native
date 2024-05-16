@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetBatchJobParameters
     {
+        /// <summary>
+        /// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+        /// </summary>
         public readonly Outputs.PipeBatchArrayProperties? ArrayProperties;
+        /// <summary>
+        /// The overrides that are sent to a container.
+        /// </summary>
         public readonly Outputs.PipeBatchContainerOverrides? ContainerOverrides;
+        /// <summary>
+        /// An object that represents an AWS Batch job dependency.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeBatchJobDependency> DependsOn;
+        /// <summary>
+        /// The job definition used by this job. This value can be one of `name` , `name:revision` , or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+        /// </summary>
         public readonly string JobDefinition;
+        /// <summary>
+        /// The name of the job. It can be up to 128 letters long. The first character must be alphanumeric, can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        /// </summary>
         public readonly string JobName;
+        /// <summary>
+        /// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+        /// </summary>
         public readonly Outputs.PipeBatchRetryStrategy? RetryStrategy;
 
         [OutputConstructor]

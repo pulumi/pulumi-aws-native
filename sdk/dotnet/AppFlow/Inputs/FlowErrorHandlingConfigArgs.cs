@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowErrorHandlingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the Amazon S3 bucket.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// Specifies the Amazon S3 bucket prefix.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+        /// </summary>
         [Input("failOnFirstError")]
         public Input<bool>? FailOnFirstError { get; set; }
 

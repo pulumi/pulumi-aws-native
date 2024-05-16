@@ -12,18 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPeriodToDateComputationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The time granularity setup of period to date computation. Choose from the following options:
+        /// 
+        /// - YEAR: Year to date.
+        /// - MONTH: Month to date.
+        /// </summary>
         [Input("periodTimeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity>? PeriodTimeGranularity { get; set; }
 
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         [Input("time")]
         public Input<Inputs.AnalysisDimensionFieldArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         [Input("value")]
         public Input<Inputs.AnalysisMeasureFieldArgs>? Value { get; set; }
 

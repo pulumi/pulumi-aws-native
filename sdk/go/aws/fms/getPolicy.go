@@ -24,25 +24,71 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
+	// The ID of the policy.
 	Id string `pulumi:"id"`
 }
 
 type LookupPolicyResult struct {
-	Arn                       *string                          `pulumi:"arn"`
-	ExcludeMap                *PolicyIeMap                     `pulumi:"excludeMap"`
-	ExcludeResourceTags       *bool                            `pulumi:"excludeResourceTags"`
-	Id                        *string                          `pulumi:"id"`
-	IncludeMap                *PolicyIeMap                     `pulumi:"includeMap"`
-	PolicyDescription         *string                          `pulumi:"policyDescription"`
-	PolicyName                *string                          `pulumi:"policyName"`
-	RemediationEnabled        *bool                            `pulumi:"remediationEnabled"`
-	ResourceSetIds            []string                         `pulumi:"resourceSetIds"`
-	ResourceTags              []PolicyResourceTag              `pulumi:"resourceTags"`
-	ResourceType              *string                          `pulumi:"resourceType"`
-	ResourceTypeList          []string                         `pulumi:"resourceTypeList"`
-	ResourcesCleanUp          *bool                            `pulumi:"resourcesCleanUp"`
+	// The Amazon Resource Name (ARN) of the policy.
+	Arn *string `pulumi:"arn"`
+	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+	//
+	// You can specify account IDs, OUs, or a combination:
+	//
+	// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+	ExcludeMap *PolicyIeMap `pulumi:"excludeMap"`
+	// Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
+	ExcludeResourceTags *bool `pulumi:"excludeResourceTags"`
+	// The ID of the policy.
+	Id *string `pulumi:"id"`
+	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+	//
+	// You can specify account IDs, OUs, or a combination:
+	//
+	// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+	IncludeMap *PolicyIeMap `pulumi:"includeMap"`
+	// Your description of the AWS Firewall Manager policy.
+	PolicyDescription *string `pulumi:"policyDescription"`
+	// The name of the AWS Firewall Manager policy.
+	PolicyName *string `pulumi:"policyName"`
+	// Indicates if the policy should be automatically applied to new resources.
+	RemediationEnabled *bool `pulumi:"remediationEnabled"`
+	// The unique identifiers of the resource sets used by the policy.
+	ResourceSetIds []string `pulumi:"resourceSetIds"`
+	// The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
+	ResourceTags []PolicyResourceTag `pulumi:"resourceTags"`
+	// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+	//
+	// The following are valid resource types for each Firewall Manager policy type:
+	//
+	// - AWS WAF Classic - `AWS::ApiGateway::Stage` , `AWS::CloudFront::Distribution` , and `AWS::ElasticLoadBalancingV2::LoadBalancer` .
+	// - AWS WAF - `AWS::ApiGateway::Stage` , `AWS::ElasticLoadBalancingV2::LoadBalancer` , and `AWS::CloudFront::Distribution` .
+	// - Shield Advanced - `AWS::ElasticLoadBalancingV2::LoadBalancer` , `AWS::ElasticLoadBalancing::LoadBalancer` , `AWS::EC2::EIP` , and `AWS::CloudFront::Distribution` .
+	// - Network ACL - `AWS::EC2::Subnet` .
+	// - Security group usage audit - `AWS::EC2::SecurityGroup` .
+	// - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
+	// - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
+	ResourceType *string `pulumi:"resourceType"`
+	// An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
+	ResourceTypeList []string `pulumi:"resourceTypeList"`
+	// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+	//
+	// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+	//
+	// This option is not available for Shield Advanced or AWS WAF Classic policies.
+	ResourcesCleanUp *bool `pulumi:"resourcesCleanUp"`
+	// Details about the security service that is being used to protect the resources.
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
-	Tags                      []aws.Tag                        `pulumi:"tags"`
+	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -59,6 +105,7 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 }
 
 type LookupPolicyOutputArgs struct {
+	// The ID of the policy.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -80,62 +127,107 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the policy.
 func (o LookupPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+//
+// You can specify account IDs, OUs, or a combination:
+//
+// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
 func (o LookupPolicyResultOutput) ExcludeMap() PolicyIeMapPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *PolicyIeMap { return v.ExcludeMap }).(PolicyIeMapPtrOutput)
 }
 
+// Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
 func (o LookupPolicyResultOutput) ExcludeResourceTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.ExcludeResourceTags }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the policy.
 func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+//
+// You can specify account IDs, OUs, or a combination:
+//
+// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
 func (o LookupPolicyResultOutput) IncludeMap() PolicyIeMapPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *PolicyIeMap { return v.IncludeMap }).(PolicyIeMapPtrOutput)
 }
 
+// Your description of the AWS Firewall Manager policy.
 func (o LookupPolicyResultOutput) PolicyDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyDescription }).(pulumi.StringPtrOutput)
 }
 
+// The name of the AWS Firewall Manager policy.
 func (o LookupPolicyResultOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates if the policy should be automatically applied to new resources.
 func (o LookupPolicyResultOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.RemediationEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The unique identifiers of the resource sets used by the policy.
 func (o LookupPolicyResultOutput) ResourceSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []string { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
 }
 
+// The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
 func (o LookupPolicyResultOutput) ResourceTags() PolicyResourceTagArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []PolicyResourceTag { return v.ResourceTags }).(PolicyResourceTagArrayOutput)
 }
 
+// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+//
+// The following are valid resource types for each Firewall Manager policy type:
+//
+// - AWS WAF Classic - `AWS::ApiGateway::Stage` , `AWS::CloudFront::Distribution` , and `AWS::ElasticLoadBalancingV2::LoadBalancer` .
+// - AWS WAF - `AWS::ApiGateway::Stage` , `AWS::ElasticLoadBalancingV2::LoadBalancer` , and `AWS::CloudFront::Distribution` .
+// - Shield Advanced - `AWS::ElasticLoadBalancingV2::LoadBalancer` , `AWS::ElasticLoadBalancing::LoadBalancer` , `AWS::EC2::EIP` , and `AWS::CloudFront::Distribution` .
+// - Network ACL - `AWS::EC2::Subnet` .
+// - Security group usage audit - `AWS::EC2::SecurityGroup` .
+// - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
+// - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
 func (o LookupPolicyResultOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
 func (o LookupPolicyResultOutput) ResourceTypeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []string { return v.ResourceTypeList }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+//
+// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+//
+// This option is not available for Shield Advanced or AWS WAF Classic policies.
 func (o LookupPolicyResultOutput) ResourcesCleanUp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.ResourcesCleanUp }).(pulumi.BoolPtrOutput)
 }
 
+// Details about the security service that is being used to protect the resources.
 func (o LookupPolicyResultOutput) SecurityServicePolicyData() PolicySecurityServicePolicyDataPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *PolicySecurityServicePolicyData { return v.SecurityServicePolicyData }).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
+// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 func (o LookupPolicyResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

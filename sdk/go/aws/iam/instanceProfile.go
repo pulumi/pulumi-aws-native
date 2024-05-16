@@ -116,6 +116,11 @@ import (
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
+	// Returns the Amazon Resource Name (ARN) for the instance profile. For example:
+	//
+	// `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
+	//
+	// This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the instance profile to create.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
@@ -237,6 +242,11 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the instance profile. For example:
+//
+// `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
+//
+// This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
 func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -36,7 +36,8 @@ type LocationHdfs struct {
 	// The URL of the HDFS location that was described.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// An array of Name Node(s) of the HDFS location.
-	NameNodes        LocationHdfsNameNodeArrayOutput       `pulumi:"nameNodes"`
+	NameNodes LocationHdfsNameNodeArrayOutput `pulumi:"nameNodes"`
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	QopConfiguration LocationHdfsQopConfigurationPtrOutput `pulumi:"qopConfiguration"`
 	// Number of copies of each block that exists inside the HDFS cluster.
 	ReplicationFactor pulumi.IntPtrOutput `pulumi:"replicationFactor"`
@@ -112,7 +113,8 @@ type locationHdfsArgs struct {
 	// The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
 	KmsKeyProviderUri *string `pulumi:"kmsKeyProviderUri"`
 	// An array of Name Node(s) of the HDFS location.
-	NameNodes        []LocationHdfsNameNode        `pulumi:"nameNodes"`
+	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
 	// Number of copies of each block that exists inside the HDFS cluster.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -141,7 +143,8 @@ type LocationHdfsArgs struct {
 	// The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
 	KmsKeyProviderUri pulumi.StringPtrInput
 	// An array of Name Node(s) of the HDFS location.
-	NameNodes        LocationHdfsNameNodeArrayInput
+	NameNodes LocationHdfsNameNodeArrayInput
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	QopConfiguration LocationHdfsQopConfigurationPtrInput
 	// Number of copies of each block that exists inside the HDFS cluster.
 	ReplicationFactor pulumi.IntPtrInput
@@ -240,6 +243,7 @@ func (o LocationHdfsOutput) NameNodes() LocationHdfsNameNodeArrayOutput {
 	return o.ApplyT(func(v *LocationHdfs) LocationHdfsNameNodeArrayOutput { return v.NameNodes }).(LocationHdfsNameNodeArrayOutput)
 }
 
+// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 func (o LocationHdfsOutput) QopConfiguration() LocationHdfsQopConfigurationPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) LocationHdfsQopConfigurationPtrOutput { return v.QopConfiguration }).(LocationHdfsQopConfigurationPtrOutput)
 }

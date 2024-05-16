@@ -115,6 +115,9 @@ export class Resolver extends pulumi.CustomResource {
      * The location of a request mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
      */
     public readonly requestMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    /**
+     * ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+     */
     public /*out*/ readonly resolverArn!: pulumi.Output<string>;
     /**
      * The response mapping template.

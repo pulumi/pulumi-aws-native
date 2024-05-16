@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicSingularFilterConstant
     {
+        /// <summary>
+        /// The type of the singular filter constant. Valid values for this structure are `SINGULAR` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicConstantType? ConstantType;
+        /// <summary>
+        /// The value of the singular filter constant.
+        /// </summary>
         public readonly string? SingularConstant;
 
         [OutputConstructor]

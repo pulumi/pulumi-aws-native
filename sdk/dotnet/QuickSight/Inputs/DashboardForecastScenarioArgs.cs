@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardForecastScenarioArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides the forecast to meet the target for a particular date.
+        /// </summary>
         [Input("whatIfPointScenario")]
         public Input<Inputs.DashboardWhatIfPointScenarioArgs>? WhatIfPointScenario { get; set; }
 
+        /// <summary>
+        /// Provides the forecast to meet the target for a particular date range.
+        /// </summary>
         [Input("whatIfRangeScenario")]
         public Input<Inputs.DashboardWhatIfRangeScenarioArgs>? WhatIfRangeScenario { get; set; }
 

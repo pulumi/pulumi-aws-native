@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class AgentActionGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+        /// </summary>
         [Input("actionGroupExecutor")]
         public InputUnion<Inputs.AgentActionGroupExecutor0PropertiesArgs, Inputs.AgentActionGroupExecutor1PropertiesArgs>? ActionGroupExecutor { get; set; }
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("actionGroupName", required: true)]
         public Input<string> ActionGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+        /// </summary>
         [Input("actionGroupState")]
         public Input<Pulumi.AwsNative.Bedrock.AgentActionGroupState>? ActionGroupState { get; set; }
 
+        /// <summary>
+        /// Contains details about the OpenAPI schema for the action group. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) . You can either include the schema directly in the `payload` field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        /// </summary>
         [Input("apiSchema")]
         public InputUnion<Inputs.AgentApiSchema0PropertiesArgs, Inputs.AgentApiSchema1PropertiesArgs>? ApiSchema { get; set; }
 
@@ -36,9 +45,25 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+        /// 
+        /// This data type is used in the following API operations:
+        /// 
+        /// - [CreateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax)
+        /// - [CreateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax)
+        /// - [UpdateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax)
+        /// - [UpdateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax)
+        /// - [GetAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax)
+        /// </summary>
         [Input("functionSchema")]
         public Input<Inputs.AgentFunctionSchemaArgs>? FunctionSchema { get; set; }
 
+        /// <summary>
+        /// If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+        /// 
+        /// During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
+        /// </summary>
         [Input("parentActionGroupSignature")]
         public Input<Pulumi.AwsNative.Bedrock.AgentActionGroupSignature>? ParentActionGroupSignature { get; set; }
 

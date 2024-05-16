@@ -25,9 +25,15 @@ class KnowledgeBaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
+        :param pulumi.Input['KnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
+        :param pulumi.Input['KnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains the storage configuration of the knowledge base.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] name: The name of the knowledge base.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         pulumi.set(__self__, "knowledge_base_configuration", knowledge_base_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -42,6 +48,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="knowledgeBaseConfiguration")
     def knowledge_base_configuration(self) -> pulumi.Input['KnowledgeBaseConfigurationArgs']:
+        """
+        Contains details about the embeddings configuration of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_configuration")
 
     @knowledge_base_configuration.setter
@@ -63,6 +72,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> pulumi.Input['KnowledgeBaseStorageConfigurationArgs']:
+        """
+        Contains the storage configuration of the knowledge base.
+        """
         return pulumi.get(self, "storage_configuration")
 
     @storage_configuration.setter
@@ -96,6 +108,12 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -121,8 +139,14 @@ class KnowledgeBase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Resource.
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseStorageConfigurationArgs']] storage_configuration: Contains the storage configuration of the knowledge base.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         ...
     @overload
@@ -254,6 +278,9 @@ class KnowledgeBase(pulumi.CustomResource):
     @property
     @pulumi.getter(name="knowledgeBaseConfiguration")
     def knowledge_base_configuration(self) -> pulumi.Output['outputs.KnowledgeBaseConfiguration']:
+        """
+        Contains details about the embeddings configuration of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_configuration")
 
     @property
@@ -283,16 +310,28 @@ class KnowledgeBase(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['KnowledgeBaseStatus']:
+        """
+        The status of the knowledge base.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> pulumi.Output['outputs.KnowledgeBaseStorageConfiguration']:
+        """
+        Contains the storage configuration of the knowledge base.
+        """
         return pulumi.get(self, "storage_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

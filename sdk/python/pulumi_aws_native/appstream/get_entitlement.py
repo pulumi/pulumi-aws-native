@@ -39,26 +39,41 @@ class GetEntitlementResult:
     @property
     @pulumi.getter(name="appVisibility")
     def app_visibility(self) -> Optional[str]:
+        """
+        Specifies whether to entitle all apps or only selected apps.
+        """
         return pulumi.get(self, "app_visibility")
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.EntitlementAttribute']]:
+        """
+        An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        The time when the entitlement was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the entitlement.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The time when the entitlement was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
 
@@ -80,6 +95,10 @@ def get_entitlement(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitlementResult:
     """
     Resource Type definition for AWS::AppStream::Entitlement
+
+
+    :param str name: The name of the entitlement.
+    :param str stack_name: The name of the stack.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -101,5 +120,9 @@ def get_entitlement_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntitlementResult]:
     """
     Resource Type definition for AWS::AppStream::Entitlement
+
+
+    :param str name: The name of the entitlement.
+    :param str stack_name: The name of the stack.
     """
     ...

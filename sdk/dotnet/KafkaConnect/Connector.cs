@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KafkaConnect
     [AwsNativeResourceType("aws-native:kafkaconnect:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        /// </summary>
         [Output("capacity")]
         public Output<Outputs.ConnectorCapacity> Capacity { get; private set; } = null!;
 
@@ -42,12 +45,21 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Output("connectorName")]
         public Output<string> ConnectorName { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the Apache Kafka cluster to which the connector is connected.
+        /// </summary>
         [Output("kafkaCluster")]
         public Output<Outputs.ConnectorKafkaCluster> KafkaCluster { get; private set; } = null!;
 
+        /// <summary>
+        /// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+        /// </summary>
         [Output("kafkaClusterClientAuthentication")]
         public Output<Outputs.ConnectorKafkaClusterClientAuthentication> KafkaClusterClientAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// Details of encryption in transit to the Apache Kafka cluster.
+        /// </summary>
         [Output("kafkaClusterEncryptionInTransit")]
         public Output<Outputs.ConnectorKafkaClusterEncryptionInTransit> KafkaClusterEncryptionInTransit { get; private set; } = null!;
 
@@ -57,6 +69,9 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Output("kafkaConnectVersion")]
         public Output<string> KafkaConnectVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Details about log delivery.
+        /// </summary>
         [Output("logDelivery")]
         public Output<Outputs.ConnectorLogDelivery?> LogDelivery { get; private set; } = null!;
 
@@ -78,6 +93,9 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of the workers, which are the processes that run the connector logic.
+        /// </summary>
         [Output("workerConfiguration")]
         public Output<Outputs.ConnectorWorkerConfiguration?> WorkerConfiguration { get; private set; } = null!;
 
@@ -140,6 +158,9 @@ namespace Pulumi.AwsNative.KafkaConnect
 
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<Inputs.ConnectorCapacityArgs> Capacity { get; set; } = null!;
 
@@ -167,12 +188,21 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Input("connectorName")]
         public Input<string>? ConnectorName { get; set; }
 
+        /// <summary>
+        /// The details of the Apache Kafka cluster to which the connector is connected.
+        /// </summary>
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.ConnectorKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
+        /// <summary>
+        /// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+        /// </summary>
         [Input("kafkaClusterClientAuthentication", required: true)]
         public Input<Inputs.ConnectorKafkaClusterClientAuthenticationArgs> KafkaClusterClientAuthentication { get; set; } = null!;
 
+        /// <summary>
+        /// Details of encryption in transit to the Apache Kafka cluster.
+        /// </summary>
         [Input("kafkaClusterEncryptionInTransit", required: true)]
         public Input<Inputs.ConnectorKafkaClusterEncryptionInTransitArgs> KafkaClusterEncryptionInTransit { get; set; } = null!;
 
@@ -182,6 +212,9 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Input("kafkaConnectVersion", required: true)]
         public Input<string> KafkaConnectVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Details about log delivery.
+        /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ConnectorLogDeliveryArgs>? LogDelivery { get; set; }
 
@@ -215,6 +248,9 @@ namespace Pulumi.AwsNative.KafkaConnect
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The configuration of the workers, which are the processes that run the connector logic.
+        /// </summary>
         [Input("workerConfiguration")]
         public Input<Inputs.ConnectorWorkerConfigurationArgs>? WorkerConfiguration { get; set; }
 

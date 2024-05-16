@@ -48,6 +48,9 @@ class GetReferenceStoreResult:
     @property
     @pulumi.getter(name="referenceStoreId")
     def reference_store_id(self) -> Optional[str]:
+        """
+        The store's ID.
+        """
         return pulumi.get(self, "reference_store_id")
 
 
@@ -66,6 +69,9 @@ def get_reference_store(reference_store_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReferenceStoreResult:
     """
     Definition of AWS::Omics::ReferenceStore Resource Type
+
+
+    :param str reference_store_id: The store's ID.
     """
     __args__ = dict()
     __args__['referenceStoreId'] = reference_store_id
@@ -83,5 +89,8 @@ def get_reference_store_output(reference_store_id: Optional[pulumi.Input[str]] =
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReferenceStoreResult]:
     """
     Definition of AWS::Omics::ReferenceStore Resource Type
+
+
+    :param str reference_store_id: The store's ID.
     """
     ...

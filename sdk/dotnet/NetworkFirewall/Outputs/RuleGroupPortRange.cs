@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupPortRange
     {
+        /// <summary>
+        /// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
+        /// </summary>
         public readonly int FromPort;
+        /// <summary>
+        /// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

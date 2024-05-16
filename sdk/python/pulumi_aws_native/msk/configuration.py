@@ -23,6 +23,10 @@ class ConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+        :param pulumi.Input[str] server_properties: Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
+        :param pulumi.Input[str] description: The description of the configuration.
+        :param pulumi.Input['ConfigurationLatestRevisionArgs'] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[str] name: The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
         """
         pulumi.set(__self__, "server_properties", server_properties)
         if description is not None:
@@ -37,6 +41,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> pulumi.Input[str]:
+        """
+        Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
+        """
         return pulumi.get(self, "server_properties")
 
     @server_properties.setter
@@ -46,6 +53,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,6 +74,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input['ConfigurationLatestRevisionArgs']]:
+        """
+        Latest revision of the configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -73,6 +86,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,6 +112,10 @@ class Configuration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the configuration.
+        :param pulumi.Input[pulumi.InputType['ConfigurationLatestRevisionArgs']] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[str] name: The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+        :param pulumi.Input[str] server_properties: Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
         """
         ...
     @overload
@@ -183,6 +203,9 @@ class Configuration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -193,15 +216,24 @@ class Configuration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[Optional['outputs.ConfigurationLatestRevision']]:
+        """
+        Latest revision of the configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> pulumi.Output[str]:
+        """
+        Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
+        """
         return pulumi.get(self, "server_properties")
 

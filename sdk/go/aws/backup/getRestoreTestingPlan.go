@@ -24,16 +24,35 @@ func LookupRestoreTestingPlan(ctx *pulumi.Context, args *LookupRestoreTestingPla
 }
 
 type LookupRestoreTestingPlanArgs struct {
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
 }
 
 type LookupRestoreTestingPlanResult struct {
-	RecoveryPointSelection     *RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
-	RestoreTestingPlanArn      *string                                                 `pulumi:"restoreTestingPlanArn"`
-	ScheduleExpression         *string                                                 `pulumi:"scheduleExpression"`
-	ScheduleExpressionTimezone *string                                                 `pulumi:"scheduleExpressionTimezone"`
-	StartWindowHours           *int                                                    `pulumi:"startWindowHours"`
-	Tags                       []aws.Tag                                               `pulumi:"tags"`
+	// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+	//
+	// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+	//
+	// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+	//
+	// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+	//
+	// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+	//
+	// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+	RecoveryPointSelection *RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+	RestoreTestingPlanArn *string `pulumi:"restoreTestingPlanArn"`
+	// A CRON expression in specified timezone when a restore testing plan is executed.
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
+	// Defaults to 24 hours.
+	//
+	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+	StartWindowHours *int `pulumi:"startWindowHours"`
+	// The tags to assign to the restore testing plan.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRestoreTestingPlanOutput(ctx *pulumi.Context, args LookupRestoreTestingPlanOutputArgs, opts ...pulumi.InvokeOption) LookupRestoreTestingPlanResultOutput {
@@ -50,6 +69,7 @@ func LookupRestoreTestingPlanOutput(ctx *pulumi.Context, args LookupRestoreTesti
 }
 
 type LookupRestoreTestingPlanOutputArgs struct {
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName pulumi.StringInput `pulumi:"restoreTestingPlanName"`
 }
 
@@ -71,28 +91,46 @@ func (o LookupRestoreTestingPlanResultOutput) ToLookupRestoreTestingPlanResultOu
 	return o
 }
 
+// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+//
+// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+//
+// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+//
+// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+//
+// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+//
+// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
 func (o LookupRestoreTestingPlanResultOutput) RecoveryPointSelection() RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *RestoreTestingPlanRestoreTestingRecoveryPointSelection {
 		return v.RecoveryPointSelection
 	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput)
 }
 
+// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
 func (o LookupRestoreTestingPlanResultOutput) RestoreTestingPlanArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.RestoreTestingPlanArn }).(pulumi.StringPtrOutput)
 }
 
+// A CRON expression in specified timezone when a restore testing plan is executed.
 func (o LookupRestoreTestingPlanResultOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
+// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 func (o LookupRestoreTestingPlanResultOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
 }
 
+// Defaults to 24 hours.
+//
+// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
 func (o LookupRestoreTestingPlanResultOutput) StartWindowHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *int { return v.StartWindowHours }).(pulumi.IntPtrOutput)
 }
 
+// The tags to assign to the restore testing plan.
 func (o LookupRestoreTestingPlanResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

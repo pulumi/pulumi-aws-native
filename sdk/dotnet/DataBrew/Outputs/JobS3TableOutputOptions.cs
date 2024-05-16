@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobS3TableOutputOptions
     {
+        /// <summary>
+        /// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        /// </summary>
         public readonly Outputs.JobS3Location Location;
 
         [OutputConstructor]

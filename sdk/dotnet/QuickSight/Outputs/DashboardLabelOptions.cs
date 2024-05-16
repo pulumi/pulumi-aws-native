@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLabelOptions
     {
+        /// <summary>
+        /// The text for the label.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.DashboardFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// Determines whether or not the label is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

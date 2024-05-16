@@ -24,19 +24,33 @@ func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.In
 }
 
 type LookupApiKeyArgs struct {
+	// A custom name for the API key resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique API key name.
+	// - No spaces allowed. For example, `ExampleAPIKey` .
 	KeyName string `pulumi:"keyName"`
 }
 
 type LookupApiKeyResult struct {
-	Arn          *string             `pulumi:"arn"`
-	CreateTime   *string             `pulumi:"createTime"`
-	Description  *string             `pulumi:"description"`
-	ExpireTime   *string             `pulumi:"expireTime"`
-	KeyArn       *string             `pulumi:"keyArn"`
+	// The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+	Arn *string `pulumi:"arn"`
+	// The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+	CreateTime *string `pulumi:"createTime"`
+	// Updates the description for the API key resource.
+	Description *string `pulumi:"description"`
+	// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+	ExpireTime *string `pulumi:"expireTime"`
+	// The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+	KeyArn *string `pulumi:"keyArn"`
+	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
 	Restrictions *ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag `pulumi:"tags"`
-	UpdateTime *string   `pulumi:"updateTime"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApiKeyResultOutput {
@@ -53,6 +67,13 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 }
 
 type LookupApiKeyOutputArgs struct {
+	// A custom name for the API key resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique API key name.
+	// - No spaces allowed. For example, `ExampleAPIKey` .
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 }
 
@@ -74,26 +95,32 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
 func (o LookupApiKeyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
 func (o LookupApiKeyResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+// Updates the description for the API key resource.
 func (o LookupApiKeyResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
 func (o LookupApiKeyResultOutput) ExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.ExpireTime }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
 func (o LookupApiKeyResultOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// API Restrictions on the allowed actions, resources, and referers for an API key resource.
 func (o LookupApiKeyResultOutput) Restrictions() ApiKeyRestrictionsPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *ApiKeyRestrictions { return v.Restrictions }).(ApiKeyRestrictionsPtrOutput)
 }
@@ -103,6 +130,7 @@ func (o LookupApiKeyResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupApiKeyResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

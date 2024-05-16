@@ -19,13 +19,25 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetChannelArgs {
+    /**
+     * The name of the channel.
+     */
     channelName: string;
 }
 
 export interface GetChannelResult {
+    /**
+     * Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+     */
     readonly channelStorage?: outputs.iotanalytics.ChannelStorage;
     readonly id?: string;
+    /**
+     * How long, in days, message data is kept.
+     */
     readonly retentionPeriod?: outputs.iotanalytics.ChannelRetentionPeriod;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -36,5 +48,8 @@ export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetChannelOutputArgs {
+    /**
+     * The name of the channel.
+     */
     channelName: pulumi.Input<string>;
 }

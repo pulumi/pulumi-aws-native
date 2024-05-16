@@ -15,39 +15,77 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [AwsNativeResourceType("aws-native:networkfirewall:Firewall")]
     public partial class Firewall : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the firewall.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
+        /// </summary>
         [Output("endpointIds")]
         public Output<ImmutableArray<string>> EndpointIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the `Firewall` resource.
+        /// </summary>
         [Output("firewallId")]
         public Output<string> FirewallId { get; private set; } = null!;
 
+        /// <summary>
+        /// The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+        /// </summary>
         [Output("firewallName")]
         public Output<string> FirewallName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the firewall policy.
+        /// 
+        /// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        /// </summary>
         [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        /// </summary>
         [Output("firewallPolicyChangeProtection")]
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        /// </summary>
         [Output("subnetChangeProtection")]
         public Output<bool?> SubnetChangeProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        /// </summary>
         [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.FirewallSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -101,26 +139,50 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
+        /// <summary>
+        /// A description of the firewall.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+        /// </summary>
         [Input("firewallName")]
         public Input<string>? FirewallName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the firewall policy.
+        /// 
+        /// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
 
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
 
         [Input("subnetMappings", required: true)]
         private InputList<Inputs.FirewallSubnetMappingArgs>? _subnetMappings;
+
+        /// <summary>
+        /// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        /// </summary>
         public InputList<Inputs.FirewallSubnetMappingArgs> SubnetMappings
         {
             get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.FirewallSubnetMappingArgs>());
@@ -129,12 +191,19 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

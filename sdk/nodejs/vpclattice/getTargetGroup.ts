@@ -19,17 +19,46 @@ export function getTargetGroup(args: GetTargetGroupArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTargetGroupArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the target group.
+     */
     arn: string;
 }
 
 export interface GetTargetGroupResult {
+    /**
+     * The Amazon Resource Name (ARN) of the target group.
+     */
     readonly arn?: string;
+    /**
+     * Describes the configuration of a target group.
+     *
+     * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+     */
     readonly config?: outputs.vpclattice.TargetGroupConfig;
+    /**
+     * The date and time that the target group was created, specified in ISO-8601 format.
+     */
     readonly createdAt?: string;
+    /**
+     * The ID of the target group.
+     */
     readonly id?: string;
+    /**
+     * The date and time that the target group was last updated, specified in ISO-8601 format.
+     */
     readonly lastUpdatedAt?: string;
+    /**
+     * The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+     */
     readonly status?: enums.vpclattice.TargetGroupStatus;
+    /**
+     * The tags for the target group.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * Describes a target.
+     */
     readonly targets?: outputs.vpclattice.TargetGroupTarget[];
 }
 /**
@@ -40,5 +69,8 @@ export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulu
 }
 
 export interface GetTargetGroupOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the target group.
+     */
     arn: pulumi.Input<string>;
 }

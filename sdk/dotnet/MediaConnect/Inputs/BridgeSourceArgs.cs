@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class BridgeSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        /// </summary>
         [Input("flowSource")]
         public Input<Inputs.BridgeFlowSourceArgs>? FlowSource { get; set; }
 
+        /// <summary>
+        /// The source of the bridge. A network source originates at your premises.
+        /// </summary>
         [Input("networkSource")]
         public Input<Inputs.BridgeNetworkSourceArgs>? NetworkSource { get; set; }
 

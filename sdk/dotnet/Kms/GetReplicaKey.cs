@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.Kms
 
     public sealed class GetReplicaKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+        /// 
+        /// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.Kms
 
     public sealed class GetReplicaKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+        /// 
+        /// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
@@ -51,6 +61,11 @@ namespace Pulumi.AwsNative.Kms
     [OutputType]
     public sealed class GetReplicaKeyResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+        /// 
+        /// The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
@@ -60,6 +75,11 @@ namespace Pulumi.AwsNative.Kms
         /// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+        /// 
+        /// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         public readonly string? KeyId;
         /// <summary>
         /// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.

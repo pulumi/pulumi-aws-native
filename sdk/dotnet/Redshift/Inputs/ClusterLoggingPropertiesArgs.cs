@@ -12,9 +12,31 @@ namespace Pulumi.AwsNative.Redshift.Inputs
 
     public sealed class ClusterLoggingPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of an existing S3 bucket where the log files are to be stored.
+        /// 
+        /// Constraints:
+        /// 
+        /// - Must be in the same region as the cluster
+        /// - The cluster must have read bucket and put object permissions
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// The prefix applied to the log file names.
+        /// 
+        /// Constraints:
+        /// 
+        /// - Cannot exceed 512 characters
+        /// - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+        /// 
+        /// - x00 to x20
+        /// - x22
+        /// - x27
+        /// - x5c
+        /// - x7f or larger
+        /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 

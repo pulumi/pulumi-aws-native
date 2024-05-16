@@ -14,17 +14,37 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
     {
         [Input("resourceTypeFilters")]
         private InputList<string>? _resourceTypeFilters;
+
+        /// <summary>
+        /// Specifies limits to the types of resources that can be included in the resource group. For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
+        /// </summary>
         public InputList<string> ResourceTypeFilters
         {
             get => _resourceTypeFilters ?? (_resourceTypeFilters = new InputList<string>());
             set => _resourceTypeFilters = value;
         }
 
+        /// <summary>
+        /// Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
+        /// 
+        /// You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
+        /// </summary>
         [Input("stackIdentifier")]
         public Input<string>? StackIdentifier { get; set; }
 
         [Input("tagFilters")]
         private InputList<Inputs.GroupTagFilterArgs>? _tagFilters;
+
+        /// <summary>
+        /// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+        /// 
+        /// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
+        /// 
+        /// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
+        /// 
+        /// - `Stage` tag key with a value of either `Test` or `Beta`
+        /// - `Storage` tag key with any value
+        /// </summary>
         public InputList<Inputs.GroupTagFilterArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<Inputs.GroupTagFilterArgs>());

@@ -58,11 +58,17 @@ class GetCapacityReservationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the capacity reservation.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="capacityAssignmentConfiguration")
     def capacity_assignment_configuration(self) -> Optional['outputs.CapacityReservationCapacityAssignmentConfiguration']:
+        """
+        Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+        """
         return pulumi.get(self, "capacity_assignment_configuration")
 
     @property
@@ -126,6 +132,9 @@ def get_capacity_reservation(arn: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     Resource schema for AWS::Athena::CapacityReservation
+
+
+    :param str arn: The ARN of the capacity reservation.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -148,5 +157,8 @@ def get_capacity_reservation_output(arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource schema for AWS::Athena::CapacityReservation
+
+
+    :param str arn: The ARN of the capacity reservation.
     """
     ...

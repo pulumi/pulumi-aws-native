@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetUsagePlanKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the usage plan key. For example: `abc123` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetUsagePlanKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the usage plan key. For example: `abc123` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetUsagePlanKeyResult
     {
+        /// <summary>
+        /// The ID for the usage plan key. For example: `abc123` .
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

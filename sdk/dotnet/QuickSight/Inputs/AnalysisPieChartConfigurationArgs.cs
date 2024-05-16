@@ -12,41 +12,77 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPieChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
         [Input("contributionAnalysisDefaults")]
         private InputList<Inputs.AnalysisContributionAnalysisDefaultArgs>? _contributionAnalysisDefaults;
+
+        /// <summary>
+        /// The contribution analysis (anomaly configuration) setup of the visual.
+        /// </summary>
         public InputList<Inputs.AnalysisContributionAnalysisDefaultArgs> ContributionAnalysisDefaults
         {
             get => _contributionAnalysisDefaults ?? (_contributionAnalysisDefaults = new InputList<Inputs.AnalysisContributionAnalysisDefaultArgs>());
             set => _contributionAnalysisDefaults = value;
         }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The options for configuring a donut chart or pie chart.
+        /// </summary>
         [Input("donutOptions")]
         public Input<Inputs.AnalysisDonutOptionsArgs>? DonutOptions { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a pie chart.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisPieChartFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         [Input("smallMultiplesOptions")]
         public Input<Inputs.AnalysisSmallMultiplesOptionsArgs>? SmallMultiplesOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a pie chart.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisPieChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("valueLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? ValueLabelOptions { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 

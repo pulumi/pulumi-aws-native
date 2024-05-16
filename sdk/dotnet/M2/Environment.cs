@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.M2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The target platform for the runtime environment.
+        /// </summary>
         [Output("engineType")]
         public Output<Pulumi.AwsNative.M2.EnvironmentEngineType> EngineType { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.M2
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines the details of a high availability configuration.
+        /// </summary>
         [Output("highAvailabilityConfig")]
         public Output<Outputs.EnvironmentHighAvailabilityConfig?> HighAvailabilityConfig { get; private set; } = null!;
 
@@ -161,6 +167,9 @@ namespace Pulumi.AwsNative.M2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The target platform for the runtime environment.
+        /// </summary>
         [Input("engineType", required: true)]
         public Input<Pulumi.AwsNative.M2.EnvironmentEngineType> EngineType { get; set; } = null!;
 
@@ -170,6 +179,9 @@ namespace Pulumi.AwsNative.M2
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// Defines the details of a high availability configuration.
+        /// </summary>
         [Input("highAvailabilityConfig")]
         public Input<Inputs.EnvironmentHighAvailabilityConfigArgs>? HighAvailabilityConfig { get; set; }
 

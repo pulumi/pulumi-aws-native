@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEnvironment
     {
+        /// <summary>
+        /// The name of the environment variable.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of the environment variable.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

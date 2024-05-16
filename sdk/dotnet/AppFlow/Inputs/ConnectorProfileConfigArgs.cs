@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class ConnectorProfileConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connector-specific credentials required by a connector.
+        /// </summary>
         [Input("connectorProfileCredentials")]
         public Input<Inputs.ConnectorProfileCredentialsArgs>? ConnectorProfileCredentials { get; set; }
 
+        /// <summary>
+        /// The connector-specific profile properties required by each connector.
+        /// </summary>
         [Input("connectorProfileProperties")]
         public Input<Inputs.ConnectorProfilePropertiesArgs>? ConnectorProfileProperties { get; set; }
 

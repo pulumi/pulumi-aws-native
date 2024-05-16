@@ -12,36 +12,72 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateForecastComputationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;
 
+        /// <summary>
+        /// The custom seasonality value setup of a forecast computation.
+        /// </summary>
         [Input("customSeasonalityValue")]
         public Input<double>? CustomSeasonalityValue { get; set; }
 
+        /// <summary>
+        /// The lower boundary setup of a forecast computation.
+        /// </summary>
         [Input("lowerBoundary")]
         public Input<double>? LowerBoundary { get; set; }
 
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The periods backward setup of a forecast computation.
+        /// </summary>
         [Input("periodsBackward")]
         public Input<double>? PeriodsBackward { get; set; }
 
+        /// <summary>
+        /// The periods forward setup of a forecast computation.
+        /// </summary>
         [Input("periodsForward")]
         public Input<double>? PeriodsForward { get; set; }
 
+        /// <summary>
+        /// The prediction interval setup of a forecast computation.
+        /// </summary>
         [Input("predictionInterval")]
         public Input<double>? PredictionInterval { get; set; }
 
+        /// <summary>
+        /// The seasonality setup of a forecast computation. Choose one of the following options:
+        /// 
+        /// - `AUTOMATIC`
+        /// - `CUSTOM` : Checks the custom seasonality value.
+        /// </summary>
         [Input("seasonality")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateForecastComputationSeasonality>? Seasonality { get; set; }
 
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         [Input("time")]
         public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The upper boundary setup of a forecast computation.
+        /// </summary>
         [Input("upperBoundary")]
         public Input<double>? UpperBoundary { get; set; }
 
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         [Input("value")]
         public Input<Inputs.TemplateMeasureFieldArgs>? Value { get; set; }
 

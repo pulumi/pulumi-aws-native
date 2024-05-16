@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
     {
         [Input("awsAccountId")]
         private InputList<Inputs.FilterStringFilterArgs>? _awsAccountId;
+
+        /// <summary>
+        /// Details of the AWS account IDs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> AwsAccountId
         {
             get => _awsAccountId ?? (_awsAccountId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("componentId")]
         private InputList<Inputs.FilterStringFilterArgs>? _componentId;
+
+        /// <summary>
+        /// Details of the component IDs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> ComponentId
         {
             get => _componentId ?? (_componentId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("componentType")]
         private InputList<Inputs.FilterStringFilterArgs>? _componentType;
+
+        /// <summary>
+        /// Details of the component types used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> ComponentType
         {
             get => _componentType ?? (_componentType = new InputList<Inputs.FilterStringFilterArgs>());
@@ -38,6 +50,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ec2InstanceImageId")]
         private InputList<Inputs.FilterStringFilterArgs>? _ec2InstanceImageId;
+
+        /// <summary>
+        /// Details of the Amazon EC2 instance image IDs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> Ec2InstanceImageId
         {
             get => _ec2InstanceImageId ?? (_ec2InstanceImageId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -46,6 +62,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ec2InstanceSubnetId")]
         private InputList<Inputs.FilterStringFilterArgs>? _ec2InstanceSubnetId;
+
+        /// <summary>
+        /// Details of the Amazon EC2 instance subnet IDs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> Ec2InstanceSubnetId
         {
             get => _ec2InstanceSubnetId ?? (_ec2InstanceSubnetId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -54,6 +74,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ec2InstanceVpcId")]
         private InputList<Inputs.FilterStringFilterArgs>? _ec2InstanceVpcId;
+
+        /// <summary>
+        /// Details of the Amazon EC2 instance VPC IDs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> Ec2InstanceVpcId
         {
             get => _ec2InstanceVpcId ?? (_ec2InstanceVpcId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -62,6 +86,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ecrImageArchitecture")]
         private InputList<Inputs.FilterStringFilterArgs>? _ecrImageArchitecture;
+
+        /// <summary>
+        /// Details of the Amazon ECR image architecture types used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> EcrImageArchitecture
         {
             get => _ecrImageArchitecture ?? (_ecrImageArchitecture = new InputList<Inputs.FilterStringFilterArgs>());
@@ -70,6 +98,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ecrImageHash")]
         private InputList<Inputs.FilterStringFilterArgs>? _ecrImageHash;
+
+        /// <summary>
+        /// Details of the Amazon ECR image hashes used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> EcrImageHash
         {
             get => _ecrImageHash ?? (_ecrImageHash = new InputList<Inputs.FilterStringFilterArgs>());
@@ -78,6 +110,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ecrImagePushedAt")]
         private InputList<Inputs.FilterDateFilterArgs>? _ecrImagePushedAt;
+
+        /// <summary>
+        /// Details on the Amazon ECR image push date and time used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterDateFilterArgs> EcrImagePushedAt
         {
             get => _ecrImagePushedAt ?? (_ecrImagePushedAt = new InputList<Inputs.FilterDateFilterArgs>());
@@ -86,6 +122,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ecrImageRegistry")]
         private InputList<Inputs.FilterStringFilterArgs>? _ecrImageRegistry;
+
+        /// <summary>
+        /// Details on the Amazon ECR registry used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> EcrImageRegistry
         {
             get => _ecrImageRegistry ?? (_ecrImageRegistry = new InputList<Inputs.FilterStringFilterArgs>());
@@ -94,6 +134,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ecrImageRepositoryName")]
         private InputList<Inputs.FilterStringFilterArgs>? _ecrImageRepositoryName;
+
+        /// <summary>
+        /// Details on the name of the Amazon ECR repository used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> EcrImageRepositoryName
         {
             get => _ecrImageRepositoryName ?? (_ecrImageRepositoryName = new InputList<Inputs.FilterStringFilterArgs>());
@@ -102,6 +146,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("ecrImageTags")]
         private InputList<Inputs.FilterStringFilterArgs>? _ecrImageTags;
+
+        /// <summary>
+        /// The tags attached to the Amazon ECR container image.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> EcrImageTags
         {
             get => _ecrImageTags ?? (_ecrImageTags = new InputList<Inputs.FilterStringFilterArgs>());
@@ -110,6 +158,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("findingArn")]
         private InputList<Inputs.FilterStringFilterArgs>? _findingArn;
+
+        /// <summary>
+        /// Details on the finding ARNs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> FindingArn
         {
             get => _findingArn ?? (_findingArn = new InputList<Inputs.FilterStringFilterArgs>());
@@ -118,6 +170,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("findingStatus")]
         private InputList<Inputs.FilterStringFilterArgs>? _findingStatus;
+
+        /// <summary>
+        /// Details on the finding status types used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> FindingStatus
         {
             get => _findingStatus ?? (_findingStatus = new InputList<Inputs.FilterStringFilterArgs>());
@@ -126,6 +182,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("findingType")]
         private InputList<Inputs.FilterStringFilterArgs>? _findingType;
+
+        /// <summary>
+        /// Details on the finding types used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> FindingType
         {
             get => _findingType ?? (_findingType = new InputList<Inputs.FilterStringFilterArgs>());
@@ -134,6 +194,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("firstObservedAt")]
         private InputList<Inputs.FilterDateFilterArgs>? _firstObservedAt;
+
+        /// <summary>
+        /// Details on the date and time a finding was first seen used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterDateFilterArgs> FirstObservedAt
         {
             get => _firstObservedAt ?? (_firstObservedAt = new InputList<Inputs.FilterDateFilterArgs>());
@@ -142,6 +206,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("inspectorScore")]
         private InputList<Inputs.FilterNumberFilterArgs>? _inspectorScore;
+
+        /// <summary>
+        /// The Amazon Inspector score to filter on.
+        /// </summary>
         public InputList<Inputs.FilterNumberFilterArgs> InspectorScore
         {
             get => _inspectorScore ?? (_inspectorScore = new InputList<Inputs.FilterNumberFilterArgs>());
@@ -150,6 +218,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("lastObservedAt")]
         private InputList<Inputs.FilterDateFilterArgs>? _lastObservedAt;
+
+        /// <summary>
+        /// Details on the date and time a finding was last seen used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterDateFilterArgs> LastObservedAt
         {
             get => _lastObservedAt ?? (_lastObservedAt = new InputList<Inputs.FilterDateFilterArgs>());
@@ -158,6 +230,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("networkProtocol")]
         private InputList<Inputs.FilterStringFilterArgs>? _networkProtocol;
+
+        /// <summary>
+        /// Details on network protocol used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> NetworkProtocol
         {
             get => _networkProtocol ?? (_networkProtocol = new InputList<Inputs.FilterStringFilterArgs>());
@@ -166,6 +242,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("portRange")]
         private InputList<Inputs.FilterPortRangeFilterArgs>? _portRange;
+
+        /// <summary>
+        /// Details on the port ranges used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterPortRangeFilterArgs> PortRange
         {
             get => _portRange ?? (_portRange = new InputList<Inputs.FilterPortRangeFilterArgs>());
@@ -174,6 +254,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("relatedVulnerabilities")]
         private InputList<Inputs.FilterStringFilterArgs>? _relatedVulnerabilities;
+
+        /// <summary>
+        /// Details on the related vulnerabilities used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> RelatedVulnerabilities
         {
             get => _relatedVulnerabilities ?? (_relatedVulnerabilities = new InputList<Inputs.FilterStringFilterArgs>());
@@ -182,6 +266,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("resourceId")]
         private InputList<Inputs.FilterStringFilterArgs>? _resourceId;
+
+        /// <summary>
+        /// Details on the resource IDs used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> ResourceId
         {
             get => _resourceId ?? (_resourceId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -190,6 +278,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("resourceTags")]
         private InputList<Inputs.FilterMapFilterArgs>? _resourceTags;
+
+        /// <summary>
+        /// Details on the resource tags used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterMapFilterArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.FilterMapFilterArgs>());
@@ -198,6 +290,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("resourceType")]
         private InputList<Inputs.FilterStringFilterArgs>? _resourceType;
+
+        /// <summary>
+        /// Details on the resource types used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> ResourceType
         {
             get => _resourceType ?? (_resourceType = new InputList<Inputs.FilterStringFilterArgs>());
@@ -206,6 +302,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("severity")]
         private InputList<Inputs.FilterStringFilterArgs>? _severity;
+
+        /// <summary>
+        /// Details on the severity used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> Severity
         {
             get => _severity ?? (_severity = new InputList<Inputs.FilterStringFilterArgs>());
@@ -214,6 +314,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("title")]
         private InputList<Inputs.FilterStringFilterArgs>? _title;
+
+        /// <summary>
+        /// Details on the finding title used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> Title
         {
             get => _title ?? (_title = new InputList<Inputs.FilterStringFilterArgs>());
@@ -222,6 +326,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("updatedAt")]
         private InputList<Inputs.FilterDateFilterArgs>? _updatedAt;
+
+        /// <summary>
+        /// Details on the date and time a finding was last updated at used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterDateFilterArgs> UpdatedAt
         {
             get => _updatedAt ?? (_updatedAt = new InputList<Inputs.FilterDateFilterArgs>());
@@ -230,6 +338,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("vendorSeverity")]
         private InputList<Inputs.FilterStringFilterArgs>? _vendorSeverity;
+
+        /// <summary>
+        /// Details on the vendor severity used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> VendorSeverity
         {
             get => _vendorSeverity ?? (_vendorSeverity = new InputList<Inputs.FilterStringFilterArgs>());
@@ -238,6 +350,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("vulnerabilityId")]
         private InputList<Inputs.FilterStringFilterArgs>? _vulnerabilityId;
+
+        /// <summary>
+        /// Details on the vulnerability ID used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> VulnerabilityId
         {
             get => _vulnerabilityId ?? (_vulnerabilityId = new InputList<Inputs.FilterStringFilterArgs>());
@@ -246,6 +362,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("vulnerabilitySource")]
         private InputList<Inputs.FilterStringFilterArgs>? _vulnerabilitySource;
+
+        /// <summary>
+        /// Details on the vulnerability score to filter findings by.
+        /// </summary>
         public InputList<Inputs.FilterStringFilterArgs> VulnerabilitySource
         {
             get => _vulnerabilitySource ?? (_vulnerabilitySource = new InputList<Inputs.FilterStringFilterArgs>());
@@ -254,6 +374,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 
         [Input("vulnerablePackages")]
         private InputList<Inputs.FilterPackageFilterArgs>? _vulnerablePackages;
+
+        /// <summary>
+        /// Details on the vulnerable packages used to filter findings.
+        /// </summary>
         public InputList<Inputs.FilterPackageFilterArgs> VulnerablePackages
         {
             get => _vulnerablePackages ?? (_vulnerablePackages = new InputList<Inputs.FilterPackageFilterArgs>());

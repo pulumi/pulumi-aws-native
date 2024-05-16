@@ -29,6 +29,14 @@ class DatasetArgs:
                  versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Dataset resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]] actions: Information needed to run the "containerAction" to produce data set contents.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]] content_delivery_rules: When dataset contents are created, they are delivered to destination specified here.
+        :param pulumi.Input[str] dataset_name: The name of the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]] late_data_rules: A structure that contains the name and configuration information of a late data rule.
+        :param pulumi.Input['DatasetRetentionPeriodArgs'] retention_period: How long, in days, message data is kept.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key-value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]] triggers: The "DatasetTrigger" that specifies when the data set is automatically updated.
+        :param pulumi.Input['DatasetVersioningConfigurationArgs'] versioning_configuration: Information about the versioning of dataset contents.
         """
         pulumi.set(__self__, "actions", actions)
         if content_delivery_rules is not None:
@@ -49,6 +57,9 @@ class DatasetArgs:
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]]:
+        """
+        Information needed to run the "containerAction" to produce data set contents.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -58,6 +69,9 @@ class DatasetArgs:
     @property
     @pulumi.getter(name="contentDeliveryRules")
     def content_delivery_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]:
+        """
+        When dataset contents are created, they are delivered to destination specified here.
+        """
         return pulumi.get(self, "content_delivery_rules")
 
     @content_delivery_rules.setter
@@ -67,6 +81,9 @@ class DatasetArgs:
     @property
     @pulumi.getter(name="datasetName")
     def dataset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dataset.
+        """
         return pulumi.get(self, "dataset_name")
 
     @dataset_name.setter
@@ -76,6 +93,9 @@ class DatasetArgs:
     @property
     @pulumi.getter(name="lateDataRules")
     def late_data_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]]:
+        """
+        A structure that contains the name and configuration information of a late data rule.
+        """
         return pulumi.get(self, "late_data_rules")
 
     @late_data_rules.setter
@@ -85,6 +105,9 @@ class DatasetArgs:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input['DatasetRetentionPeriodArgs']]:
+        """
+        How long, in days, message data is kept.
+        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -94,6 +117,9 @@ class DatasetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,6 +129,9 @@ class DatasetArgs:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]]:
+        """
+        The "DatasetTrigger" that specifies when the data set is automatically updated.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -112,6 +141,9 @@ class DatasetArgs:
     @property
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional[pulumi.Input['DatasetVersioningConfigurationArgs']]:
+        """
+        Information about the versioning of dataset contents.
+        """
         return pulumi.get(self, "versioning_configuration")
 
     @versioning_configuration.setter
@@ -264,6 +296,14 @@ class Dataset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetActionArgs']]]] actions: Information needed to run the "containerAction" to produce data set contents.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetContentDeliveryRuleArgs']]]] content_delivery_rules: When dataset contents are created, they are delivered to destination specified here.
+        :param pulumi.Input[str] dataset_name: The name of the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]] late_data_rules: A structure that contains the name and configuration information of a late data rule.
+        :param pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']] retention_period: How long, in days, message data is kept.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key-value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]] triggers: The "DatasetTrigger" that specifies when the data set is automatically updated.
+        :param pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']] versioning_configuration: Information about the versioning of dataset contents.
         """
         ...
     @overload
@@ -481,6 +521,9 @@ class Dataset(pulumi.CustomResource):
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.DatasetAction']]:
+        """
+        Information needed to run the "containerAction" to produce data set contents.
+        """
         return pulumi.get(self, "actions")
 
     @property
@@ -491,35 +534,56 @@ class Dataset(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentDeliveryRules")
     def content_delivery_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetContentDeliveryRule']]]:
+        """
+        When dataset contents are created, they are delivered to destination specified here.
+        """
         return pulumi.get(self, "content_delivery_rules")
 
     @property
     @pulumi.getter(name="datasetName")
     def dataset_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the dataset.
+        """
         return pulumi.get(self, "dataset_name")
 
     @property
     @pulumi.getter(name="lateDataRules")
     def late_data_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetLateDataRule']]]:
+        """
+        A structure that contains the name and configuration information of a late data rule.
+        """
         return pulumi.get(self, "late_data_rules")
 
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional['outputs.DatasetRetentionPeriod']]:
+        """
+        How long, in days, message data is kept.
+        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetTrigger']]]:
+        """
+        The "DatasetTrigger" that specifies when the data set is automatically updated.
+        """
         return pulumi.get(self, "triggers")
 
     @property
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> pulumi.Output[Optional['outputs.DatasetVersioningConfiguration']]:
+        """
+        Information about the versioning of dataset contents.
+        """
         return pulumi.get(self, "versioning_configuration")
 

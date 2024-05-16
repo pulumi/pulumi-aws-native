@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerConfigurationProperties
     {
+        /// <summary>
+        /// Contains information about an unused access analyzer.
+        /// </summary>
         public readonly Outputs.AnalyzerUnusedAccessConfiguration? UnusedAccessConfiguration;
 
         [OutputConstructor]

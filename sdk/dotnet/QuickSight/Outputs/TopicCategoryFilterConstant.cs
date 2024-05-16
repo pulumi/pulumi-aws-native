@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicCategoryFilterConstant
     {
+        /// <summary>
+        /// A structure that represents a collective constant.
+        /// </summary>
         public readonly Outputs.TopicCollectiveConstant? CollectiveConstant;
+        /// <summary>
+        /// The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are `SINGULAR` and `COLLECTIVE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicConstantType? ConstantType;
+        /// <summary>
+        /// A singular constant used in a category filter. This element is used to specify a single value for the constant.
+        /// </summary>
         public readonly string? SingularConstant;
 
         [OutputConstructor]

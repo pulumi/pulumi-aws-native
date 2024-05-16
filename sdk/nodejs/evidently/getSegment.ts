@@ -19,13 +19,28 @@ export function getSegment(args: GetSegmentArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetSegmentArgs {
+    /**
+     * The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+     */
     arn: string;
 }
 
 export interface GetSegmentResult {
+    /**
+     * The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+     */
     readonly arn?: string;
+    /**
+     * An optional description for this segment.
+     */
     readonly description?: string;
+    /**
+     * A name for the segment.
+     */
     readonly name?: string;
+    /**
+     * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+     */
     readonly pattern?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -40,5 +55,8 @@ export function getSegmentOutput(args: GetSegmentOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetSegmentOutputArgs {
+    /**
+     * The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+     */
     arn: pulumi.Input<string>;
 }

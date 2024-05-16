@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleFirehoseAction
     {
+        /// <summary>
+        /// Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+        /// 
+        /// When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
+        /// </summary>
         public readonly bool? BatchMode;
+        /// <summary>
+        /// The delivery stream name.
+        /// </summary>
         public readonly string DeliveryStreamName;
+        /// <summary>
+        /// The IAM role that grants access to the Amazon Kinesis Firehose stream.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        /// </summary>
         public readonly string? Separator;
 
         [OutputConstructor]

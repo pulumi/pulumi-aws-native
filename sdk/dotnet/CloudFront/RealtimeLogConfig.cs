@@ -15,18 +15,35 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:RealtimeLogConfig")]
     public partial class RealtimeLogConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        /// </summary>
         [Output("endPoints")]
         public Output<ImmutableArray<Outputs.RealtimeLogConfigEndPoint>> EndPoints { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
+        /// 
+        /// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         [Output("fields")]
         public Output<ImmutableArray<string>> Fields { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of this real-time log configuration.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
+        /// </summary>
         [Output("samplingRate")]
         public Output<double> SamplingRate { get; private set; } = null!;
 
@@ -81,6 +98,10 @@ namespace Pulumi.AwsNative.CloudFront
     {
         [Input("endPoints", required: true)]
         private InputList<Inputs.RealtimeLogConfigEndPointArgs>? _endPoints;
+
+        /// <summary>
+        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        /// </summary>
         public InputList<Inputs.RealtimeLogConfigEndPointArgs> EndPoints
         {
             get => _endPoints ?? (_endPoints = new InputList<Inputs.RealtimeLogConfigEndPointArgs>());
@@ -89,15 +110,27 @@ namespace Pulumi.AwsNative.CloudFront
 
         [Input("fields", required: true)]
         private InputList<string>? _fields;
+
+        /// <summary>
+        /// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
+        /// 
+        /// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         public InputList<string> Fields
         {
             get => _fields ?? (_fields = new InputList<string>());
             set => _fields = value;
         }
 
+        /// <summary>
+        /// The unique name of this real-time log configuration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
+        /// </summary>
         [Input("samplingRate", required: true)]
         public Input<double> SamplingRate { get; set; } = null!;
 

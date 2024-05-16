@@ -20,7 +20,13 @@ export function getAnalysis(args: GetAnalysisArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetAnalysisArgs {
+    /**
+     * The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+     */
     analysisId: string;
+    /**
+     * The ID of the AWS account where you are creating an analysis.
+     */
     awsAccountId: string;
 }
 
@@ -49,11 +55,17 @@ export interface GetAnalysisResult {
      * <p>The descriptive name of the analysis.</p>
      */
     readonly name?: string;
+    /**
+     * Permission for the resource.
+     */
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
     /**
      * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
     readonly sheets?: outputs.quicksight.AnalysisSheet[];
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * <p>The ARN of the theme of the analysis.</p>
@@ -68,6 +80,12 @@ export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetAnalysisOutputArgs {
+    /**
+     * The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+     */
     analysisId: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account where you are creating an analysis.
+     */
     awsAccountId: pulumi.Input<string>;
 }

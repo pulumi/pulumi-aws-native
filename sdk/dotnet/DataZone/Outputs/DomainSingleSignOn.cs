@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class DomainSingleSignOn
     {
+        /// <summary>
+        /// The type of single sign-on in Amazon DataZone.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataZone.DomainAuthType? Type;
+        /// <summary>
+        /// The single sign-on user assignment in Amazon DataZone.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataZone.DomainUserAssignment? UserAssignment;
 
         [OutputConstructor]

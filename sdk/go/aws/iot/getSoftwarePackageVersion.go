@@ -29,11 +29,14 @@ type LookupSoftwarePackageVersionArgs struct {
 }
 
 type LookupSoftwarePackageVersionResult struct {
-	Attributes        map[string]string                           `pulumi:"attributes"`
-	Description       *string                                     `pulumi:"description"`
-	ErrorReason       *string                                     `pulumi:"errorReason"`
-	PackageVersionArn *string                                     `pulumi:"packageVersionArn"`
-	Status            *SoftwarePackageVersionPackageVersionStatus `pulumi:"status"`
+	Attributes  map[string]string `pulumi:"attributes"`
+	Description *string           `pulumi:"description"`
+	// Error reason for a package version failure during creation or update.
+	ErrorReason *string `pulumi:"errorReason"`
+	// The Amazon Resource Name (ARN) for the package.
+	PackageVersionArn *string `pulumi:"packageVersionArn"`
+	// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+	Status *SoftwarePackageVersionPackageVersionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -82,14 +85,17 @@ func (o LookupSoftwarePackageVersionResultOutput) Description() pulumi.StringPtr
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Error reason for a package version failure during creation or update.
 func (o LookupSoftwarePackageVersionResultOutput) ErrorReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *string { return v.ErrorReason }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the package.
 func (o LookupSoftwarePackageVersionResultOutput) PackageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *string { return v.PackageVersionArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
 func (o LookupSoftwarePackageVersionResultOutput) Status() SoftwarePackageVersionPackageVersionStatusPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *SoftwarePackageVersionPackageVersionStatus {
 		return v.Status

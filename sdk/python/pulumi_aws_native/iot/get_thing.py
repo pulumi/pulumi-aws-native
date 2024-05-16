@@ -33,16 +33,25 @@ class GetThingResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> Optional['outputs.ThingAttributePayload']:
+        """
+        The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        """
         return pulumi.get(self, "attribute_payload")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The Id of this thing.
+        """
         return pulumi.get(self, "id")
 
 
@@ -61,6 +70,11 @@ def get_thing(thing_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThingResult:
     """
     Resource Type definition for AWS::IoT::Thing
+
+
+    :param str thing_name: The name of the thing to update.
+           
+           You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
     """
     __args__ = dict()
     __args__['thingName'] = thing_name
@@ -78,5 +92,10 @@ def get_thing_output(thing_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingResult]:
     """
     Resource Type definition for AWS::IoT::Thing
+
+
+    :param str thing_name: The name of the thing to update.
+           
+           You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
     """
     ...

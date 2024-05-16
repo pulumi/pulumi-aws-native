@@ -19,10 +19,16 @@ export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetApiKeyArgs {
+    /**
+     * The ID for the API key. For example: `abc123` .
+     */
     apiKeyId: string;
 }
 
 export interface GetApiKeyResult {
+    /**
+     * The ID for the API key. For example: `abc123` .
+     */
     readonly apiKeyId?: string;
     /**
      * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
@@ -53,5 +59,8 @@ export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetApiKeyOutputArgs {
+    /**
+     * The ID for the API key. For example: `abc123` .
+     */
     apiKeyId: pulumi.Input<string>;
 }

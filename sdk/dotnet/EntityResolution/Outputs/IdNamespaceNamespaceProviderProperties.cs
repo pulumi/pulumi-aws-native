@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ProviderConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the provider service.
+        /// </summary>
         public readonly string ProviderServiceArn;
 
         [OutputConstructor]

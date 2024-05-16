@@ -17,10 +17,13 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	BufferOptions           PipelineBufferOptionsPtrOutput           `pulumi:"bufferOptions"`
+	// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+	BufferOptions PipelineBufferOptionsPtrOutput `pulumi:"bufferOptions"`
+	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrOutput `pulumi:"encryptionAtRestOptions"`
 	// A list of endpoints that can be used for ingesting data into a pipeline
-	IngestEndpointUrls   pulumi.StringArrayOutput              `pulumi:"ingestEndpointUrls"`
+	IngestEndpointUrls pulumi.StringArrayOutput `pulumi:"ingestEndpointUrls"`
+	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
 	LogPublishingOptions PipelineLogPublishingOptionsPtrOutput `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits pulumi.IntOutput `pulumi:"maxUnits"`
@@ -36,7 +39,8 @@ type Pipeline struct {
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VPC interface endpoints that have access to the pipeline.
 	VpcEndpoints PipelineVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
-	VpcOptions   PipelineVpcOptionsPtrOutput    `pulumi:"vpcOptions"`
+	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+	VpcOptions PipelineVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -92,9 +96,12 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	BufferOptions           *PipelineBufferOptions           `pulumi:"bufferOptions"`
+	// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+	BufferOptions *PipelineBufferOptions `pulumi:"bufferOptions"`
+	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
-	LogPublishingOptions    *PipelineLogPublishingOptions    `pulumi:"logPublishingOptions"`
+	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits int `pulumi:"maxUnits"`
 	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
@@ -104,15 +111,19 @@ type pipelineArgs struct {
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName *string `pulumi:"pipelineName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag           `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
 	VpcOptions *PipelineVpcOptions `pulumi:"vpcOptions"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	BufferOptions           PipelineBufferOptionsPtrInput
+	// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+	BufferOptions PipelineBufferOptionsPtrInput
+	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrInput
-	LogPublishingOptions    PipelineLogPublishingOptionsPtrInput
+	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+	LogPublishingOptions PipelineLogPublishingOptionsPtrInput
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits pulumi.IntInput
 	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
@@ -122,7 +133,8 @@ type PipelineArgs struct {
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
 	VpcOptions PipelineVpcOptionsPtrInput
 }
 
@@ -163,10 +175,12 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
 func (o PipelineOutput) BufferOptions() PipelineBufferOptionsPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineBufferOptionsPtrOutput { return v.BufferOptions }).(PipelineBufferOptionsPtrOutput)
 }
 
+// Options to control how OpenSearch encrypts buffer data.
 func (o PipelineOutput) EncryptionAtRestOptions() PipelineEncryptionAtRestOptionsPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineEncryptionAtRestOptionsPtrOutput { return v.EncryptionAtRestOptions }).(PipelineEncryptionAtRestOptionsPtrOutput)
 }
@@ -176,6 +190,7 @@ func (o PipelineOutput) IngestEndpointUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringArrayOutput { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
 
+// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
 func (o PipelineOutput) LogPublishingOptions() PipelineLogPublishingOptionsPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineLogPublishingOptionsPtrOutput { return v.LogPublishingOptions }).(PipelineLogPublishingOptionsPtrOutput)
 }
@@ -215,6 +230,7 @@ func (o PipelineOutput) VpcEndpoints() PipelineVpcEndpointArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineVpcEndpointArrayOutput { return v.VpcEndpoints }).(PipelineVpcEndpointArrayOutput)
 }
 
+// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
 func (o PipelineOutput) VpcOptions() PipelineVpcOptionsPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineVpcOptionsPtrOutput { return v.VpcOptions }).(PipelineVpcOptionsPtrOutput)
 }

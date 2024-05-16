@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDefaultSectionBasedLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options for the canvas of a section-based layout.
+        /// </summary>
         [Input("canvasSizeOptions", required: true)]
         public Input<Inputs.TemplateSectionBasedLayoutCanvasSizeOptionsArgs> CanvasSizeOptions { get; set; } = null!;
 

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionOAuthParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to the authorization endpoint when OAuth is specified as the authorization type.
+        /// </summary>
         [Input("authorizationEndpoint", required: true)]
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the OAuth authorization parameters to use for the connection.
+        /// </summary>
         [Input("clientParameters", required: true)]
         public Input<Inputs.ConnectionClientParametersArgs> ClientParameters { get; set; } = null!;
 
+        /// <summary>
+        /// The method to use for the authorization request.
+        /// </summary>
         [Input("httpMethod", required: true)]
         public Input<Pulumi.AwsNative.Events.ConnectionOAuthParametersHttpMethod> HttpMethod { get; set; } = null!;
 
+        /// <summary>
+        /// Contains additional parameters for the connection.
+        /// </summary>
         [Input("oAuthHttpParameters")]
         public Input<Inputs.ConnectionHttpParametersArgs>? OAuthHttpParameters { get; set; }
 

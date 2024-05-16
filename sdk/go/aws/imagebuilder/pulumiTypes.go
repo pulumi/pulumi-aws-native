@@ -964,7 +964,8 @@ type DistributionConfigurationAmiDistributionConfiguration struct {
 	// The description of the AMI distribution configuration.
 	Description *string `pulumi:"description"`
 	// The KMS key identifier used to encrypt the distributed image.
-	KmsKeyId                      *string                                                 `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
 	LaunchPermissionConfiguration *DistributionConfigurationLaunchPermissionConfiguration `pulumi:"launchPermissionConfiguration"`
 	// The name of the AMI distribution configuration.
 	Name *string `pulumi:"name"`
@@ -990,7 +991,8 @@ type DistributionConfigurationAmiDistributionConfigurationArgs struct {
 	// The description of the AMI distribution configuration.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The KMS key identifier used to encrypt the distributed image.
-	KmsKeyId                      pulumi.StringPtrInput                                          `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
 	LaunchPermissionConfiguration DistributionConfigurationLaunchPermissionConfigurationPtrInput `pulumi:"launchPermissionConfiguration"`
 	// The name of the AMI distribution configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1091,6 +1093,7 @@ func (o DistributionConfigurationAmiDistributionConfigurationOutput) KmsKeyId() 
 	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
 func (o DistributionConfigurationAmiDistributionConfigurationOutput) LaunchPermissionConfiguration() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) *DistributionConfigurationLaunchPermissionConfiguration {
 		return v.LaunchPermissionConfiguration
@@ -1161,6 +1164,7 @@ func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
 func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) LaunchPermissionConfiguration() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) *DistributionConfigurationLaunchPermissionConfiguration {
 		if v == nil {
@@ -1372,7 +1376,9 @@ func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) Ta
 
 // The distributions of the distribution configuration.
 type DistributionConfigurationDistribution struct {
-	AmiDistributionConfiguration       *DistributionConfigurationAmiDistributionConfiguration       `pulumi:"amiDistributionConfiguration"`
+	// Define and configure the output AMIs of the pipeline.
+	AmiDistributionConfiguration *DistributionConfigurationAmiDistributionConfiguration `pulumi:"amiDistributionConfiguration"`
+	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 	ContainerDistributionConfiguration *DistributionConfigurationContainerDistributionConfiguration `pulumi:"containerDistributionConfiguration"`
 	// The Windows faster-launching configurations to use for AMI distribution.
 	FastLaunchConfigurations []DistributionConfigurationFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
@@ -1397,7 +1403,9 @@ type DistributionConfigurationDistributionInput interface {
 
 // The distributions of the distribution configuration.
 type DistributionConfigurationDistributionArgs struct {
-	AmiDistributionConfiguration       DistributionConfigurationAmiDistributionConfigurationPtrInput       `pulumi:"amiDistributionConfiguration"`
+	// Define and configure the output AMIs of the pipeline.
+	AmiDistributionConfiguration DistributionConfigurationAmiDistributionConfigurationPtrInput `pulumi:"amiDistributionConfiguration"`
+	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 	ContainerDistributionConfiguration DistributionConfigurationContainerDistributionConfigurationPtrInput `pulumi:"containerDistributionConfiguration"`
 	// The Windows faster-launching configurations to use for AMI distribution.
 	FastLaunchConfigurations DistributionConfigurationFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
@@ -1461,12 +1469,14 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 	return o
 }
 
+// Define and configure the output AMIs of the pipeline.
 func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationAmiDistributionConfiguration {
 		return v.AmiDistributionConfiguration
 	}).(DistributionConfigurationAmiDistributionConfigurationPtrOutput)
 }
 
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationContainerDistributionConfiguration {
 		return v.ContainerDistributionConfiguration
@@ -3389,7 +3399,9 @@ func (o ImagePipelineWorkflowConfigurationArrayOutput) Index(i pulumi.IntInput) 
 
 // A parameter associated with the workflow
 type ImagePipelineWorkflowParameter struct {
-	Name  *string  `pulumi:"name"`
+	// The name of the workflow parameter to set.
+	Name *string `pulumi:"name"`
+	// Sets the value for the named workflow parameter.
 	Value []string `pulumi:"value"`
 }
 
@@ -3406,7 +3418,9 @@ type ImagePipelineWorkflowParameterInput interface {
 
 // A parameter associated with the workflow
 type ImagePipelineWorkflowParameterArgs struct {
-	Name  pulumi.StringPtrInput   `pulumi:"name"`
+	// The name of the workflow parameter to set.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Sets the value for the named workflow parameter.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -3462,10 +3476,12 @@ func (o ImagePipelineWorkflowParameterOutput) ToImagePipelineWorkflowParameterOu
 	return o
 }
 
+// The name of the workflow parameter to set.
 func (o ImagePipelineWorkflowParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePipelineWorkflowParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Sets the value for the named workflow parameter.
 func (o ImagePipelineWorkflowParameterOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImagePipelineWorkflowParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -4860,7 +4876,9 @@ func (o ImageWorkflowConfigurationArrayOutput) Index(i pulumi.IntInput) ImageWor
 
 // A parameter associated with the workflow
 type ImageWorkflowParameter struct {
-	Name  *string  `pulumi:"name"`
+	// The name of the workflow parameter to set.
+	Name *string `pulumi:"name"`
+	// Sets the value for the named workflow parameter.
 	Value []string `pulumi:"value"`
 }
 
@@ -4877,7 +4895,9 @@ type ImageWorkflowParameterInput interface {
 
 // A parameter associated with the workflow
 type ImageWorkflowParameterArgs struct {
-	Name  pulumi.StringPtrInput   `pulumi:"name"`
+	// The name of the workflow parameter to set.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Sets the value for the named workflow parameter.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -4933,10 +4953,12 @@ func (o ImageWorkflowParameterOutput) ToImageWorkflowParameterOutputWithContext(
 	return o
 }
 
+// The name of the workflow parameter to set.
 func (o ImageWorkflowParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageWorkflowParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Sets the value for the named workflow parameter.
 func (o ImageWorkflowParameterOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageWorkflowParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -5124,6 +5146,7 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpTokens(
 
 // The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLogging struct {
+	// Amazon S3 logging configuration.
 	S3Logs *InfrastructureConfigurationS3Logs `pulumi:"s3Logs"`
 }
 
@@ -5140,6 +5163,7 @@ type InfrastructureConfigurationLoggingInput interface {
 
 // The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLoggingArgs struct {
+	// Amazon S3 logging configuration.
 	S3Logs InfrastructureConfigurationS3LogsPtrInput `pulumi:"s3Logs"`
 }
 
@@ -5221,6 +5245,7 @@ func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationL
 	}).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
+// Amazon S3 logging configuration.
 func (o InfrastructureConfigurationLoggingOutput) S3Logs() InfrastructureConfigurationS3LogsPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLogging) *InfrastructureConfigurationS3Logs { return v.S3Logs }).(InfrastructureConfigurationS3LogsPtrOutput)
 }
@@ -5249,6 +5274,7 @@ func (o InfrastructureConfigurationLoggingPtrOutput) Elem() InfrastructureConfig
 	}).(InfrastructureConfigurationLoggingOutput)
 }
 
+// Amazon S3 logging configuration.
 func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConfigurationS3LogsPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationLogging) *InfrastructureConfigurationS3Logs {
 		if v == nil {
@@ -5419,6 +5445,7 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) S3KeyPrefix() pulumi.StringP
 
 // The action of the policy detail.
 type LifecyclePolicyAction struct {
+	// Specifies how the lifecycle policy should apply actions to selected resources.
 	IncludeResources *LifecyclePolicyIncludeResources `pulumi:"includeResources"`
 	// The action type of the policy detail.
 	Type LifecyclePolicyActionType `pulumi:"type"`
@@ -5437,6 +5464,7 @@ type LifecyclePolicyActionInput interface {
 
 // The action of the policy detail.
 type LifecyclePolicyActionArgs struct {
+	// Specifies how the lifecycle policy should apply actions to selected resources.
 	IncludeResources LifecyclePolicyIncludeResourcesPtrInput `pulumi:"includeResources"`
 	// The action type of the policy detail.
 	Type LifecyclePolicyActionTypeInput `pulumi:"type"`
@@ -5469,6 +5497,7 @@ func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ct
 	return o
 }
 
+// Specifies how the lifecycle policy should apply actions to selected resources.
 func (o LifecyclePolicyActionOutput) IncludeResources() LifecyclePolicyIncludeResourcesPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyAction) *LifecyclePolicyIncludeResources { return v.IncludeResources }).(LifecyclePolicyIncludeResourcesPtrOutput)
 }
@@ -5696,6 +5725,7 @@ func (o LifecyclePolicyAmiExclusionRulesPtrOutput) TagMap() pulumi.StringMapOutp
 
 // The exclusion rules to apply of the policy detail.
 type LifecyclePolicyExclusionRules struct {
+	// Defines criteria for AMIs that are excluded from lifecycle actions.
 	Amis *LifecyclePolicyAmiExclusionRules `pulumi:"amis"`
 	// The Image Builder tags to filter on.
 	TagMap map[string]string `pulumi:"tagMap"`
@@ -5714,6 +5744,7 @@ type LifecyclePolicyExclusionRulesInput interface {
 
 // The exclusion rules to apply of the policy detail.
 type LifecyclePolicyExclusionRulesArgs struct {
+	// Defines criteria for AMIs that are excluded from lifecycle actions.
 	Amis LifecyclePolicyAmiExclusionRulesPtrInput `pulumi:"amis"`
 	// The Image Builder tags to filter on.
 	TagMap pulumi.StringMapInput `pulumi:"tagMap"`
@@ -5797,6 +5828,7 @@ func (o LifecyclePolicyExclusionRulesOutput) ToLifecyclePolicyExclusionRulesPtrO
 	}).(LifecyclePolicyExclusionRulesPtrOutput)
 }
 
+// Defines criteria for AMIs that are excluded from lifecycle actions.
 func (o LifecyclePolicyExclusionRulesOutput) Amis() LifecyclePolicyAmiExclusionRulesPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyExclusionRules) *LifecyclePolicyAmiExclusionRules { return v.Amis }).(LifecyclePolicyAmiExclusionRulesPtrOutput)
 }
@@ -5830,6 +5862,7 @@ func (o LifecyclePolicyExclusionRulesPtrOutput) Elem() LifecyclePolicyExclusionR
 	}).(LifecyclePolicyExclusionRulesOutput)
 }
 
+// Defines criteria for AMIs that are excluded from lifecycle actions.
 func (o LifecyclePolicyExclusionRulesPtrOutput) Amis() LifecyclePolicyAmiExclusionRulesPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyExclusionRules) *LifecyclePolicyAmiExclusionRules {
 		if v == nil {
@@ -6270,9 +6303,12 @@ func (o LifecyclePolicyLastLaunchedPtrOutput) Value() pulumi.IntPtrOutput {
 
 // The policy detail of the lifecycle policy.
 type LifecyclePolicyPolicyDetail struct {
-	Action         LifecyclePolicyAction          `pulumi:"action"`
+	// Contains selection criteria for the lifecycle policy.
+	Action LifecyclePolicyAction `pulumi:"action"`
+	// Specifies resources that lifecycle policy actions should not apply to.
 	ExclusionRules *LifecyclePolicyExclusionRules `pulumi:"exclusionRules"`
-	Filter         LifecyclePolicyFilter          `pulumi:"filter"`
+	// Defines filters that the lifecycle policy uses to determine impacted resource.
+	Filter LifecyclePolicyFilter `pulumi:"filter"`
 }
 
 // LifecyclePolicyPolicyDetailInput is an input type that accepts LifecyclePolicyPolicyDetailArgs and LifecyclePolicyPolicyDetailOutput values.
@@ -6288,9 +6324,12 @@ type LifecyclePolicyPolicyDetailInput interface {
 
 // The policy detail of the lifecycle policy.
 type LifecyclePolicyPolicyDetailArgs struct {
-	Action         LifecyclePolicyActionInput            `pulumi:"action"`
+	// Contains selection criteria for the lifecycle policy.
+	Action LifecyclePolicyActionInput `pulumi:"action"`
+	// Specifies resources that lifecycle policy actions should not apply to.
 	ExclusionRules LifecyclePolicyExclusionRulesPtrInput `pulumi:"exclusionRules"`
-	Filter         LifecyclePolicyFilterInput            `pulumi:"filter"`
+	// Defines filters that the lifecycle policy uses to determine impacted resource.
+	Filter LifecyclePolicyFilterInput `pulumi:"filter"`
 }
 
 func (LifecyclePolicyPolicyDetailArgs) ElementType() reflect.Type {
@@ -6345,14 +6384,17 @@ func (o LifecyclePolicyPolicyDetailOutput) ToLifecyclePolicyPolicyDetailOutputWi
 	return o
 }
 
+// Contains selection criteria for the lifecycle policy.
 func (o LifecyclePolicyPolicyDetailOutput) Action() LifecyclePolicyActionOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) LifecyclePolicyAction { return v.Action }).(LifecyclePolicyActionOutput)
 }
 
+// Specifies resources that lifecycle policy actions should not apply to.
 func (o LifecyclePolicyPolicyDetailOutput) ExclusionRules() LifecyclePolicyExclusionRulesPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) *LifecyclePolicyExclusionRules { return v.ExclusionRules }).(LifecyclePolicyExclusionRulesPtrOutput)
 }
 
+// Defines filters that the lifecycle policy uses to determine impacted resource.
 func (o LifecyclePolicyPolicyDetailOutput) Filter() LifecyclePolicyFilterOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) LifecyclePolicyFilter { return v.Filter }).(LifecyclePolicyFilterOutput)
 }

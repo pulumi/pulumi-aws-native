@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
 
     public sealed class TableColumnArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         [Input("columnType", required: true)]
         public Input<string> ColumnType { get; set; } = null!;
 

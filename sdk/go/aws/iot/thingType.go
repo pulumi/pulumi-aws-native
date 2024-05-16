@@ -16,12 +16,19 @@ import (
 type ThingType struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput  `pulumi:"arn"`
-	AwsId              pulumi.StringOutput  `pulumi:"awsId"`
+	// The thing type arn.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The thing type id.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	//
+	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType pulumi.BoolPtrOutput `pulumi:"deprecateThingType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                aws.TagArrayOutput                     `pulumi:"tags"`
-	ThingTypeName       pulumi.StringPtrOutput                 `pulumi:"thingTypeName"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The name of the thing type.
+	ThingTypeName pulumi.StringPtrOutput `pulumi:"thingTypeName"`
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 	ThingTypeProperties ThingTypePropertiesPropertiesPtrOutput `pulumi:"thingTypeProperties"`
 }
 
@@ -70,19 +77,29 @@ func (ThingTypeState) ElementType() reflect.Type {
 }
 
 type thingTypeArgs struct {
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	//
+	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType *bool `pulumi:"deprecateThingType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                []aws.Tag                      `pulumi:"tags"`
-	ThingTypeName       *string                        `pulumi:"thingTypeName"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the thing type.
+	ThingTypeName *string `pulumi:"thingTypeName"`
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 	ThingTypeProperties *ThingTypePropertiesProperties `pulumi:"thingTypeProperties"`
 }
 
 // The set of arguments for constructing a ThingType resource.
 type ThingTypeArgs struct {
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	//
+	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType pulumi.BoolPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                aws.TagArrayInput
-	ThingTypeName       pulumi.StringPtrInput
+	Tags aws.TagArrayInput
+	// The name of the thing type.
+	ThingTypeName pulumi.StringPtrInput
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 	ThingTypeProperties ThingTypePropertiesPropertiesPtrInput
 }
 
@@ -123,14 +140,19 @@ func (o ThingTypeOutput) ToThingTypeOutputWithContext(ctx context.Context) Thing
 	return o
 }
 
+// The thing type arn.
 func (o ThingTypeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The thing type id.
 func (o ThingTypeOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Deprecates a thing type. You can not associate new things with deprecated thing type.
+//
+// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 func (o ThingTypeOutput) DeprecateThingType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.BoolPtrOutput { return v.DeprecateThingType }).(pulumi.BoolPtrOutput)
 }
@@ -140,10 +162,12 @@ func (o ThingTypeOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ThingType) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The name of the thing type.
 func (o ThingTypeOutput) ThingTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringPtrOutput { return v.ThingTypeName }).(pulumi.StringPtrOutput)
 }
 
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 func (o ThingTypeOutput) ThingTypeProperties() ThingTypePropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingType) ThingTypePropertiesPropertiesPtrOutput { return v.ThingTypeProperties }).(ThingTypePropertiesPropertiesPtrOutput)
 }

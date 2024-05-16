@@ -15,9 +15,12 @@ var _ = internal.GetEnvOrDefault
 
 // The AWS account associated with the assessment.
 type AssessmentAwsAccount struct {
+	// The email address that's associated with the AWS account .
 	EmailAddress *string `pulumi:"emailAddress"`
-	Id           *string `pulumi:"id"`
-	Name         *string `pulumi:"name"`
+	// The identifier for the AWS account .
+	Id *string `pulumi:"id"`
+	// The name of the AWS account .
+	Name *string `pulumi:"name"`
 }
 
 // AssessmentAwsAccountInput is an input type that accepts AssessmentAwsAccountArgs and AssessmentAwsAccountOutput values.
@@ -33,9 +36,12 @@ type AssessmentAwsAccountInput interface {
 
 // The AWS account associated with the assessment.
 type AssessmentAwsAccountArgs struct {
+	// The email address that's associated with the AWS account .
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	Id           pulumi.StringPtrInput `pulumi:"id"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
+	// The identifier for the AWS account .
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the AWS account .
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (AssessmentAwsAccountArgs) ElementType() reflect.Type {
@@ -141,14 +147,17 @@ func (o AssessmentAwsAccountOutput) ToAssessmentAwsAccountPtrOutputWithContext(c
 	}).(AssessmentAwsAccountPtrOutput)
 }
 
+// The email address that's associated with the AWS account .
 func (o AssessmentAwsAccountOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAwsAccount) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the AWS account .
 func (o AssessmentAwsAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAwsAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the AWS account .
 func (o AssessmentAwsAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAwsAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -177,6 +186,7 @@ func (o AssessmentAwsAccountPtrOutput) Elem() AssessmentAwsAccountOutput {
 	}).(AssessmentAwsAccountOutput)
 }
 
+// The email address that's associated with the AWS account .
 func (o AssessmentAwsAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAwsAccount) *string {
 		if v == nil {
@@ -186,6 +196,7 @@ func (o AssessmentAwsAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the AWS account .
 func (o AssessmentAwsAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAwsAccount) *string {
 		if v == nil {
@@ -195,6 +206,7 @@ func (o AssessmentAwsAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the AWS account .
 func (o AssessmentAwsAccountPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAwsAccount) *string {
 		if v == nil {
@@ -226,6 +238,7 @@ func (o AssessmentAwsAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAwsA
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAwsService struct {
+	// The name of the AWS service .
 	ServiceName *string `pulumi:"serviceName"`
 }
 
@@ -242,6 +255,7 @@ type AssessmentAwsServiceInput interface {
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAwsServiceArgs struct {
+	// The name of the AWS service .
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 }
 
@@ -297,6 +311,7 @@ func (o AssessmentAwsServiceOutput) ToAssessmentAwsServiceOutputWithContext(ctx 
 	return o
 }
 
+// The name of the AWS service .
 func (o AssessmentAwsServiceOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAwsService) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
@@ -323,17 +338,40 @@ func (o AssessmentAwsServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAwsS
 
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegation struct {
-	AssessmentId   *string                     `pulumi:"assessmentId"`
-	AssessmentName *string                     `pulumi:"assessmentName"`
-	Comment        *string                     `pulumi:"comment"`
-	ControlSetId   *string                     `pulumi:"controlSetId"`
-	CreatedBy      *string                     `pulumi:"createdBy"`
-	CreationTime   *float64                    `pulumi:"creationTime"`
-	Id             *string                     `pulumi:"id"`
-	LastUpdated    *float64                    `pulumi:"lastUpdated"`
-	RoleArn        *string                     `pulumi:"roleArn"`
-	RoleType       *AssessmentRoleType         `pulumi:"roleType"`
-	Status         *AssessmentDelegationStatus `pulumi:"status"`
+	// The identifier for the assessment that's associated with the delegation.
+	AssessmentId *string `pulumi:"assessmentId"`
+	// The name of the assessment that's associated with the delegation.
+	AssessmentName *string `pulumi:"assessmentName"`
+	// The comment that's related to the delegation.
+	Comment *string `pulumi:"comment"`
+	// The identifier for the control set that's associated with the delegation.
+	ControlSetId *string `pulumi:"controlSetId"`
+	// The user or role that created the delegation.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	//
+	// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`
+	CreatedBy *string `pulumi:"createdBy"`
+	// Specifies when the delegation was created.
+	CreationTime *float64 `pulumi:"creationTime"`
+	// The unique identifier for the delegation.
+	Id *string `pulumi:"id"`
+	// Specifies when the delegation was last updated.
+	LastUpdated *float64 `pulumi:"lastUpdated"`
+	// The Amazon Resource Name (ARN) of the IAM role.
+	RoleArn *string `pulumi:"roleArn"`
+	// The type of customer persona.
+	//
+	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+	RoleType *AssessmentRoleType `pulumi:"roleType"`
+	// The status of the delegation.
+	Status *AssessmentDelegationStatus `pulumi:"status"`
 }
 
 // AssessmentDelegationInput is an input type that accepts AssessmentDelegationArgs and AssessmentDelegationOutput values.
@@ -349,17 +387,40 @@ type AssessmentDelegationInput interface {
 
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegationArgs struct {
-	AssessmentId   pulumi.StringPtrInput              `pulumi:"assessmentId"`
-	AssessmentName pulumi.StringPtrInput              `pulumi:"assessmentName"`
-	Comment        pulumi.StringPtrInput              `pulumi:"comment"`
-	ControlSetId   pulumi.StringPtrInput              `pulumi:"controlSetId"`
-	CreatedBy      pulumi.StringPtrInput              `pulumi:"createdBy"`
-	CreationTime   pulumi.Float64PtrInput             `pulumi:"creationTime"`
-	Id             pulumi.StringPtrInput              `pulumi:"id"`
-	LastUpdated    pulumi.Float64PtrInput             `pulumi:"lastUpdated"`
-	RoleArn        pulumi.StringPtrInput              `pulumi:"roleArn"`
-	RoleType       AssessmentRoleTypePtrInput         `pulumi:"roleType"`
-	Status         AssessmentDelegationStatusPtrInput `pulumi:"status"`
+	// The identifier for the assessment that's associated with the delegation.
+	AssessmentId pulumi.StringPtrInput `pulumi:"assessmentId"`
+	// The name of the assessment that's associated with the delegation.
+	AssessmentName pulumi.StringPtrInput `pulumi:"assessmentName"`
+	// The comment that's related to the delegation.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The identifier for the control set that's associated with the delegation.
+	ControlSetId pulumi.StringPtrInput `pulumi:"controlSetId"`
+	// The user or role that created the delegation.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	//
+	// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// Specifies when the delegation was created.
+	CreationTime pulumi.Float64PtrInput `pulumi:"creationTime"`
+	// The unique identifier for the delegation.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies when the delegation was last updated.
+	LastUpdated pulumi.Float64PtrInput `pulumi:"lastUpdated"`
+	// The Amazon Resource Name (ARN) of the IAM role.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The type of customer persona.
+	//
+	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+	RoleType AssessmentRoleTypePtrInput `pulumi:"roleType"`
+	// The status of the delegation.
+	Status AssessmentDelegationStatusPtrInput `pulumi:"status"`
 }
 
 func (AssessmentDelegationArgs) ElementType() reflect.Type {
@@ -414,46 +475,69 @@ func (o AssessmentDelegationOutput) ToAssessmentDelegationOutputWithContext(ctx 
 	return o
 }
 
+// The identifier for the assessment that's associated with the delegation.
 func (o AssessmentDelegationOutput) AssessmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.AssessmentId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the assessment that's associated with the delegation.
 func (o AssessmentDelegationOutput) AssessmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.AssessmentName }).(pulumi.StringPtrOutput)
 }
 
+// The comment that's related to the delegation.
 func (o AssessmentDelegationOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the control set that's associated with the delegation.
 func (o AssessmentDelegationOutput) ControlSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.ControlSetId }).(pulumi.StringPtrOutput)
 }
 
+// The user or role that created the delegation.
+//
+// *Minimum* : `1`
+//
+// *Maximum* : `100`
+//
+// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`
 func (o AssessmentDelegationOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
+// Specifies when the delegation was created.
 func (o AssessmentDelegationOutput) CreationTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *float64 { return v.CreationTime }).(pulumi.Float64PtrOutput)
 }
 
+// The unique identifier for the delegation.
 func (o AssessmentDelegationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies when the delegation was last updated.
 func (o AssessmentDelegationOutput) LastUpdated() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *float64 { return v.LastUpdated }).(pulumi.Float64PtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentDelegationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of customer persona.
+//
+// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+// >
+// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+// >
+// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
 func (o AssessmentDelegationOutput) RoleType() AssessmentRoleTypePtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *AssessmentRoleType { return v.RoleType }).(AssessmentRoleTypePtrOutput)
 }
 
+// The status of the delegation.
 func (o AssessmentDelegationOutput) Status() AssessmentDelegationStatusPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *AssessmentDelegationStatus { return v.Status }).(AssessmentDelegationStatusPtrOutput)
 }
@@ -480,7 +564,9 @@ func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDele
 
 // The destination in which evidence reports are stored for the specified assessment.
 type AssessmentReportsDestination struct {
-	Destination     *string                          `pulumi:"destination"`
+	// The destination bucket where Audit Manager stores assessment reports.
+	Destination *string `pulumi:"destination"`
+	// The destination type, such as Amazon S3.
 	DestinationType *AssessmentReportDestinationType `pulumi:"destinationType"`
 }
 
@@ -497,7 +583,9 @@ type AssessmentReportsDestinationInput interface {
 
 // The destination in which evidence reports are stored for the specified assessment.
 type AssessmentReportsDestinationArgs struct {
-	Destination     pulumi.StringPtrInput                   `pulumi:"destination"`
+	// The destination bucket where Audit Manager stores assessment reports.
+	Destination pulumi.StringPtrInput `pulumi:"destination"`
+	// The destination type, such as Amazon S3.
 	DestinationType AssessmentReportDestinationTypePtrInput `pulumi:"destinationType"`
 }
 
@@ -579,10 +667,12 @@ func (o AssessmentReportsDestinationOutput) ToAssessmentReportsDestinationPtrOut
 	}).(AssessmentReportsDestinationPtrOutput)
 }
 
+// The destination bucket where Audit Manager stores assessment reports.
 func (o AssessmentReportsDestinationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentReportsDestination) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
+// The destination type, such as Amazon S3.
 func (o AssessmentReportsDestinationOutput) DestinationType() AssessmentReportDestinationTypePtrOutput {
 	return o.ApplyT(func(v AssessmentReportsDestination) *AssessmentReportDestinationType { return v.DestinationType }).(AssessmentReportDestinationTypePtrOutput)
 }
@@ -611,6 +701,7 @@ func (o AssessmentReportsDestinationPtrOutput) Elem() AssessmentReportsDestinati
 	}).(AssessmentReportsDestinationOutput)
 }
 
+// The destination bucket where Audit Manager stores assessment reports.
 func (o AssessmentReportsDestinationPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentReportsDestination) *string {
 		if v == nil {
@@ -620,6 +711,7 @@ func (o AssessmentReportsDestinationPtrOutput) Destination() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The destination type, such as Amazon S3.
 func (o AssessmentReportsDestinationPtrOutput) DestinationType() AssessmentReportDestinationTypePtrOutput {
 	return o.ApplyT(func(v *AssessmentReportsDestination) *AssessmentReportDestinationType {
 		if v == nil {
@@ -631,7 +723,15 @@ func (o AssessmentReportsDestinationPtrOutput) DestinationType() AssessmentRepor
 
 // The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRole struct {
-	RoleArn  *string             `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role.
+	RoleArn *string `pulumi:"roleArn"`
+	// The type of customer persona.
+	//
+	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
 	RoleType *AssessmentRoleType `pulumi:"roleType"`
 }
 
@@ -648,7 +748,15 @@ type AssessmentRoleInput interface {
 
 // The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRoleArgs struct {
-	RoleArn  pulumi.StringPtrInput      `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The type of customer persona.
+	//
+	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
 	RoleType AssessmentRoleTypePtrInput `pulumi:"roleType"`
 }
 
@@ -704,10 +812,18 @@ func (o AssessmentRoleOutput) ToAssessmentRoleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentRoleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of customer persona.
+//
+// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+// >
+// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+// >
+// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
 func (o AssessmentRoleOutput) RoleType() AssessmentRoleTypePtrOutput {
 	return o.ApplyT(func(v AssessmentRole) *AssessmentRoleType { return v.RoleType }).(AssessmentRoleTypePtrOutput)
 }

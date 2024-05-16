@@ -34,6 +34,7 @@ class SimulationApplicationArgs:
         :param pulumi.Input[str] name: The name of the simulation application.
         :param pulumi.Input['SimulationApplicationRenderingEngineArgs'] rendering_engine: The rendering engine for the simulation application.
         :param pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]] sources: The sources of the simulation application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the simulation application.
         """
         pulumi.set(__self__, "robot_software_suite", robot_software_suite)
         pulumi.set(__self__, "simulation_software_suite", simulation_software_suite)
@@ -137,6 +138,9 @@ class SimulationApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map that contains tag keys and tag values that are attached to the simulation application.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -258,6 +262,7 @@ class SimulationApplication(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite used by the simulation application.
         :param pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']] simulation_software_suite: The simulation software suite used by the simulation application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]] sources: The sources of the simulation application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the simulation application.
         """
         ...
     @overload
@@ -439,6 +444,9 @@ class SimulationApplication(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the simulation application.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -500,5 +508,8 @@ class SimulationApplication(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map that contains tag keys and tag values that are attached to the simulation application.
+        """
         return pulumi.get(self, "tags")
 

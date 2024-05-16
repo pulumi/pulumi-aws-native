@@ -42,31 +42,51 @@ class GetVpceConfigurationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="serviceDnsName")
     def service_dns_name(self) -> Optional[str]:
+        """
+        The DNS name that Device Farm will use to map to the private service you want to access.
+        """
         return pulumi.get(self, "service_dns_name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpceConfigurationDescription")
     def vpce_configuration_description(self) -> Optional[str]:
+        """
+        An optional description that provides details about your VPC endpoint configuration.
+        """
         return pulumi.get(self, "vpce_configuration_description")
 
     @property
     @pulumi.getter(name="vpceConfigurationName")
     def vpce_configuration_name(self) -> Optional[str]:
+        """
+        The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        """
         return pulumi.get(self, "vpce_configuration_name")
 
     @property
     @pulumi.getter(name="vpceServiceName")
     def vpce_service_name(self) -> Optional[str]:
+        """
+        The name of the VPC endpoint service that you want to access from Device Farm.
+
+        The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        """
         return pulumi.get(self, "vpce_service_name")
 
 
@@ -88,6 +108,9 @@ def get_vpce_configuration(arn: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpceConfigurationResult:
     """
     AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -108,5 +131,8 @@ def get_vpce_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpceConfigurationResult]:
     """
     AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     ...

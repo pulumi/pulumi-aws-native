@@ -54,7 +54,10 @@ class ExperimentTemplateAction(dict):
                  targets: Optional[Mapping[str, str]] = None):
         """
         Specifies an action for the experiment template.
+        :param str action_id: The ID of the action.
+        :param str description: A description for the action.
         :param Mapping[str, str] parameters: The parameters for the action, if applicable.
+        :param Sequence[str] start_after: The name of the action that must be completed before the current action starts.
         :param Mapping[str, str] targets: One or more targets for the action.
         """
         pulumi.set(__self__, "action_id", action_id)
@@ -70,11 +73,17 @@ class ExperimentTemplateAction(dict):
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> str:
+        """
+        The ID of the action.
+        """
         return pulumi.get(self, "action_id")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the action.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -88,6 +97,9 @@ class ExperimentTemplateAction(dict):
     @property
     @pulumi.getter(name="startAfter")
     def start_after(self) -> Optional[Sequence[str]]:
+        """
+        The name of the action that must be completed before the current action starts.
+        """
         return pulumi.get(self, "start_after")
 
     @property
@@ -176,6 +188,11 @@ class ExperimentTemplateLogConfiguration(dict):
                  log_schema_version: int,
                  cloud_watch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties'] = None,
                  s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3ConfigurationProperties'] = None):
+        """
+        :param int log_schema_version: The schema version.
+        :param 'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties' cloud_watch_logs_configuration: The configuration for experiment logging to CloudWatch Logs .
+        :param 'ExperimentTemplateLogConfigurationS3ConfigurationProperties' s3_configuration: The configuration for experiment logging to Amazon S3 .
+        """
         pulumi.set(__self__, "log_schema_version", log_schema_version)
         if cloud_watch_logs_configuration is not None:
             pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
@@ -185,21 +202,33 @@ class ExperimentTemplateLogConfiguration(dict):
     @property
     @pulumi.getter(name="logSchemaVersion")
     def log_schema_version(self) -> int:
+        """
+        The schema version.
+        """
         return pulumi.get(self, "log_schema_version")
 
     @property
     @pulumi.getter(name="cloudWatchLogsConfiguration")
     def cloud_watch_logs_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties']:
+        """
+        The configuration for experiment logging to CloudWatch Logs .
+        """
         return pulumi.get(self, "cloud_watch_logs_configuration")
 
     @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfigurationS3ConfigurationProperties']:
+        """
+        The configuration for experiment logging to Amazon S3 .
+        """
         return pulumi.get(self, "s3_configuration")
 
 
 @pulumi.output_type
 class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties(dict):
+    """
+    The configuration for experiment logging to CloudWatch Logs .
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -219,6 +248,9 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties(di
 
     def __init__(__self__, *,
                  log_group_arn: str):
+        """
+        The configuration for experiment logging to CloudWatch Logs .
+        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
@@ -229,6 +261,9 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties(di
 
 @pulumi.output_type
 class ExperimentTemplateLogConfigurationS3ConfigurationProperties(dict):
+    """
+    The configuration for experiment logging to Amazon S3 .
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -249,6 +284,9 @@ class ExperimentTemplateLogConfigurationS3ConfigurationProperties(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  prefix: Optional[str] = None):
+        """
+        The configuration for experiment logging to Amazon S3 .
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -321,6 +359,12 @@ class ExperimentTemplateTarget(dict):
                  resource_tags: Optional[Mapping[str, str]] = None):
         """
         Specifies a target for an experiment.
+        :param str resource_type: The resource type.
+        :param str selection_mode: Scopes the identified resources to a specific count or percentage.
+        :param Sequence['ExperimentTemplateTargetFilter'] filters: The filters to apply to identify target resources using specific attributes.
+        :param Mapping[str, str] parameters: The parameters for the resource type.
+        :param Sequence[str] resource_arns: The Amazon Resource Names (ARNs) of the targets.
+        :param Mapping[str, str] resource_tags: The tags for the target resources.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "selection_mode", selection_mode)
@@ -336,31 +380,49 @@ class ExperimentTemplateTarget(dict):
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
+        """
+        The resource type.
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="selectionMode")
     def selection_mode(self) -> str:
+        """
+        Scopes the identified resources to a specific count or percentage.
+        """
         return pulumi.get(self, "selection_mode")
 
     @property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.ExperimentTemplateTargetFilter']]:
+        """
+        The filters to apply to identify target resources using specific attributes.
+        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The parameters for the resource type.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARNs) of the targets.
+        """
         return pulumi.get(self, "resource_arns")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target resources.
+        """
         return pulumi.get(self, "resource_tags")
 
 

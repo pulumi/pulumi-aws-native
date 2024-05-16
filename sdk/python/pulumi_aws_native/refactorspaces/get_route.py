@@ -36,16 +36,25 @@ class GetRouteResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the route.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="pathResourceToId")
     def path_resource_to_id(self) -> Optional[str]:
+        """
+        A mapping of Amazon API Gateway path resources to resource IDs.
+        """
         return pulumi.get(self, "path_resource_to_id")
 
     @property
     @pulumi.getter(name="routeIdentifier")
     def route_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the route.
+        """
         return pulumi.get(self, "route_identifier")
 
     @property
@@ -75,6 +84,11 @@ def get_route(application_identifier: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Definition of AWS::RefactorSpaces::Route Resource Type
+
+
+    :param str application_identifier: The unique identifier of the application.
+    :param str environment_identifier: The unique identifier of the environment.
+    :param str route_identifier: The unique identifier of the route.
     """
     __args__ = dict()
     __args__['applicationIdentifier'] = application_identifier
@@ -97,5 +111,10 @@ def get_route_output(application_identifier: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     Definition of AWS::RefactorSpaces::Route Resource Type
+
+
+    :param str application_identifier: The unique identifier of the application.
+    :param str environment_identifier: The unique identifier of the environment.
+    :param str route_identifier: The unique identifier of the route.
     """
     ...

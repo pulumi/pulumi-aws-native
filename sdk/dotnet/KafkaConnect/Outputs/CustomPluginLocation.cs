@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class CustomPluginLocation
     {
+        /// <summary>
+        /// The location of an object in Amazon S3.
+        /// </summary>
         public readonly Outputs.CustomPluginS3Location S3Location;
 
         [OutputConstructor]

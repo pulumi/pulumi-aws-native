@@ -19,11 +19,20 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetAccountArgs {
+    /**
+     * ID of the AWS account that owns the certificate.
+     */
     accountId: string;
 }
 
 export interface GetAccountResult {
+    /**
+     * ID of the AWS account that owns the certificate.
+     */
     readonly accountId?: string;
+    /**
+     * Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+     */
     readonly expiryEventsConfiguration?: outputs.certificatemanager.AccountExpiryEventsConfiguration;
 }
 /**
@@ -34,5 +43,8 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetAccountOutputArgs {
+    /**
+     * ID of the AWS account that owns the certificate.
+     */
     accountId: pulumi.Input<string>;
 }

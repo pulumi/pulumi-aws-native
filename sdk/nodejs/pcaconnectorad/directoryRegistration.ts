@@ -34,8 +34,17 @@ export class DirectoryRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === DirectoryRegistration.__pulumiType;
     }
 
+    /**
+     * The identifier of the Active Directory.
+     */
     public readonly directoryId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+     */
     public /*out*/ readonly directoryRegistrationArn!: pulumi.Output<string>;
+    /**
+     * Metadata assigned to a directory registration consisting of a key-value pair.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -71,6 +80,12 @@ export class DirectoryRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a DirectoryRegistration resource.
  */
 export interface DirectoryRegistrationArgs {
+    /**
+     * The identifier of the Active Directory.
+     */
     directoryId: pulumi.Input<string>;
+    /**
+     * Metadata assigned to a directory registration consisting of a key-value pair.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

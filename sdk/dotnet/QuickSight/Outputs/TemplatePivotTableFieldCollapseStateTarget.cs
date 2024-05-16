@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePivotTableFieldCollapseStateTarget
     {
+        /// <summary>
+        /// The data path that needs to be sorted.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataPathValue> FieldDataPathValues;
+        /// <summary>
+        /// The field ID of the pivot table that the collapse state needs to be set to.
+        /// </summary>
         public readonly string? FieldId;
 
         [OutputConstructor]

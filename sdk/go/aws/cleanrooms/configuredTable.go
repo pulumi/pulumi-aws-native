@@ -17,14 +17,26 @@ import (
 type ConfiguredTable struct {
 	pulumi.CustomResourceState
 
-	AllowedColumns            pulumi.StringArrayOutput               `pulumi:"allowedColumns"`
-	AnalysisMethod            ConfiguredTableAnalysisMethodOutput    `pulumi:"analysisMethod"`
-	AnalysisRules             ConfiguredTableAnalysisRuleArrayOutput `pulumi:"analysisRules"`
-	Arn                       pulumi.StringOutput                    `pulumi:"arn"`
-	ConfiguredTableIdentifier pulumi.StringOutput                    `pulumi:"configuredTableIdentifier"`
-	Description               pulumi.StringPtrOutput                 `pulumi:"description"`
-	Name                      pulumi.StringOutput                    `pulumi:"name"`
-	TableReference            ConfiguredTableTableReferenceOutput    `pulumi:"tableReference"`
+	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	AllowedColumns pulumi.StringArrayOutput `pulumi:"allowedColumns"`
+	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+	AnalysisMethod ConfiguredTableAnalysisMethodOutput `pulumi:"analysisMethod"`
+	// A specification about how data from the configured table can be used in a query.
+	AnalysisRules ConfiguredTableAnalysisRuleArrayOutput `pulumi:"analysisRules"`
+	// Returns the Amazon Resource Name (ARN) of the specified configured table.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Returns the unique identifier of the specified configured table.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+	ConfiguredTableIdentifier pulumi.StringOutput `pulumi:"configuredTableIdentifier"`
+	// A description for the configured table.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A name for the configured table.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+	TableReference ConfiguredTableTableReferenceOutput `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -84,11 +96,17 @@ func (ConfiguredTableState) ElementType() reflect.Type {
 }
 
 type configuredTableArgs struct {
-	AllowedColumns []string                      `pulumi:"allowedColumns"`
+	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	AllowedColumns []string `pulumi:"allowedColumns"`
+	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethod `pulumi:"analysisMethod"`
-	AnalysisRules  []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
-	Description    *string                       `pulumi:"description"`
-	Name           *string                       `pulumi:"name"`
+	// A specification about how data from the configured table can be used in a query.
+	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
+	// A description for the configured table.
+	Description *string `pulumi:"description"`
+	// A name for the configured table.
+	Name *string `pulumi:"name"`
+	// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
 	TableReference ConfiguredTableTableReference `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -96,11 +114,17 @@ type configuredTableArgs struct {
 
 // The set of arguments for constructing a ConfiguredTable resource.
 type ConfiguredTableArgs struct {
+	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
 	AllowedColumns pulumi.StringArrayInput
+	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethodInput
-	AnalysisRules  ConfiguredTableAnalysisRuleArrayInput
-	Description    pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
+	// A specification about how data from the configured table can be used in a query.
+	AnalysisRules ConfiguredTableAnalysisRuleArrayInput
+	// A description for the configured table.
+	Description pulumi.StringPtrInput
+	// A name for the configured table.
+	Name pulumi.StringPtrInput
+	// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
 	TableReference ConfiguredTableTableReferenceInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayInput
@@ -143,34 +167,46 @@ func (o ConfiguredTableOutput) ToConfiguredTableOutputWithContext(ctx context.Co
 	return o
 }
 
+// The columns within the underlying AWS Glue table that can be utilized within collaborations.
 func (o ConfiguredTableOutput) AllowedColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringArrayOutput { return v.AllowedColumns }).(pulumi.StringArrayOutput)
 }
 
+// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 func (o ConfiguredTableOutput) AnalysisMethod() ConfiguredTableAnalysisMethodOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisMethodOutput { return v.AnalysisMethod }).(ConfiguredTableAnalysisMethodOutput)
 }
 
+// A specification about how data from the configured table can be used in a query.
 func (o ConfiguredTableOutput) AnalysisRules() ConfiguredTableAnalysisRuleArrayOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisRuleArrayOutput { return v.AnalysisRules }).(ConfiguredTableAnalysisRuleArrayOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified configured table.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o ConfiguredTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Returns the unique identifier of the specified configured table.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o ConfiguredTableOutput) ConfiguredTableIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.ConfiguredTableIdentifier }).(pulumi.StringOutput)
 }
 
+// A description for the configured table.
 func (o ConfiguredTableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the configured table.
 func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
 func (o ConfiguredTableOutput) TableReference() ConfiguredTableTableReferenceOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableTableReferenceOutput { return v.TableReference }).(ConfiguredTableTableReferenceOutput)
 }

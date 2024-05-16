@@ -24,29 +24,61 @@ func LookupPortal(ctx *pulumi.Context, args *LookupPortalArgs, opts ...pulumi.In
 }
 
 type LookupPortalArgs struct {
+	// The ARN of the web portal.
 	PortalArn string `pulumi:"portalArn"`
 }
 
 type LookupPortalResult struct {
-	AuthenticationType           *PortalAuthenticationType `pulumi:"authenticationType"`
-	BrowserSettingsArn           *string                   `pulumi:"browserSettingsArn"`
-	BrowserType                  *PortalBrowserType        `pulumi:"browserType"`
-	CreationDate                 *string                   `pulumi:"creationDate"`
-	DisplayName                  *string                   `pulumi:"displayName"`
-	InstanceType                 *PortalInstanceType       `pulumi:"instanceType"`
-	IpAccessSettingsArn          *string                   `pulumi:"ipAccessSettingsArn"`
-	MaxConcurrentSessions        *float64                  `pulumi:"maxConcurrentSessions"`
-	NetworkSettingsArn           *string                   `pulumi:"networkSettingsArn"`
-	PortalArn                    *string                   `pulumi:"portalArn"`
-	PortalEndpoint               *string                   `pulumi:"portalEndpoint"`
-	PortalStatus                 *PortalStatus             `pulumi:"portalStatus"`
-	RendererType                 *PortalRendererType       `pulumi:"rendererType"`
-	ServiceProviderSamlMetadata  *string                   `pulumi:"serviceProviderSamlMetadata"`
-	StatusReason                 *string                   `pulumi:"statusReason"`
-	Tags                         []aws.Tag                 `pulumi:"tags"`
-	TrustStoreArn                *string                   `pulumi:"trustStoreArn"`
-	UserAccessLoggingSettingsArn *string                   `pulumi:"userAccessLoggingSettingsArn"`
-	UserSettingsArn              *string                   `pulumi:"userSettingsArn"`
+	// The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
+	//
+	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+	//
+	// 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
+	//
+	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+	//
+	// 3. Submit the data to your IdP.
+	//
+	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
+	//
+	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+	AuthenticationType *PortalAuthenticationType `pulumi:"authenticationType"`
+	// The ARN of the browser settings that is associated with this web portal.
+	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
+	// The browser that users see when using a streaming session.
+	BrowserType *PortalBrowserType `pulumi:"browserType"`
+	// The creation date of the web portal.
+	CreationDate *string `pulumi:"creationDate"`
+	// The name of the web portal.
+	DisplayName *string `pulumi:"displayName"`
+	// The type and resources of the underlying instance.
+	InstanceType *PortalInstanceType `pulumi:"instanceType"`
+	// The ARN of the IP access settings that is associated with the web portal.
+	IpAccessSettingsArn *string `pulumi:"ipAccessSettingsArn"`
+	// The maximum number of concurrent sessions for the portal.
+	MaxConcurrentSessions *float64 `pulumi:"maxConcurrentSessions"`
+	// The ARN of the network settings that is associated with the web portal.
+	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
+	// The ARN of the web portal.
+	PortalArn *string `pulumi:"portalArn"`
+	// The endpoint URL of the web portal that users access in order to start streaming sessions.
+	PortalEndpoint *string `pulumi:"portalEndpoint"`
+	// The status of the web portal.
+	PortalStatus *PortalStatus `pulumi:"portalStatus"`
+	// The renderer that is used in streaming sessions.
+	RendererType *PortalRendererType `pulumi:"rendererType"`
+	// The SAML metadata of the service provider.
+	ServiceProviderSamlMetadata *string `pulumi:"serviceProviderSamlMetadata"`
+	// A message that explains why the web portal is in its current status.
+	StatusReason *string `pulumi:"statusReason"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the trust store that is associated with the web portal.
+	TrustStoreArn *string `pulumi:"trustStoreArn"`
+	// The ARN of the user access logging settings that is associated with the web portal.
+	UserAccessLoggingSettingsArn *string `pulumi:"userAccessLoggingSettingsArn"`
+	// The ARN of the user settings that is associated with the web portal.
+	UserSettingsArn *string `pulumi:"userSettingsArn"`
 }
 
 func LookupPortalOutput(ctx *pulumi.Context, args LookupPortalOutputArgs, opts ...pulumi.InvokeOption) LookupPortalResultOutput {
@@ -63,6 +95,7 @@ func LookupPortalOutput(ctx *pulumi.Context, args LookupPortalOutputArgs, opts .
 }
 
 type LookupPortalOutputArgs struct {
+	// The ARN of the web portal.
 	PortalArn pulumi.StringInput `pulumi:"portalArn"`
 }
 
@@ -84,78 +117,109 @@ func (o LookupPortalResultOutput) ToLookupPortalResultOutputWithContext(ctx cont
 	return o
 }
 
+// The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
+//
+// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+//
+// 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
+//
+// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+//
+// 3. Submit the data to your IdP.
+//
+// 4. Add an `IdentityProvider` resource to your CloudFormation template.
+//
+// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
 func (o LookupPortalResultOutput) AuthenticationType() PortalAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *PortalAuthenticationType { return v.AuthenticationType }).(PortalAuthenticationTypePtrOutput)
 }
 
+// The ARN of the browser settings that is associated with this web portal.
 func (o LookupPortalResultOutput) BrowserSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.BrowserSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// The browser that users see when using a streaming session.
 func (o LookupPortalResultOutput) BrowserType() PortalBrowserTypePtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *PortalBrowserType { return v.BrowserType }).(PortalBrowserTypePtrOutput)
 }
 
+// The creation date of the web portal.
 func (o LookupPortalResultOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
+// The name of the web portal.
 func (o LookupPortalResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The type and resources of the underlying instance.
 func (o LookupPortalResultOutput) InstanceType() PortalInstanceTypePtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *PortalInstanceType { return v.InstanceType }).(PortalInstanceTypePtrOutput)
 }
 
+// The ARN of the IP access settings that is associated with the web portal.
 func (o LookupPortalResultOutput) IpAccessSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.IpAccessSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of concurrent sessions for the portal.
 func (o LookupPortalResultOutput) MaxConcurrentSessions() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *float64 { return v.MaxConcurrentSessions }).(pulumi.Float64PtrOutput)
 }
 
+// The ARN of the network settings that is associated with the web portal.
 func (o LookupPortalResultOutput) NetworkSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.NetworkSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the web portal.
 func (o LookupPortalResultOutput) PortalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalArn }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint URL of the web portal that users access in order to start streaming sessions.
 func (o LookupPortalResultOutput) PortalEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The status of the web portal.
 func (o LookupPortalResultOutput) PortalStatus() PortalStatusPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *PortalStatus { return v.PortalStatus }).(PortalStatusPtrOutput)
 }
 
+// The renderer that is used in streaming sessions.
 func (o LookupPortalResultOutput) RendererType() PortalRendererTypePtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *PortalRendererType { return v.RendererType }).(PortalRendererTypePtrOutput)
 }
 
+// The SAML metadata of the service provider.
 func (o LookupPortalResultOutput) ServiceProviderSamlMetadata() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.ServiceProviderSamlMetadata }).(pulumi.StringPtrOutput)
 }
 
+// A message that explains why the web portal is in its current status.
 func (o LookupPortalResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
+// The tag.
 func (o LookupPortalResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPortalResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the trust store that is associated with the web portal.
 func (o LookupPortalResultOutput) TrustStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the user access logging settings that is associated with the web portal.
 func (o LookupPortalResultOutput) UserAccessLoggingSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.UserAccessLoggingSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the user settings that is associated with the web portal.
 func (o LookupPortalResultOutput) UserSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.UserSettingsArn }).(pulumi.StringPtrOutput)
 }

@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTotalOptions
     {
+        /// <summary>
+        /// The custom label string for the total cells.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The placement (start, end) for the total cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTableTotalsPlacement? Placement;
+        /// <summary>
+        /// The scroll status (pinned, scrolled) for the total cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTableTotalsScrollStatus? ScrollStatus;
+        /// <summary>
+        /// The total aggregation settings for each value field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateTotalAggregationOption> TotalAggregationOptions;
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         public readonly Outputs.TemplateTableCellStyle? TotalCellStyle;
+        /// <summary>
+        /// The visibility configuration for the total cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
 
         [OutputConstructor]

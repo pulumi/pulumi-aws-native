@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.MediaLive
         /// The number of programs in the multiplex.
         /// </summary>
         public readonly int? ProgramCount;
+        /// <summary>
+        /// The current state of the multiplex.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.MultiplexState? State;
         /// <summary>
         /// A collection of key-value pairs.

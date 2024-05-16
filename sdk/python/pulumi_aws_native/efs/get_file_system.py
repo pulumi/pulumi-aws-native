@@ -56,6 +56,11 @@ class GetFileSystemResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the EFS file system.
+
+        Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -69,6 +74,9 @@ class GetFileSystemResult:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[str]:
+        """
+        The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+        """
         return pulumi.get(self, "file_system_id")
 
     @property
@@ -158,6 +166,9 @@ def get_file_system(file_system_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileSystemResult:
     """
     The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
+
+
+    :param str file_system_id: The ID of the EFS file system. For example: `fs-abcdef0123456789a`
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id
@@ -182,5 +193,8 @@ def get_file_system_output(file_system_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
+
+
+    :param str file_system_id: The ID of the EFS file system. For example: `fs-abcdef0123456789a`
     """
     ...

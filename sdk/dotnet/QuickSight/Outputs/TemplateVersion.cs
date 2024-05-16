@@ -43,6 +43,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             template.&lt;/p&gt;
         /// </summary>
         public readonly string? SourceEntityArn;
+        /// <summary>
+        /// The status that is associated with the template.
+        /// 
+        /// - `CREATION_IN_PROGRESS`
+        /// - `CREATION_SUCCESSFUL`
+        /// - `CREATION_FAILED`
+        /// - `UPDATE_IN_PROGRESS`
+        /// - `UPDATE_SUCCESSFUL`
+        /// - `UPDATE_FAILED`
+        /// - `DELETED`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateResourceStatus? Status;
         /// <summary>
         /// &lt;p&gt;The ARN of the theme associated with this version of the template.&lt;/p&gt;

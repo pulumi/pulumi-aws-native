@@ -22,6 +22,11 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         ///             profile can have.&lt;/p&gt;
         /// </summary>
         public readonly double? MaxBackupsToRetain;
+        /// <summary>
+        /// Specifies how artists sessions are backed up.
+        /// 
+        /// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
+        /// </summary>
         public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionBackupMode? Mode;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBoxPlotAggregatedFieldWells
     {
+        /// <summary>
+        /// The group by field well of a box plot chart. Values are grouped based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> GroupBy;
+        /// <summary>
+        /// The value field well of a box plot chart. Values are aggregated based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Values;
 
         [OutputConstructor]

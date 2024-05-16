@@ -13,8 +13,27 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceInlineDocumentEnrichmentConfiguration
     {
+        /// <summary>
+        /// The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
+        /// 
+        /// For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
+        /// 
+        /// Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? Condition;
+        /// <summary>
+        /// `TRUE` to delete content if the condition used for the target attribute is met.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.DataSourceDocumentContentOperator? DocumentContentOperator;
+        /// <summary>
+        /// The target document attribute or metadata field you want to alter when ingesting documents into Amazon Q Business.
+        /// 
+        /// For example, you can delete all customer identification numbers associated with the documents, stored in the document metadata field called 'Customer_ID' by setting the target key as 'Customer_ID' and the deletion flag to `TRUE` . This removes all customer ID values in the field 'Customer_ID'. This would scrub personally identifiable information from each document's metadata.
+        /// 
+        /// Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) . Amazon Q Business will then map your newly created document attribute to your index field.
+        /// 
+        /// You can also use this with [`DocumentAttributeCondition`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html) .
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeTarget? Target;
 
         [OutputConstructor]

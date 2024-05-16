@@ -17,12 +17,24 @@ export function getTargetAccountConfiguration(args: GetTargetAccountConfiguratio
 }
 
 export interface GetTargetAccountConfigurationArgs {
+    /**
+     * The AWS account ID of the target account.
+     */
     accountId: string;
+    /**
+     * The ID of the experiment template.
+     */
     experimentTemplateId: string;
 }
 
 export interface GetTargetAccountConfigurationResult {
+    /**
+     * The description of the target account.
+     */
     readonly description?: string;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role for the target account.
+     */
     readonly roleArn?: string;
 }
 /**
@@ -33,6 +45,12 @@ export function getTargetAccountConfigurationOutput(args: GetTargetAccountConfig
 }
 
 export interface GetTargetAccountConfigurationOutputArgs {
+    /**
+     * The AWS account ID of the target account.
+     */
     accountId: pulumi.Input<string>;
+    /**
+     * The ID of the experiment template.
+     */
     experimentTemplateId: pulumi.Input<string>;
 }

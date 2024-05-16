@@ -16,11 +16,16 @@ import (
 type ProfilePermission struct {
 	pulumi.CustomResourceState
 
-	Action         pulumi.StringOutput    `pulumi:"action"`
-	Principal      pulumi.StringOutput    `pulumi:"principal"`
-	ProfileName    pulumi.StringOutput    `pulumi:"profileName"`
+	// The AWS Signer action permitted as part of cross-account permissions.
+	Action pulumi.StringOutput `pulumi:"action"`
+	// The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The human-readable name of the signing profile.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
+	// The version of the signing profile.
 	ProfileVersion pulumi.StringPtrOutput `pulumi:"profileVersion"`
-	StatementId    pulumi.StringOutput    `pulumi:"statementId"`
+	// A unique identifier for the cross-account permission statement.
+	StatementId pulumi.StringOutput `pulumi:"statementId"`
 }
 
 // NewProfilePermission registers a new resource with the given unique name, arguments, and options.
@@ -83,20 +88,30 @@ func (ProfilePermissionState) ElementType() reflect.Type {
 }
 
 type profilePermissionArgs struct {
-	Action         string  `pulumi:"action"`
-	Principal      string  `pulumi:"principal"`
-	ProfileName    string  `pulumi:"profileName"`
+	// The AWS Signer action permitted as part of cross-account permissions.
+	Action string `pulumi:"action"`
+	// The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+	Principal string `pulumi:"principal"`
+	// The human-readable name of the signing profile.
+	ProfileName string `pulumi:"profileName"`
+	// The version of the signing profile.
 	ProfileVersion *string `pulumi:"profileVersion"`
-	StatementId    string  `pulumi:"statementId"`
+	// A unique identifier for the cross-account permission statement.
+	StatementId string `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a ProfilePermission resource.
 type ProfilePermissionArgs struct {
-	Action         pulumi.StringInput
-	Principal      pulumi.StringInput
-	ProfileName    pulumi.StringInput
+	// The AWS Signer action permitted as part of cross-account permissions.
+	Action pulumi.StringInput
+	// The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+	Principal pulumi.StringInput
+	// The human-readable name of the signing profile.
+	ProfileName pulumi.StringInput
+	// The version of the signing profile.
 	ProfileVersion pulumi.StringPtrInput
-	StatementId    pulumi.StringInput
+	// A unique identifier for the cross-account permission statement.
+	StatementId pulumi.StringInput
 }
 
 func (ProfilePermissionArgs) ElementType() reflect.Type {
@@ -136,22 +151,27 @@ func (o ProfilePermissionOutput) ToProfilePermissionOutputWithContext(ctx contex
 	return o
 }
 
+// The AWS Signer action permitted as part of cross-account permissions.
 func (o ProfilePermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
+// The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
 func (o ProfilePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
+// The human-readable name of the signing profile.
 func (o ProfilePermissionOutput) ProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }
 
+// The version of the signing profile.
 func (o ProfilePermissionOutput) ProfileVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfilePermission) pulumi.StringPtrOutput { return v.ProfileVersion }).(pulumi.StringPtrOutput)
 }
 
+// A unique identifier for the cross-account permission statement.
 func (o ProfilePermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }

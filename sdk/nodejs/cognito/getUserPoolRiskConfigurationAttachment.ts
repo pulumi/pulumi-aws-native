@@ -20,13 +20,28 @@ export function getUserPoolRiskConfigurationAttachment(args: GetUserPoolRiskConf
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentArgs {
+    /**
+     * The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+     */
     clientId: string;
+    /**
+     * The user pool ID.
+     */
     userPoolId: string;
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentResult {
+    /**
+     * Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+     */
     readonly accountTakeoverRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType;
+    /**
+     * The compromised credentials risk configuration type.
+     */
     readonly compromisedCredentialsRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType;
+    /**
+     * The type of the configuration to override the risk decision.
+     */
     readonly riskExceptionConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType;
 }
 /**
@@ -37,6 +52,12 @@ export function getUserPoolRiskConfigurationAttachmentOutput(args: GetUserPoolRi
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentOutputArgs {
+    /**
+     * The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+     */
     clientId: pulumi.Input<string>;
+    /**
+     * The user pool ID.
+     */
     userPoolId: pulumi.Input<string>;
 }

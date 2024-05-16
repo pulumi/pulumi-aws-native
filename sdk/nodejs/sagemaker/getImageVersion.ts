@@ -19,13 +19,37 @@ export function getImageVersion(args: GetImageVersionArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetImageVersionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the image version.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*&#47;[0-9]+$`
+     */
     imageVersionArn: string;
 }
 
 export interface GetImageVersionResult {
+    /**
+     * The URI of the container image version referenced by ImageVersion.
+     */
     readonly containerImage?: string;
     readonly horovod?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the parent Image.
+     */
     readonly imageArn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the image version.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*&#47;[0-9]+$`
+     */
     readonly imageVersionArn?: string;
     readonly jobType?: enums.sagemaker.ImageVersionJobType;
     readonly mlFramework?: string;
@@ -33,6 +57,9 @@ export interface GetImageVersionResult {
     readonly programmingLang?: string;
     readonly releaseNotes?: string;
     readonly vendorGuidance?: enums.sagemaker.ImageVersionVendorGuidance;
+    /**
+     * The version of the image.
+     */
     readonly version?: number;
 }
 /**
@@ -43,5 +70,14 @@ export function getImageVersionOutput(args: GetImageVersionOutputArgs, opts?: pu
 }
 
 export interface GetImageVersionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the image version.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*&#47;[0-9]+$`
+     */
     imageVersionArn: pulumi.Input<string>;
 }

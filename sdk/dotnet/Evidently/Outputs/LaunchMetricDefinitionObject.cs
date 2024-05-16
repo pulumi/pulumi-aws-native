@@ -21,7 +21,13 @@ namespace Pulumi.AwsNative.Evidently.Outputs
         /// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         /// </summary>
         public readonly string? EventPattern;
+        /// <summary>
+        /// A name for the metric. It can include up to 255 characters.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// A label for the units that the metric is measuring.
+        /// </summary>
         public readonly string? UnitLabel;
         /// <summary>
         /// The JSON path to reference the numerical metric value in the event.

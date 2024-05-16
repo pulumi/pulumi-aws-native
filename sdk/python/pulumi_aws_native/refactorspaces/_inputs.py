@@ -23,6 +23,12 @@ class ApplicationApiGatewayProxyInputArgs:
     def __init__(__self__, *,
                  endpoint_type: Optional[pulumi.Input['ApplicationApiGatewayEndpointType']] = None,
                  stage_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ApplicationApiGatewayEndpointType'] endpoint_type: The type of endpoint to use for the API Gateway proxy. If no value is specified in the request, the value is set to `REGIONAL` by default.
+               
+               If the value is set to `PRIVATE` in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud ( Amazon VPC ) interface endpoints for the Amazon API Gateway that has been granted access. For more information about creating a private connection with Refactor Spaces and interface endpoint ( AWS PrivateLink ) availability, see [Access Refactor Spaces using an interface endpoint ( AWS PrivateLink )](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html) .
+        :param pulumi.Input[str] stage_name: The name of the API Gateway stage. The name defaults to `prod` .
+        """
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
         if stage_name is not None:
@@ -31,6 +37,11 @@ class ApplicationApiGatewayProxyInputArgs:
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input['ApplicationApiGatewayEndpointType']]:
+        """
+        The type of endpoint to use for the API Gateway proxy. If no value is specified in the request, the value is set to `REGIONAL` by default.
+
+        If the value is set to `PRIVATE` in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud ( Amazon VPC ) interface endpoints for the Amazon API Gateway that has been granted access. For more information about creating a private connection with Refactor Spaces and interface endpoint ( AWS PrivateLink ) availability, see [Access Refactor Spaces using an interface endpoint ( AWS PrivateLink )](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html) .
+        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -40,6 +51,9 @@ class ApplicationApiGatewayProxyInputArgs:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Gateway stage. The name defaults to `prod` .
+        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -51,11 +65,17 @@ class ApplicationApiGatewayProxyInputArgs:
 class RouteDefaultRouteInputArgs:
     def __init__(__self__, *,
                  activation_state: pulumi.Input['RouteActivationState']):
+        """
+        :param pulumi.Input['RouteActivationState'] activation_state: If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+        """
         pulumi.set(__self__, "activation_state", activation_state)
 
     @property
     @pulumi.getter(name="activationState")
     def activation_state(self) -> pulumi.Input['RouteActivationState']:
+        """
+        If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+        """
         return pulumi.get(self, "activation_state")
 
     @activation_state.setter
@@ -71,6 +91,13 @@ class RouteUriPathRouteInputArgs:
                  include_child_paths: Optional[pulumi.Input[bool]] = None,
                  methods: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]] = None,
                  source_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['RouteActivationState'] activation_state: If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+        :param pulumi.Input[bool] append_source_path: If set to `true` , this option appends the source path to the service URL endpoint.
+        :param pulumi.Input[bool] include_child_paths: Indicates whether to match all subpaths of the given source path. If this value is `false` , requests must match the source path exactly before they are forwarded to this route's service.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMethod']]] methods: A list of HTTP methods to match. An empty list matches all values. If a method is present, only HTTP requests using that method are forwarded to this route’s service.
+        :param pulumi.Input[str] source_path: This is the path that Refactor Spaces uses to match traffic. Paths must start with `/` and are relative to the base of the application. To use path parameters in the source path, add a variable in curly braces. For example, the resource path {user} represents a path parameter called 'user'.
+        """
         pulumi.set(__self__, "activation_state", activation_state)
         if append_source_path is not None:
             pulumi.set(__self__, "append_source_path", append_source_path)
@@ -84,6 +111,9 @@ class RouteUriPathRouteInputArgs:
     @property
     @pulumi.getter(name="activationState")
     def activation_state(self) -> pulumi.Input['RouteActivationState']:
+        """
+        If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+        """
         return pulumi.get(self, "activation_state")
 
     @activation_state.setter
@@ -93,6 +123,9 @@ class RouteUriPathRouteInputArgs:
     @property
     @pulumi.getter(name="appendSourcePath")
     def append_source_path(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `true` , this option appends the source path to the service URL endpoint.
+        """
         return pulumi.get(self, "append_source_path")
 
     @append_source_path.setter
@@ -102,6 +135,9 @@ class RouteUriPathRouteInputArgs:
     @property
     @pulumi.getter(name="includeChildPaths")
     def include_child_paths(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to match all subpaths of the given source path. If this value is `false` , requests must match the source path exactly before they are forwarded to this route's service.
+        """
         return pulumi.get(self, "include_child_paths")
 
     @include_child_paths.setter
@@ -111,6 +147,9 @@ class RouteUriPathRouteInputArgs:
     @property
     @pulumi.getter
     def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]]:
+        """
+        A list of HTTP methods to match. An empty list matches all values. If a method is present, only HTTP requests using that method are forwarded to this route’s service.
+        """
         return pulumi.get(self, "methods")
 
     @methods.setter
@@ -120,6 +159,9 @@ class RouteUriPathRouteInputArgs:
     @property
     @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the path that Refactor Spaces uses to match traffic. Paths must start with `/` and are relative to the base of the application. To use path parameters in the source path, add a variable in curly braces. For example, the resource path {user} represents a path parameter called 'user'.
+        """
         return pulumi.get(self, "source_path")
 
     @source_path.setter
@@ -131,11 +173,17 @@ class RouteUriPathRouteInputArgs:
 class ServiceLambdaEndpointInputArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Lambda function or alias.
+        """
         pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function or alias.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -148,6 +196,10 @@ class ServiceUrlEndpointInputArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  health_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] url: The URL to route traffic to. The URL must be an [rfc3986-formatted URL](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc3986) . If the host is a domain name, the name must be resolvable over the public internet. If the scheme is `https` , the top level domain of the host must be listed in the [IANA root zone database](https://docs.aws.amazon.com/https://www.iana.org/domains/root/db) .
+        :param pulumi.Input[str] health_url: The health check URL of the URL endpoint type. If the URL is a public endpoint, the `HealthUrl` must also be a public endpoint. If the URL is a private endpoint inside a virtual private cloud (VPC), the health URL must also be a private endpoint, and the host must be the same as the URL.
+        """
         pulumi.set(__self__, "url", url)
         if health_url is not None:
             pulumi.set(__self__, "health_url", health_url)
@@ -155,6 +207,9 @@ class ServiceUrlEndpointInputArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        The URL to route traffic to. The URL must be an [rfc3986-formatted URL](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc3986) . If the host is a domain name, the name must be resolvable over the public internet. If the scheme is `https` , the top level domain of the host must be listed in the [IANA root zone database](https://docs.aws.amazon.com/https://www.iana.org/domains/root/db) .
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -164,6 +219,9 @@ class ServiceUrlEndpointInputArgs:
     @property
     @pulumi.getter(name="healthUrl")
     def health_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The health check URL of the URL endpoint type. If the URL is a public endpoint, the `HealthUrl` must also be a public endpoint. If the URL is a private endpoint inside a virtual private cloud (VPC), the health URL must also be a private endpoint, and the host must be the same as the URL.
+        """
         return pulumi.get(self, "health_url")
 
     @health_url.setter

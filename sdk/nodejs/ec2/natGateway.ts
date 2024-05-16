@@ -52,6 +52,9 @@ export class NatGateway extends pulumi.CustomResource {
      * The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
      */
     public readonly maxDrainDurationSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the NAT gateway.
+     */
     public /*out*/ readonly natGatewayId!: pulumi.Output<string>;
     /**
      * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.

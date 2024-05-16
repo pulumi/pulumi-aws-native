@@ -12,9 +12,22 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
 
     public sealed class TableBillingModeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The billing mode for the table:
+        /// 
+        /// - On-demand mode - `ON_DEMAND`
+        /// - Provisioned mode - `PROVISIONED`
+        /// 
+        /// &gt; If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+        /// 
+        /// Valid values: `ON_DEMAND` | `PROVISIONED`
+        /// </summary>
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Cassandra.TableMode> Mode { get; set; } = null!;
 
+        /// <summary>
+        /// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+        /// </summary>
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
 

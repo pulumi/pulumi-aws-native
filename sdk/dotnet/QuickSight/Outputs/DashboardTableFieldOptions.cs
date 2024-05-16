@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableFieldOptions
     {
+        /// <summary>
+        /// The order of the field IDs that are configured as field options for a table visual.
+        /// </summary>
         public readonly ImmutableArray<string> Order;
+        /// <summary>
+        /// The settings for the pinned columns of a table visual.
+        /// </summary>
         public readonly Outputs.DashboardTablePinnedFieldOptions? PinnedFieldOptions;
+        /// <summary>
+        /// The options for a table field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTableFieldOption> SelectedFieldOptions;
 
         [OutputConstructor]

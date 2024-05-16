@@ -28,6 +28,13 @@ class TransformerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Transformer resource.
+        :param pulumi.Input['TransformerEdiTypePropertiesArgs'] edi_type: Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        :param pulumi.Input[str] name: Returns the descriptive name for the transformer.
+        :param pulumi.Input[str] sample_document: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         pulumi.set(__self__, "edi_type", edi_type)
         pulumi.set(__self__, "file_format", file_format)
@@ -43,6 +50,9 @@ class TransformerArgs:
     @property
     @pulumi.getter(name="ediType")
     def edi_type(self) -> pulumi.Input['TransformerEdiTypePropertiesArgs']:
+        """
+        Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        """
         return pulumi.get(self, "edi_type")
 
     @edi_type.setter
@@ -52,6 +62,9 @@ class TransformerArgs:
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Input['TransformerFileFormat']:
+        """
+        Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -61,6 +74,9 @@ class TransformerArgs:
     @property
     @pulumi.getter(name="mappingTemplate")
     def mapping_template(self) -> pulumi.Input[str]:
+        """
+        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        """
         return pulumi.get(self, "mapping_template")
 
     @mapping_template.setter
@@ -70,6 +86,9 @@ class TransformerArgs:
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input['TransformerStatus']:
+        """
+        Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -79,6 +98,9 @@ class TransformerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the descriptive name for the transformer.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,6 +110,9 @@ class TransformerArgs:
     @property
     @pulumi.getter(name="sampleDocument")
     def sample_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        """
         return pulumi.get(self, "sample_document")
 
     @sample_document.setter
@@ -97,6 +122,9 @@ class TransformerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,6 +150,13 @@ class Transformer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']] edi_type: Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input[str] name: Returns the descriptive name for the transformer.
+        :param pulumi.Input[str] sample_document: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -220,55 +255,88 @@ class Transformer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="ediType")
     def edi_type(self) -> pulumi.Output['outputs.TransformerEdiTypeProperties']:
+        """
+        Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        """
         return pulumi.get(self, "edi_type")
 
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Output['TransformerFileFormat']:
+        """
+        Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        """
         return pulumi.get(self, "file_format")
 
     @property
     @pulumi.getter(name="mappingTemplate")
     def mapping_template(self) -> pulumi.Output[str]:
+        """
+        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        """
         return pulumi.get(self, "mapping_template")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp representing the date and time for the most recent change for the transformer object.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Returns the descriptive name for the transformer.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sampleDocument")
     def sample_document(self) -> pulumi.Output[Optional[str]]:
+        """
+        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        """
         return pulumi.get(self, "sample_document")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['TransformerStatus']:
+        """
+        Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transformerArn")
     def transformer_arn(self) -> pulumi.Output[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific transformer.
+        """
         return pulumi.get(self, "transformer_arn")
 
     @property
     @pulumi.getter(name="transformerId")
     def transformer_id(self) -> pulumi.Output[str]:
+        """
+        The system-assigned unique identifier for the transformer.
+        """
         return pulumi.get(self, "transformer_id")
 

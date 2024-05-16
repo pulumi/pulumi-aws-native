@@ -17,12 +17,19 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
+
+        /// <summary>
+        /// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+        /// </summary>
         [Input("contentTransformation", required: true)]
         public Input<Inputs.AccessPointTransformationConfigurationContentTransformationPropertiesArgs> ContentTransformation { get; set; } = null!;
 

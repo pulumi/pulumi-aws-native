@@ -15,19 +15,32 @@ import (
 type Form struct {
 	pulumi.CustomResourceState
 
-	AppId             pulumi.StringPtrOutput        `pulumi:"appId"`
-	AwsId             pulumi.StringOutput           `pulumi:"awsId"`
-	Cta               FormCtaPtrOutput              `pulumi:"cta"`
-	DataType          FormDataTypeConfigPtrOutput   `pulumi:"dataType"`
-	EnvironmentName   pulumi.StringPtrOutput        `pulumi:"environmentName"`
-	Fields            FormFieldConfigMapOutput      `pulumi:"fields"`
-	FormActionType    FormActionTypePtrOutput       `pulumi:"formActionType"`
-	LabelDecorator    FormLabelDecoratorPtrOutput   `pulumi:"labelDecorator"`
-	Name              pulumi.StringPtrOutput        `pulumi:"name"`
-	SchemaVersion     pulumi.StringPtrOutput        `pulumi:"schemaVersion"`
+	// The unique ID of the Amplify app associated with the form.
+	AppId pulumi.StringPtrOutput `pulumi:"appId"`
+	// The ID for the form.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The `FormCTA` property specifies the call to action button configuration for the form.
+	Cta FormCtaPtrOutput `pulumi:"cta"`
+	// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+	DataType FormDataTypeConfigPtrOutput `pulumi:"dataType"`
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
+	// The configuration information for the form's fields.
+	Fields FormFieldConfigMapOutput `pulumi:"fields"`
+	// Specifies whether to perform a create or update action on the form.
+	FormActionType FormActionTypePtrOutput `pulumi:"formActionType"`
+	// Specifies an icon or decoration to display on the form.
+	LabelDecorator FormLabelDecoratorPtrOutput `pulumi:"labelDecorator"`
+	// The name of the form.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The schema version of the form.
+	SchemaVersion pulumi.StringPtrOutput `pulumi:"schemaVersion"`
+	// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 	SectionalElements FormSectionalElementMapOutput `pulumi:"sectionalElements"`
-	Style             FormStylePtrOutput            `pulumi:"style"`
-	Tags              pulumi.StringMapOutput        `pulumi:"tags"`
+	// The `FormStyle` property specifies the configuration for the form's style.
+	Style FormStylePtrOutput `pulumi:"style"`
+	// One or more key-value pairs to use when tagging the form data.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewForm registers a new resource with the given unique name, arguments, and options.
@@ -75,34 +88,58 @@ func (FormState) ElementType() reflect.Type {
 }
 
 type formArgs struct {
-	AppId             *string                         `pulumi:"appId"`
-	Cta               *FormCta                        `pulumi:"cta"`
-	DataType          *FormDataTypeConfig             `pulumi:"dataType"`
-	EnvironmentName   *string                         `pulumi:"environmentName"`
-	Fields            map[string]FormFieldConfig      `pulumi:"fields"`
-	FormActionType    *FormActionType                 `pulumi:"formActionType"`
-	LabelDecorator    *FormLabelDecorator             `pulumi:"labelDecorator"`
-	Name              *string                         `pulumi:"name"`
-	SchemaVersion     *string                         `pulumi:"schemaVersion"`
+	// The unique ID of the Amplify app associated with the form.
+	AppId *string `pulumi:"appId"`
+	// The `FormCTA` property specifies the call to action button configuration for the form.
+	Cta *FormCta `pulumi:"cta"`
+	// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+	DataType *FormDataTypeConfig `pulumi:"dataType"`
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName *string `pulumi:"environmentName"`
+	// The configuration information for the form's fields.
+	Fields map[string]FormFieldConfig `pulumi:"fields"`
+	// Specifies whether to perform a create or update action on the form.
+	FormActionType *FormActionType `pulumi:"formActionType"`
+	// Specifies an icon or decoration to display on the form.
+	LabelDecorator *FormLabelDecorator `pulumi:"labelDecorator"`
+	// The name of the form.
+	Name *string `pulumi:"name"`
+	// The schema version of the form.
+	SchemaVersion *string `pulumi:"schemaVersion"`
+	// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 	SectionalElements map[string]FormSectionalElement `pulumi:"sectionalElements"`
-	Style             *FormStyle                      `pulumi:"style"`
-	Tags              map[string]string               `pulumi:"tags"`
+	// The `FormStyle` property specifies the configuration for the form's style.
+	Style *FormStyle `pulumi:"style"`
+	// One or more key-value pairs to use when tagging the form data.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Form resource.
 type FormArgs struct {
-	AppId             pulumi.StringPtrInput
-	Cta               FormCtaPtrInput
-	DataType          FormDataTypeConfigPtrInput
-	EnvironmentName   pulumi.StringPtrInput
-	Fields            FormFieldConfigMapInput
-	FormActionType    FormActionTypePtrInput
-	LabelDecorator    FormLabelDecoratorPtrInput
-	Name              pulumi.StringPtrInput
-	SchemaVersion     pulumi.StringPtrInput
+	// The unique ID of the Amplify app associated with the form.
+	AppId pulumi.StringPtrInput
+	// The `FormCTA` property specifies the call to action button configuration for the form.
+	Cta FormCtaPtrInput
+	// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+	DataType FormDataTypeConfigPtrInput
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName pulumi.StringPtrInput
+	// The configuration information for the form's fields.
+	Fields FormFieldConfigMapInput
+	// Specifies whether to perform a create or update action on the form.
+	FormActionType FormActionTypePtrInput
+	// Specifies an icon or decoration to display on the form.
+	LabelDecorator FormLabelDecoratorPtrInput
+	// The name of the form.
+	Name pulumi.StringPtrInput
+	// The schema version of the form.
+	SchemaVersion pulumi.StringPtrInput
+	// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 	SectionalElements FormSectionalElementMapInput
-	Style             FormStylePtrInput
-	Tags              pulumi.StringMapInput
+	// The `FormStyle` property specifies the configuration for the form's style.
+	Style FormStylePtrInput
+	// One or more key-value pairs to use when tagging the form data.
+	Tags pulumi.StringMapInput
 }
 
 func (FormArgs) ElementType() reflect.Type {
@@ -142,54 +179,67 @@ func (o FormOutput) ToFormOutputWithContext(ctx context.Context) FormOutput {
 	return o
 }
 
+// The unique ID of the Amplify app associated with the form.
 func (o FormOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the form.
 func (o FormOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The `FormCTA` property specifies the call to action button configuration for the form.
 func (o FormOutput) Cta() FormCtaPtrOutput {
 	return o.ApplyT(func(v *Form) FormCtaPtrOutput { return v.Cta }).(FormCtaPtrOutput)
 }
 
+// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
 func (o FormOutput) DataType() FormDataTypeConfigPtrOutput {
 	return o.ApplyT(func(v *Form) FormDataTypeConfigPtrOutput { return v.DataType }).(FormDataTypeConfigPtrOutput)
 }
 
+// The name of the backend environment that is a part of the Amplify app.
 func (o FormOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
+// The configuration information for the form's fields.
 func (o FormOutput) Fields() FormFieldConfigMapOutput {
 	return o.ApplyT(func(v *Form) FormFieldConfigMapOutput { return v.Fields }).(FormFieldConfigMapOutput)
 }
 
+// Specifies whether to perform a create or update action on the form.
 func (o FormOutput) FormActionType() FormActionTypePtrOutput {
 	return o.ApplyT(func(v *Form) FormActionTypePtrOutput { return v.FormActionType }).(FormActionTypePtrOutput)
 }
 
+// Specifies an icon or decoration to display on the form.
 func (o FormOutput) LabelDecorator() FormLabelDecoratorPtrOutput {
 	return o.ApplyT(func(v *Form) FormLabelDecoratorPtrOutput { return v.LabelDecorator }).(FormLabelDecoratorPtrOutput)
 }
 
+// The name of the form.
 func (o FormOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The schema version of the form.
 func (o FormOutput) SchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
+// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 func (o FormOutput) SectionalElements() FormSectionalElementMapOutput {
 	return o.ApplyT(func(v *Form) FormSectionalElementMapOutput { return v.SectionalElements }).(FormSectionalElementMapOutput)
 }
 
+// The `FormStyle` property specifies the configuration for the form's style.
 func (o FormOutput) Style() FormStylePtrOutput {
 	return o.ApplyT(func(v *Form) FormStylePtrOutput { return v.Style }).(FormStylePtrOutput)
 }
 
+// One or more key-value pairs to use when tagging the form data.
 func (o FormOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

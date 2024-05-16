@@ -32,6 +32,7 @@ func LookupEventSourceMapping(ctx *pulumi.Context, args *LookupEventSourceMappin
 }
 
 type LookupEventSourceMappingArgs struct {
+	// The event source mapping's ID.
 	Id string `pulumi:"id"`
 }
 
@@ -68,7 +69,8 @@ type LookupEventSourceMappingResult struct {
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
-	Id                    *string                                       `pulumi:"id"`
+	// The event source mapping's ID.
+	Id *string `pulumi:"id"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//  *Default (, , event sources)*: 0
 	//  *Default (, Kafka, , event sources)*: 500 ms
@@ -107,6 +109,7 @@ func LookupEventSourceMappingOutput(ctx *pulumi.Context, args LookupEventSourceM
 }
 
 type LookupEventSourceMappingOutputArgs struct {
+	// The event source mapping's ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -193,6 +196,7 @@ func (o LookupEventSourceMappingResultOutput) FunctionResponseTypes() EventSourc
 	}).(EventSourceMappingFunctionResponseTypesItemArrayOutput)
 }
 
+// The event source mapping's ID.
 func (o LookupEventSourceMappingResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

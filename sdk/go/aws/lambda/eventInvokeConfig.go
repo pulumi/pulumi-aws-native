@@ -16,6 +16,7 @@ import (
 type EventInvokeConfig struct {
 	pulumi.CustomResourceState
 
+	// A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig EventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
@@ -78,6 +79,7 @@ func (EventInvokeConfigState) ElementType() reflect.Type {
 }
 
 type eventInvokeConfigArgs struct {
+	// A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
@@ -91,6 +93,7 @@ type eventInvokeConfigArgs struct {
 
 // The set of arguments for constructing a EventInvokeConfig resource.
 type EventInvokeConfigArgs struct {
+	// A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig EventInvokeConfigDestinationConfigPtrInput
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
@@ -139,6 +142,7 @@ func (o EventInvokeConfigOutput) ToEventInvokeConfigOutputWithContext(ctx contex
 	return o
 }
 
+// A configuration object that specifies the destination of an event after Lambda processes it.
 func (o EventInvokeConfigOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) EventInvokeConfigDestinationConfigPtrOutput { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
 }

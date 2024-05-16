@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDataFieldSeriesItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The axis that you are binding the field to.
+        /// </summary>
         [Input("axisBinding", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateAxisBinding> AxisBinding { get; set; } = null!;
 
+        /// <summary>
+        /// The field ID of the field that you are setting the axis binding to.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The field value of the field that you are setting the axis binding to.
+        /// </summary>
         [Input("fieldValue")]
         public Input<string>? FieldValue { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of a line series in the visual
+        /// </summary>
         [Input("settings")]
         public Input<Inputs.TemplateLineChartSeriesSettingsArgs>? Settings { get; set; }
 

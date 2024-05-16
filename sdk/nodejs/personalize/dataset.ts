@@ -89,6 +89,15 @@ export class Dataset extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the dataset group to add the dataset to
      */
     public readonly datasetGroupArn!: pulumi.Output<string>;
+    /**
+     * Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+     *
+     * A dataset import job can be in one of the following states:
+     *
+     * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+     *
+     * If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+     */
     public readonly datasetImportJob!: pulumi.Output<outputs.personalize.DatasetImportJob | undefined>;
     /**
      * The type of dataset
@@ -152,6 +161,15 @@ export interface DatasetArgs {
      * The Amazon Resource Name (ARN) of the dataset group to add the dataset to
      */
     datasetGroupArn: pulumi.Input<string>;
+    /**
+     * Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+     *
+     * A dataset import job can be in one of the following states:
+     *
+     * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+     *
+     * If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+     */
     datasetImportJob?: pulumi.Input<inputs.personalize.DatasetImportJobArgs>;
     /**
      * The type of dataset

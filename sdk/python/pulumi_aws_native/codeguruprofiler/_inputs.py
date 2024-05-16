@@ -45,6 +45,8 @@ class ProfilingGroupChannelArgs:
                  channel_id: Optional[pulumi.Input[str]] = None):
         """
         Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
+        :param pulumi.Input[str] channel_uri: The channel URI.
+        :param pulumi.Input[str] channel_id: The channel ID.
         """
         pulumi.set(__self__, "channel_uri", channel_uri)
         if channel_id is not None:
@@ -53,6 +55,9 @@ class ProfilingGroupChannelArgs:
     @property
     @pulumi.getter(name="channelUri")
     def channel_uri(self) -> pulumi.Input[str]:
+        """
+        The channel URI.
+        """
         return pulumi.get(self, "channel_uri")
 
     @channel_uri.setter
@@ -62,6 +67,9 @@ class ProfilingGroupChannelArgs:
     @property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The channel ID.
+        """
         return pulumi.get(self, "channel_id")
 
     @channel_id.setter

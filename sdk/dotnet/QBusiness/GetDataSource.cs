@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetDataSourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application the data source will be attached to.
+        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q Business data source.
+        /// </summary>
         [Input("dataSourceId", required: true)]
         public string DataSourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the index the data source is attached to.
+        /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetDataSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application the data source will be attached to.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q Business data source.
+        /// </summary>
         [Input("dataSourceId", required: true)]
         public Input<string> DataSourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the index the data source is attached to.
+        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
@@ -64,21 +82,66 @@ namespace Pulumi.AwsNative.QBusiness
     public sealed class GetDataSourceResult
     {
         /// <summary>
+        /// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Configuration;
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business data source was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
+        /// </summary>
         public readonly string? DataSourceArn;
+        /// <summary>
+        /// The identifier of the Amazon Q Business data source.
+        /// </summary>
         public readonly string? DataSourceId;
+        /// <summary>
+        /// A description for the data source connector.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the Amazon Q Business data source.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// Provides the configuration information for altering document metadata and content during the document ingestion process.
+        /// 
+        /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        /// </summary>
         public readonly Outputs.DataSourceDocumentEnrichmentConfiguration? DocumentEnrichmentConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The status of the Amazon Q Business data source.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.DataSourceStatus? Status;
+        /// <summary>
+        /// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+        /// 
+        /// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        /// </summary>
         public readonly string? SyncSchedule;
+        /// <summary>
+        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The type of the Amazon Q Business data source.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business data source was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
+        /// <summary>
+        /// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+        /// </summary>
         public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

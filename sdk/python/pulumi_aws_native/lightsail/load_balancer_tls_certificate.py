@@ -273,6 +273,9 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancerTlsCertificateArn")
     def load_balancer_tls_certificate_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+        """
         return pulumi.get(self, "load_balancer_tls_certificate_arn")
 
     @property

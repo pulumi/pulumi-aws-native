@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicSemanticEntityType
     {
+        /// <summary>
+        /// The semantic entity sub type name.
+        /// </summary>
         public readonly string? SubTypeName;
+        /// <summary>
+        /// The semantic entity type name.
+        /// </summary>
         public readonly string? TypeName;
+        /// <summary>
+        /// The semantic entity type parameters.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? TypeParameters;
 
         [OutputConstructor]

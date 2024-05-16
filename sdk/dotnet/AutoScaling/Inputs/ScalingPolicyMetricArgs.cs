@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     {
         [Input("dimensions")]
         private InputList<Inputs.ScalingPolicyMetricDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+        /// </summary>
         public InputList<Inputs.ScalingPolicyMetricDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.ScalingPolicyMetricDimensionArgs>());
             set => _dimensions = value;
         }
 
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The namespace of the metric. For more information, see the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

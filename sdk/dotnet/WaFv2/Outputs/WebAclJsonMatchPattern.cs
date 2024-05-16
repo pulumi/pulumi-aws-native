@@ -20,6 +20,15 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// Inspect all parts of the web request's JSON body.
         /// </summary>
         public readonly object? All;
+        /// <summary>
+        /// Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
+        /// 
+        /// Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+        /// 
+        /// You must specify either this setting or the `All` setting, but not both.
+        /// 
+        /// &gt; Don't use this option to include all paths. Instead, use the `All` setting.
+        /// </summary>
         public readonly ImmutableArray<string> IncludedPaths;
 
         [OutputConstructor]

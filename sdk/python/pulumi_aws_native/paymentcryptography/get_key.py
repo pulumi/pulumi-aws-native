@@ -50,21 +50,35 @@ class GetKeyResult:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Specifies whether the key is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def exportable(self) -> Optional[bool]:
+        """
+        Specifies whether the key is exportable. This data is immutable after the key is created.
+        """
         return pulumi.get(self, "exportable")
 
     @property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> Optional['outputs.KeyAttributes']:
+        """
+        The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        """
         return pulumi.get(self, "key_attributes")
 
     @property
     @pulumi.getter(name="keyCheckValueAlgorithm")
     def key_check_value_algorithm(self) -> Optional['KeyCheckValueAlgorithm']:
+        """
+        The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+
+        For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @property
@@ -75,16 +89,25 @@ class GetKeyResult:
     @property
     @pulumi.getter(name="keyOrigin")
     def key_origin(self) -> Optional['KeyOrigin']:
+        """
+        The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+        """
         return pulumi.get(self, "key_origin")
 
     @property
     @pulumi.getter(name="keyState")
     def key_state(self) -> Optional['KeyState']:
+        """
+        The state of key that is being created or deleted.
+        """
         return pulumi.get(self, "key_state")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A structure that contains information about a tag.
+        """
         return pulumi.get(self, "tags")
 
 

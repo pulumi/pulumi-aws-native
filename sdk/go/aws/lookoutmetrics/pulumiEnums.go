@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The level of compression of the source CSV file.
 type AnomalyDetectorCsvFormatDescriptorFileCompression string
 
 const (
@@ -345,6 +346,7 @@ func (in *anomalyDetectorFrequencyPtr) ToAnomalyDetectorFrequencyPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyDetectorFrequencyPtrOutput)
 }
 
+// The level of compression of the source CSV file.
 type AnomalyDetectorJsonFormatDescriptorFileCompression string
 
 const (

@@ -31,11 +31,17 @@ export interface GetTableArgs {
 }
 
 export interface GetTableResult {
+    /**
+     * Determines the billing mode for the table - on-demand or provisioned.
+     */
     readonly billingMode?: outputs.cassandra.TableBillingMode;
     /**
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
     readonly defaultTimeToLive?: number;
+    /**
+     * Specifies the encryption at rest option selected for the table.
+     */
     readonly encryptionSpecification?: outputs.cassandra.TableEncryptionSpecification;
     /**
      * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table

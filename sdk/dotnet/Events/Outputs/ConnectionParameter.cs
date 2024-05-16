@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionParameter
     {
+        /// <summary>
+        /// Specifies whether the value is secret.
+        /// </summary>
         public readonly bool? IsValueSecret;
+        /// <summary>
+        /// The key for a query string parameter.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value associated with the key for the query string parameter.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

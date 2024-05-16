@@ -21,12 +21,18 @@ namespace Pulumi.AwsNative.Athena.Inputs
         [Input("bytesScannedCutoffPerQuery")]
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
+        /// <summary>
+        /// Specifies the customer managed KMS key that is used to encrypt the user's data stores in Athena. When an AWS managed key is used, this value is null. This setting does not apply to Athena SQL workgroups.
+        /// </summary>
         [Input("customerContentEncryptionConfiguration")]
         public Input<Inputs.WorkGroupCustomerContentEncryptionConfigurationArgs>? CustomerContentEncryptionConfiguration { get; set; }
 
         [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
+        /// <summary>
+        /// The Athena engine version for running queries, or the PySpark engine version for running sessions.
+        /// </summary>
         [Input("engineVersion")]
         public Input<Inputs.WorkGroupEngineVersionArgs>? EngineVersion { get; set; }
 
@@ -45,6 +51,9 @@ namespace Pulumi.AwsNative.Athena.Inputs
         [Input("requesterPaysEnabled")]
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
+        /// <summary>
+        /// The information about the updates in the query results, such as output location and encryption configuration for the query results.
+        /// </summary>
         [Input("resultConfigurationUpdates")]
         public Input<Inputs.WorkGroupResultConfigurationUpdatesArgs>? ResultConfigurationUpdates { get; set; }
 

@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _inputColumns = value;
         }
 
+        /// <summary>
+        /// Information about the format for a source file or files.
+        /// </summary>
         [Input("uploadSettings")]
         public Input<Inputs.DataSetUploadSettingsArgs>? UploadSettings { get; set; }
 

@@ -22,6 +22,10 @@ class OidcProviderArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OidcProvider resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] thumbprint_list: A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_list: A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        :param pulumi.Input[str] url: The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
         """
         pulumi.set(__self__, "thumbprint_list", thumbprint_list)
         if client_id_list is not None:
@@ -34,6 +38,9 @@ class OidcProviderArgs:
     @property
     @pulumi.getter(name="thumbprintList")
     def thumbprint_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "thumbprint_list")
 
     @thumbprint_list.setter
@@ -43,6 +50,9 @@ class OidcProviderArgs:
     @property
     @pulumi.getter(name="clientIdList")
     def client_id_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "client_id_list")
 
     @client_id_list.setter
@@ -52,6 +62,9 @@ class OidcProviderArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -61,6 +74,9 @@ class OidcProviderArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -83,6 +99,10 @@ class OidcProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_list: A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] thumbprint_list: A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        :param pulumi.Input[str] url: The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
         """
         ...
     @overload
@@ -170,20 +190,32 @@ class OidcProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientIdList")
     def client_id_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "client_id_list")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="thumbprintList")
     def thumbprint_list(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "thumbprint_list")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        """
         return pulumi.get(self, "url")
 

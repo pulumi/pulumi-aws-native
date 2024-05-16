@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNullValueFormatConfiguration
     {
+        /// <summary>
+        /// Determines the null string of null values.
+        /// </summary>
         public readonly string NullString;
 
         [OutputConstructor]

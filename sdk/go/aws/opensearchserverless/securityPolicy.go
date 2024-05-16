@@ -135,8 +135,9 @@ type SecurityPolicy struct {
 	// The name of the policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy pulumi.StringOutput      `pulumi:"policy"`
-	Type   SecurityPolicyTypeOutput `pulumi:"type"`
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The type of security policy. Can be either `encryption` or `network` .
+	Type SecurityPolicyTypeOutput `pulumi:"type"`
 }
 
 // NewSecurityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -195,8 +196,9 @@ type securityPolicyArgs struct {
 	// The name of the policy
 	Name *string `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy string             `pulumi:"policy"`
-	Type   SecurityPolicyType `pulumi:"type"`
+	Policy string `pulumi:"policy"`
+	// The type of security policy. Can be either `encryption` or `network` .
+	Type SecurityPolicyType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SecurityPolicy resource.
@@ -207,7 +209,8 @@ type SecurityPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The JSON policy document that is the content for the policy
 	Policy pulumi.StringInput
-	Type   SecurityPolicyTypeInput
+	// The type of security policy. Can be either `encryption` or `network` .
+	Type SecurityPolicyTypeInput
 }
 
 func (SecurityPolicyArgs) ElementType() reflect.Type {
@@ -262,6 +265,7 @@ func (o SecurityPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// The type of security policy. Can be either `encryption` or `network` .
 func (o SecurityPolicyOutput) Type() SecurityPolicyTypeOutput {
 	return o.ApplyT(func(v *SecurityPolicy) SecurityPolicyTypeOutput { return v.Type }).(SecurityPolicyTypeOutput)
 }

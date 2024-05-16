@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class FunctionKeyValueStoreAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the key value store association.
+        /// </summary>
         [Input("keyValueStoreArn", required: true)]
         public Input<string> KeyValueStoreArn { get; set; } = null!;
 

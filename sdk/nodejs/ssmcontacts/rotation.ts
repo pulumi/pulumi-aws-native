@@ -49,11 +49,17 @@ export class Rotation extends pulumi.CustomResource {
      * Name of the Rotation
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     */
     public readonly recurrence!: pulumi.Output<outputs.ssmcontacts.RotationRecurrenceSettings>;
     /**
      * Start time of the first shift of Oncall Schedule
      */
     public readonly startTime!: pulumi.Output<string>;
+    /**
+     * A container of a key-value name pair.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * TimeZone Identifier for the Oncall Schedule
@@ -116,11 +122,17 @@ export interface RotationArgs {
      * Name of the Rotation
      */
     name?: pulumi.Input<string>;
+    /**
+     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     */
     recurrence: pulumi.Input<inputs.ssmcontacts.RotationRecurrenceSettingsArgs>;
     /**
      * Start time of the first shift of Oncall Schedule
      */
     startTime: pulumi.Input<string>;
+    /**
+     * A container of a key-value name pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * TimeZone Identifier for the Oncall Schedule

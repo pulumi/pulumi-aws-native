@@ -13,12 +13,46 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+//
+// - ***devicePermissionRoleArn*** - The device permission arn.
+//
+// This is a required element.
+//
+// *Type:* String
+// - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
+//
+// Not a required element.
+//
+// *Type:* List of devices under test
+// - ***intendedForQualification*** - The tests intended for qualification in a suite.
+//
+// Not a required element.
+//
+// *Type:* Boolean
+// - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
+//
+// This is a required element.
+//
+// *Type:* String
+// - ***suiteDefinitionName*** - The Suite Definition Configuration name.
+//
+// This is a required element.
+//
+// *Type:* String
 type SuiteDefinitionConfigurationProperties struct {
-	DevicePermissionRoleArn  string                           `pulumi:"devicePermissionRoleArn"`
-	Devices                  []SuiteDefinitionDeviceUnderTest `pulumi:"devices"`
-	IntendedForQualification *bool                            `pulumi:"intendedForQualification"`
-	RootGroup                string                           `pulumi:"rootGroup"`
-	SuiteDefinitionName      *string                          `pulumi:"suiteDefinitionName"`
+	// Gets the device permission ARN. This is a required parameter.
+	DevicePermissionRoleArn string `pulumi:"devicePermissionRoleArn"`
+	// Gets the devices configured.
+	Devices []SuiteDefinitionDeviceUnderTest `pulumi:"devices"`
+	// Gets the tests intended for qualification in a suite.
+	IntendedForQualification *bool `pulumi:"intendedForQualification"`
+	// Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
+	//
+	// For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
+	RootGroup string `pulumi:"rootGroup"`
+	// Gets the suite definition name. This is a required parameter.
+	SuiteDefinitionName *string `pulumi:"suiteDefinitionName"`
 }
 
 // SuiteDefinitionConfigurationPropertiesInput is an input type that accepts SuiteDefinitionConfigurationPropertiesArgs and SuiteDefinitionConfigurationPropertiesOutput values.
@@ -32,12 +66,46 @@ type SuiteDefinitionConfigurationPropertiesInput interface {
 	ToSuiteDefinitionConfigurationPropertiesOutputWithContext(context.Context) SuiteDefinitionConfigurationPropertiesOutput
 }
 
+// The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+//
+// - ***devicePermissionRoleArn*** - The device permission arn.
+//
+// This is a required element.
+//
+// *Type:* String
+// - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
+//
+// Not a required element.
+//
+// *Type:* List of devices under test
+// - ***intendedForQualification*** - The tests intended for qualification in a suite.
+//
+// Not a required element.
+//
+// *Type:* Boolean
+// - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
+//
+// This is a required element.
+//
+// *Type:* String
+// - ***suiteDefinitionName*** - The Suite Definition Configuration name.
+//
+// This is a required element.
+//
+// *Type:* String
 type SuiteDefinitionConfigurationPropertiesArgs struct {
-	DevicePermissionRoleArn  pulumi.StringInput                       `pulumi:"devicePermissionRoleArn"`
-	Devices                  SuiteDefinitionDeviceUnderTestArrayInput `pulumi:"devices"`
-	IntendedForQualification pulumi.BoolPtrInput                      `pulumi:"intendedForQualification"`
-	RootGroup                pulumi.StringInput                       `pulumi:"rootGroup"`
-	SuiteDefinitionName      pulumi.StringPtrInput                    `pulumi:"suiteDefinitionName"`
+	// Gets the device permission ARN. This is a required parameter.
+	DevicePermissionRoleArn pulumi.StringInput `pulumi:"devicePermissionRoleArn"`
+	// Gets the devices configured.
+	Devices SuiteDefinitionDeviceUnderTestArrayInput `pulumi:"devices"`
+	// Gets the tests intended for qualification in a suite.
+	IntendedForQualification pulumi.BoolPtrInput `pulumi:"intendedForQualification"`
+	// Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
+	//
+	// For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
+	RootGroup pulumi.StringInput `pulumi:"rootGroup"`
+	// Gets the suite definition name. This is a required parameter.
+	SuiteDefinitionName pulumi.StringPtrInput `pulumi:"suiteDefinitionName"`
 }
 
 func (SuiteDefinitionConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -52,6 +120,33 @@ func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesOutput)
 }
 
+// The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+//
+// - ***devicePermissionRoleArn*** - The device permission arn.
+//
+// This is a required element.
+//
+// *Type:* String
+// - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
+//
+// Not a required element.
+//
+// *Type:* List of devices under test
+// - ***intendedForQualification*** - The tests intended for qualification in a suite.
+//
+// Not a required element.
+//
+// *Type:* Boolean
+// - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
+//
+// This is a required element.
+//
+// *Type:* String
+// - ***suiteDefinitionName*** - The Suite Definition Configuration name.
+//
+// This is a required element.
+//
+// *Type:* String
 type SuiteDefinitionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SuiteDefinitionConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -66,22 +161,29 @@ func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigura
 	return o
 }
 
+// Gets the device permission ARN. This is a required parameter.
 func (o SuiteDefinitionConfigurationPropertiesOutput) DevicePermissionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) string { return v.DevicePermissionRoleArn }).(pulumi.StringOutput)
 }
 
+// Gets the devices configured.
 func (o SuiteDefinitionConfigurationPropertiesOutput) Devices() SuiteDefinitionDeviceUnderTestArrayOutput {
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) []SuiteDefinitionDeviceUnderTest { return v.Devices }).(SuiteDefinitionDeviceUnderTestArrayOutput)
 }
 
+// Gets the tests intended for qualification in a suite.
 func (o SuiteDefinitionConfigurationPropertiesOutput) IntendedForQualification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) *bool { return v.IntendedForQualification }).(pulumi.BoolPtrOutput)
 }
 
+// Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
+//
+// For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
 func (o SuiteDefinitionConfigurationPropertiesOutput) RootGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) string { return v.RootGroup }).(pulumi.StringOutput)
 }
 
+// Gets the suite definition name. This is a required parameter.
 func (o SuiteDefinitionConfigurationPropertiesOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) *string { return v.SuiteDefinitionName }).(pulumi.StringPtrOutput)
 }
@@ -110,6 +212,7 @@ func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Elem() SuiteDefinitionC
 	}).(SuiteDefinitionConfigurationPropertiesOutput)
 }
 
+// Gets the device permission ARN. This is a required parameter.
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) DevicePermissionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
 		if v == nil {
@@ -119,6 +222,7 @@ func (o SuiteDefinitionConfigurationPropertiesPtrOutput) DevicePermissionRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// Gets the devices configured.
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Devices() SuiteDefinitionDeviceUnderTestArrayOutput {
 	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) []SuiteDefinitionDeviceUnderTest {
 		if v == nil {
@@ -128,6 +232,7 @@ func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Devices() SuiteDefiniti
 	}).(SuiteDefinitionDeviceUnderTestArrayOutput)
 }
 
+// Gets the tests intended for qualification in a suite.
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) IntendedForQualification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *bool {
 		if v == nil {
@@ -137,6 +242,9 @@ func (o SuiteDefinitionConfigurationPropertiesPtrOutput) IntendedForQualificatio
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
+//
+// For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) RootGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
 		if v == nil {
@@ -146,6 +254,7 @@ func (o SuiteDefinitionConfigurationPropertiesPtrOutput) RootGroup() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Gets the suite definition name. This is a required parameter.
 func (o SuiteDefinitionConfigurationPropertiesPtrOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
 		if v == nil {

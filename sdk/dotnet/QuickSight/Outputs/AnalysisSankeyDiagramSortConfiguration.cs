@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSankeyDiagramSortConfiguration
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? DestinationItemsLimit;
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? SourceItemsLimit;
+        /// <summary>
+        /// The sort configuration of the weight fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> WeightSort;
 
         [OutputConstructor]

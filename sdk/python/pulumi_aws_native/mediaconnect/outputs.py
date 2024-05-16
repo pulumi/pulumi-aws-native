@@ -120,6 +120,7 @@ class BridgeFailoverConfig(dict):
         The settings for source failover.
         :param 'BridgeFailoverModeEnum' failover_mode: The type of failover you choose for this flow. FAILOVER allows switching between different streams.
         :param 'BridgeSourcePriority' source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param 'BridgeFailoverConfigStateEnum' state: The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
         """
         pulumi.set(__self__, "failover_mode", failover_mode)
         if source_priority is not None:
@@ -146,6 +147,9 @@ class BridgeFailoverConfig(dict):
     @property
     @pulumi.getter
     def state(self) -> Optional['BridgeFailoverConfigStateEnum']:
+        """
+        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        """
         return pulumi.get(self, "state")
 
 
@@ -468,6 +472,7 @@ class BridgeOutput(dict):
                  network_output: Optional['outputs.BridgeNetworkOutput'] = None):
         """
         The output of the bridge.
+        :param 'BridgeNetworkOutput' network_output: The output of the bridge. A network output is delivered to your premises.
         """
         if network_output is not None:
             pulumi.set(__self__, "network_output", network_output)
@@ -475,6 +480,9 @@ class BridgeOutput(dict):
     @property
     @pulumi.getter(name="networkOutput")
     def network_output(self) -> Optional['outputs.BridgeNetworkOutput']:
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        """
         return pulumi.get(self, "network_output")
 
 
@@ -592,6 +600,8 @@ class BridgeSource(dict):
                  network_source: Optional['outputs.BridgeNetworkSource'] = None):
         """
         The bridge's source.
+        :param 'BridgeFlowSource' flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        :param 'BridgeNetworkSource' network_source: The source of the bridge. A network source originates at your premises.
         """
         if flow_source is not None:
             pulumi.set(__self__, "flow_source", flow_source)
@@ -601,11 +611,17 @@ class BridgeSource(dict):
     @property
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> Optional['outputs.BridgeFlowSource']:
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        """
         return pulumi.get(self, "flow_source")
 
     @property
     @pulumi.getter(name="networkSource")
     def network_source(self) -> Optional['outputs.BridgeNetworkSource']:
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
         return pulumi.get(self, "network_source")
 
 
@@ -1181,6 +1197,7 @@ class FlowFailoverConfig(dict):
         :param 'FlowFailoverConfigFailoverMode' failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
         :param int recovery_window: Search window time to look for dash-7 packets
         :param 'FlowFailoverConfigSourcePriorityProperties' source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param 'FlowFailoverConfigState' state: The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
         """
         if failover_mode is not None:
             pulumi.set(__self__, "failover_mode", failover_mode)
@@ -1218,6 +1235,9 @@ class FlowFailoverConfig(dict):
     @property
     @pulumi.getter
     def state(self) -> Optional['FlowFailoverConfigState']:
+        """
+        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        """
         return pulumi.get(self, "state")
 
 

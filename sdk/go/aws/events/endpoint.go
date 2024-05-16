@@ -113,17 +113,30 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                `pulumi:"arn"`
-	Description       pulumi.StringPtrOutput             `pulumi:"description"`
-	EndpointId        pulumi.StringOutput                `pulumi:"endpointId"`
-	EndpointUrl       pulumi.StringOutput                `pulumi:"endpointUrl"`
-	EventBuses        EndpointEventBusArrayOutput        `pulumi:"eventBuses"`
-	Name              pulumi.StringPtrOutput             `pulumi:"name"`
+	// The ARN of the endpoint.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A description for the endpoint.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the endpoint.
+	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
+	// The URL of the endpoint.
+	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
+	// The event buses being used by the endpoint.
+	//
+	// *Exactly* : `2`
+	EventBuses EndpointEventBusArrayOutput `pulumi:"eventBuses"`
+	// The name of the endpoint.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Endpoints can replicate all events to the secondary Region.
 	ReplicationConfig EndpointReplicationConfigPtrOutput `pulumi:"replicationConfig"`
-	RoleArn           pulumi.StringPtrOutput             `pulumi:"roleArn"`
-	RoutingConfig     EndpointRoutingConfigOutput        `pulumi:"routingConfig"`
-	State             EndpointStateEnumOutput            `pulumi:"state"`
-	StateReason       pulumi.StringOutput                `pulumi:"stateReason"`
+	// The ARN of the role used by event replication for the endpoint.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The routing configuration of the endpoint.
+	RoutingConfig EndpointRoutingConfigOutput `pulumi:"routingConfig"`
+	// The main Region of the endpoint.
+	State EndpointStateEnumOutput `pulumi:"state"`
+	// The reason the endpoint is in its current state.
+	StateReason pulumi.StringOutput `pulumi:"stateReason"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -176,22 +189,38 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	Description       *string                    `pulumi:"description"`
-	EventBuses        []EndpointEventBus         `pulumi:"eventBuses"`
-	Name              *string                    `pulumi:"name"`
+	// A description for the endpoint.
+	Description *string `pulumi:"description"`
+	// The event buses being used by the endpoint.
+	//
+	// *Exactly* : `2`
+	EventBuses []EndpointEventBus `pulumi:"eventBuses"`
+	// The name of the endpoint.
+	Name *string `pulumi:"name"`
+	// Endpoints can replicate all events to the secondary Region.
 	ReplicationConfig *EndpointReplicationConfig `pulumi:"replicationConfig"`
-	RoleArn           *string                    `pulumi:"roleArn"`
-	RoutingConfig     EndpointRoutingConfig      `pulumi:"routingConfig"`
+	// The ARN of the role used by event replication for the endpoint.
+	RoleArn *string `pulumi:"roleArn"`
+	// The routing configuration of the endpoint.
+	RoutingConfig EndpointRoutingConfig `pulumi:"routingConfig"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	Description       pulumi.StringPtrInput
-	EventBuses        EndpointEventBusArrayInput
-	Name              pulumi.StringPtrInput
+	// A description for the endpoint.
+	Description pulumi.StringPtrInput
+	// The event buses being used by the endpoint.
+	//
+	// *Exactly* : `2`
+	EventBuses EndpointEventBusArrayInput
+	// The name of the endpoint.
+	Name pulumi.StringPtrInput
+	// Endpoints can replicate all events to the secondary Region.
 	ReplicationConfig EndpointReplicationConfigPtrInput
-	RoleArn           pulumi.StringPtrInput
-	RoutingConfig     EndpointRoutingConfigInput
+	// The ARN of the role used by event replication for the endpoint.
+	RoleArn pulumi.StringPtrInput
+	// The routing configuration of the endpoint.
+	RoutingConfig EndpointRoutingConfigInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -231,46 +260,59 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// The ARN of the endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A description for the endpoint.
 func (o EndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the endpoint.
 func (o EndpointOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointId }).(pulumi.StringOutput)
 }
 
+// The URL of the endpoint.
 func (o EndpointOutput) EndpointUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
 }
 
+// The event buses being used by the endpoint.
+//
+// *Exactly* : `2`
 func (o EndpointOutput) EventBuses() EndpointEventBusArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointEventBusArrayOutput { return v.EventBuses }).(EndpointEventBusArrayOutput)
 }
 
+// The name of the endpoint.
 func (o EndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Endpoints can replicate all events to the secondary Region.
 func (o EndpointOutput) ReplicationConfig() EndpointReplicationConfigPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointReplicationConfigPtrOutput { return v.ReplicationConfig }).(EndpointReplicationConfigPtrOutput)
 }
 
+// The ARN of the role used by event replication for the endpoint.
 func (o EndpointOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The routing configuration of the endpoint.
 func (o EndpointOutput) RoutingConfig() EndpointRoutingConfigOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointRoutingConfigOutput { return v.RoutingConfig }).(EndpointRoutingConfigOutput)
 }
 
+// The main Region of the endpoint.
 func (o EndpointOutput) State() EndpointStateEnumOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointStateEnumOutput { return v.State }).(EndpointStateEnumOutput)
 }
 
+// The reason the endpoint is in its current state.
 func (o EndpointOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
 }

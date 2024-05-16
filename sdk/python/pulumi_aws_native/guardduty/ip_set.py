@@ -24,6 +24,16 @@ class IpSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpSet resource.
+        :param pulumi.Input[str] format: The format of the file that contains the IPSet.
+        :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
+        :param pulumi.Input[bool] activate: Indicates whether or not GuardDuty uses the `IPSet` .
+        :param pulumi.Input[str] detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        :param pulumi.Input[str] name: The user-friendly name to identify the IPSet.
+               
+               Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "location", location)
@@ -39,6 +49,9 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def format(self) -> pulumi.Input[str]:
+        """
+        The format of the file that contains the IPSet.
+        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -48,6 +61,9 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
+        """
+        The URI of the file that contains the IPSet.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -57,6 +73,9 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def activate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether or not GuardDuty uses the `IPSet` .
+        """
         return pulumi.get(self, "activate")
 
     @activate.setter
@@ -66,6 +85,9 @@ class IpSetArgs:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -75,6 +97,11 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user-friendly name to identify the IPSet.
+
+        Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -84,6 +111,11 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -108,6 +140,16 @@ class IpSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] activate: Indicates whether or not GuardDuty uses the `IPSet` .
+        :param pulumi.Input[str] detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        :param pulumi.Input[str] format: The format of the file that contains the IPSet.
+        :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
+        :param pulumi.Input[str] name: The user-friendly name to identify the IPSet.
+               
+               Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -195,6 +237,9 @@ class IpSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def activate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether or not GuardDuty uses the `IPSet` .
+        """
         return pulumi.get(self, "activate")
 
     @property
@@ -205,25 +250,44 @@ class IpSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter
     def format(self) -> pulumi.Output[str]:
+        """
+        The format of the file that contains the IPSet.
+        """
         return pulumi.get(self, "format")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
+        """
+        The URI of the file that contains the IPSet.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user-friendly name to identify the IPSet.
+
+        Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

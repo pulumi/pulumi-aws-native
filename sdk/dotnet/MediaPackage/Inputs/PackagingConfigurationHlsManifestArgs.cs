@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("includeIframeOnlyStream")]
         public Input<bool>? IncludeIframeOnlyStream { get; set; }
 
+        /// <summary>
+        /// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+        /// </summary>
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("repeatExtXKey")]
         public Input<bool>? RepeatExtXKey { get; set; }
 
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.PackagingConfigurationStreamSelectionArgs>? StreamSelection { get; set; }
 

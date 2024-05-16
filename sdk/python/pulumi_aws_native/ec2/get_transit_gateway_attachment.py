@@ -37,6 +37,9 @@ class GetTransitGatewayAttachmentResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the attachment.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -50,11 +53,17 @@ class GetTransitGatewayAttachmentResult:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -74,6 +83,9 @@ def get_transit_gateway_attachment(id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayAttachmentResult:
     """
     Resource Type definition for AWS::EC2::TransitGatewayAttachment
+
+
+    :param str id: The ID of the attachment.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -92,5 +104,8 @@ def get_transit_gateway_attachment_output(id: Optional[pulumi.Input[str]] = None
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayAttachment
+
+
+    :param str id: The ID of the attachment.
     """
     ...

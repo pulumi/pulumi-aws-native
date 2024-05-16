@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCustomParameterValues
     {
+        /// <summary>
+        /// A list of datetime-type parameter values.
+        /// </summary>
         public readonly ImmutableArray<string> DateTimeValues;
+        /// <summary>
+        /// A list of decimal-type parameter values.
+        /// </summary>
         public readonly ImmutableArray<double> DecimalValues;
+        /// <summary>
+        /// A list of integer-type parameter values.
+        /// </summary>
         public readonly ImmutableArray<double> IntegerValues;
+        /// <summary>
+        /// A list of string-type parameter values.
+        /// </summary>
         public readonly ImmutableArray<string> StringValues;
 
         [OutputConstructor]

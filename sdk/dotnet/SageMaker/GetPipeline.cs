@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetPipelineResult
     {
+        /// <summary>
+        /// The parallelism configuration applied to the pipeline.
+        /// </summary>
         public readonly Outputs.ParallelismConfigurationProperties? ParallelismConfiguration;
+        /// <summary>
+        /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        /// </summary>
         public readonly Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>? PipelineDefinition;
         /// <summary>
         /// The description of the Pipeline.
@@ -71,6 +77,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Role Arn
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+        /// 
+        /// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
+        /// 
+        /// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

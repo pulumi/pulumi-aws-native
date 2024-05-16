@@ -19,15 +19,27 @@ export function getSamplingRule(args: GetSamplingRuleArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetSamplingRuleArgs {
+    /**
+     * The sampling rule ARN that was created or updated.
+     */
     ruleArn: string;
 }
 
 export interface GetSamplingRuleResult {
+    /**
+     * The sampling rule ARN that was created or updated.
+     */
     readonly ruleArn?: string;
     readonly ruleName?: string;
+    /**
+     * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+     */
     readonly samplingRule?: outputs.xray.SamplingRule;
     readonly samplingRuleRecord?: outputs.xray.SamplingRuleRecord;
     readonly samplingRuleUpdate?: outputs.xray.SamplingRuleUpdate;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +50,8 @@ export function getSamplingRuleOutput(args: GetSamplingRuleOutputArgs, opts?: pu
 }
 
 export interface GetSamplingRuleOutputArgs {
+    /**
+     * The sampling rule ARN that was created or updated.
+     */
     ruleArn: pulumi.Input<string>;
 }

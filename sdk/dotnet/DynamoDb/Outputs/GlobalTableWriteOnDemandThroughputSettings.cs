@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTableWriteOnDemandThroughputSettings
     {
+        /// <summary>
+        /// Maximum number of write request settings for the specified replica of a global table.
+        /// </summary>
         public readonly int? MaxWriteRequestUnits;
 
         [OutputConstructor]

@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardStringParameterDeclaration
     {
+        /// <summary>
+        /// The default values of the `StringParameterDeclaration` .
+        /// </summary>
         public readonly Outputs.DashboardStringDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.DashboardMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardParameterValueType ParameterValueType;
+        /// <summary>
+        /// The configuration that defines the default value of a `String` parameter when a value has not been set.
+        /// </summary>
         public readonly Outputs.DashboardStringValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

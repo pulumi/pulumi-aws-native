@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SsmContacts.Inputs
     /// </summary>
     public sealed class RotationCoverageTimeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about when an on-call rotation shift ends.
+        /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
 
+        /// <summary>
+        /// Information about when an on-call rotation shift begins.
+        /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 

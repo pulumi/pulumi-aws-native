@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTimeRangeFilterValue
     {
+        /// <summary>
+        /// The parameter type input value.
+        /// </summary>
         public readonly string? Parameter;
+        /// <summary>
+        /// The rolling date configuration of a date time filter.
+        /// </summary>
         public readonly Outputs.TemplateRollingDateConfiguration? RollingDate;
+        /// <summary>
+        /// The static input value.
+        /// </summary>
         public readonly string? StaticValue;
 
         [OutputConstructor]

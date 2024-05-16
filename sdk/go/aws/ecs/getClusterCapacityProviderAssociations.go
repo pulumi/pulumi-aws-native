@@ -23,11 +23,14 @@ func LookupClusterCapacityProviderAssociations(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupClusterCapacityProviderAssociationsArgs struct {
+	// The cluster the capacity provider association is the target of.
 	Cluster string `pulumi:"cluster"`
 }
 
 type LookupClusterCapacityProviderAssociationsResult struct {
-	CapacityProviders               []string                                                      `pulumi:"capacityProviders"`
+	// The capacity providers to associate with the cluster.
+	CapacityProviders []string `pulumi:"capacityProviders"`
+	// The default capacity provider strategy to associate with the cluster.
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderAssociationsCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategy"`
 }
 
@@ -45,6 +48,7 @@ func LookupClusterCapacityProviderAssociationsOutput(ctx *pulumi.Context, args L
 }
 
 type LookupClusterCapacityProviderAssociationsOutputArgs struct {
+	// The cluster the capacity provider association is the target of.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupClusterCapacityProviderAssociationsResultOutput) ToLookupClusterCa
 	return o
 }
 
+// The capacity providers to associate with the cluster.
 func (o LookupClusterCapacityProviderAssociationsResultOutput) CapacityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterCapacityProviderAssociationsResult) []string { return v.CapacityProviders }).(pulumi.StringArrayOutput)
 }
 
+// The default capacity provider strategy to associate with the cluster.
 func (o LookupClusterCapacityProviderAssociationsResultOutput) DefaultCapacityProviderStrategy() ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v LookupClusterCapacityProviderAssociationsResult) []ClusterCapacityProviderAssociationsCapacityProviderStrategy {
 		return v.DefaultCapacityProviderStrategy

@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the thing to update.
+        /// 
+        /// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+        /// </summary>
         [Input("thingName", required: true)]
         public string ThingName { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the thing to update.
+        /// 
+        /// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+        /// </summary>
         [Input("thingName", required: true)]
         public Input<string> ThingName { get; set; } = null!;
 
@@ -51,8 +61,17 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetThingResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        /// </summary>
         public readonly Outputs.ThingAttributePayload? AttributePayload;
+        /// <summary>
+        /// The Id of this thing.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

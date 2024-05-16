@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetDomainNameArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public string DomainNameValue { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetDomainNameInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.AppSync
     [OutputType]
     public sealed class GetDomainNameResult
     {
+        /// <summary>
+        /// The domain name provided by AWS AppSync .
+        /// </summary>
         public readonly string? AppSyncDomainName;
+        /// <summary>
+        /// The decription for your domain name.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ID of your Amazon Route 53 hosted zone.
+        /// </summary>
         public readonly string? HostedZoneId;
 
         [OutputConstructor]

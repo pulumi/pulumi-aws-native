@@ -26,6 +26,9 @@ export interface GetResourceCollectionArgs {
 }
 
 export interface GetResourceCollectionResult {
+    /**
+     * Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+     */
     readonly resourceCollectionFilter?: outputs.devopsguru.ResourceCollectionFilter;
     /**
      * The type of ResourceCollection

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Outputs
 {
 
+    /// <summary>
+    /// The API of the connector application that Amazon AppFlow uses to transfer your data.
+    /// </summary>
     [OutputType]
     public sealed class FlowCustomConnectorSourcePropertiesDataTransferApiProperties
     {

@@ -12,20 +12,35 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class CollaborationMemberSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The member's display name.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("memberAbilities", required: true)]
         private InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>? _memberAbilities;
+
+        /// <summary>
+        /// The abilities granted to the collaboration member.
+        /// 
+        /// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        /// </summary>
         public InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> MemberAbilities
         {
             get => _memberAbilities ?? (_memberAbilities = new InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>());
             set => _memberAbilities = value;
         }
 
+        /// <summary>
+        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        /// </summary>
         [Input("paymentConfiguration")]
         public Input<Inputs.CollaborationPaymentConfigurationArgs>? PaymentConfiguration { get; set; }
 

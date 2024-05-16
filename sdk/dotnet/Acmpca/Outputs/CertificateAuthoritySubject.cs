@@ -16,20 +16,67 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthoritySubject
     {
+        /// <summary>
+        /// Fully qualified domain name (FQDN) associated with the certificate subject.
+        /// </summary>
         public readonly string? CommonName;
+        /// <summary>
+        /// Two-digit code that specifies the country in which the certificate subject located.
+        /// </summary>
         public readonly string? Country;
+        /// <summary>
+        /// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+        /// 
+        /// &gt; Custom attributes cannot be used in combination with standard attributes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CertificateAuthorityCustomAttribute> CustomAttributes;
+        /// <summary>
+        /// Disambiguating information for the certificate subject.
+        /// </summary>
         public readonly string? DistinguishedNameQualifier;
+        /// <summary>
+        /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+        /// </summary>
         public readonly string? GenerationQualifier;
+        /// <summary>
+        /// First name.
+        /// </summary>
         public readonly string? GivenName;
+        /// <summary>
+        /// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
+        /// </summary>
         public readonly string? Initials;
+        /// <summary>
+        /// The locality (such as a city or town) in which the certificate subject is located.
+        /// </summary>
         public readonly string? Locality;
+        /// <summary>
+        /// Legal name of the organization with which the certificate subject is affiliated.
+        /// </summary>
         public readonly string? Organization;
+        /// <summary>
+        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+        /// </summary>
         public readonly string? OrganizationalUnit;
+        /// <summary>
+        /// Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+        /// </summary>
         public readonly string? Pseudonym;
+        /// <summary>
+        /// The certificate serial number.
+        /// </summary>
         public readonly string? SerialNumber;
+        /// <summary>
+        /// State in which the subject of the certificate is located.
+        /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// Family name.
+        /// </summary>
         public readonly string? Surname;
+        /// <summary>
+        /// A personal title such as Mr.
+        /// </summary>
         public readonly string? Title;
 
         [OutputConstructor]

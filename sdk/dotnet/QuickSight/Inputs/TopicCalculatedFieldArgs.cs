@@ -12,25 +12,42 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicCalculatedFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default aggregation. Valid values for this structure are `SUM` , `MAX` , `MIN` , `COUNT` , `DISTINCT_COUNT` , and `AVERAGE` .
+        /// </summary>
         [Input("aggregation")]
         public Input<Pulumi.AwsNative.QuickSight.TopicDefaultAggregation>? Aggregation { get; set; }
 
         [Input("allowedAggregations")]
         private InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation>? _allowedAggregations;
+
+        /// <summary>
+        /// The list of aggregation types that are allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> AllowedAggregations
         {
             get => _allowedAggregations ?? (_allowedAggregations = new InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation>());
             set => _allowedAggregations = value;
         }
 
+        /// <summary>
+        /// The calculated field description.
+        /// </summary>
         [Input("calculatedFieldDescription")]
         public Input<string>? CalculatedFieldDescription { get; set; }
 
+        /// <summary>
+        /// The calculated field name.
+        /// </summary>
         [Input("calculatedFieldName", required: true)]
         public Input<string> CalculatedFieldName { get; set; } = null!;
 
         [Input("calculatedFieldSynonyms")]
         private InputList<string>? _calculatedFieldSynonyms;
+
+        /// <summary>
+        /// The other names or aliases for the calculated field.
+        /// </summary>
         public InputList<string> CalculatedFieldSynonyms
         {
             get => _calculatedFieldSynonyms ?? (_calculatedFieldSynonyms = new InputList<string>());
@@ -39,47 +56,85 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("cellValueSynonyms")]
         private InputList<Inputs.TopicCellValueSynonymArgs>? _cellValueSynonyms;
+
+        /// <summary>
+        /// A structure that represents the cell value synonym.
+        /// </summary>
         public InputList<Inputs.TopicCellValueSynonymArgs> CellValueSynonyms
         {
             get => _cellValueSynonyms ?? (_cellValueSynonyms = new InputList<Inputs.TopicCellValueSynonymArgs>());
             set => _cellValueSynonyms = value;
         }
 
+        /// <summary>
+        /// The column data role for a calculated field. Valid values for this structure are `DIMENSION` and `MEASURE` .
+        /// </summary>
         [Input("columnDataRole")]
         public Input<Pulumi.AwsNative.QuickSight.TopicColumnDataRole>? ColumnDataRole { get; set; }
 
+        /// <summary>
+        /// The order in which data is displayed for the column when it's used in a comparative context.
+        /// </summary>
         [Input("comparativeOrder")]
         public Input<Inputs.TopicComparativeOrderArgs>? ComparativeOrder { get; set; }
 
+        /// <summary>
+        /// A structure that represents a default formatting definition.
+        /// </summary>
         [Input("defaultFormatting")]
         public Input<Inputs.TopicDefaultFormattingArgs>? DefaultFormatting { get; set; }
 
+        /// <summary>
+        /// A Boolean value that indicates if a calculated field is visible in the autocomplete.
+        /// </summary>
         [Input("disableIndexing")]
         public Input<bool>? DisableIndexing { get; set; }
 
+        /// <summary>
+        /// The calculated field expression.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
+        /// <summary>
+        /// A boolean value that indicates if a calculated field is included in the topic.
+        /// </summary>
         [Input("isIncludedInTopic")]
         public Input<bool>? IsIncludedInTopic { get; set; }
 
+        /// <summary>
+        /// A Boolean value that indicates whether to never aggregate calculated field in filters.
+        /// </summary>
         [Input("neverAggregateInFilter")]
         public Input<bool>? NeverAggregateInFilter { get; set; }
 
+        /// <summary>
+        /// The non additive for the table style target.
+        /// </summary>
         [Input("nonAdditive")]
         public Input<bool>? NonAdditive { get; set; }
 
         [Input("notAllowedAggregations")]
         private InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation>? _notAllowedAggregations;
+
+        /// <summary>
+        /// The list of aggregation types that are not allowed for the calculated field. Valid values for this structure are `COUNT` , `DISTINCT_COUNT` , `MIN` , `MAX` , `MEDIAN` , `SUM` , `AVERAGE` , `STDEV` , `STDEVP` , `VAR` , `VARP` , and `PERCENTILE` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> NotAllowedAggregations
         {
             get => _notAllowedAggregations ?? (_notAllowedAggregations = new InputList<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation>());
             set => _notAllowedAggregations = value;
         }
 
+        /// <summary>
+        /// A structure that represents a semantic type.
+        /// </summary>
         [Input("semanticType")]
         public Input<Inputs.TopicSemanticTypeArgs>? SemanticType { get; set; }
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TopicTimeGranularity>? TimeGranularity { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeTypography
     {
+        /// <summary>
+        /// Determines the font settings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeFont> FontFamilies;
 
         [OutputConstructor]

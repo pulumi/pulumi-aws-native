@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackage
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters for enabling CDN authorization on the endpoint.
+        /// </summary>
         [Output("authorization")]
         public Output<Outputs.OriginEndpointAuthorization?> Authorization { get; private set; } = null!;
 
@@ -36,9 +39,15 @@ namespace Pulumi.AwsNative.MediaPackage
         [Output("channelId")]
         public Output<string> ChannelId { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters for Common Media Application Format (CMAF) packaging.
+        /// </summary>
         [Output("cmafPackage")]
         public Output<Outputs.OriginEndpointCmafPackage?> CmafPackage { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters for DASH packaging.
+        /// </summary>
         [Output("dashPackage")]
         public Output<Outputs.OriginEndpointDashPackage?> DashPackage { get; private set; } = null!;
 
@@ -48,6 +57,9 @@ namespace Pulumi.AwsNative.MediaPackage
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters for Apple HLS packaging.
+        /// </summary>
         [Output("hlsPackage")]
         public Output<Outputs.OriginEndpointHlsPackage?> HlsPackage { get; private set; } = null!;
 
@@ -57,6 +69,9 @@ namespace Pulumi.AwsNative.MediaPackage
         [Output("manifestName")]
         public Output<string?> ManifestName { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters for Microsoft Smooth Streaming packaging.
+        /// </summary>
         [Output("mssPackage")]
         public Output<Outputs.OriginEndpointMssPackage?> MssPackage { get; private set; } = null!;
 
@@ -141,6 +156,9 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class OriginEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters for enabling CDN authorization on the endpoint.
+        /// </summary>
         [Input("authorization")]
         public Input<Inputs.OriginEndpointAuthorizationArgs>? Authorization { get; set; }
 
@@ -156,9 +174,15 @@ namespace Pulumi.AwsNative.MediaPackage
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 
+        /// <summary>
+        /// Parameters for Common Media Application Format (CMAF) packaging.
+        /// </summary>
         [Input("cmafPackage")]
         public Input<Inputs.OriginEndpointCmafPackageArgs>? CmafPackage { get; set; }
 
+        /// <summary>
+        /// Parameters for DASH packaging.
+        /// </summary>
         [Input("dashPackage")]
         public Input<Inputs.OriginEndpointDashPackageArgs>? DashPackage { get; set; }
 
@@ -168,6 +192,9 @@ namespace Pulumi.AwsNative.MediaPackage
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Parameters for Apple HLS packaging.
+        /// </summary>
         [Input("hlsPackage")]
         public Input<Inputs.OriginEndpointHlsPackageArgs>? HlsPackage { get; set; }
 
@@ -177,6 +204,9 @@ namespace Pulumi.AwsNative.MediaPackage
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
+        /// <summary>
+        /// Parameters for Microsoft Smooth Streaming packaging.
+        /// </summary>
         [Input("mssPackage")]
         public Input<Inputs.OriginEndpointMssPackageArgs>? MssPackage { get; set; }
 

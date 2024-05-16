@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileCustomConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API key credentials required for API key authentication.
+        /// </summary>
         [Input("apiKey")]
         public Input<Inputs.ConnectorProfileApiKeyCredentialsArgs>? ApiKey { get; set; }
 
+        /// <summary>
+        /// The authentication type that the custom connector uses for authenticating while creating a connector profile.
+        /// </summary>
         [Input("authenticationType", required: true)]
         public Input<Pulumi.AwsNative.AppFlow.ConnectorProfileAuthenticationType> AuthenticationType { get; set; } = null!;
 
+        /// <summary>
+        /// The basic auth credentials required for basic authentication.
+        /// </summary>
         [Input("basic")]
         public Input<Inputs.ConnectorProfileBasicAuthCredentialsArgs>? Basic { get; set; }
 
+        /// <summary>
+        /// The custom credentials required for custom authentication.
+        /// </summary>
         [Input("custom")]
         public Input<Inputs.ConnectorProfileCustomAuthCredentialsArgs>? Custom { get; set; }
 
+        /// <summary>
+        /// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
+        /// </summary>
         [Input("oauth2")]
         public Input<Inputs.ConnectorProfileOAuth2CredentialsArgs>? Oauth2 { get; set; }
 

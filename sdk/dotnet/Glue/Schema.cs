@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of a schema.
+        /// </summary>
         [Output("checkpointVersion")]
         public Output<Outputs.SchemaVersion?> CheckpointVersion { get; private set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a registry in the AWS Glue Schema Registry.
+        /// </summary>
         [Output("registry")]
         public Output<Outputs.SchemaRegistry?> Registry { get; private set; } = null!;
 
@@ -121,6 +127,9 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the version of a schema.
+        /// </summary>
         [Input("checkpointVersion")]
         public Input<Inputs.SchemaVersionArgs>? CheckpointVersion { get; set; }
 
@@ -148,6 +157,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies a registry in the AWS Glue Schema Registry.
+        /// </summary>
         [Input("registry")]
         public Input<Inputs.SchemaRegistryArgs>? Registry { get; set; }
 

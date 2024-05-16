@@ -24,6 +24,10 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+        :param pulumi.Input['DomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: The configuration containing information about the customer managed key used for encrypting customer data.
+        :param pulumi.Input[str] description: The description of the domain.
+        :param pulumi.Input[str] name: The name for the domain.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if description is not None:
@@ -36,6 +40,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Input['DomainServerSideEncryptionConfigurationArgs']:
+        """
+        The configuration containing information about the customer managed key used for encrypting customer data.
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -45,6 +52,9 @@ class DomainArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the domain.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -54,6 +64,9 @@ class DomainArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the domain.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +76,9 @@ class DomainArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -85,6 +101,10 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the domain.
+        :param pulumi.Input[str] name: The name for the domain.
+        :param pulumi.Input[pulumi.InputType['DomainServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: The configuration containing information about the customer managed key used for encrypting customer data.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
     @overload
@@ -162,25 +182,40 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the domain.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the domain.
+        """
         return pulumi.get(self, "domain_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the domain.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output['outputs.DomainServerSideEncryptionConfiguration']:
+        """
+        The configuration containing information about the customer managed key used for encrypting customer data.
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        """
         return pulumi.get(self, "tags")
 

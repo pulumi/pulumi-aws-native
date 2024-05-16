@@ -81,17 +81,59 @@ export class DomainName extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainName.__pulumiType;
     }
 
+    /**
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
+     *
+     * Example: `d111111abcdef8.cloudfront.net`
+     */
     public /*out*/ readonly distributionDomainName!: pulumi.Output<string>;
+    /**
+     * The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
+     */
     public /*out*/ readonly distributionHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The custom domain name as an API host name, for example, `my-api.example.com` .
+     */
     public readonly domainName!: pulumi.Output<string | undefined>;
+    /**
+     * The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+     *
+     * `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+     */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
+    /**
+     * The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+     */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
+    /**
+     * The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+     */
     public readonly ownershipVerificationCertificateArn!: pulumi.Output<string | undefined>;
+    /**
+     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+     */
     public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
+    /**
+     * The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+     */
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    /**
+     * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+     */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+     */
     public readonly securityPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -142,12 +184,40 @@ export class DomainName extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainName resource.
  */
 export interface DomainNameArgs {
+    /**
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     */
     certificateArn?: pulumi.Input<string>;
+    /**
+     * The custom domain name as an API host name, for example, `my-api.example.com` .
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+     *
+     * `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+     */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs>;
+    /**
+     * The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+     */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthenticationArgs>;
+    /**
+     * The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+     */
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
+    /**
+     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+     */
     regionalCertificateArn?: pulumi.Input<string>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+     */
     securityPolicy?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

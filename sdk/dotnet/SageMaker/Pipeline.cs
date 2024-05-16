@@ -71,9 +71,15 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The parallelism configuration applied to the pipeline.
+        /// </summary>
         [Output("parallelismConfiguration")]
         public Output<Outputs.ParallelismConfigurationProperties?> ParallelismConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        /// </summary>
         [Output("pipelineDefinition")]
         public Output<Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>> PipelineDefinition { get; private set; } = null!;
 
@@ -101,6 +107,13 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+        /// 
+        /// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
+        /// 
+        /// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -153,9 +166,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parallelism configuration applied to the pipeline.
+        /// </summary>
         [Input("parallelismConfiguration")]
         public Input<Inputs.ParallelismConfigurationPropertiesArgs>? ParallelismConfiguration { get; set; }
 
+        /// <summary>
+        /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        /// </summary>
         [Input("pipelineDefinition", required: true)]
         public InputUnion<Inputs.PipelineDefinition0PropertiesArgs, Inputs.PipelineDefinition1PropertiesArgs> PipelineDefinition { get; set; } = null!;
 
@@ -185,6 +204,14 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+        /// 
+        /// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
+        /// 
+        /// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

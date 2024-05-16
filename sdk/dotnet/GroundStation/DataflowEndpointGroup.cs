@@ -62,9 +62,15 @@ namespace Pulumi.AwsNative.GroundStation
     [AwsNativeResourceType("aws-native:groundstation:DataflowEndpointGroup")]
     public partial class DataflowEndpointGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// UUID of a dataflow endpoint group.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -80,9 +86,15 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("contactPrePassDurationSeconds")]
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The security details and endpoint information.
+        /// </summary>
         [Output("endpointDetails")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails>> EndpointDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -145,6 +157,10 @@ namespace Pulumi.AwsNative.GroundStation
 
         [Input("endpointDetails", required: true)]
         private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _endpointDetails;
+
+        /// <summary>
+        /// The security details and endpoint information.
+        /// </summary>
         public InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs> EndpointDetails
         {
             get => _endpointDetails ?? (_endpointDetails = new InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>());
@@ -153,6 +169,10 @@ namespace Pulumi.AwsNative.GroundStation
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

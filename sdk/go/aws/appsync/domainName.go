@@ -16,11 +16,16 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	AppSyncDomainName pulumi.StringOutput    `pulumi:"appSyncDomainName"`
-	CertificateArn    pulumi.StringOutput    `pulumi:"certificateArn"`
-	Description       pulumi.StringPtrOutput `pulumi:"description"`
-	DomainName        pulumi.StringOutput    `pulumi:"domainName"`
-	HostedZoneId      pulumi.StringOutput    `pulumi:"hostedZoneId"`
+	// The domain name provided by AWS AppSync .
+	AppSyncDomainName pulumi.StringOutput `pulumi:"appSyncDomainName"`
+	// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+	// The decription for your domain name.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The domain name.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The ID of your Amazon Route 53 hosted zone.
+	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -74,16 +79,22 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	CertificateArn string  `pulumi:"certificateArn"`
-	Description    *string `pulumi:"description"`
-	DomainName     string  `pulumi:"domainName"`
+	// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+	CertificateArn string `pulumi:"certificateArn"`
+	// The decription for your domain name.
+	Description *string `pulumi:"description"`
+	// The domain name.
+	DomainName string `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
+	// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
 	CertificateArn pulumi.StringInput
-	Description    pulumi.StringPtrInput
-	DomainName     pulumi.StringInput
+	// The decription for your domain name.
+	Description pulumi.StringPtrInput
+	// The domain name.
+	DomainName pulumi.StringInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -123,22 +134,27 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
+// The domain name provided by AWS AppSync .
 func (o DomainNameOutput) AppSyncDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.AppSyncDomainName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
 func (o DomainNameOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
+// The decription for your domain name.
 func (o DomainNameOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The domain name.
 func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// The ID of your Amazon Route 53 hosted zone.
 func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }

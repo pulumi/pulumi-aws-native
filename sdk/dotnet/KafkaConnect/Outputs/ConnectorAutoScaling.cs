@@ -28,7 +28,13 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
         /// The minimum number of workers for a connector.
         /// </summary>
         public readonly int MinWorkerCount;
+        /// <summary>
+        /// The scale-in policy for the connector.
+        /// </summary>
         public readonly Outputs.ConnectorScaleInPolicy ScaleInPolicy;
+        /// <summary>
+        /// The scale-out policy for the connector.
+        /// </summary>
         public readonly Outputs.ConnectorScaleOutPolicy ScaleOutPolicy;
 
         [OutputConstructor]

@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("attributes", required: true)]
         private InputList<string>? _attributes;
+
+        /// <summary>
+        /// A list of the attributes to select from the message.
+        /// </summary>
         public InputList<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<string>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// The name of the 'selectAttributes' activity.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         [Input("next")]
         public Input<string>? Next { get; set; }
 

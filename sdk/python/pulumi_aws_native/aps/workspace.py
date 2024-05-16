@@ -28,6 +28,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
         :param pulumi.Input[str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
+        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Contains information about the logging configuration for the workspace.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if alert_manager_definition is not None:
@@ -80,6 +81,9 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]:
+        """
+        Contains information about the logging configuration for the workspace.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -168,6 +172,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
         :param pulumi.Input[str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
+        :param pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']] logging_configuration: Contains information about the logging configuration for the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -335,6 +340,9 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceLoggingConfiguration']]:
+        """
+        Contains information about the logging configuration for the workspace.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @property

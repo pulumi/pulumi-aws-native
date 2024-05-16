@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class GetResourceDataSyncArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the resource data sync.
+        /// </summary>
         [Input("syncName", required: true)]
         public string SyncName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class GetResourceDataSyncInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the resource data sync.
+        /// </summary>
         [Input("syncName", required: true)]
         public Input<string> SyncName { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ssm
     [OutputType]
     public sealed class GetResourceDataSyncResult
     {
+        /// <summary>
+        /// Information about the source of the data included in the resource data sync.
+        /// </summary>
         public readonly Outputs.ResourceDataSyncSyncSource? SyncSource;
 
         [OutputConstructor]

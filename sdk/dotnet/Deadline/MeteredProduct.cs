@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:MeteredProduct")]
     public partial class MeteredProduct : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the metered product.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The family to which the metered product belongs.
+        /// </summary>
         [Output("family")]
         public Output<string?> Family { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 identifier of the license endpoint.
+        /// </summary>
         [Output("licenseEndpointId")]
         public Output<string?> LicenseEndpointId { get; private set; } = null!;
 
+        /// <summary>
+        /// The port on which the metered product should run.
+        /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// The product ID.
+        /// </summary>
         [Output("productId")]
         public Output<string?> ProductId { get; private set; } = null!;
 
+        /// <summary>
+        /// The vendor.
+        /// </summary>
         [Output("vendor")]
         public Output<string?> Vendor { get; private set; } = null!;
 
@@ -83,18 +101,33 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class MeteredProductArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The family to which the metered product belongs.
+        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        /// <summary>
+        /// The Amazon EC2 identifier of the license endpoint.
+        /// </summary>
         [Input("licenseEndpointId")]
         public Input<string>? LicenseEndpointId { get; set; }
 
+        /// <summary>
+        /// The port on which the metered product should run.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The product ID.
+        /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
+        /// <summary>
+        /// The vendor.
+        /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }
 

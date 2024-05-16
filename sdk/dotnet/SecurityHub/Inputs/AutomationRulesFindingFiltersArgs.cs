@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     {
         [Input("awsAccountId")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _awsAccountId;
+
+        /// <summary>
+        /// A string filter for filtering AWS Security Hub findings.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> AwsAccountId
         {
             get => _awsAccountId ?? (_awsAccountId = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -22,6 +26,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("companyName")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _companyName;
+
+        /// <summary>
+        /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> CompanyName
         {
             get => _companyName ?? (_companyName = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -30,6 +40,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("complianceAssociatedStandardsId")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _complianceAssociatedStandardsId;
+
+        /// <summary>
+        /// The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ComplianceAssociatedStandardsId
         {
             get => _complianceAssociatedStandardsId ?? (_complianceAssociatedStandardsId = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -38,6 +54,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("complianceSecurityControlId")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _complianceSecurityControlId;
+
+        /// <summary>
+        /// The security control ID for which a finding was generated. Security control IDs are the same across standards.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ComplianceSecurityControlId
         {
             get => _complianceSecurityControlId ?? (_complianceSecurityControlId = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -46,6 +68,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("complianceStatus")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _complianceStatus;
+
+        /// <summary>
+        /// The result of a security check. This field is only used for findings generated from controls.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ComplianceStatus
         {
             get => _complianceStatus ?? (_complianceStatus = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -54,6 +82,10 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("confidence")]
         private InputList<Inputs.AutomationRuleNumberFilterArgs>? _confidence;
+
+        /// <summary>
+        /// A number filter for querying findings.
+        /// </summary>
         public InputList<Inputs.AutomationRuleNumberFilterArgs> Confidence
         {
             get => _confidence ?? (_confidence = new InputList<Inputs.AutomationRuleNumberFilterArgs>());
@@ -62,6 +94,10 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("createdAt")]
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _createdAt;
+
+        /// <summary>
+        /// A date filter for querying findings.
+        /// </summary>
         public InputList<Inputs.AutomationRuleDateFilterArgs> CreatedAt
         {
             get => _createdAt ?? (_createdAt = new InputList<Inputs.AutomationRuleDateFilterArgs>());
@@ -70,6 +106,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("criticality")]
         private InputList<Inputs.AutomationRuleNumberFilterArgs>? _criticality;
+
+        /// <summary>
+        /// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleNumberFilterArgs> Criticality
         {
             get => _criticality ?? (_criticality = new InputList<Inputs.AutomationRuleNumberFilterArgs>());
@@ -78,6 +120,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("description")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _description;
+
+        /// <summary>
+        /// A finding's description.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Description
         {
             get => _description ?? (_description = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -86,6 +134,20 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("firstObservedAt")]
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _firstObservedAt;
+
+        /// <summary>
+        /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
+        /// 
+        /// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+        /// 
+        /// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+        /// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleDateFilterArgs> FirstObservedAt
         {
             get => _firstObservedAt ?? (_firstObservedAt = new InputList<Inputs.AutomationRuleDateFilterArgs>());
@@ -94,6 +156,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("generatorId")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _generatorId;
+
+        /// <summary>
+        /// The identifier for the solution-specific component that generated a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> GeneratorId
         {
             get => _generatorId ?? (_generatorId = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -102,6 +170,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("id")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _id;
+
+        /// <summary>
+        /// The product-specific identifier for a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Id
         {
             get => _id ?? (_id = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -110,6 +184,20 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("lastObservedAt")]
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _lastObservedAt;
+
+        /// <summary>
+        /// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
+        /// 
+        /// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+        /// 
+        /// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+        /// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleDateFilterArgs> LastObservedAt
         {
             get => _lastObservedAt ?? (_lastObservedAt = new InputList<Inputs.AutomationRuleDateFilterArgs>());
@@ -118,6 +206,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("noteText")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _noteText;
+
+        /// <summary>
+        /// The text of a user-defined note that's added to a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> NoteText
         {
             get => _noteText ?? (_noteText = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -126,6 +220,20 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("noteUpdatedAt")]
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _noteUpdatedAt;
+
+        /// <summary>
+        /// The timestamp of when the note was updated.
+        /// 
+        /// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+        /// 
+        /// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+        /// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleDateFilterArgs> NoteUpdatedAt
         {
             get => _noteUpdatedAt ?? (_noteUpdatedAt = new InputList<Inputs.AutomationRuleDateFilterArgs>());
@@ -134,6 +242,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("noteUpdatedBy")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _noteUpdatedBy;
+
+        /// <summary>
+        /// The principal that created a note.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> NoteUpdatedBy
         {
             get => _noteUpdatedBy ?? (_noteUpdatedBy = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -142,6 +256,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("productArn")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _productArn;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ProductArn
         {
             get => _productArn ?? (_productArn = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -150,6 +270,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("productName")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _productName;
+
+        /// <summary>
+        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ProductName
         {
             get => _productName ?? (_productName = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -158,6 +284,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("recordState")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _recordState;
+
+        /// <summary>
+        /// Provides the current state of a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> RecordState
         {
             get => _recordState ?? (_recordState = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -166,6 +298,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("relatedFindingsId")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _relatedFindingsId;
+
+        /// <summary>
+        /// The product-generated identifier for a related finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> RelatedFindingsId
         {
             get => _relatedFindingsId ?? (_relatedFindingsId = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -174,6 +312,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("relatedFindingsProductArn")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _relatedFindingsProductArn;
+
+        /// <summary>
+        /// The ARN for the product that generated a related finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> RelatedFindingsProductArn
         {
             get => _relatedFindingsProductArn ?? (_relatedFindingsProductArn = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -182,6 +326,10 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("resourceDetailsOther")]
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _resourceDetailsOther;
+
+        /// <summary>
+        /// A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+        /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> ResourceDetailsOther
         {
             get => _resourceDetailsOther ?? (_resourceDetailsOther = new InputList<Inputs.AutomationRuleMapFilterArgs>());
@@ -190,6 +338,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("resourceId")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceId;
+
+        /// <summary>
+        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourceId
         {
             get => _resourceId ?? (_resourceId = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -198,6 +352,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("resourcePartition")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourcePartition;
+
+        /// <summary>
+        /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourcePartition
         {
             get => _resourcePartition ?? (_resourcePartition = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -206,6 +366,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("resourceRegion")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceRegion;
+
+        /// <summary>
+        /// The AWS Region where the resource that a finding pertains to is located.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourceRegion
         {
             get => _resourceRegion ?? (_resourceRegion = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -214,6 +380,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("resourceTags")]
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _resourceTags;
+
+        /// <summary>
+        /// A list of AWS tags associated with a resource at the time the finding was processed.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.AutomationRuleMapFilterArgs>());
@@ -222,6 +394,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("resourceType")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceType;
+
+        /// <summary>
+        /// A finding's title.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourceType
         {
             get => _resourceType ?? (_resourceType = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -230,6 +408,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("severityLabel")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _severityLabel;
+
+        /// <summary>
+        /// The severity value of the finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> SeverityLabel
         {
             get => _severityLabel ?? (_severityLabel = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -238,6 +422,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("sourceUrl")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _sourceUrl;
+
+        /// <summary>
+        /// Provides a URL that links to a page about the current finding in the finding product.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> SourceUrl
         {
             get => _sourceUrl ?? (_sourceUrl = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -246,6 +436,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("title")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _title;
+
+        /// <summary>
+        /// A finding's title.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Title
         {
             get => _title ?? (_title = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -254,6 +450,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("type")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _type;
+
+        /// <summary>
+        /// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Type
         {
             get => _type ?? (_type = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -262,6 +464,20 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("updatedAt")]
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _updatedAt;
+
+        /// <summary>
+        /// A timestamp that indicates when the finding record was most recently updated.
+        /// 
+        /// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+        /// 
+        /// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+        /// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleDateFilterArgs> UpdatedAt
         {
             get => _updatedAt ?? (_updatedAt = new InputList<Inputs.AutomationRuleDateFilterArgs>());
@@ -270,6 +486,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("userDefinedFields")]
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _userDefinedFields;
+
+        /// <summary>
+        /// A list of user-defined name and value string pairs added to a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> UserDefinedFields
         {
             get => _userDefinedFields ?? (_userDefinedFields = new InputList<Inputs.AutomationRuleMapFilterArgs>());
@@ -278,6 +500,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("verificationState")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _verificationState;
+
+        /// <summary>
+        /// Provides the veracity of a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> VerificationState
         {
             get => _verificationState ?? (_verificationState = new InputList<Inputs.AutomationRuleStringFilterArgs>());
@@ -286,6 +514,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("workflowStatus")]
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _workflowStatus;
+
+        /// <summary>
+        /// Provides information about the status of the investigation into a finding.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> WorkflowStatus
         {
             get => _workflowStatus ?? (_workflowStatus = new InputList<Inputs.AutomationRuleStringFilterArgs>());

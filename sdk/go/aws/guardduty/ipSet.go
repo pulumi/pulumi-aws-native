@@ -17,13 +17,23 @@ import (
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	Activate   pulumi.BoolPtrOutput   `pulumi:"activate"`
-	AwsId      pulumi.StringOutput    `pulumi:"awsId"`
+	// Indicates whether or not GuardDuty uses the `IPSet` .
+	Activate pulumi.BoolPtrOutput `pulumi:"activate"`
+	AwsId    pulumi.StringOutput  `pulumi:"awsId"`
+	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
-	Format     pulumi.StringOutput    `pulumi:"format"`
-	Location   pulumi.StringOutput    `pulumi:"location"`
-	Name       pulumi.StringPtrOutput `pulumi:"name"`
-	Tags       aws.TagArrayOutput     `pulumi:"tags"`
+	// The format of the file that contains the IPSet.
+	Format pulumi.StringOutput `pulumi:"format"`
+	// The URI of the file that contains the IPSet.
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The user-friendly name to identify the IPSet.
+	//
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -77,22 +87,42 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	Activate   *bool     `pulumi:"activate"`
-	DetectorId *string   `pulumi:"detectorId"`
-	Format     string    `pulumi:"format"`
-	Location   string    `pulumi:"location"`
-	Name       *string   `pulumi:"name"`
-	Tags       []aws.Tag `pulumi:"tags"`
+	// Indicates whether or not GuardDuty uses the `IPSet` .
+	Activate *bool `pulumi:"activate"`
+	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	DetectorId *string `pulumi:"detectorId"`
+	// The format of the file that contains the IPSet.
+	Format string `pulumi:"format"`
+	// The URI of the file that contains the IPSet.
+	Location string `pulumi:"location"`
+	// The user-friendly name to identify the IPSet.
+	//
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	Name *string `pulumi:"name"`
+	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	Activate   pulumi.BoolPtrInput
+	// Indicates whether or not GuardDuty uses the `IPSet` .
+	Activate pulumi.BoolPtrInput
+	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 	DetectorId pulumi.StringPtrInput
-	Format     pulumi.StringInput
-	Location   pulumi.StringInput
-	Name       pulumi.StringPtrInput
-	Tags       aws.TagArrayInput
+	// The format of the file that contains the IPSet.
+	Format pulumi.StringInput
+	// The URI of the file that contains the IPSet.
+	Location pulumi.StringInput
+	// The user-friendly name to identify the IPSet.
+	//
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	Name pulumi.StringPtrInput
+	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -132,6 +162,7 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
 }
 
+// Indicates whether or not GuardDuty uses the `IPSet` .
 func (o IpSetOutput) Activate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
 }
@@ -140,22 +171,31 @@ func (o IpSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 func (o IpSetOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
+// The format of the file that contains the IPSet.
 func (o IpSetOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
+// The URI of the file that contains the IPSet.
 func (o IpSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// The user-friendly name to identify the IPSet.
+//
+// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
 func (o IpSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o IpSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *IpSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

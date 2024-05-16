@@ -37,8 +37,17 @@ export class PublicKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === PublicKey.__pulumiType;
     }
 
+    /**
+     * The identifier of the public key.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The date and time when the public key was uploaded.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+     */
     public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyConfig>;
 
     /**
@@ -72,5 +81,8 @@ export class PublicKey extends pulumi.CustomResource {
  * The set of arguments for constructing a PublicKey resource.
  */
 export interface PublicKeyArgs {
+    /**
+     * Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+     */
     publicKeyConfig: pulumi.Input<inputs.cloudfront.PublicKeyConfigArgs>;
 }

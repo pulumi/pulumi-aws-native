@@ -17,15 +17,24 @@ import (
 type KnowledgeBase struct {
 	pulumi.CustomResourceState
 
-	Description                       pulumi.StringPtrOutput                                  `pulumi:"description"`
-	KnowledgeBaseArn                  pulumi.StringOutput                                     `pulumi:"knowledgeBaseArn"`
-	KnowledgeBaseId                   pulumi.StringOutput                                     `pulumi:"knowledgeBaseId"`
-	KnowledgeBaseType                 KnowledgeBaseTypeOutput                                 `pulumi:"knowledgeBaseType"`
-	Name                              pulumi.StringOutput                                     `pulumi:"name"`
-	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrOutput            `pulumi:"renderingConfiguration"`
+	// The description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the knowledge base.
+	KnowledgeBaseArn pulumi.StringOutput `pulumi:"knowledgeBaseArn"`
+	// The ID of the knowledge base.
+	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
+	// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+	KnowledgeBaseType KnowledgeBaseTypeOutput `pulumi:"knowledgeBaseType"`
+	// The name of the knowledge base.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Information about how to render the content.
+	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrOutput `pulumi:"renderingConfiguration"`
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrOutput               `pulumi:"sourceConfiguration"`
-	Tags                              aws.CreateOnlyTagArrayOutput                            `pulumi:"tags"`
+	// Configuration information about the external data source.
+	SourceConfiguration KnowledgeBaseSourceConfigurationPtrOutput `pulumi:"sourceConfiguration"`
+	// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewKnowledgeBase registers a new resource with the given unique name, arguments, and options.
@@ -80,24 +89,38 @@ func (KnowledgeBaseState) ElementType() reflect.Type {
 }
 
 type knowledgeBaseArgs struct {
-	Description                       *string                                         `pulumi:"description"`
-	KnowledgeBaseType                 KnowledgeBaseType                               `pulumi:"knowledgeBaseType"`
-	Name                              *string                                         `pulumi:"name"`
-	RenderingConfiguration            *KnowledgeBaseRenderingConfiguration            `pulumi:"renderingConfiguration"`
+	// The description.
+	Description *string `pulumi:"description"`
+	// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+	KnowledgeBaseType KnowledgeBaseType `pulumi:"knowledgeBaseType"`
+	// The name of the knowledge base.
+	Name *string `pulumi:"name"`
+	// Information about how to render the content.
+	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	SourceConfiguration               *KnowledgeBaseSourceConfiguration               `pulumi:"sourceConfiguration"`
-	Tags                              []aws.CreateOnlyTag                             `pulumi:"tags"`
+	// Configuration information about the external data source.
+	SourceConfiguration *KnowledgeBaseSourceConfiguration `pulumi:"sourceConfiguration"`
+	// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KnowledgeBase resource.
 type KnowledgeBaseArgs struct {
-	Description                       pulumi.StringPtrInput
-	KnowledgeBaseType                 KnowledgeBaseTypeInput
-	Name                              pulumi.StringPtrInput
-	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
+	// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+	KnowledgeBaseType KnowledgeBaseTypeInput
+	// The name of the knowledge base.
+	Name pulumi.StringPtrInput
+	// Information about how to render the content.
+	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrInput
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
-	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrInput
-	Tags                              aws.CreateOnlyTagArrayInput
+	// Configuration information about the external data source.
+	SourceConfiguration KnowledgeBaseSourceConfigurationPtrInput
+	// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (KnowledgeBaseArgs) ElementType() reflect.Type {
@@ -137,40 +160,49 @@ func (o KnowledgeBaseOutput) ToKnowledgeBaseOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The description.
 func (o KnowledgeBaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the knowledge base.
 func (o KnowledgeBaseOutput) KnowledgeBaseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseArn }).(pulumi.StringOutput)
 }
 
+// The ID of the knowledge base.
 func (o KnowledgeBaseOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
+// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
 func (o KnowledgeBaseOutput) KnowledgeBaseType() KnowledgeBaseTypeOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseTypeOutput { return v.KnowledgeBaseType }).(KnowledgeBaseTypeOutput)
 }
 
+// The name of the knowledge base.
 func (o KnowledgeBaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Information about how to render the content.
 func (o KnowledgeBaseOutput) RenderingConfiguration() KnowledgeBaseRenderingConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseRenderingConfigurationPtrOutput { return v.RenderingConfiguration }).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
+// The configuration information for the customer managed key used for encryption.
 func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
+// Configuration information about the external data source.
 func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
+// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
 func (o KnowledgeBaseOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBase) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

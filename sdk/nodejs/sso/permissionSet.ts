@@ -37,6 +37,9 @@ export class PermissionSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === PermissionSet.__pulumiType;
     }
 
+    /**
+     * Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+     */
     public readonly customerManagedPolicyReferences!: pulumi.Output<outputs.sso.PermissionSetCustomerManagedPolicyReference[] | undefined>;
     /**
      * The permission set description.
@@ -52,6 +55,9 @@ export class PermissionSet extends pulumi.CustomResource {
      * The sso instance arn that the permission set is owned.
      */
     public readonly instanceArn!: pulumi.Output<string>;
+    /**
+     * A structure that stores the details of the AWS managed policy.
+     */
     public readonly managedPolicies!: pulumi.Output<string[] | undefined>;
     /**
      * The name you want to assign to this permission set.
@@ -61,6 +67,11 @@ export class PermissionSet extends pulumi.CustomResource {
      * The permission set that the policy will be attached to
      */
     public /*out*/ readonly permissionSetArn!: pulumi.Output<string>;
+    /**
+     * Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+     *
+     * > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
+     */
     public readonly permissionsBoundary!: pulumi.Output<outputs.sso.PermissionSetPermissionsBoundary | undefined>;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
@@ -70,6 +81,9 @@ export class PermissionSet extends pulumi.CustomResource {
      * The length of time that a user can be signed in to an AWS account.
      */
     public readonly sessionDuration!: pulumi.Output<string | undefined>;
+    /**
+     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -121,6 +135,9 @@ export class PermissionSet extends pulumi.CustomResource {
  * The set of arguments for constructing a PermissionSet resource.
  */
 export interface PermissionSetArgs {
+    /**
+     * Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+     */
     customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.sso.PermissionSetCustomerManagedPolicyReferenceArgs>[]>;
     /**
      * The permission set description.
@@ -136,11 +153,19 @@ export interface PermissionSetArgs {
      * The sso instance arn that the permission set is owned.
      */
     instanceArn: pulumi.Input<string>;
+    /**
+     * A structure that stores the details of the AWS managed policy.
+     */
     managedPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name you want to assign to this permission set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+     *
+     * > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
+     */
     permissionsBoundary?: pulumi.Input<inputs.sso.PermissionSetPermissionsBoundaryArgs>;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
@@ -150,5 +175,8 @@ export interface PermissionSetArgs {
      * The length of time that a user can be signed in to an AWS account.
      */
     sessionDuration?: pulumi.Input<string>;
+    /**
+     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

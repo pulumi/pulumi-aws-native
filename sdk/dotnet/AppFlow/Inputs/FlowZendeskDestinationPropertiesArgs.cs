@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowZendeskDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
@@ -27,9 +30,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
             set => _idFieldNames = value;
         }
 
+        /// <summary>
+        /// The object specified in the Zendesk flow destination.
+        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 
+        /// <summary>
+        /// The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
+        /// </summary>
         [Input("writeOperationType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowWriteOperationType>? WriteOperationType { get; set; }
 

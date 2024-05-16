@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisArcAxisDisplayRange
     {
+        /// <summary>
+        /// The maximum value of the arc axis range.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum value of the arc axis range.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

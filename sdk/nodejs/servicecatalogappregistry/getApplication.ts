@@ -16,6 +16,9 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetApplicationArgs {
+    /**
+     * The identifier of the application.
+     */
     id: string;
 }
 
@@ -32,16 +35,25 @@ export interface GetApplicationResult {
      * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
      */
     readonly applicationTagValue?: string;
+    /**
+     * The Amazon resource name (ARN) that specifies the application across services.
+     */
     readonly arn?: string;
     /**
      * The description of the application. 
      */
     readonly description?: string;
+    /**
+     * The identifier of the application.
+     */
     readonly id?: string;
     /**
      * The name of the application. 
      */
     readonly name?: string;
+    /**
+     * Key-value pairs you can use to associate with the application.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -52,5 +64,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
+    /**
+     * The identifier of the application.
+     */
     id: pulumi.Input<string>;
 }

@@ -86,28 +86,122 @@ export class Server extends pulumi.CustomResource {
         return obj['__pulumiType'] === Server.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
+     */
     public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    /**
+     * If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
+     */
     public readonly backupId!: pulumi.Output<string | undefined>;
+    /**
+     * The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+     */
     public readonly backupRetentionCount!: pulumi.Output<number | undefined>;
+    /**
+     * Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
+     *
+     * - You can provide either a self-signed, custom certificate, or the full certificate chain.
+     * - The certificate must be a valid X509 certificate, or a certificate chain in PEM format.
+     * - The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's `NotBefore` date), or after it expires (the certificate's `NotAfter` date).
+     * - The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .
+     * - The certificate must match the value of `CustomPrivateKey` .
+     */
     public readonly customCertificate!: pulumi.Output<string | undefined>;
+    /**
+     * Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
+     */
     public readonly customDomain!: pulumi.Output<string | undefined>;
+    /**
+     * Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
+     */
     public readonly customPrivateKey!: pulumi.Output<string | undefined>;
+    /**
+     * Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+     */
     public readonly disableAutomatedBackup!: pulumi.Output<boolean | undefined>;
+    /**
+     * A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
+     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
+     */
     public readonly engine!: pulumi.Output<string | undefined>;
+    /**
+     * The `EngineAttribute` property type specifies administrator credentials for an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. `EngineAttribute` is a property of the `AWS::OpsWorksCM::Server` resource type.
+     */
     public readonly engineAttributes!: pulumi.Output<outputs.opsworkscm.ServerEngineAttribute[] | undefined>;
+    /**
+     * The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
+     */
     public readonly engineModel!: pulumi.Output<string | undefined>;
+    /**
+     * The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
+     */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the instance profile that your Amazon EC2 instances use.
+     */
     public readonly instanceProfileArn!: pulumi.Output<string>;
+    /**
+     * The Amazon EC2 instance type to use. For example, `m5.large` .
+     */
     public readonly instanceType!: pulumi.Output<string>;
+    /**
+     * The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
+     */
     public readonly keyPair!: pulumi.Output<string | undefined>;
+    /**
+     * The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+     *
+     * - `HH:MM` for daily backups
+     * - `DDD:HH:MM` for weekly backups
+     *
+     * `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+     *
+     * *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+     *
+     * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+     */
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
+    /**
+     * The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+     *
+     * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+     */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    /**
+     * A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
+     *
+     * If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The name of the server.
+     */
     public readonly serverName!: pulumi.Output<string>;
+    /**
+     * The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+     */
     public readonly serviceRoleArn!: pulumi.Output<string>;
+    /**
+     * The IDs of subnets in which to launch the server EC2 instance.
+     *
+     * Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
+     *
+     * EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
+     *
+     * For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
+     */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. Leading and trailing spaces are trimmed from both the key and value. A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks CM resources.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -189,25 +283,113 @@ export class Server extends pulumi.CustomResource {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    /**
+     * Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
+     */
     associatePublicIpAddress?: pulumi.Input<boolean>;
+    /**
+     * If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
+     */
     backupId?: pulumi.Input<string>;
+    /**
+     * The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
+     */
     backupRetentionCount?: pulumi.Input<number>;
+    /**
+     * Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
+     *
+     * - You can provide either a self-signed, custom certificate, or the full certificate chain.
+     * - The certificate must be a valid X509 certificate, or a certificate chain in PEM format.
+     * - The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's `NotBefore` date), or after it expires (the certificate's `NotAfter` date).
+     * - The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .
+     * - The certificate must match the value of `CustomPrivateKey` .
+     */
     customCertificate?: pulumi.Input<string>;
+    /**
+     * Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
+     */
     customDomain?: pulumi.Input<string>;
+    /**
+     * Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
+     */
     customPrivateKey?: pulumi.Input<string>;
+    /**
+     * Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
+     */
     disableAutomatedBackup?: pulumi.Input<boolean>;
+    /**
+     * The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * The `EngineAttribute` property type specifies administrator credentials for an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. `EngineAttribute` is a property of the `AWS::OpsWorksCM::Server` resource type.
+     */
     engineAttributes?: pulumi.Input<pulumi.Input<inputs.opsworkscm.ServerEngineAttributeArgs>[]>;
+    /**
+     * The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
+     */
     engineModel?: pulumi.Input<string>;
+    /**
+     * The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
+     */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The ARN of the instance profile that your Amazon EC2 instances use.
+     */
     instanceProfileArn: pulumi.Input<string>;
+    /**
+     * The Amazon EC2 instance type to use. For example, `m5.large` .
+     */
     instanceType: pulumi.Input<string>;
+    /**
+     * The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
+     */
     keyPair?: pulumi.Input<string>;
+    /**
+     * The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
+     *
+     * - `HH:MM` for daily backups
+     * - `DDD:HH:MM` for weekly backups
+     *
+     * `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.
+     *
+     * *Example:* `08:00` , which represents a daily start time of 08:00 UTC.
+     *
+     * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+     */
     preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
+     *
+     * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
+     *
+     * If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the server.
+     */
     serverName?: pulumi.Input<string>;
+    /**
+     * The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+     */
     serviceRoleArn: pulumi.Input<string>;
+    /**
+     * The IDs of subnets in which to launch the server EC2 instance.
+     *
+     * Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
+     *
+     * EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
+     *
+     * For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server. Leading and trailing spaces are trimmed from both the key and value. A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks CM resources.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -19,6 +19,9 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetScheduleArgs {
+    /**
+     * The name of the schedule.
+     */
     name: string;
 }
 
@@ -35,6 +38,9 @@ export interface GetScheduleResult {
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
      */
     readonly endDate?: string;
+    /**
+     * Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+     */
     readonly flexibleTimeWindow?: outputs.scheduler.ScheduleFlexibleTimeWindow;
     /**
      * The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
@@ -56,7 +62,15 @@ export interface GetScheduleResult {
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
      */
     readonly startDate?: string;
+    /**
+     * Specifies whether the schedule is enabled or disabled.
+     *
+     * *Allowed Values* : `ENABLED` | `DISABLED`
+     */
     readonly state?: enums.scheduler.ScheduleState;
+    /**
+     * The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+     */
     readonly target?: outputs.scheduler.ScheduleTarget;
 }
 /**
@@ -67,5 +81,8 @@ export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetScheduleOutputArgs {
+    /**
+     * The name of the schedule.
+     */
     name: pulumi.Input<string>;
 }

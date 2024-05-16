@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     /// </summary>
     public sealed class AutomationRulesFindingFieldsUpdateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The rule action updates the `Confidence` field of a finding.
+        /// </summary>
         [Input("confidence")]
         public Input<int>? Confidence { get; set; }
 
+        /// <summary>
+        /// The rule action updates the `Criticality` field of a finding.
+        /// </summary>
         [Input("criticality")]
         public Input<int>? Criticality { get; set; }
 
@@ -47,6 +53,10 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("types")]
         private InputList<string>? _types;
+
+        /// <summary>
+        /// The rule action updates the `Types` field of a finding.
+        /// </summary>
         public InputList<string> Types
         {
             get => _types ?? (_types = new InputList<string>());
@@ -55,12 +65,19 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
         [Input("userDefinedFields")]
         private InputMap<string>? _userDefinedFields;
+
+        /// <summary>
+        /// The rule action updates the `UserDefinedFields` field of a finding.
+        /// </summary>
         public InputMap<string> UserDefinedFields
         {
             get => _userDefinedFields ?? (_userDefinedFields = new InputMap<string>());
             set => _userDefinedFields = value;
         }
 
+        /// <summary>
+        /// The rule action updates the `VerificationState` field of a finding.
+        /// </summary>
         [Input("verificationState")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState>? VerificationState { get; set; }
 

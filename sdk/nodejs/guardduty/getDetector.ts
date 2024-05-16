@@ -23,11 +23,26 @@ export interface GetDetectorArgs {
 }
 
 export interface GetDetectorResult {
+    /**
+     * Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+     */
     readonly dataSources?: outputs.guardduty.DetectorCfnDataSourceConfigurations;
+    /**
+     * Specifies whether the detector is to be enabled on creation.
+     */
     readonly enable?: boolean;
+    /**
+     * Information about the configuration of a feature in your account.
+     */
     readonly features?: outputs.guardduty.DetectorCfnFeatureConfiguration[];
+    /**
+     * Specifies how frequently updated findings are exported.
+     */
     readonly findingPublishingFrequency?: string;
     readonly id?: string;
+    /**
+     * Describes a tag.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

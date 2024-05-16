@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAxisDataOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine how a date axis is displayed.
+        /// </summary>
         [Input("dateAxisOptions")]
         public Input<Inputs.TemplateDateAxisOptionsArgs>? DateAxisOptions { get; set; }
 
+        /// <summary>
+        /// The options for an axis with a numeric field.
+        /// </summary>
         [Input("numericAxisOptions")]
         public Input<Inputs.TemplateNumericAxisOptionsArgs>? NumericAxisOptions { get; set; }
 

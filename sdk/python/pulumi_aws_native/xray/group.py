@@ -26,6 +26,8 @@ class GroupArgs:
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
         :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
+        :param pulumi.Input['GroupInsightsConfigurationArgs'] insights_configuration: The structure containing configurations related to insights.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if filter_expression is not None:
             pulumi.set(__self__, "filter_expression", filter_expression)
@@ -63,6 +65,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="insightsConfiguration")
     def insights_configuration(self) -> Optional[pulumi.Input['GroupInsightsConfigurationArgs']]:
+        """
+        The structure containing configurations related to insights.
+        """
         return pulumi.get(self, "insights_configuration")
 
     @insights_configuration.setter
@@ -72,6 +77,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -128,6 +136,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
         :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
+        :param pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']] insights_configuration: The structure containing configurations related to insights.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -259,10 +269,16 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="insightsConfiguration")
     def insights_configuration(self) -> pulumi.Output[Optional['outputs.GroupInsightsConfiguration']]:
+        """
+        The structure containing configurations related to insights.
+        """
         return pulumi.get(self, "insights_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

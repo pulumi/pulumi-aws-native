@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPeriodOverPeriodComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.DashboardDimensionField? Time;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]

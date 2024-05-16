@@ -22,8 +22,10 @@ class CostCategoryArgs:
                  split_charge_rules: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
+        :param pulumi.Input['CostCategoryRuleVersion'] rule_version: The rule schema version in this particular Cost Category.
         :param pulumi.Input[str] rules: JSON array format of Expression in Billing and Cost Management API
         :param pulumi.Input[str] default_value: The default value for the cost category
+        :param pulumi.Input[str] name: The unique name of the Cost Category.
         :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
         pulumi.set(__self__, "rule_version", rule_version)
@@ -38,6 +40,9 @@ class CostCategoryArgs:
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> pulumi.Input['CostCategoryRuleVersion']:
+        """
+        The rule schema version in this particular Cost Category.
+        """
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
@@ -71,6 +76,9 @@ class CostCategoryArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name of the Cost Category.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,6 +115,8 @@ class CostCategory(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_value: The default value for the cost category
+        :param pulumi.Input[str] name: The unique name of the Cost Category.
+        :param pulumi.Input['CostCategoryRuleVersion'] rule_version: The rule schema version in this particular Cost Category.
         :param pulumi.Input[str] rules: JSON array format of Expression in Billing and Cost Management API
         :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
@@ -211,16 +221,25 @@ class CostCategory(pulumi.CustomResource):
     @property
     @pulumi.getter(name="effectiveStart")
     def effective_start(self) -> pulumi.Output[str]:
+        """
+        The Cost Category's effective start date.
+        """
         return pulumi.get(self, "effective_start")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The unique name of the Cost Category.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> pulumi.Output['CostCategoryRuleVersion']:
+        """
+        The rule schema version in this particular Cost Category.
+        """
         return pulumi.get(self, "rule_version")
 
     @property

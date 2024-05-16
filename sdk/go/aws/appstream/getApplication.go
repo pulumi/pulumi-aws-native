@@ -23,19 +23,29 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
+	// The ARN of the application.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupApplicationResult struct {
-	AppBlockArn      *string                `pulumi:"appBlockArn"`
-	Arn              *string                `pulumi:"arn"`
-	CreatedTime      *string                `pulumi:"createdTime"`
-	Description      *string                `pulumi:"description"`
-	DisplayName      *string                `pulumi:"displayName"`
-	IconS3Location   *ApplicationS3Location `pulumi:"iconS3Location"`
-	LaunchParameters *string                `pulumi:"launchParameters"`
-	LaunchPath       *string                `pulumi:"launchPath"`
-	WorkingDirectory *string                `pulumi:"workingDirectory"`
+	// The app block ARN with which the application should be associated.
+	AppBlockArn *string `pulumi:"appBlockArn"`
+	// The ARN of the application.
+	Arn *string `pulumi:"arn"`
+	// The time when the application was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The description of the application.
+	Description *string `pulumi:"description"`
+	// The display name of the application. This name is visible to users in the application catalog.
+	DisplayName *string `pulumi:"displayName"`
+	// The S3 location of the application icon.
+	IconS3Location *ApplicationS3Location `pulumi:"iconS3Location"`
+	// The launch parameters of the application.
+	LaunchParameters *string `pulumi:"launchParameters"`
+	// The launch path of the application.
+	LaunchPath *string `pulumi:"launchPath"`
+	// The working directory of the application.
+	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -52,6 +62,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
+	// The ARN of the application.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -73,38 +84,47 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
+// The app block ARN with which the application should be associated.
 func (o LookupApplicationResultOutput) AppBlockArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.AppBlockArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the application.
 func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The time when the application was created.
 func (o LookupApplicationResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The description of the application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the application. This name is visible to users in the application catalog.
 func (o LookupApplicationResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The S3 location of the application icon.
 func (o LookupApplicationResultOutput) IconS3Location() ApplicationS3LocationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationS3Location { return v.IconS3Location }).(ApplicationS3LocationPtrOutput)
 }
 
+// The launch parameters of the application.
 func (o LookupApplicationResultOutput) LaunchParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.LaunchParameters }).(pulumi.StringPtrOutput)
 }
 
+// The launch path of the application.
 func (o LookupApplicationResultOutput) LaunchPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.LaunchPath }).(pulumi.StringPtrOutput)
 }
 
+// The working directory of the application.
 func (o LookupApplicationResultOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }

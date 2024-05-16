@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardRangeEndsLabelTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the range ends label.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

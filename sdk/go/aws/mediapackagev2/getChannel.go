@@ -38,8 +38,9 @@ type LookupChannelResult struct {
 	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
 	// <p>The date and time the channel was modified.</p>
-	ModifiedAt *string   `pulumi:"modifiedAt"`
-	Tags       []aws.Tag `pulumi:"tags"`
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The tags associated with the channel.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -103,6 +104,7 @@ func (o LookupChannelResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The tags associated with the channel.
 func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

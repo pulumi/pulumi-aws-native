@@ -38,7 +38,13 @@ export interface GetGroupResult {
      * The case-sensitive name of the new group. Names must be unique.
      */
     readonly groupName?: string;
+    /**
+     * The structure containing configurations related to insights.
+     */
     readonly insightsConfiguration?: outputs.xray.GroupInsightsConfiguration;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

@@ -24,19 +24,34 @@ func LookupBudgetsAction(ctx *pulumi.Context, args *LookupBudgetsActionArgs, opt
 }
 
 type LookupBudgetsActionArgs struct {
-	ActionId   string `pulumi:"actionId"`
+	// A system-generated universally unique identifier (UUID) for the action.
+	ActionId string `pulumi:"actionId"`
+	// A string that represents the budget name. ":" and "\" characters aren't allowed.
 	BudgetName string `pulumi:"budgetName"`
 }
 
 type LookupBudgetsActionResult struct {
-	ActionId         *string                        `pulumi:"actionId"`
-	ActionThreshold  *BudgetsActionActionThreshold  `pulumi:"actionThreshold"`
-	ApprovalModel    *BudgetsActionApprovalModel    `pulumi:"approvalModel"`
-	Definition       *BudgetsActionDefinition       `pulumi:"definition"`
-	ExecutionRoleArn *string                        `pulumi:"executionRoleArn"`
+	// A system-generated universally unique identifier (UUID) for the action.
+	ActionId *string `pulumi:"actionId"`
+	// The trigger threshold of the action.
+	ActionThreshold *BudgetsActionActionThreshold `pulumi:"actionThreshold"`
+	// This specifies if the action needs manual or automatic approval.
+	ApprovalModel *BudgetsActionApprovalModel `pulumi:"approvalModel"`
+	// The definition is where you specify all of the type-specific parameters.
+	Definition *BudgetsActionDefinition `pulumi:"definition"`
+	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// The type of a notification.
 	NotificationType *BudgetsActionNotificationType `pulumi:"notificationType"`
-	ResourceTags     []aws.Tag                      `pulumi:"resourceTags"`
-	Subscribers      []BudgetsActionSubscriber      `pulumi:"subscribers"`
+	// The tag structure that contains a tag key and value.
+	ResourceTags []aws.Tag `pulumi:"resourceTags"`
+	// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+	//
+	// For example, an email subscriber has the following parameters:
+	//
+	// - A `subscriptionType` of `EMAIL`
+	// - An `address` of `example@example.com`
+	Subscribers []BudgetsActionSubscriber `pulumi:"subscribers"`
 }
 
 func LookupBudgetsActionOutput(ctx *pulumi.Context, args LookupBudgetsActionOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetsActionResultOutput {
@@ -53,7 +68,9 @@ func LookupBudgetsActionOutput(ctx *pulumi.Context, args LookupBudgetsActionOutp
 }
 
 type LookupBudgetsActionOutputArgs struct {
-	ActionId   pulumi.StringInput `pulumi:"actionId"`
+	// A system-generated universally unique identifier (UUID) for the action.
+	ActionId pulumi.StringInput `pulumi:"actionId"`
+	// A string that represents the budget name. ":" and "\" characters aren't allowed.
 	BudgetName pulumi.StringInput `pulumi:"budgetName"`
 }
 
@@ -75,34 +92,47 @@ func (o LookupBudgetsActionResultOutput) ToLookupBudgetsActionResultOutputWithCo
 	return o
 }
 
+// A system-generated universally unique identifier (UUID) for the action.
 func (o LookupBudgetsActionResultOutput) ActionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *string { return v.ActionId }).(pulumi.StringPtrOutput)
 }
 
+// The trigger threshold of the action.
 func (o LookupBudgetsActionResultOutput) ActionThreshold() BudgetsActionActionThresholdPtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionActionThreshold { return v.ActionThreshold }).(BudgetsActionActionThresholdPtrOutput)
 }
 
+// This specifies if the action needs manual or automatic approval.
 func (o LookupBudgetsActionResultOutput) ApprovalModel() BudgetsActionApprovalModelPtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionApprovalModel { return v.ApprovalModel }).(BudgetsActionApprovalModelPtrOutput)
 }
 
+// The definition is where you specify all of the type-specific parameters.
 func (o LookupBudgetsActionResultOutput) Definition() BudgetsActionDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionDefinition { return v.Definition }).(BudgetsActionDefinitionPtrOutput)
 }
 
+// The role passed for action execution and reversion. Roles and actions must be in the same account.
 func (o LookupBudgetsActionResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of a notification.
 func (o LookupBudgetsActionResultOutput) NotificationType() BudgetsActionNotificationTypePtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionNotificationType { return v.NotificationType }).(BudgetsActionNotificationTypePtrOutput)
 }
 
+// The tag structure that contains a tag key and value.
 func (o LookupBudgetsActionResultOutput) ResourceTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) []aws.Tag { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
+// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+//
+// For example, an email subscriber has the following parameters:
+//
+// - A `subscriptionType` of `EMAIL`
+// - An `address` of `example@example.com`
 func (o LookupBudgetsActionResultOutput) Subscribers() BudgetsActionSubscriberArrayOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) []BudgetsActionSubscriber { return v.Subscribers }).(BudgetsActionSubscriberArrayOutput)
 }

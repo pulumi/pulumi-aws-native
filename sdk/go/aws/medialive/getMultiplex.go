@@ -42,8 +42,9 @@ type LookupMultiplexResult struct {
 	// The number of currently healthy pipelines.
 	PipelinesRunningCount *int `pulumi:"pipelinesRunningCount"`
 	// The number of programs in the multiplex.
-	ProgramCount *int                `pulumi:"programCount"`
-	State        *MultiplexStateEnum `pulumi:"state"`
+	ProgramCount *int `pulumi:"programCount"`
+	// The current state of the multiplex.
+	State *MultiplexStateEnum `pulumi:"state"`
 	// A collection of key-value pairs.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -119,6 +120,7 @@ func (o LookupMultiplexResultOutput) ProgramCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupMultiplexResult) *int { return v.ProgramCount }).(pulumi.IntPtrOutput)
 }
 
+// The current state of the multiplex.
 func (o LookupMultiplexResultOutput) State() MultiplexStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupMultiplexResult) *MultiplexStateEnum { return v.State }).(MultiplexStateEnumPtrOutput)
 }

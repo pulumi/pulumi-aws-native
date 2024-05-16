@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateMetricComparisonComputationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         [Input("computationId", required: true)]
         public Input<string> ComputationId { get; set; } = null!;
 
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         [Input("fromValue")]
         public Input<Inputs.TemplateMeasureFieldArgs>? FromValue { get; set; }
 
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         [Input("targetValue")]
         public Input<Inputs.TemplateMeasureFieldArgs>? TargetValue { get; set; }
 
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         [Input("time")]
         public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
 

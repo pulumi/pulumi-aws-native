@@ -10,9 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Outputs
 {
 
+    /// <summary>
+    /// A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+    /// 
+    /// `Conditions` differs from `ListOfTags` as follows:
+    /// 
+    /// - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
+    /// - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
+    /// </summary>
     [OutputType]
     public sealed class BackupSelectionResourceTypeConditionsProperties
     {
+        /// <summary>
+        /// Includes information about tags you define to assign tagged resources to a backup plan.
+        /// 
+        /// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupSelectionConditionParameter> StringEquals;
         public readonly ImmutableArray<Outputs.BackupSelectionConditionParameter> StringLike;
         public readonly ImmutableArray<Outputs.BackupSelectionConditionParameter> StringNotEquals;

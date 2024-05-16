@@ -30,6 +30,10 @@ class StreamProcessorBoundingBoxArgs:
                  width: pulumi.Input[float]):
         """
         A bounding box denoting a region of interest in the frame to be analyzed.
+        :param pulumi.Input[float] height: Height of the bounding box as a ratio of the overall image height.
+        :param pulumi.Input[float] left: Left coordinate of the bounding box as a ratio of overall image width.
+        :param pulumi.Input[float] top: Top coordinate of the bounding box as a ratio of overall image height.
+        :param pulumi.Input[float] width: Width of the bounding box as a ratio of the overall image width.
         """
         pulumi.set(__self__, "height", height)
         pulumi.set(__self__, "left", left)
@@ -39,6 +43,9 @@ class StreamProcessorBoundingBoxArgs:
     @property
     @pulumi.getter
     def height(self) -> pulumi.Input[float]:
+        """
+        Height of the bounding box as a ratio of the overall image height.
+        """
         return pulumi.get(self, "height")
 
     @height.setter
@@ -48,6 +55,9 @@ class StreamProcessorBoundingBoxArgs:
     @property
     @pulumi.getter
     def left(self) -> pulumi.Input[float]:
+        """
+        Left coordinate of the bounding box as a ratio of overall image width.
+        """
         return pulumi.get(self, "left")
 
     @left.setter
@@ -57,6 +67,9 @@ class StreamProcessorBoundingBoxArgs:
     @property
     @pulumi.getter
     def top(self) -> pulumi.Input[float]:
+        """
+        Top coordinate of the bounding box as a ratio of overall image height.
+        """
         return pulumi.get(self, "top")
 
     @top.setter
@@ -66,6 +79,9 @@ class StreamProcessorBoundingBoxArgs:
     @property
     @pulumi.getter
     def width(self) -> pulumi.Input[float]:
+        """
+        Width of the bounding box as a ratio of the overall image width.
+        """
         return pulumi.get(self, "width")
 
     @width.setter
@@ -80,6 +96,7 @@ class StreamProcessorConnectedHomeSettingsArgs:
                  min_confidence: Optional[pulumi.Input[float]] = None):
         """
         Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
         :param pulumi.Input[float] min_confidence: Minimum object class match confidence score that must be met to return a result for a recognized object.
         """
         pulumi.set(__self__, "labels", labels)
@@ -89,6 +106,9 @@ class StreamProcessorConnectedHomeSettingsArgs:
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter

@@ -15,21 +15,48 @@ namespace Pulumi.AwsNative.GreengrassV2
     [AwsNativeResourceType("aws-native:greengrassv2:ComponentVersion")]
     public partial class ComponentVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the component version.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the component.
+        /// </summary>
         [Output("componentName")]
         public Output<string> ComponentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the component.
+        /// </summary>
         [Output("componentVersion")]
         public Output<string> ComponentVersionValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
+        /// 
+        /// You must specify either `InlineRecipe` or `LambdaFunction` .
+        /// </summary>
         [Output("inlineRecipe")]
         public Output<string?> InlineRecipe { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about an AWS Lambda function to import to create a component.
+        /// </summary>
         [Output("lambdaFunction")]
         public Output<Outputs.ComponentVersionLambdaFunctionRecipeSource?> LambdaFunction { get; private set; } = null!;
 
+        /// <summary>
+        /// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// 
+        /// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+        /// 
+        /// ```json
+        /// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        /// }
+        /// ```
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -83,14 +110,33 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class ComponentVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
+        /// 
+        /// You must specify either `InlineRecipe` or `LambdaFunction` .
+        /// </summary>
         [Input("inlineRecipe")]
         public Input<string>? InlineRecipe { get; set; }
 
+        /// <summary>
+        /// Contains information about an AWS Lambda function to import to create a component.
+        /// </summary>
         [Input("lambdaFunction")]
         public Input<Inputs.ComponentVersionLambdaFunctionRecipeSourceArgs>? LambdaFunction { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// 
+        /// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+        /// 
+        /// ```json
+        /// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        /// }
+        /// ```
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

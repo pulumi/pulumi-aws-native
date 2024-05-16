@@ -67,15 +67,27 @@ namespace Pulumi.AwsNative.DataSync
         [Output("destinationLocationArn")]
         public Output<string> DestinationLocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
+        /// </summary>
         [Output("destinationNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> DestinationNetworkInterfaceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        /// </summary>
         [Output("excludes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Excludes { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        /// </summary>
         [Output("includes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Includes { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        /// </summary>
         [Output("manifestConfig")]
         public Output<Outputs.TaskManifestConfig?> ManifestConfig { get; private set; } = null!;
 
@@ -85,9 +97,17 @@ namespace Pulumi.AwsNative.DataSync
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
+        /// 
+        /// A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
+        /// </summary>
         [Output("options")]
         public Output<Outputs.TaskOptions?> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+        /// </summary>
         [Output("schedule")]
         public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
@@ -97,6 +117,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("sourceLocationArn")]
         public Output<string> SourceLocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the source ENIs that were created for your subnet.
+        /// </summary>
         [Output("sourceNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> SourceNetworkInterfaceArns { get; private set; } = null!;
 
@@ -118,6 +141,11 @@ namespace Pulumi.AwsNative.DataSync
         [Output("taskArn")]
         public Output<string> TaskArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+        /// 
+        /// For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        /// </summary>
         [Output("taskReportConfig")]
         public Output<Outputs.TaskReportConfig?> TaskReportConfig { get; private set; } = null!;
 
@@ -185,6 +213,10 @@ namespace Pulumi.AwsNative.DataSync
 
         [Input("excludes")]
         private InputList<Inputs.TaskFilterRuleArgs>? _excludes;
+
+        /// <summary>
+        /// Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Excludes
         {
             get => _excludes ?? (_excludes = new InputList<Inputs.TaskFilterRuleArgs>());
@@ -193,12 +225,19 @@ namespace Pulumi.AwsNative.DataSync
 
         [Input("includes")]
         private InputList<Inputs.TaskFilterRuleArgs>? _includes;
+
+        /// <summary>
+        /// Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Includes
         {
             get => _includes ?? (_includes = new InputList<Inputs.TaskFilterRuleArgs>());
             set => _includes = value;
         }
 
+        /// <summary>
+        /// Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        /// </summary>
         [Input("manifestConfig")]
         public Input<Inputs.TaskManifestConfigArgs>? ManifestConfig { get; set; }
 
@@ -208,9 +247,17 @@ namespace Pulumi.AwsNative.DataSync
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
+        /// 
+        /// A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
+        /// </summary>
         [Input("options")]
         public Input<Inputs.TaskOptionsArgs>? Options { get; set; }
 
+        /// <summary>
+        /// Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
@@ -232,6 +279,11 @@ namespace Pulumi.AwsNative.DataSync
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+        /// 
+        /// For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        /// </summary>
         [Input("taskReportConfig")]
         public Input<Inputs.TaskReportConfigArgs>? TaskReportConfig { get; set; }
 

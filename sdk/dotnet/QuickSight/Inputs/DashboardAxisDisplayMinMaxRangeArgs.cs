@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAxisDisplayMinMaxRangeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum setup for an axis display range.
+        /// </summary>
         [Input("maximum")]
         public Input<double>? Maximum { get; set; }
 
+        /// <summary>
+        /// The minimum setup for an axis display range.
+        /// </summary>
         [Input("minimum")]
         public Input<double>? Minimum { get; set; }
 

@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionNodePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+        /// </summary>
         [Input("mainNode", required: true)]
         public Input<int> MainNode { get; set; } = null!;
 
         [Input("nodeRangeProperties", required: true)]
         private InputList<Inputs.JobDefinitionNodeRangePropertyArgs>? _nodeRangeProperties;
+
+        /// <summary>
+        /// This is an object that represents the properties of the node range for a multi-node parallel job.
+        /// </summary>
         public InputList<Inputs.JobDefinitionNodeRangePropertyArgs> NodeRangeProperties
         {
             get => _nodeRangeProperties ?? (_nodeRangeProperties = new InputList<Inputs.JobDefinitionNodeRangePropertyArgs>());
             set => _nodeRangeProperties = value;
         }
 
+        /// <summary>
+        /// The number of nodes that are associated with a multi-node parallel job.
+        /// </summary>
         [Input("numNodes", required: true)]
         public Input<int> NumNodes { get; set; } = null!;
 

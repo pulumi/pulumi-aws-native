@@ -19,15 +19,36 @@ export function getConfig(args: GetConfigArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetConfigArgs {
+    /**
+     * The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     arn: string;
 }
 
 export interface GetConfigResult {
+    /**
+     * The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     readonly arn?: string;
+    /**
+     * Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+     */
     readonly configData?: outputs.groundstation.ConfigData;
+    /**
+     * The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     readonly id?: string;
+    /**
+     * The name of the config object.
+     */
     readonly name?: string;
+    /**
+     * Tags assigned to a resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The type of the config, such as `tracking` .
+     */
     readonly type?: string;
 }
 /**
@@ -38,5 +59,8 @@ export function getConfigOutput(args: GetConfigOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetConfigOutputArgs {
+    /**
+     * The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     arn: pulumi.Input<string>;
 }

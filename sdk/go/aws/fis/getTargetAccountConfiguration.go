@@ -23,13 +23,17 @@ func LookupTargetAccountConfiguration(ctx *pulumi.Context, args *LookupTargetAcc
 }
 
 type LookupTargetAccountConfigurationArgs struct {
-	AccountId            string `pulumi:"accountId"`
+	// The AWS account ID of the target account.
+	AccountId string `pulumi:"accountId"`
+	// The ID of the experiment template.
 	ExperimentTemplateId string `pulumi:"experimentTemplateId"`
 }
 
 type LookupTargetAccountConfigurationResult struct {
+	// The description of the target account.
 	Description *string `pulumi:"description"`
-	RoleArn     *string `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of an IAM role for the target account.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 func LookupTargetAccountConfigurationOutput(ctx *pulumi.Context, args LookupTargetAccountConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupTargetAccountConfigurationResultOutput {
@@ -46,7 +50,9 @@ func LookupTargetAccountConfigurationOutput(ctx *pulumi.Context, args LookupTarg
 }
 
 type LookupTargetAccountConfigurationOutputArgs struct {
-	AccountId            pulumi.StringInput `pulumi:"accountId"`
+	// The AWS account ID of the target account.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The ID of the experiment template.
 	ExperimentTemplateId pulumi.StringInput `pulumi:"experimentTemplateId"`
 }
 
@@ -68,10 +74,12 @@ func (o LookupTargetAccountConfigurationResultOutput) ToLookupTargetAccountConfi
 	return o
 }
 
+// The description of the target account.
 func (o LookupTargetAccountConfigurationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTargetAccountConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role for the target account.
 func (o LookupTargetAccountConfigurationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTargetAccountConfigurationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

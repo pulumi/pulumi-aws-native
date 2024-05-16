@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         [Input("recordType")]
         public Input<string>? RecordType { get; set; }
 
+        /// <summary>
+        /// The target resource that the Route 53 record points to.
+        /// </summary>
         [Input("targetResource")]
         public Input<Inputs.ResourceSetTargetResourceArgs>? TargetResource { get; set; }
 

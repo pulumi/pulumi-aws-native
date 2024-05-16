@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class AlarmModelAlarmRule
     {
+        /// <summary>
+        /// A rule that compares an input property value to a threshold value with a comparison operator.
+        /// </summary>
         public readonly Outputs.AlarmModelSimpleRule? SimpleRule;
 
         [OutputConstructor]

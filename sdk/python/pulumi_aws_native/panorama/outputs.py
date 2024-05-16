@@ -37,12 +37,18 @@ class ApplicationInstanceManifestOverridesPayload(dict):
 
     def __init__(__self__, *,
                  payload_data: Optional[str] = None):
+        """
+        :param str payload_data: The overrides document.
+        """
         if payload_data is not None:
             pulumi.set(__self__, "payload_data", payload_data)
 
     @property
     @pulumi.getter(name="payloadData")
     def payload_data(self) -> Optional[str]:
+        """
+        The overrides document.
+        """
         return pulumi.get(self, "payload_data")
 
 
@@ -67,12 +73,18 @@ class ApplicationInstanceManifestPayload(dict):
 
     def __init__(__self__, *,
                  payload_data: Optional[str] = None):
+        """
+        :param str payload_data: The application manifest.
+        """
         if payload_data is not None:
             pulumi.set(__self__, "payload_data", payload_data)
 
     @property
     @pulumi.getter(name="payloadData")
     def payload_data(self) -> Optional[str]:
+        """
+        The application manifest.
+        """
         return pulumi.get(self, "payload_data")
 
 
@@ -107,6 +119,13 @@ class PackageStorageLocation(dict):
                  generated_prefix_location: Optional[str] = None,
                  manifest_prefix_location: Optional[str] = None,
                  repo_prefix_location: Optional[str] = None):
+        """
+        :param str binary_prefix_location: The location's binary prefix.
+        :param str bucket: The location's bucket.
+        :param str generated_prefix_location: The location's generated prefix.
+        :param str manifest_prefix_location: The location's manifest prefix.
+        :param str repo_prefix_location: The location's repo prefix.
+        """
         if binary_prefix_location is not None:
             pulumi.set(__self__, "binary_prefix_location", binary_prefix_location)
         if bucket is not None:
@@ -121,26 +140,41 @@ class PackageStorageLocation(dict):
     @property
     @pulumi.getter(name="binaryPrefixLocation")
     def binary_prefix_location(self) -> Optional[str]:
+        """
+        The location's binary prefix.
+        """
         return pulumi.get(self, "binary_prefix_location")
 
     @property
     @pulumi.getter
     def bucket(self) -> Optional[str]:
+        """
+        The location's bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="generatedPrefixLocation")
     def generated_prefix_location(self) -> Optional[str]:
+        """
+        The location's generated prefix.
+        """
         return pulumi.get(self, "generated_prefix_location")
 
     @property
     @pulumi.getter(name="manifestPrefixLocation")
     def manifest_prefix_location(self) -> Optional[str]:
+        """
+        The location's manifest prefix.
+        """
         return pulumi.get(self, "manifest_prefix_location")
 
     @property
     @pulumi.getter(name="repoPrefixLocation")
     def repo_prefix_location(self) -> Optional[str]:
+        """
+        The location's repo prefix.
+        """
         return pulumi.get(self, "repo_prefix_location")
 
 

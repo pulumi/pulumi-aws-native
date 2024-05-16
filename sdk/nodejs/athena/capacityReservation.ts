@@ -41,7 +41,13 @@ export class CapacityReservation extends pulumi.CustomResource {
      * The number of DPUs Athena has provisioned and allocated for the reservation
      */
     public /*out*/ readonly allocatedDpus!: pulumi.Output<number>;
+    /**
+     * The ARN of the capacity reservation.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+     */
     public readonly capacityAssignmentConfiguration!: pulumi.Output<outputs.athena.CapacityReservationCapacityAssignmentConfiguration | undefined>;
     /**
      * The date and time the reservation was created.
@@ -113,6 +119,9 @@ export class CapacityReservation extends pulumi.CustomResource {
  * The set of arguments for constructing a CapacityReservation resource.
  */
 export interface CapacityReservationArgs {
+    /**
+     * Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+     */
     capacityAssignmentConfiguration?: pulumi.Input<inputs.athena.CapacityReservationCapacityAssignmentConfigurationArgs>;
     /**
      * The reservation name.

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotSlotValueOverrideMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the slot.
+        /// </summary>
         [Input("slotName")]
         public Input<string>? SlotName { get; set; }
 
+        /// <summary>
+        /// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+        /// </summary>
         [Input("slotValueOverride")]
         public Input<Inputs.BotSlotValueOverrideArgs>? SlotValueOverride { get; set; }
 

@@ -17,13 +17,28 @@ export function getAssistantAssociation(args: GetAssistantAssociationArgs, opts?
 }
 
 export interface GetAssistantAssociationArgs {
+    /**
+     * The ID of the association.
+     */
     assistantAssociationId: string;
+    /**
+     * The identifier of the Wisdom assistant.
+     */
     assistantId: string;
 }
 
 export interface GetAssistantAssociationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
+     */
     readonly assistantArn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the assistant association.
+     */
     readonly assistantAssociationArn?: string;
+    /**
+     * The ID of the association.
+     */
     readonly assistantAssociationId?: string;
 }
 /**
@@ -34,6 +49,12 @@ export function getAssistantAssociationOutput(args: GetAssistantAssociationOutpu
 }
 
 export interface GetAssistantAssociationOutputArgs {
+    /**
+     * The ID of the association.
+     */
     assistantAssociationId: pulumi.Input<string>;
+    /**
+     * The identifier of the Wisdom assistant.
+     */
     assistantId: pulumi.Input<string>;
 }

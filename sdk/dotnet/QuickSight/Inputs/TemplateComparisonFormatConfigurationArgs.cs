@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateComparisonFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the number display format configuration.
+        /// </summary>
         [Input("numberDisplayFormatConfiguration")]
         public Input<Inputs.TemplateNumberDisplayFormatConfigurationArgs>? NumberDisplayFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the percentage display format configuration.
+        /// </summary>
         [Input("percentageDisplayFormatConfiguration")]
         public Input<Inputs.TemplatePercentageDisplayFormatConfigurationArgs>? PercentageDisplayFormatConfiguration { get; set; }
 

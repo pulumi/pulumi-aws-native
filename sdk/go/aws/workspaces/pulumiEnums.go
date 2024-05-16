@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The association status of the connection alias.
 type ConnectionAliasAssociationAssociationStatus string
 
 const (
@@ -103,6 +104,7 @@ func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current state of the connection alias, returned as a string.
 type ConnectionAliasStateEnum string
 
 const (

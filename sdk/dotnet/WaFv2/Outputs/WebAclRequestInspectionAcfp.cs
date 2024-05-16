@@ -16,11 +16,57 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRequestInspectionAcfp
     {
+        /// <summary>
+        /// The names of the fields in the request payload that contain your customer's primary physical address.
+        /// 
+        /// Order the address fields in the array exactly as they are ordered in the request payload.
+        /// 
+        /// How you specify the address fields depends on the request inspection payload type.
+        /// 
+        /// - For JSON payloads, specify the field identifiers in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+        /// 
+        /// For example, for the JSON payload `{ "form": { "primaryaddressline1": "THE_ADDRESS1", "primaryaddressline2": "THE_ADDRESS2", "primaryaddressline3": "THE_ADDRESS3" } }` , the address field idenfiers are `/form/primaryaddressline1` , `/form/primaryaddressline2` , and `/form/primaryaddressline3` .
+        /// - For form encoded payload types, use the HTML form names.
+        /// 
+        /// For example, for an HTML form with input elements named `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` , the address fields identifiers are `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclFieldIdentifier> AddressFields;
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? EmailField;
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? PasswordField;
+        /// <summary>
+        /// The payload type for your account creation endpoint, either JSON or form encoded.
+        /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.WebAclRequestInspectionAcfpPayloadType PayloadType;
+        /// <summary>
+        /// The names of the fields in the request payload that contain your customer's primary phone number.
+        /// 
+        /// Order the phone number fields in the array exactly as they are ordered in the request payload.
+        /// 
+        /// How you specify the phone number fields depends on the request inspection payload type.
+        /// 
+        /// - For JSON payloads, specify the field identifiers in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+        /// 
+        /// For example, for the JSON payload `{ "form": { "primaryphoneline1": "THE_PHONE1", "primaryphoneline2": "THE_PHONE2", "primaryphoneline3": "THE_PHONE3" } }` , the phone number field identifiers are `/form/primaryphoneline1` , `/form/primaryphoneline2` , and `/form/primaryphoneline3` .
+        /// - For form encoded payload types, use the HTML form names.
+        /// 
+        /// For example, for an HTML form with input elements named `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` , the phone number field identifiers are `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclFieldIdentifier> PhoneNumberFields;
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? UsernameField;
 
         [OutputConstructor]

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("endTimeOffset")]
         public Input<string>? EndTimeOffset { get; set; }
 
+        /// <summary>
+        /// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("probabilityAttribute")]
         public Input<string>? ProbabilityAttribute { get; set; }
 
+        /// <summary>
+        /// The threshold for the class probability to be evaluated as a positive result.
+        /// </summary>
         [Input("probabilityThresholdAttribute")]
         public Input<double>? ProbabilityThresholdAttribute { get; set; }
 

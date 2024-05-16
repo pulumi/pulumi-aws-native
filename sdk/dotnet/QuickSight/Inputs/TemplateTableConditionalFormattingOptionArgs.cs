@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableConditionalFormattingOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cell conditional formatting option for a table.
+        /// </summary>
         [Input("cell")]
         public Input<Inputs.TemplateTableCellConditionalFormattingArgs>? Cell { get; set; }
 
+        /// <summary>
+        /// The conditional formatting of a table row.
+        /// </summary>
         [Input("row")]
         public Input<Inputs.TemplateTableRowConditionalFormattingArgs>? Row { get; set; }
 

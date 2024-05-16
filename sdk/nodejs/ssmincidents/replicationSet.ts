@@ -41,6 +41,9 @@ export class ReplicationSet extends pulumi.CustomResource {
      * The ARN of the ReplicationSet.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+     */
     public readonly deletionProtected!: pulumi.Output<boolean | undefined>;
     /**
      * The ReplicationSet configuration.
@@ -84,6 +87,9 @@ export class ReplicationSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ReplicationSet resource.
  */
 export interface ReplicationSetArgs {
+    /**
+     * Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+     */
     deletionProtected?: pulumi.Input<boolean>;
     /**
      * The ReplicationSet configuration.

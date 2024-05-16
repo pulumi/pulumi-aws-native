@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageDriftCheckModelDataQuality
     {
+        /// <summary>
+        /// Details about the metrics source.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Constraints;
+        /// <summary>
+        /// Details about the metrics source.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Statistics;
 
         [OutputConstructor]

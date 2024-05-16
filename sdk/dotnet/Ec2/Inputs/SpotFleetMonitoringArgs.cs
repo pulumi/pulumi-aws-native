@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetMonitoringArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables monitoring for the instance.
+        /// 
+        /// Default: `false`
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

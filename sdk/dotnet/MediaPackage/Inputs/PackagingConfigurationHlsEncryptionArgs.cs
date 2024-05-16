@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("encryptionMethod")]
         public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationHlsEncryptionEncryptionMethod>? EncryptionMethod { get; set; }
 
+        /// <summary>
+        /// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 

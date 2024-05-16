@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
         /// &lt;p&gt;The name of the source group. This has to match one of the &lt;code&gt;Channel::Outputs::SourceGroup&lt;/code&gt;.&lt;/p&gt;
         /// </summary>
         public readonly string SourceGroup;
+        /// <summary>
+        /// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaTailor.LiveSourceType Type;
 
         [OutputConstructor]

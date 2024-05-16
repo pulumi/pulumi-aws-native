@@ -58,56 +58,95 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
+        """
+        The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="distributionDomainName")
     def distribution_domain_name(self) -> Optional[str]:
+        """
+        The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
+
+        Example: `d111111abcdef8.cloudfront.net`
+        """
         return pulumi.get(self, "distribution_domain_name")
 
     @property
     @pulumi.getter(name="distributionHostedZoneId")
     def distribution_hosted_zone_id(self) -> Optional[str]:
+        """
+        The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
+        """
         return pulumi.get(self, "distribution_hosted_zone_id")
 
     @property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional['outputs.DomainNameEndpointConfiguration']:
+        """
+        The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+
+        `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+        """
         return pulumi.get(self, "endpoint_configuration")
 
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> Optional['outputs.DomainNameMutualTlsAuthentication']:
+        """
+        The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @property
     @pulumi.getter(name="ownershipVerificationCertificateArn")
     def ownership_verification_certificate_arn(self) -> Optional[str]:
+        """
+        The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+        """
         return pulumi.get(self, "ownership_verification_certificate_arn")
 
     @property
     @pulumi.getter(name="regionalCertificateArn")
     def regional_certificate_arn(self) -> Optional[str]:
+        """
+        The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        """
         return pulumi.get(self, "regional_certificate_arn")
 
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> Optional[str]:
+        """
+        The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
     @pulumi.getter(name="regionalHostedZoneId")
     def regional_hosted_zone_id(self) -> Optional[str]:
+        """
+        The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+        """
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[str]:
+        """
+        The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        """
         return pulumi.get(self, "security_policy")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -134,6 +173,9 @@ def get_domain_name(domain_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainNameResult:
     """
     Resource Type definition for AWS::ApiGateway::DomainName.
+
+
+    :param str domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -159,5 +201,8 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Resource Type definition for AWS::ApiGateway::DomainName.
+
+
+    :param str domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
     """
     ...

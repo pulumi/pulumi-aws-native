@@ -24,14 +24,18 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
+	// The name of the channel.
 	ChannelName string `pulumi:"channelName"`
 }
 
 type LookupChannelResult struct {
-	ChannelStorage  *ChannelStorage         `pulumi:"channelStorage"`
-	Id              *string                 `pulumi:"id"`
+	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	ChannelStorage *ChannelStorage `pulumi:"channelStorage"`
+	Id             *string         `pulumi:"id"`
+	// How long, in days, message data is kept.
 	RetentionPeriod *ChannelRetentionPeriod `pulumi:"retentionPeriod"`
-	Tags            []aws.Tag               `pulumi:"tags"`
+	// A set of key-value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -48,6 +52,7 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 }
 
 type LookupChannelOutputArgs struct {
+	// The name of the channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 }
 
@@ -69,6 +74,7 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx co
 	return o
 }
 
+// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
 func (o LookupChannelResultOutput) ChannelStorage() ChannelStoragePtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelStorage { return v.ChannelStorage }).(ChannelStoragePtrOutput)
 }
@@ -77,10 +83,12 @@ func (o LookupChannelResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// How long, in days, message data is kept.
 func (o LookupChannelResultOutput) RetentionPeriod() ChannelRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelRetentionPeriod { return v.RetentionPeriod }).(ChannelRetentionPeriodPtrOutput)
 }
 
+// A set of key-value pairs that are used to manage the resource.
 func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

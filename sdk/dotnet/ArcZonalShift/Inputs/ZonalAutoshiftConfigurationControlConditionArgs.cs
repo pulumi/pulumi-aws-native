@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ArcZonalShift.Inputs
 
     public sealed class ZonalAutoshiftConfigurationControlConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+        /// </summary>
         [Input("alarmIdentifier", required: true)]
         public Input<string> AlarmIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.ArcZonalShift.ZonalAutoshiftConfigurationControlConditionType> Type { get; set; } = null!;
 

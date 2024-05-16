@@ -50,41 +50,67 @@ class GetTargetGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the target group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def config(self) -> Optional['outputs.TargetGroupConfig']:
+        """
+        Describes the configuration of a target group.
+
+        For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        """
         return pulumi.get(self, "config")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The date and time that the target group was created, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the target group.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[str]:
+        """
+        The date and time that the target group was last updated, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['TargetGroupStatus']:
+        """
+        The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the target group.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.TargetGroupTarget']]:
+        """
+        Describes a target.
+        """
         return pulumi.get(self, "targets")
 
 
@@ -108,6 +134,9 @@ def get_target_group(arn: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetGroupResult:
     """
     A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the target group.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -130,5 +159,8 @@ def get_target_group_output(arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the target group.
     """
     ...

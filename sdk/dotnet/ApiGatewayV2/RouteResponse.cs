@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
 
+        /// <summary>
+        /// The route response ID.
+        /// </summary>
         [Output("routeResponseId")]
         public Output<string> RouteResponseId { get; private set; } = null!;
 

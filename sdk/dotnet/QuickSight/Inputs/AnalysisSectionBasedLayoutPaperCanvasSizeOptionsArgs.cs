@@ -12,12 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSectionBasedLayoutPaperCanvasSizeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of spacing (often a margin or padding).
+        /// </summary>
         [Input("paperMargin")]
         public Input<Inputs.AnalysisSpacingArgs>? PaperMargin { get; set; }
 
+        /// <summary>
+        /// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+        /// 
+        /// - PORTRAIT
+        /// - LANDSCAPE
+        /// </summary>
         [Input("paperOrientation")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisPaperOrientation>? PaperOrientation { get; set; }
 
+        /// <summary>
+        /// The paper size that is used to define canvas dimensions.
+        /// </summary>
         [Input("paperSize")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisPaperSize>? PaperSize { get; set; }
 

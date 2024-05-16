@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsPathPathFilter
     {
+        /// <summary>
+        /// The destination IPv4 address.
+        /// </summary>
         public readonly string? DestinationAddress;
+        /// <summary>
+        /// Describes a port range.
+        /// </summary>
         public readonly Outputs.NetworkInsightsPathFilterPortRange? DestinationPortRange;
+        /// <summary>
+        /// The source IPv4 address.
+        /// </summary>
         public readonly string? SourceAddress;
+        /// <summary>
+        /// Describes a port range.
+        /// </summary>
         public readonly Outputs.NetworkInsightsPathFilterPortRange? SourcePortRange;
 
         [OutputConstructor]

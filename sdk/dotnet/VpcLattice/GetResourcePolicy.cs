@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// An IAM policy.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public string ResourceArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// An IAM policy.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -52,6 +58,8 @@ namespace Pulumi.AwsNative.VpcLattice
     public sealed class GetResourcePolicyResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network or service.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;

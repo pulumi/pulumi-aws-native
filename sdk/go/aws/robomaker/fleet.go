@@ -155,9 +155,11 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the fleet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The list of all tags added to the fleet.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -206,7 +208,8 @@ func (FleetState) ElementType() reflect.Type {
 
 type fleetArgs struct {
 	// The name of the fleet.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The list of all tags added to the fleet.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -214,6 +217,7 @@ type fleetArgs struct {
 type FleetArgs struct {
 	// The name of the fleet.
 	Name pulumi.StringPtrInput
+	// The list of all tags added to the fleet.
 	Tags pulumi.StringMapInput
 }
 
@@ -254,6 +258,7 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
 func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -263,6 +268,7 @@ func (o FleetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The list of all tags added to the fleet.
 func (o FleetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -15,15 +15,29 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class UserPhoneConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+        /// 
+        /// &gt; When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
+        /// </summary>
         [Input("afterContactWorkTimeLimit")]
         public Input<int>? AfterContactWorkTimeLimit { get; set; }
 
+        /// <summary>
+        /// The Auto accept setting.
+        /// </summary>
         [Input("autoAccept")]
         public Input<bool>? AutoAccept { get; set; }
 
+        /// <summary>
+        /// The phone number for the user's desk phone.
+        /// </summary>
         [Input("deskPhoneNumber")]
         public Input<string>? DeskPhoneNumber { get; set; }
 
+        /// <summary>
+        /// The phone type.
+        /// </summary>
         [Input("phoneType", required: true)]
         public Input<Pulumi.AwsNative.Connect.UserPhoneType> PhoneType { get; set; } = null!;
 

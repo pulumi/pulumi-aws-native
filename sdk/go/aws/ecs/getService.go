@@ -28,7 +28,8 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 type LookupServiceArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-	Cluster    string `pulumi:"cluster"`
+	Cluster string `pulumi:"cluster"`
+	// Not currently supported in AWS CloudFormation .
 	ServiceArn string `pulumi:"serviceArn"`
 }
 
@@ -54,7 +55,8 @@ type LookupServiceResult struct {
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
-	Name          *string               `pulumi:"name"`
+	// The name of the Amazon ECS service, such as `sample-webapp` .
+	Name *string `pulumi:"name"`
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
@@ -66,7 +68,8 @@ type LookupServiceResult struct {
 	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
 	//  The default is ``NONE``.
 	PropagateTags *ServicePropagateTags `pulumi:"propagateTags"`
-	ServiceArn    *string               `pulumi:"serviceArn"`
+	// Not currently supported in AWS CloudFormation .
+	ServiceArn *string `pulumi:"serviceArn"`
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 	//   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
 	ServiceRegistries []ServiceRegistry `pulumi:"serviceRegistries"`
@@ -101,7 +104,8 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 
 type LookupServiceOutputArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-	Cluster    pulumi.StringInput `pulumi:"cluster"`
+	Cluster pulumi.StringInput `pulumi:"cluster"`
+	// Not currently supported in AWS CloudFormation .
 	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
 }
 
@@ -169,6 +173,7 @@ func (o LookupServiceResultOutput) LoadBalancers() ServiceLoadBalancerArrayOutpu
 	return o.ApplyT(func(v LookupServiceResult) []ServiceLoadBalancer { return v.LoadBalancers }).(ServiceLoadBalancerArrayOutput)
 }
 
+// The name of the Amazon ECS service, such as `sample-webapp` .
 func (o LookupServiceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -200,6 +205,7 @@ func (o LookupServiceResultOutput) PropagateTags() ServicePropagateTagsPtrOutput
 	return o.ApplyT(func(v LookupServiceResult) *ServicePropagateTags { return v.PropagateTags }).(ServicePropagateTagsPtrOutput)
 }
 
+// Not currently supported in AWS CloudFormation .
 func (o LookupServiceResultOutput) ServiceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceArn }).(pulumi.StringPtrOutput)
 }

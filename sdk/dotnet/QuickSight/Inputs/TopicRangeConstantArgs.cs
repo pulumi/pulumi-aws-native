@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicRangeConstantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum value for a range constant.
+        /// </summary>
         [Input("maximum")]
         public Input<string>? Maximum { get; set; }
 
+        /// <summary>
+        /// The minimum value for a range constant.
+        /// </summary>
         [Input("minimum")]
         public Input<string>? Minimum { get; set; }
 

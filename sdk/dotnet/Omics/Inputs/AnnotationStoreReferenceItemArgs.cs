@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Omics.Inputs
 
     public sealed class AnnotationStoreReferenceItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The reference's ARN.
+        /// </summary>
         [Input("referenceArn", required: true)]
         public Input<string> ReferenceArn { get; set; } = null!;
 

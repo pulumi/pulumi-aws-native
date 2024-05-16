@@ -36,21 +36,33 @@ class GetTrustStoreResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that this trust store is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="certificateList")
     def certificate_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of CA certificates to be added to the trust store.
+        """
         return pulumi.get(self, "certificate_list")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> Optional[str]:
+        """
+        The ARN of the trust store.
+        """
         return pulumi.get(self, "trust_store_arn")
 
 
@@ -70,6 +82,9 @@ def get_trust_store(trust_store_arn: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustStoreResult:
     """
     Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
+
+
+    :param str trust_store_arn: The ARN of the trust store.
     """
     __args__ = dict()
     __args__['trustStoreArn'] = trust_store_arn
@@ -88,5 +103,8 @@ def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
     Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
+
+
+    :param str trust_store_arn: The ARN of the trust store.
     """
     ...

@@ -571,6 +571,13 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:Role")]
     public partial class Role : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the role. For example:
+        /// 
+        /// `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+        /// 
+        /// This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -627,6 +634,11 @@ namespace Pulumi.AwsNative.Iam
         [Output("policies")]
         public Output<ImmutableArray<Outputs.RolePolicy>> Policies { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+        /// 
+        /// For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("roleId")]
         public Output<string> RoleId { get; private set; } = null!;
 

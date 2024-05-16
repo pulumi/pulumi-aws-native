@@ -31,11 +31,21 @@ class GetZonalAutoshiftConfigurationResult:
     @property
     @pulumi.getter(name="practiceRunConfiguration")
     def practice_run_configuration(self) -> Optional['outputs.ZonalAutoshiftConfigurationPracticeRunConfiguration']:
+        """
+        A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+
+        When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+
+        You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+        """
         return pulumi.get(self, "practice_run_configuration")
 
     @property
     @pulumi.getter(name="zonalAutoshiftStatus")
     def zonal_autoshift_status(self) -> Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']:
+        """
+        When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+        """
         return pulumi.get(self, "zonal_autoshift_status")
 
 
@@ -53,6 +63,11 @@ def get_zonal_autoshift_configuration(resource_identifier: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZonalAutoshiftConfigurationResult:
     """
     Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
+
+
+    :param str resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+           
+           At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
@@ -69,5 +84,10 @@ def get_zonal_autoshift_configuration_output(resource_identifier: Optional[pulum
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZonalAutoshiftConfigurationResult]:
     """
     Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
+
+
+    :param str resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+           
+           At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
     """
     ...

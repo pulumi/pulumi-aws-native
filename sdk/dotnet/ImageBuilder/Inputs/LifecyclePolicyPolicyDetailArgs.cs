@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class LifecyclePolicyPolicyDetailArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains selection criteria for the lifecycle policy.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.LifecyclePolicyActionArgs> Action { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies resources that lifecycle policy actions should not apply to.
+        /// </summary>
         [Input("exclusionRules")]
         public Input<Inputs.LifecyclePolicyExclusionRulesArgs>? ExclusionRules { get; set; }
 
+        /// <summary>
+        /// Defines filters that the lifecycle policy uses to determine impacted resource.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.LifecyclePolicyFilterArgs> Filter { get; set; } = null!;
 

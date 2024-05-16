@@ -15,9 +15,19 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclDefaultActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
+        /// 
+        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclAllowActionArgs>? Allow { get; set; }
 
+        /// <summary>
+        /// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
+        /// 
+        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclBlockActionArgs>? Block { get; set; }
 

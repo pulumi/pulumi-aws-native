@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// Describes the location of the channel data.
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<Inputs.ModelPackageDataSourceArgs> DataSource { get; set; } = null!;
 

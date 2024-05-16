@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksVolumeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the configuration of a Kubernetes `emptyDir` volume. An `emptyDir` volume is first created when a pod is assigned to a node. It exists as long as that pod is running on that node. The `emptyDir` volume is initially empty. All containers in the pod can read and write the files in the `emptyDir` volume. However, the `emptyDir` volume can be mounted at the same or different paths in each container. When a pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("emptyDir")]
         public Input<Inputs.JobDefinitionEksEmptyDirArgs>? EmptyDir { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration of a Kubernetes `hostPath` volume. A `hostPath` volume mounts an existing file or directory from the host node's filesystem into your pod. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("hostPath")]
         public Input<Inputs.JobDefinitionEksHostPathArgs>? HostPath { get; set; }
 
+        /// <summary>
+        /// The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("secret")]
         public Input<Inputs.JobDefinitionEksSecretArgs>? Secret { get; set; }
 

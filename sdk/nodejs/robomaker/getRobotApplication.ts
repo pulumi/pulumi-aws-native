@@ -19,10 +19,16 @@ export function getRobotApplication(args: GetRobotApplicationArgs, opts?: pulumi
 }
 
 export interface GetRobotApplicationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the robot application.
+     */
     arn: string;
 }
 
 export interface GetRobotApplicationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the robot application.
+     */
     readonly arn?: string;
     /**
      * The revision ID of robot application.
@@ -32,7 +38,13 @@ export interface GetRobotApplicationResult {
      * The URI of the Docker image for the robot application.
      */
     readonly environment?: string;
+    /**
+     * Information about a robot software suite.
+     */
     readonly robotSoftwareSuite?: outputs.robomaker.RobotApplicationRobotSoftwareSuite;
+    /**
+     * A map that contains tag keys and tag values that are attached to the robot application.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -43,5 +55,8 @@ export function getRobotApplicationOutput(args: GetRobotApplicationOutputArgs, o
 }
 
 export interface GetRobotApplicationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the robot application.
+     */
     arn: pulumi.Input<string>;
 }

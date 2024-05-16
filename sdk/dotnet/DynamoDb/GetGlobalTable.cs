@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.DynamoDb
 
     public sealed class GetGlobalTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        /// 
+        /// &gt; If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        /// </summary>
         [Input("tableName", required: true)]
         public string TableName { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.DynamoDb
 
     public sealed class GetGlobalTableInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        /// 
+        /// &gt; If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -51,17 +61,62 @@ namespace Pulumi.AwsNative.DynamoDb
     [OutputType]
     public sealed class GetGlobalTableResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Represents an attribute for describing the schema for the table and indexes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableAttributeDefinition> AttributeDefinitions;
+        /// <summary>
+        /// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+        /// 
+        /// - `PAY_PER_REQUEST`
+        /// - `PROVISIONED`
+        /// 
+        /// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        /// </summary>
         public readonly string? BillingMode;
+        /// <summary>
+        /// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> GlobalSecondaryIndexes;
+        /// <summary>
+        /// Defines settings specific to a single replica of a global table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableReplicaSpecification> Replicas;
+        /// <summary>
+        /// Represents the settings used to enable server-side encryption.
+        /// </summary>
         public readonly Outputs.GlobalTableSseSpecification? SseSpecification;
+        /// <summary>
+        /// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+        /// 
+        /// &gt; You must specify the `StreamSpecification` property to use this attribute.
+        /// </summary>
         public readonly string? StreamArn;
+        /// <summary>
+        /// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+        /// 
+        /// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        /// </summary>
         public readonly Outputs.GlobalTableStreamSpecification? StreamSpecification;
+        /// <summary>
+        /// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
+        /// </summary>
         public readonly string? TableId;
+        /// <summary>
+        /// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        /// </summary>
         public readonly Outputs.GlobalTableTimeToLiveSpecification? TimeToLiveSpecification;
+        /// <summary>
+        /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// </summary>
         public readonly Outputs.GlobalTableWriteOnDemandThroughputSettings? WriteOnDemandThroughputSettings;
+        /// <summary>
+        /// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        /// </summary>
         public readonly Outputs.GlobalTableWriteProvisionedThroughputSettings? WriteProvisionedThroughputSettings;
 
         [OutputConstructor]

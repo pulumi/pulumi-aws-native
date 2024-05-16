@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataColor
     {
+        /// <summary>
+        /// The color that is applied to the data value.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The data value that the color is applied to.
+        /// </summary>
         public readonly double? DataValue;
 
         [OutputConstructor]

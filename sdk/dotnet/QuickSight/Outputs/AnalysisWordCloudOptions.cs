@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWordCloudOptions
     {
+        /// <summary>
+        /// The cloud layout options (fluid, normal) of a word cloud.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisWordCloudCloudLayout? CloudLayout;
+        /// <summary>
+        /// The length limit of each word from 1-100.
+        /// </summary>
         public readonly double? MaximumStringLength;
+        /// <summary>
+        /// The word casing options (lower_case, existing_case) for the words in a word cloud.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisWordCloudWordCasing? WordCasing;
+        /// <summary>
+        /// The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisWordCloudWordOrientation? WordOrientation;
+        /// <summary>
+        /// The word padding options (none, small, medium, large) for the words in a word cloud.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisWordCloudWordPadding? WordPadding;
+        /// <summary>
+        /// The word scaling options (emphasize, normal) for the words in a word cloud.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisWordCloudWordScaling? WordScaling;
 
         [OutputConstructor]

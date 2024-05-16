@@ -135,6 +135,41 @@ class AppPhysicalResourceIdArgs:
                  type: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  aws_region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] identifier: Identifier of the physical resource.
+        :param pulumi.Input[str] type: Specifies the type of physical resource identifier.
+               
+               - **Arn** - The resource identifier is an Amazon Resource Name (ARN) and it can identify the following list of resources:
+               
+               - `AWS::ECS::Service`
+               - `AWS::EFS::FileSystem`
+               - `AWS::ElasticLoadBalancingV2::LoadBalancer`
+               - `AWS::Lambda::Function`
+               - `AWS::SNS::Topic`
+               - **Native** - The resource identifier is an AWS Resilience Hub -native identifier and it can identify the following list of resources:
+               
+               - `AWS::ApiGateway::RestApi`
+               - `AWS::ApiGatewayV2::Api`
+               - `AWS::AutoScaling::AutoScalingGroup`
+               - `AWS::DocDB::DBCluster`
+               - `AWS::DocDB::DBGlobalCluster`
+               - `AWS::DocDB::DBInstance`
+               - `AWS::DynamoDB::GlobalTable`
+               - `AWS::DynamoDB::Table`
+               - `AWS::EC2::EC2Fleet`
+               - `AWS::EC2::Instance`
+               - `AWS::EC2::NatGateway`
+               - `AWS::EC2::Volume`
+               - `AWS::ElasticLoadBalancing::LoadBalancer`
+               - `AWS::RDS::DBCluster`
+               - `AWS::RDS::DBInstance`
+               - `AWS::RDS::GlobalCluster`
+               - `AWS::Route53::RecordSet`
+               - `AWS::S3::Bucket`
+               - `AWS::SQS::Queue`
+        :param pulumi.Input[str] aws_account_id: The AWS account that owns the physical resource.
+        :param pulumi.Input[str] aws_region: The AWS Region that the physical resource is located in.
+        """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
         if aws_account_id is not None:
@@ -145,6 +180,9 @@ class AppPhysicalResourceIdArgs:
     @property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[str]:
+        """
+        Identifier of the physical resource.
+        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -154,6 +192,38 @@ class AppPhysicalResourceIdArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of physical resource identifier.
+
+        - **Arn** - The resource identifier is an Amazon Resource Name (ARN) and it can identify the following list of resources:
+
+        - `AWS::ECS::Service`
+        - `AWS::EFS::FileSystem`
+        - `AWS::ElasticLoadBalancingV2::LoadBalancer`
+        - `AWS::Lambda::Function`
+        - `AWS::SNS::Topic`
+        - **Native** - The resource identifier is an AWS Resilience Hub -native identifier and it can identify the following list of resources:
+
+        - `AWS::ApiGateway::RestApi`
+        - `AWS::ApiGatewayV2::Api`
+        - `AWS::AutoScaling::AutoScalingGroup`
+        - `AWS::DocDB::DBCluster`
+        - `AWS::DocDB::DBGlobalCluster`
+        - `AWS::DocDB::DBInstance`
+        - `AWS::DynamoDB::GlobalTable`
+        - `AWS::DynamoDB::Table`
+        - `AWS::EC2::EC2Fleet`
+        - `AWS::EC2::Instance`
+        - `AWS::EC2::NatGateway`
+        - `AWS::EC2::Volume`
+        - `AWS::ElasticLoadBalancing::LoadBalancer`
+        - `AWS::RDS::DBCluster`
+        - `AWS::RDS::DBInstance`
+        - `AWS::RDS::GlobalCluster`
+        - `AWS::Route53::RecordSet`
+        - `AWS::S3::Bucket`
+        - `AWS::SQS::Queue`
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -163,6 +233,9 @@ class AppPhysicalResourceIdArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account that owns the physical resource.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -172,6 +245,9 @@ class AppPhysicalResourceIdArgs:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region that the physical resource is located in.
+        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -190,6 +266,14 @@ class AppResourceMappingArgs:
                  terraform_source_name: Optional[pulumi.Input[str]] = None):
         """
         Resource mapping is used to map logical resources from template to physical resource
+        :param pulumi.Input[str] mapping_type: Specifies the type of resource mapping.
+        :param pulumi.Input['AppPhysicalResourceIdArgs'] physical_resource_id: Defines a physical resource identifier.
+        :param pulumi.Input[str] eks_source_name: Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+               
+               > This parameter accepts values in "eks-cluster/namespace" format.
+        :param pulumi.Input[str] logical_stack_name: Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        :param pulumi.Input[str] resource_name: Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
+        :param pulumi.Input[str] terraform_source_name: Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
         """
         pulumi.set(__self__, "mapping_type", mapping_type)
         pulumi.set(__self__, "physical_resource_id", physical_resource_id)
@@ -205,6 +289,9 @@ class AppResourceMappingArgs:
     @property
     @pulumi.getter(name="mappingType")
     def mapping_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of resource mapping.
+        """
         return pulumi.get(self, "mapping_type")
 
     @mapping_type.setter
@@ -214,6 +301,9 @@ class AppResourceMappingArgs:
     @property
     @pulumi.getter(name="physicalResourceId")
     def physical_resource_id(self) -> pulumi.Input['AppPhysicalResourceIdArgs']:
+        """
+        Defines a physical resource identifier.
+        """
         return pulumi.get(self, "physical_resource_id")
 
     @physical_resource_id.setter
@@ -223,6 +313,11 @@ class AppResourceMappingArgs:
     @property
     @pulumi.getter(name="eksSourceName")
     def eks_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+
+        > This parameter accepts values in "eks-cluster/namespace" format.
+        """
         return pulumi.get(self, "eks_source_name")
 
     @eks_source_name.setter
@@ -232,6 +327,9 @@ class AppResourceMappingArgs:
     @property
     @pulumi.getter(name="logicalStackName")
     def logical_stack_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        """
         return pulumi.get(self, "logical_stack_name")
 
     @logical_stack_name.setter
@@ -241,6 +339,9 @@ class AppResourceMappingArgs:
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
+        """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
@@ -250,6 +351,9 @@ class AppResourceMappingArgs:
     @property
     @pulumi.getter(name="terraformSourceName")
     def terraform_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
+        """
         return pulumi.get(self, "terraform_source_name")
 
     @terraform_source_name.setter
@@ -302,6 +406,12 @@ class ResiliencyPolicyPolicyMapArgs:
                  hardware: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
                  software: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
                  region: Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']] = None):
+        """
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] az: Defines a failure policy.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] hardware: Defines a failure policy.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] software: Defines a failure policy.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] region: Defines a failure policy.
+        """
         pulumi.set(__self__, "az", az)
         pulumi.set(__self__, "hardware", hardware)
         pulumi.set(__self__, "software", software)
@@ -311,6 +421,9 @@ class ResiliencyPolicyPolicyMapArgs:
     @property
     @pulumi.getter
     def az(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
+        """
+        Defines a failure policy.
+        """
         return pulumi.get(self, "az")
 
     @az.setter
@@ -320,6 +433,9 @@ class ResiliencyPolicyPolicyMapArgs:
     @property
     @pulumi.getter
     def hardware(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
+        """
+        Defines a failure policy.
+        """
         return pulumi.get(self, "hardware")
 
     @hardware.setter
@@ -329,6 +445,9 @@ class ResiliencyPolicyPolicyMapArgs:
     @property
     @pulumi.getter
     def software(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
+        """
+        Defines a failure policy.
+        """
         return pulumi.get(self, "software")
 
     @software.setter
@@ -338,6 +457,9 @@ class ResiliencyPolicyPolicyMapArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]:
+        """
+        Defines a failure policy.
+        """
         return pulumi.get(self, "region")
 
     @region.setter

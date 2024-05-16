@@ -21,6 +21,7 @@ class AccessGrantsInstanceArgs:
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
         :param pulumi.Input[str] identity_center_arn: The Amazon Resource Name (ARN) of the specified AWS Identity Center.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A container of a key value name pair.
         """
         if identity_center_arn is not None:
             pulumi.set(__self__, "identity_center_arn", identity_center_arn)
@@ -42,6 +43,9 @@ class AccessGrantsInstanceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        A container of a key value name pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -63,6 +67,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_center_arn: The Amazon Resource Name (ARN) of the specified AWS Identity Center.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A container of a key value name pair.
         """
         ...
     @overload
@@ -160,5 +165,8 @@ class AccessGrantsInstance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        A container of a key value name pair.
+        """
         return pulumi.get(self, "tags")
 

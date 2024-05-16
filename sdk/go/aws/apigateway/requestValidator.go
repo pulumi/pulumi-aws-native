@@ -17,8 +17,9 @@ type RequestValidator struct {
 	pulumi.CustomResourceState
 
 	// The name of this RequestValidator
-	Name               pulumi.StringPtrOutput `pulumi:"name"`
-	RequestValidatorId pulumi.StringOutput    `pulumi:"requestValidatorId"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The ID for the request validator. For example: `abc123` .
+	RequestValidatorId pulumi.StringOutput `pulumi:"requestValidatorId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
@@ -139,6 +140,7 @@ func (o RequestValidatorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the request validator. For example: `abc123` .
 func (o RequestValidatorOutput) RequestValidatorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RequestValidatorId }).(pulumi.StringOutput)
 }

@@ -43,6 +43,9 @@ class GetSamplingRuleResult:
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[str]:
+        """
+        The sampling rule ARN that was created or updated.
+        """
         return pulumi.get(self, "rule_arn")
 
     @property
@@ -53,6 +56,9 @@ class GetSamplingRuleResult:
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional['outputs.SamplingRule']:
+        """
+        A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        """
         return pulumi.get(self, "sampling_rule")
 
     @property
@@ -68,6 +74,9 @@ class GetSamplingRuleResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -89,6 +98,9 @@ def get_sampling_rule(rule_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamplingRuleResult:
     """
     This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
+
+
+    :param str rule_arn: The sampling rule ARN that was created or updated.
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
@@ -109,5 +121,8 @@ def get_sampling_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamplingRuleResult]:
     """
     This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
+
+
+    :param str rule_arn: The sampling rule ARN that was created or updated.
     """
     ...

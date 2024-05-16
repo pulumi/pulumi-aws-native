@@ -28,6 +28,10 @@ class AgentAliasArgs:
         :param pulumi.Input[str] agent_alias_name: Name for a resource.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAliasRoutingConfigurationListItemArgs']]] routing_configuration: Routing configuration for an Agent alias.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         pulumi.set(__self__, "agent_id", agent_id)
         if agent_alias_name is not None:
@@ -90,6 +94,12 @@ class AgentAliasArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,6 +127,10 @@ class AgentAlias(pulumi.CustomResource):
         :param pulumi.Input[str] agent_id: Identifier for a resource.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAliasRoutingConfigurationListItemArgs']]]] routing_configuration: Routing configuration for an Agent alias.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         ...
     @overload
@@ -241,6 +255,15 @@ class AgentAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="agentAliasStatus")
     def agent_alias_status(self) -> pulumi.Output['AgentAliasStatus']:
+        """
+        The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+
+        - CREATING – The agent alias is being created.
+        - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+        - FAILED – The agent alias API operation failed.
+        - UPDATING – The agent alias is being updated.
+        - DELETING – The agent alias is being deleted.
+        """
         return pulumi.get(self, "agent_alias_status")
 
     @property
@@ -278,6 +301,12 @@ class AgentAlias(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

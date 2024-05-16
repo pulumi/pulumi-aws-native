@@ -69,18 +69,24 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
+	// The actions defined in the extension.
 	Actions ExtensionActionArrayMapOutput `pulumi:"actions"`
-	Arn     pulumi.StringOutput           `pulumi:"arn"`
-	AwsId   pulumi.StringOutput           `pulumi:"awsId"`
+	// The system-generated Amazon Resource Name (ARN) for the extension.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The system-generated ID of the extension.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Description of the extension.
-	Description         pulumi.StringPtrOutput `pulumi:"description"`
-	LatestVersionNumber pulumi.IntPtrOutput    `pulumi:"latestVersionNumber"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
+	LatestVersionNumber pulumi.IntPtrOutput `pulumi:"latestVersionNumber"`
 	// Name of the extension.
-	Name       pulumi.StringOutput         `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters ExtensionParameterMapOutput `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
-	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
-	VersionNumber pulumi.IntOutput             `pulumi:"versionNumber"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// The extension version number.
+	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -131,12 +137,15 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
+	// The actions defined in the extension.
 	Actions map[string][]ExtensionAction `pulumi:"actions"`
 	// Description of the extension.
-	Description         *string `pulumi:"description"`
-	LatestVersionNumber *int    `pulumi:"latestVersionNumber"`
+	Description *string `pulumi:"description"`
+	// You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
+	LatestVersionNumber *int `pulumi:"latestVersionNumber"`
 	// Name of the extension.
-	Name       *string                       `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters map[string]ExtensionParameter `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -144,12 +153,15 @@ type extensionArgs struct {
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
+	// The actions defined in the extension.
 	Actions ExtensionActionArrayMapInput
 	// Description of the extension.
-	Description         pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
 	LatestVersionNumber pulumi.IntPtrInput
 	// Name of the extension.
-	Name       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters ExtensionParameterMapInput
 	// An array of key-value tags to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -192,14 +204,17 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+// The actions defined in the extension.
 func (o ExtensionOutput) Actions() ExtensionActionArrayMapOutput {
 	return o.ApplyT(func(v *Extension) ExtensionActionArrayMapOutput { return v.Actions }).(ExtensionActionArrayMapOutput)
 }
 
+// The system-generated Amazon Resource Name (ARN) for the extension.
 func (o ExtensionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The system-generated ID of the extension.
 func (o ExtensionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -209,6 +224,7 @@ func (o ExtensionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
 func (o ExtensionOutput) LatestVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.IntPtrOutput { return v.LatestVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -218,6 +234,7 @@ func (o ExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 func (o ExtensionOutput) Parameters() ExtensionParameterMapOutput {
 	return o.ApplyT(func(v *Extension) ExtensionParameterMapOutput { return v.Parameters }).(ExtensionParameterMapOutput)
 }
@@ -227,6 +244,7 @@ func (o ExtensionOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Extension) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// The extension version number.
 func (o ExtensionOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Extension) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

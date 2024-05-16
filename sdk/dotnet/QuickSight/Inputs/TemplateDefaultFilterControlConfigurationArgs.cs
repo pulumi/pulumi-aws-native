@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDefaultFilterControlConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that corresponds to the control type of the filter.
+        /// </summary>
         [Input("controlOptions", required: true)]
         public Input<Inputs.TemplateDefaultFilterControlOptionsArgs> ControlOptions { get; set; } = null!;
 
+        /// <summary>
+        /// The title of the `DefaultFilterControlConfiguration` . This title is shared by all controls that are tied to this filter.
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

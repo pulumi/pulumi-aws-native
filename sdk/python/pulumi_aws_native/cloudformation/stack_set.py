@@ -44,6 +44,7 @@ class StackSetArgs:
         :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input['ManagedExecutionPropertiesArgs'] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
@@ -180,6 +181,9 @@ class StackSetArgs:
     @property
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
+        """
+        The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+        """
         return pulumi.get(self, "operation_preferences")
 
     @operation_preferences.setter
@@ -292,6 +296,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input[pulumi.InputType['ManagedExecutionPropertiesArgs']] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]] parameters: The input parameters for the stack set template.
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
@@ -467,6 +472,9 @@ class StackSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetOperationPreferences']]:
+        """
+        The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+        """
         return pulumi.get(self, "operation_preferences")
 
     @property

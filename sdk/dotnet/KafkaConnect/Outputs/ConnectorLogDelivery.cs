@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class ConnectorLogDelivery
     {
+        /// <summary>
+        /// Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+        /// </summary>
         public readonly Outputs.ConnectorWorkerLogDelivery WorkerLogDelivery;
 
         [OutputConstructor]

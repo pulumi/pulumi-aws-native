@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceColumnConfiguration
     {
+        /// <summary>
+        /// One to five columns that indicate when a document in the database has changed.
+        /// </summary>
         public readonly ImmutableArray<string> ChangeDetectingColumns;
+        /// <summary>
+        /// The column that contains the contents of the document.
+        /// </summary>
         public readonly string DocumentDataColumnName;
+        /// <summary>
+        /// The column that provides the document's identifier.
+        /// </summary>
         public readonly string DocumentIdColumnName;
+        /// <summary>
+        /// The column that contains the title of the document.
+        /// </summary>
         public readonly string? DocumentTitleColumnName;
+        /// <summary>
+        /// An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]

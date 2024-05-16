@@ -39,6 +39,16 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("propertyId")]
         public Input<string>? PropertyId { get; set; }
 
+        /// <summary>
+        /// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference* .
+        /// 
+        /// You must use expressions for all parameters in `AssetPropertyValue` . The expressions accept literals, operators, functions, references, and substitution templates.
+        /// 
+        /// **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `quality` parameter can be `'GOOD'` .
+        /// - For references, you must specify either variables or input values. For example, the value for the `quality` parameter can be `$input.TemperatureInput.sensorData.quality` .
+        /// 
+        /// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        /// </summary>
         [Input("propertyValue", required: true)]
         public Input<Inputs.DetectorModelAssetPropertyValueArgs> PropertyValue { get; set; } = null!;
 

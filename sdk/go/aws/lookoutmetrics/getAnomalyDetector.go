@@ -23,6 +23,7 @@ func LookupAnomalyDetector(ctx *pulumi.Context, args *LookupAnomalyDetectorArgs,
 }
 
 type LookupAnomalyDetectorArgs struct {
+	// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
 	Arn string `pulumi:"arn"`
 }
 
@@ -31,7 +32,8 @@ type LookupAnomalyDetectorResult struct {
 	AnomalyDetectorConfig *AnomalyDetectorConfig `pulumi:"anomalyDetectorConfig"`
 	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription *string `pulumi:"anomalyDetectorDescription"`
-	Arn                        *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+	Arn *string `pulumi:"arn"`
 	// KMS key used to encrypt the AnomalyDetector data
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// List of metric sets for anomaly detection
@@ -52,6 +54,7 @@ func LookupAnomalyDetectorOutput(ctx *pulumi.Context, args LookupAnomalyDetector
 }
 
 type LookupAnomalyDetectorOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -83,6 +86,7 @@ func (o LookupAnomalyDetectorResultOutput) AnomalyDetectorDescription() pulumi.S
 	return o.ApplyT(func(v LookupAnomalyDetectorResult) *string { return v.AnomalyDetectorDescription }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
 func (o LookupAnomalyDetectorResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnomalyDetectorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

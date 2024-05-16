@@ -16,11 +16,29 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionActionParams
     {
+        /// <summary>
+        /// Parameters used when defining a mitigation action that move a set of things to a thing group.
+        /// </summary>
         public readonly Outputs.MitigationActionAddThingsToThingGroupParams? AddThingsToThingGroupParams;
+        /// <summary>
+        /// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+        /// </summary>
         public readonly Outputs.MitigationActionEnableIoTLoggingParams? EnableIoTLoggingParams;
+        /// <summary>
+        /// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+        /// </summary>
         public readonly Outputs.MitigationActionPublishFindingToSnsParams? PublishFindingToSnsParams;
+        /// <summary>
+        /// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        /// </summary>
         public readonly Outputs.MitigationActionReplaceDefaultPolicyVersionParams? ReplaceDefaultPolicyVersionParams;
+        /// <summary>
+        /// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        /// </summary>
         public readonly Outputs.MitigationActionUpdateCaCertificateParams? UpdateCaCertificateParams;
+        /// <summary>
+        /// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        /// </summary>
         public readonly Outputs.MitigationActionUpdateDeviceCertificateParams? UpdateDeviceCertificateParams;
 
         [OutputConstructor]

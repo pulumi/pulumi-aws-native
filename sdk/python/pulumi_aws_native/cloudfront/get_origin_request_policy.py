@@ -33,16 +33,33 @@ class GetOriginRequestPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the origin request policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> Optional['outputs.OriginRequestPolicyConfig']:
+        """
+        An origin request policy configuration.
+
+        This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+
+        - The request body and the URL path (without the domain name) from the viewer request.
+        - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
+        - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+
+        CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        """
         return pulumi.get(self, "origin_request_policy_config")
 
 
@@ -61,6 +78,9 @@ def get_origin_request_policy(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginRequestPolicyResult:
     """
     Resource Type definition for AWS::CloudFront::OriginRequestPolicy
+
+
+    :param str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +98,8 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
     Resource Type definition for AWS::CloudFront::OriginRequestPolicy
+
+
+    :param str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """
     ...

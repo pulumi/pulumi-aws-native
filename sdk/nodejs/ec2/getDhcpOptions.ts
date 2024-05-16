@@ -19,10 +19,16 @@ export function getDhcpOptions(args: GetDhcpOptionsArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetDhcpOptionsArgs {
+    /**
+     * The ID of the DHCP options set.
+     */
     dhcpOptionsId: string;
 }
 
 export interface GetDhcpOptionsResult {
+    /**
+     * The ID of the DHCP options set.
+     */
     readonly dhcpOptionsId?: string;
     /**
      * Any tags assigned to the DHCP options set.
@@ -37,5 +43,8 @@ export function getDhcpOptionsOutput(args: GetDhcpOptionsOutputArgs, opts?: pulu
 }
 
 export interface GetDhcpOptionsOutputArgs {
+    /**
+     * The ID of the DHCP options set.
+     */
     dhcpOptionsId: pulumi.Input<string>;
 }

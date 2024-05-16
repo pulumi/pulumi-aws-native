@@ -24,29 +24,37 @@ func LookupMissionProfile(ctx *pulumi.Context, args *LookupMissionProfileArgs, o
 }
 
 type LookupMissionProfileArgs struct {
+	// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn string `pulumi:"arn"`
-	Id  string `pulumi:"id"`
+	// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Id string `pulumi:"id"`
 }
 
 type LookupMissionProfileResult struct {
+	// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn *string `pulumi:"arn"`
 	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
-	ContactPrePassDurationSeconds *int                         `pulumi:"contactPrePassDurationSeconds"`
-	DataflowEdges                 []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
-	Id                            *string                      `pulumi:"id"`
+	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
+	// A dataflow edge defines from where and to where data will flow during a contact.
+	DataflowEdges []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
+	// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Id *string `pulumi:"id"`
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds *int `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The region of the mission profile.
 	Region *string `pulumi:"region"`
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey *MissionProfileStreamsKmsKey `pulumi:"streamsKmsKey"`
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    *string   `pulumi:"streamsKmsRole"`
-	Tags              []aws.Tag `pulumi:"tags"`
-	TrackingConfigArn *string   `pulumi:"trackingConfigArn"`
+	StreamsKmsRole *string `pulumi:"streamsKmsRole"`
+	// Tags assigned to the mission profile.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+	TrackingConfigArn *string `pulumi:"trackingConfigArn"`
 }
 
 func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOutputArgs, opts ...pulumi.InvokeOption) LookupMissionProfileResultOutput {
@@ -63,8 +71,10 @@ func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOu
 }
 
 type LookupMissionProfileOutputArgs struct {
+	// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn pulumi.StringInput `pulumi:"arn"`
-	Id  pulumi.StringInput `pulumi:"id"`
+	// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMissionProfileOutputArgs) ElementType() reflect.Type {
@@ -85,6 +95,7 @@ func (o LookupMissionProfileResultOutput) ToLookupMissionProfileResultOutputWith
 	return o
 }
 
+// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o LookupMissionProfileResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -99,10 +110,12 @@ func (o LookupMissionProfileResultOutput) ContactPrePassDurationSeconds() pulumi
 	return o.ApplyT(func(v LookupMissionProfileResult) *int { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// A dataflow edge defines from where and to where data will flow during a contact.
 func (o LookupMissionProfileResultOutput) DataflowEdges() MissionProfileDataflowEdgeArrayOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) []MissionProfileDataflowEdge { return v.DataflowEdges }).(MissionProfileDataflowEdgeArrayOutput)
 }
 
+// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o LookupMissionProfileResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -117,6 +130,7 @@ func (o LookupMissionProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The region of the mission profile.
 func (o LookupMissionProfileResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +145,12 @@ func (o LookupMissionProfileResultOutput) StreamsKmsRole() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.StreamsKmsRole }).(pulumi.StringPtrOutput)
 }
 
+// Tags assigned to the mission profile.
 func (o LookupMissionProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 func (o LookupMissionProfileResultOutput) TrackingConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.TrackingConfigArn }).(pulumi.StringPtrOutput)
 }

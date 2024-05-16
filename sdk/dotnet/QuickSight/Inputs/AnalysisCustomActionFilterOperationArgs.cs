@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCustomActionFilterOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of selected fields in the `CustomActionFilterOperation` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("selectedFieldsConfiguration", required: true)]
         public Input<Inputs.AnalysisFilterOperationSelectedFieldsConfigurationArgs> SelectedFieldsConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of target visuals that you want to be filtered.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("targetVisualsConfiguration", required: true)]
         public Input<Inputs.AnalysisFilterOperationTargetVisualsConfigurationArgs> TargetVisualsConfiguration { get; set; } = null!;
 

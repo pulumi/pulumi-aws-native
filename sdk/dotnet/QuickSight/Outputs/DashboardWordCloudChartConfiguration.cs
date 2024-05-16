@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardWordCloudChartConfiguration
     {
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of a word cloud visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardWordCloudFieldWells? FieldWells;
+        /// <summary>
+        /// The sort configuration of a word cloud visual.
+        /// </summary>
         public readonly Outputs.DashboardWordCloudSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The word cloud options for a word cloud visual.
+        /// </summary>
         public readonly Outputs.DashboardWordCloudOptions? WordCloudOptions;
 
         [OutputConstructor]

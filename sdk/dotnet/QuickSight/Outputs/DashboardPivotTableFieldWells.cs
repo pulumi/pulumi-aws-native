@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableFieldWells
     {
+        /// <summary>
+        /// The aggregated field well for the pivot table.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableAggregatedFieldWells? PivotTableAggregatedFieldWells;
 
         [OutputConstructor]

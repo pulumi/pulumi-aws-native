@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateBodySectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of content in a body section.
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.TemplateBodySectionContentArgs> Content { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of a page break for a section.
+        /// </summary>
         [Input("pageBreakConfiguration")]
         public Input<Inputs.TemplateSectionPageBreakConfigurationArgs>? PageBreakConfiguration { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a body section.
+        /// </summary>
         [Input("sectionId", required: true)]
         public Input<string> SectionId { get; set; } = null!;
 
+        /// <summary>
+        /// The options that style a section.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.TemplateSectionStyleArgs>? Style { get; set; }
 

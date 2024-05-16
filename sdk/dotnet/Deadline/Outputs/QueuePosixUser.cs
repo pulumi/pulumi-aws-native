@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class QueuePosixUser
     {
+        /// <summary>
+        /// The name of the POSIX user's group.
+        /// </summary>
         public readonly string Group;
+        /// <summary>
+        /// The name of the POSIX user.
+        /// </summary>
         public readonly string User;
 
         [OutputConstructor]

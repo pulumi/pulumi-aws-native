@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentConfigTrafficRoutingConfig
     {
+        /// <summary>
+        /// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        /// </summary>
         public readonly Outputs.DeploymentConfigTimeBasedCanary? TimeBasedCanary;
+        /// <summary>
+        /// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        /// </summary>
         public readonly Outputs.DeploymentConfigTimeBasedLinear? TimeBasedLinear;
+        /// <summary>
+        /// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

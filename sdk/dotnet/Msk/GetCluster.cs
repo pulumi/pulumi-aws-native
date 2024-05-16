@@ -52,19 +52,49 @@ namespace Pulumi.AwsNative.Msk
     public sealed class GetClusterResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// Describes the setup to be used for the broker nodes in the cluster.
+        /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo;
+        /// <summary>
+        /// Includes all client authentication information.
+        /// </summary>
         public readonly Outputs.ClusterClientAuthentication? ClientAuthentication;
+        /// <summary>
+        /// Specifies the configuration to use for the brokers.
+        /// </summary>
         public readonly Outputs.ClusterConfigurationInfo? ConfigurationInfo;
         /// <summary>
         /// The current version of the MSK cluster
         /// </summary>
         public readonly string? CurrentVersion;
+        /// <summary>
+        /// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        /// </summary>
         public readonly Outputs.ClusterEncryptionInfo? EncryptionInfo;
+        /// <summary>
+        /// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Msk.ClusterEnhancedMonitoring? EnhancedMonitoring;
+        /// <summary>
+        /// The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+        /// </summary>
         public readonly string? KafkaVersion;
+        /// <summary>
+        /// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        /// </summary>
         public readonly Outputs.ClusterLoggingInfo? LoggingInfo;
+        /// <summary>
+        /// The number of broker nodes in the cluster.
+        /// </summary>
         public readonly int? NumberOfBrokerNodes;
+        /// <summary>
+        /// JMX and Node monitoring for the MSK cluster.
+        /// </summary>
         public readonly Outputs.ClusterOpenMonitoring? OpenMonitoring;
+        /// <summary>
+        /// This controls storage mode for supported storage tiers.
+        /// </summary>
         public readonly Pulumi.AwsNative.Msk.ClusterStorageMode? StorageMode;
         /// <summary>
         /// A key-value pair to associate with a resource.

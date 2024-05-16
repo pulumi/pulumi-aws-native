@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class ContinuousDeploymentPolicySessionStickinessConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
+        /// </summary>
         [Input("idleTtl", required: true)]
         public Input<int> IdleTtl { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
+        /// </summary>
         [Input("maximumTtl", required: true)]
         public Input<int> MaximumTtl { get; set; } = null!;
 

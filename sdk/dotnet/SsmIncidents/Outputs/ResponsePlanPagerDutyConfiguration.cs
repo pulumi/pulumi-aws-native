@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
         /// The name of the pagerDuty configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Details about the PagerDuty service where the response plan creates an incident.
+        /// </summary>
         public readonly Outputs.ResponsePlanPagerDutyIncidentConfiguration PagerDutyIncidentConfiguration;
         /// <summary>
         /// The AWS secrets manager secretId storing the pagerDuty token.

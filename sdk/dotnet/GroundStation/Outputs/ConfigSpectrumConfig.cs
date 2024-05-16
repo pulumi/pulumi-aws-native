@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigSpectrumConfig
     {
+        /// <summary>
+        /// Defines a bandwidth.
+        /// </summary>
         public readonly Outputs.ConfigFrequencyBandwidth? Bandwidth;
+        /// <summary>
+        /// Defines a frequency.
+        /// </summary>
         public readonly Outputs.ConfigFrequency? CenterFrequency;
+        /// <summary>
+        /// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.ConfigPolarization? Polarization;
 
         [OutputConstructor]

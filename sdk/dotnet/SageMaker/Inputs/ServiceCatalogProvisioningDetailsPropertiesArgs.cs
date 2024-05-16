@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ServiceCatalogProvisioningDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+        /// </summary>
         [Input("pathId")]
         public Input<string>? PathId { get; set; }
 
+        /// <summary>
+        /// The ID of the product to provision.
+        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the provisioning artifact.
+        /// </summary>
         [Input("provisioningArtifactId")]
         public Input<string>? ProvisioningArtifactId { get; set; }
 

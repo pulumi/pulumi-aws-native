@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.EmrContainers.Outputs
     [OutputType]
     public sealed class VirtualClusterContainerInfo
     {
+        /// <summary>
+        /// The information about the Amazon EKS cluster.
+        /// </summary>
         public readonly Outputs.VirtualClusterEksInfo EksInfo;
 
         [OutputConstructor]

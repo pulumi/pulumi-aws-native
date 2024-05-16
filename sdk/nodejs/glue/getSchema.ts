@@ -30,6 +30,9 @@ export interface GetSchemaResult {
      * Amazon Resource Name for the Schema.
      */
     readonly arn?: string;
+    /**
+     * Specifies the version of a schema.
+     */
     readonly checkpointVersion?: outputs.glue.SchemaVersion;
     /**
      * Compatibility setting for the schema.

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateMappedDataSetParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique name that identifies a dataset within the analysis or dashboard.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the dataset parameter.
+        /// </summary>
         [Input("dataSetParameterName", required: true)]
         public Input<string> DataSetParameterName { get; set; } = null!;
 

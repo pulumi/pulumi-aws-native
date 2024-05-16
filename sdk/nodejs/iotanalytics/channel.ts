@@ -108,9 +108,21 @@ export class Channel extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The name of the channel.
+     */
     public readonly channelName!: pulumi.Output<string | undefined>;
+    /**
+     * Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+     */
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
+    /**
+     * How long, in days, message data is kept.
+     */
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -147,8 +159,20 @@ export class Channel extends pulumi.CustomResource {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
+    /**
+     * The name of the channel.
+     */
     channelName?: pulumi.Input<string>;
+    /**
+     * Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+     */
     channelStorage?: pulumi.Input<inputs.iotanalytics.ChannelStorageArgs>;
+    /**
+     * How long, in days, message data is kept.
+     */
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.ChannelRetentionPeriodArgs>;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

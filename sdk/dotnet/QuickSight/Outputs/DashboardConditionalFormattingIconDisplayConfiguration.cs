@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardConditionalFormattingIconDisplayConfiguration
     {
+        /// <summary>
+        /// Determines the icon display configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardConditionalFormattingIconDisplayOption? IconDisplayOption;
 
         [OutputConstructor]

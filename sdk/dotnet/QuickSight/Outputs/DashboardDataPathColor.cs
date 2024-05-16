@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataPathColor
     {
+        /// <summary>
+        /// The color that needs to be applied to the element.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// The data path that needs to be sorted.
+        /// </summary>
         public readonly Outputs.DashboardDataPathValue Element;
+        /// <summary>
+        /// The time granularity of the field that the color needs to be applied to.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? TimeGranularity;
 
         [OutputConstructor]

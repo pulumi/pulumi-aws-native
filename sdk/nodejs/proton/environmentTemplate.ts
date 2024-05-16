@@ -53,7 +53,13 @@ export class EnvironmentTemplate extends pulumi.CustomResource {
      * <p>A customer provided encryption key that Proton uses to encrypt data.</p>
      */
     public readonly encryptionKey!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the environment template.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+     */
     public readonly provisioning!: pulumi.Output<enums.proton.EnvironmentTemplateProvisioning | undefined>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
@@ -112,7 +118,13 @@ export interface EnvironmentTemplateArgs {
      * <p>A customer provided encryption key that Proton uses to encrypt data.</p>
      */
     encryptionKey?: pulumi.Input<string>;
+    /**
+     * The name of the environment template.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+     */
     provisioning?: pulumi.Input<enums.proton.EnvironmentTemplateProvisioning>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>

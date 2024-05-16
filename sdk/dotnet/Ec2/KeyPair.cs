@@ -121,6 +121,17 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:KeyPair")]
     public partial class KeyPair : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// If you created the key pair using Amazon EC2:
+        /// 
+        /// - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+        /// - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+        /// 
+        /// If you imported the key pair to Amazon EC2:
+        /// 
+        /// - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        /// - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+        /// </summary>
         [Output("keyFingerprint")]
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
@@ -138,6 +149,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the key pair.
+        /// </summary>
         [Output("keyPairId")]
         public Output<string> KeyPairId { get; private set; } = null!;
 

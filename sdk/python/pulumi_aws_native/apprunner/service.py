@@ -30,8 +30,15 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
+        :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
         :param pulumi.Input[str] auto_scaling_configuration_arn: Autoscaling configuration ARN
+        :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+        :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+        :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
         :param pulumi.Input[str] service_name: The AppRunner Service Name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
         if auto_scaling_configuration_arn is not None:
@@ -54,6 +61,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Input['ServiceSourceConfigurationArgs']:
+        """
+        Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -75,6 +85,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']]:
+        """
+        Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -84,6 +97,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="healthCheckConfiguration")
     def health_check_configuration(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']]:
+        """
+        Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+        """
         return pulumi.get(self, "health_check_configuration")
 
     @health_check_configuration.setter
@@ -93,6 +109,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> Optional[pulumi.Input['ServiceInstanceConfigurationArgs']]:
+        """
+        Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+        """
         return pulumi.get(self, "instance_configuration")
 
     @instance_configuration.setter
@@ -102,6 +121,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+        """
+        Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -111,6 +133,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="observabilityConfiguration")
     def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]:
+        """
+        Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+        """
         return pulumi.get(self, "observability_configuration")
 
     @observability_configuration.setter
@@ -132,6 +157,9 @@ class ServiceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -160,7 +188,14 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_scaling_configuration_arn: Autoscaling configuration ARN
+        :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+        :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
         :param pulumi.Input[str] service_name: The AppRunner Service Name.
+        :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
         """
         ...
     @overload
@@ -269,26 +304,41 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.ServiceEncryptionConfiguration']]:
+        """
+        Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="healthCheckConfiguration")
     def health_check_configuration(self) -> pulumi.Output[Optional['outputs.ServiceHealthCheckConfiguration']]:
+        """
+        Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+        """
         return pulumi.get(self, "health_check_configuration")
 
     @property
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> pulumi.Output[Optional['outputs.ServiceInstanceConfiguration']]:
+        """
+        Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+        """
         return pulumi.get(self, "instance_configuration")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceNetworkConfiguration']]:
+        """
+        Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="observabilityConfiguration")
     def observability_configuration(self) -> pulumi.Output[Optional['outputs.ServiceObservabilityConfiguration']]:
+        """
+        Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+        """
         return pulumi.get(self, "observability_configuration")
 
     @property
@@ -326,6 +376,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Output['outputs.ServiceSourceConfiguration']:
+        """
+        Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
+        """
         return pulumi.get(self, "source_configuration")
 
     @property
@@ -339,5 +392,8 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 

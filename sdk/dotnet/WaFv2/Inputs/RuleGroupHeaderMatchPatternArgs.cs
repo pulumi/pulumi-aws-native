@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         [Input("excludedHeaders")]
         private InputList<string>? _excludedHeaders;
+
+        /// <summary>
+        /// Inspect only the headers whose keys don't match any of the strings specified here.
+        /// </summary>
         public InputList<string> ExcludedHeaders
         {
             get => _excludedHeaders ?? (_excludedHeaders = new InputList<string>());
@@ -31,6 +35,10 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         [Input("includedHeaders")]
         private InputList<string>? _includedHeaders;
+
+        /// <summary>
+        /// Inspect only the headers that have a key that matches one of the strings specified here.
+        /// </summary>
         public InputList<string> IncludedHeaders
         {
             get => _includedHeaders ?? (_includedHeaders = new InputList<string>());

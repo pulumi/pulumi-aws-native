@@ -140,6 +140,9 @@ class NetworkAcl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network ACL.
+        """
         return pulumi.get(self, "aws_id")
 
     @property

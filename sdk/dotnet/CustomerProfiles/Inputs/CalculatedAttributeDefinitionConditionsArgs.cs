@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class CalculatedAttributeDefinitionConditionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of profile objects used for the calculated attribute.
+        /// </summary>
         [Input("objectCount")]
         public Input<int>? ObjectCount { get; set; }
 
+        /// <summary>
+        /// The relative time period over which data is included in the aggregation.
+        /// </summary>
         [Input("range")]
         public Input<Inputs.CalculatedAttributeDefinitionRangeArgs>? Range { get; set; }
 
+        /// <summary>
+        /// The threshold for the calculated attribute.
+        /// </summary>
         [Input("threshold")]
         public Input<Inputs.CalculatedAttributeDefinitionThresholdArgs>? Threshold { get; set; }
 

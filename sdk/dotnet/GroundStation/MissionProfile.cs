@@ -87,9 +87,15 @@ namespace Pulumi.AwsNative.GroundStation
     [AwsNativeResourceType("aws-native:groundstation:MissionProfile")]
     public partial class MissionProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -105,6 +111,9 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("contactPrePassDurationSeconds")]
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// A dataflow edge defines from where and to where data will flow during a contact.
+        /// </summary>
         [Output("dataflowEdges")]
         public Output<ImmutableArray<Outputs.MissionProfileDataflowEdge>> DataflowEdges { get; private set; } = null!;
 
@@ -120,6 +129,9 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The region of the mission profile.
+        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -135,9 +147,15 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("streamsKmsRole")]
         public Output<string?> StreamsKmsRole { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags assigned to the mission profile.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+        /// </summary>
         [Output("trackingConfigArn")]
         public Output<string> TrackingConfigArn { get; private set; } = null!;
 
@@ -200,6 +218,10 @@ namespace Pulumi.AwsNative.GroundStation
 
         [Input("dataflowEdges", required: true)]
         private InputList<Inputs.MissionProfileDataflowEdgeArgs>? _dataflowEdges;
+
+        /// <summary>
+        /// A dataflow edge defines from where and to where data will flow during a contact.
+        /// </summary>
         public InputList<Inputs.MissionProfileDataflowEdgeArgs> DataflowEdges
         {
             get => _dataflowEdges ?? (_dataflowEdges = new InputList<Inputs.MissionProfileDataflowEdgeArgs>());
@@ -232,12 +254,19 @@ namespace Pulumi.AwsNative.GroundStation
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags assigned to the mission profile.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+        /// </summary>
         [Input("trackingConfigArn", required: true)]
         public Input<string> TrackingConfigArn { get; set; } = null!;
 

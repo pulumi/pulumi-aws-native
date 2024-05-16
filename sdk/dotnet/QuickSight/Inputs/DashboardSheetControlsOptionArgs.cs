@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardSheetControlsOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Visibility state.
+        /// </summary>
         [Input("visibilityState")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardUiState>? VisibilityState { get; set; }
 

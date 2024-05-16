@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class DetectorModelSqs
     {
+        /// <summary>
+        /// Information needed to configure the payload.
+        /// 
+        /// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
         /// <summary>
         /// The URL of the SQS queue where the data is written.

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTimeRangeDrillDownFilter
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The maximum value for the filter value range.
+        /// </summary>
         public readonly string RangeMaximum;
+        /// <summary>
+        /// The minimum value for the filter value range.
+        /// </summary>
         public readonly string RangeMinimum;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity TimeGranularity;
 
         [OutputConstructor]

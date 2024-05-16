@@ -18,9 +18,11 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
-	Arn              pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the channel group associated with the channel configuration.
 	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
-	ChannelName      pulumi.StringOutput `pulumi:"channelName"`
+	// The name of the channel.
+	ChannelName pulumi.StringOutput `pulumi:"channelName"`
 	// <p>The date and time the channel was created.</p>
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
@@ -29,7 +31,8 @@ type Channel struct {
 	IngestEndpoints ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
 	// <p>The date and time the channel was modified.</p>
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	// The tags associated with the channel.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -80,20 +83,26 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	ChannelGroupName string  `pulumi:"channelGroupName"`
-	ChannelName      *string `pulumi:"channelName"`
+	// The name of the channel group associated with the channel configuration.
+	ChannelGroupName string `pulumi:"channelGroupName"`
+	// The name of the channel.
+	ChannelName *string `pulumi:"channelName"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description *string   `pulumi:"description"`
-	Tags        []aws.Tag `pulumi:"tags"`
+	Description *string `pulumi:"description"`
+	// The tags associated with the channel.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
+	// The name of the channel group associated with the channel configuration.
 	ChannelGroupName pulumi.StringInput
-	ChannelName      pulumi.StringPtrInput
+	// The name of the channel.
+	ChannelName pulumi.StringPtrInput
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
 	Description pulumi.StringPtrInput
-	Tags        aws.TagArrayInput
+	// The tags associated with the channel.
+	Tags aws.TagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -138,10 +147,12 @@ func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the channel group associated with the channel configuration.
 func (o ChannelOutput) ChannelGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
+// The name of the channel.
 func (o ChannelOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
@@ -166,6 +177,7 @@ func (o ChannelOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// The tags associated with the channel.
 func (o ChannelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

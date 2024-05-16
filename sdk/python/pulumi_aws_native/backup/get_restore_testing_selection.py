@@ -39,26 +39,45 @@ class GetRestoreTestingSelectionResult:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @property
     @pulumi.getter(name="protectedResourceArns")
     def protected_resource_arns(self) -> Optional[Sequence[str]]:
+        """
+        You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+        """
         return pulumi.get(self, "protected_resource_arns")
 
     @property
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> Optional['outputs.RestoreTestingSelectionProtectedResourceConditions']:
+        """
+        The conditions that you define for resources in your restore testing plan using tags.
+
+        For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        """
         return pulumi.get(self, "protected_resource_conditions")
 
     @property
     @pulumi.getter(name="restoreMetadataOverrides")
     def restore_metadata_overrides(self) -> Optional[Mapping[str, str]]:
+        """
+        You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+
+        See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+        """
         return pulumi.get(self, "restore_metadata_overrides")
 
     @property
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> Optional[int]:
+        """
+        This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+        """
         return pulumi.get(self, "validation_window_hours")
 
 
@@ -80,6 +99,12 @@ def get_restore_testing_selection(restore_testing_plan_name: Optional[str] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestoreTestingSelectionResult:
     """
     Resource Type definition for AWS::Backup::RestoreTestingSelection
+
+
+    :param str restore_testing_plan_name: Unique string that is the name of the restore testing plan.
+           
+           The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+    :param str restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
     """
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name
@@ -101,5 +126,11 @@ def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pul
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingSelectionResult]:
     """
     Resource Type definition for AWS::Backup::RestoreTestingSelection
+
+
+    :param str restore_testing_plan_name: Unique string that is the name of the restore testing plan.
+           
+           The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+    :param str restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
     """
     ...

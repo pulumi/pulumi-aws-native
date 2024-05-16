@@ -33,6 +33,10 @@ class StreamProcessorBoundingBox(dict):
                  width: float):
         """
         A bounding box denoting a region of interest in the frame to be analyzed.
+        :param float height: Height of the bounding box as a ratio of the overall image height.
+        :param float left: Left coordinate of the bounding box as a ratio of overall image width.
+        :param float top: Top coordinate of the bounding box as a ratio of overall image height.
+        :param float width: Width of the bounding box as a ratio of the overall image width.
         """
         pulumi.set(__self__, "height", height)
         pulumi.set(__self__, "left", left)
@@ -42,21 +46,33 @@ class StreamProcessorBoundingBox(dict):
     @property
     @pulumi.getter
     def height(self) -> float:
+        """
+        Height of the bounding box as a ratio of the overall image height.
+        """
         return pulumi.get(self, "height")
 
     @property
     @pulumi.getter
     def left(self) -> float:
+        """
+        Left coordinate of the bounding box as a ratio of overall image width.
+        """
         return pulumi.get(self, "left")
 
     @property
     @pulumi.getter
     def top(self) -> float:
+        """
+        Top coordinate of the bounding box as a ratio of overall image height.
+        """
         return pulumi.get(self, "top")
 
     @property
     @pulumi.getter
     def width(self) -> float:
+        """
+        Width of the bounding box as a ratio of the overall image width.
+        """
         return pulumi.get(self, "width")
 
 
@@ -87,6 +103,7 @@ class StreamProcessorConnectedHomeSettings(dict):
                  min_confidence: Optional[float] = None):
         """
         Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
+        :param Sequence[str] labels: Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
         :param float min_confidence: Minimum object class match confidence score that must be met to return a result for a recognized object.
         """
         pulumi.set(__self__, "labels", labels)
@@ -96,6 +113,9 @@ class StreamProcessorConnectedHomeSettings(dict):
     @property
     @pulumi.getter
     def labels(self) -> Sequence[str]:
+        """
+        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+        """
         return pulumi.get(self, "labels")
 
     @property

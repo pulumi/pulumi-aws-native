@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudTrail
     [AwsNativeResourceType("aws-native:cloudtrail:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+        /// </summary>
         [Output("channelArn")]
         public Output<string> ChannelArn { get; private set; } = null!;
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.CloudTrail
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.ChannelDestination>> Destinations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -100,6 +106,9 @@ namespace Pulumi.AwsNative.CloudTrail
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

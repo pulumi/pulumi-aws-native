@@ -40,26 +40,41 @@ class GetPolicyStoreResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Descriptive text that you can provide to help with identification of the current policy store.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> Optional[str]:
+        """
+        The unique ID of the new or updated policy store.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional['outputs.PolicyStoreSchemaDefinition']:
+        """
+        Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Optional['outputs.PolicyStoreValidationSettings']:
+        """
+        A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        """
         return pulumi.get(self, "validation_settings")
 
 
@@ -80,6 +95,9 @@ def get_policy_store(policy_store_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyStoreResult:
     """
     Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
+
+
+    :param str policy_store_id: The unique ID of the new or updated policy store.
     """
     __args__ = dict()
     __args__['policyStoreId'] = policy_store_id
@@ -99,5 +117,8 @@ def get_policy_store_output(policy_store_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
     Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
+
+
+    :param str policy_store_id: The unique ID of the new or updated policy store.
     """
     ...

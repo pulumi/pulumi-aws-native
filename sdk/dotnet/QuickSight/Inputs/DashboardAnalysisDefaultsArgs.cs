@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAnalysisDefaultsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for default new sheet settings.
+        /// </summary>
         [Input("defaultNewSheetConfiguration", required: true)]
         public Input<Inputs.DashboardDefaultNewSheetConfigurationArgs> DefaultNewSheetConfiguration { get; set; } = null!;
 

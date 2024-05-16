@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class AppBlockScriptDetails
     {
+        /// <summary>
+        /// The parameters used in the run path for the script.
+        /// </summary>
         public readonly string? ExecutableParameters;
+        /// <summary>
+        /// The run path for the script.
+        /// </summary>
         public readonly string ExecutablePath;
+        /// <summary>
+        /// The S3 location of the app block.
+        /// </summary>
         public readonly Outputs.AppBlockS3Location ScriptS3Location;
+        /// <summary>
+        /// The run timeout, in seconds, for the script.
+        /// </summary>
         public readonly int TimeoutInSeconds;
 
         [OutputConstructor]

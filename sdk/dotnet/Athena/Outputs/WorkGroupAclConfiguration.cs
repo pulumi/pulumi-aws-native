@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupAclConfiguration
     {
+        /// <summary>
+        /// The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . If a query runs in a workgroup and the workgroup overrides client-side settings, then the Amazon S3 canned ACL specified in the workgroup's settings is used for all queries that run in the workgroup. For more information about Amazon S3 canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
+        /// </summary>
         public readonly Pulumi.AwsNative.Athena.WorkGroupS3AclOption S3AclOption;
 
         [OutputConstructor]

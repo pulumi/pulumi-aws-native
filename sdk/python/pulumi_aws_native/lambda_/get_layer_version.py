@@ -26,6 +26,9 @@ class GetLayerVersionResult:
     @property
     @pulumi.getter(name="layerVersionArn")
     def layer_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the layer version.
+        """
         return pulumi.get(self, "layer_version_arn")
 
 
@@ -42,6 +45,9 @@ def get_layer_version(layer_version_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLayerVersionResult:
     """
     Resource Type definition for AWS::Lambda::LayerVersion
+
+
+    :param str layer_version_arn: The ARN of the layer version.
     """
     __args__ = dict()
     __args__['layerVersionArn'] = layer_version_arn
@@ -57,5 +63,8 @@ def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
     Resource Type definition for AWS::Lambda::LayerVersion
+
+
+    :param str layer_version_arn: The ARN of the layer version.
     """
     ...

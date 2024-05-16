@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterVpcConnectivityClientAuthentication
     {
+        /// <summary>
+        /// Details for client authentication using SASL for VpcConnectivity.
+        /// </summary>
         public readonly Outputs.ClusterVpcConnectivitySasl? Sasl;
+        /// <summary>
+        /// Details for client authentication using TLS for vpcConnectivity.
+        /// </summary>
         public readonly Outputs.ClusterVpcConnectivityTls? Tls;
 
         [OutputConstructor]

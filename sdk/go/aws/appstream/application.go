@@ -16,20 +16,40 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	AppBlockArn        pulumi.StringOutput         `pulumi:"appBlockArn"`
-	Arn                pulumi.StringOutput         `pulumi:"arn"`
-	AttributesToDelete pulumi.StringArrayOutput    `pulumi:"attributesToDelete"`
-	CreatedTime        pulumi.StringOutput         `pulumi:"createdTime"`
-	Description        pulumi.StringPtrOutput      `pulumi:"description"`
-	DisplayName        pulumi.StringPtrOutput      `pulumi:"displayName"`
-	IconS3Location     ApplicationS3LocationOutput `pulumi:"iconS3Location"`
-	InstanceFamilies   pulumi.StringArrayOutput    `pulumi:"instanceFamilies"`
-	LaunchParameters   pulumi.StringPtrOutput      `pulumi:"launchParameters"`
-	LaunchPath         pulumi.StringOutput         `pulumi:"launchPath"`
-	Name               pulumi.StringOutput         `pulumi:"name"`
-	Platforms          pulumi.StringArrayOutput    `pulumi:"platforms"`
-	Tags               pulumi.ArrayOutput          `pulumi:"tags"`
-	WorkingDirectory   pulumi.StringPtrOutput      `pulumi:"workingDirectory"`
+	// The app block ARN with which the application should be associated.
+	AppBlockArn pulumi.StringOutput `pulumi:"appBlockArn"`
+	// The ARN of the application.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A list of attributes to delete from an application.
+	AttributesToDelete pulumi.StringArrayOutput `pulumi:"attributesToDelete"`
+	// The time when the application was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The description of the application.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the application. This name is visible to users in the application catalog.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The S3 location of the application icon.
+	IconS3Location ApplicationS3LocationOutput `pulumi:"iconS3Location"`
+	// The instance families the application supports.
+	//
+	// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+	InstanceFamilies pulumi.StringArrayOutput `pulumi:"instanceFamilies"`
+	// The launch parameters of the application.
+	LaunchParameters pulumi.StringPtrOutput `pulumi:"launchParameters"`
+	// The launch path of the application.
+	LaunchPath pulumi.StringOutput `pulumi:"launchPath"`
+	// The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+	//
+	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The platforms the application supports.
+	//
+	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+	Platforms pulumi.StringArrayOutput `pulumi:"platforms"`
+	// The tag of the application.
+	Tags pulumi.ArrayOutput `pulumi:"tags"`
+	// The working directory of the application.
+	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -93,34 +113,70 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	AppBlockArn        string                `pulumi:"appBlockArn"`
-	AttributesToDelete []string              `pulumi:"attributesToDelete"`
-	Description        *string               `pulumi:"description"`
-	DisplayName        *string               `pulumi:"displayName"`
-	IconS3Location     ApplicationS3Location `pulumi:"iconS3Location"`
-	InstanceFamilies   []string              `pulumi:"instanceFamilies"`
-	LaunchParameters   *string               `pulumi:"launchParameters"`
-	LaunchPath         string                `pulumi:"launchPath"`
-	Name               *string               `pulumi:"name"`
-	Platforms          []string              `pulumi:"platforms"`
-	Tags               []interface{}         `pulumi:"tags"`
-	WorkingDirectory   *string               `pulumi:"workingDirectory"`
+	// The app block ARN with which the application should be associated.
+	AppBlockArn string `pulumi:"appBlockArn"`
+	// A list of attributes to delete from an application.
+	AttributesToDelete []string `pulumi:"attributesToDelete"`
+	// The description of the application.
+	Description *string `pulumi:"description"`
+	// The display name of the application. This name is visible to users in the application catalog.
+	DisplayName *string `pulumi:"displayName"`
+	// The S3 location of the application icon.
+	IconS3Location ApplicationS3Location `pulumi:"iconS3Location"`
+	// The instance families the application supports.
+	//
+	// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+	InstanceFamilies []string `pulumi:"instanceFamilies"`
+	// The launch parameters of the application.
+	LaunchParameters *string `pulumi:"launchParameters"`
+	// The launch path of the application.
+	LaunchPath string `pulumi:"launchPath"`
+	// The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+	//
+	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+	Name *string `pulumi:"name"`
+	// The platforms the application supports.
+	//
+	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+	Platforms []string `pulumi:"platforms"`
+	// The tag of the application.
+	Tags []interface{} `pulumi:"tags"`
+	// The working directory of the application.
+	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	AppBlockArn        pulumi.StringInput
+	// The app block ARN with which the application should be associated.
+	AppBlockArn pulumi.StringInput
+	// A list of attributes to delete from an application.
 	AttributesToDelete pulumi.StringArrayInput
-	Description        pulumi.StringPtrInput
-	DisplayName        pulumi.StringPtrInput
-	IconS3Location     ApplicationS3LocationInput
-	InstanceFamilies   pulumi.StringArrayInput
-	LaunchParameters   pulumi.StringPtrInput
-	LaunchPath         pulumi.StringInput
-	Name               pulumi.StringPtrInput
-	Platforms          pulumi.StringArrayInput
-	Tags               pulumi.ArrayInput
-	WorkingDirectory   pulumi.StringPtrInput
+	// The description of the application.
+	Description pulumi.StringPtrInput
+	// The display name of the application. This name is visible to users in the application catalog.
+	DisplayName pulumi.StringPtrInput
+	// The S3 location of the application icon.
+	IconS3Location ApplicationS3LocationInput
+	// The instance families the application supports.
+	//
+	// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+	InstanceFamilies pulumi.StringArrayInput
+	// The launch parameters of the application.
+	LaunchParameters pulumi.StringPtrInput
+	// The launch path of the application.
+	LaunchPath pulumi.StringInput
+	// The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+	//
+	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+	Name pulumi.StringPtrInput
+	// The platforms the application supports.
+	//
+	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+	Platforms pulumi.StringArrayInput
+	// The tag of the application.
+	Tags pulumi.ArrayInput
+	// The working directory of the application.
+	WorkingDirectory pulumi.StringPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -160,58 +216,78 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The app block ARN with which the application should be associated.
 func (o ApplicationOutput) AppBlockArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AppBlockArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A list of attributes to delete from an application.
 func (o ApplicationOutput) AttributesToDelete() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.AttributesToDelete }).(pulumi.StringArrayOutput)
 }
 
+// The time when the application was created.
 func (o ApplicationOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The description of the application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the application. This name is visible to users in the application catalog.
 func (o ApplicationOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The S3 location of the application icon.
 func (o ApplicationOutput) IconS3Location() ApplicationS3LocationOutput {
 	return o.ApplyT(func(v *Application) ApplicationS3LocationOutput { return v.IconS3Location }).(ApplicationS3LocationOutput)
 }
 
+// The instance families the application supports.
+//
+// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
 func (o ApplicationOutput) InstanceFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.InstanceFamilies }).(pulumi.StringArrayOutput)
 }
 
+// The launch parameters of the application.
 func (o ApplicationOutput) LaunchParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.LaunchParameters }).(pulumi.StringPtrOutput)
 }
 
+// The launch path of the application.
 func (o ApplicationOutput) LaunchPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.LaunchPath }).(pulumi.StringOutput)
 }
 
+// The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+//
+// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The platforms the application supports.
+//
+// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
 func (o ApplicationOutput) Platforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Platforms }).(pulumi.StringArrayOutput)
 }
 
+// The tag of the application.
 func (o ApplicationOutput) Tags() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.ArrayOutput { return v.Tags }).(pulumi.ArrayOutput)
 }
 
+// The working directory of the application.
 func (o ApplicationOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }

@@ -23,6 +23,22 @@ class ImageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
+        :param pulumi.Input[str] image_role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+               
+               *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+               
+               *Pattern* : `^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$`
+        :param pulumi.Input[str] image_description: The description of the image.
+        :param pulumi.Input[str] image_display_name: The display name of the image.
+               
+               *Length Constraints* : Minimum length of 1. Maximum length of 128.
+               
+               *Pattern* : `^\\S(.*\\S)?$`
+        :param pulumi.Input[str] image_name: The name of the Image. Must be unique by region in your account.
+               
+               *Length Constraints* : Minimum length of 1. Maximum length of 63.
+               
+               *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "image_role_arn", image_role_arn)
@@ -38,6 +54,13 @@ class ImageArgs:
     @property
     @pulumi.getter(name="imageRoleArn")
     def image_role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+
+        *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+
+        *Pattern* : `^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$`
+        """
         return pulumi.get(self, "image_role_arn")
 
     @image_role_arn.setter
@@ -47,6 +70,9 @@ class ImageArgs:
     @property
     @pulumi.getter(name="imageDescription")
     def image_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "image_description")
 
     @image_description.setter
@@ -56,6 +82,13 @@ class ImageArgs:
     @property
     @pulumi.getter(name="imageDisplayName")
     def image_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the image.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 128.
+
+        *Pattern* : `^\\S(.*\\S)?$`
+        """
         return pulumi.get(self, "image_display_name")
 
     @image_display_name.setter
@@ -65,6 +98,13 @@ class ImageArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Image. Must be unique by region in your account.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 63.
+
+        *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -100,6 +140,22 @@ class Image(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] image_description: The description of the image.
+        :param pulumi.Input[str] image_display_name: The display name of the image.
+               
+               *Length Constraints* : Minimum length of 1. Maximum length of 128.
+               
+               *Pattern* : `^\\S(.*\\S)?$`
+        :param pulumi.Input[str] image_name: The name of the Image. Must be unique by region in your account.
+               
+               *Length Constraints* : Minimum length of 1. Maximum length of 63.
+               
+               *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        :param pulumi.Input[str] image_role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+               
+               *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+               
+               *Pattern* : `^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -183,26 +239,59 @@ class Image(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the image.
+
+        *Type* : String
+
+        *Length Constraints* : Maximum length of 256.
+
+        *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+        """
         return pulumi.get(self, "image_arn")
 
     @property
     @pulumi.getter(name="imageDescription")
     def image_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "image_description")
 
     @property
     @pulumi.getter(name="imageDisplayName")
     def image_display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the image.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 128.
+
+        *Pattern* : `^\\S(.*\\S)?$`
+        """
         return pulumi.get(self, "image_display_name")
 
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Image. Must be unique by region in your account.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 63.
+
+        *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        """
         return pulumi.get(self, "image_name")
 
     @property
     @pulumi.getter(name="imageRoleArn")
     def image_role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+
+        *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+
+        *Pattern* : `^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$`
+        """
         return pulumi.get(self, "image_role_arn")
 
     @property

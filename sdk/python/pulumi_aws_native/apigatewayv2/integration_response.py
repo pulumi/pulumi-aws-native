@@ -293,6 +293,9 @@ class IntegrationResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="integrationResponseId")
     def integration_response_id(self) -> pulumi.Output[str]:
+        """
+        The integration response ID.
+        """
         return pulumi.get(self, "integration_response_id")
 
     @property

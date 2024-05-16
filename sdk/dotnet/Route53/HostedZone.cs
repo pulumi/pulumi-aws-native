@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Route53
     [AwsNativeResourceType("aws-native:route53:HostedZone")]
     public partial class HostedZone : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -54,6 +57,11 @@ namespace Pulumi.AwsNative.Route53
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+        /// 
+        /// This attribute is not supported for private hosted zones.
+        /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 

@@ -13,14 +13,43 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScatterPlotConfiguration
     {
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a scatter plot.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisScatterPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? XAxisLabelOptions;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? YAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? YAxisLabelOptions;
 
         [OutputConstructor]

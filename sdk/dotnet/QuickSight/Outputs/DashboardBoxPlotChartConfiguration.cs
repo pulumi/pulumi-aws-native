@@ -13,16 +13,51 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardBoxPlotChartConfiguration
     {
+        /// <summary>
+        /// The options of a box plot visual.
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotOptions? BoxPlotOptions;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of a `BoxPlotVisual` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The sort configuration of a `BoxPlotVisual` .
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 
         [OutputConstructor]

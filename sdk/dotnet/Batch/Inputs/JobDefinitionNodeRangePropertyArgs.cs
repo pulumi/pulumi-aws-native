@@ -12,20 +12,37 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionNodeRangePropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        /// </summary>
         [Input("container")]
         public Input<Inputs.JobDefinitionContainerPropertiesArgs>? Container { get; set; }
 
+        /// <summary>
+        /// An object that contains the properties for the Amazon ECS resources of a job.
+        /// </summary>
         [Input("ecsProperties")]
         public Input<Inputs.JobDefinitionEcsPropertiesArgs>? EcsProperties { get; set; }
 
         [Input("instanceTypes")]
         private InputList<string>? _instanceTypes;
+
+        /// <summary>
+        /// The instance types of the underlying host infrastructure of a multi-node parallel job.
+        /// 
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources.
+        /// &gt; 
+        /// &gt; In addition, this list object is currently limited to one element.
+        /// </summary>
         public InputList<string> InstanceTypes
         {
             get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
             set => _instanceTypes = value;
         }
 
+        /// <summary>
+        /// The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
+        /// </summary>
         [Input("targetNodes", required: true)]
         public Input<string> TargetNodes { get; set; } = null!;
 

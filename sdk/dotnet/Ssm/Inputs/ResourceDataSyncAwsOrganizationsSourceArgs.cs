@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Ssm.Inputs
 
     public sealed class ResourceDataSyncAwsOrganizationsSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+        /// </summary>
         [Input("organizationSourceType", required: true)]
         public Input<string> OrganizationSourceType { get; set; } = null!;
 
         [Input("organizationalUnits")]
         private InputList<string>? _organizationalUnits;
+
+        /// <summary>
+        /// The AWS Organizations organization units included in the sync.
+        /// </summary>
         public InputList<string> OrganizationalUnits
         {
             get => _organizationalUnits ?? (_organizationalUnits = new InputList<string>());

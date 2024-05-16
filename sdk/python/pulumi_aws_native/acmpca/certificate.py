@@ -273,11 +273,17 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the issued certificate.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
+        """
+        The issued Base64 PEM-encoded certificate.
+        """
         return pulumi.get(self, "certificate")
 
     @property

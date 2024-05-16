@@ -24,13 +24,17 @@ func LookupBillingGroup(ctx *pulumi.Context, args *LookupBillingGroupArgs, opts 
 }
 
 type LookupBillingGroupArgs struct {
+	// The name of the billing group.
 	BillingGroupName string `pulumi:"billingGroupName"`
 }
 
 type LookupBillingGroupResult struct {
-	Arn                    *string                           `pulumi:"arn"`
+	// The ARN of the billing group.
+	Arn *string `pulumi:"arn"`
+	// The properties of the billing group.
 	BillingGroupProperties *BillingGroupPropertiesProperties `pulumi:"billingGroupProperties"`
-	Id                     *string                           `pulumi:"id"`
+	// The ID of the billing group.
+	Id *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -49,6 +53,7 @@ func LookupBillingGroupOutput(ctx *pulumi.Context, args LookupBillingGroupOutput
 }
 
 type LookupBillingGroupOutputArgs struct {
+	// The name of the billing group.
 	BillingGroupName pulumi.StringInput `pulumi:"billingGroupName"`
 }
 
@@ -70,14 +75,17 @@ func (o LookupBillingGroupResultOutput) ToLookupBillingGroupResultOutputWithCont
 	return o
 }
 
+// The ARN of the billing group.
 func (o LookupBillingGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBillingGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The properties of the billing group.
 func (o LookupBillingGroupResultOutput) BillingGroupProperties() BillingGroupPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupBillingGroupResult) *BillingGroupPropertiesProperties { return v.BillingGroupProperties }).(BillingGroupPropertiesPropertiesPtrOutput)
 }
 
+// The ID of the billing group.
 func (o LookupBillingGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBillingGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

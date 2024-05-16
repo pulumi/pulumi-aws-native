@@ -32,6 +32,17 @@ class UserSettingsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserSettings resource.
+        :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
+        :param pulumi.Input['UserSettingsEnabledType'] download_allowed: Specifies whether the user can download files from the streaming session to the local device.
+        :param pulumi.Input['UserSettingsEnabledType'] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session.
+        :param pulumi.Input['UserSettingsEnabledType'] print_allowed: Specifies whether the user can print to the local device.
+        :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The additional encryption context of the user settings.
+        :param pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs'] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        :param pulumi.Input[str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
+        :param pulumi.Input[float] disconnect_timeout_in_minutes: The amount of time that a streaming session remains active after users disconnect.
+        :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
         """
         pulumi.set(__self__, "copy_allowed", copy_allowed)
         pulumi.set(__self__, "download_allowed", download_allowed)
@@ -54,6 +65,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> pulumi.Input['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can copy text from the streaming session to the local device.
+        """
         return pulumi.get(self, "copy_allowed")
 
     @copy_allowed.setter
@@ -63,6 +77,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="downloadAllowed")
     def download_allowed(self) -> pulumi.Input['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can download files from the streaming session to the local device.
+        """
         return pulumi.get(self, "download_allowed")
 
     @download_allowed.setter
@@ -72,6 +89,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="pasteAllowed")
     def paste_allowed(self) -> pulumi.Input['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can paste text from the local device to the streaming session.
+        """
         return pulumi.get(self, "paste_allowed")
 
     @paste_allowed.setter
@@ -81,6 +101,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="printAllowed")
     def print_allowed(self) -> pulumi.Input['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can print to the local device.
+        """
         return pulumi.get(self, "print_allowed")
 
     @print_allowed.setter
@@ -90,6 +113,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> pulumi.Input['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can upload files from the local device to the streaming session.
+        """
         return pulumi.get(self, "upload_allowed")
 
     @upload_allowed.setter
@@ -99,6 +125,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The additional encryption context of the user settings.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -108,6 +137,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
     def cookie_synchronization_configuration(self) -> Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]:
+        """
+        The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @cookie_synchronization_configuration.setter
@@ -117,6 +149,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer managed key used to encrypt sensitive information in the user settings.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -126,6 +161,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The amount of time that a streaming session remains active after users disconnect.
+        """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @disconnect_timeout_in_minutes.setter
@@ -135,6 +173,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
     def idle_disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @idle_disconnect_timeout_in_minutes.setter
@@ -144,6 +185,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -173,6 +217,17 @@ class UserSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The additional encryption context of the user settings.
+        :param pulumi.Input[pulumi.InputType['UserSettingsCookieSynchronizationConfigurationArgs']] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
+        :param pulumi.Input[str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
+        :param pulumi.Input[float] disconnect_timeout_in_minutes: The amount of time that a streaming session remains active after users disconnect.
+        :param pulumi.Input['UserSettingsEnabledType'] download_allowed: Specifies whether the user can download files from the streaming session to the local device.
+        :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        :param pulumi.Input['UserSettingsEnabledType'] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session.
+        :param pulumi.Input['UserSettingsEnabledType'] print_allowed: Specifies whether the user can print to the local device.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
         """
         ...
     @overload
@@ -283,65 +338,104 @@ class UserSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The additional encryption context of the user settings.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of web portal ARNs that this user settings resource is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
     def cookie_synchronization_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsCookieSynchronizationConfiguration']]:
+        """
+        The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> pulumi.Output['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can copy text from the streaming session to the local device.
+        """
         return pulumi.get(self, "copy_allowed")
 
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The customer managed key used to encrypt sensitive information in the user settings.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+        """
+        The amount of time that a streaming session remains active after users disconnect.
+        """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="downloadAllowed")
     def download_allowed(self) -> pulumi.Output['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can download files from the streaming session to the local device.
+        """
         return pulumi.get(self, "download_allowed")
 
     @property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
     def idle_disconnect_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+        """
+        The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="pasteAllowed")
     def paste_allowed(self) -> pulumi.Output['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can paste text from the local device to the streaming session.
+        """
         return pulumi.get(self, "paste_allowed")
 
     @property
     @pulumi.getter(name="printAllowed")
     def print_allowed(self) -> pulumi.Output['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can print to the local device.
+        """
         return pulumi.get(self, "print_allowed")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> pulumi.Output['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can upload files from the local device to the streaming session.
+        """
         return pulumi.get(self, "upload_allowed")
 
     @property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the user settings.
+        """
         return pulumi.get(self, "user_settings_arn")
 

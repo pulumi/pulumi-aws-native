@@ -27,7 +27,8 @@ type RouteResponse struct {
 	// The route response parameters.
 	ResponseParameters RouteResponseParameterConstraintsMapOutput `pulumi:"responseParameters"`
 	// The route ID.
-	RouteId         pulumi.StringOutput `pulumi:"routeId"`
+	RouteId pulumi.StringOutput `pulumi:"routeId"`
+	// The route response ID.
 	RouteResponseId pulumi.StringOutput `pulumi:"routeResponseId"`
 	// The route response key.
 	RouteResponseKey pulumi.StringOutput `pulumi:"routeResponseKey"`
@@ -185,6 +186,7 @@ func (o RouteResponseOutput) RouteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
 }
 
+// The route response ID.
 func (o RouteResponseOutput) RouteResponseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseId }).(pulumi.StringOutput)
 }

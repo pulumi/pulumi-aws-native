@@ -46,31 +46,49 @@ class GetPrivacyBudgetTemplateResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the privacy budget template.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> Optional[str]:
+        """
+        The ARN of the collaboration that contains this privacy budget template.
+        """
         return pulumi.get(self, "collaboration_arn")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> Optional[str]:
+        """
+        The unique ID of the collaboration that contains this privacy budget template.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter(name="membershipArn")
     def membership_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+        """
         return pulumi.get(self, "membership_arn")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional['outputs.ParametersProperties']:
+        """
+        Specifies the epislon and noise parameters for the privacy budget template.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="privacyBudgetTemplateIdentifier")
     def privacy_budget_template_identifier(self) -> Optional[str]:
+        """
+        A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+        """
         return pulumi.get(self, "privacy_budget_template_identifier")
 
     @property
@@ -102,6 +120,10 @@ def get_privacy_budget_template(membership_identifier: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivacyBudgetTemplateResult:
     """
     Represents a privacy budget within a collaboration
+
+
+    :param str membership_identifier: The identifier for a membership resource.
+    :param str privacy_budget_template_identifier: A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
     """
     __args__ = dict()
     __args__['membershipIdentifier'] = membership_identifier
@@ -125,5 +147,9 @@ def get_privacy_budget_template_output(membership_identifier: Optional[pulumi.In
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivacyBudgetTemplateResult]:
     """
     Represents a privacy budget within a collaboration
+
+
+    :param str membership_identifier: The identifier for a membership resource.
+    :param str privacy_budget_template_identifier: A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
     """
     ...

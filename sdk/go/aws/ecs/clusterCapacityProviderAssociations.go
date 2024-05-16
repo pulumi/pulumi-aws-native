@@ -106,8 +106,11 @@ import (
 type ClusterCapacityProviderAssociations struct {
 	pulumi.CustomResourceState
 
-	CapacityProviders               pulumi.StringArrayOutput                                               `pulumi:"capacityProviders"`
-	Cluster                         pulumi.StringOutput                                                    `pulumi:"cluster"`
+	// The capacity providers to associate with the cluster.
+	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
+	// The cluster the capacity provider association is the target of.
+	Cluster pulumi.StringOutput `pulumi:"cluster"`
+	// The default capacity provider strategy to associate with the cluster.
 	DefaultCapacityProviderStrategy ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategy"`
 }
 
@@ -164,15 +167,21 @@ func (ClusterCapacityProviderAssociationsState) ElementType() reflect.Type {
 }
 
 type clusterCapacityProviderAssociationsArgs struct {
-	CapacityProviders               []string                                                      `pulumi:"capacityProviders"`
-	Cluster                         string                                                        `pulumi:"cluster"`
+	// The capacity providers to associate with the cluster.
+	CapacityProviders []string `pulumi:"capacityProviders"`
+	// The cluster the capacity provider association is the target of.
+	Cluster string `pulumi:"cluster"`
+	// The default capacity provider strategy to associate with the cluster.
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderAssociationsCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategy"`
 }
 
 // The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
 type ClusterCapacityProviderAssociationsArgs struct {
-	CapacityProviders               pulumi.StringArrayInput
-	Cluster                         pulumi.StringInput
+	// The capacity providers to associate with the cluster.
+	CapacityProviders pulumi.StringArrayInput
+	// The cluster the capacity provider association is the target of.
+	Cluster pulumi.StringInput
+	// The default capacity provider strategy to associate with the cluster.
 	DefaultCapacityProviderStrategy ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput
 }
 
@@ -213,14 +222,17 @@ func (o ClusterCapacityProviderAssociationsOutput) ToClusterCapacityProviderAsso
 	return o
 }
 
+// The capacity providers to associate with the cluster.
 func (o ClusterCapacityProviderAssociationsOutput) CapacityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviderAssociations) pulumi.StringArrayOutput { return v.CapacityProviders }).(pulumi.StringArrayOutput)
 }
 
+// The cluster the capacity provider association is the target of.
 func (o ClusterCapacityProviderAssociationsOutput) Cluster() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviderAssociations) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
 }
 
+// The default capacity provider strategy to associate with the cluster.
 func (o ClusterCapacityProviderAssociationsOutput) DefaultCapacityProviderStrategy() ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviderAssociations) ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
 		return v.DefaultCapacityProviderStrategy

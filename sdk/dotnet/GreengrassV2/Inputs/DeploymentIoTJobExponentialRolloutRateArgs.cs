@@ -12,12 +12,23 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
 
     public sealed class DeploymentIoTJobExponentialRolloutRateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.
+        /// </summary>
         [Input("baseRatePerMinute", required: true)]
         public Input<int> BaseRatePerMinute { get; set; } = null!;
 
+        /// <summary>
+        /// The exponential factor to increase the rollout rate for the job.
+        /// 
+        /// This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
+        /// </summary>
         [Input("incrementFactor", required: true)]
         public Input<double> IncrementFactor { get; set; } = null!;
 
+        /// <summary>
+        /// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+        /// </summary>
         [Input("rateIncreaseCriteria", required: true)]
         public Input<Inputs.DeploymentIoTJobRateIncreaseCriteriaArgs> RateIncreaseCriteria { get; set; } = null!;
 

@@ -15,27 +15,63 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:CaCertificate")]
     public partial class CaCertificate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+        /// 
+        /// A value similar to the following is returned:
+        /// 
+        /// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        /// </summary>
         [Output("autoRegistrationStatus")]
         public Output<Pulumi.AwsNative.IoT.CaCertificateAutoRegistrationStatus?> AutoRegistrationStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The CA certificate ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The certificate data in PEM format.
+        /// </summary>
         [Output("caCertificatePem")]
         public Output<string> CaCertificatePem { get; private set; } = null!;
 
+        /// <summary>
+        /// The mode of the CA.
+        /// 
+        /// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+        /// 
+        /// Valid values are "DEFAULT" and "SNI_ONLY".
+        /// </summary>
         [Output("certificateMode")]
         public Output<Pulumi.AwsNative.IoT.CaCertificateCertificateMode?> CertificateMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The registration configuration.
+        /// </summary>
         [Output("registrationConfig")]
         public Output<Outputs.CaCertificateRegistrationConfig?> RegistrationConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// If true, removes auto registration.
+        /// </summary>
         [Output("removeAutoRegistration")]
         public Output<bool?> RemoveAutoRegistration { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the CA certificate.
+        /// 
+        /// Valid values are "ACTIVE" and "INACTIVE".
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.IoT.CaCertificateStatus> Status { get; private set; } = null!;
 
@@ -102,21 +138,45 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class CaCertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        /// </summary>
         [Input("autoRegistrationStatus")]
         public Input<Pulumi.AwsNative.IoT.CaCertificateAutoRegistrationStatus>? AutoRegistrationStatus { get; set; }
 
+        /// <summary>
+        /// The certificate data in PEM format.
+        /// </summary>
         [Input("caCertificatePem", required: true)]
         public Input<string> CaCertificatePem { get; set; } = null!;
 
+        /// <summary>
+        /// The mode of the CA.
+        /// 
+        /// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+        /// 
+        /// Valid values are "DEFAULT" and "SNI_ONLY".
+        /// </summary>
         [Input("certificateMode")]
         public Input<Pulumi.AwsNative.IoT.CaCertificateCertificateMode>? CertificateMode { get; set; }
 
+        /// <summary>
+        /// The registration configuration.
+        /// </summary>
         [Input("registrationConfig")]
         public Input<Inputs.CaCertificateRegistrationConfigArgs>? RegistrationConfig { get; set; }
 
+        /// <summary>
+        /// If true, removes auto registration.
+        /// </summary>
         [Input("removeAutoRegistration")]
         public Input<bool>? RemoveAutoRegistration { get; set; }
 
+        /// <summary>
+        /// The status of the CA certificate.
+        /// 
+        /// Valid values are "ACTIVE" and "INACTIVE".
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.IoT.CaCertificateStatus> Status { get; set; } = null!;
 

@@ -221,6 +221,9 @@ namespace Pulumi.AwsNative.Ssm
     [AwsNativeResourceType("aws-native:ssm:Association")]
     public partial class Association : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+        /// </summary>
         [Output("applyOnlyAtCronInterval")]
         public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
 
@@ -236,12 +239,21 @@ namespace Pulumi.AwsNative.Ssm
         [Output("associationName")]
         public Output<string?> AssociationName { get; private set; } = null!;
 
+        /// <summary>
+        /// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        /// </summary>
         [Output("automationTargetParameterName")]
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
 
+        /// <summary>
+        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        /// </summary>
         [Output("calendarNames")]
         public Output<ImmutableArray<string>> CalendarNames { get; private set; } = null!;
 
+        /// <summary>
+        /// The severity level that is assigned to the association.
+        /// </summary>
         [Output("complianceSeverity")]
         public Output<Pulumi.AwsNative.Ssm.AssociationComplianceSeverity?> ComplianceSeverity { get; private set; } = null!;
 
@@ -257,9 +269,19 @@ namespace Pulumi.AwsNative.Ssm
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+        /// 
+        /// If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
+        /// </summary>
         [Output("maxConcurrency")]
         public Output<string?> MaxConcurrency { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+        /// 
+        /// Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+        /// </summary>
         [Output("maxErrors")]
         public Output<string?> MaxErrors { get; private set; } = null!;
 
@@ -269,6 +291,11 @@ namespace Pulumi.AwsNative.Ssm
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+        /// 
+        /// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        /// </summary>
         [Output("outputLocation")]
         public Output<Outputs.AssociationInstanceAssociationOutputLocation?> OutputLocation { get; private set; } = null!;
 
@@ -284,9 +311,19 @@ namespace Pulumi.AwsNative.Ssm
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of days to wait after the scheduled day to run an association.
+        /// </summary>
         [Output("scheduleOffset")]
         public Output<int?> ScheduleOffset { get; private set; } = null!;
 
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+        /// 
+        /// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+        /// 
+        /// By default, all associations use `AUTO` mode.
+        /// </summary>
         [Output("syncCompliance")]
         public Output<Pulumi.AwsNative.Ssm.AssociationSyncCompliance?> SyncCompliance { get; private set; } = null!;
 
@@ -296,6 +333,11 @@ namespace Pulumi.AwsNative.Ssm
         [Output("targets")]
         public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
+        /// 
+        /// &gt; When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
+        /// </summary>
         [Output("waitForSuccessTimeoutSeconds")]
         public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
 
@@ -344,6 +386,9 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+        /// </summary>
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
 
@@ -353,17 +398,27 @@ namespace Pulumi.AwsNative.Ssm
         [Input("associationName")]
         public Input<string>? AssociationName { get; set; }
 
+        /// <summary>
+        /// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
 
         [Input("calendarNames")]
         private InputList<string>? _calendarNames;
+
+        /// <summary>
+        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        /// </summary>
         public InputList<string> CalendarNames
         {
             get => _calendarNames ?? (_calendarNames = new InputList<string>());
             set => _calendarNames = value;
         }
 
+        /// <summary>
+        /// The severity level that is assigned to the association.
+        /// </summary>
         [Input("complianceSeverity")]
         public Input<Pulumi.AwsNative.Ssm.AssociationComplianceSeverity>? ComplianceSeverity { get; set; }
 
@@ -379,9 +434,19 @@ namespace Pulumi.AwsNative.Ssm
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        /// <summary>
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+        /// 
+        /// If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
+        /// </summary>
         [Input("maxConcurrency")]
         public Input<string>? MaxConcurrency { get; set; }
 
+        /// <summary>
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+        /// 
+        /// Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+        /// </summary>
         [Input("maxErrors")]
         public Input<string>? MaxErrors { get; set; }
 
@@ -391,6 +456,11 @@ namespace Pulumi.AwsNative.Ssm
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+        /// 
+        /// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        /// </summary>
         [Input("outputLocation")]
         public Input<Inputs.AssociationInstanceAssociationOutputLocationArgs>? OutputLocation { get; set; }
 
@@ -412,9 +482,19 @@ namespace Pulumi.AwsNative.Ssm
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        /// <summary>
+        /// Number of days to wait after the scheduled day to run an association.
+        /// </summary>
         [Input("scheduleOffset")]
         public Input<int>? ScheduleOffset { get; set; }
 
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+        /// 
+        /// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+        /// 
+        /// By default, all associations use `AUTO` mode.
+        /// </summary>
         [Input("syncCompliance")]
         public Input<Pulumi.AwsNative.Ssm.AssociationSyncCompliance>? SyncCompliance { get; set; }
 
@@ -430,6 +510,11 @@ namespace Pulumi.AwsNative.Ssm
             set => _targets = value;
         }
 
+        /// <summary>
+        /// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
+        /// 
+        /// &gt; When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
+        /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
 

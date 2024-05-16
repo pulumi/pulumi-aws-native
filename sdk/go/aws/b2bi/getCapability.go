@@ -24,18 +24,27 @@ func LookupCapability(ctx *pulumi.Context, args *LookupCapabilityArgs, opts ...p
 }
 
 type LookupCapabilityArgs struct {
+	// Returns a system-assigned unique identifier for the capability.
 	CapabilityId string `pulumi:"capabilityId"`
 }
 
 type LookupCapabilityResult struct {
-	CapabilityArn         *string                            `pulumi:"capabilityArn"`
-	CapabilityId          *string                            `pulumi:"capabilityId"`
-	Configuration         *CapabilityConfigurationProperties `pulumi:"configuration"`
-	CreatedAt             *string                            `pulumi:"createdAt"`
-	InstructionsDocuments []CapabilityS3Location             `pulumi:"instructionsDocuments"`
-	ModifiedAt            *string                            `pulumi:"modifiedAt"`
-	Name                  *string                            `pulumi:"name"`
-	Tags                  []aws.Tag                          `pulumi:"tags"`
+	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+	CapabilityArn *string `pulumi:"capabilityArn"`
+	// Returns a system-assigned unique identifier for the capability.
+	CapabilityId *string `pulumi:"capabilityId"`
+	// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+	Configuration *CapabilityConfigurationProperties `pulumi:"configuration"`
+	// Returns a timestamp for creation date and time of the capability.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+	InstructionsDocuments []CapabilityS3Location `pulumi:"instructionsDocuments"`
+	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The display name of the capability.
+	Name *string `pulumi:"name"`
+	// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCapabilityOutput(ctx *pulumi.Context, args LookupCapabilityOutputArgs, opts ...pulumi.InvokeOption) LookupCapabilityResultOutput {
@@ -52,6 +61,7 @@ func LookupCapabilityOutput(ctx *pulumi.Context, args LookupCapabilityOutputArgs
 }
 
 type LookupCapabilityOutputArgs struct {
+	// Returns a system-assigned unique identifier for the capability.
 	CapabilityId pulumi.StringInput `pulumi:"capabilityId"`
 }
 
@@ -73,34 +83,42 @@ func (o LookupCapabilityResultOutput) ToLookupCapabilityResultOutputWithContext(
 	return o
 }
 
+// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 func (o LookupCapabilityResultOutput) CapabilityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CapabilityArn }).(pulumi.StringPtrOutput)
 }
 
+// Returns a system-assigned unique identifier for the capability.
 func (o LookupCapabilityResultOutput) CapabilityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CapabilityId }).(pulumi.StringPtrOutput)
 }
 
+// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
 func (o LookupCapabilityResultOutput) Configuration() CapabilityConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *CapabilityConfigurationProperties { return v.Configuration }).(CapabilityConfigurationPropertiesPtrOutput)
 }
 
+// Returns a timestamp for creation date and time of the capability.
 func (o LookupCapabilityResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
 func (o LookupCapabilityResultOutput) InstructionsDocuments() CapabilityS3LocationArrayOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) []CapabilityS3Location { return v.InstructionsDocuments }).(CapabilityS3LocationArrayOutput)
 }
 
+// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 func (o LookupCapabilityResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the capability.
 func (o LookupCapabilityResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o LookupCapabilityResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

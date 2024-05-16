@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.HealthImaging
 
     public sealed class GetDatastoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The data store identifier.
+        /// </summary>
         [Input("datastoreId", required: true)]
         public string DatastoreId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.HealthImaging
 
     public sealed class GetDatastoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The data store identifier.
+        /// </summary>
         [Input("datastoreId", required: true)]
         public Input<string> DatastoreId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.HealthImaging
     [OutputType]
     public sealed class GetDatastoreResult
     {
+        /// <summary>
+        /// The timestamp when the data store was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the data store.
+        /// </summary>
         public readonly string? DatastoreArn;
+        /// <summary>
+        /// The data store identifier.
+        /// </summary>
         public readonly string? DatastoreId;
+        /// <summary>
+        /// The data store status.
+        /// </summary>
         public readonly Pulumi.AwsNative.HealthImaging.DatastoreStatus? DatastoreStatus;
+        /// <summary>
+        /// The timestamp when the data store was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

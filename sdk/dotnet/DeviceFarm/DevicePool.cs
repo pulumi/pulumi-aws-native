@@ -15,24 +15,47 @@ namespace Pulumi.AwsNative.DeviceFarm
     [AwsNativeResourceType("aws-native:devicefarm:DevicePool")]
     public partial class DevicePool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The device pool's description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+        /// 
+        /// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        /// </summary>
         [Output("maxDevices")]
         public Output<int?> MaxDevices { get; private set; } = null!;
 
+        /// <summary>
+        /// The device pool's name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the project for the device pool.
+        /// </summary>
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents a condition for a device pool.
+        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.DevicePoolRule>> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -85,20 +108,38 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class DevicePoolArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The device pool's description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+        /// 
+        /// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        /// </summary>
         [Input("maxDevices")]
         public Input<int>? MaxDevices { get; set; }
 
+        /// <summary>
+        /// The device pool's name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ARN of the project for the device pool.
+        /// </summary>
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
         [Input("rules", required: true)]
         private InputList<Inputs.DevicePoolRuleArgs>? _rules;
+
+        /// <summary>
+        /// Represents a condition for a device pool.
+        /// </summary>
         public InputList<Inputs.DevicePoolRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.DevicePoolRuleArgs>());
@@ -107,6 +148,10 @@ namespace Pulumi.AwsNative.DeviceFarm
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

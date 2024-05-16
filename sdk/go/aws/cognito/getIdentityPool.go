@@ -27,15 +27,35 @@ type LookupIdentityPoolArgs struct {
 }
 
 type LookupIdentityPoolResult struct {
-	AllowClassicFlow               *bool                                 `pulumi:"allowClassicFlow"`
-	AllowUnauthenticatedIdentities *bool                                 `pulumi:"allowUnauthenticatedIdentities"`
-	CognitoIdentityProviders       []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
-	DeveloperProviderName          *string                               `pulumi:"developerProviderName"`
-	Id                             *string                               `pulumi:"id"`
-	IdentityPoolName               *string                               `pulumi:"identityPoolName"`
-	Name                           *string                               `pulumi:"name"`
-	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
-	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
+	// Enables the Basic (Classic) authentication flow.
+	AllowClassicFlow *bool `pulumi:"allowClassicFlow"`
+	// Specifies whether the identity pool supports unauthenticated logins.
+	AllowUnauthenticatedIdentities *bool `pulumi:"allowUnauthenticatedIdentities"`
+	// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+	CognitoIdentityProviders []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
+	// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
+	//
+	// *Minimum length* : 1
+	//
+	// *Maximum length* : 100
+	DeveloperProviderName *string `pulumi:"developerProviderName"`
+	Id                    *string `pulumi:"id"`
+	// The name of your Amazon Cognito identity pool.
+	//
+	// *Minimum length* : 1
+	//
+	// *Maximum length* : 128
+	//
+	// *Pattern* : `[\w\s+=,.@-]+`
+	IdentityPoolName *string `pulumi:"identityPoolName"`
+	// The name of the Amazon Cognito identity pool, returned as a string.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
+	OpenIdConnectProviderArns []string `pulumi:"openIdConnectProviderArns"`
+	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
+	SamlProviderArns []string `pulumi:"samlProviderArns"`
+	// Key-value pairs that map provider names to provider app IDs.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 	SupportedLoginProviders interface{} `pulumi:"supportedLoginProviders"`
 }
@@ -75,20 +95,28 @@ func (o LookupIdentityPoolResultOutput) ToLookupIdentityPoolResultOutputWithCont
 	return o
 }
 
+// Enables the Basic (Classic) authentication flow.
 func (o LookupIdentityPoolResultOutput) AllowClassicFlow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *bool { return v.AllowClassicFlow }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the identity pool supports unauthenticated logins.
 func (o LookupIdentityPoolResultOutput) AllowUnauthenticatedIdentities() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *bool { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolPtrOutput)
 }
 
+// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
 func (o LookupIdentityPoolResultOutput) CognitoIdentityProviders() IdentityPoolCognitoIdentityProviderArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []IdentityPoolCognitoIdentityProvider {
 		return v.CognitoIdentityProviders
 	}).(IdentityPoolCognitoIdentityProviderArrayOutput)
 }
 
+// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
+//
+// *Minimum length* : 1
+//
+// *Maximum length* : 100
 func (o LookupIdentityPoolResultOutput) DeveloperProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.DeveloperProviderName }).(pulumi.StringPtrOutput)
 }
@@ -97,22 +125,34 @@ func (o LookupIdentityPoolResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of your Amazon Cognito identity pool.
+//
+// *Minimum length* : 1
+//
+// *Maximum length* : 128
+//
+// *Pattern* : `[\w\s+=,.@-]+`
 func (o LookupIdentityPoolResultOutput) IdentityPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.IdentityPoolName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Cognito identity pool, returned as a string.
 func (o LookupIdentityPoolResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 func (o LookupIdentityPoolResultOutput) OpenIdConnectProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.OpenIdConnectProviderArns }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
 func (o LookupIdentityPoolResultOutput) SamlProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }
 
+// Key-value pairs that map provider names to provider app IDs.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 func (o LookupIdentityPoolResultOutput) SupportedLoginProviders() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) interface{} { return v.SupportedLoginProviders }).(pulumi.AnyOutput)

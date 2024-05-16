@@ -23,6 +23,7 @@ func LookupReferenceStore(ctx *pulumi.Context, args *LookupReferenceStoreArgs, o
 }
 
 type LookupReferenceStoreArgs struct {
+	// The store's ID.
 	ReferenceStoreId string `pulumi:"referenceStoreId"`
 }
 
@@ -30,7 +31,8 @@ type LookupReferenceStoreResult struct {
 	// The store's ARN.
 	Arn *string `pulumi:"arn"`
 	// When the store was created.
-	CreationTime     *string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
+	// The store's ID.
 	ReferenceStoreId *string `pulumi:"referenceStoreId"`
 }
 
@@ -48,6 +50,7 @@ func LookupReferenceStoreOutput(ctx *pulumi.Context, args LookupReferenceStoreOu
 }
 
 type LookupReferenceStoreOutputArgs struct {
+	// The store's ID.
 	ReferenceStoreId pulumi.StringInput `pulumi:"referenceStoreId"`
 }
 
@@ -79,6 +82,7 @@ func (o LookupReferenceStoreResultOutput) CreationTime() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupReferenceStoreResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The store's ID.
 func (o LookupReferenceStoreResultOutput) ReferenceStoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReferenceStoreResult) *string { return v.ReferenceStoreId }).(pulumi.StringPtrOutput)
 }

@@ -15,21 +15,43 @@ namespace Pulumi.AwsNative.ServiceCatalog
     [AwsNativeResourceType("aws-native:servicecatalog:ServiceAction")]
     public partial class ServiceAction : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The language code.
+        /// 
+        /// - `en` - English (default)
+        /// - `jp` - Japanese
+        /// - `zh` - Chinese
+        /// </summary>
         [Output("acceptLanguage")]
         public Output<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage?> AcceptLanguage { get; private set; } = null!;
 
+        /// <summary>
+        /// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+        /// </summary>
         [Output("definition")]
         public Output<ImmutableArray<Outputs.ServiceActionDefinitionParameter>> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The self-service action definition type. For example, `SSM_AUTOMATION` .
+        /// </summary>
         [Output("definitionType")]
         public Output<Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType> DefinitionType { get; private set; } = null!;
 
+        /// <summary>
+        /// The self-service action description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The self-service action name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -78,23 +100,43 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class ServiceActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The language code.
+        /// 
+        /// - `en` - English (default)
+        /// - `jp` - Japanese
+        /// - `zh` - Chinese
+        /// </summary>
         [Input("acceptLanguage")]
         public Input<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage>? AcceptLanguage { get; set; }
 
         [Input("definition", required: true)]
         private InputList<Inputs.ServiceActionDefinitionParameterArgs>? _definition;
+
+        /// <summary>
+        /// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+        /// </summary>
         public InputList<Inputs.ServiceActionDefinitionParameterArgs> Definition
         {
             get => _definition ?? (_definition = new InputList<Inputs.ServiceActionDefinitionParameterArgs>());
             set => _definition = value;
         }
 
+        /// <summary>
+        /// The self-service action definition type. For example, `SSM_AUTOMATION` .
+        /// </summary>
         [Input("definitionType", required: true)]
         public Input<Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType> DefinitionType { get; set; } = null!;
 
+        /// <summary>
+        /// The self-service action description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The self-service action name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

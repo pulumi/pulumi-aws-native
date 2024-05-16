@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:AssistantAssociation")]
     public partial class AssistantAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Wisdom assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the assistant association.
+        /// </summary>
         [Output("assistantAssociationArn")]
         public Output<string> AssistantAssociationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the association.
+        /// </summary>
         [Output("assistantAssociationId")]
         public Output<string> AssistantAssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Wisdom assistant.
+        /// </summary>
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
+        /// <summary>
+        /// A union type that currently has a single argument, which is the knowledge base ID.
+        /// </summary>
         [Output("association")]
         public Output<Outputs.AssistantAssociationAssociationData> Association { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of association.
+        /// </summary>
         [Output("associationType")]
         public Output<Pulumi.AwsNative.Wisdom.AssistantAssociationAssociationType> AssociationType { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -88,17 +109,30 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AssistantAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Wisdom assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// A union type that currently has a single argument, which is the knowledge base ID.
+        /// </summary>
         [Input("association", required: true)]
         public Input<Inputs.AssistantAssociationAssociationDataArgs> Association { get; set; } = null!;
 
+        /// <summary>
+        /// The type of association.
+        /// </summary>
         [Input("associationType", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AssistantAssociationAssociationType> AssociationType { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

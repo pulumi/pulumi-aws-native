@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSliderControlDisplayOptions
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         public readonly Outputs.DashboardSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         public readonly Outputs.DashboardLabelOptions? TitleOptions;
 
         [OutputConstructor]

@@ -17,23 +17,33 @@ import (
 type StreamProcessor struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name for the newly created stream processor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
-	BoundingBoxRegionsOfInterest StreamProcessorBoundingBoxArrayOutput         `pulumi:"boundingBoxRegionsOfInterest"`
-	ConnectedHomeSettings        StreamProcessorConnectedHomeSettingsPtrOutput `pulumi:"connectedHomeSettings"`
-	DataSharingPreference        StreamProcessorDataSharingPreferencePtrOutput `pulumi:"dataSharingPreference"`
-	FaceSearchSettings           StreamProcessorFaceSearchSettingsPtrOutput    `pulumi:"faceSearchSettings"`
-	KinesisDataStream            StreamProcessorKinesisDataStreamPtrOutput     `pulumi:"kinesisDataStream"`
-	KinesisVideoStream           StreamProcessorKinesisVideoStreamOutput       `pulumi:"kinesisVideoStream"`
+	BoundingBoxRegionsOfInterest StreamProcessorBoundingBoxArrayOutput `pulumi:"boundingBoxRegionsOfInterest"`
+	// Connected home settings to use on a streaming video. Defining the settings is required in the request parameter for `CreateStreamProcessor` . Including this setting in the CreateStreamProcessor request lets you use the stream processor for connected home features. You can then select what you want the stream processor to detect, such as people or pets.
+	//
+	// When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected. An end-of-session summary is also published. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
+	ConnectedHomeSettings StreamProcessorConnectedHomeSettingsPtrOutput `pulumi:"connectedHomeSettings"`
+	// Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level, this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
+	DataSharingPreference StreamProcessorDataSharingPreferencePtrOutput `pulumi:"dataSharingPreference"`
+	// The input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor. `FaceSearchSettings` is a request parameter for [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) . For more information, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
+	FaceSearchSettings StreamProcessorFaceSearchSettingsPtrOutput `pulumi:"faceSearchSettings"`
+	// Amazon Rekognition Video Stream Processor take as input a Kinesis video stream (Input) and a Kinesis data stream (Output). This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
+	KinesisDataStream StreamProcessorKinesisDataStreamPtrOutput `pulumi:"kinesisDataStream"`
+	// The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
+	KinesisVideoStream StreamProcessorKinesisVideoStreamOutput `pulumi:"kinesisVideoStream"`
 	// The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
-	Name                pulumi.StringPtrOutput                      `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
 	NotificationChannel StreamProcessorNotificationChannelPtrOutput `pulumi:"notificationChannel"`
 	// The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
 	PolygonRegionsOfInterest StreamProcessorPointArrayArrayOutput `pulumi:"polygonRegionsOfInterest"`
 	// ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
-	RoleArn       pulumi.StringOutput                   `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. For more information, see [S3Destination](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_S3Destination) .
 	S3Destination StreamProcessorS3DestinationPtrOutput `pulumi:"s3Destination"`
 	// Current status of the stream processor.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -105,21 +115,30 @@ func (StreamProcessorState) ElementType() reflect.Type {
 
 type streamProcessorArgs struct {
 	// The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
-	BoundingBoxRegionsOfInterest []StreamProcessorBoundingBox          `pulumi:"boundingBoxRegionsOfInterest"`
-	ConnectedHomeSettings        *StreamProcessorConnectedHomeSettings `pulumi:"connectedHomeSettings"`
-	DataSharingPreference        *StreamProcessorDataSharingPreference `pulumi:"dataSharingPreference"`
-	FaceSearchSettings           *StreamProcessorFaceSearchSettings    `pulumi:"faceSearchSettings"`
-	KinesisDataStream            *StreamProcessorKinesisDataStream     `pulumi:"kinesisDataStream"`
-	KinesisVideoStream           StreamProcessorKinesisVideoStream     `pulumi:"kinesisVideoStream"`
+	BoundingBoxRegionsOfInterest []StreamProcessorBoundingBox `pulumi:"boundingBoxRegionsOfInterest"`
+	// Connected home settings to use on a streaming video. Defining the settings is required in the request parameter for `CreateStreamProcessor` . Including this setting in the CreateStreamProcessor request lets you use the stream processor for connected home features. You can then select what you want the stream processor to detect, such as people or pets.
+	//
+	// When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected. An end-of-session summary is also published. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
+	ConnectedHomeSettings *StreamProcessorConnectedHomeSettings `pulumi:"connectedHomeSettings"`
+	// Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level, this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
+	DataSharingPreference *StreamProcessorDataSharingPreference `pulumi:"dataSharingPreference"`
+	// The input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor. `FaceSearchSettings` is a request parameter for [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) . For more information, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
+	FaceSearchSettings *StreamProcessorFaceSearchSettings `pulumi:"faceSearchSettings"`
+	// Amazon Rekognition Video Stream Processor take as input a Kinesis video stream (Input) and a Kinesis data stream (Output). This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
+	KinesisDataStream *StreamProcessorKinesisDataStream `pulumi:"kinesisDataStream"`
+	// The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
+	KinesisVideoStream StreamProcessorKinesisVideoStream `pulumi:"kinesisVideoStream"`
 	// The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
-	Name                *string                             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
 	NotificationChannel *StreamProcessorNotificationChannel `pulumi:"notificationChannel"`
 	// The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
 	PolygonRegionsOfInterest [][]StreamProcessorPoint `pulumi:"polygonRegionsOfInterest"`
 	// ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
-	RoleArn       string                        `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. For more information, see [S3Destination](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_S3Destination) .
 	S3Destination *StreamProcessorS3Destination `pulumi:"s3Destination"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -129,20 +148,29 @@ type streamProcessorArgs struct {
 type StreamProcessorArgs struct {
 	// The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
 	BoundingBoxRegionsOfInterest StreamProcessorBoundingBoxArrayInput
-	ConnectedHomeSettings        StreamProcessorConnectedHomeSettingsPtrInput
-	DataSharingPreference        StreamProcessorDataSharingPreferencePtrInput
-	FaceSearchSettings           StreamProcessorFaceSearchSettingsPtrInput
-	KinesisDataStream            StreamProcessorKinesisDataStreamPtrInput
-	KinesisVideoStream           StreamProcessorKinesisVideoStreamInput
+	// Connected home settings to use on a streaming video. Defining the settings is required in the request parameter for `CreateStreamProcessor` . Including this setting in the CreateStreamProcessor request lets you use the stream processor for connected home features. You can then select what you want the stream processor to detect, such as people or pets.
+	//
+	// When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected. An end-of-session summary is also published. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
+	ConnectedHomeSettings StreamProcessorConnectedHomeSettingsPtrInput
+	// Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level, this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
+	DataSharingPreference StreamProcessorDataSharingPreferencePtrInput
+	// The input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor. `FaceSearchSettings` is a request parameter for [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) . For more information, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
+	FaceSearchSettings StreamProcessorFaceSearchSettingsPtrInput
+	// Amazon Rekognition Video Stream Processor take as input a Kinesis video stream (Input) and a Kinesis data stream (Output). This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
+	KinesisDataStream StreamProcessorKinesisDataStreamPtrInput
+	// The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
+	KinesisVideoStream StreamProcessorKinesisVideoStreamInput
 	// The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
-	Name                pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
 	NotificationChannel StreamProcessorNotificationChannelPtrInput
 	// The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
 	PolygonRegionsOfInterest StreamProcessorPointArrayArrayInput
 	// ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
-	RoleArn       pulumi.StringInput
+	RoleArn pulumi.StringInput
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. For more information, see [S3Destination](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_S3Destination) .
 	S3Destination StreamProcessorS3DestinationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -185,6 +213,7 @@ func (o StreamProcessorOutput) ToStreamProcessorOutputWithContext(ctx context.Co
 	return o
 }
 
+// Amazon Resource Name for the newly created stream processor.
 func (o StreamProcessorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamProcessor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -194,22 +223,29 @@ func (o StreamProcessorOutput) BoundingBoxRegionsOfInterest() StreamProcessorBou
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorBoundingBoxArrayOutput { return v.BoundingBoxRegionsOfInterest }).(StreamProcessorBoundingBoxArrayOutput)
 }
 
+// Connected home settings to use on a streaming video. Defining the settings is required in the request parameter for `CreateStreamProcessor` . Including this setting in the CreateStreamProcessor request lets you use the stream processor for connected home features. You can then select what you want the stream processor to detect, such as people or pets.
+//
+// When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected. An end-of-session summary is also published. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
 func (o StreamProcessorOutput) ConnectedHomeSettings() StreamProcessorConnectedHomeSettingsPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorConnectedHomeSettingsPtrOutput { return v.ConnectedHomeSettings }).(StreamProcessorConnectedHomeSettingsPtrOutput)
 }
 
+// Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level, this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
 func (o StreamProcessorOutput) DataSharingPreference() StreamProcessorDataSharingPreferencePtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorDataSharingPreferencePtrOutput { return v.DataSharingPreference }).(StreamProcessorDataSharingPreferencePtrOutput)
 }
 
+// The input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor. `FaceSearchSettings` is a request parameter for [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) . For more information, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
 func (o StreamProcessorOutput) FaceSearchSettings() StreamProcessorFaceSearchSettingsPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorFaceSearchSettingsPtrOutput { return v.FaceSearchSettings }).(StreamProcessorFaceSearchSettingsPtrOutput)
 }
 
+// Amazon Rekognition Video Stream Processor take as input a Kinesis video stream (Input) and a Kinesis data stream (Output). This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
 func (o StreamProcessorOutput) KinesisDataStream() StreamProcessorKinesisDataStreamPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorKinesisDataStreamPtrOutput { return v.KinesisDataStream }).(StreamProcessorKinesisDataStreamPtrOutput)
 }
 
+// The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
 func (o StreamProcessorOutput) KinesisVideoStream() StreamProcessorKinesisVideoStreamOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorKinesisVideoStreamOutput { return v.KinesisVideoStream }).(StreamProcessorKinesisVideoStreamOutput)
 }
@@ -224,6 +260,7 @@ func (o StreamProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
 func (o StreamProcessorOutput) NotificationChannel() StreamProcessorNotificationChannelPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorNotificationChannelPtrOutput { return v.NotificationChannel }).(StreamProcessorNotificationChannelPtrOutput)
 }
@@ -238,6 +275,7 @@ func (o StreamProcessorOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamProcessor) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. For more information, see [S3Destination](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_S3Destination) .
 func (o StreamProcessorOutput) S3Destination() StreamProcessorS3DestinationPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorS3DestinationPtrOutput { return v.S3Destination }).(StreamProcessorS3DestinationPtrOutput)
 }

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPanelTitleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.AnalysisFontConfigurationArgs>? FontConfiguration { get; set; }
 
+        /// <summary>
+        /// Sets the horizontal text alignment of the title within each panel.
+        /// </summary>
         [Input("horizontalTextAlignment")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisHorizontalTextAlignment>? HorizontalTextAlignment { get; set; }
 
+        /// <summary>
+        /// Determines whether or not panel titles are displayed.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

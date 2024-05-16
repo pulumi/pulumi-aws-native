@@ -46,6 +46,9 @@ export interface GetStorageSystemResult {
      * The ARN of a secret stored by AWS Secrets Manager.
      */
     readonly secretsManagerArn?: string;
+    /**
+     * The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+     */
     readonly serverConfiguration?: outputs.datasync.StorageSystemServerConfiguration;
     /**
      * The ARN of the on-premises storage system added to DataSync Discovery.

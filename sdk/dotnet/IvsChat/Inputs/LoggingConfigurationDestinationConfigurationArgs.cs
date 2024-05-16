@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.IvsChat.Inputs
     /// </summary>
     public sealed class LoggingConfigurationDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CloudWatchLogsDestinationConfiguration property type specifies a CloudWatch Logs location where chat logs will be stored.
+        /// </summary>
         [Input("cloudWatchLogs")]
         public Input<Inputs.LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs>? CloudWatchLogs { get; set; }
 
+        /// <summary>
+        /// The FirehoseDestinationConfiguration property type specifies a Kinesis Firehose location where chat logs will be stored.
+        /// </summary>
         [Input("firehose")]
         public Input<Inputs.LoggingConfigurationFirehoseDestinationConfigurationArgs>? Firehose { get; set; }
 
+        /// <summary>
+        /// The S3DestinationConfiguration property type specifies an S3 location where chat logs will be stored.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.LoggingConfigurationS3DestinationConfigurationArgs>? S3 { get; set; }
 

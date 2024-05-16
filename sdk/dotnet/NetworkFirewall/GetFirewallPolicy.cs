@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public string FirewallPolicyArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetFirewallPolicyResult
     {
+        /// <summary>
+        /// A description of the firewall policy.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        /// </summary>
         public readonly Outputs.FirewallPolicy? FirewallPolicyValue;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         public readonly string? FirewallPolicyArn;
+        /// <summary>
+        /// The unique ID of the `FirewallPolicy` resource.
+        /// </summary>
         public readonly string? FirewallPolicyId;
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -61,6 +61,9 @@ class GetMonitoringScheduleResult:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[str]:
+        """
+        The name of the endpoint using the monitoring schedule.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @property
@@ -98,6 +101,9 @@ class GetMonitoringScheduleResult:
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> Optional['outputs.MonitoringScheduleConfig']:
+        """
+        Configures the monitoring schedule and defines the monitoring job.
+        """
         return pulumi.get(self, "monitoring_schedule_config")
 
     @property

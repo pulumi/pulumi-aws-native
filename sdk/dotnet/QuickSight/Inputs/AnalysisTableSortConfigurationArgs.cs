@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTableSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The pagination configuration for a table visual or boxplot.
+        /// </summary>
         [Input("paginationConfiguration")]
         public Input<Inputs.AnalysisPaginationConfigurationArgs>? PaginationConfiguration { get; set; }
 
         [Input("rowSort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _rowSort;
+
+        /// <summary>
+        /// The field sort options for rows in the table.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> RowSort
         {
             get => _rowSort ?? (_rowSort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

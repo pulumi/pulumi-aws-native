@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardReferenceLineStaticDataConfiguration
     {
+        /// <summary>
+        /// The double input of the static data.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

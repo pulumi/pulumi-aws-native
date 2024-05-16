@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisShortFormatTextArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Plain text format.
+        /// </summary>
         [Input("plainText")]
         public Input<string>? PlainText { get; set; }
 
+        /// <summary>
+        /// Rich text. Examples of rich text include bold, underline, and italics.
+        /// </summary>
         [Input("richText")]
         public Input<string>? RichText { get; set; }
 

@@ -24,17 +24,25 @@ func LookupTrustAnchor(ctx *pulumi.Context, args *LookupTrustAnchorArgs, opts ..
 }
 
 type LookupTrustAnchorArgs struct {
+	// The unique identifier of the trust anchor.
 	TrustAnchorId string `pulumi:"trustAnchorId"`
 }
 
 type LookupTrustAnchorResult struct {
-	Enabled              *bool                            `pulumi:"enabled"`
-	Name                 *string                          `pulumi:"name"`
+	// Indicates whether the trust anchor is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the trust anchor.
+	Name *string `pulumi:"name"`
+	// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
-	Source               *TrustAnchorSource               `pulumi:"source"`
-	Tags                 []aws.Tag                        `pulumi:"tags"`
-	TrustAnchorArn       *string                          `pulumi:"trustAnchorArn"`
-	TrustAnchorId        *string                          `pulumi:"trustAnchorId"`
+	// Object representing the TrustAnchor type and its related certificate data.
+	Source *TrustAnchorSource `pulumi:"source"`
+	// A label that consists of a key and value you define.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the trust anchor.
+	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
+	// The unique identifier of the trust anchor.
+	TrustAnchorId *string `pulumi:"trustAnchorId"`
 }
 
 func LookupTrustAnchorOutput(ctx *pulumi.Context, args LookupTrustAnchorOutputArgs, opts ...pulumi.InvokeOption) LookupTrustAnchorResultOutput {
@@ -51,6 +59,7 @@ func LookupTrustAnchorOutput(ctx *pulumi.Context, args LookupTrustAnchorOutputAr
 }
 
 type LookupTrustAnchorOutputArgs struct {
+	// The unique identifier of the trust anchor.
 	TrustAnchorId pulumi.StringInput `pulumi:"trustAnchorId"`
 }
 
@@ -72,30 +81,37 @@ func (o LookupTrustAnchorResultOutput) ToLookupTrustAnchorResultOutputWithContex
 	return o
 }
 
+// Indicates whether the trust anchor is enabled.
 func (o LookupTrustAnchorResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the trust anchor.
 func (o LookupTrustAnchorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
 func (o LookupTrustAnchorResultOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) []TrustAnchorNotificationSetting { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
+// Object representing the TrustAnchor type and its related certificate data.
 func (o LookupTrustAnchorResultOutput) Source() TrustAnchorSourcePtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *TrustAnchorSource { return v.Source }).(TrustAnchorSourcePtrOutput)
 }
 
+// A label that consists of a key and value you define.
 func (o LookupTrustAnchorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the trust anchor.
 func (o LookupTrustAnchorResultOutput) TrustAnchorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.TrustAnchorArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the trust anchor.
 func (o LookupTrustAnchorResultOutput) TrustAnchorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.TrustAnchorId }).(pulumi.StringPtrOutput)
 }

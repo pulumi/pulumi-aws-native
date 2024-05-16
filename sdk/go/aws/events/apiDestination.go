@@ -19,11 +19,14 @@ type ApiDestination struct {
 	// The arn of the api destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The arn of the connection.
-	ConnectionArn pulumi.StringOutput            `pulumi:"connectionArn"`
-	Description   pulumi.StringPtrOutput         `pulumi:"description"`
-	HttpMethod    ApiDestinationHttpMethodOutput `pulumi:"httpMethod"`
+	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
+	// A description for the API destination to create.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The method to use for the request to the HTTP invocation endpoint.
+	HttpMethod ApiDestinationHttpMethodOutput `pulumi:"httpMethod"`
 	// Url endpoint to invoke.
-	InvocationEndpoint           pulumi.StringOutput `pulumi:"invocationEndpoint"`
+	InvocationEndpoint pulumi.StringOutput `pulumi:"invocationEndpoint"`
+	// The maximum number of requests per second to send to the HTTP invocation endpoint.
 	InvocationRateLimitPerSecond pulumi.IntPtrOutput `pulumi:"invocationRateLimitPerSecond"`
 	// Name of the apiDestination.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -83,12 +86,15 @@ func (ApiDestinationState) ElementType() reflect.Type {
 
 type apiDestinationArgs struct {
 	// The arn of the connection.
-	ConnectionArn string                   `pulumi:"connectionArn"`
-	Description   *string                  `pulumi:"description"`
-	HttpMethod    ApiDestinationHttpMethod `pulumi:"httpMethod"`
+	ConnectionArn string `pulumi:"connectionArn"`
+	// A description for the API destination to create.
+	Description *string `pulumi:"description"`
+	// The method to use for the request to the HTTP invocation endpoint.
+	HttpMethod ApiDestinationHttpMethod `pulumi:"httpMethod"`
 	// Url endpoint to invoke.
-	InvocationEndpoint           string `pulumi:"invocationEndpoint"`
-	InvocationRateLimitPerSecond *int   `pulumi:"invocationRateLimitPerSecond"`
+	InvocationEndpoint string `pulumi:"invocationEndpoint"`
+	// The maximum number of requests per second to send to the HTTP invocation endpoint.
+	InvocationRateLimitPerSecond *int `pulumi:"invocationRateLimitPerSecond"`
 	// Name of the apiDestination.
 	Name *string `pulumi:"name"`
 }
@@ -97,10 +103,13 @@ type apiDestinationArgs struct {
 type ApiDestinationArgs struct {
 	// The arn of the connection.
 	ConnectionArn pulumi.StringInput
-	Description   pulumi.StringPtrInput
-	HttpMethod    ApiDestinationHttpMethodInput
+	// A description for the API destination to create.
+	Description pulumi.StringPtrInput
+	// The method to use for the request to the HTTP invocation endpoint.
+	HttpMethod ApiDestinationHttpMethodInput
 	// Url endpoint to invoke.
-	InvocationEndpoint           pulumi.StringInput
+	InvocationEndpoint pulumi.StringInput
+	// The maximum number of requests per second to send to the HTTP invocation endpoint.
 	InvocationRateLimitPerSecond pulumi.IntPtrInput
 	// Name of the apiDestination.
 	Name pulumi.StringPtrInput
@@ -153,10 +162,12 @@ func (o ApiDestinationOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.ConnectionArn }).(pulumi.StringOutput)
 }
 
+// A description for the API destination to create.
 func (o ApiDestinationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiDestination) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The method to use for the request to the HTTP invocation endpoint.
 func (o ApiDestinationOutput) HttpMethod() ApiDestinationHttpMethodOutput {
 	return o.ApplyT(func(v *ApiDestination) ApiDestinationHttpMethodOutput { return v.HttpMethod }).(ApiDestinationHttpMethodOutput)
 }
@@ -166,6 +177,7 @@ func (o ApiDestinationOutput) InvocationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.InvocationEndpoint }).(pulumi.StringOutput)
 }
 
+// The maximum number of requests per second to send to the HTTP invocation endpoint.
 func (o ApiDestinationOutput) InvocationRateLimitPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiDestination) pulumi.IntPtrOutput { return v.InvocationRateLimitPerSecond }).(pulumi.IntPtrOutput)
 }

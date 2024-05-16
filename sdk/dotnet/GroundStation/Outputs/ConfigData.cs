@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigData
     {
+        /// <summary>
+        /// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+        /// </summary>
         public readonly Outputs.ConfigAntennaDownlinkConfig? AntennaDownlinkConfig;
+        /// <summary>
+        /// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+        /// </summary>
         public readonly Outputs.ConfigAntennaDownlinkDemodDecodeConfig? AntennaDownlinkDemodDecodeConfig;
+        /// <summary>
+        /// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+        /// </summary>
         public readonly Outputs.ConfigAntennaUplinkConfig? AntennaUplinkConfig;
+        /// <summary>
+        /// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+        /// </summary>
         public readonly Outputs.ConfigDataflowEndpointConfig? DataflowEndpointConfig;
+        /// <summary>
+        /// Provides information about how AWS Ground Station should save downlink data to S3.
+        /// </summary>
         public readonly Outputs.ConfigS3RecordingConfig? S3RecordingConfig;
+        /// <summary>
+        /// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+        /// </summary>
         public readonly Outputs.ConfigTrackingConfig? TrackingConfig;
+        /// <summary>
+        /// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+        /// </summary>
         public readonly Outputs.ConfigUplinkEchoConfig? UplinkEchoConfig;
 
         [OutputConstructor]

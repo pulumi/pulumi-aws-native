@@ -12,24 +12,49 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTimeEqualityFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.TemplateDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// 
+        /// This field is mutually exclusive to `Value` and `RollingDate` .
+        /// </summary>
         [Input("parameterName")]
         public Input<string>? ParameterName { get; set; }
 
+        /// <summary>
+        /// The rolling date configuration of a date time filter.
+        /// </summary>
         [Input("rollingDate")]
         public Input<Inputs.TemplateRollingDateConfigurationArgs>? RollingDate { get; set; }
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTimeGranularity>? TimeGranularity { get; set; }
 
+        /// <summary>
+        /// The value of a `TimeEquality` filter.
+        /// 
+        /// This field is mutually exclusive to `RollingDate` and `ParameterName` .
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

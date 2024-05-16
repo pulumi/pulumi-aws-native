@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensGroupLevel
     {
+        /// <summary>
+        /// This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+        /// </summary>
         public readonly Outputs.StorageLensGroupSelectionCriteria? StorageLensGroupSelectionCriteria;
 
         [OutputConstructor]

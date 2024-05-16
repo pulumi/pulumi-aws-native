@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the project.
+        /// </summary>
         [Input("projectArn", required: true)]
         public string ProjectArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the project.
+        /// </summary>
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
@@ -55,7 +61,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// The time at which the project was created.
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the project.
+        /// </summary>
         public readonly string? ProjectArn;
+        /// <summary>
+        /// The ID of the project. This ID is prepended to all entities associated with this project.
+        /// </summary>
         public readonly string? ProjectId;
         /// <summary>
         /// The status of a project.

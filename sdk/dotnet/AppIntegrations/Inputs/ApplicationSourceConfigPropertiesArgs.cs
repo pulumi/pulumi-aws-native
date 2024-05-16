@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
     /// </summary>
     public sealed class ApplicationSourceConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The external URL source for the application.
+        /// </summary>
         [Input("externalUrlConfig", required: true)]
         public Input<Inputs.ApplicationExternalUrlConfigArgs> ExternalUrlConfig { get; set; } = null!;
 

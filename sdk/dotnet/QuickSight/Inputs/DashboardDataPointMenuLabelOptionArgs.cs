@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardDataPointMenuLabelOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of the data point menu options.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 

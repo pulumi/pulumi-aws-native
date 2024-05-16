@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardVisualMenuOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The availaiblity status of a visual's menu options.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 

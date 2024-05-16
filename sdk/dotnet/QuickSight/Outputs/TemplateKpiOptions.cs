@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateKpiOptions
     {
+        /// <summary>
+        /// The comparison display configuration of a KPI or gauge chart.
+        /// </summary>
         public readonly Outputs.TemplateComparisonConfiguration? Comparison;
+        /// <summary>
+        /// The options that determine the primary value display type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplatePrimaryValueDisplayType? PrimaryValueDisplayType;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.TemplateFontConfiguration? PrimaryValueFontConfiguration;
+        /// <summary>
+        /// The options that determine the presentation of the progress bar of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateProgressBarOptions? ProgressBar;
+        /// <summary>
+        /// The options that determine the presentation of the secondary value of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateSecondaryValueOptions? SecondaryValue;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.TemplateFontConfiguration? SecondaryValueFontConfiguration;
+        /// <summary>
+        /// The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiSparklineOptions? Sparkline;
+        /// <summary>
+        /// The options that determine the presentation of trend arrows in a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateTrendArrowOptions? TrendArrows;
+        /// <summary>
+        /// The options that determine the layout a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiVisualLayoutOptions? VisualLayoutOptions;
 
         [OutputConstructor]

@@ -14,27 +14,49 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("aggregationSortConfigurations", required: true)]
         private InputList<Inputs.TemplateAggregationSortConfigurationArgs>? _aggregationSortConfigurations;
+
+        /// <summary>
+        /// The configuration options to sort aggregated values.
+        /// </summary>
         public InputList<Inputs.TemplateAggregationSortConfigurationArgs> AggregationSortConfigurations
         {
             get => _aggregationSortConfigurations ?? (_aggregationSortConfigurations = new InputList<Inputs.TemplateAggregationSortConfigurationArgs>());
             set => _aggregationSortConfigurations = value;
         }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.TemplateDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 
+        /// <summary>
+        /// The number of items to include in the top bottom filter results.
+        /// </summary>
         [Input("limit")]
         public Input<double>? Limit { get; set; }
 
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         [Input("parameterName")]
         public Input<string>? ParameterName { get; set; }
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTimeGranularity>? TimeGranularity { get; set; }
 

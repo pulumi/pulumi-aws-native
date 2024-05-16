@@ -30,6 +30,9 @@ export interface GetRecipeResult {
      * Description of the recipe
      */
     readonly description?: string;
+    /**
+     * Represents a single step from a DataBrew recipe to be performed.
+     */
     readonly steps?: outputs.databrew.RecipeStep[];
 }
 /**

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
 
     public sealed class DetectorEventVariableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event variable ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -21,12 +24,27 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
+        /// <summary>
+        /// The data source of the event variable.
+        /// 
+        /// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+        /// 
+        /// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+        /// </summary>
         [Input("dataSource")]
         public Input<Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataSource>? DataSource { get; set; }
 
+        /// <summary>
+        /// The data type of the event variable.
+        /// 
+        /// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+        /// </summary>
         [Input("dataType")]
         public Input<Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataType>? DataType { get; set; }
 
+        /// <summary>
+        /// The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
@@ -36,6 +54,11 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+        /// 
+        /// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        /// </summary>
         [Input("inline")]
         public Input<bool>? Inline { get; set; }
 
@@ -45,6 +68,9 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
+        /// <summary>
+        /// The name of the event variable.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -60,6 +86,9 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+        /// </summary>
         [Input("variableType")]
         public Input<Pulumi.AwsNative.FraudDetector.DetectorEventVariableVariableType>? VariableType { get; set; }
 

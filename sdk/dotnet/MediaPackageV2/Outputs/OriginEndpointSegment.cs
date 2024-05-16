@@ -16,11 +16,30 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointSegment
     {
+        /// <summary>
+        /// A collection of video encryption presets.
+        /// 
+        /// Value description:
+        /// 
+        /// - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+        /// - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+        /// - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+        /// - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        /// - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        /// - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+        /// - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+        /// - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        /// - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+        /// - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
+        /// </summary>
         public readonly Outputs.OriginEndpointEncryption? Encryption;
         /// <summary>
         /// &lt;p&gt;When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.&lt;/p&gt;
         /// </summary>
         public readonly bool? IncludeIframeOnlyStreams;
+        /// <summary>
+        /// The SCTE-35 configuration associated with the origin endpoint.
+        /// </summary>
         public readonly Outputs.OriginEndpointScte? Scte;
         /// <summary>
         /// &lt;p&gt;The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.&lt;/p&gt;

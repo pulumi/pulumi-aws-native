@@ -20,13 +20,15 @@ type VerifiedAccessTrustProvider struct {
 	// The creation time.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the Amazon Web Services Verified Access trust provider.
-	Description   pulumi.StringPtrOutput                            `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Describes the options for an AWS Verified Access device-identity based trust provider.
 	DeviceOptions VerifiedAccessTrustProviderDeviceOptionsPtrOutput `pulumi:"deviceOptions"`
 	// The type of device-based trust provider. Possible values: jamf|crowdstrike
 	DeviceTrustProviderType pulumi.StringPtrOutput `pulumi:"deviceTrustProviderType"`
 	// The last updated time.
-	LastUpdatedTime pulumi.StringOutput                             `pulumi:"lastUpdatedTime"`
-	OidcOptions     VerifiedAccessTrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+	OidcOptions VerifiedAccessTrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringOutput `pulumi:"policyReferenceName"`
 	// The configuration options for customer provided KMS encryption.
@@ -96,11 +98,13 @@ func (VerifiedAccessTrustProviderState) ElementType() reflect.Type {
 
 type verifiedAccessTrustProviderArgs struct {
 	// A description for the Amazon Web Services Verified Access trust provider.
-	Description   *string                                   `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Describes the options for an AWS Verified Access device-identity based trust provider.
 	DeviceOptions *VerifiedAccessTrustProviderDeviceOptions `pulumi:"deviceOptions"`
 	// The type of device-based trust provider. Possible values: jamf|crowdstrike
-	DeviceTrustProviderType *string                                 `pulumi:"deviceTrustProviderType"`
-	OidcOptions             *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
+	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
+	// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+	OidcOptions *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName string `pulumi:"policyReferenceName"`
 	// The configuration options for customer provided KMS encryption.
@@ -116,11 +120,13 @@ type verifiedAccessTrustProviderArgs struct {
 // The set of arguments for constructing a VerifiedAccessTrustProvider resource.
 type VerifiedAccessTrustProviderArgs struct {
 	// A description for the Amazon Web Services Verified Access trust provider.
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// Describes the options for an AWS Verified Access device-identity based trust provider.
 	DeviceOptions VerifiedAccessTrustProviderDeviceOptionsPtrInput
 	// The type of device-based trust provider. Possible values: jamf|crowdstrike
 	DeviceTrustProviderType pulumi.StringPtrInput
-	OidcOptions             VerifiedAccessTrustProviderOidcOptionsPtrInput
+	// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+	OidcOptions VerifiedAccessTrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringInput
 	// The configuration options for customer provided KMS encryption.
@@ -180,6 +186,7 @@ func (o VerifiedAccessTrustProviderOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *VerifiedAccessTrustProvider) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Describes the options for an AWS Verified Access device-identity based trust provider.
 func (o VerifiedAccessTrustProviderOutput) DeviceOptions() VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessTrustProvider) VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
 		return v.DeviceOptions
@@ -196,6 +203,7 @@ func (o VerifiedAccessTrustProviderOutput) LastUpdatedTime() pulumi.StringOutput
 	return o.ApplyT(func(v *VerifiedAccessTrustProvider) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// Describes the options for an OpenID Connect-compatible user-identity trust provider.
 func (o VerifiedAccessTrustProviderOutput) OidcOptions() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessTrustProvider) VerifiedAccessTrustProviderOidcOptionsPtrOutput {
 		return v.OidcOptions

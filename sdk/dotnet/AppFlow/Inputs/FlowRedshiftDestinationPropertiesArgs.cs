@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowRedshiftDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The object key for the bucket in which Amazon AppFlow places the destination files.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
+        /// <summary>
+        /// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
+        /// </summary>
         [Input("intermediateBucketName", required: true)]
         public Input<string> IntermediateBucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The object specified in the Amazon Redshift flow destination.
+        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

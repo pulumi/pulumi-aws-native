@@ -33,6 +33,9 @@ class DataSourceArgs:
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
+        :param pulumi.Input['DataSourceType'] type: The type of the data source. To return a list of all data sources, use `ListDataSources` .
+               
+               Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
                            stored with this data source. The credentials are applied in tandem with the data source
                            parameters when you copy a data source by using a create or update request. The API
@@ -42,6 +45,16 @@ class DataSourceArgs:
                            existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
                            the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
                            are automatically allowed.</p>
+        :param pulumi.Input[str] aws_account_id: The AWS account ID.
+        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        :param pulumi.Input[str] data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        :param pulumi.Input['DataSourceParametersArgs'] data_source_parameters: The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        :param pulumi.Input['DataSourceErrorInfoArgs'] error_info: Error information for the data source creation or update.
+        :param pulumi.Input[str] name: A display name for the data source.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: Permission for the resource.
+        :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: VPC connection properties.
         """
         pulumi.set(__self__, "type", type)
         if alternate_data_source_parameters is not None:
@@ -70,6 +83,11 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['DataSourceType']:
+        """
+        The type of the data source. To return a list of all data sources, use `ListDataSources` .
+
+        Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -99,6 +117,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -108,6 +129,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
+        """
+        Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -117,6 +141,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
@@ -126,6 +153,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> Optional[pulumi.Input['DataSourceParametersArgs']]:
+        """
+        The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        """
         return pulumi.get(self, "data_source_parameters")
 
     @data_source_parameters.setter
@@ -135,6 +165,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="errorInfo")
     def error_info(self) -> Optional[pulumi.Input['DataSourceErrorInfoArgs']]:
+        """
+        Error information for the data source creation or update.
+        """
         return pulumi.get(self, "error_info")
 
     @error_info.setter
@@ -144,6 +177,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A display name for the data source.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -153,6 +189,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]:
+        """
+        Permission for the resource.
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -162,6 +201,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
+        """
+        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
@@ -171,6 +213,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -180,6 +225,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
+        """
+        VPC connection properties.
+        """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
@@ -219,6 +267,19 @@ class DataSource(pulumi.CustomResource):
                            existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
                            the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
                            are automatically allowed.</p>
+        :param pulumi.Input[str] aws_account_id: The AWS account ID.
+        :param pulumi.Input[pulumi.InputType['DataSourceCredentialsArgs']] credentials: Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        :param pulumi.Input[str] data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        :param pulumi.Input[pulumi.InputType['DataSourceParametersArgs']] data_source_parameters: The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        :param pulumi.Input[pulumi.InputType['DataSourceErrorInfoArgs']] error_info: Error information for the data source creation or update.
+        :param pulumi.Input[str] name: A display name for the data source.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]] permissions: Permission for the resource.
+        :param pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        :param pulumi.Input['DataSourceType'] type: The type of the data source. To return a list of all data sources, use `ListDataSources` .
+               
+               Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+        :param pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']] vpc_connection_properties: VPC connection properties.
         """
         ...
     @overload
@@ -352,6 +413,9 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account ID.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
@@ -365,21 +429,33 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceCredentials']]:
+        """
+        Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        """
         return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        """
         return pulumi.get(self, "data_source_id")
 
     @property
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> pulumi.Output[Optional['outputs.DataSourceParameters']]:
+        """
+        The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        """
         return pulumi.get(self, "data_source_parameters")
 
     @property
     @pulumi.getter(name="errorInfo")
     def error_info(self) -> pulumi.Output[Optional['outputs.DataSourceErrorInfo']]:
+        """
+        Error information for the data source creation or update.
+        """
         return pulumi.get(self, "error_info")
 
     @property
@@ -393,35 +469,58 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A display name for the data source.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceResourcePermission']]]:
+        """
+        Permission for the resource.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> pulumi.Output[Optional['outputs.DataSourceSslProperties']]:
+        """
+        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        """
         return pulumi.get(self, "ssl_properties")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['DataSourceResourceStatus']:
+        """
+        The HTTP status of the request.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['DataSourceType']:
+        """
+        The type of the data source. To return a list of all data sources, use `ListDataSources` .
+
+        Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> pulumi.Output[Optional['outputs.DataSourceVpcConnectionProperties']]:
+        """
+        VPC connection properties.
+        """
         return pulumi.get(self, "vpc_connection_properties")
 

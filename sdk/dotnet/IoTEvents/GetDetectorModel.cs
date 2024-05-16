@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.IoTEvents
     [OutputType]
     public sealed class GetDetectorModelResult
     {
+        /// <summary>
+        /// Information that defines how a detector operates.
+        /// </summary>
         public readonly Outputs.DetectorModelDefinition? DetectorModelDefinition;
         /// <summary>
         /// A brief description of the detector model.

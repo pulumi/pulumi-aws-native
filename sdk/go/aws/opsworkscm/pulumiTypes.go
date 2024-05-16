@@ -14,7 +14,33 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ServerEngineAttribute struct {
-	Name  *string `pulumi:"name"`
+	// The name of the engine attribute.
+	//
+	// *Attribute name for Chef Automate servers:*
+	//
+	// - `CHEF_AUTOMATE_ADMIN_PASSWORD`
+	//
+	// *Attribute names for Puppet Enterprise servers:*
+	//
+	// - `PUPPET_ADMIN_PASSWORD`
+	// - `PUPPET_R10K_REMOTE`
+	// - `PUPPET_R10K_PRIVATE_KEY`
+	Name *string `pulumi:"name"`
+	// The value of the engine attribute.
+	//
+	// *Attribute value for Chef Automate servers:*
+	//
+	// - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. You can generate this key by running the following [OpenSSL](https://docs.aws.amazon.com/https://www.openssl.org/) command on Linux-based computers.
+	//
+	// `openssl genrsa -out *pivotal_key_file_name* .pem 2048`
+	//
+	// On Windows-based computers, you can use the PuTTYgen utility to generate a base64-encoded RSA private key. For more information, see [PuTTYgen - Key Generator for PuTTY on Windows](https://docs.aws.amazon.com/https://www.ssh.com/ssh/putty/windows/puttygen) on SSH.com.
+	//
+	// *Attribute values for Puppet Enterprise servers:*
+	//
+	// - `PUPPET_ADMIN_PASSWORD` : An administrator password that you can use to sign in to the Puppet Enterprise console webpage after the server is online. The password must use between 8 and 32 ASCII characters.
+	// - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
+	// - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add `PUPPET_R10K_PRIVATE_KEY` to specify a PEM-encoded private SSH key.
 	Value *string `pulumi:"value"`
 }
 
@@ -30,7 +56,33 @@ type ServerEngineAttributeInput interface {
 }
 
 type ServerEngineAttributeArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the engine attribute.
+	//
+	// *Attribute name for Chef Automate servers:*
+	//
+	// - `CHEF_AUTOMATE_ADMIN_PASSWORD`
+	//
+	// *Attribute names for Puppet Enterprise servers:*
+	//
+	// - `PUPPET_ADMIN_PASSWORD`
+	// - `PUPPET_R10K_REMOTE`
+	// - `PUPPET_R10K_PRIVATE_KEY`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the engine attribute.
+	//
+	// *Attribute value for Chef Automate servers:*
+	//
+	// - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. You can generate this key by running the following [OpenSSL](https://docs.aws.amazon.com/https://www.openssl.org/) command on Linux-based computers.
+	//
+	// `openssl genrsa -out *pivotal_key_file_name* .pem 2048`
+	//
+	// On Windows-based computers, you can use the PuTTYgen utility to generate a base64-encoded RSA private key. For more information, see [PuTTYgen - Key Generator for PuTTY on Windows](https://docs.aws.amazon.com/https://www.ssh.com/ssh/putty/windows/puttygen) on SSH.com.
+	//
+	// *Attribute values for Puppet Enterprise servers:*
+	//
+	// - `PUPPET_ADMIN_PASSWORD` : An administrator password that you can use to sign in to the Puppet Enterprise console webpage after the server is online. The password must use between 8 and 32 ASCII characters.
+	// - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
+	// - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add `PUPPET_R10K_PRIVATE_KEY` to specify a PEM-encoded private SSH key.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -85,10 +137,36 @@ func (o ServerEngineAttributeOutput) ToServerEngineAttributeOutputWithContext(ct
 	return o
 }
 
+// The name of the engine attribute.
+//
+// *Attribute name for Chef Automate servers:*
+//
+// - `CHEF_AUTOMATE_ADMIN_PASSWORD`
+//
+// *Attribute names for Puppet Enterprise servers:*
+//
+// - `PUPPET_ADMIN_PASSWORD`
+// - `PUPPET_R10K_REMOTE`
+// - `PUPPET_R10K_PRIVATE_KEY`
 func (o ServerEngineAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEngineAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value of the engine attribute.
+//
+// *Attribute value for Chef Automate servers:*
+//
+// - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. You can generate this key by running the following [OpenSSL](https://docs.aws.amazon.com/https://www.openssl.org/) command on Linux-based computers.
+//
+// `openssl genrsa -out *pivotal_key_file_name* .pem 2048`
+//
+// On Windows-based computers, you can use the PuTTYgen utility to generate a base64-encoded RSA private key. For more information, see [PuTTYgen - Key Generator for PuTTY on Windows](https://docs.aws.amazon.com/https://www.ssh.com/ssh/putty/windows/puttygen) on SSH.com.
+//
+// *Attribute values for Puppet Enterprise servers:*
+//
+// - `PUPPET_ADMIN_PASSWORD` : An administrator password that you can use to sign in to the Puppet Enterprise console webpage after the server is online. The password must use between 8 and 32 ASCII characters.
+// - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
+// - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add `PUPPET_R10K_PRIVATE_KEY` to specify a PEM-encoded private SSH key.
 func (o ServerEngineAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEngineAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -114,7 +192,9 @@ func (o ServerEngineAttributeArrayOutput) Index(i pulumi.IntInput) ServerEngineA
 }
 
 type ServerTag struct {
-	Key   string `pulumi:"key"`
+	// A tag key, such as `Stage` or `Name` . A tag key cannot be empty. The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
+	Key string `pulumi:"key"`
+	// An optional tag value, such as `Production` or `test-owcm-server` . The value can be a maximum of 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
 	Value string `pulumi:"value"`
 }
 

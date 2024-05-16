@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateConditionalFormattingSolidColor
     {
+        /// <summary>
+        /// Determines the color.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The expression that determines the formatting configuration for solid color.
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

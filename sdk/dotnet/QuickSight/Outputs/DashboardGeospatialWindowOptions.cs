@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialWindowOptions
     {
+        /// <summary>
+        /// The bound options (north, south, west, east) of the geospatial window options.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialCoordinateBounds? Bounds;
+        /// <summary>
+        /// The map zoom modes (manual, auto) of the geospatial window options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardMapZoomMode? MapZoomMode;
 
         [OutputConstructor]

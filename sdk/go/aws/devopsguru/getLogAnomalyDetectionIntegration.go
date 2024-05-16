@@ -23,10 +23,12 @@ func LookupLogAnomalyDetectionIntegration(ctx *pulumi.Context, args *LookupLogAn
 }
 
 type LookupLogAnomalyDetectionIntegrationArgs struct {
+	// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupLogAnomalyDetectionIntegrationResult struct {
+	// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 	AccountId *string `pulumi:"accountId"`
 }
 
@@ -44,6 +46,7 @@ func LookupLogAnomalyDetectionIntegrationOutput(ctx *pulumi.Context, args Lookup
 }
 
 type LookupLogAnomalyDetectionIntegrationOutputArgs struct {
+	// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupLogAnomalyDetectionIntegrationResultOutput) ToLookupLogAnomalyDete
 	return o
 }
 
+// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 func (o LookupLogAnomalyDetectionIntegrationResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogAnomalyDetectionIntegrationResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

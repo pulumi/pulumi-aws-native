@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("columns")]
         private InputList<Inputs.DatastoreColumnArgs>? _columns;
+
+        /// <summary>
+        /// Contains information about a column that stores your data.
+        /// </summary>
         public InputList<Inputs.DatastoreColumnArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DatastoreColumnArgs>());

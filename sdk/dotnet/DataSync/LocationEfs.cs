@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("accessPointArn")]
         public Output<string?> AccessPointArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system.
+        /// </summary>
         [Output("ec2Config")]
         public Output<Outputs.LocationEfsEc2Config> Ec2Config { get; private set; } = null!;
 
@@ -126,6 +129,9 @@ namespace Pulumi.AwsNative.DataSync
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
+        /// <summary>
+        /// The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system.
+        /// </summary>
         [Input("ec2Config", required: true)]
         public Input<Inputs.LocationEfsEc2ConfigArgs> Ec2Config { get; set; } = null!;
 

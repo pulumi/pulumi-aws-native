@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageAdTriggersItem> AdTriggers;
+        /// <summary>
+        /// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
+        /// <summary>
+        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashEncryption? Encryption;
         /// <summary>
         /// When enabled, an I-Frame only stream will be included in the output.
@@ -58,6 +64,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageSegmentTemplateFormat? SegmentTemplateFormat;
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         public readonly Outputs.OriginEndpointStreamSelection? StreamSelection;
         /// <summary>
         /// Duration (in seconds) to delay live content before presentation.

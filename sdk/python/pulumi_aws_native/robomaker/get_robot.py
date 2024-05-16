@@ -29,11 +29,17 @@ class GetRobotResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the robot.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map that contains tag keys and tag values that are attached to the robot.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -51,6 +57,9 @@ def get_robot(arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRobotResult:
     """
     AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the robot.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -67,5 +76,8 @@ def get_robot_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotResult]:
     """
     AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the robot.
     """
     ...

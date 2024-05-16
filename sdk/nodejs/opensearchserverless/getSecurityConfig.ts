@@ -34,6 +34,9 @@ export interface GetSecurityConfigResult {
      * The identifier of the security config
      */
     readonly id?: string;
+    /**
+     * Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+     */
     readonly samlOptions?: outputs.opensearchserverless.SecurityConfigSamlConfigOptions;
 }
 /**

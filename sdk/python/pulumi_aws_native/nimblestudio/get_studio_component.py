@@ -55,6 +55,9 @@ class GetStudioComponentResult:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        The configuration of the studio component, based on component type.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -92,6 +95,9 @@ class GetStudioComponentResult:
     @property
     @pulumi.getter(name="runtimeRoleArn")
     def runtime_role_arn(self) -> Optional[str]:
+        """
+        An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
+        """
         return pulumi.get(self, "runtime_role_arn")
 
     @property
@@ -105,16 +111,25 @@ class GetStudioComponentResult:
     @property
     @pulumi.getter(name="secureInitializationRoleArn")
     def secure_initialization_role_arn(self) -> Optional[str]:
+        """
+        An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+        """
         return pulumi.get(self, "secure_initialization_role_arn")
 
     @property
     @pulumi.getter(name="studioComponentId")
     def studio_component_id(self) -> Optional[str]:
+        """
+        The unique identifier for the studio component resource.
+        """
         return pulumi.get(self, "studio_component_id")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['StudioComponentType']:
+        """
+        The type of the studio component.
+        """
         return pulumi.get(self, "type")
 
 
@@ -143,6 +158,7 @@ def get_studio_component(studio_component_id: Optional[str] = None,
     Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 
 
+    :param str studio_component_id: The unique identifier for the studio component resource.
     :param str studio_id: <p>The studio ID. </p>
     """
     __args__ = dict()
@@ -172,6 +188,7 @@ def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]]
     Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 
 
+    :param str studio_component_id: The unique identifier for the studio component resource.
     :param str studio_id: <p>The studio ID. </p>
     """
     ...

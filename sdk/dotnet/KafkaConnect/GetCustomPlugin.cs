@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// The Amazon Resource Name (ARN) of the custom plugin to use.
         /// </summary>
         public readonly string? CustomPluginArn;
+        /// <summary>
+        /// Details about a custom plugin file.
+        /// </summary>
         public readonly Outputs.CustomPluginFileDescription? FileDescription;
         /// <summary>
         /// The revision of the custom plugin.

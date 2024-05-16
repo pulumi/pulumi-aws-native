@@ -85,6 +85,9 @@ class GetTrailResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -186,6 +189,9 @@ class GetTrailResult:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[str]:
+        """
+        `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
@@ -199,6 +205,9 @@ class GetTrailResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -231,6 +240,15 @@ def get_trail(trail_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrailResult:
     """
     Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
+
+
+    :param str trail_name: Specifies the name of the trail. The name must meet the following requirements:
+           
+           - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+           - Start with a letter or number, and end with a letter or number
+           - Be between 3 and 128 characters
+           - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+           - Not be in IP address format (for example, 192.168.5.4)
     """
     __args__ = dict()
     __args__['trailName'] = trail_name
@@ -262,5 +280,14 @@ def get_trail_output(trail_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrailResult]:
     """
     Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
+
+
+    :param str trail_name: Specifies the name of the trail. The name must meet the following requirements:
+           
+           - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+           - Start with a letter or number, and end with a letter or number
+           - Be between 3 and 128 characters
+           - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+           - Not be in IP address format (for example, 192.168.5.4)
     """
     ...

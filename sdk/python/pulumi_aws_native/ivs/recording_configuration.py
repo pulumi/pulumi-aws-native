@@ -27,9 +27,12 @@ class RecordingConfigurationArgs:
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
+        :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
         :param pulumi.Input[str] name: Recording Configuration Name.
         :param pulumi.Input[int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
+        :param pulumi.Input['RecordingConfigurationRenditionConfigurationArgs'] rendition_configuration: The RenditionConfiguration property type describes which renditions should be recorded for a stream.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
         """
         pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
@@ -46,6 +49,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']:
+        """
+        The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -79,6 +85,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="renditionConfiguration")
     def rendition_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']]:
+        """
+        The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+        """
         return pulumi.get(self, "rendition_configuration")
 
     @rendition_configuration.setter
@@ -100,6 +109,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="thumbnailConfiguration")
     def thumbnail_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]:
+        """
+        The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+        """
         return pulumi.get(self, "thumbnail_configuration")
 
     @thumbnail_configuration.setter
@@ -124,9 +136,12 @@ class RecordingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']] destination_configuration: The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
         :param pulumi.Input[str] name: Recording Configuration Name.
         :param pulumi.Input[int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']] rendition_configuration: The RenditionConfiguration property type describes which renditions should be recorded for a stream.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']] thumbnail_configuration: The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
         """
         ...
     @overload
@@ -222,6 +237,9 @@ class RecordingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Output['outputs.RecordingConfigurationDestinationConfiguration']:
+        """
+        The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @property
@@ -243,6 +261,9 @@ class RecordingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="renditionConfiguration")
     def rendition_configuration(self) -> pulumi.Output[Optional['outputs.RecordingConfigurationRenditionConfiguration']]:
+        """
+        The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+        """
         return pulumi.get(self, "rendition_configuration")
 
     @property
@@ -264,5 +285,8 @@ class RecordingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="thumbnailConfiguration")
     def thumbnail_configuration(self) -> pulumi.Output[Optional['outputs.RecordingConfigurationThumbnailConfiguration']]:
+        """
+        The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+        """
         return pulumi.get(self, "thumbnail_configuration")
 

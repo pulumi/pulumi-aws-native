@@ -19,12 +19,32 @@ export function getDocumentClassifier(args: GetDocumentClassifierArgs, opts?: pu
 }
 
 export interface GetDocumentClassifierArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the document classifier.
+     */
     arn: string;
 }
 
 export interface GetDocumentClassifierResult {
+    /**
+     * The Amazon Resource Name (ARN) of the document classifier.
+     */
     readonly arn?: string;
+    /**
+     * The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+     *
+     * Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+     *
+     * `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+     *
+     * To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+     *
+     * `'{"attribute": "value", "attribute": ["value"]}'`
+     */
     readonly modelPolicy?: string;
+    /**
+     * A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -35,5 +55,8 @@ export function getDocumentClassifierOutput(args: GetDocumentClassifierOutputArg
 }
 
 export interface GetDocumentClassifierOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the document classifier.
+     */
     arn: pulumi.Input<string>;
 }

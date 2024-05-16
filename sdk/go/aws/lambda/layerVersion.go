@@ -25,8 +25,9 @@ type LayerVersion struct {
 	// The description of the version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerName       pulumi.StringPtrOutput `pulumi:"layerName"`
-	LayerVersionArn pulumi.StringOutput    `pulumi:"layerVersionArn"`
+	LayerName pulumi.StringPtrOutput `pulumi:"layerName"`
+	// The ARN of the layer version.
+	LayerVersionArn pulumi.StringOutput `pulumi:"layerVersionArn"`
 	// The layer's software license.
 	LicenseInfo pulumi.StringPtrOutput `pulumi:"licenseInfo"`
 }
@@ -175,6 +176,7 @@ func (o LayerVersionOutput) LayerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LayerName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the layer version.
 func (o LayerVersionOutput) LayerVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.LayerVersionArn }).(pulumi.StringOutput)
 }

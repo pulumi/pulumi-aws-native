@@ -41,11 +41,17 @@ class AssistantAssociationAssociationData(dict):
 
     def __init__(__self__, *,
                  knowledge_base_id: str):
+        """
+        :param str knowledge_base_id: The identifier of the knowledge base.
+        """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> str:
+        """
+        The identifier of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_id")
 
 
@@ -70,12 +76,18 @@ class AssistantServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None):
+        """
+        :param str kms_key_id: The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "kms_key_id")
 
 
@@ -103,6 +115,24 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
     def __init__(__self__, *,
                  app_integration_arn: str,
                  object_fields: Optional[Sequence[str]] = None):
+        """
+        :param str app_integration_arn: The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+               
+               - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
+               - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
+               - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
+               - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
+               - For [Amazon S3](https://docs.aws.amazon.com/https://aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
+               
+               > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
+        :param Sequence[str] object_fields: The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+               
+               - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+               - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+               - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
+               
+               Make sure to include additional fields. These fields are indexed and used to source recommendations.
+        """
         pulumi.set(__self__, "app_integration_arn", app_integration_arn)
         if object_fields is not None:
             pulumi.set(__self__, "object_fields", object_fields)
@@ -110,11 +140,31 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
     @property
     @pulumi.getter(name="appIntegrationArn")
     def app_integration_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+
+        - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
+        - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
+        - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
+        - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
+        - For [Amazon S3](https://docs.aws.amazon.com/https://aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
+
+        > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
+        """
         return pulumi.get(self, "app_integration_arn")
 
     @property
     @pulumi.getter(name="objectFields")
     def object_fields(self) -> Optional[Sequence[str]]:
+        """
+        The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+
+        - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+        - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+        - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
+
+        Make sure to include additional fields. These fields are indexed and used to source recommendations.
+        """
         return pulumi.get(self, "object_fields")
 
 
@@ -139,12 +189,30 @@ class KnowledgeBaseRenderingConfiguration(dict):
 
     def __init__(__self__, *,
                  template_uri: Optional[str] = None):
+        """
+        :param str template_uri: A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+               
+               - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+               - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+               - Zendesk: `id` , `title` , `updated_at` , or `draft`
+               
+               The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
+        """
         if template_uri is not None:
             pulumi.set(__self__, "template_uri", template_uri)
 
     @property
     @pulumi.getter(name="templateUri")
     def template_uri(self) -> Optional[str]:
+        """
+        A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+
+        - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+        - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+        - Zendesk: `id` , `title` , `updated_at` , or `draft`
+
+        The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
+        """
         return pulumi.get(self, "template_uri")
 
 
@@ -169,12 +237,26 @@ class KnowledgeBaseServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None):
+        """
+        :param str kms_key_id: The customer managed key used for encryption.
+               
+               This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+               
+               For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
+        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        The customer managed key used for encryption.
+
+        This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+
+        For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
+        """
         return pulumi.get(self, "kms_key_id")
 
 
@@ -199,12 +281,18 @@ class KnowledgeBaseSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  app_integrations: Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration'] = None):
+        """
+        :param 'KnowledgeBaseAppIntegrationsConfiguration' app_integrations: Configuration information for Amazon AppIntegrations to automatically ingest content.
+        """
         if app_integrations is not None:
             pulumi.set(__self__, "app_integrations", app_integrations)
 
     @property
     @pulumi.getter(name="appIntegrations")
     def app_integrations(self) -> Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration']:
+        """
+        Configuration information for Amazon AppIntegrations to automatically ingest content.
+        """
         return pulumi.get(self, "app_integrations")
 
 

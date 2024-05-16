@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("collapseStateOptions")]
         private InputList<Inputs.TemplatePivotTableFieldCollapseStateOptionArgs>? _collapseStateOptions;
+
+        /// <summary>
+        /// The collapse state options for the pivot table field options.
+        /// </summary>
         public InputList<Inputs.TemplatePivotTableFieldCollapseStateOptionArgs> CollapseStateOptions
         {
             get => _collapseStateOptions ?? (_collapseStateOptions = new InputList<Inputs.TemplatePivotTableFieldCollapseStateOptionArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("dataPathOptions")]
         private InputList<Inputs.TemplatePivotTableDataPathOptionArgs>? _dataPathOptions;
+
+        /// <summary>
+        /// The data path options for the pivot table field options.
+        /// </summary>
         public InputList<Inputs.TemplatePivotTableDataPathOptionArgs> DataPathOptions
         {
             get => _dataPathOptions ?? (_dataPathOptions = new InputList<Inputs.TemplatePivotTableDataPathOptionArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("selectedFieldOptions")]
         private InputList<Inputs.TemplatePivotTableFieldOptionArgs>? _selectedFieldOptions;
+
+        /// <summary>
+        /// The selected field options for the pivot table field options.
+        /// </summary>
         public InputList<Inputs.TemplatePivotTableFieldOptionArgs> SelectedFieldOptions
         {
             get => _selectedFieldOptions ?? (_selectedFieldOptions = new InputList<Inputs.TemplatePivotTableFieldOptionArgs>());

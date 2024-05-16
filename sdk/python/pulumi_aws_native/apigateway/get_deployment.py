@@ -29,6 +29,9 @@ class GetDeploymentResult:
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[str]:
+        """
+        The ID for the deployment. For example: `abc123` .
+        """
         return pulumi.get(self, "deployment_id")
 
     @property
@@ -57,6 +60,7 @@ def get_deployment(deployment_id: Optional[str] = None,
     The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
 
+    :param str deployment_id: The ID for the deployment. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
@@ -78,6 +82,7 @@ def get_deployment_output(deployment_id: Optional[pulumi.Input[str]] = None,
     The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
 
+    :param str deployment_id: The ID for the deployment. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

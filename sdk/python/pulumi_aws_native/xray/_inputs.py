@@ -64,6 +64,7 @@ class SamplingRuleRecordArgs:
         """
         :param pulumi.Input[str] created_at: When the rule was created, in Unix time seconds.
         :param pulumi.Input[str] modified_at: When the rule was modified, in Unix time seconds.
+        :param pulumi.Input['SamplingRuleArgs'] sampling_rule: A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -99,6 +100,9 @@ class SamplingRuleRecordArgs:
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
+        """
+        A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        """
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
@@ -324,6 +328,10 @@ class SamplingRuleArgs:
         :param pulumi.Input[str] service_type: Matches the origin that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Matches attributes derived from the request.
+        :param pulumi.Input[str] rule_arn: The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+               
+               > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+        :param pulumi.Input[str] rule_name: The name of the sampling rule. Specify a rule by either name or ARN, but not both.
         :param pulumi.Input[int] version: The version of the sampling rule format (1)
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
@@ -467,6 +475,11 @@ class SamplingRuleArgs:
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+
+        > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+        """
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
@@ -476,6 +489,9 @@ class SamplingRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VoiceId
 
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the domain.
+        /// </summary>
         [Input("domainId", required: true)]
         public string DomainId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VoiceId
 
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the domain.
+        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.VoiceId
     [OutputType]
     public sealed class GetDomainResult
     {
+        /// <summary>
+        /// The identifier of the domain.
+        /// </summary>
         public readonly string? DomainId;
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

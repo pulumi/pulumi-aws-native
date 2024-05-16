@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
     {
         [Input("targetGroups", required: true)]
         private InputList<Inputs.RuleWeightedTargetGroupArgs>? _targetGroups;
+
+        /// <summary>
+        /// Describes the weight of a target group.
+        /// </summary>
         public InputList<Inputs.RuleWeightedTargetGroupArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.RuleWeightedTargetGroupArgs>());

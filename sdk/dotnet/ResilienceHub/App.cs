@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        /// </summary>
         [Output("permissionModel")]
         public Output<Outputs.AppPermissionModel?> PermissionModel { get; private set; } = null!;
 
@@ -72,6 +75,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Output("resourceMappings")]
         public Output<ImmutableArray<Outputs.AppResourceMapping>> ResourceMappings { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -160,6 +166,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        /// </summary>
         [Input("permissionModel")]
         public Input<Inputs.AppPermissionModelArgs>? PermissionModel { get; set; }
 
@@ -183,6 +192,10 @@ namespace Pulumi.AwsNative.ResilienceHub
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

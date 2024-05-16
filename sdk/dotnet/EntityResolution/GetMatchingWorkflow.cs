@@ -62,10 +62,25 @@ namespace Pulumi.AwsNative.EntityResolution
         /// The description of the MatchingWorkflow
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowInputSource> InputSourceConfig;
+        /// <summary>
+        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowOutputSource> OutputSourceConfig;
+        /// <summary>
+        /// An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        /// </summary>
         public readonly Outputs.MatchingWorkflowResolutionTechniques? ResolutionTechniques;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
         public readonly string? WorkflowArn;

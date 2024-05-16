@@ -15,18 +15,51 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclAwsManagedRulesAcfpRuleSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
+        /// 
+        /// For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
+        /// </summary>
         [Input("creationPath", required: true)]
         public Input<string> CreationPath { get; set; } = null!;
 
+        /// <summary>
+        /// Allow the use of regular expressions in the registration page path and the account creation path.
+        /// </summary>
         [Input("enableRegexInPath")]
         public Input<bool>? EnableRegexInPath { get; set; }
 
+        /// <summary>
+        /// The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users.
+        /// 
+        /// &gt; This page must accept `GET` text/html requests. 
+        /// 
+        /// For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
+        /// </summary>
         [Input("registrationPagePath", required: true)]
         public Input<string> RegistrationPagePath { get; set; } = null!;
 
+        /// <summary>
+        /// The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
+        /// 
+        /// This is part of the `AWSManagedRulesACFPRuleSet` configuration in `ManagedRuleGroupConfig` .
+        /// 
+        /// In these settings, you specify how your application accepts account creation attempts by providing the request payload type and the names of the fields within the request body where the username, password, email, and primary address and phone number fields are provided.
+        /// </summary>
         [Input("requestInspection", required: true)]
         public Input<Inputs.WebAclRequestInspectionAcfpArgs> RequestInspection { get; set; } = null!;
 
+        /// <summary>
+        /// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+        /// 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+        /// 
+        /// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
+        /// 
+        /// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
+        /// 
+        /// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+        /// </summary>
         [Input("responseInspection")]
         public Input<Inputs.WebAclResponseInspectionArgs>? ResponseInspection { get; set; }
 

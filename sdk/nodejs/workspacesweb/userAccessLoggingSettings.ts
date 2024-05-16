@@ -37,12 +37,21 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserAccessLoggingSettings.__pulumiType;
     }
 
+    /**
+     * A list of web portal ARNs that this user access logging settings is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     /**
      * Kinesis stream ARN to which log events are published.
      */
     public readonly kinesisStreamArn!: pulumi.Output<string>;
+    /**
+     * The tag.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ARN of the user access logging settings.
+     */
     public /*out*/ readonly userAccessLoggingSettingsArn!: pulumi.Output<string>;
 
     /**
@@ -82,5 +91,8 @@ export interface UserAccessLoggingSettingsArgs {
      * Kinesis stream ARN to which log events are published.
      */
     kinesisStreamArn: pulumi.Input<string>;
+    /**
+     * The tag.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

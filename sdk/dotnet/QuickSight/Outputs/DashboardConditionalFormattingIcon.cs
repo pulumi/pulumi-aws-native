@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardConditionalFormattingIcon
     {
+        /// <summary>
+        /// Determines the custom condition for an icon set.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingCustomIconCondition? CustomCondition;
+        /// <summary>
+        /// Formatting configuration for icon set.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingIconSet? IconSet;
 
         [OutputConstructor]

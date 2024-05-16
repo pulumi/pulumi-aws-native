@@ -22,8 +22,9 @@ type FlowLog struct {
 	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
-	DeliverLogsPermissionArn pulumi.StringPtrOutput                `pulumi:"deliverLogsPermissionArn"`
-	DestinationOptions       DestinationOptionsPropertiesPtrOutput `pulumi:"destinationOptions"`
+	DeliverLogsPermissionArn pulumi.StringPtrOutput `pulumi:"deliverLogsPermissionArn"`
+	// The destination options.
+	DestinationOptions DestinationOptionsPropertiesPtrOutput `pulumi:"destinationOptions"`
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination pulumi.StringPtrOutput `pulumi:"logDestination"`
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -107,8 +108,9 @@ type flowLogArgs struct {
 	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
-	DeliverLogsPermissionArn *string                       `pulumi:"deliverLogsPermissionArn"`
-	DestinationOptions       *DestinationOptionsProperties `pulumi:"destinationOptions"`
+	DeliverLogsPermissionArn *string `pulumi:"deliverLogsPermissionArn"`
+	// The destination options.
+	DestinationOptions *DestinationOptionsProperties `pulumi:"destinationOptions"`
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination *string `pulumi:"logDestination"`
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -135,7 +137,8 @@ type FlowLogArgs struct {
 	DeliverCrossAccountRole pulumi.StringPtrInput
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
 	DeliverLogsPermissionArn pulumi.StringPtrInput
-	DestinationOptions       DestinationOptionsPropertiesPtrInput
+	// The destination options.
+	DestinationOptions DestinationOptionsPropertiesPtrInput
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination pulumi.StringPtrInput
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -208,6 +211,7 @@ func (o FlowLogOutput) DeliverLogsPermissionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.DeliverLogsPermissionArn }).(pulumi.StringPtrOutput)
 }
 
+// The destination options.
 func (o FlowLogOutput) DestinationOptions() DestinationOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowLog) DestinationOptionsPropertiesPtrOutput { return v.DestinationOptions }).(DestinationOptionsPropertiesPtrOutput)
 }

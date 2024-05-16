@@ -24,6 +24,9 @@ export interface GetLifecyclePolicyArgs {
      * The name of the policy
      */
     name: string;
+    /**
+     * The type of lifecycle policy.
+     */
     type: enums.opensearchserverless.LifecyclePolicyType;
 }
 
@@ -49,5 +52,8 @@ export interface GetLifecyclePolicyOutputArgs {
      * The name of the policy
      */
     name: pulumi.Input<string>;
+    /**
+     * The type of lifecycle policy.
+     */
     type: pulumi.Input<enums.opensearchserverless.LifecyclePolicyType>;
 }

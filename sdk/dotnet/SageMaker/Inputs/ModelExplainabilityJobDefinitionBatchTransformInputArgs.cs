@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("dataCapturedDestinationS3Uri", required: true)]
         public Input<string> DataCapturedDestinationS3Uri { get; set; } = null!;
 
+        /// <summary>
+        /// The dataset format for your batch transform job.
+        /// </summary>
         [Input("datasetFormat", required: true)]
         public Input<Inputs.ModelExplainabilityJobDefinitionDatasetFormatArgs> DatasetFormat { get; set; } = null!;
 

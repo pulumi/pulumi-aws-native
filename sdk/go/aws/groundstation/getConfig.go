@@ -24,16 +24,23 @@ func LookupConfig(ctx *pulumi.Context, args *LookupConfigArgs, opts ...pulumi.In
 }
 
 type LookupConfigArgs struct {
+	// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupConfigResult struct {
-	Arn        *string     `pulumi:"arn"`
+	// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Arn *string `pulumi:"arn"`
+	// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
 	ConfigData *ConfigData `pulumi:"configData"`
-	Id         *string     `pulumi:"id"`
-	Name       *string     `pulumi:"name"`
-	Tags       []aws.Tag   `pulumi:"tags"`
-	Type       *string     `pulumi:"type"`
+	// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Id *string `pulumi:"id"`
+	// The name of the config object.
+	Name *string `pulumi:"name"`
+	// Tags assigned to a resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of the config, such as `tracking` .
+	Type *string `pulumi:"type"`
 }
 
 func LookupConfigOutput(ctx *pulumi.Context, args LookupConfigOutputArgs, opts ...pulumi.InvokeOption) LookupConfigResultOutput {
@@ -50,6 +57,7 @@ func LookupConfigOutput(ctx *pulumi.Context, args LookupConfigOutputArgs, opts .
 }
 
 type LookupConfigOutputArgs struct {
+	// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,26 +79,32 @@ func (o LookupConfigResultOutput) ToLookupConfigResultOutputWithContext(ctx cont
 	return o
 }
 
+// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o LookupConfigResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
 func (o LookupConfigResultOutput) ConfigData() ConfigDataPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *ConfigData { return v.ConfigData }).(ConfigDataPtrOutput)
 }
 
+// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o LookupConfigResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the config object.
 func (o LookupConfigResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Tags assigned to a resource.
 func (o LookupConfigResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConfigResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the config, such as `tracking` .
 func (o LookupConfigResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

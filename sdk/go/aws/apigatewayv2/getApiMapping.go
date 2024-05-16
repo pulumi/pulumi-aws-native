@@ -23,6 +23,7 @@ func LookupApiMapping(ctx *pulumi.Context, args *LookupApiMappingArgs, opts ...p
 }
 
 type LookupApiMappingArgs struct {
+	// The API mapping resource ID.
 	ApiMappingId string `pulumi:"apiMappingId"`
 	// The domain name.
 	DomainName string `pulumi:"domainName"`
@@ -30,7 +31,8 @@ type LookupApiMappingArgs struct {
 
 type LookupApiMappingResult struct {
 	// The identifier of the API.
-	ApiId        *string `pulumi:"apiId"`
+	ApiId *string `pulumi:"apiId"`
+	// The API mapping resource ID.
 	ApiMappingId *string `pulumi:"apiMappingId"`
 	// The API mapping key.
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
@@ -52,6 +54,7 @@ func LookupApiMappingOutput(ctx *pulumi.Context, args LookupApiMappingOutputArgs
 }
 
 type LookupApiMappingOutputArgs struct {
+	// The API mapping resource ID.
 	ApiMappingId pulumi.StringInput `pulumi:"apiMappingId"`
 	// The domain name.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
@@ -80,6 +83,7 @@ func (o LookupApiMappingResultOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiMappingResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }
 
+// The API mapping resource ID.
 func (o LookupApiMappingResultOutput) ApiMappingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiMappingResult) *string { return v.ApiMappingId }).(pulumi.StringPtrOutput)
 }

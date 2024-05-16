@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration for a `TableVisual` .
+        /// </summary>
         public readonly Outputs.TemplateTableConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The conditional formatting for a `PivotTableVisual` .
+        /// </summary>
         public readonly Outputs.TemplateTableConditionalFormatting? ConditionalFormatting;
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

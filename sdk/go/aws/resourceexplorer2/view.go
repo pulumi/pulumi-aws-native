@@ -15,12 +15,20 @@ import (
 type View struct {
 	pulumi.CustomResourceState
 
-	Filters            ViewSearchFilterPtrOutput       `pulumi:"filters"`
+	// A search filter defines which resources can be part of a search query result set.
+	Filters ViewSearchFilterPtrOutput `pulumi:"filters"`
+	// Information about an additional property that describes a resource, that you can optionally include in a view.
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
-	Scope              pulumi.StringPtrOutput          `pulumi:"scope"`
-	Tags               pulumi.StringMapOutput          `pulumi:"tags"`
-	ViewArn            pulumi.StringOutput             `pulumi:"viewArn"`
-	ViewName           pulumi.StringOutput             `pulumi:"viewName"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	// Tag key and value pairs that are attached to the view.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+	ViewArn pulumi.StringOutput `pulumi:"viewArn"`
+	// The name of the new view.
+	ViewName pulumi.StringOutput `pulumi:"viewName"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +76,30 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	Filters            *ViewSearchFilter      `pulumi:"filters"`
+	// A search filter defines which resources can be part of a search query result set.
+	Filters *ViewSearchFilter `pulumi:"filters"`
+	// Information about an additional property that describes a resource, that you can optionally include in a view.
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
-	Scope              *string                `pulumi:"scope"`
-	Tags               map[string]string      `pulumi:"tags"`
-	ViewName           *string                `pulumi:"viewName"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope *string `pulumi:"scope"`
+	// Tag key and value pairs that are attached to the view.
+	Tags map[string]string `pulumi:"tags"`
+	// The name of the new view.
+	ViewName *string `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	Filters            ViewSearchFilterPtrInput
+	// A search filter defines which resources can be part of a search query result set.
+	Filters ViewSearchFilterPtrInput
+	// Information about an additional property that describes a resource, that you can optionally include in a view.
 	IncludedProperties ViewIncludedPropertyArrayInput
-	Scope              pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
-	ViewName           pulumi.StringPtrInput
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringPtrInput
+	// Tag key and value pairs that are attached to the view.
+	Tags pulumi.StringMapInput
+	// The name of the new view.
+	ViewName pulumi.StringPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {
@@ -121,26 +139,34 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
+// A search filter defines which resources can be part of a search query result set.
 func (o ViewOutput) Filters() ViewSearchFilterPtrOutput {
 	return o.ApplyT(func(v *View) ViewSearchFilterPtrOutput { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
+// Information about an additional property that describes a resource, that you can optionally include in a view.
 func (o ViewOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 	return o.ApplyT(func(v *View) ViewIncludedPropertyArrayOutput { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
 }
 
+// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 func (o ViewOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// Tag key and value pairs that are attached to the view.
 func (o ViewOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the new view. For example:
+//
+// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 func (o ViewOutput) ViewArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ViewArn }).(pulumi.StringOutput)
 }
 
+// The name of the new view.
 func (o ViewOutput) ViewName() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ViewName }).(pulumi.StringOutput)
 }

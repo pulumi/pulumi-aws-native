@@ -19,12 +19,24 @@ export function getVirtualMfaDevice(args: GetVirtualMfaDeviceArgs, opts?: pulumi
 }
 
 export interface GetVirtualMfaDeviceArgs {
+    /**
+     * Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+     */
     serialNumber: string;
 }
 
 export interface GetVirtualMfaDeviceResult {
+    /**
+     * Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+     */
     readonly serialNumber?: string;
+    /**
+     * A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The IAM user associated with this virtual MFA device.
+     */
     readonly users?: string[];
 }
 /**
@@ -35,5 +47,8 @@ export function getVirtualMfaDeviceOutput(args: GetVirtualMfaDeviceOutputArgs, o
 }
 
 export interface GetVirtualMfaDeviceOutputArgs {
+    /**
+     * Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+     */
     serialNumber: pulumi.Input<string>;
 }

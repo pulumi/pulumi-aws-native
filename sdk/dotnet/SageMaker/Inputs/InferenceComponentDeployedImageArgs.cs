@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class InferenceComponentDeployedImageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The date and time when the image path for the model resolved to the `ResolvedImage`
+        /// </summary>
         [Input("resolutionTime")]
         public Input<string>? ResolutionTime { get; set; }
 
+        /// <summary>
+        /// The specific digest path of the image hosted in this `ProductionVariant` .
+        /// </summary>
         [Input("resolvedImage")]
         public Input<string>? ResolvedImage { get; set; }
 
+        /// <summary>
+        /// The image path you specified when you created the model.
+        /// </summary>
         [Input("specifiedImage")]
         public Input<string>? SpecifiedImage { get; set; }
 

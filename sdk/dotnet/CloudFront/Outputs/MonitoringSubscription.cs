@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class MonitoringSubscription
     {
+        /// <summary>
+        /// A subscription configuration for additional CloudWatch metrics.
+        /// </summary>
         public readonly Outputs.MonitoringSubscriptionRealtimeMetricsSubscriptionConfig? RealtimeMetricsSubscriptionConfig;
 
         [OutputConstructor]

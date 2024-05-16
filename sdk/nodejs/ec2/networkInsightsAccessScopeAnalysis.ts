@@ -37,15 +37,45 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAccessScopeAnalysis.__pulumiType;
     }
 
+    /**
+     * The number of network interfaces analyzed.
+     */
     public /*out*/ readonly analyzedEniCount!: pulumi.Output<number>;
+    /**
+     * The end date of the analysis.
+     */
     public /*out*/ readonly endDate!: pulumi.Output<string>;
+    /**
+     * Indicates whether there are findings (true | false | unknown).
+     */
     public /*out*/ readonly findingsFound!: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisFindingsFound>;
+    /**
+     * The ARN of the Network Access Scope analysis.
+     */
     public /*out*/ readonly networkInsightsAccessScopeAnalysisArn!: pulumi.Output<string>;
+    /**
+     * The ID of the Network Access Scope analysis.
+     */
     public /*out*/ readonly networkInsightsAccessScopeAnalysisId!: pulumi.Output<string>;
+    /**
+     * The ID of the Network Access Scope.
+     */
     public readonly networkInsightsAccessScopeId!: pulumi.Output<string>;
+    /**
+     * The start date of the analysis.
+     */
     public /*out*/ readonly startDate!: pulumi.Output<string>;
+    /**
+     * The status of the analysis (running | succeeded | failed).
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisStatus>;
+    /**
+     * The status message.
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -95,6 +125,12 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsAccessScopeAnalysis resource.
  */
 export interface NetworkInsightsAccessScopeAnalysisArgs {
+    /**
+     * The ID of the Network Access Scope.
+     */
     networkInsightsAccessScopeId: pulumi.Input<string>;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

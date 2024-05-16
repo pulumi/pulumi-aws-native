@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class SecurityProfileMetricToRetainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value indicates exporting metrics related to the `MetricToRetain` when it's true.
+        /// </summary>
         [Input("exportMetric")]
         public Input<bool>? ExportMetric { get; set; }
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 
+        /// <summary>
+        /// The dimension of the metric.
+        /// </summary>
         [Input("metricDimension")]
         public Input<Inputs.SecurityProfileMetricDimensionArgs>? MetricDimension { get; set; }
 

@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.S3Outposts
 {
+    /// <summary>
+    /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+    /// </summary>
     [EnumType]
     public readonly struct BucketRuleStatus : IEquatable<BucketRuleStatus>
     {
@@ -66,6 +69,9 @@ namespace Pulumi.AwsNative.S3Outposts
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The status of the endpoint.
+    /// </summary>
     [EnumType]
     public readonly struct EndpointStatus : IEquatable<EndpointStatus>
     {

@@ -37,16 +37,31 @@ class GetCertificateProviderResult:
     @property
     @pulumi.getter(name="accountDefaultForOperations")
     def account_default_for_operations(self) -> Optional[Sequence['CertificateProviderOperation']]:
+        """
+        A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        """
         return pulumi.get(self, "account_default_for_operations")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the certificate. For example:
+
+        `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+
+        A value similar to the following is returned:
+
+        `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[str]:
+        """
+        The ARN of the Lambda function.
+        """
         return pulumi.get(self, "lambda_function_arn")
 
     @property
@@ -74,6 +89,9 @@ def get_certificate_provider(certificate_provider_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateProviderResult:
     """
     Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
+
+
+    :param str certificate_provider_name: The name of the certificate provider.
     """
     __args__ = dict()
     __args__['certificateProviderName'] = certificate_provider_name
@@ -92,5 +110,8 @@ def get_certificate_provider_output(certificate_provider_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateProviderResult]:
     """
     Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
+
+
+    :param str certificate_provider_name: The name of the certificate provider.
     """
     ...

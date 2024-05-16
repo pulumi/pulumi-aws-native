@@ -68,6 +68,9 @@ class GetRouteResult:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[str]:
+        """
+        The IPv4 CIDR block.
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
@@ -180,6 +183,7 @@ def get_route(cidr_block: Optional[str] = None,
      If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.
 
 
+    :param str cidr_block: The IPv4 CIDR block.
     :param str route_table_id: The ID of the route table for the route.
     """
     __args__ = dict()
@@ -213,6 +217,7 @@ def get_route_output(cidr_block: Optional[pulumi.Input[str]] = None,
      If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.
 
 
+    :param str cidr_block: The IPv4 CIDR block.
     :param str route_table_id: The ID of the route table for the route.
     """
     ...

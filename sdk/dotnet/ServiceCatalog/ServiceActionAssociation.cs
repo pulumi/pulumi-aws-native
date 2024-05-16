@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
     [AwsNativeResourceType("aws-native:servicecatalog:ServiceActionAssociation")]
     public partial class ServiceActionAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The product identifier. For example, `prod-abcdzk7xy33qa` .
+        /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+        /// </summary>
         [Output("provisioningArtifactId")]
         public Output<string> ProvisioningArtifactId { get; private set; } = null!;
 
+        /// <summary>
+        /// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        /// </summary>
         [Output("serviceActionId")]
         public Output<string> ServiceActionId { get; private set; } = null!;
 
@@ -75,12 +84,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class ServiceActionAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The product identifier. For example, `prod-abcdzk7xy33qa` .
+        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+        /// </summary>
         [Input("provisioningArtifactId", required: true)]
         public Input<string> ProvisioningArtifactId { get; set; } = null!;
 
+        /// <summary>
+        /// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        /// </summary>
         [Input("serviceActionId", required: true)]
         public Input<string> ServiceActionId { get; set; } = null!;
 

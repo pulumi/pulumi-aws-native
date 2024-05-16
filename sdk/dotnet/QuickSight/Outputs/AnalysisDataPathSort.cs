@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDataPathSort
     {
+        /// <summary>
+        /// Determines the sort direction.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSortDirection Direction;
+        /// <summary>
+        /// The list of data paths that need to be sorted.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataPathValue> SortPaths;
 
         [OutputConstructor]

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkServiceAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the service.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkServiceAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the service.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,17 +57,53 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetServiceNetworkServiceAssociationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the service.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The date and time that the association was created, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The DNS information.
+        /// </summary>
         public readonly Outputs.ServiceNetworkServiceAssociationDnsEntry? DnsEntry;
+        /// <summary>
+        /// The ID of the of the association between the service network and the service.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         public readonly string? ServiceArn;
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         public readonly string? ServiceId;
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         public readonly string? ServiceName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network
+        /// </summary>
         public readonly string? ServiceNetworkArn;
+        /// <summary>
+        /// The ID of the service network.
+        /// </summary>
         public readonly string? ServiceNetworkId;
+        /// <summary>
+        /// The name of the service network.
+        /// </summary>
         public readonly string? ServiceNetworkName;
+        /// <summary>
+        /// The status of the association between the service network and the service.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus? Status;
+        /// <summary>
+        /// The tags for the association.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

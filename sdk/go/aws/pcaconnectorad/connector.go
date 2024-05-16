@@ -16,11 +16,16 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
-	CertificateAuthorityArn pulumi.StringOutput           `pulumi:"certificateAuthorityArn"`
-	ConnectorArn            pulumi.StringOutput           `pulumi:"connectorArn"`
-	DirectoryId             pulumi.StringOutput           `pulumi:"directoryId"`
-	Tags                    pulumi.StringMapOutput        `pulumi:"tags"`
-	VpcInformation          ConnectorVpcInformationOutput `pulumi:"vpcInformation"`
+	// The Amazon Resource Name (ARN) of the certificate authority being used.
+	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
+	// The identifier of the Active Directory.
+	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
+	// Metadata assigned to a connector consisting of a key-value pair.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Information about your VPC and security groups used with the connector.
+	VpcInformation ConnectorVpcInformationOutput `pulumi:"vpcInformation"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -78,18 +83,26 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	CertificateAuthorityArn string                  `pulumi:"certificateAuthorityArn"`
-	DirectoryId             string                  `pulumi:"directoryId"`
-	Tags                    map[string]string       `pulumi:"tags"`
-	VpcInformation          ConnectorVpcInformation `pulumi:"vpcInformation"`
+	// The Amazon Resource Name (ARN) of the certificate authority being used.
+	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	// The identifier of the Active Directory.
+	DirectoryId string `pulumi:"directoryId"`
+	// Metadata assigned to a connector consisting of a key-value pair.
+	Tags map[string]string `pulumi:"tags"`
+	// Information about your VPC and security groups used with the connector.
+	VpcInformation ConnectorVpcInformation `pulumi:"vpcInformation"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
+	// The Amazon Resource Name (ARN) of the certificate authority being used.
 	CertificateAuthorityArn pulumi.StringInput
-	DirectoryId             pulumi.StringInput
-	Tags                    pulumi.StringMapInput
-	VpcInformation          ConnectorVpcInformationInput
+	// The identifier of the Active Directory.
+	DirectoryId pulumi.StringInput
+	// Metadata assigned to a connector consisting of a key-value pair.
+	Tags pulumi.StringMapInput
+	// Information about your VPC and security groups used with the connector.
+	VpcInformation ConnectorVpcInformationInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -129,22 +142,27 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the certificate authority being used.
 func (o ConnectorOutput) CertificateAuthorityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 func (o ConnectorOutput) ConnectorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the Active Directory.
 func (o ConnectorOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
+// Metadata assigned to a connector consisting of a key-value pair.
 func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Information about your VPC and security groups used with the connector.
 func (o ConnectorOutput) VpcInformation() ConnectorVpcInformationOutput {
 	return o.ApplyT(func(v *Connector) ConnectorVpcInformationOutput { return v.VpcInformation }).(ConnectorVpcInformationOutput)
 }

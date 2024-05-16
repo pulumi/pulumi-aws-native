@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSlotValueOverrideMap
     {
+        /// <summary>
+        /// The name of the slot.
+        /// </summary>
         public readonly string? SlotName;
+        /// <summary>
+        /// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+        /// </summary>
         public readonly Outputs.BotSlotValueOverride? SlotValueOverride;
 
         [OutputConstructor]

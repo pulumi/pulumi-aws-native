@@ -16,13 +16,25 @@ import (
 type ServiceNetwork struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput             `pulumi:"arn"`
-	AuthType      ServiceNetworkAuthTypePtrOutput `pulumi:"authType"`
-	AwsId         pulumi.StringOutput             `pulumi:"awsId"`
-	CreatedAt     pulumi.StringOutput             `pulumi:"createdAt"`
-	LastUpdatedAt pulumi.StringOutput             `pulumi:"lastUpdatedAt"`
-	Name          pulumi.StringPtrOutput          `pulumi:"name"`
-	Tags          aws.TagArrayOutput              `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the service network.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+	AuthType ServiceNetworkAuthTypePtrOutput `pulumi:"authType"`
+	// The ID of the service network.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The date and time that the service network was created, specified in ISO-8601 format.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The date and time of the last update, specified in ISO-8601 format.
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The tags for the service network.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewServiceNetwork registers a new resource with the given unique name, arguments, and options.
@@ -69,16 +81,32 @@ func (ServiceNetworkState) ElementType() reflect.Type {
 }
 
 type serviceNetworkArgs struct {
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 	AuthType *ServiceNetworkAuthType `pulumi:"authType"`
-	Name     *string                 `pulumi:"name"`
-	Tags     []aws.Tag               `pulumi:"tags"`
+	// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name *string `pulumi:"name"`
+	// The tags for the service network.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceNetwork resource.
 type ServiceNetworkArgs struct {
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 	AuthType ServiceNetworkAuthTypePtrInput
-	Name     pulumi.StringPtrInput
-	Tags     aws.TagArrayInput
+	// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrInput
+	// The tags for the service network.
+	Tags aws.TagArrayInput
 }
 
 func (ServiceNetworkArgs) ElementType() reflect.Type {
@@ -118,30 +146,42 @@ func (o ServiceNetworkOutput) ToServiceNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service network.
 func (o ServiceNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The type of IAM policy.
+//
+// - `NONE` : The resource does not use an IAM policy. This is the default.
+// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 func (o ServiceNetworkOutput) AuthType() ServiceNetworkAuthTypePtrOutput {
 	return o.ApplyT(func(v *ServiceNetwork) ServiceNetworkAuthTypePtrOutput { return v.AuthType }).(ServiceNetworkAuthTypePtrOutput)
 }
 
+// The ID of the service network.
 func (o ServiceNetworkOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The date and time that the service network was created, specified in ISO-8601 format.
 func (o ServiceNetworkOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The date and time of the last update, specified in ISO-8601 format.
 func (o ServiceNetworkOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+//
+// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 func (o ServiceNetworkOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the service network.
 func (o ServiceNetworkOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceNetwork) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

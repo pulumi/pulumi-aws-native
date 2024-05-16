@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// </summary>
         [Input("firewallArn", required: true)]
         public string FirewallArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
 
@@ -51,15 +57,47 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetFirewallResult
     {
+        /// <summary>
+        /// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+        /// </summary>
         public readonly bool? DeleteProtection;
+        /// <summary>
+        /// A description of the firewall.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
+        /// </summary>
         public readonly ImmutableArray<string> EndpointIds;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// </summary>
         public readonly string? FirewallArn;
+        /// <summary>
+        /// The name of the `Firewall` resource.
+        /// </summary>
         public readonly string? FirewallId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the firewall policy.
+        /// 
+        /// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+        /// </summary>
         public readonly string? FirewallPolicyArn;
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        /// </summary>
         public readonly bool? FirewallPolicyChangeProtection;
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        /// </summary>
         public readonly bool? SubnetChangeProtection;
+        /// <summary>
+        /// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FirewallSubnetMapping> SubnetMappings;
+        /// <summary>
+        /// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -12,20 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPivotTableCellConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID of the cell for conditional formatting.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The scope of the cell for conditional formatting.
+        /// </summary>
         [Input("scope")]
         public Input<Inputs.DashboardPivotTableConditionalFormattingScopeArgs>? Scope { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.DashboardPivotTableConditionalFormattingScopeArgs>? _scopes;
+
+        /// <summary>
+        /// The scope of the cell for conditional formatting.
+        /// </summary>
         public InputList<Inputs.DashboardPivotTableConditionalFormattingScopeArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.DashboardPivotTableConditionalFormattingScopeArgs>());
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// The conditional formatting for the text.
+        /// </summary>
         [Input("textFormat")]
         public Input<Inputs.DashboardTextConditionalFormatArgs>? TextFormat { get; set; }
 

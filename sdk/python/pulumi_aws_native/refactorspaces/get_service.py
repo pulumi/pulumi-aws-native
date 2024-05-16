@@ -33,11 +33,17 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @property
@@ -66,6 +72,11 @@ def get_service(application_identifier: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Definition of AWS::RefactorSpaces::Service Resource Type
+
+
+    :param str application_identifier: The unique identifier of the application.
+    :param str environment_identifier: The unique identifier of the environment.
+    :param str service_identifier: The unique identifier of the service.
     """
     __args__ = dict()
     __args__['applicationIdentifier'] = application_identifier
@@ -87,5 +98,10 @@ def get_service_output(application_identifier: Optional[pulumi.Input[str]] = Non
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Definition of AWS::RefactorSpaces::Service Resource Type
+
+
+    :param str application_identifier: The unique identifier of the application.
+    :param str environment_identifier: The unique identifier of the environment.
+    :param str service_identifier: The unique identifier of the service.
     """
     ...

@@ -19,13 +19,28 @@ export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetLinkArgs {
+    /**
+     * The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+     */
     arn: string;
 }
 
 export interface GetLinkResult {
+    /**
+     * The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+     */
     readonly arn?: string;
+    /**
+     * The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+     */
     readonly label?: string;
+    /**
+     * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+     */
     readonly linkConfiguration?: outputs.oam.LinkConfiguration;
+    /**
+     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+     */
     readonly resourceTypes?: enums.oam.LinkResourceType[];
     /**
      * Tags to apply to the link
@@ -40,5 +55,8 @@ export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetLinkOutputArgs {
+    /**
+     * The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+     */
     arn: pulumi.Input<string>;
 }

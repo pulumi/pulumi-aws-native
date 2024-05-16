@@ -12,21 +12,39 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolVerificationMessageTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default email option.
+        /// </summary>
         [Input("defaultEmailOption")]
         public Input<string>? DefaultEmailOption { get; set; }
 
+        /// <summary>
+        /// The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+        /// </summary>
         [Input("emailMessage")]
         public Input<string>? EmailMessage { get; set; }
 
+        /// <summary>
+        /// The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+        /// </summary>
         [Input("emailMessageByLink")]
         public Input<string>? EmailMessageByLink { get; set; }
 
+        /// <summary>
+        /// The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+        /// </summary>
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }
 
+        /// <summary>
+        /// The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+        /// </summary>
         [Input("emailSubjectByLink")]
         public Input<string>? EmailSubjectByLink { get; set; }
 
+        /// <summary>
+        /// The template for SMS messages that Amazon Cognito sends to your users.
+        /// </summary>
         [Input("smsMessage")]
         public Input<string>? SmsMessage { get; set; }
 

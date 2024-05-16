@@ -37,13 +37,27 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of this policy.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
+     * The JSON document that describes the policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any>;
+    /**
+     * The policy name.
+     */
     public readonly policyName!: pulumi.Output<string | undefined>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -84,9 +98,17 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     /**
+     * The JSON document that describes the policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
      */
     policyDocument: any;
+    /**
+     * The policy name.
+     */
     policyName?: pulumi.Input<string>;
+    /**
+     * A set of key/value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

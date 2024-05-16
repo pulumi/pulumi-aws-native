@@ -37,6 +37,9 @@ class GetConfigurationAggregatorResult:
     @property
     @pulumi.getter(name="accountAggregationSources")
     def account_aggregation_sources(self) -> Optional[Sequence['outputs.ConfigurationAggregatorAccountAggregationSource']]:
+        """
+        A collection of accounts and regions.
+        """
         return pulumi.get(self, "account_aggregation_sources")
 
     @property
@@ -50,6 +53,9 @@ class GetConfigurationAggregatorResult:
     @property
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> Optional['outputs.ConfigurationAggregatorOrganizationAggregationSource']:
+        """
+        This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        """
         return pulumi.get(self, "organization_aggregation_source")
 
     @property

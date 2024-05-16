@@ -13,10 +13,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePeriodToDateComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The time granularity setup of period to date computation. Choose from the following options:
+        /// 
+        /// - YEAR: Year to date.
+        /// - MONTH: Month to date.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? PeriodTimeGranularity;
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.TemplateDimensionField? Time;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.TemplateMeasureField? Value;
 
         [OutputConstructor]

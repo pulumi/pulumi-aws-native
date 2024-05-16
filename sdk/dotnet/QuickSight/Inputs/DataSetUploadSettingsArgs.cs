@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
+        /// <summary>
+        /// File format.
+        /// </summary>
         [Input("format")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetFileFormat>? Format { get; set; }
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("startFromRow")]
         public Input<double>? StartFromRow { get; set; }
 
+        /// <summary>
+        /// Text qualifier.
+        /// </summary>
         [Input("textQualifier")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetTextQualifier>? TextQualifier { get; set; }
 

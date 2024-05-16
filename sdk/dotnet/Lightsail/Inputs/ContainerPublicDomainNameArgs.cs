@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// </summary>
     public sealed class ContainerPublicDomainNameArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the certificate for the public domains.
+        /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     {
         [Input("destinationPorts")]
         private InputList<Inputs.RuleGroupPortRangeArgs>? _destinationPorts;
+
+        /// <summary>
+        /// A single port range specification. This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
+        /// </summary>
         public InputList<Inputs.RuleGroupPortRangeArgs> DestinationPorts
         {
             get => _destinationPorts ?? (_destinationPorts = new InputList<Inputs.RuleGroupPortRangeArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("destinations")]
         private InputList<Inputs.RuleGroupAddressArgs>? _destinations;
+
+        /// <summary>
+        /// A single IP address specification. This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
+        /// </summary>
         public InputList<Inputs.RuleGroupAddressArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.RuleGroupAddressArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("protocols")]
         private InputList<int>? _protocols;
+
+        /// <summary>
+        /// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        /// </summary>
         public InputList<int> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<int>());
@@ -38,6 +50,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("sourcePorts")]
         private InputList<Inputs.RuleGroupPortRangeArgs>? _sourcePorts;
+
+        /// <summary>
+        /// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        /// 
+        /// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        /// </summary>
         public InputList<Inputs.RuleGroupPortRangeArgs> SourcePorts
         {
             get => _sourcePorts ?? (_sourcePorts = new InputList<Inputs.RuleGroupPortRangeArgs>());
@@ -46,6 +64,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("sources")]
         private InputList<Inputs.RuleGroupAddressArgs>? _sources;
+
+        /// <summary>
+        /// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
+        /// </summary>
         public InputList<Inputs.RuleGroupAddressArgs> Sources
         {
             get => _sources ?? (_sources = new InputList<Inputs.RuleGroupAddressArgs>());
@@ -54,6 +76,14 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("tcpFlags")]
         private InputList<Inputs.RuleGroupTcpFlagFieldArgs>? _tcpFlags;
+
+        /// <summary>
+        /// TCP flags and masks to inspect packets for. This is used in the `RuleGroup.MatchAttributes` specification.
+        /// 
+        /// For example:
+        /// 
+        /// `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`
+        /// </summary>
         public InputList<Inputs.RuleGroupTcpFlagFieldArgs> TcpFlags
         {
             get => _tcpFlags ?? (_tcpFlags = new InputList<Inputs.RuleGroupTcpFlagFieldArgs>());

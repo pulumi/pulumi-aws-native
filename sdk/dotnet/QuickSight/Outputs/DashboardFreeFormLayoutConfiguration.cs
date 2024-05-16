@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFreeFormLayoutConfiguration
     {
+        /// <summary>
+        /// Configuration options for the canvas of a free-form layout.
+        /// </summary>
         public readonly Outputs.DashboardFreeFormLayoutCanvasSizeOptions? CanvasSizeOptions;
+        /// <summary>
+        /// An element within a free-form layout.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFreeFormLayoutElement> Elements;
 
         [OutputConstructor]

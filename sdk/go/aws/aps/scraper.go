@@ -20,14 +20,17 @@ type Scraper struct {
 	// Scraper alias.
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Scraper ARN.
-	Arn         pulumi.StringOutput      `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Where to send the metrics from a scraper.
 	Destination ScraperDestinationOutput `pulumi:"destination"`
 	// IAM role ARN for the scraper.
-	RoleArn             pulumi.StringOutput              `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
 	ScrapeConfiguration ScraperScrapeConfigurationOutput `pulumi:"scrapeConfiguration"`
 	// Required to identify a specific scraper.
 	ScraperId pulumi.StringOutput `pulumi:"scraperId"`
-	Source    ScraperSourceOutput `pulumi:"source"`
+	// The source of collected metrics for a scraper.
+	Source ScraperSourceOutput `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -89,10 +92,13 @@ func (ScraperState) ElementType() reflect.Type {
 
 type scraperArgs struct {
 	// Scraper alias.
-	Alias               *string                    `pulumi:"alias"`
-	Destination         ScraperDestination         `pulumi:"destination"`
+	Alias *string `pulumi:"alias"`
+	// Where to send the metrics from a scraper.
+	Destination ScraperDestination `pulumi:"destination"`
+	// A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
 	ScrapeConfiguration ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
-	Source              ScraperSource              `pulumi:"source"`
+	// The source of collected metrics for a scraper.
+	Source ScraperSource `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -100,10 +106,13 @@ type scraperArgs struct {
 // The set of arguments for constructing a Scraper resource.
 type ScraperArgs struct {
 	// Scraper alias.
-	Alias               pulumi.StringPtrInput
-	Destination         ScraperDestinationInput
+	Alias pulumi.StringPtrInput
+	// Where to send the metrics from a scraper.
+	Destination ScraperDestinationInput
+	// A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
 	ScrapeConfiguration ScraperScrapeConfigurationInput
-	Source              ScraperSourceInput
+	// The source of collected metrics for a scraper.
+	Source ScraperSourceInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -155,6 +164,7 @@ func (o ScraperOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Where to send the metrics from a scraper.
 func (o ScraperOutput) Destination() ScraperDestinationOutput {
 	return o.ApplyT(func(v *Scraper) ScraperDestinationOutput { return v.Destination }).(ScraperDestinationOutput)
 }
@@ -164,6 +174,7 @@ func (o ScraperOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
 func (o ScraperOutput) ScrapeConfiguration() ScraperScrapeConfigurationOutput {
 	return o.ApplyT(func(v *Scraper) ScraperScrapeConfigurationOutput { return v.ScrapeConfiguration }).(ScraperScrapeConfigurationOutput)
 }
@@ -173,6 +184,7 @@ func (o ScraperOutput) ScraperId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.ScraperId }).(pulumi.StringOutput)
 }
 
+// The source of collected metrics for a scraper.
 func (o ScraperOutput) Source() ScraperSourceOutput {
 	return o.ApplyT(func(v *Scraper) ScraperSourceOutput { return v.Source }).(ScraperSourceOutput)
 }

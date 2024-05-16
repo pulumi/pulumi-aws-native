@@ -13,16 +13,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardWaterfallChartConfiguration
     {
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? CategoryAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryAxisLabelOptions;
+        /// <summary>
+        /// The color configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.DashboardWaterfallChartColorConfiguration? ColorConfiguration;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.DashboardWaterfallChartFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The sort configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.DashboardWaterfallChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
+        /// <summary>
+        /// The options that determine the presentation of a waterfall visual.
+        /// </summary>
         public readonly Outputs.DashboardWaterfallChartOptions? WaterfallChartOptions;
 
         [OutputConstructor]

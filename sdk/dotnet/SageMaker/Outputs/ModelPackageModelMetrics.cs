@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageModelMetrics
     {
+        /// <summary>
+        /// Contains bias metrics for a model.
+        /// </summary>
         public readonly Outputs.ModelPackageBias? Bias;
+        /// <summary>
+        /// Contains explainability metrics for a model.
+        /// </summary>
         public readonly Outputs.ModelPackageExplainability? Explainability;
+        /// <summary>
+        /// Data quality constraints and statistics for a model.
+        /// </summary>
         public readonly Outputs.ModelPackageModelDataQuality? ModelDataQuality;
+        /// <summary>
+        /// Model quality statistics and constraints.
+        /// </summary>
         public readonly Outputs.ModelPackageModelQuality? ModelQuality;
 
         [OutputConstructor]

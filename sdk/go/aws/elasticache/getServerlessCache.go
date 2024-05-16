@@ -30,18 +30,21 @@ type LookupServerlessCacheArgs struct {
 
 type LookupServerlessCacheResult struct {
 	// The ARN of the Serverless Cache.
-	Arn              *string                          `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The usage limits for storage and ElastiCache Processing Units for the cache.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// The creation time of the Serverless Cache.
 	CreateTime *string `pulumi:"createTime"`
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// The description of the Serverless Cache.
-	Description *string                  `pulumi:"description"`
-	Endpoint    *ServerlessCacheEndpoint `pulumi:"endpoint"`
+	Description *string `pulumi:"description"`
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	Endpoint *ServerlessCacheEndpoint `pulumi:"endpoint"`
 	// The full engine version of the Serverless Cache.
-	FullEngineVersion *string                  `pulumi:"fullEngineVersion"`
-	ReaderEndpoint    *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
+	FullEngineVersion *string `pulumi:"fullEngineVersion"`
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	ReaderEndpoint *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The snapshot retention limit of the Serverless Cache.
@@ -95,6 +98,7 @@ func (o LookupServerlessCacheResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The usage limits for storage and ElastiCache Processing Units for the cache.
 func (o LookupServerlessCacheResultOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *ServerlessCacheCacheUsageLimits { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
@@ -114,6 +118,7 @@ func (o LookupServerlessCacheResultOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Represents the information required for client programs to connect to a cache node. This value is read-only.
 func (o LookupServerlessCacheResultOutput) Endpoint() ServerlessCacheEndpointPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *ServerlessCacheEndpoint { return v.Endpoint }).(ServerlessCacheEndpointPtrOutput)
 }
@@ -123,6 +128,7 @@ func (o LookupServerlessCacheResultOutput) FullEngineVersion() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.FullEngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// Represents the information required for client programs to connect to a cache node. This value is read-only.
 func (o LookupServerlessCacheResultOutput) ReaderEndpoint() ServerlessCacheEndpointPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *ServerlessCacheEndpoint { return v.ReaderEndpoint }).(ServerlessCacheEndpointPtrOutput)
 }

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionMetadataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        /// </summary>
         [Input("labels")]
         public Input<object>? Labels { get; set; }
 

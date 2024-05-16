@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SecurityLake.Inputs
     /// </summary>
     public sealed class DataLakeExpirationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days before data expires in the Amazon Security Lake object.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 

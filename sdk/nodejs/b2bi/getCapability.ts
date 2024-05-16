@@ -19,17 +19,44 @@ export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetCapabilityArgs {
+    /**
+     * Returns a system-assigned unique identifier for the capability.
+     */
     capabilityId: string;
 }
 
 export interface GetCapabilityResult {
+    /**
+     * Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+     */
     readonly capabilityArn?: string;
+    /**
+     * Returns a system-assigned unique identifier for the capability.
+     */
     readonly capabilityId?: string;
+    /**
+     * A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+     */
     readonly configuration?: outputs.b2bi.CapabilityConfigurationProperties;
+    /**
+     * Returns a timestamp for creation date and time of the capability.
+     */
     readonly createdAt?: string;
+    /**
+     * Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+     */
     readonly instructionsDocuments?: outputs.b2bi.CapabilityS3Location[];
+    /**
+     * Returns a timestamp that identifies the most recent date and time that the capability was modified.
+     */
     readonly modifiedAt?: string;
+    /**
+     * The display name of the capability.
+     */
     readonly name?: string;
+    /**
+     * A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -40,5 +67,8 @@ export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi
 }
 
 export interface GetCapabilityOutputArgs {
+    /**
+     * Returns a system-assigned unique identifier for the capability.
+     */
     capabilityId: pulumi.Input<string>;
 }

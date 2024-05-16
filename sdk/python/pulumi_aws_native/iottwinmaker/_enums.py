@@ -59,6 +59,9 @@ class ComponentTypeStatusErrorPropertiesCode(str, Enum):
 
 
 class ComponentTypeStatusState(str, Enum):
+    """
+    The component type status state.
+    """
     CREATING = "CREATING"
     UPDATING = "UPDATING"
     DELETING = "DELETING"
@@ -98,6 +101,11 @@ class EntityStatusErrorPropertiesCode(str, Enum):
 
 
 class EntityStatusState(str, Enum):
+    """
+    The current state of the entity, component, component type, or workspace.
+
+    Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
+    """
     CREATING = "CREATING"
     UPDATING = "UPDATING"
     DELETING = "DELETING"

@@ -24,8 +24,10 @@ class AnomalyMonitorArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
+        :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+        :param pulumi.Input[str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]] resource_tags: Tags to assign to monitor.
         """
         pulumi.set(__self__, "monitor_type", monitor_type)
@@ -41,6 +43,9 @@ class AnomalyMonitorArgs:
     @property
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> pulumi.Input['AnomalyMonitorMonitorType']:
+        """
+        The possible type values.
+        """
         return pulumi.get(self, "monitor_type")
 
     @monitor_type.setter
@@ -74,6 +79,9 @@ class AnomalyMonitorArgs:
     @property
     @pulumi.getter(name="monitorSpecification")
     def monitor_specification(self) -> Optional[pulumi.Input[str]]:
+        """
+        The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+        """
         return pulumi.get(self, "monitor_specification")
 
     @monitor_specification.setter
@@ -321,6 +329,8 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+        :param pulumi.Input[str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+        :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyMonitorResourceTagArgs']]]] resource_tags: Tags to assign to monitor.
         """
         ...
@@ -654,6 +664,9 @@ class AnomalyMonitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="monitorArn")
     def monitor_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) value for the monitor.
+        """
         return pulumi.get(self, "monitor_arn")
 
     @property
@@ -675,11 +688,17 @@ class AnomalyMonitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="monitorSpecification")
     def monitor_specification(self) -> pulumi.Output[Optional[str]]:
+        """
+        The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+        """
         return pulumi.get(self, "monitor_specification")
 
     @property
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> pulumi.Output['AnomalyMonitorMonitorType']:
+        """
+        The possible type values.
+        """
         return pulumi.get(self, "monitor_type")
 
     @property

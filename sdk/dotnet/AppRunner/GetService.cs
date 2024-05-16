@@ -57,9 +57,21 @@ namespace Pulumi.AwsNative.AppRunner
     [OutputType]
     public sealed class GetServiceResult
     {
+        /// <summary>
+        /// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+        /// </summary>
         public readonly Outputs.ServiceHealthCheckConfiguration? HealthCheckConfiguration;
+        /// <summary>
+        /// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+        /// </summary>
         public readonly Outputs.ServiceInstanceConfiguration? InstanceConfiguration;
+        /// <summary>
+        /// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+        /// </summary>
         public readonly Outputs.ServiceNetworkConfiguration? NetworkConfiguration;
+        /// <summary>
+        /// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+        /// </summary>
         public readonly Outputs.ServiceObservabilityConfiguration? ObservabilityConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppRunner Service.
@@ -73,6 +85,9 @@ namespace Pulumi.AwsNative.AppRunner
         /// The Service Url of the AppRunner Service.
         /// </summary>
         public readonly string? ServiceUrl;
+        /// <summary>
+        /// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
+        /// </summary>
         public readonly Outputs.ServiceSourceConfiguration? SourceConfiguration;
         /// <summary>
         /// AppRunner Service status.

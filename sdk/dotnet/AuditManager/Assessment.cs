@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.AuditManager
     [AwsNativeResourceType("aws-native:auditmanager:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the assessment.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the assessment.
+        /// </summary>
         [Output("assessmentId")]
         public Output<string> AssessmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        /// </summary>
         [Output("assessmentReportsDestination")]
         public Output<Outputs.AssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
 
+        /// <summary>
+        /// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        /// </summary>
         [Output("awsAccount")]
         public Output<Outputs.AssessmentAwsAccount?> AwsAccount { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies when the assessment was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<double> CreationTime { get; private set; } = null!;
 
@@ -36,12 +51,21 @@ namespace Pulumi.AwsNative.AuditManager
         [Output("delegations")]
         public Output<ImmutableArray<Outputs.AssessmentDelegation>> Delegations { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the assessment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the framework.
+        /// </summary>
         [Output("frameworkId")]
         public Output<string?> FrameworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the assessment.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -51,9 +75,19 @@ namespace Pulumi.AwsNative.AuditManager
         [Output("roles")]
         public Output<ImmutableArray<Outputs.AssessmentRole>> Roles { get; private set; } = null!;
 
+        /// <summary>
+        /// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        /// </summary>
         [Output("scope")]
         public Output<Outputs.AssessmentScope?> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// The overall status of the assessment.
+        /// 
+        /// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+        /// 
+        /// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.AuditManager.AssessmentStatus?> Status { get; private set; } = null!;
 
@@ -113,9 +147,15 @@ namespace Pulumi.AwsNative.AuditManager
 
     public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        /// </summary>
         [Input("assessmentReportsDestination")]
         public Input<Inputs.AssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
 
+        /// <summary>
+        /// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        /// </summary>
         [Input("awsAccount")]
         public Input<Inputs.AssessmentAwsAccountArgs>? AwsAccount { get; set; }
 
@@ -131,12 +171,21 @@ namespace Pulumi.AwsNative.AuditManager
             set => _delegations = value;
         }
 
+        /// <summary>
+        /// The description of the assessment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The unique identifier for the framework.
+        /// </summary>
         [Input("frameworkId")]
         public Input<string>? FrameworkId { get; set; }
 
+        /// <summary>
+        /// The name of the assessment.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -152,9 +201,19 @@ namespace Pulumi.AwsNative.AuditManager
             set => _roles = value;
         }
 
+        /// <summary>
+        /// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        /// </summary>
         [Input("scope")]
         public Input<Inputs.AssessmentScopeArgs>? Scope { get; set; }
 
+        /// <summary>
+        /// The overall status of the assessment.
+        /// 
+        /// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+        /// 
+        /// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.AuditManager.AssessmentStatus>? Status { get; set; }
 

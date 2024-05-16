@@ -20,7 +20,13 @@ export function getVodSource(args: GetVodSourceArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetVodSourceArgs {
+    /**
+     * The name of the source location that the VOD source is associated with.
+     */
     sourceLocationName: string;
+    /**
+     * The name of the VOD source.
+     */
     vodSourceName: string;
 }
 
@@ -46,6 +52,12 @@ export function getVodSourceOutput(args: GetVodSourceOutputArgs, opts?: pulumi.I
 }
 
 export interface GetVodSourceOutputArgs {
+    /**
+     * The name of the source location that the VOD source is associated with.
+     */
     sourceLocationName: pulumi.Input<string>;
+    /**
+     * The name of the VOD source.
+     */
     vodSourceName: pulumi.Input<string>;
 }

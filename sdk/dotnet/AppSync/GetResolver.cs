@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+        /// </summary>
         [Input("resolverArn", required: true)]
         public string ResolverArn { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+        /// </summary>
         [Input("resolverArn", required: true)]
         public Input<string> ResolverArn { get; set; } = null!;
 
@@ -90,6 +96,9 @@ namespace Pulumi.AwsNative.AppSync
         ///  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
         /// </summary>
         public readonly string? RequestMappingTemplate;
+        /// <summary>
+        /// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+        /// </summary>
         public readonly string? ResolverArn;
         /// <summary>
         /// The response mapping template.

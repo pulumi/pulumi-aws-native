@@ -61,7 +61,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
         /// </summary>
         public readonly bool? AbleToUpdateBundle;
+        /// <summary>
+        /// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        /// </summary>
         public readonly Outputs.BucketAccessRules? AccessRules;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bucket.
+        /// </summary>
         public readonly string? BucketArn;
         /// <summary>
         /// The ID of the bundle to use for the bucket.

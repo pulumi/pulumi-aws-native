@@ -27,6 +27,7 @@ class CrossAccountAttachmentArgs:
         :param pulumi.Input[str] name: The Friendly identifier of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: Principals to share the resources with.
         :param pulumi.Input[Sequence[pulumi.Input['CrossAccountAttachmentResourceArgs']]] resources: Resources shared using the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains a `Tag` key and `Tag` value.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -76,6 +77,9 @@ class CrossAccountAttachmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A complex type that contains a `Tag` key and `Tag` value.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,6 +105,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Friendly identifier of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: Principals to share the resources with.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrossAccountAttachmentResourceArgs']]]] resources: Resources shared using the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A complex type that contains a `Tag` key and `Tag` value.
         """
         ...
     @overload
@@ -208,5 +213,8 @@ class CrossAccountAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A complex type that contains a `Tag` key and `Tag` value.
+        """
         return pulumi.get(self, "tags")
 

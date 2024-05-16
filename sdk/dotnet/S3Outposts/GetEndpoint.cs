@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.S3Outposts
         /// The network interfaces of the endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointNetworkInterface> NetworkInterfaces;
+        /// <summary>
+        /// The status of the endpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.S3Outposts.EndpointStatus? Status;
 
         [OutputConstructor]

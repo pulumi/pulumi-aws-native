@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardParameterSelectableValuesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("linkToDataSetColumn")]
         public Input<Inputs.DashboardColumnIdentifierArgs>? LinkToDataSetColumn { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The values that are used in `ParameterSelectableValues` .
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

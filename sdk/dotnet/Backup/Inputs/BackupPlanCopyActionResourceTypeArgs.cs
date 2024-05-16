@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
     public sealed class BackupPlanCopyActionResourceTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
+        /// </summary>
         [Input("destinationBackupVaultArn", required: true)]
         public Input<string> DestinationBackupVaultArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+        /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.BackupPlanLifecycleResourceTypeArgs>? Lifecycle { get; set; }
 

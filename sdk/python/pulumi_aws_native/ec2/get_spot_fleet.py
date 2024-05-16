@@ -31,11 +31,19 @@ class GetSpotFleetResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the Spot Fleet.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")
     def spot_fleet_request_config_data(self) -> Optional['outputs.SpotFleetRequestConfigData']:
+        """
+        Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+
+        You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+        """
         return pulumi.get(self, "spot_fleet_request_config_data")
 
 
@@ -53,6 +61,9 @@ def get_spot_fleet(id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotFleetResult:
     """
     Resource Type definition for AWS::EC2::SpotFleet
+
+
+    :param str id: The ID of the Spot Fleet.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -69,5 +80,8 @@ def get_spot_fleet_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpotFleetResult]:
     """
     Resource Type definition for AWS::EC2::SpotFleet
+
+
+    :param str id: The ID of the Spot Fleet.
     """
     ...

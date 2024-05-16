@@ -17,30 +17,56 @@ __all__ = [
 
 
 class IdMappingWorkflowIdMappingTechniquesIdMappingType(str, Enum):
+    """
+    The type of ID mapping.
+    """
     PROVIDER = "PROVIDER"
 
 
 class IdMappingWorkflowInputSourceType(str, Enum):
+    """
+    The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+
+    The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+
+    The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+    """
     SOURCE = "SOURCE"
     TARGET = "TARGET"
 
 
 class IdNamespaceIdMappingWorkflowPropertiesIdMappingType(str, Enum):
+    """
+    The type of ID mapping.
+    """
     PROVIDER = "PROVIDER"
 
 
 class IdNamespaceType(str, Enum):
+    """
+    The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+
+    The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+
+    The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+    """
     SOURCE = "SOURCE"
     TARGET = "TARGET"
 
 
 class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):
+    """
+    The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+    """
     RULE_MATCHING = "RULE_MATCHING"
     ML_MATCHING = "ML_MATCHING"
     PROVIDER = "PROVIDER"
 
 
 class MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(str, Enum):
+    """
+    The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+    """
     ONE_TO_ONE = "ONE_TO_ONE"
     MANY_TO_MANY = "MANY_TO_MANY"
 

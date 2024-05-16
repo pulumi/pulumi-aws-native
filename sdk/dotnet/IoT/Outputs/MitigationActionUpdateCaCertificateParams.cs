@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionUpdateCaCertificateParams
     {
+        /// <summary>
+        /// The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.MitigationActionUpdateCaCertificateParamsAction Action;
 
         [OutputConstructor]

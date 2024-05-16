@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetTopicRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// *Pattern* : `[a-zA-Z0-9:_-]+`
+        /// </summary>
         [Input("ruleName", required: true)]
         public string RuleName { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetTopicRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// *Pattern* : `[a-zA-Z0-9:_-]+`
+        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
@@ -51,8 +61,17 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetTopicRuleResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A set of key/value pairs that are used to manage the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Describes a rule.
+        /// </summary>
         public readonly Outputs.TopicRulePayload? TopicRulePayload;
 
         [OutputConstructor]

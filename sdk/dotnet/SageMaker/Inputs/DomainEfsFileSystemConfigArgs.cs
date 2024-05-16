@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class DomainEfsFileSystemConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of your Amazon EFS file system.
+        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
+        /// <summary>
+        /// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        /// </summary>
         [Input("fileSystemPath")]
         public Input<string>? FileSystemPath { get; set; }
 

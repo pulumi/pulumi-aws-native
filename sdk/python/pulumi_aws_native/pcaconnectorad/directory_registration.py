@@ -18,6 +18,8 @@ class DirectoryRegistrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DirectoryRegistration resource.
+        :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a directory registration consisting of a key-value pair.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         if tags is not None:
@@ -26,6 +28,9 @@ class DirectoryRegistrationArgs:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Active Directory.
+        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -35,6 +40,9 @@ class DirectoryRegistrationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata assigned to a directory registration consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -55,6 +63,8 @@ class DirectoryRegistration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a directory registration consisting of a key-value pair.
         """
         ...
     @overload
@@ -128,15 +138,24 @@ class DirectoryRegistration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Active Directory.
+        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="directoryRegistrationArn")
     def directory_registration_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        """
         return pulumi.get(self, "directory_registration_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata assigned to a directory registration consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 

@@ -27,6 +27,9 @@ class GetIntegrationAssociationResult:
     @property
     @pulumi.getter(name="integrationAssociationId")
     def integration_association_id(self) -> Optional[str]:
+        """
+        Identifier of the association with an Amazon Connect instance.
+        """
         return pulumi.get(self, "integration_association_id")
 
 
@@ -45,6 +48,21 @@ def get_integration_association(instance_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAssociationResult:
     """
     Resource Type definition for AWS::Connect::IntegrationAssociation
+
+
+    :param str instance_id: The Amazon Resource Name (ARN) of the instance.
+           
+           *Minimum* : `1`
+           
+           *Maximum* : `100`
+    :param str integration_arn: ARN of the integration being associated with the instance.
+           
+           *Minimum* : `1`
+           
+           *Maximum* : `140`
+    :param 'IntegrationAssociationIntegrationType' integration_type: Specifies the integration type to be associated with the instance.
+           
+           *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -64,5 +82,20 @@ def get_integration_association_output(instance_id: Optional[pulumi.Input[str]] 
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAssociationResult]:
     """
     Resource Type definition for AWS::Connect::IntegrationAssociation
+
+
+    :param str instance_id: The Amazon Resource Name (ARN) of the instance.
+           
+           *Minimum* : `1`
+           
+           *Maximum* : `100`
+    :param str integration_arn: ARN of the integration being associated with the instance.
+           
+           *Minimum* : `1`
+           
+           *Maximum* : `140`
+    :param 'IntegrationAssociationIntegrationType' integration_type: Specifies the integration type to be associated with the instance.
+           
+           *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
     """
     ...

@@ -56,6 +56,9 @@ export class Alarm extends pulumi.CustomResource {
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     public readonly alarmName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
@@ -119,6 +122,9 @@ export class Alarm extends pulumi.CustomResource {
      *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     public readonly statistic!: pulumi.Output<string | undefined>;
+    /**
+     * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The value to compare with the specified statistic.
@@ -294,6 +300,9 @@ export interface AlarmArgs {
      *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     statistic?: pulumi.Input<string>;
+    /**
+     * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The value to compare with the specified statistic.

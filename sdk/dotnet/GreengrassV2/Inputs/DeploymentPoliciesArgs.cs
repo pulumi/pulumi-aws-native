@@ -12,12 +12,25 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
 
     public sealed class DeploymentPoliciesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about a deployment's policy that defines when components are safe to update.
+        /// 
+        /// Each component on a device can report whether or not it's ready to update. After a component and its dependencies are ready, they can apply the update in the deployment. You can configure whether or not the deployment notifies components of an update and waits for a response. You specify the amount of time each component has to respond to the update notification.
+        /// </summary>
         [Input("componentUpdatePolicy")]
         public Input<Inputs.DeploymentComponentUpdatePolicyArgs>? ComponentUpdatePolicy { get; set; }
 
+        /// <summary>
+        /// Contains information about how long a component on a core device can validate its configuration updates before it times out. Components can use the [SubscribeToValidateConfigurationUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates) IPC operation to receive notifications when a deployment specifies a configuration update. Then, components can respond with the [SendConfigurationValidityReport](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// </summary>
         [Input("configurationValidationPolicy")]
         public Input<Inputs.DeploymentConfigurationValidationPolicyArgs>? ConfigurationValidationPolicy { get; set; }
 
+        /// <summary>
+        /// The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+        /// 
+        /// Default: `ROLLBACK`
+        /// </summary>
         [Input("failureHandlingPolicy")]
         public Input<Pulumi.AwsNative.GreengrassV2.DeploymentPoliciesFailureHandlingPolicy>? FailureHandlingPolicy { get; set; }
 

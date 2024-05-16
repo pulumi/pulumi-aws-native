@@ -42,10 +42,25 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
      * The description of the IdMappingWorkflow
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An object which defines the ID mapping techniques and provider configurations.
+     */
     public readonly idMappingTechniques!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingTechniques>;
+    /**
+     * An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+     */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
+    /**
+     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+     */
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public /*out*/ readonly workflowArn!: pulumi.Output<string>;
@@ -111,10 +126,25 @@ export interface IdMappingWorkflowArgs {
      * The description of the IdMappingWorkflow
      */
     description?: pulumi.Input<string>;
+    /**
+     * An object which defines the ID mapping techniques and provider configurations.
+     */
     idMappingTechniques: pulumi.Input<inputs.entityresolution.IdMappingWorkflowIdMappingTechniquesArgs>;
+    /**
+     * An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+     */
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowInputSourceArgs>[]>;
+    /**
+     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+     */
     outputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the IdMappingWorkflow

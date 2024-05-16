@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.B2bi
     [AwsNativeResourceType("aws-native:b2bi:Capability")]
     public partial class Capability : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        /// </summary>
         [Output("capabilityArn")]
         public Output<string> CapabilityArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         [Output("capabilityId")]
         public Output<string> CapabilityId { get; private set; } = null!;
 
+        /// <summary>
+        /// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.CapabilityConfigurationProperties> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp for creation date and time of the capability.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        /// </summary>
         [Output("instructionsDocuments")]
         public Output<ImmutableArray<Outputs.CapabilityS3Location>> InstructionsDocuments { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the capability.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the type of the capability. Currently, only `edi` is supported.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.B2bi.CapabilityType> Type { get; private set; } = null!;
 
@@ -91,28 +118,45 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.CapabilityConfigurationPropertiesArgs> Configuration { get; set; } = null!;
 
         [Input("instructionsDocuments")]
         private InputList<Inputs.CapabilityS3LocationArgs>? _instructionsDocuments;
+
+        /// <summary>
+        /// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        /// </summary>
         public InputList<Inputs.CapabilityS3LocationArgs> InstructionsDocuments
         {
             get => _instructionsDocuments ?? (_instructionsDocuments = new InputList<Inputs.CapabilityS3LocationArgs>());
             set => _instructionsDocuments = value;
         }
 
+        /// <summary>
+        /// The display name of the capability.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Returns the type of the capability. Currently, only `edi` is supported.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.B2bi.CapabilityType> Type { get; set; } = null!;
 

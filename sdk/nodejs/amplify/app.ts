@@ -37,24 +37,93 @@ export class App extends pulumi.CustomResource {
         return obj['__pulumiType'] === App.__pulumiType;
     }
 
+    /**
+     * The personal access token for a GitHub repository for an Amplify app. The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.
+     *
+     * Use `AccessToken` for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use `OauthToken` .
+     *
+     * You must specify either `AccessToken` or `OauthToken` when you create a new app.
+     *
+     * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
+     */
     public readonly accessToken!: pulumi.Output<string | undefined>;
+    /**
+     * Unique Id for the Amplify App.
+     */
     public /*out*/ readonly appId!: pulumi.Output<string>;
+    /**
+     * Name for the Amplify App.
+     */
     public /*out*/ readonly appName!: pulumi.Output<string>;
+    /**
+     * ARN for the Amplify App.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+     */
     public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig | undefined>;
+    /**
+     * Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+     */
     public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.AppBasicAuthConfig | undefined>;
+    /**
+     * The build specification (build spec) for an Amplify app.
+     */
     public readonly buildSpec!: pulumi.Output<string | undefined>;
+    /**
+     * The custom HTTP headers for an Amplify app.
+     */
     public readonly customHeaders!: pulumi.Output<string | undefined>;
+    /**
+     * The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+     */
     public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
+    /**
+     * Default domain for the Amplify App.
+     */
     public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    /**
+     * The description of the Amplify app.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+     */
     public readonly enableBranchAutoDeletion!: pulumi.Output<boolean | undefined>;
+    /**
+     * Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+     */
     public readonly environmentVariables!: pulumi.Output<outputs.amplify.AppEnvironmentVariable[] | undefined>;
+    /**
+     * AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
+     */
     public readonly iamServiceRole!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Amplify app.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
+     *
+     * Use `OauthToken` for repository providers other than GitHub, such as Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use `AccessToken` .
+     *
+     * You must specify either `OauthToken` or `AccessToken` when you create a new app.
+     *
+     * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
+     */
     public readonly oauthToken!: pulumi.Output<string | undefined>;
+    /**
+     * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+     */
     public readonly platform!: pulumi.Output<enums.amplify.AppPlatform | undefined>;
+    /**
+     * The Git repository for the Amplify app.
+     */
     public readonly repository!: pulumi.Output<string | undefined>;
+    /**
+     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -117,19 +186,76 @@ export class App extends pulumi.CustomResource {
  * The set of arguments for constructing a App resource.
  */
 export interface AppArgs {
+    /**
+     * The personal access token for a GitHub repository for an Amplify app. The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.
+     *
+     * Use `AccessToken` for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use `OauthToken` .
+     *
+     * You must specify either `AccessToken` or `OauthToken` when you create a new app.
+     *
+     * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
+     */
     accessToken?: pulumi.Input<string>;
+    /**
+     * Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+     */
     autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfigArgs>;
+    /**
+     * Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+     */
     basicAuthConfig?: pulumi.Input<inputs.amplify.AppBasicAuthConfigArgs>;
+    /**
+     * The build specification (build spec) for an Amplify app.
+     */
     buildSpec?: pulumi.Input<string>;
+    /**
+     * The custom HTTP headers for an Amplify app.
+     */
     customHeaders?: pulumi.Input<string>;
+    /**
+     * The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+     */
     customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRuleArgs>[]>;
+    /**
+     * The description of the Amplify app.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+     */
     enableBranchAutoDeletion?: pulumi.Input<boolean>;
+    /**
+     * Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+     */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
+    /**
+     * AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
+     */
     iamServiceRole?: pulumi.Input<string>;
+    /**
+     * The name of the Amplify app.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
+     *
+     * Use `OauthToken` for repository providers other than GitHub, such as Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use `AccessToken` .
+     *
+     * You must specify either `OauthToken` or `AccessToken` when you create a new app.
+     *
+     * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
+     */
     oauthToken?: pulumi.Input<string>;
+    /**
+     * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+     */
     platform?: pulumi.Input<enums.amplify.AppPlatform>;
+    /**
+     * The Git repository for the Amplify app.
+     */
     repository?: pulumi.Input<string>;
+    /**
+     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

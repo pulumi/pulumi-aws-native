@@ -23,13 +23,17 @@ func LookupUserPoolDomain(ctx *pulumi.Context, args *LookupUserPoolDomainArgs, o
 }
 
 type LookupUserPoolDomainArgs struct {
+	// The resource ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolDomainResult struct {
-	CloudFrontDistribution *string                               `pulumi:"cloudFrontDistribution"`
-	CustomDomainConfig     *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
-	Id                     *string                               `pulumi:"id"`
+	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+	CloudFrontDistribution *string `pulumi:"cloudFrontDistribution"`
+	// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
+	// The resource ID.
+	Id *string `pulumi:"id"`
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
@@ -46,6 +50,7 @@ func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOu
 }
 
 type LookupUserPoolDomainOutputArgs struct {
+	// The resource ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupUserPoolDomainResultOutput) ToLookupUserPoolDomainResultOutputWith
 	return o
 }
 
+// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.CloudFrontDistribution }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainCustomDomainConfigType { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
 
+// The resource ID.
 func (o LookupUserPoolDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

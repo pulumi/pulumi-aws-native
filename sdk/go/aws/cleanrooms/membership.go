@@ -17,14 +17,30 @@ import (
 type Membership struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput                                  `pulumi:"arn"`
-	CollaborationArn              pulumi.StringOutput                                  `pulumi:"collaborationArn"`
-	CollaborationCreatorAccountId pulumi.StringOutput                                  `pulumi:"collaborationCreatorAccountId"`
-	CollaborationIdentifier       pulumi.StringOutput                                  `pulumi:"collaborationIdentifier"`
-	DefaultResultConfiguration    MembershipProtectedQueryResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
-	MembershipIdentifier          pulumi.StringOutput                                  `pulumi:"membershipIdentifier"`
-	PaymentConfiguration          MembershipPaymentConfigurationPtrOutput              `pulumi:"paymentConfiguration"`
-	QueryLogStatus                MembershipQueryLogStatusOutput                       `pulumi:"queryLogStatus"`
+	// Returns the Amazon Resource Name (ARN) of the specified membership.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	CollaborationArn pulumi.StringOutput `pulumi:"collaborationArn"`
+	// Returns the unique identifier of the specified collaboration creator account.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	CollaborationCreatorAccountId pulumi.StringOutput `pulumi:"collaborationCreatorAccountId"`
+	// The unique ID for the associated collaboration.
+	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
+	// Contains configurations for protected query results.
+	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
+	// Returns the unique identifier of the specified membership.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
+	// An object representing the payment responsibilities accepted by the collaboration member.
+	PaymentConfiguration MembershipPaymentConfigurationPtrOutput `pulumi:"paymentConfiguration"`
+	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	QueryLogStatus MembershipQueryLogStatusOutput `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -79,20 +95,28 @@ func (MembershipState) ElementType() reflect.Type {
 }
 
 type membershipArgs struct {
-	CollaborationIdentifier    string                                       `pulumi:"collaborationIdentifier"`
+	// The unique ID for the associated collaboration.
+	CollaborationIdentifier string `pulumi:"collaborationIdentifier"`
+	// Contains configurations for protected query results.
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
-	PaymentConfiguration       *MembershipPaymentConfiguration              `pulumi:"paymentConfiguration"`
-	QueryLogStatus             MembershipQueryLogStatus                     `pulumi:"queryLogStatus"`
+	// An object representing the payment responsibilities accepted by the collaboration member.
+	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
+	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	QueryLogStatus MembershipQueryLogStatus `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Membership resource.
 type MembershipArgs struct {
-	CollaborationIdentifier    pulumi.StringInput
+	// The unique ID for the associated collaboration.
+	CollaborationIdentifier pulumi.StringInput
+	// Contains configurations for protected query results.
 	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrInput
-	PaymentConfiguration       MembershipPaymentConfigurationPtrInput
-	QueryLogStatus             MembershipQueryLogStatusInput
+	// An object representing the payment responsibilities accepted by the collaboration member.
+	PaymentConfiguration MembershipPaymentConfigurationPtrInput
+	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	QueryLogStatus MembershipQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags aws.TagArrayInput
 }
@@ -134,36 +158,52 @@ func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) Mem
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified membership.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o MembershipOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o MembershipOutput) CollaborationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationArn }).(pulumi.StringOutput)
 }
 
+// Returns the unique identifier of the specified collaboration creator account.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o MembershipOutput) CollaborationCreatorAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationCreatorAccountId }).(pulumi.StringOutput)
 }
 
+// The unique ID for the associated collaboration.
 func (o MembershipOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
 }
 
+// Contains configurations for protected query results.
 func (o MembershipOutput) DefaultResultConfiguration() MembershipProtectedQueryResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *Membership) MembershipProtectedQueryResultConfigurationPtrOutput {
 		return v.DefaultResultConfiguration
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
+// Returns the unique identifier of the specified membership.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
 func (o MembershipOutput) MembershipIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.MembershipIdentifier }).(pulumi.StringOutput)
 }
 
+// An object representing the payment responsibilities accepted by the collaboration member.
 func (o MembershipOutput) PaymentConfiguration() MembershipPaymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *Membership) MembershipPaymentConfigurationPtrOutput { return v.PaymentConfiguration }).(MembershipPaymentConfigurationPtrOutput)
 }
 
+// An indicator as to whether query logging has been enabled or disabled for the membership.
 func (o MembershipOutput) QueryLogStatus() MembershipQueryLogStatusOutput {
 	return o.ApplyT(func(v *Membership) MembershipQueryLogStatusOutput { return v.QueryLogStatus }).(MembershipQueryLogStatusOutput)
 }

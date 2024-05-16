@@ -19,6 +19,9 @@ class QueueFleetAssociationArgs:
                  queue_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a QueueFleetAssociation resource.
+        :param pulumi.Input[str] farm_id: The identifier of the farm that contains the queue and the fleet.
+        :param pulumi.Input[str] fleet_id: The fleet ID.
+        :param pulumi.Input[str] queue_id: The queue ID.
         """
         pulumi.set(__self__, "farm_id", farm_id)
         pulumi.set(__self__, "fleet_id", fleet_id)
@@ -27,6 +30,9 @@ class QueueFleetAssociationArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the farm that contains the queue and the fleet.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -36,6 +42,9 @@ class QueueFleetAssociationArgs:
     @property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> pulumi.Input[str]:
+        """
+        The fleet ID.
+        """
         return pulumi.get(self, "fleet_id")
 
     @fleet_id.setter
@@ -45,6 +54,9 @@ class QueueFleetAssociationArgs:
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Input[str]:
+        """
+        The queue ID.
+        """
         return pulumi.get(self, "queue_id")
 
     @queue_id.setter
@@ -66,6 +78,9 @@ class QueueFleetAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] farm_id: The identifier of the farm that contains the queue and the fleet.
+        :param pulumi.Input[str] fleet_id: The fleet ID.
+        :param pulumi.Input[str] queue_id: The queue ID.
         """
         ...
     @overload
@@ -144,15 +159,24 @@ class QueueFleetAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the farm that contains the queue and the fleet.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> pulumi.Output[str]:
+        """
+        The fleet ID.
+        """
         return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Output[str]:
+        """
+        The queue ID.
+        """
         return pulumi.get(self, "queue_id")
 

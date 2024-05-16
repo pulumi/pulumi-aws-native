@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWaterfallChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The breakdown field wells of a waterfall visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Breakdowns;
+        /// <summary>
+        /// The category field wells of a waterfall visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Categories;
+        /// <summary>
+        /// The value field wells of a waterfall visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Values;
 
         [OutputConstructor]

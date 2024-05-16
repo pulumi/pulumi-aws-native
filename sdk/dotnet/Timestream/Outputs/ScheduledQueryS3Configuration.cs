@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     [OutputType]
     public sealed class ScheduledQueryS3Configuration
     {
+        /// <summary>
+        /// Name of the S3 bucket under which error reports will be created.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
+        /// </summary>
         public readonly Pulumi.AwsNative.Timestream.ScheduledQueryEncryptionOption? EncryptionOption;
+        /// <summary>
+        /// Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
+        /// </summary>
         public readonly string? ObjectKeyPrefix;
 
         [OutputConstructor]

@@ -14,7 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type KeyspaceReplicationSpecification struct {
-	RegionList          []KeyspaceRegionListItem                             `pulumi:"regionList"`
+	// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+	RegionList []KeyspaceRegionListItem `pulumi:"regionList"`
+	// The options are:
+	//
+	// - `SINGLE_REGION` (optional)
+	// - `MULTI_REGION`
+	//
+	// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
 	ReplicationStrategy *KeyspaceReplicationSpecificationReplicationStrategy `pulumi:"replicationStrategy"`
 }
 
@@ -30,7 +37,14 @@ type KeyspaceReplicationSpecificationInput interface {
 }
 
 type KeyspaceReplicationSpecificationArgs struct {
-	RegionList          KeyspaceRegionListItemArrayInput                            `pulumi:"regionList"`
+	// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+	RegionList KeyspaceRegionListItemArrayInput `pulumi:"regionList"`
+	// The options are:
+	//
+	// - `SINGLE_REGION` (optional)
+	// - `MULTI_REGION`
+	//
+	// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
 	ReplicationStrategy KeyspaceReplicationSpecificationReplicationStrategyPtrInput `pulumi:"replicationStrategy"`
 }
 
@@ -111,10 +125,17 @@ func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificati
 	}).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
+// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
 func (o KeyspaceReplicationSpecificationOutput) RegionList() KeyspaceRegionListItemArrayOutput {
 	return o.ApplyT(func(v KeyspaceReplicationSpecification) []KeyspaceRegionListItem { return v.RegionList }).(KeyspaceRegionListItemArrayOutput)
 }
 
+// The options are:
+//
+// - `SINGLE_REGION` (optional)
+// - `MULTI_REGION`
+//
+// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
 func (o KeyspaceReplicationSpecificationOutput) ReplicationStrategy() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
 	return o.ApplyT(func(v KeyspaceReplicationSpecification) *KeyspaceReplicationSpecificationReplicationStrategy {
 		return v.ReplicationStrategy
@@ -145,6 +166,7 @@ func (o KeyspaceReplicationSpecificationPtrOutput) Elem() KeyspaceReplicationSpe
 	}).(KeyspaceReplicationSpecificationOutput)
 }
 
+// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
 func (o KeyspaceReplicationSpecificationPtrOutput) RegionList() KeyspaceRegionListItemArrayOutput {
 	return o.ApplyT(func(v *KeyspaceReplicationSpecification) []KeyspaceRegionListItem {
 		if v == nil {
@@ -154,6 +176,12 @@ func (o KeyspaceReplicationSpecificationPtrOutput) RegionList() KeyspaceRegionLi
 	}).(KeyspaceRegionListItemArrayOutput)
 }
 
+// The options are:
+//
+// - `SINGLE_REGION` (optional)
+// - `MULTI_REGION`
+//
+// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
 func (o KeyspaceReplicationSpecificationPtrOutput) ReplicationStrategy() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
 	return o.ApplyT(func(v *KeyspaceReplicationSpecification) *KeyspaceReplicationSpecificationReplicationStrategy {
 		if v == nil {
@@ -164,16 +192,22 @@ func (o KeyspaceReplicationSpecificationPtrOutput) ReplicationStrategy() Keyspac
 }
 
 type KeyspaceTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key string `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value string `pulumi:"value"`
 }
 
 // Represents configuration for auto scaling.
 type TableAutoScalingSetting struct {
-	AutoScalingDisabled *bool               `pulumi:"autoScalingDisabled"`
-	MaximumUnits        *int                `pulumi:"maximumUnits"`
-	MinimumUnits        *int                `pulumi:"minimumUnits"`
-	ScalingPolicy       *TableScalingPolicy `pulumi:"scalingPolicy"`
+	// This optional parameter enables auto scaling for the table if set to `false` .
+	AutoScalingDisabled *bool `pulumi:"autoScalingDisabled"`
+	// Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	MaximumUnits *int `pulumi:"maximumUnits"`
+	// The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	MinimumUnits *int `pulumi:"minimumUnits"`
+	// Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
+	ScalingPolicy *TableScalingPolicy `pulumi:"scalingPolicy"`
 }
 
 // TableAutoScalingSettingInput is an input type that accepts TableAutoScalingSettingArgs and TableAutoScalingSettingOutput values.
@@ -189,10 +223,14 @@ type TableAutoScalingSettingInput interface {
 
 // Represents configuration for auto scaling.
 type TableAutoScalingSettingArgs struct {
-	AutoScalingDisabled pulumi.BoolPtrInput        `pulumi:"autoScalingDisabled"`
-	MaximumUnits        pulumi.IntPtrInput         `pulumi:"maximumUnits"`
-	MinimumUnits        pulumi.IntPtrInput         `pulumi:"minimumUnits"`
-	ScalingPolicy       TableScalingPolicyPtrInput `pulumi:"scalingPolicy"`
+	// This optional parameter enables auto scaling for the table if set to `false` .
+	AutoScalingDisabled pulumi.BoolPtrInput `pulumi:"autoScalingDisabled"`
+	// Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	MaximumUnits pulumi.IntPtrInput `pulumi:"maximumUnits"`
+	// The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	MinimumUnits pulumi.IntPtrInput `pulumi:"minimumUnits"`
+	// Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
+	ScalingPolicy TableScalingPolicyPtrInput `pulumi:"scalingPolicy"`
 }
 
 func (TableAutoScalingSettingArgs) ElementType() reflect.Type {
@@ -273,18 +311,22 @@ func (o TableAutoScalingSettingOutput) ToTableAutoScalingSettingPtrOutputWithCon
 	}).(TableAutoScalingSettingPtrOutput)
 }
 
+// This optional parameter enables auto scaling for the table if set to `false` .
 func (o TableAutoScalingSettingOutput) AutoScalingDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSetting) *bool { return v.AutoScalingDisabled }).(pulumi.BoolPtrOutput)
 }
 
+// Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
 func (o TableAutoScalingSettingOutput) MaximumUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSetting) *int { return v.MaximumUnits }).(pulumi.IntPtrOutput)
 }
 
+// The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
 func (o TableAutoScalingSettingOutput) MinimumUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSetting) *int { return v.MinimumUnits }).(pulumi.IntPtrOutput)
 }
 
+// Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
 func (o TableAutoScalingSettingOutput) ScalingPolicy() TableScalingPolicyPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSetting) *TableScalingPolicy { return v.ScalingPolicy }).(TableScalingPolicyPtrOutput)
 }
@@ -313,6 +355,7 @@ func (o TableAutoScalingSettingPtrOutput) Elem() TableAutoScalingSettingOutput {
 	}).(TableAutoScalingSettingOutput)
 }
 
+// This optional parameter enables auto scaling for the table if set to `false` .
 func (o TableAutoScalingSettingPtrOutput) AutoScalingDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSetting) *bool {
 		if v == nil {
@@ -322,6 +365,7 @@ func (o TableAutoScalingSettingPtrOutput) AutoScalingDisabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
 func (o TableAutoScalingSettingPtrOutput) MaximumUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSetting) *int {
 		if v == nil {
@@ -331,6 +375,7 @@ func (o TableAutoScalingSettingPtrOutput) MaximumUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
 func (o TableAutoScalingSettingPtrOutput) MinimumUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSetting) *int {
 		if v == nil {
@@ -340,6 +385,7 @@ func (o TableAutoScalingSettingPtrOutput) MinimumUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
 func (o TableAutoScalingSettingPtrOutput) ScalingPolicy() TableScalingPolicyPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSetting) *TableScalingPolicy {
 		if v == nil {
@@ -351,7 +397,29 @@ func (o TableAutoScalingSettingPtrOutput) ScalingPolicy() TableScalingPolicyPtrO
 
 // Represents the read and write settings used for AutoScaling.
 type TableAutoScalingSpecification struct {
-	ReadCapacityAutoScaling  *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
+	// The optional auto scaling settings for a table with provisioned throughput capacity.
+	//
+	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+	//
+	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+	//
+	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	ReadCapacityAutoScaling *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
+	// The optional auto scaling settings for a table with provisioned throughput capacity.
+	//
+	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+	//
+	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+	//
+	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 	WriteCapacityAutoScaling *TableAutoScalingSetting `pulumi:"writeCapacityAutoScaling"`
 }
 
@@ -368,7 +436,29 @@ type TableAutoScalingSpecificationInput interface {
 
 // Represents the read and write settings used for AutoScaling.
 type TableAutoScalingSpecificationArgs struct {
-	ReadCapacityAutoScaling  TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
+	// The optional auto scaling settings for a table with provisioned throughput capacity.
+	//
+	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+	//
+	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+	//
+	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	ReadCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
+	// The optional auto scaling settings for a table with provisioned throughput capacity.
+	//
+	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+	//
+	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+	//
+	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 	WriteCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"writeCapacityAutoScaling"`
 }
 
@@ -450,10 +540,32 @@ func (o TableAutoScalingSpecificationOutput) ToTableAutoScalingSpecificationPtrO
 	}).(TableAutoScalingSpecificationPtrOutput)
 }
 
+// The optional auto scaling settings for a table with provisioned throughput capacity.
+//
+// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+//
+// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+//
+// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableAutoScalingSpecificationOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSpecification) *TableAutoScalingSetting { return v.ReadCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
 }
 
+// The optional auto scaling settings for a table with provisioned throughput capacity.
+//
+// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+//
+// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+//
+// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableAutoScalingSpecificationOutput) WriteCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSpecification) *TableAutoScalingSetting { return v.WriteCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
 }
@@ -482,6 +594,17 @@ func (o TableAutoScalingSpecificationPtrOutput) Elem() TableAutoScalingSpecifica
 	}).(TableAutoScalingSpecificationOutput)
 }
 
+// The optional auto scaling settings for a table with provisioned throughput capacity.
+//
+// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+//
+// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+//
+// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableAutoScalingSpecificationPtrOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSpecification) *TableAutoScalingSetting {
 		if v == nil {
@@ -491,6 +614,17 @@ func (o TableAutoScalingSpecificationPtrOutput) ReadCapacityAutoScaling() TableA
 	}).(TableAutoScalingSettingPtrOutput)
 }
 
+// The optional auto scaling settings for a table with provisioned throughput capacity.
+//
+// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+//
+// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+//
+// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableAutoScalingSpecificationPtrOutput) WriteCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSpecification) *TableAutoScalingSetting {
 		if v == nil {
@@ -501,7 +635,16 @@ func (o TableAutoScalingSpecificationPtrOutput) WriteCapacityAutoScaling() Table
 }
 
 type TableBillingMode struct {
-	Mode                  TableMode                   `pulumi:"mode"`
+	// The billing mode for the table:
+	//
+	// - On-demand mode - `ON_DEMAND`
+	// - Provisioned mode - `PROVISIONED`
+	//
+	// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+	//
+	// Valid values: `ON_DEMAND` | `PROVISIONED`
+	Mode TableMode `pulumi:"mode"`
+	// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
 }
 
@@ -517,7 +660,16 @@ type TableBillingModeInput interface {
 }
 
 type TableBillingModeArgs struct {
-	Mode                  TableModeInput                     `pulumi:"mode"`
+	// The billing mode for the table:
+	//
+	// - On-demand mode - `ON_DEMAND`
+	// - Provisioned mode - `PROVISIONED`
+	//
+	// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+	//
+	// Valid values: `ON_DEMAND` | `PROVISIONED`
+	Mode TableModeInput `pulumi:"mode"`
+	// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
 	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
 }
 
@@ -598,10 +750,19 @@ func (o TableBillingModeOutput) ToTableBillingModePtrOutputWithContext(ctx conte
 	}).(TableBillingModePtrOutput)
 }
 
+// The billing mode for the table:
+//
+// - On-demand mode - `ON_DEMAND`
+// - Provisioned mode - `PROVISIONED`
+//
+// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+//
+// Valid values: `ON_DEMAND` | `PROVISIONED`
 func (o TableBillingModeOutput) Mode() TableModeOutput {
 	return o.ApplyT(func(v TableBillingMode) TableMode { return v.Mode }).(TableModeOutput)
 }
 
+// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
 func (o TableBillingModeOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v TableBillingMode) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
 }
@@ -630,6 +791,14 @@ func (o TableBillingModePtrOutput) Elem() TableBillingModeOutput {
 	}).(TableBillingModeOutput)
 }
 
+// The billing mode for the table:
+//
+// - On-demand mode - `ON_DEMAND`
+// - Provisioned mode - `PROVISIONED`
+//
+// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+//
+// Valid values: `ON_DEMAND` | `PROVISIONED`
 func (o TableBillingModePtrOutput) Mode() TableModePtrOutput {
 	return o.ApplyT(func(v *TableBillingMode) *TableMode {
 		if v == nil {
@@ -639,6 +808,7 @@ func (o TableBillingModePtrOutput) Mode() TableModePtrOutput {
 	}).(TableModePtrOutput)
 }
 
+// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
 func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *TableBillingMode) *TableProvisionedThroughput {
 		if v == nil {
@@ -649,7 +819,15 @@ func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThrou
 }
 
 type TableClusteringKeyColumn struct {
-	Column  TableColumn                      `pulumi:"column"`
+	// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
+	//
+	// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
+	// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+	Column TableColumn `pulumi:"column"`
+	// The order in which this column's data is stored:
+	//
+	// - `ASC` (default) - The column's data is stored in ascending order.
+	// - `DESC` - The column's data is stored in descending order.
 	OrderBy *TableClusteringKeyColumnOrderBy `pulumi:"orderBy"`
 }
 
@@ -665,7 +843,15 @@ type TableClusteringKeyColumnInput interface {
 }
 
 type TableClusteringKeyColumnArgs struct {
-	Column  TableColumnInput                        `pulumi:"column"`
+	// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
+	//
+	// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
+	// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+	Column TableColumnInput `pulumi:"column"`
+	// The order in which this column's data is stored:
+	//
+	// - `ASC` (default) - The column's data is stored in ascending order.
+	// - `DESC` - The column's data is stored in descending order.
 	OrderBy TableClusteringKeyColumnOrderByPtrInput `pulumi:"orderBy"`
 }
 
@@ -720,10 +906,18 @@ func (o TableClusteringKeyColumnOutput) ToTableClusteringKeyColumnOutputWithCont
 	return o
 }
 
+// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
+//
+// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
+// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
 func (o TableClusteringKeyColumnOutput) Column() TableColumnOutput {
 	return o.ApplyT(func(v TableClusteringKeyColumn) TableColumn { return v.Column }).(TableColumnOutput)
 }
 
+// The order in which this column's data is stored:
+//
+// - `ASC` (default) - The column's data is stored in ascending order.
+// - `DESC` - The column's data is stored in descending order.
 func (o TableClusteringKeyColumnOutput) OrderBy() TableClusteringKeyColumnOrderByPtrOutput {
 	return o.ApplyT(func(v TableClusteringKeyColumn) *TableClusteringKeyColumnOrderBy { return v.OrderBy }).(TableClusteringKeyColumnOrderByPtrOutput)
 }
@@ -749,7 +943,9 @@ func (o TableClusteringKeyColumnArrayOutput) Index(i pulumi.IntInput) TableClust
 }
 
 type TableColumn struct {
+	// The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
 	ColumnName string `pulumi:"columnName"`
+	// The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
 	ColumnType string `pulumi:"columnType"`
 }
 
@@ -765,7 +961,9 @@ type TableColumnInput interface {
 }
 
 type TableColumnArgs struct {
+	// The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
 	ColumnType pulumi.StringInput `pulumi:"columnType"`
 }
 
@@ -820,10 +1018,12 @@ func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
 func (o TableColumnOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
+// The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
 func (o TableColumnOutput) ColumnType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.ColumnType }).(pulumi.StringOutput)
 }
@@ -850,8 +1050,17 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 
 // Represents the settings used to enable server-side encryption
 type TableEncryptionSpecification struct {
-	EncryptionType   TableEncryptionType `pulumi:"encryptionType"`
-	KmsKeyIdentifier *string             `pulumi:"kmsKeyIdentifier"`
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+	// - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+	//
+	// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+	//
+	// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
+	EncryptionType TableEncryptionType `pulumi:"encryptionType"`
+	// Requires a `kms_key_identifier` in the format of a key ARN.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 }
 
 // TableEncryptionSpecificationInput is an input type that accepts TableEncryptionSpecificationArgs and TableEncryptionSpecificationOutput values.
@@ -867,8 +1076,17 @@ type TableEncryptionSpecificationInput interface {
 
 // Represents the settings used to enable server-side encryption
 type TableEncryptionSpecificationArgs struct {
-	EncryptionType   TableEncryptionTypeInput `pulumi:"encryptionType"`
-	KmsKeyIdentifier pulumi.StringPtrInput    `pulumi:"kmsKeyIdentifier"`
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+	// - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+	//
+	// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+	//
+	// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
+	EncryptionType TableEncryptionTypeInput `pulumi:"encryptionType"`
+	// Requires a `kms_key_identifier` in the format of a key ARN.
+	KmsKeyIdentifier pulumi.StringPtrInput `pulumi:"kmsKeyIdentifier"`
 }
 
 func (TableEncryptionSpecificationArgs) ElementType() reflect.Type {
@@ -949,10 +1167,19 @@ func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOut
 	}).(TableEncryptionSpecificationPtrOutput)
 }
 
+// The encryption at rest options for the table.
+//
+// - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+// - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+//
+// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+//
+// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
 func (o TableEncryptionSpecificationOutput) EncryptionType() TableEncryptionTypeOutput {
 	return o.ApplyT(func(v TableEncryptionSpecification) TableEncryptionType { return v.EncryptionType }).(TableEncryptionTypeOutput)
 }
 
+// Requires a `kms_key_identifier` in the format of a key ARN.
 func (o TableEncryptionSpecificationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableEncryptionSpecification) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -981,6 +1208,14 @@ func (o TableEncryptionSpecificationPtrOutput) Elem() TableEncryptionSpecificati
 	}).(TableEncryptionSpecificationOutput)
 }
 
+// The encryption at rest options for the table.
+//
+// - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+// - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+//
+// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+//
+// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
 func (o TableEncryptionSpecificationPtrOutput) EncryptionType() TableEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *TableEncryptionSpecification) *TableEncryptionType {
 		if v == nil {
@@ -990,6 +1225,7 @@ func (o TableEncryptionSpecificationPtrOutput) EncryptionType() TableEncryptionT
 	}).(TableEncryptionTypePtrOutput)
 }
 
+// Requires a `kms_key_identifier` in the format of a key ARN.
 func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
 		if v == nil {
@@ -1001,7 +1237,9 @@ func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringP
 
 // Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
 type TableProvisionedThroughput struct {
-	ReadCapacityUnits  int `pulumi:"readCapacityUnits"`
+	// The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
+	ReadCapacityUnits int `pulumi:"readCapacityUnits"`
+	// The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 	WriteCapacityUnits int `pulumi:"writeCapacityUnits"`
 }
 
@@ -1018,7 +1256,9 @@ type TableProvisionedThroughputInput interface {
 
 // Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
 type TableProvisionedThroughputArgs struct {
-	ReadCapacityUnits  pulumi.IntInput `pulumi:"readCapacityUnits"`
+	// The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
+	ReadCapacityUnits pulumi.IntInput `pulumi:"readCapacityUnits"`
+	// The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 	WriteCapacityUnits pulumi.IntInput `pulumi:"writeCapacityUnits"`
 }
 
@@ -1100,10 +1340,12 @@ func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputPtrOutputW
 	}).(TableProvisionedThroughputPtrOutput)
 }
 
+// The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableProvisionedThroughputOutput) ReadCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.ReadCapacityUnits }).(pulumi.IntOutput)
 }
 
+// The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableProvisionedThroughputOutput) WriteCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.WriteCapacityUnits }).(pulumi.IntOutput)
 }
@@ -1132,6 +1374,7 @@ func (o TableProvisionedThroughputPtrOutput) Elem() TableProvisionedThroughputOu
 	}).(TableProvisionedThroughputOutput)
 }
 
+// The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableProvisionedThroughput) *int {
 		if v == nil {
@@ -1141,6 +1384,7 @@ func (o TableProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableProvisionedThroughput) *int {
 		if v == nil {
@@ -1152,9 +1396,22 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 
 // Represents replica specifications.
 type TableReplicaSpecification struct {
+	// The optional auto scaling settings for a table with provisioned throughput capacity.
+	//
+	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+	//
+	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+	//
+	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 	ReadCapacityAutoScaling *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
-	ReadCapacityUnits       *int                     `pulumi:"readCapacityUnits"`
-	Region                  string                   `pulumi:"region"`
+	// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
+	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
+	// The AWS Region.
+	Region string `pulumi:"region"`
 }
 
 // TableReplicaSpecificationInput is an input type that accepts TableReplicaSpecificationArgs and TableReplicaSpecificationOutput values.
@@ -1170,9 +1427,22 @@ type TableReplicaSpecificationInput interface {
 
 // Represents replica specifications.
 type TableReplicaSpecificationArgs struct {
+	// The optional auto scaling settings for a table with provisioned throughput capacity.
+	//
+	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+	//
+	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+	//
+	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 	ReadCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
-	ReadCapacityUnits       pulumi.IntPtrInput              `pulumi:"readCapacityUnits"`
-	Region                  pulumi.StringInput              `pulumi:"region"`
+	// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
+	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
+	// The AWS Region.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (TableReplicaSpecificationArgs) ElementType() reflect.Type {
@@ -1227,14 +1497,27 @@ func (o TableReplicaSpecificationOutput) ToTableReplicaSpecificationOutputWithCo
 	return o
 }
 
+// The optional auto scaling settings for a table with provisioned throughput capacity.
+//
+// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
+//
+// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+//
+// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableReplicaSpecificationOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v TableReplicaSpecification) *TableAutoScalingSetting { return v.ReadCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
 }
 
+// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
 func (o TableReplicaSpecificationOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableReplicaSpecification) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
+// The AWS Region.
 func (o TableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v TableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -1261,6 +1544,14 @@ func (o TableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) TableRepl
 
 // Represents scaling policy.
 type TableScalingPolicy struct {
+	// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
+	//
+	// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
+	// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
+	// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
+	// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
 	TargetTrackingScalingPolicyConfiguration *TableTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -1277,6 +1568,14 @@ type TableScalingPolicyInput interface {
 
 // Represents scaling policy.
 type TableScalingPolicyArgs struct {
+	// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
+	//
+	// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
+	//
+	// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
+	// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
+	// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
+	// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
 	TargetTrackingScalingPolicyConfiguration TableTargetTrackingScalingPolicyConfigurationPtrInput `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -1358,6 +1657,14 @@ func (o TableScalingPolicyOutput) ToTableScalingPolicyPtrOutputWithContext(ctx c
 	}).(TableScalingPolicyPtrOutput)
 }
 
+// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
+//
+// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
+// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
+// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
+// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
 func (o TableScalingPolicyOutput) TargetTrackingScalingPolicyConfiguration() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v TableScalingPolicy) *TableTargetTrackingScalingPolicyConfiguration {
 		return v.TargetTrackingScalingPolicyConfiguration
@@ -1388,6 +1695,14 @@ func (o TableScalingPolicyPtrOutput) Elem() TableScalingPolicyOutput {
 	}).(TableScalingPolicyOutput)
 }
 
+// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
+//
+// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
+//
+// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
+// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
+// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
+// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
 func (o TableScalingPolicyPtrOutput) TargetTrackingScalingPolicyConfiguration() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableScalingPolicy) *TableTargetTrackingScalingPolicyConfiguration {
 		if v == nil {
@@ -1399,16 +1714,30 @@ func (o TableScalingPolicyPtrOutput) TargetTrackingScalingPolicyConfiguration() 
 
 // A key-value pair to apply to the resource
 type TableTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key string `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value string `pulumi:"value"`
 }
 
 // Represents configuration for target tracking scaling policy.
 type TableTargetTrackingScalingPolicyConfiguration struct {
-	DisableScaleIn   *bool `pulumi:"disableScaleIn"`
-	ScaleInCooldown  *int  `pulumi:"scaleInCooldown"`
-	ScaleOutCooldown *int  `pulumi:"scaleOutCooldown"`
-	TargetValue      int   `pulumi:"targetValue"`
+	// Specifies if `scale-in` is enabled.
+	//
+	// When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
+	DisableScaleIn *bool `pulumi:"disableScaleIn"`
+	// Specifies a `scale-in` cool down period.
+	//
+	// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+	ScaleInCooldown *int `pulumi:"scaleInCooldown"`
+	// Specifies a scale out cool down period.
+	//
+	// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+	ScaleOutCooldown *int `pulumi:"scaleOutCooldown"`
+	// Specifies the target value for the target tracking auto scaling policy.
+	//
+	// Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
+	TargetValue int `pulumi:"targetValue"`
 }
 
 // TableTargetTrackingScalingPolicyConfigurationInput is an input type that accepts TableTargetTrackingScalingPolicyConfigurationArgs and TableTargetTrackingScalingPolicyConfigurationOutput values.
@@ -1424,10 +1753,22 @@ type TableTargetTrackingScalingPolicyConfigurationInput interface {
 
 // Represents configuration for target tracking scaling policy.
 type TableTargetTrackingScalingPolicyConfigurationArgs struct {
-	DisableScaleIn   pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
-	ScaleInCooldown  pulumi.IntPtrInput  `pulumi:"scaleInCooldown"`
-	ScaleOutCooldown pulumi.IntPtrInput  `pulumi:"scaleOutCooldown"`
-	TargetValue      pulumi.IntInput     `pulumi:"targetValue"`
+	// Specifies if `scale-in` is enabled.
+	//
+	// When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
+	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
+	// Specifies a `scale-in` cool down period.
+	//
+	// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+	ScaleInCooldown pulumi.IntPtrInput `pulumi:"scaleInCooldown"`
+	// Specifies a scale out cool down period.
+	//
+	// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+	ScaleOutCooldown pulumi.IntPtrInput `pulumi:"scaleOutCooldown"`
+	// Specifies the target value for the target tracking auto scaling policy.
+	//
+	// Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
+	TargetValue pulumi.IntInput `pulumi:"targetValue"`
 }
 
 func (TableTargetTrackingScalingPolicyConfigurationArgs) ElementType() reflect.Type {
@@ -1508,18 +1849,30 @@ func (o TableTargetTrackingScalingPolicyConfigurationOutput) ToTableTargetTracki
 	}).(TableTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
+// Specifies if `scale-in` is enabled.
+//
+// When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
 func (o TableTargetTrackingScalingPolicyConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a `scale-in` cool down period.
+//
+// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
 func (o TableTargetTrackingScalingPolicyConfigurationOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
 }
 
+// Specifies a scale out cool down period.
+//
+// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
 func (o TableTargetTrackingScalingPolicyConfigurationOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the target value for the target tracking auto scaling policy.
+//
+// Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
 func (o TableTargetTrackingScalingPolicyConfigurationOutput) TargetValue() pulumi.IntOutput {
 	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) int { return v.TargetValue }).(pulumi.IntOutput)
 }
@@ -1548,6 +1901,9 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() TableTarg
 	}).(TableTargetTrackingScalingPolicyConfigurationOutput)
 }
 
+// Specifies if `scale-in` is enabled.
+//
+// When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
 func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *bool {
 		if v == nil {
@@ -1557,6 +1913,9 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a `scale-in` cool down period.
+//
+// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
 func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -1566,6 +1925,9 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown(
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies a scale out cool down period.
+//
+// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
 func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -1575,6 +1937,9 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the target value for the target tracking auto scaling policy.
+//
+// Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
 func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {

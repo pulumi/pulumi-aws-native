@@ -13,9 +13,25 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceHookConfiguration
     {
+        /// <summary>
+        /// The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
+        /// 
+        /// For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
+        /// 
+        /// Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        /// </summary>
         public readonly string? LambdaArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+        /// </summary>
         public readonly string? S3BucketName;
 
         [OutputConstructor]

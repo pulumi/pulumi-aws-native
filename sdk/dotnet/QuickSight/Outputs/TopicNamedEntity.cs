@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicNamedEntity
     {
+        /// <summary>
+        /// A structure that represents a named entity.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicNamedEntityDefinition> Definition;
+        /// <summary>
+        /// The description of the named entity.
+        /// </summary>
         public readonly string? EntityDescription;
+        /// <summary>
+        /// The name of the named entity.
+        /// </summary>
         public readonly string EntityName;
+        /// <summary>
+        /// The other names or aliases for the named entity.
+        /// </summary>
         public readonly ImmutableArray<string> EntitySynonyms;
+        /// <summary>
+        /// A structure that represents a semantic entity type.
+        /// </summary>
         public readonly Outputs.TopicSemanticEntityType? SemanticEntityType;
 
         [OutputConstructor]

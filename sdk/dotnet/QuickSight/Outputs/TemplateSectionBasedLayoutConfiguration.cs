@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSectionBasedLayoutConfiguration
     {
+        /// <summary>
+        /// The configuration of a body section.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateBodySectionConfiguration> BodySections;
+        /// <summary>
+        /// The options for the canvas of a section-based layout.
+        /// </summary>
         public readonly Outputs.TemplateSectionBasedLayoutCanvasSizeOptions CanvasSizeOptions;
+        /// <summary>
+        /// The configuration of a header or footer section.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateHeaderFooterSectionConfiguration> FooterSections;
+        /// <summary>
+        /// A list of header section configurations.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateHeaderFooterSectionConfiguration> HeaderSections;
 
         [OutputConstructor]

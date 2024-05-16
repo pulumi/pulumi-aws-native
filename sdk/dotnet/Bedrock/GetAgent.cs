@@ -77,6 +77,17 @@ namespace Pulumi.AwsNative.Bedrock
         /// ARN of a IAM role.
         /// </summary>
         public readonly string? AgentResourceRoleArn;
+        /// <summary>
+        /// The status of the agent and whether it is ready for use. The following statuses are possible:
+        /// 
+        /// - CREATING – The agent is being created.
+        /// - PREPARING – The agent is being prepared.
+        /// - PREPARED – The agent is prepared and ready to be invoked.
+        /// - NOT_PREPARED – The agent has been created but not yet prepared.
+        /// - FAILED – The agent API operation failed.
+        /// - UPDATING – The agent is being updated.
+        /// - DELETING – The agent is being deleted.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentStatus? AgentStatus;
         /// <summary>
         /// Draft Agent Version.
@@ -118,12 +129,27 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp.
         /// </summary>
         public readonly string? PreparedAt;
+        /// <summary>
+        /// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        /// </summary>
         public readonly Outputs.AgentPromptOverrideConfiguration? PromptOverrideConfiguration;
         /// <summary>
         /// The recommended actions users can take to resolve an error in failureReasons.
         /// </summary>
         public readonly ImmutableArray<string> RecommendedActions;
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? TestAliasTags;
         /// <summary>
         /// Time Stamp.

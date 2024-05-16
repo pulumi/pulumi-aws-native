@@ -32,7 +32,9 @@ class CollectionArgs:
                Starts with a lowercase letter
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
                Contains between 3 and 32 characters
+        :param pulumi.Input['CollectionStandbyReplicas'] standby_replicas: Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: List of tags to be added to the resource
+        :param pulumi.Input['CollectionType'] type: The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -78,6 +80,9 @@ class CollectionArgs:
     @property
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> Optional[pulumi.Input['CollectionStandbyReplicas']]:
+        """
+        Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        """
         return pulumi.get(self, "standby_replicas")
 
     @standby_replicas.setter
@@ -99,6 +104,9 @@ class CollectionArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['CollectionType']]:
+        """
+        The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -168,7 +176,9 @@ class Collection(pulumi.CustomResource):
                Starts with a lowercase letter
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
                Contains between 3 and 32 characters
+        :param pulumi.Input['CollectionStandbyReplicas'] standby_replicas: Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: List of tags to be added to the resource
+        :param pulumi.Input['CollectionType'] type: The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
         """
         ...
     @overload
@@ -347,6 +357,9 @@ class Collection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Output[Optional['CollectionStandbyReplicas']]:
+        """
+        Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        """
         return pulumi.get(self, "standby_replicas")
 
     @property
@@ -360,5 +373,8 @@ class Collection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional['CollectionType']]:
+        """
+        The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+        """
         return pulumi.get(self, "type")
 

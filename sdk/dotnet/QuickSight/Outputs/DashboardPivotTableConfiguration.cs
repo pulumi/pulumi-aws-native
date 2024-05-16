@@ -13,11 +13,31 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableConfiguration
     {
+        /// <summary>
+        /// The field options for a pivot table visual.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableFieldOptions? FieldOptions;
+        /// <summary>
+        /// The field wells for a pivot table visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableFieldWells? FieldWells;
+        /// <summary>
+        /// The paginated report options for a pivot table visual.
+        /// </summary>
         public readonly Outputs.DashboardPivotTablePaginatedReportOptions? PaginatedReportOptions;
+        /// <summary>
+        /// The sort configuration for a `PivotTableVisual` .
+        /// </summary>
         public readonly Outputs.DashboardPivotTableSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The table options for a pivot table visual.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableOptions? TableOptions;
+        /// <summary>
+        /// The total options for a pivot table visual.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableTotalOptions? TotalOptions;
 
         [OutputConstructor]

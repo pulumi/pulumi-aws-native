@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WaFv2.Inputs
 {
 
+    /// <summary>
+    /// Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+    /// 
+    /// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+    /// 
+    /// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+    /// </summary>
     public sealed class RuleGroupFieldToMatchSingleHeaderPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]

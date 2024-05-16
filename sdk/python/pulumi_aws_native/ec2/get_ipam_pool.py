@@ -122,6 +122,9 @@ class GetIpamPoolResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the IPAM pool.
+        """
         return pulumi.get(self, "description")
 
     @property

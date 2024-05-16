@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFreeFormLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration options for the canvas of a free-form layout.
+        /// </summary>
         [Input("canvasSizeOptions")]
         public Input<Inputs.DashboardFreeFormLayoutCanvasSizeOptionsArgs>? CanvasSizeOptions { get; set; }
 
         [Input("elements", required: true)]
         private InputList<Inputs.DashboardFreeFormLayoutElementArgs>? _elements;
+
+        /// <summary>
+        /// An element within a free-form layout.
+        /// </summary>
         public InputList<Inputs.DashboardFreeFormLayoutElementArgs> Elements
         {
             get => _elements ?? (_elements = new InputList<Inputs.DashboardFreeFormLayoutElementArgs>());

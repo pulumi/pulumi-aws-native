@@ -19,12 +19,24 @@ export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetPublicKeyArgs {
+    /**
+     * The identifier of the public key.
+     */
     id: string;
 }
 
 export interface GetPublicKeyResult {
+    /**
+     * The date and time when the public key was uploaded.
+     */
     readonly createdTime?: string;
+    /**
+     * The identifier of the public key.
+     */
     readonly id?: string;
+    /**
+     * Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+     */
     readonly publicKeyConfig?: outputs.cloudfront.PublicKeyConfig;
 }
 /**
@@ -35,5 +47,8 @@ export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.I
 }
 
 export interface GetPublicKeyOutputArgs {
+    /**
+     * The identifier of the public key.
+     */
     id: pulumi.Input<string>;
 }

@@ -24,14 +24,22 @@ func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupFaqArgs struct {
+	// The identifier for the FAQ. For example:
+	//
+	// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 	Id string `pulumi:"id"`
 	// Index ID
 	IndexId string `pulumi:"indexId"`
 }
 
 type LookupFaqResult struct {
-	Arn          *string `pulumi:"arn"`
-	Id           *string `pulumi:"id"`
+	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+	Arn *string `pulumi:"arn"`
+	// The identifier for the FAQ. For example:
+	//
+	// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+	Id *string `pulumi:"id"`
+	// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	LanguageCode *string `pulumi:"languageCode"`
 	// Tags for labeling the FAQ
 	Tags []aws.Tag `pulumi:"tags"`
@@ -51,6 +59,9 @@ func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulu
 }
 
 type LookupFaqOutputArgs struct {
+	// The identifier for the FAQ. For example:
+	//
+	// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 	Id pulumi.StringInput `pulumi:"id"`
 	// Index ID
 	IndexId pulumi.StringInput `pulumi:"indexId"`
@@ -74,14 +85,19 @@ func (o LookupFaqResultOutput) ToLookupFaqResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 func (o LookupFaqResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFaqResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the FAQ. For example:
+//
+// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 func (o LookupFaqResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFaqResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 func (o LookupFaqResultOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFaqResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }

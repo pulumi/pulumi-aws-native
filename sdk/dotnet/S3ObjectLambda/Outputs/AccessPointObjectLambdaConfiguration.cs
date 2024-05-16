@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
     [OutputType]
     public sealed class AccessPointObjectLambdaConfiguration
     {
+        /// <summary>
+        /// A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+        /// </summary>
         public readonly ImmutableArray<string> AllowedFeatures;
+        /// <summary>
+        /// A container for whether the CloudWatch metrics configuration is enabled.
+        /// </summary>
         public readonly bool? CloudWatchMetricsEnabled;
+        /// <summary>
+        /// Standard access point associated with the Object Lambda Access Point.
+        /// </summary>
         public readonly string SupportingAccessPoint;
+        /// <summary>
+        /// A configuration used when creating an Object Lambda Access Point transformation.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AccessPointTransformationConfiguration> TransformationConfigurations;
 
         [OutputConstructor]

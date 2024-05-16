@@ -31,8 +31,9 @@ type LookupListenerResult struct {
 	// Client affinity lets you direct all requests from a user to the same endpoint.
 	ClientAffinity *ListenerClientAffinity `pulumi:"clientAffinity"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string             `pulumi:"listenerArn"`
-	PortRanges  []ListenerPortRange `pulumi:"portRanges"`
+	ListenerArn *string `pulumi:"listenerArn"`
+	// A complex type for a range of ports for a listener.
+	PortRanges []ListenerPortRange `pulumi:"portRanges"`
 	// The protocol for the listener.
 	Protocol *ListenerProtocol `pulumi:"protocol"`
 }
@@ -83,6 +84,7 @@ func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
+// A complex type for a range of ports for a listener.
 func (o LookupListenerResultOutput) PortRanges() ListenerPortRangeArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerPortRange { return v.PortRanges }).(ListenerPortRangeArrayOutput)
 }

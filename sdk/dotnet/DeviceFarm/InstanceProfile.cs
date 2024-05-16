@@ -15,24 +15,47 @@ namespace Pulumi.AwsNative.DeviceFarm
     [AwsNativeResourceType("aws-native:devicefarm:InstanceProfile")]
     public partial class InstanceProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the instance profile.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+        /// 
+        /// The list of packages is considered only if you set `packageCleanup` to `true` .
+        /// </summary>
         [Output("excludeAppPackagesFromCleanup")]
         public Output<ImmutableArray<string>> ExcludeAppPackagesFromCleanup { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the instance profile.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+        /// </summary>
         [Output("packageCleanup")]
         public Output<bool?> PackageCleanup { get; private set; } = null!;
 
+        /// <summary>
+        /// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+        /// </summary>
         [Output("rebootAfterUse")]
         public Output<bool?> RebootAfterUse { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -81,28 +104,50 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class InstanceProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the instance profile.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("excludeAppPackagesFromCleanup")]
         private InputList<string>? _excludeAppPackagesFromCleanup;
+
+        /// <summary>
+        /// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+        /// 
+        /// The list of packages is considered only if you set `packageCleanup` to `true` .
+        /// </summary>
         public InputList<string> ExcludeAppPackagesFromCleanup
         {
             get => _excludeAppPackagesFromCleanup ?? (_excludeAppPackagesFromCleanup = new InputList<string>());
             set => _excludeAppPackagesFromCleanup = value;
         }
 
+        /// <summary>
+        /// The name of the instance profile.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+        /// </summary>
         [Input("packageCleanup")]
         public Input<bool>? PackageCleanup { get; set; }
 
+        /// <summary>
+        /// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+        /// </summary>
         [Input("rebootAfterUse")]
         public Input<bool>? RebootAfterUse { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetExcelOptions
     {
+        /// <summary>
+        /// A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+        /// </summary>
         public readonly bool? HeaderRow;
+        /// <summary>
+        /// One or more sheet numbers in the Excel file that will be included in the dataset.
+        /// </summary>
         public readonly ImmutableArray<int> SheetIndexes;
+        /// <summary>
+        /// One or more named sheets in the Excel file that will be included in the dataset.
+        /// </summary>
         public readonly ImmutableArray<string> SheetNames;
 
         [OutputConstructor]

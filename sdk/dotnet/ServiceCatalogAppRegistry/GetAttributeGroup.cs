@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetAttributeGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The globally unique attribute group identifier of the attribute group.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetAttributeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The globally unique attribute group identifier of the attribute group.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [OutputType]
     public sealed class GetAttributeGroupResult
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the attribute group across services.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Attributes;
@@ -60,11 +71,17 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// The description of the attribute group. 
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The globally unique attribute group identifier of the attribute group.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The name of the attribute group. 
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Key-value pairs you can use to associate with the attribute group.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

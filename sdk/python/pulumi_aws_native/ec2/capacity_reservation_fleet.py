@@ -28,6 +28,28 @@ class CapacityReservationFleetArgs:
                  total_target_capacity: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a CapacityReservationFleet resource.
+        :param pulumi.Input[str] allocation_strategy: The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+               
+               Valid values: `prioritized`
+        :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+               
+               The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+        :param pulumi.Input['CapacityReservationFleetInstanceMatchCriteria'] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+               
+               Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]] instance_type_specifications: Specifies information about an instance type to use in a Capacity Reservation Fleet.
+               
+               `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        :param pulumi.Input[bool] no_remove_end_date: Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        :param pulumi.Input[bool] remove_end_date: Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]] tag_specifications: The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
+               
+               > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        :param pulumi.Input['CapacityReservationFleetTenancy'] tenancy: Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+               
+               - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+               - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+        :param pulumi.Input[int] total_target_capacity: The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -51,6 +73,11 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+
+        Valid values: `prioritized`
+        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -60,6 +87,11 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+
+        The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -69,6 +101,11 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="instanceMatchCriteria")
     def instance_match_criteria(self) -> Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']]:
+        """
+        Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+
+        Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+        """
         return pulumi.get(self, "instance_match_criteria")
 
     @instance_match_criteria.setter
@@ -78,6 +115,11 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="instanceTypeSpecifications")
     def instance_type_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]]:
+        """
+        Specifies information about an instance type to use in a Capacity Reservation Fleet.
+
+        `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        """
         return pulumi.get(self, "instance_type_specifications")
 
     @instance_type_specifications.setter
@@ -87,6 +129,9 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="noRemoveEndDate")
     def no_remove_end_date(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        """
         return pulumi.get(self, "no_remove_end_date")
 
     @no_remove_end_date.setter
@@ -96,6 +141,9 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="removeEndDate")
     def remove_end_date(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+        """
         return pulumi.get(self, "remove_end_date")
 
     @remove_end_date.setter
@@ -105,6 +153,11 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]]:
+        """
+        The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
+
+        > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
@@ -114,6 +167,12 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input['CapacityReservationFleetTenancy']]:
+        """
+        Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+
+        - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+        - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -123,6 +182,9 @@ class CapacityReservationFleetArgs:
     @property
     @pulumi.getter(name="totalTargetCapacity")
     def total_target_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+        """
         return pulumi.get(self, "total_target_capacity")
 
     @total_target_capacity.setter
@@ -181,6 +243,28 @@ class CapacityReservationFleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allocation_strategy: The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+               
+               Valid values: `prioritized`
+        :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+               
+               The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+        :param pulumi.Input['CapacityReservationFleetInstanceMatchCriteria'] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+               
+               Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationFleetInstanceTypeSpecificationArgs']]]] instance_type_specifications: Specifies information about an instance type to use in a Capacity Reservation Fleet.
+               
+               `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        :param pulumi.Input[bool] no_remove_end_date: Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        :param pulumi.Input[bool] remove_end_date: Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationFleetTagSpecificationArgs']]]] tag_specifications: The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
+               
+               > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        :param pulumi.Input['CapacityReservationFleetTenancy'] tenancy: Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+               
+               - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+               - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+        :param pulumi.Input[int] total_target_capacity: The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
         """
         ...
     @overload
@@ -304,50 +388,93 @@ class CapacityReservationFleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+
+        Valid values: `prioritized`
+        """
         return pulumi.get(self, "allocation_strategy")
 
     @property
     @pulumi.getter(name="capacityReservationFleetId")
     def capacity_reservation_fleet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Capacity Reservation Fleet.
+        """
         return pulumi.get(self, "capacity_reservation_fleet_id")
 
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+
+        The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="instanceMatchCriteria")
     def instance_match_criteria(self) -> pulumi.Output[Optional['CapacityReservationFleetInstanceMatchCriteria']]:
+        """
+        Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+
+        Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+        """
         return pulumi.get(self, "instance_match_criteria")
 
     @property
     @pulumi.getter(name="instanceTypeSpecifications")
     def instance_type_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.CapacityReservationFleetInstanceTypeSpecification']]]:
+        """
+        Specifies information about an instance type to use in a Capacity Reservation Fleet.
+
+        `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        """
         return pulumi.get(self, "instance_type_specifications")
 
     @property
     @pulumi.getter(name="noRemoveEndDate")
     def no_remove_end_date(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        """
         return pulumi.get(self, "no_remove_end_date")
 
     @property
     @pulumi.getter(name="removeEndDate")
     def remove_end_date(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+        """
         return pulumi.get(self, "remove_end_date")
 
     @property
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.CapacityReservationFleetTagSpecification']]]:
+        """
+        The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
+
+        > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        """
         return pulumi.get(self, "tag_specifications")
 
     @property
     @pulumi.getter
     def tenancy(self) -> pulumi.Output[Optional['CapacityReservationFleetTenancy']]:
+        """
+        Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+
+        - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+        - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+        """
         return pulumi.get(self, "tenancy")
 
     @property
     @pulumi.getter(name="totalTargetCapacity")
     def total_target_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+        """
         return pulumi.get(self, "total_target_capacity")
 

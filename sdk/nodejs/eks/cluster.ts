@@ -37,6 +37,9 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The access configuration for the cluster.
+     */
     public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig | undefined>;
     /**
      * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
@@ -54,6 +57,9 @@ export class Cluster extends pulumi.CustomResource {
      * The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
      */
     public /*out*/ readonly clusterSecurityGroupId!: pulumi.Output<string>;
+    /**
+     * The encryption configuration for the cluster.
+     */
     public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig[] | undefined>;
     /**
      * Amazon Resource Name (ARN) or alias of the customer master key (CMK).
@@ -63,7 +69,15 @@ export class Cluster extends pulumi.CustomResource {
      * The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * The Kubernetes network configuration for the cluster.
+     */
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
+    /**
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+     *
+     * > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+     */
     public readonly logging!: pulumi.Output<outputs.eks.Logging | undefined>;
     /**
      * The unique name to give to your cluster.
@@ -73,7 +87,19 @@ export class Cluster extends pulumi.CustomResource {
      * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
      */
     public /*out*/ readonly openIdConnectIssuerUrl!: pulumi.Output<string>;
+    /**
+     * The configuration of your local Amazon EKS cluster on an AWS Outpost. Before creating a cluster on an Outpost, review [Creating a local cluster on an Outpost](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html) in the *Amazon EKS User Guide* . This API isn't available for Amazon EKS clusters on the AWS cloud.
+     */
     public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
+    /**
+     * An object representing the VPC configuration to use for an Amazon EKS cluster.
+     *
+     * > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+     * > 
+     * > - `EndpointPublicAccess`
+     * > - `EndpointPrivateAccess`
+     * > - `PublicAccessCidrs`
+     */
     public readonly resourcesVpcConfig!: pulumi.Output<outputs.eks.ClusterResourcesVpcConfig>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
@@ -142,7 +168,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -152,15 +178,41 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * The access configuration for the cluster.
+     */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfigArgs>;
+    /**
+     * The encryption configuration for the cluster.
+     */
     encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[]>;
+    /**
+     * The Kubernetes network configuration for the cluster.
+     */
     kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigArgs>;
+    /**
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+     *
+     * > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+     */
     logging?: pulumi.Input<inputs.eks.LoggingArgs>;
     /**
      * The unique name to give to your cluster.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The configuration of your local Amazon EKS cluster on an AWS Outpost. Before creating a cluster on an Outpost, review [Creating a local cluster on an Outpost](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html) in the *Amazon EKS User Guide* . This API isn't available for Amazon EKS clusters on the AWS cloud.
+     */
     outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfigArgs>;
+    /**
+     * An object representing the VPC configuration to use for an Amazon EKS cluster.
+     *
+     * > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+     * > 
+     * > - `EndpointPublicAccess`
+     * > - `EndpointPrivateAccess`
+     * > - `PublicAccessCidrs`
+     */
     resourcesVpcConfig: pulumi.Input<inputs.eks.ClusterResourcesVpcConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.

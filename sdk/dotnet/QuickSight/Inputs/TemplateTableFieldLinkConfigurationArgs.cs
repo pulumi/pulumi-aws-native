@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableFieldLinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL content (text, icon) for the table link configuration.
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.TemplateTableFieldLinkContentConfigurationArgs> Content { get; set; } = null!;
 
+        /// <summary>
+        /// The URL target (new tab, new window, same tab) for the table link configuration.
+        /// </summary>
         [Input("target", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateUrlTargetConfiguration> Target { get; set; } = null!;
 

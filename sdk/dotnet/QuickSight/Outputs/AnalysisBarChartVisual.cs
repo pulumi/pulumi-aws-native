@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisBarChartVisual
     {
+        /// <summary>
+        /// A custom action defined on a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration of a `BarChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisBarChartConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The option that determines the hierarchy of the fields for a visual element.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisColumnHierarchy> ColumnHierarchies;
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

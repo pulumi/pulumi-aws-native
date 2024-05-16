@@ -41,12 +41,24 @@ export class DataSource extends pulumi.CustomResource {
      * The time at which the data source was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The data deletion policy for a data source.
+     */
     public readonly dataDeletionPolicy!: pulumi.Output<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
+    /**
+     * Contains details about how a data source is stored.
+     */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.DataSourceConfiguration>;
     /**
      * Identifier for a resource.
      */
     public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    /**
+     * The status of the data source. The following statuses are possible:
+     *
+     * - Available – The data source has been created and is ready for ingestion into the knowledge base.
+     * - Deleting – The data source is being deleted.
+     */
     public /*out*/ readonly dataSourceStatus!: pulumi.Output<enums.bedrock.DataSourceStatus>;
     /**
      * Description of the Resource.
@@ -64,11 +76,17 @@ export class DataSource extends pulumi.CustomResource {
      * The name of the data source.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Contains the configuration for server-side encryption.
+     */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.bedrock.DataSourceServerSideEncryptionConfiguration | undefined>;
     /**
      * The time at which the knowledge base was last updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Contains details about how to ingest the documents in a data source.
+     */
     public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.bedrock.DataSourceVectorIngestionConfiguration | undefined>;
 
     /**
@@ -125,7 +143,13 @@ export class DataSource extends pulumi.CustomResource {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    /**
+     * The data deletion policy for a data source.
+     */
     dataDeletionPolicy?: pulumi.Input<enums.bedrock.DataSourceDataDeletionPolicy>;
+    /**
+     * Contains details about how a data source is stored.
+     */
     dataSourceConfiguration: pulumi.Input<inputs.bedrock.DataSourceConfigurationArgs>;
     /**
      * Description of the Resource.
@@ -139,6 +163,12 @@ export interface DataSourceArgs {
      * The name of the data source.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Contains the configuration for server-side encryption.
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceServerSideEncryptionConfigurationArgs>;
+    /**
+     * Contains details about how to ingest the documents in a data source.
+     */
     vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceVectorIngestionConfigurationArgs>;
 }

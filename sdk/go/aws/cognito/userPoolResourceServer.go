@@ -16,11 +16,16 @@ import (
 type UserPoolResourceServer struct {
 	pulumi.CustomResourceState
 
-	AwsId      pulumi.StringOutput                                      `pulumi:"awsId"`
-	Identifier pulumi.StringOutput                                      `pulumi:"identifier"`
-	Name       pulumi.StringOutput                                      `pulumi:"name"`
-	Scopes     UserPoolResourceServerResourceServerScopeTypeArrayOutput `pulumi:"scopes"`
-	UserPoolId pulumi.StringOutput                                      `pulumi:"userPoolId"`
+	// The resource ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// A friendly name for the resource server.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A resource server scope.
+	Scopes UserPoolResourceServerResourceServerScopeTypeArrayOutput `pulumi:"scopes"`
+	// The user pool ID for the user pool.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserPoolResourceServer registers a new resource with the given unique name, arguments, and options.
@@ -74,17 +79,25 @@ func (UserPoolResourceServerState) ElementType() reflect.Type {
 }
 
 type userPoolResourceServerArgs struct {
-	Identifier string                                          `pulumi:"identifier"`
-	Name       *string                                         `pulumi:"name"`
-	Scopes     []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
-	UserPoolId string                                          `pulumi:"userPoolId"`
+	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+	Identifier string `pulumi:"identifier"`
+	// A friendly name for the resource server.
+	Name *string `pulumi:"name"`
+	// A resource server scope.
+	Scopes []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
+	// The user pool ID for the user pool.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolResourceServer resource.
 type UserPoolResourceServerArgs struct {
+	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
 	Identifier pulumi.StringInput
-	Name       pulumi.StringPtrInput
-	Scopes     UserPoolResourceServerResourceServerScopeTypeArrayInput
+	// A friendly name for the resource server.
+	Name pulumi.StringPtrInput
+	// A resource server scope.
+	Scopes UserPoolResourceServerResourceServerScopeTypeArrayInput
+	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput
 }
 
@@ -125,24 +138,29 @@ func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutputWithContext(
 	return o
 }
 
+// The resource ID.
 func (o UserPoolResourceServerOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
 func (o UserPoolResourceServerOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
+// A friendly name for the resource server.
 func (o UserPoolResourceServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A resource server scope.
 func (o UserPoolResourceServerOutput) Scopes() UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 		return v.Scopes
 	}).(UserPoolResourceServerResourceServerScopeTypeArrayOutput)
 }
 
+// The user pool ID for the user pool.
 func (o UserPoolResourceServerOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

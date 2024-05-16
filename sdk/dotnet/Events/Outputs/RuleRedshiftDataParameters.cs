@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleRedshiftDataParameters
     {
+        /// <summary>
+        /// The name of the database. Required when authenticating using temporary credentials.
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// The database user name. Required when authenticating using temporary credentials.
+        /// </summary>
         public readonly string? DbUser;
+        /// <summary>
+        /// The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
+        /// </summary>
         public readonly string? SecretManagerArn;
+        /// <summary>
+        /// The SQL statement text to run.
+        /// </summary>
         public readonly string? Sql;
+        /// <summary>
+        /// One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.
+        /// </summary>
         public readonly ImmutableArray<string> Sqls;
+        /// <summary>
+        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        /// </summary>
         public readonly string? StatementName;
+        /// <summary>
+        /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        /// </summary>
         public readonly bool? WithEvent;
 
         [OutputConstructor]

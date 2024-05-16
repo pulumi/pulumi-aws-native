@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class IdMappingWorkflowProviderPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
+        /// </summary>
         [Input("intermediateSourceConfiguration")]
         public Input<Inputs.IdMappingWorkflowIntermediateSourceConfigurationArgs>? IntermediateSourceConfiguration { get; set; }
 

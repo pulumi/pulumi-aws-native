@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the targets to which audit notifications are sent.
+        /// </summary>
         [Input("sns")]
         public Input<Inputs.AccountAuditConfigurationAuditNotificationTargetArgs>? Sns { get; set; }
 

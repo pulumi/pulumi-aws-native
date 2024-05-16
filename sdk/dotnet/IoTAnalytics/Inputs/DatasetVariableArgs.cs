@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetVariableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The dataset whose latest contents are used as input to the notebook or application.
+        /// </summary>
         [Input("datasetContentVersionValue")]
         public Input<Inputs.DatasetContentVersionValueArgs>? DatasetContentVersionValue { get; set; }
 
+        /// <summary>
+        /// The value of the variable as a double (numeric).
+        /// </summary>
         [Input("doubleValue")]
         public Input<double>? DoubleValue { get; set; }
 
+        /// <summary>
+        /// The value of the variable as a structure that specifies an output file URI.
+        /// </summary>
         [Input("outputFileUriValue")]
         public Input<Inputs.DatasetOutputFileUriValueArgs>? OutputFileUriValue { get; set; }
 
+        /// <summary>
+        /// The value of the variable as a string.
+        /// </summary>
         [Input("stringValue")]
         public Input<string>? StringValue { get; set; }
 
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("variableName", required: true)]
         public Input<string> VariableName { get; set; } = null!;
 

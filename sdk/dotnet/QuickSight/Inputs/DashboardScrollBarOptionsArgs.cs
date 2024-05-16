@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardScrollBarOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the data zoom scroll bar.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 
+        /// <summary>
+        /// The range options for the data zoom scroll bar.
+        /// </summary>
         [Input("visibleRange")]
         public Input<Inputs.DashboardVisibleRangeOptionsArgs>? VisibleRange { get; set; }
 

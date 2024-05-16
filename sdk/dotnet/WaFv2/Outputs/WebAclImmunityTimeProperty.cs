@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclImmunityTimeProperty
     {
+        /// <summary>
+        /// The amount of time, in seconds, that a `CAPTCHA` or challenge timestamp is considered valid by AWS WAF . The default setting is 300.
+        /// 
+        /// For the Challenge action, the minimum setting is 300.
+        /// </summary>
         public readonly int ImmunityTime;
 
         [OutputConstructor]

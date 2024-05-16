@@ -41,7 +41,13 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * The types of audit checks that can be performed.
+     */
     public readonly auditCheckConfigurations!: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditCheckConfigurations>;
+    /**
+     * The configuration of the audit notification target.
+     */
     public readonly auditNotificationTargetConfigurations!: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurations | undefined>;
     /**
      * The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
@@ -93,7 +99,13 @@ export interface AccountAuditConfigurationArgs {
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
     accountId: pulumi.Input<string>;
+    /**
+     * The types of audit checks that can be performed.
+     */
     auditCheckConfigurations: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationsArgs>;
+    /**
+     * The configuration of the audit notification target.
+     */
     auditNotificationTargetConfigurations?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs>;
     /**
      * The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.

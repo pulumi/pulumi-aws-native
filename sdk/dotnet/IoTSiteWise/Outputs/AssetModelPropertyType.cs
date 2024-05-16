@@ -16,9 +16,27 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class AssetModelPropertyType
     {
+        /// <summary>
+        /// Contains an asset attribute property. For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+        /// </summary>
         public readonly Outputs.AssetModelAttribute? Attribute;
+        /// <summary>
+        /// Contains an asset metric property. With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
+        /// 
+        /// The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
+        /// 
+        /// For more information, see [Metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
+        /// </summary>
         public readonly Outputs.AssetModelMetric? Metric;
+        /// <summary>
+        /// Contains an asset transform property. A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. A transform can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
+        /// 
+        /// For more information, see [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+        /// </summary>
         public readonly Outputs.AssetModelTransform? Transform;
+        /// <summary>
+        /// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoTSiteWise.AssetModelTypeName TypeName;
 
         [OutputConstructor]

@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Events
 {
+    /// <summary>
+    /// The method to use for the request to the HTTP invocation endpoint.
+    /// </summary>
     [EnumType]
     public readonly struct ApiDestinationHttpMethod : IEquatable<ApiDestinationHttpMethod>
     {
@@ -40,6 +43,11 @@ namespace Pulumi.AwsNative.Events
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of authorization to use for the connection.
+    /// 
+    /// &gt; OAUTH tokens are refreshed when a 401 or 407 response is returned.
+    /// </summary>
     [EnumType]
     public readonly struct ConnectionAuthorizationType : IEquatable<ConnectionAuthorizationType>
     {
@@ -69,6 +77,9 @@ namespace Pulumi.AwsNative.Events
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The method to use for the authorization request.
+    /// </summary>
     [EnumType]
     public readonly struct ConnectionOAuthParametersHttpMethod : IEquatable<ConnectionOAuthParametersHttpMethod>
     {
@@ -126,6 +137,9 @@ namespace Pulumi.AwsNative.Events
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The main Region of the endpoint.
+    /// </summary>
     [EnumType]
     public readonly struct EndpointState : IEquatable<EndpointState>
     {

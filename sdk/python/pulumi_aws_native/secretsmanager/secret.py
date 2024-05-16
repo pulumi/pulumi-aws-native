@@ -310,6 +310,9 @@ class Secret(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ARN of the secret.
+        """
         return pulumi.get(self, "aws_id")
 
     @property

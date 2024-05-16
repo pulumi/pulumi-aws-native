@@ -31,8 +31,22 @@ class ClusterArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input['ClusterResourcesVpcConfigArgs'] resources_vpc_config: An object representing the VPC configuration to use for an Amazon EKS cluster.
+               
+               > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+               > 
+               > - `EndpointPublicAccess`
+               > - `EndpointPrivateAccess`
+               > - `PublicAccessCidrs`
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
+        :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: The Kubernetes network configuration for the cluster.
+        :param pulumi.Input['LoggingArgs'] logging: Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+               
+               > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
         :param pulumi.Input[str] name: The unique name to give to your cluster.
+        :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: The configuration of your local Amazon EKS cluster on an AWS Outpost. Before creating a cluster on an Outpost, review [Creating a local cluster on an Outpost](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html) in the *Amazon EKS User Guide* . This API isn't available for Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         """
@@ -58,6 +72,15 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="resourcesVpcConfig")
     def resources_vpc_config(self) -> pulumi.Input['ClusterResourcesVpcConfigArgs']:
+        """
+        An object representing the VPC configuration to use for an Amazon EKS cluster.
+
+        > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+        > 
+        > - `EndpointPublicAccess`
+        > - `EndpointPrivateAccess`
+        > - `PublicAccessCidrs`
+        """
         return pulumi.get(self, "resources_vpc_config")
 
     @resources_vpc_config.setter
@@ -79,6 +102,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="accessConfig")
     def access_config(self) -> Optional[pulumi.Input['ClusterAccessConfigArgs']]:
+        """
+        The access configuration for the cluster.
+        """
         return pulumi.get(self, "access_config")
 
     @access_config.setter
@@ -88,6 +114,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]]:
+        """
+        The encryption configuration for the cluster.
+        """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
@@ -97,6 +126,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']]:
+        """
+        The Kubernetes network configuration for the cluster.
+        """
         return pulumi.get(self, "kubernetes_network_config")
 
     @kubernetes_network_config.setter
@@ -106,6 +138,11 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def logging(self) -> Optional[pulumi.Input['LoggingArgs']]:
+        """
+        Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+
+        > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+        """
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -127,6 +164,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="outpostConfig")
     def outpost_config(self) -> Optional[pulumi.Input['ClusterOutpostConfigArgs']]:
+        """
+        The configuration of your local Amazon EKS cluster on an AWS Outpost. Before creating a cluster on an Outpost, review [Creating a local cluster on an Outpost](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html) in the *Amazon EKS User Guide* . This API isn't available for Amazon EKS clusters on the AWS cloud.
+        """
         return pulumi.get(self, "outpost_config")
 
     @outpost_config.setter
@@ -179,7 +219,21 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']] access_config: The access configuration for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]] encryption_config: The encryption configuration for the cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']] kubernetes_network_config: The Kubernetes network configuration for the cluster.
+        :param pulumi.Input[pulumi.InputType['LoggingArgs']] logging: Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+               
+               > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
         :param pulumi.Input[str] name: The unique name to give to your cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']] outpost_config: The configuration of your local Amazon EKS cluster on an AWS Outpost. Before creating a cluster on an Outpost, review [Creating a local cluster on an Outpost](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html) in the *Amazon EKS User Guide* . This API isn't available for Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']] resources_vpc_config: An object representing the VPC configuration to use for an Amazon EKS cluster.
+               
+               > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+               > 
+               > - `EndpointPublicAccess`
+               > - `EndpointPrivateAccess`
+               > - `PublicAccessCidrs`
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
@@ -248,7 +302,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config_key_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_connect_issuer_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:eks:Cluster',
@@ -294,6 +348,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessConfig")
     def access_config(self) -> pulumi.Output[Optional['outputs.ClusterAccessConfig']]:
+        """
+        The access configuration for the cluster.
+        """
         return pulumi.get(self, "access_config")
 
     @property
@@ -331,6 +388,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterEncryptionConfig']]]:
+        """
+        The encryption configuration for the cluster.
+        """
         return pulumi.get(self, "encryption_config")
 
     @property
@@ -352,11 +412,19 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> pulumi.Output[Optional['outputs.ClusterKubernetesNetworkConfig']]:
+        """
+        The Kubernetes network configuration for the cluster.
+        """
         return pulumi.get(self, "kubernetes_network_config")
 
     @property
     @pulumi.getter
     def logging(self) -> pulumi.Output[Optional['outputs.Logging']]:
+        """
+        Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+
+        > When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it. > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+        """
         return pulumi.get(self, "logging")
 
     @property
@@ -378,11 +446,23 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="outpostConfig")
     def outpost_config(self) -> pulumi.Output[Optional['outputs.ClusterOutpostConfig']]:
+        """
+        The configuration of your local Amazon EKS cluster on an AWS Outpost. Before creating a cluster on an Outpost, review [Creating a local cluster on an Outpost](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html) in the *Amazon EKS User Guide* . This API isn't available for Amazon EKS clusters on the AWS cloud.
+        """
         return pulumi.get(self, "outpost_config")
 
     @property
     @pulumi.getter(name="resourcesVpcConfig")
     def resources_vpc_config(self) -> pulumi.Output['outputs.ClusterResourcesVpcConfig']:
+        """
+        An object representing the VPC configuration to use for an Amazon EKS cluster.
+
+        > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+        > 
+        > - `EndpointPublicAccess`
+        > - `EndpointPrivateAccess`
+        > - `PublicAccessCidrs`
+        """
         return pulumi.get(self, "resources_vpc_config")
 
     @property

@@ -61,6 +61,9 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property

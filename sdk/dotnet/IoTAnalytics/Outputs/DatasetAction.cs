@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetAction
     {
+        /// <summary>
+        /// The name of the data set action by which data set contents are automatically created.
+        /// </summary>
         public readonly string ActionName;
+        /// <summary>
+        /// Information needed to run the "containerAction" to produce data set contents.
+        /// </summary>
         public readonly Outputs.DatasetContainerAction? ContainerAction;
+        /// <summary>
+        /// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+        /// </summary>
         public readonly Outputs.DatasetQueryAction? QueryAction;
 
         [OutputConstructor]

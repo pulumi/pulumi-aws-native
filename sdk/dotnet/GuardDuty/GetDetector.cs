@@ -51,11 +51,26 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetDetectorResult
     {
+        /// <summary>
+        /// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        /// </summary>
         public readonly Outputs.DetectorCfnDataSourceConfigurations? DataSources;
+        /// <summary>
+        /// Specifies whether the detector is to be enabled on creation.
+        /// </summary>
         public readonly bool? Enable;
+        /// <summary>
+        /// Information about the configuration of a feature in your account.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorCfnFeatureConfiguration> Features;
+        /// <summary>
+        /// Specifies how frequently updated findings are exported.
+        /// </summary>
         public readonly string? FindingPublishingFrequency;
         public readonly string? Id;
+        /// <summary>
+        /// Describes a tag.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

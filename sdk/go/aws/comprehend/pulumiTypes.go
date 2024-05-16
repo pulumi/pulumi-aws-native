@@ -14,9 +14,20 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DocumentClassifierAugmentedManifestsListItem struct {
-	AttributeNames []string                                           `pulumi:"attributeNames"`
-	S3Uri          string                                             `pulumi:"s3Uri"`
-	Split          *DocumentClassifierAugmentedManifestsListItemSplit `pulumi:"split"`
+	// The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
+	//
+	// If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
+	//
+	// If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
+	AttributeNames []string `pulumi:"attributeNames"`
+	// The Amazon S3 location of the augmented manifest file.
+	S3Uri string `pulumi:"s3Uri"`
+	// The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
+	//
+	// TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
+	//
+	// TEST - all of the documents in the manifest will be used for testing.
+	Split *DocumentClassifierAugmentedManifestsListItemSplit `pulumi:"split"`
 }
 
 // DocumentClassifierAugmentedManifestsListItemInput is an input type that accepts DocumentClassifierAugmentedManifestsListItemArgs and DocumentClassifierAugmentedManifestsListItemOutput values.
@@ -31,9 +42,20 @@ type DocumentClassifierAugmentedManifestsListItemInput interface {
 }
 
 type DocumentClassifierAugmentedManifestsListItemArgs struct {
-	AttributeNames pulumi.StringArrayInput                                   `pulumi:"attributeNames"`
-	S3Uri          pulumi.StringInput                                        `pulumi:"s3Uri"`
-	Split          DocumentClassifierAugmentedManifestsListItemSplitPtrInput `pulumi:"split"`
+	// The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
+	//
+	// If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
+	//
+	// If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
+	AttributeNames pulumi.StringArrayInput `pulumi:"attributeNames"`
+	// The Amazon S3 location of the augmented manifest file.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
+	//
+	// TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
+	//
+	// TEST - all of the documents in the manifest will be used for testing.
+	Split DocumentClassifierAugmentedManifestsListItemSplitPtrInput `pulumi:"split"`
 }
 
 func (DocumentClassifierAugmentedManifestsListItemArgs) ElementType() reflect.Type {
@@ -87,14 +109,25 @@ func (o DocumentClassifierAugmentedManifestsListItemOutput) ToDocumentClassifier
 	return o
 }
 
+// The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
+//
+// If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
+//
+// If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
 func (o DocumentClassifierAugmentedManifestsListItemOutput) AttributeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierAugmentedManifestsListItem) []string { return v.AttributeNames }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon S3 location of the augmented manifest file.
 func (o DocumentClassifierAugmentedManifestsListItemOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentClassifierAugmentedManifestsListItem) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
+// The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
+//
+// TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
+//
+// TEST - all of the documents in the manifest will be used for testing.
 func (o DocumentClassifierAugmentedManifestsListItemOutput) Split() DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierAugmentedManifestsListItem) *DocumentClassifierAugmentedManifestsListItemSplit {
 		return v.Split
@@ -122,9 +155,21 @@ func (o DocumentClassifierAugmentedManifestsListItemArrayOutput) Index(i pulumi.
 }
 
 type DocumentClassifierDocumentReaderConfig struct {
+	// This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
+	//
+	// - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
+	// - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
 	DocumentReadAction DocumentClassifierDocumentReaderConfigDocumentReadAction `pulumi:"documentReadAction"`
-	DocumentReadMode   *DocumentClassifierDocumentReaderConfigDocumentReadMode  `pulumi:"documentReadMode"`
-	FeatureTypes       []DocumentClassifierDocumentReaderConfigFeatureTypesItem `pulumi:"featureTypes"`
+	// Determines the text extraction actions for PDF files. Enter one of the following values:
+	//
+	// - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
+	// - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
+	DocumentReadMode *DocumentClassifierDocumentReaderConfigDocumentReadMode `pulumi:"documentReadMode"`
+	// Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
+	//
+	// - `TABLES` - Returns additional information about any tables that are detected in the input document.
+	// - `FORMS` - Returns additional information about any forms that are detected in the input document.
+	FeatureTypes []DocumentClassifierDocumentReaderConfigFeatureTypesItem `pulumi:"featureTypes"`
 }
 
 // DocumentClassifierDocumentReaderConfigInput is an input type that accepts DocumentClassifierDocumentReaderConfigArgs and DocumentClassifierDocumentReaderConfigOutput values.
@@ -139,9 +184,21 @@ type DocumentClassifierDocumentReaderConfigInput interface {
 }
 
 type DocumentClassifierDocumentReaderConfigArgs struct {
-	DocumentReadAction DocumentClassifierDocumentReaderConfigDocumentReadActionInput    `pulumi:"documentReadAction"`
-	DocumentReadMode   DocumentClassifierDocumentReaderConfigDocumentReadModePtrInput   `pulumi:"documentReadMode"`
-	FeatureTypes       DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayInput `pulumi:"featureTypes"`
+	// This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
+	//
+	// - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
+	// - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
+	DocumentReadAction DocumentClassifierDocumentReaderConfigDocumentReadActionInput `pulumi:"documentReadAction"`
+	// Determines the text extraction actions for PDF files. Enter one of the following values:
+	//
+	// - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
+	// - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
+	DocumentReadMode DocumentClassifierDocumentReaderConfigDocumentReadModePtrInput `pulumi:"documentReadMode"`
+	// Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
+	//
+	// - `TABLES` - Returns additional information about any tables that are detected in the input document.
+	// - `FORMS` - Returns additional information about any forms that are detected in the input document.
+	FeatureTypes DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayInput `pulumi:"featureTypes"`
 }
 
 func (DocumentClassifierDocumentReaderConfigArgs) ElementType() reflect.Type {
@@ -221,18 +278,30 @@ func (o DocumentClassifierDocumentReaderConfigOutput) ToDocumentClassifierDocume
 	}).(DocumentClassifierDocumentReaderConfigPtrOutput)
 }
 
+// This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
+//
+// - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
+// - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
 func (o DocumentClassifierDocumentReaderConfigOutput) DocumentReadAction() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
 	return o.ApplyT(func(v DocumentClassifierDocumentReaderConfig) DocumentClassifierDocumentReaderConfigDocumentReadAction {
 		return v.DocumentReadAction
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadActionOutput)
 }
 
+// Determines the text extraction actions for PDF files. Enter one of the following values:
+//
+// - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
+// - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
 func (o DocumentClassifierDocumentReaderConfigOutput) DocumentReadMode() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
 	return o.ApplyT(func(v DocumentClassifierDocumentReaderConfig) *DocumentClassifierDocumentReaderConfigDocumentReadMode {
 		return v.DocumentReadMode
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
 }
 
+// Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
+//
+// - `TABLES` - Returns additional information about any tables that are detected in the input document.
+// - `FORMS` - Returns additional information about any forms that are detected in the input document.
 func (o DocumentClassifierDocumentReaderConfigOutput) FeatureTypes() DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierDocumentReaderConfig) []DocumentClassifierDocumentReaderConfigFeatureTypesItem {
 		return v.FeatureTypes
@@ -263,6 +332,10 @@ func (o DocumentClassifierDocumentReaderConfigPtrOutput) Elem() DocumentClassifi
 	}).(DocumentClassifierDocumentReaderConfigOutput)
 }
 
+// This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
+//
+// - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
+// - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
 func (o DocumentClassifierDocumentReaderConfigPtrOutput) DocumentReadAction() DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfig) *DocumentClassifierDocumentReaderConfigDocumentReadAction {
 		if v == nil {
@@ -272,6 +345,10 @@ func (o DocumentClassifierDocumentReaderConfigPtrOutput) DocumentReadAction() Do
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput)
 }
 
+// Determines the text extraction actions for PDF files. Enter one of the following values:
+//
+// - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
+// - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
 func (o DocumentClassifierDocumentReaderConfigPtrOutput) DocumentReadMode() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfig) *DocumentClassifierDocumentReaderConfigDocumentReadMode {
 		if v == nil {
@@ -281,6 +358,10 @@ func (o DocumentClassifierDocumentReaderConfigPtrOutput) DocumentReadMode() Docu
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
 }
 
+// Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
+//
+// - `TABLES` - Returns additional information about any tables that are detected in the input document.
+// - `FORMS` - Returns additional information about any forms that are detected in the input document.
 func (o DocumentClassifierDocumentReaderConfigPtrOutput) FeatureTypes() DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfig) []DocumentClassifierDocumentReaderConfigFeatureTypesItem {
 		if v == nil {
@@ -291,7 +372,9 @@ func (o DocumentClassifierDocumentReaderConfigPtrOutput) FeatureTypes() Document
 }
 
 type DocumentClassifierDocuments struct {
-	S3Uri     string  `pulumi:"s3Uri"`
+	// The S3 URI location of the training documents specified in the S3Uri CSV file.
+	S3Uri string `pulumi:"s3Uri"`
+	// The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
 	TestS3Uri *string `pulumi:"testS3Uri"`
 }
 
@@ -307,7 +390,9 @@ type DocumentClassifierDocumentsInput interface {
 }
 
 type DocumentClassifierDocumentsArgs struct {
-	S3Uri     pulumi.StringInput    `pulumi:"s3Uri"`
+	// The S3 URI location of the training documents specified in the S3Uri CSV file.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
 	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
 
@@ -388,10 +473,12 @@ func (o DocumentClassifierDocumentsOutput) ToDocumentClassifierDocumentsPtrOutpu
 	}).(DocumentClassifierDocumentsPtrOutput)
 }
 
+// The S3 URI location of the training documents specified in the S3Uri CSV file.
 func (o DocumentClassifierDocumentsOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentClassifierDocuments) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
+// The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
 func (o DocumentClassifierDocumentsOutput) TestS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierDocuments) *string { return v.TestS3Uri }).(pulumi.StringPtrOutput)
 }
@@ -420,6 +507,7 @@ func (o DocumentClassifierDocumentsPtrOutput) Elem() DocumentClassifierDocuments
 	}).(DocumentClassifierDocumentsOutput)
 }
 
+// The S3 URI location of the training documents specified in the S3Uri CSV file.
 func (o DocumentClassifierDocumentsPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocuments) *string {
 		if v == nil {
@@ -429,6 +517,7 @@ func (o DocumentClassifierDocumentsPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
 func (o DocumentClassifierDocumentsPtrOutput) TestS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocuments) *string {
 		if v == nil {
@@ -439,14 +528,43 @@ func (o DocumentClassifierDocumentsPtrOutput) TestS3Uri() pulumi.StringPtrOutput
 }
 
 type DocumentClassifierInputDataConfig struct {
-	AugmentedManifests   []DocumentClassifierAugmentedManifestsListItem `pulumi:"augmentedManifests"`
-	DataFormat           *DocumentClassifierInputDataConfigDataFormat   `pulumi:"dataFormat"`
-	DocumentReaderConfig *DocumentClassifierDocumentReaderConfig        `pulumi:"documentReaderConfig"`
-	DocumentType         *DocumentClassifierInputDataConfigDocumentType `pulumi:"documentType"`
-	Documents            *DocumentClassifierDocuments                   `pulumi:"documents"`
-	LabelDelimiter       *string                                        `pulumi:"labelDelimiter"`
-	S3Uri                *string                                        `pulumi:"s3Uri"`
-	TestS3Uri            *string                                        `pulumi:"testS3Uri"`
+	// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+	AugmentedManifests []DocumentClassifierAugmentedManifestsListItem `pulumi:"augmentedManifests"`
+	// The format of your training data:
+	//
+	// - `COMPREHEND_CSV` : A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the `S3Uri` parameter in your request.
+	// - `AUGMENTED_MANIFEST` : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels.
+	//
+	// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
+	//
+	// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
+	DataFormat *DocumentClassifierInputDataConfigDataFormat `pulumi:"dataFormat"`
+	// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
+	//
+	// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
+	//
+	// - *Word files* - Amazon Comprehend parser extracts the text.
+	// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
+	// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
+	//
+	// `DocumentReaderConfig` does not apply to plain text files or Word files.
+	//
+	// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
+	DocumentReaderConfig *DocumentClassifierDocumentReaderConfig `pulumi:"documentReaderConfig"`
+	// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
+	DocumentType *DocumentClassifierInputDataConfigDocumentType `pulumi:"documentType"`
+	// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+	Documents *DocumentClassifierDocuments `pulumi:"documents"`
+	// Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
+	LabelDelimiter *string `pulumi:"labelDelimiter"`
+	// The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
+	//
+	// For example, if you use the URI `S3://bucketName/prefix` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
+	//
+	// This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
+	S3Uri *string `pulumi:"s3Uri"`
+	// This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
+	TestS3Uri *string `pulumi:"testS3Uri"`
 }
 
 // DocumentClassifierInputDataConfigInput is an input type that accepts DocumentClassifierInputDataConfigArgs and DocumentClassifierInputDataConfigOutput values.
@@ -461,14 +579,43 @@ type DocumentClassifierInputDataConfigInput interface {
 }
 
 type DocumentClassifierInputDataConfigArgs struct {
-	AugmentedManifests   DocumentClassifierAugmentedManifestsListItemArrayInput `pulumi:"augmentedManifests"`
-	DataFormat           DocumentClassifierInputDataConfigDataFormatPtrInput    `pulumi:"dataFormat"`
-	DocumentReaderConfig DocumentClassifierDocumentReaderConfigPtrInput         `pulumi:"documentReaderConfig"`
-	DocumentType         DocumentClassifierInputDataConfigDocumentTypePtrInput  `pulumi:"documentType"`
-	Documents            DocumentClassifierDocumentsPtrInput                    `pulumi:"documents"`
-	LabelDelimiter       pulumi.StringPtrInput                                  `pulumi:"labelDelimiter"`
-	S3Uri                pulumi.StringPtrInput                                  `pulumi:"s3Uri"`
-	TestS3Uri            pulumi.StringPtrInput                                  `pulumi:"testS3Uri"`
+	// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+	AugmentedManifests DocumentClassifierAugmentedManifestsListItemArrayInput `pulumi:"augmentedManifests"`
+	// The format of your training data:
+	//
+	// - `COMPREHEND_CSV` : A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the `S3Uri` parameter in your request.
+	// - `AUGMENTED_MANIFEST` : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels.
+	//
+	// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
+	//
+	// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
+	DataFormat DocumentClassifierInputDataConfigDataFormatPtrInput `pulumi:"dataFormat"`
+	// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
+	//
+	// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
+	//
+	// - *Word files* - Amazon Comprehend parser extracts the text.
+	// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
+	// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
+	//
+	// `DocumentReaderConfig` does not apply to plain text files or Word files.
+	//
+	// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
+	DocumentReaderConfig DocumentClassifierDocumentReaderConfigPtrInput `pulumi:"documentReaderConfig"`
+	// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
+	DocumentType DocumentClassifierInputDataConfigDocumentTypePtrInput `pulumi:"documentType"`
+	// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+	Documents DocumentClassifierDocumentsPtrInput `pulumi:"documents"`
+	// Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
+	LabelDelimiter pulumi.StringPtrInput `pulumi:"labelDelimiter"`
+	// The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
+	//
+	// For example, if you use the URI `S3://bucketName/prefix` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
+	//
+	// This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
+	// This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
+	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
 
 func (DocumentClassifierInputDataConfigArgs) ElementType() reflect.Type {
@@ -497,49 +644,87 @@ func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataCo
 	return o
 }
 
+// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 func (o DocumentClassifierInputDataConfigOutput) AugmentedManifests() DocumentClassifierAugmentedManifestsListItemArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) []DocumentClassifierAugmentedManifestsListItem {
 		return v.AugmentedManifests
 	}).(DocumentClassifierAugmentedManifestsListItemArrayOutput)
 }
 
+// The format of your training data:
+//
+// - `COMPREHEND_CSV` : A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the `S3Uri` parameter in your request.
+// - `AUGMENTED_MANIFEST` : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels.
+//
+// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
+//
+// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
 func (o DocumentClassifierInputDataConfigOutput) DataFormat() DocumentClassifierInputDataConfigDataFormatPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *DocumentClassifierInputDataConfigDataFormat {
 		return v.DataFormat
 	}).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
 }
 
+// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
+//
+// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
+//
+// - *Word files* - Amazon Comprehend parser extracts the text.
+// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
+// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
+//
+// `DocumentReaderConfig` does not apply to plain text files or Word files.
+//
+// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
 func (o DocumentClassifierInputDataConfigOutput) DocumentReaderConfig() DocumentClassifierDocumentReaderConfigPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *DocumentClassifierDocumentReaderConfig {
 		return v.DocumentReaderConfig
 	}).(DocumentClassifierDocumentReaderConfigPtrOutput)
 }
 
+// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
 func (o DocumentClassifierInputDataConfigOutput) DocumentType() DocumentClassifierInputDataConfigDocumentTypePtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *DocumentClassifierInputDataConfigDocumentType {
 		return v.DocumentType
 	}).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
 }
 
+// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
 func (o DocumentClassifierInputDataConfigOutput) Documents() DocumentClassifierDocumentsPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *DocumentClassifierDocuments { return v.Documents }).(DocumentClassifierDocumentsPtrOutput)
 }
 
+// Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
 func (o DocumentClassifierInputDataConfigOutput) LabelDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.LabelDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
+//
+// For example, if you use the URI `S3://bucketName/prefix` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
+//
+// This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
 func (o DocumentClassifierInputDataConfigOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
 
+// This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
 func (o DocumentClassifierInputDataConfigOutput) TestS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.TestS3Uri }).(pulumi.StringPtrOutput)
 }
 
 type DocumentClassifierOutputDataConfig struct {
+	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - KMS Key Alias: `"alias/ExampleAlias"`
+	// - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	S3Uri    *string `pulumi:"s3Uri"`
+	// When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
+	//
+	// When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The `S3Uri` field contains the location of the output file, called `output.tar.gz` . It is a compressed archive that contains the confusion matrix.
+	S3Uri *string `pulumi:"s3Uri"`
 }
 
 // DocumentClassifierOutputDataConfigInput is an input type that accepts DocumentClassifierOutputDataConfigArgs and DocumentClassifierOutputDataConfigOutput values.
@@ -554,8 +739,17 @@ type DocumentClassifierOutputDataConfigInput interface {
 }
 
 type DocumentClassifierOutputDataConfigArgs struct {
+	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - KMS Key Alias: `"alias/ExampleAlias"`
+	// - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	S3Uri    pulumi.StringPtrInput `pulumi:"s3Uri"`
+	// When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
+	//
+	// When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The `S3Uri` field contains the location of the output file, called `output.tar.gz` . It is a compressed archive that contains the confusion matrix.
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
 func (DocumentClassifierOutputDataConfigArgs) ElementType() reflect.Type {
@@ -635,10 +829,19 @@ func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputData
 	}).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
+// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+//
+// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - KMS Key Alias: `"alias/ExampleAlias"`
+// - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
 func (o DocumentClassifierOutputDataConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
+//
+// When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The `S3Uri` field contains the location of the output file, called `output.tar.gz` . It is a compressed archive that contains the confusion matrix.
 func (o DocumentClassifierOutputDataConfigOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -667,6 +870,12 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) Elem() DocumentClassifierOu
 	}).(DocumentClassifierOutputDataConfigOutput)
 }
 
+// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+//
+// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - KMS Key Alias: `"alias/ExampleAlias"`
+// - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
 func (o DocumentClassifierOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
 		if v == nil {
@@ -676,6 +885,9 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
+//
+// When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The `S3Uri` field contains the location of the output file, called `output.tar.gz` . It is a compressed archive that contains the confusion matrix.
 func (o DocumentClassifierOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
 		if v == nil {
@@ -686,13 +898,17 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOut
 }
 
 type DocumentClassifierTag struct {
-	Key   string `pulumi:"key"`
+	// The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use "Department" as the key portion of the pair, with multiple possible values such as "sales," "legal," and "administration."
+	Key string `pulumi:"key"`
+	// The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use "Department" as the initial (key) portion of the pair, with a value of "sales" to indicate the sales department.
 	Value string `pulumi:"value"`
 }
 
 type DocumentClassifierVpcConfig struct {
+	// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	Subnets          []string `pulumi:"subnets"`
+	// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+	Subnets []string `pulumi:"subnets"`
 }
 
 // DocumentClassifierVpcConfigInput is an input type that accepts DocumentClassifierVpcConfigArgs and DocumentClassifierVpcConfigOutput values.
@@ -707,8 +923,10 @@ type DocumentClassifierVpcConfigInput interface {
 }
 
 type DocumentClassifierVpcConfigArgs struct {
+	// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (DocumentClassifierVpcConfigArgs) ElementType() reflect.Type {
@@ -788,10 +1006,12 @@ func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigPtrOutpu
 	}).(DocumentClassifierVpcConfigPtrOutput)
 }
 
+// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 func (o DocumentClassifierVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
 func (o DocumentClassifierVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -820,6 +1040,7 @@ func (o DocumentClassifierVpcConfigPtrOutput) Elem() DocumentClassifierVpcConfig
 	}).(DocumentClassifierVpcConfigOutput)
 }
 
+// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 func (o DocumentClassifierVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifierVpcConfig) []string {
 		if v == nil {
@@ -829,6 +1050,7 @@ func (o DocumentClassifierVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
 func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifierVpcConfig) []string {
 		if v == nil {
@@ -839,10 +1061,17 @@ func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 }
 
 type FlywheelDataSecurityConfig struct {
-	DataLakeKmsKeyId *string            `pulumi:"dataLakeKmsKeyId"`
-	ModelKmsKeyId    *string            `pulumi:"modelKmsKeyId"`
-	VolumeKmsKeyId   *string            `pulumi:"volumeKmsKeyId"`
-	VpcConfig        *FlywheelVpcConfig `pulumi:"vpcConfig"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+	DataLakeKmsKeyId *string `pulumi:"dataLakeKmsKeyId"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	VpcConfig *FlywheelVpcConfig `pulumi:"vpcConfig"`
 }
 
 // FlywheelDataSecurityConfigInput is an input type that accepts FlywheelDataSecurityConfigArgs and FlywheelDataSecurityConfigOutput values.
@@ -857,10 +1086,17 @@ type FlywheelDataSecurityConfigInput interface {
 }
 
 type FlywheelDataSecurityConfigArgs struct {
-	DataLakeKmsKeyId pulumi.StringPtrInput     `pulumi:"dataLakeKmsKeyId"`
-	ModelKmsKeyId    pulumi.StringPtrInput     `pulumi:"modelKmsKeyId"`
-	VolumeKmsKeyId   pulumi.StringPtrInput     `pulumi:"volumeKmsKeyId"`
-	VpcConfig        FlywheelVpcConfigPtrInput `pulumi:"vpcConfig"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+	DataLakeKmsKeyId pulumi.StringPtrInput `pulumi:"dataLakeKmsKeyId"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	ModelKmsKeyId pulumi.StringPtrInput `pulumi:"modelKmsKeyId"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	VpcConfig FlywheelVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (FlywheelDataSecurityConfigArgs) ElementType() reflect.Type {
@@ -940,18 +1176,25 @@ func (o FlywheelDataSecurityConfigOutput) ToFlywheelDataSecurityConfigPtrOutputW
 	}).(FlywheelDataSecurityConfigPtrOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
 func (o FlywheelDataSecurityConfigOutput) DataLakeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *string { return v.DataLakeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+//
+// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 func (o FlywheelDataSecurityConfigOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *string { return v.ModelKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
 func (o FlywheelDataSecurityConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 func (o FlywheelDataSecurityConfigOutput) VpcConfig() FlywheelVpcConfigPtrOutput {
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *FlywheelVpcConfig { return v.VpcConfig }).(FlywheelVpcConfigPtrOutput)
 }
@@ -980,6 +1223,7 @@ func (o FlywheelDataSecurityConfigPtrOutput) Elem() FlywheelDataSecurityConfigOu
 	}).(FlywheelDataSecurityConfigOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
 func (o FlywheelDataSecurityConfigPtrOutput) DataLakeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlywheelDataSecurityConfig) *string {
 		if v == nil {
@@ -989,6 +1233,10 @@ func (o FlywheelDataSecurityConfigPtrOutput) DataLakeKmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+//
+// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 func (o FlywheelDataSecurityConfigPtrOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlywheelDataSecurityConfig) *string {
 		if v == nil {
@@ -998,6 +1246,7 @@ func (o FlywheelDataSecurityConfigPtrOutput) ModelKmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
 func (o FlywheelDataSecurityConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlywheelDataSecurityConfig) *string {
 		if v == nil {
@@ -1007,6 +1256,7 @@ func (o FlywheelDataSecurityConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 func (o FlywheelDataSecurityConfigPtrOutput) VpcConfig() FlywheelVpcConfigPtrOutput {
 	return o.ApplyT(func(v *FlywheelDataSecurityConfig) *FlywheelVpcConfig {
 		if v == nil {
@@ -1017,8 +1267,10 @@ func (o FlywheelDataSecurityConfigPtrOutput) VpcConfig() FlywheelVpcConfigPtrOut
 }
 
 type FlywheelDocumentClassificationConfig struct {
-	Labels []string                                 `pulumi:"labels"`
-	Mode   FlywheelDocumentClassificationConfigMode `pulumi:"mode"`
+	// One or more labels to associate with the custom classifier.
+	Labels []string `pulumi:"labels"`
+	// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+	Mode FlywheelDocumentClassificationConfigMode `pulumi:"mode"`
 }
 
 // FlywheelDocumentClassificationConfigInput is an input type that accepts FlywheelDocumentClassificationConfigArgs and FlywheelDocumentClassificationConfigOutput values.
@@ -1033,8 +1285,10 @@ type FlywheelDocumentClassificationConfigInput interface {
 }
 
 type FlywheelDocumentClassificationConfigArgs struct {
-	Labels pulumi.StringArrayInput                       `pulumi:"labels"`
-	Mode   FlywheelDocumentClassificationConfigModeInput `pulumi:"mode"`
+	// One or more labels to associate with the custom classifier.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+	Mode FlywheelDocumentClassificationConfigModeInput `pulumi:"mode"`
 }
 
 func (FlywheelDocumentClassificationConfigArgs) ElementType() reflect.Type {
@@ -1114,10 +1368,12 @@ func (o FlywheelDocumentClassificationConfigOutput) ToFlywheelDocumentClassifica
 	}).(FlywheelDocumentClassificationConfigPtrOutput)
 }
 
+// One or more labels to associate with the custom classifier.
 func (o FlywheelDocumentClassificationConfigOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlywheelDocumentClassificationConfig) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
+// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
 func (o FlywheelDocumentClassificationConfigOutput) Mode() FlywheelDocumentClassificationConfigModeOutput {
 	return o.ApplyT(func(v FlywheelDocumentClassificationConfig) FlywheelDocumentClassificationConfigMode { return v.Mode }).(FlywheelDocumentClassificationConfigModeOutput)
 }
@@ -1146,6 +1402,7 @@ func (o FlywheelDocumentClassificationConfigPtrOutput) Elem() FlywheelDocumentCl
 	}).(FlywheelDocumentClassificationConfigOutput)
 }
 
+// One or more labels to associate with the custom classifier.
 func (o FlywheelDocumentClassificationConfigPtrOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlywheelDocumentClassificationConfig) []string {
 		if v == nil {
@@ -1155,6 +1412,7 @@ func (o FlywheelDocumentClassificationConfigPtrOutput) Labels() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
 func (o FlywheelDocumentClassificationConfigPtrOutput) Mode() FlywheelDocumentClassificationConfigModePtrOutput {
 	return o.ApplyT(func(v *FlywheelDocumentClassificationConfig) *FlywheelDocumentClassificationConfigMode {
 		if v == nil {
@@ -1165,6 +1423,7 @@ func (o FlywheelDocumentClassificationConfigPtrOutput) Mode() FlywheelDocumentCl
 }
 
 type FlywheelEntityRecognitionConfig struct {
+	// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 	EntityTypes []FlywheelEntityTypesListItem `pulumi:"entityTypes"`
 }
 
@@ -1180,6 +1439,7 @@ type FlywheelEntityRecognitionConfigInput interface {
 }
 
 type FlywheelEntityRecognitionConfigArgs struct {
+	// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 	EntityTypes FlywheelEntityTypesListItemArrayInput `pulumi:"entityTypes"`
 }
 
@@ -1260,6 +1520,7 @@ func (o FlywheelEntityRecognitionConfigOutput) ToFlywheelEntityRecognitionConfig
 	}).(FlywheelEntityRecognitionConfigPtrOutput)
 }
 
+// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 func (o FlywheelEntityRecognitionConfigOutput) EntityTypes() FlywheelEntityTypesListItemArrayOutput {
 	return o.ApplyT(func(v FlywheelEntityRecognitionConfig) []FlywheelEntityTypesListItem { return v.EntityTypes }).(FlywheelEntityTypesListItemArrayOutput)
 }
@@ -1288,6 +1549,7 @@ func (o FlywheelEntityRecognitionConfigPtrOutput) Elem() FlywheelEntityRecogniti
 	}).(FlywheelEntityRecognitionConfigOutput)
 }
 
+// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 func (o FlywheelEntityRecognitionConfigPtrOutput) EntityTypes() FlywheelEntityTypesListItemArrayOutput {
 	return o.ApplyT(func(v *FlywheelEntityRecognitionConfig) []FlywheelEntityTypesListItem {
 		if v == nil {
@@ -1298,6 +1560,9 @@ func (o FlywheelEntityRecognitionConfigPtrOutput) EntityTypes() FlywheelEntityTy
 }
 
 type FlywheelEntityTypesListItem struct {
+	// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+	//
+	// Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).
 	Type string `pulumi:"type"`
 }
 
@@ -1313,6 +1578,9 @@ type FlywheelEntityTypesListItemInput interface {
 }
 
 type FlywheelEntityTypesListItemArgs struct {
+	// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+	//
+	// Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1367,6 +1635,9 @@ func (o FlywheelEntityTypesListItemOutput) ToFlywheelEntityTypesListItemOutputWi
 	return o
 }
 
+// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+//
+// Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).
 func (o FlywheelEntityTypesListItemOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FlywheelEntityTypesListItem) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1392,14 +1663,19 @@ func (o FlywheelEntityTypesListItemArrayOutput) Index(i pulumi.IntInput) Flywhee
 }
 
 type FlywheelTag struct {
-	Key   string `pulumi:"key"`
+	// The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use "Department" as the key portion of the pair, with multiple possible values such as "sales," "legal," and "administration."
+	Key string `pulumi:"key"`
+	// The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use "Department" as the initial (key) portion of the pair, with a value of "sales" to indicate the sales department.
 	Value string `pulumi:"value"`
 }
 
 type FlywheelTaskConfig struct {
+	// Configuration required for a document classification model.
 	DocumentClassificationConfig *FlywheelDocumentClassificationConfig `pulumi:"documentClassificationConfig"`
-	EntityRecognitionConfig      *FlywheelEntityRecognitionConfig      `pulumi:"entityRecognitionConfig"`
-	LanguageCode                 FlywheelTaskConfigLanguageCode        `pulumi:"languageCode"`
+	// Configuration required for an entity recognition model.
+	EntityRecognitionConfig *FlywheelEntityRecognitionConfig `pulumi:"entityRecognitionConfig"`
+	// Language code for the language that the model supports.
+	LanguageCode FlywheelTaskConfigLanguageCode `pulumi:"languageCode"`
 }
 
 // FlywheelTaskConfigInput is an input type that accepts FlywheelTaskConfigArgs and FlywheelTaskConfigOutput values.
@@ -1414,9 +1690,12 @@ type FlywheelTaskConfigInput interface {
 }
 
 type FlywheelTaskConfigArgs struct {
+	// Configuration required for a document classification model.
 	DocumentClassificationConfig FlywheelDocumentClassificationConfigPtrInput `pulumi:"documentClassificationConfig"`
-	EntityRecognitionConfig      FlywheelEntityRecognitionConfigPtrInput      `pulumi:"entityRecognitionConfig"`
-	LanguageCode                 FlywheelTaskConfigLanguageCodeInput          `pulumi:"languageCode"`
+	// Configuration required for an entity recognition model.
+	EntityRecognitionConfig FlywheelEntityRecognitionConfigPtrInput `pulumi:"entityRecognitionConfig"`
+	// Language code for the language that the model supports.
+	LanguageCode FlywheelTaskConfigLanguageCodeInput `pulumi:"languageCode"`
 }
 
 func (FlywheelTaskConfigArgs) ElementType() reflect.Type {
@@ -1496,16 +1775,19 @@ func (o FlywheelTaskConfigOutput) ToFlywheelTaskConfigPtrOutputWithContext(ctx c
 	}).(FlywheelTaskConfigPtrOutput)
 }
 
+// Configuration required for a document classification model.
 func (o FlywheelTaskConfigOutput) DocumentClassificationConfig() FlywheelDocumentClassificationConfigPtrOutput {
 	return o.ApplyT(func(v FlywheelTaskConfig) *FlywheelDocumentClassificationConfig {
 		return v.DocumentClassificationConfig
 	}).(FlywheelDocumentClassificationConfigPtrOutput)
 }
 
+// Configuration required for an entity recognition model.
 func (o FlywheelTaskConfigOutput) EntityRecognitionConfig() FlywheelEntityRecognitionConfigPtrOutput {
 	return o.ApplyT(func(v FlywheelTaskConfig) *FlywheelEntityRecognitionConfig { return v.EntityRecognitionConfig }).(FlywheelEntityRecognitionConfigPtrOutput)
 }
 
+// Language code for the language that the model supports.
 func (o FlywheelTaskConfigOutput) LanguageCode() FlywheelTaskConfigLanguageCodeOutput {
 	return o.ApplyT(func(v FlywheelTaskConfig) FlywheelTaskConfigLanguageCode { return v.LanguageCode }).(FlywheelTaskConfigLanguageCodeOutput)
 }
@@ -1534,6 +1816,7 @@ func (o FlywheelTaskConfigPtrOutput) Elem() FlywheelTaskConfigOutput {
 	}).(FlywheelTaskConfigOutput)
 }
 
+// Configuration required for a document classification model.
 func (o FlywheelTaskConfigPtrOutput) DocumentClassificationConfig() FlywheelDocumentClassificationConfigPtrOutput {
 	return o.ApplyT(func(v *FlywheelTaskConfig) *FlywheelDocumentClassificationConfig {
 		if v == nil {
@@ -1543,6 +1826,7 @@ func (o FlywheelTaskConfigPtrOutput) DocumentClassificationConfig() FlywheelDocu
 	}).(FlywheelDocumentClassificationConfigPtrOutput)
 }
 
+// Configuration required for an entity recognition model.
 func (o FlywheelTaskConfigPtrOutput) EntityRecognitionConfig() FlywheelEntityRecognitionConfigPtrOutput {
 	return o.ApplyT(func(v *FlywheelTaskConfig) *FlywheelEntityRecognitionConfig {
 		if v == nil {
@@ -1552,6 +1836,7 @@ func (o FlywheelTaskConfigPtrOutput) EntityRecognitionConfig() FlywheelEntityRec
 	}).(FlywheelEntityRecognitionConfigPtrOutput)
 }
 
+// Language code for the language that the model supports.
 func (o FlywheelTaskConfigPtrOutput) LanguageCode() FlywheelTaskConfigLanguageCodePtrOutput {
 	return o.ApplyT(func(v *FlywheelTaskConfig) *FlywheelTaskConfigLanguageCode {
 		if v == nil {
@@ -1562,8 +1847,10 @@ func (o FlywheelTaskConfigPtrOutput) LanguageCode() FlywheelTaskConfigLanguageCo
 }
 
 type FlywheelVpcConfig struct {
+	// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	Subnets          []string `pulumi:"subnets"`
+	// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+	Subnets []string `pulumi:"subnets"`
 }
 
 // FlywheelVpcConfigInput is an input type that accepts FlywheelVpcConfigArgs and FlywheelVpcConfigOutput values.
@@ -1578,8 +1865,10 @@ type FlywheelVpcConfigInput interface {
 }
 
 type FlywheelVpcConfigArgs struct {
+	// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (FlywheelVpcConfigArgs) ElementType() reflect.Type {
@@ -1659,10 +1948,12 @@ func (o FlywheelVpcConfigOutput) ToFlywheelVpcConfigPtrOutputWithContext(ctx con
 	}).(FlywheelVpcConfigPtrOutput)
 }
 
+// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 func (o FlywheelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlywheelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
 func (o FlywheelVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlywheelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1691,6 +1982,7 @@ func (o FlywheelVpcConfigPtrOutput) Elem() FlywheelVpcConfigOutput {
 	}).(FlywheelVpcConfigOutput)
 }
 
+// The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
 func (o FlywheelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlywheelVpcConfig) []string {
 		if v == nil {
@@ -1700,6 +1992,7 @@ func (o FlywheelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
 func (o FlywheelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlywheelVpcConfig) []string {
 		if v == nil {

@@ -25,6 +25,7 @@ class RecordingConfigurationDestinationConfigurationArgs:
                  s3: Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Recording Destination Configuration.
+        :param pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs'] s3: The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -32,6 +33,9 @@ class RecordingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']]:
+        """
+        The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -85,12 +89,16 @@ class RecordingConfigurationS3DestinationConfigurationArgs:
                  bucket_name: pulumi.Input[str]):
         """
         Recording S3 Destination Configuration.
+        :param pulumi.Input[str] bucket_name: Location (S3 bucket name) where recorded videos will be stored.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Location (S3 bucket name) where recorded videos will be stored.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter

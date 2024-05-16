@@ -42,18 +42,33 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:PolicyStore")]
     public partial class PolicyStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Descriptive text that you can provide to help with identification of the current policy store.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new or updated policy store.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        /// </summary>
         [Output("schema")]
         public Output<Outputs.PolicyStoreSchemaDefinition?> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        /// </summary>
         [Output("validationSettings")]
         public Output<Outputs.PolicyStoreValidationSettings> ValidationSettings { get; private set; } = null!;
 
@@ -102,12 +117,21 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyStoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Descriptive text that you can provide to help with identification of the current policy store.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        /// </summary>
         [Input("schema")]
         public Input<Inputs.PolicyStoreSchemaDefinitionArgs>? Schema { get; set; }
 
+        /// <summary>
+        /// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        /// </summary>
         [Input("validationSettings", required: true)]
         public Input<Inputs.PolicyStoreValidationSettingsArgs> ValidationSettings { get; set; } = null!;
 

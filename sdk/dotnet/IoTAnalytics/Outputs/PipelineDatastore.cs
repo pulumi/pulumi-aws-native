@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineDatastore
     {
+        /// <summary>
+        /// The name of the data store where processed messages are stored.
+        /// </summary>
         public readonly string DatastoreName;
+        /// <summary>
+        /// The name of the datastore activity.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultPaginatedLayoutConfiguration
     {
+        /// <summary>
+        /// The options that determine the default settings for a section-based layout configuration.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultSectionBasedLayoutConfiguration? SectionBased;
 
         [OutputConstructor]

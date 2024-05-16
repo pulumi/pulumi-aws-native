@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDateTimeFormatConfiguration
     {
+        /// <summary>
+        /// Determines the `DateTime` format.
+        /// </summary>
         public readonly string? DateTimeFormat;
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         public readonly Outputs.DashboardNullValueFormatConfiguration? NullValueFormatConfiguration;
+        /// <summary>
+        /// The options that determine the numeric format configuration.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.DashboardNumericFormatConfiguration? NumericFormatConfiguration;
 
         [OutputConstructor]

@@ -34,10 +34,16 @@ func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupKeyArgs struct {
+	// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
 	KeyId string `pulumi:"keyId"`
 }
 
 type LookupKeyResult struct {
+	// The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
 	Arn *string `pulumi:"arn"`
 	// A description of the KMS key. Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
 	Description *string `pulumi:"description"`
@@ -50,8 +56,11 @@ type LookupKeyResult struct {
 	//  When ``Enabled`` is ``true``, the *key state* of the KMS key is ``Enabled``. When ``Enabled`` is ``false``, the key state of the KMS key is ``Disabled``. The default value is ``true``.
 	//  The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html), [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html), or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
 	//  For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
-	Enabled *bool   `pulumi:"enabled"`
-	KeyId   *string `pulumi:"keyId"`
+	Enabled *bool `pulumi:"enabled"`
+	// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+	KeyId *string `pulumi:"keyId"`
 	// The key policy to attach to the KMS key.
 	//  If you provide a key policy, it must meet the following criteria:
 	//   +  The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *Developer Guide*. (To omit this condition, set ``BypassPolicyLockoutSafetyCheck`` to true.)
@@ -140,6 +149,9 @@ func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulu
 }
 
 type LookupKeyOutputArgs struct {
+	// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
@@ -161,6 +173,9 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+//
+// For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
 func (o LookupKeyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -188,6 +203,9 @@ func (o LookupKeyResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+//
+// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
 func (o LookupKeyResultOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }

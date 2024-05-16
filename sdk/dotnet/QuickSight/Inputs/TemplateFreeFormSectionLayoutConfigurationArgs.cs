@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("elements", required: true)]
         private InputList<Inputs.TemplateFreeFormLayoutElementArgs>? _elements;
+
+        /// <summary>
+        /// The elements that are included in the free-form layout.
+        /// </summary>
         public InputList<Inputs.TemplateFreeFormLayoutElementArgs> Elements
         {
             get => _elements ?? (_elements = new InputList<Inputs.TemplateFreeFormLayoutElementArgs>());

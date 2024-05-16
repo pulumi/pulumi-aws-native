@@ -16,10 +16,25 @@ namespace Pulumi.AwsNative.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentLoggingConfiguration
     {
+        /// <summary>
+        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? DagProcessingLogs;
+        /// <summary>
+        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? SchedulerLogs;
+        /// <summary>
+        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? TaskLogs;
+        /// <summary>
+        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WebserverLogs;
+        /// <summary>
+        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WorkerLogs;
 
         [OutputConstructor]

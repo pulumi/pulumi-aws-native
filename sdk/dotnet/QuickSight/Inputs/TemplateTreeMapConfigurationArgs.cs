@@ -12,30 +12,59 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTreeMapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
+        /// <summary>
+        /// Determines the color scale that is applied to the visual.
+        /// </summary>
         [Input("colorScale")]
         public Input<Inputs.TemplateColorScaleArgs>? ColorScale { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.TemplateDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field wells of a tree map.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateTreeMapFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("groupLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? GroupLabelOptions { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.TemplateLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("sizeLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? SizeLabelOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a tree map.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplateTreeMapSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.TemplateTooltipOptionsArgs>? Tooltip { get; set; }
 

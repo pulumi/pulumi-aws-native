@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class TargetGroupMatcherArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP code to use when checking for a successful response from a target.
+        /// </summary>
         [Input("httpCode", required: true)]
         public Input<string> HttpCode { get; set; } = null!;
 

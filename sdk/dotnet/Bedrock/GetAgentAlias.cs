@@ -85,6 +85,15 @@ namespace Pulumi.AwsNative.Bedrock
         /// Name for a resource.
         /// </summary>
         public readonly string? AgentAliasName;
+        /// <summary>
+        /// The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+        /// 
+        /// - CREATING – The agent alias is being created.
+        /// - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+        /// - FAILED – The agent alias API operation failed.
+        /// - UPDATING – The agent alias is being updated.
+        /// - DELETING – The agent alias is being deleted.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentAliasStatus? AgentAliasStatus;
         /// <summary>
         /// Time Stamp.
@@ -98,6 +107,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// Routing configuration for an Agent alias.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentAliasRoutingConfigurationListItem> RoutingConfiguration;
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Time Stamp.

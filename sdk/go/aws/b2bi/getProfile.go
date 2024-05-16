@@ -28,16 +28,23 @@ type LookupProfileArgs struct {
 }
 
 type LookupProfileResult struct {
-	BusinessName *string   `pulumi:"businessName"`
-	CreatedAt    *string   `pulumi:"createdAt"`
-	Email        *string   `pulumi:"email"`
-	LogGroupName *string   `pulumi:"logGroupName"`
-	ModifiedAt   *string   `pulumi:"modifiedAt"`
-	Name         *string   `pulumi:"name"`
-	Phone        *string   `pulumi:"phone"`
-	ProfileArn   *string   `pulumi:"profileArn"`
-	ProfileId    *string   `pulumi:"profileId"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	// Returns the name for the business associated with this profile.
+	BusinessName *string `pulumi:"businessName"`
+	// Returns the timestamp for creation date and time of the profile.
+	CreatedAt *string `pulumi:"createdAt"`
+	Email     *string `pulumi:"email"`
+	// Returns the name of the logging group.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// Returns the timestamp that identifies the most recent date and time that the profile was modified.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// Returns the display name for profile.
+	Name  *string `pulumi:"name"`
+	Phone *string `pulumi:"phone"`
+	// Returns an Amazon Resource Name (ARN) for the profile.
+	ProfileArn *string `pulumi:"profileArn"`
+	ProfileId  *string `pulumi:"profileId"`
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
@@ -75,10 +82,12 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx co
 	return o
 }
 
+// Returns the name for the business associated with this profile.
 func (o LookupProfileResultOutput) BusinessName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.BusinessName }).(pulumi.StringPtrOutput)
 }
 
+// Returns the timestamp for creation date and time of the profile.
 func (o LookupProfileResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -87,14 +96,17 @@ func (o LookupProfileResultOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
+// Returns the name of the logging group.
 func (o LookupProfileResultOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Returns the timestamp that identifies the most recent date and time that the profile was modified.
 func (o LookupProfileResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// Returns the display name for profile.
 func (o LookupProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -103,6 +115,7 @@ func (o LookupProfileResultOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
+// Returns an Amazon Resource Name (ARN) for the profile.
 func (o LookupProfileResultOutput) ProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.ProfileArn }).(pulumi.StringPtrOutput)
 }
@@ -111,6 +124,7 @@ func (o LookupProfileResultOutput) ProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.ProfileId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 func (o LookupProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

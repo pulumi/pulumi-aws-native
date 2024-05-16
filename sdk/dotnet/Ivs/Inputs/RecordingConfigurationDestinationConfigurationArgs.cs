@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ivs.Inputs
     /// </summary>
     public sealed class RecordingConfigurationDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.RecordingConfigurationS3DestinationConfigurationArgs>? S3 { get; set; }
 

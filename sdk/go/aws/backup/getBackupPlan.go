@@ -23,15 +23,21 @@ func LookupBackupPlan(ctx *pulumi.Context, args *LookupBackupPlanArgs, opts ...p
 }
 
 type LookupBackupPlanArgs struct {
+	// Uniquely identifies a backup plan.
 	BackupPlanId string `pulumi:"backupPlanId"`
 }
 
 type LookupBackupPlanResult struct {
-	BackupPlan     *BackupPlanResourceType `pulumi:"backupPlan"`
-	BackupPlanArn  *string                 `pulumi:"backupPlanArn"`
-	BackupPlanId   *string                 `pulumi:"backupPlanId"`
-	BackupPlanTags map[string]string       `pulumi:"backupPlanTags"`
-	VersionId      *string                 `pulumi:"versionId"`
+	// Specifies an object containing properties used to create a backup plan.
+	BackupPlan *BackupPlanResourceType `pulumi:"backupPlan"`
+	// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+	BackupPlanArn *string `pulumi:"backupPlanArn"`
+	// Uniquely identifies a backup plan.
+	BackupPlanId *string `pulumi:"backupPlanId"`
+	// The tags to assign to the backup plan.
+	BackupPlanTags map[string]string `pulumi:"backupPlanTags"`
+	// Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+	VersionId *string `pulumi:"versionId"`
 }
 
 func LookupBackupPlanOutput(ctx *pulumi.Context, args LookupBackupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupBackupPlanResultOutput {
@@ -48,6 +54,7 @@ func LookupBackupPlanOutput(ctx *pulumi.Context, args LookupBackupPlanOutputArgs
 }
 
 type LookupBackupPlanOutputArgs struct {
+	// Uniquely identifies a backup plan.
 	BackupPlanId pulumi.StringInput `pulumi:"backupPlanId"`
 }
 
@@ -69,22 +76,27 @@ func (o LookupBackupPlanResultOutput) ToLookupBackupPlanResultOutputWithContext(
 	return o
 }
 
+// Specifies an object containing properties used to create a backup plan.
 func (o LookupBackupPlanResultOutput) BackupPlan() BackupPlanResourceTypePtrOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) *BackupPlanResourceType { return v.BackupPlan }).(BackupPlanResourceTypePtrOutput)
 }
 
+// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
 func (o LookupBackupPlanResultOutput) BackupPlanArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) *string { return v.BackupPlanArn }).(pulumi.StringPtrOutput)
 }
 
+// Uniquely identifies a backup plan.
 func (o LookupBackupPlanResultOutput) BackupPlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) *string { return v.BackupPlanId }).(pulumi.StringPtrOutput)
 }
 
+// The tags to assign to the backup plan.
 func (o LookupBackupPlanResultOutput) BackupPlanTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) map[string]string { return v.BackupPlanTags }).(pulumi.StringMapOutput)
 }
 
+// Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
 func (o LookupBackupPlanResultOutput) VersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) *string { return v.VersionId }).(pulumi.StringPtrOutput)
 }

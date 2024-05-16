@@ -17,19 +17,32 @@ import (
 type UserSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext        pulumi.StringMapOutput                                  `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns               pulumi.StringArrayOutput                                `pulumi:"associatedPortalArns"`
+	// The additional encryption context of the user settings.
+	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
+	// A list of web portal ARNs that this user settings resource is associated with.
+	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration UserSettingsCookieSynchronizationConfigurationPtrOutput `pulumi:"cookieSynchronizationConfiguration"`
-	CopyAllowed                        UserSettingsEnabledTypeOutput                           `pulumi:"copyAllowed"`
-	CustomerManagedKey                 pulumi.StringPtrOutput                                  `pulumi:"customerManagedKey"`
-	DisconnectTimeoutInMinutes         pulumi.Float64PtrOutput                                 `pulumi:"disconnectTimeoutInMinutes"`
-	DownloadAllowed                    UserSettingsEnabledTypeOutput                           `pulumi:"downloadAllowed"`
-	IdleDisconnectTimeoutInMinutes     pulumi.Float64PtrOutput                                 `pulumi:"idleDisconnectTimeoutInMinutes"`
-	PasteAllowed                       UserSettingsEnabledTypeOutput                           `pulumi:"pasteAllowed"`
-	PrintAllowed                       UserSettingsEnabledTypeOutput                           `pulumi:"printAllowed"`
-	Tags                               aws.TagArrayOutput                                      `pulumi:"tags"`
-	UploadAllowed                      UserSettingsEnabledTypeOutput                           `pulumi:"uploadAllowed"`
-	UserSettingsArn                    pulumi.StringOutput                                     `pulumi:"userSettingsArn"`
+	// Specifies whether the user can copy text from the streaming session to the local device.
+	CopyAllowed UserSettingsEnabledTypeOutput `pulumi:"copyAllowed"`
+	// The customer managed key used to encrypt sensitive information in the user settings.
+	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	// The amount of time that a streaming session remains active after users disconnect.
+	DisconnectTimeoutInMinutes pulumi.Float64PtrOutput `pulumi:"disconnectTimeoutInMinutes"`
+	// Specifies whether the user can download files from the streaming session to the local device.
+	DownloadAllowed UserSettingsEnabledTypeOutput `pulumi:"downloadAllowed"`
+	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+	IdleDisconnectTimeoutInMinutes pulumi.Float64PtrOutput `pulumi:"idleDisconnectTimeoutInMinutes"`
+	// Specifies whether the user can paste text from the local device to the streaming session.
+	PasteAllowed UserSettingsEnabledTypeOutput `pulumi:"pasteAllowed"`
+	// Specifies whether the user can print to the local device.
+	PrintAllowed UserSettingsEnabledTypeOutput `pulumi:"printAllowed"`
+	// The tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Specifies whether the user can upload files from the local device to the streaming session.
+	UploadAllowed UserSettingsEnabledTypeOutput `pulumi:"uploadAllowed"`
+	// The ARN of the user settings.
+	UserSettingsArn pulumi.StringOutput `pulumi:"userSettingsArn"`
 }
 
 // NewUserSettings registers a new resource with the given unique name, arguments, and options.
@@ -92,32 +105,54 @@ func (UserSettingsState) ElementType() reflect.Type {
 }
 
 type userSettingsArgs struct {
-	AdditionalEncryptionContext        map[string]string                               `pulumi:"additionalEncryptionContext"`
+	// The additional encryption context of the user settings.
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
+	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
-	CopyAllowed                        UserSettingsEnabledType                         `pulumi:"copyAllowed"`
-	CustomerManagedKey                 *string                                         `pulumi:"customerManagedKey"`
-	DisconnectTimeoutInMinutes         *float64                                        `pulumi:"disconnectTimeoutInMinutes"`
-	DownloadAllowed                    UserSettingsEnabledType                         `pulumi:"downloadAllowed"`
-	IdleDisconnectTimeoutInMinutes     *float64                                        `pulumi:"idleDisconnectTimeoutInMinutes"`
-	PasteAllowed                       UserSettingsEnabledType                         `pulumi:"pasteAllowed"`
-	PrintAllowed                       UserSettingsEnabledType                         `pulumi:"printAllowed"`
-	Tags                               []aws.Tag                                       `pulumi:"tags"`
-	UploadAllowed                      UserSettingsEnabledType                         `pulumi:"uploadAllowed"`
+	// Specifies whether the user can copy text from the streaming session to the local device.
+	CopyAllowed UserSettingsEnabledType `pulumi:"copyAllowed"`
+	// The customer managed key used to encrypt sensitive information in the user settings.
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	// The amount of time that a streaming session remains active after users disconnect.
+	DisconnectTimeoutInMinutes *float64 `pulumi:"disconnectTimeoutInMinutes"`
+	// Specifies whether the user can download files from the streaming session to the local device.
+	DownloadAllowed UserSettingsEnabledType `pulumi:"downloadAllowed"`
+	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+	IdleDisconnectTimeoutInMinutes *float64 `pulumi:"idleDisconnectTimeoutInMinutes"`
+	// Specifies whether the user can paste text from the local device to the streaming session.
+	PasteAllowed UserSettingsEnabledType `pulumi:"pasteAllowed"`
+	// Specifies whether the user can print to the local device.
+	PrintAllowed UserSettingsEnabledType `pulumi:"printAllowed"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies whether the user can upload files from the local device to the streaming session.
+	UploadAllowed UserSettingsEnabledType `pulumi:"uploadAllowed"`
 }
 
 // The set of arguments for constructing a UserSettings resource.
 type UserSettingsArgs struct {
-	AdditionalEncryptionContext        pulumi.StringMapInput
+	// The additional encryption context of the user settings.
+	AdditionalEncryptionContext pulumi.StringMapInput
+	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration UserSettingsCookieSynchronizationConfigurationPtrInput
-	CopyAllowed                        UserSettingsEnabledTypeInput
-	CustomerManagedKey                 pulumi.StringPtrInput
-	DisconnectTimeoutInMinutes         pulumi.Float64PtrInput
-	DownloadAllowed                    UserSettingsEnabledTypeInput
-	IdleDisconnectTimeoutInMinutes     pulumi.Float64PtrInput
-	PasteAllowed                       UserSettingsEnabledTypeInput
-	PrintAllowed                       UserSettingsEnabledTypeInput
-	Tags                               aws.TagArrayInput
-	UploadAllowed                      UserSettingsEnabledTypeInput
+	// Specifies whether the user can copy text from the streaming session to the local device.
+	CopyAllowed UserSettingsEnabledTypeInput
+	// The customer managed key used to encrypt sensitive information in the user settings.
+	CustomerManagedKey pulumi.StringPtrInput
+	// The amount of time that a streaming session remains active after users disconnect.
+	DisconnectTimeoutInMinutes pulumi.Float64PtrInput
+	// Specifies whether the user can download files from the streaming session to the local device.
+	DownloadAllowed UserSettingsEnabledTypeInput
+	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+	IdleDisconnectTimeoutInMinutes pulumi.Float64PtrInput
+	// Specifies whether the user can paste text from the local device to the streaming session.
+	PasteAllowed UserSettingsEnabledTypeInput
+	// Specifies whether the user can print to the local device.
+	PrintAllowed UserSettingsEnabledTypeInput
+	// The tag.
+	Tags aws.TagArrayInput
+	// Specifies whether the user can upload files from the local device to the streaming session.
+	UploadAllowed UserSettingsEnabledTypeInput
 }
 
 func (UserSettingsArgs) ElementType() reflect.Type {
@@ -157,56 +192,69 @@ func (o UserSettingsOutput) ToUserSettingsOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The additional encryption context of the user settings.
 func (o UserSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
+// A list of web portal ARNs that this user settings resource is associated with.
 func (o UserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 func (o UserSettingsOutput) CookieSynchronizationConfiguration() UserSettingsCookieSynchronizationConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsCookieSynchronizationConfigurationPtrOutput {
 		return v.CookieSynchronizationConfiguration
 	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
+// Specifies whether the user can copy text from the streaming session to the local device.
 func (o UserSettingsOutput) CopyAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.CopyAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
+// The customer managed key used to encrypt sensitive information in the user settings.
 func (o UserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
+// The amount of time that a streaming session remains active after users disconnect.
 func (o UserSettingsOutput) DisconnectTimeoutInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.Float64PtrOutput { return v.DisconnectTimeoutInMinutes }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether the user can download files from the streaming session to the local device.
 func (o UserSettingsOutput) DownloadAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.DownloadAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
+// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
 func (o UserSettingsOutput) IdleDisconnectTimeoutInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.Float64PtrOutput { return v.IdleDisconnectTimeoutInMinutes }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether the user can paste text from the local device to the streaming session.
 func (o UserSettingsOutput) PasteAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.PasteAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
+// Specifies whether the user can print to the local device.
 func (o UserSettingsOutput) PrintAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.PrintAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
+// The tag.
 func (o UserSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *UserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Specifies whether the user can upload files from the local device to the streaming session.
 func (o UserSettingsOutput) UploadAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.UploadAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
+// The ARN of the user settings.
 func (o UserSettingsOutput) UserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringOutput { return v.UserSettingsArn }).(pulumi.StringOutput)
 }

@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The network interface ID.&lt;/p&gt;
         /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// The status of the network interface.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionNetworkInterfaceStatus? Status;
         /// <summary>
         /// &lt;p&gt;The subnet ID associated with the network interface.&lt;/p&gt;

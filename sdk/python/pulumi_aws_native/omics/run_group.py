@@ -22,6 +22,12 @@ class RunGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RunGroup resource.
+        :param pulumi.Input[float] max_cpus: The group's maximum CPU count setting.
+        :param pulumi.Input[float] max_duration: The group's maximum duration setting in minutes.
+        :param pulumi.Input[float] max_gpus: The maximum GPUs that can be used by a run group.
+        :param pulumi.Input[float] max_runs: The group's maximum concurrent run setting.
+        :param pulumi.Input[str] name: The group's name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the group.
         """
         if max_cpus is not None:
             pulumi.set(__self__, "max_cpus", max_cpus)
@@ -39,6 +45,9 @@ class RunGroupArgs:
     @property
     @pulumi.getter(name="maxCpus")
     def max_cpus(self) -> Optional[pulumi.Input[float]]:
+        """
+        The group's maximum CPU count setting.
+        """
         return pulumi.get(self, "max_cpus")
 
     @max_cpus.setter
@@ -48,6 +57,9 @@ class RunGroupArgs:
     @property
     @pulumi.getter(name="maxDuration")
     def max_duration(self) -> Optional[pulumi.Input[float]]:
+        """
+        The group's maximum duration setting in minutes.
+        """
         return pulumi.get(self, "max_duration")
 
     @max_duration.setter
@@ -57,6 +69,9 @@ class RunGroupArgs:
     @property
     @pulumi.getter(name="maxGpus")
     def max_gpus(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum GPUs that can be used by a run group.
+        """
         return pulumi.get(self, "max_gpus")
 
     @max_gpus.setter
@@ -66,6 +81,9 @@ class RunGroupArgs:
     @property
     @pulumi.getter(name="maxRuns")
     def max_runs(self) -> Optional[pulumi.Input[float]]:
+        """
+        The group's maximum concurrent run setting.
+        """
         return pulumi.get(self, "max_runs")
 
     @max_runs.setter
@@ -75,6 +93,9 @@ class RunGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group's name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -84,6 +105,9 @@ class RunGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags for the group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -108,6 +132,12 @@ class RunGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] max_cpus: The group's maximum CPU count setting.
+        :param pulumi.Input[float] max_duration: The group's maximum duration setting in minutes.
+        :param pulumi.Input[float] max_gpus: The maximum GPUs that can be used by a run group.
+        :param pulumi.Input[float] max_runs: The group's maximum concurrent run setting.
+        :param pulumi.Input[str] name: The group's name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the group.
         """
         ...
     @overload
@@ -193,45 +223,72 @@ class RunGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The run group's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The run group's ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        When the run group was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="maxCpus")
     def max_cpus(self) -> pulumi.Output[Optional[float]]:
+        """
+        The group's maximum CPU count setting.
+        """
         return pulumi.get(self, "max_cpus")
 
     @property
     @pulumi.getter(name="maxDuration")
     def max_duration(self) -> pulumi.Output[Optional[float]]:
+        """
+        The group's maximum duration setting in minutes.
+        """
         return pulumi.get(self, "max_duration")
 
     @property
     @pulumi.getter(name="maxGpus")
     def max_gpus(self) -> pulumi.Output[Optional[float]]:
+        """
+        The maximum GPUs that can be used by a run group.
+        """
         return pulumi.get(self, "max_gpus")
 
     @property
     @pulumi.getter(name="maxRuns")
     def max_runs(self) -> pulumi.Output[Optional[float]]:
+        """
+        The group's maximum concurrent run setting.
+        """
         return pulumi.get(self, "max_runs")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The group's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags for the group.
+        """
         return pulumi.get(self, "tags")
 

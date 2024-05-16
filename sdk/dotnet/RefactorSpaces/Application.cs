@@ -15,36 +15,69 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [AwsNativeResourceType("aws-native:refactorspaces:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID of the API Gateway for the proxy.
+        /// </summary>
         [Output("apiGatewayId")]
         public Output<string> ApiGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// A wrapper object holding the Amazon API Gateway endpoint input.
+        /// </summary>
         [Output("apiGatewayProxy")]
         public Output<Outputs.ApplicationApiGatewayProxyInput?> ApiGatewayProxy { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the application.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Output("environmentIdentifier")]
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Load Balancer .
+        /// </summary>
         [Output("nlbArn")]
         public Output<string> NlbArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Network Load Balancer configured by the API Gateway proxy.
+        /// </summary>
         [Output("nlbName")]
         public Output<string> NlbName { get; private set; } = null!;
 
+        /// <summary>
+        /// The proxy type of the proxy created within the application.
+        /// </summary>
         [Output("proxyType")]
         public Output<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType> ProxyType { get; private set; } = null!;
 
+        /// <summary>
+        /// The endpoint URL of the Amazon API Gateway proxy.
+        /// </summary>
         [Output("proxyUrl")]
         public Output<string> ProxyUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the API Gateway stage. The name defaults to `prod` .
+        /// </summary>
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
 
@@ -54,9 +87,15 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the virtual private cloud (VPC).
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
+        /// <summary>
+        /// The `VpcLink` ID of the API Gateway proxy.
+        /// </summary>
         [Output("vpcLinkId")]
         public Output<string> VpcLinkId { get; private set; } = null!;
 
@@ -113,15 +152,27 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A wrapper object holding the Amazon API Gateway endpoint input.
+        /// </summary>
         [Input("apiGatewayProxy")]
         public Input<Inputs.ApplicationApiGatewayProxyInputArgs>? ApiGatewayProxy { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The proxy type of the proxy created within the application.
+        /// </summary>
         [Input("proxyType", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType> ProxyType { get; set; } = null!;
 
@@ -137,6 +188,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the virtual private cloud (VPC).
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

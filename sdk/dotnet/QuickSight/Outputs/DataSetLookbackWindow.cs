@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The lookback window column size.&lt;/p&gt;
         /// </summary>
         public readonly double Size;
+        /// <summary>
+        /// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR` , `DAY` , and `WEEK` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetLookbackWindowSizeUnit SizeUnit;
 
         [OutputConstructor]

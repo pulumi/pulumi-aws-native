@@ -62,6 +62,9 @@ export interface GetAcceleratorResult {
      * Name of accelerator.
      */
     readonly name?: string;
+    /**
+     * A complex type that contains a `Tag` key and `Tag` value.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

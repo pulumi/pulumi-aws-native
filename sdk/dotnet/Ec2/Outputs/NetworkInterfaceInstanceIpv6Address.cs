@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInterfaceInstanceIpv6Address
     {
+        /// <summary>
+        /// An IPv6 address to associate with the network interface.
+        /// </summary>
         public readonly string Ipv6Address;
 
         [OutputConstructor]

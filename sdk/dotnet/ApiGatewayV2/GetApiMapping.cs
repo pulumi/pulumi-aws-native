@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiMappingArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API mapping resource ID.
+        /// </summary>
         [Input("apiMappingId", required: true)]
         public string ApiMappingId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API mapping resource ID.
+        /// </summary>
         [Input("apiMappingId", required: true)]
         public Input<string> ApiMappingId { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// The identifier of the API.
         /// </summary>
         public readonly string? ApiId;
+        /// <summary>
+        /// The API mapping resource ID.
+        /// </summary>
         public readonly string? ApiMappingId;
         /// <summary>
         /// The API mapping key.

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelQualityJobDefinitionModelQualityBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the job that performs baselining for the monitoring job.
+        /// </summary>
         [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
+        /// <summary>
+        /// The constraints resource for a monitoring job.
+        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.ModelQualityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 

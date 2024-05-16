@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDatadogSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Datadog flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

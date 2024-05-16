@@ -13,15 +13,55 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfiguration
     {
+        /// <summary>
+        /// Provides the configuration information to connect to Confluence as your data source.
+        /// </summary>
         public readonly Outputs.DataSourceConfluenceConfiguration? ConfluenceConfiguration;
+        /// <summary>
+        /// Provides the configuration information to an [Amazon Kendra supported database](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) .
+        /// </summary>
         public readonly Outputs.DataSourceDatabaseConfiguration? DatabaseConfiguration;
+        /// <summary>
+        /// Provides the configuration information to connect to Google Drive as your data source.
+        /// </summary>
         public readonly Outputs.DataSourceGoogleDriveConfiguration? GoogleDriveConfiguration;
+        /// <summary>
+        /// Provides the configuration information to connect to OneDrive as your data source.
+        /// </summary>
         public readonly Outputs.DataSourceOneDriveConfiguration? OneDriveConfiguration;
+        /// <summary>
+        /// Provides the configuration information to connect to an Amazon S3 bucket.
+        /// 
+        /// &gt; Amazon Kendra now supports an upgraded Amazon S3 connector.
+        /// &gt; 
+        /// &gt; You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+        /// &gt; 
+        /// &gt; Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+        /// &gt; 
+        /// &gt; We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
+        /// </summary>
         public readonly Outputs.DataSourceS3DataSourceConfiguration? S3Configuration;
+        /// <summary>
+        /// Provides the configuration information to connect to Salesforce as your data source.
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceConfiguration? SalesforceConfiguration;
+        /// <summary>
+        /// Provides the configuration information to connect to ServiceNow as your data source.
+        /// </summary>
         public readonly Outputs.DataSourceServiceNowConfiguration? ServiceNowConfiguration;
+        /// <summary>
+        /// Provides the configuration information to connect to Microsoft SharePoint as your data source.
+        /// </summary>
         public readonly Outputs.DataSourceSharePointConfiguration? SharePointConfiguration;
+        /// <summary>
+        /// Provides the configuration information required for Amazon Kendra Web Crawler.
+        /// </summary>
         public readonly Outputs.DataSourceWebCrawlerConfiguration? WebCrawlerConfiguration;
+        /// <summary>
+        /// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+        /// 
+        /// Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland regions.
+        /// </summary>
         public readonly Outputs.DataSourceWorkDocsConfiguration? WorkDocsConfiguration;
 
         [OutputConstructor]

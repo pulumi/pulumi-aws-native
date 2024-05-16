@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGlobalTableBorderOptions
     {
+        /// <summary>
+        /// The side border options for a table.
+        /// </summary>
         public readonly Outputs.DashboardTableSideBorderOptions? SideSpecificBorder;
+        /// <summary>
+        /// The border options for a table border.
+        /// </summary>
         public readonly Outputs.DashboardTableBorderOptions? UniformBorder;
 
         [OutputConstructor]

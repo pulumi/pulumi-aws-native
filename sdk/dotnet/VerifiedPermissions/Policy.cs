@@ -97,15 +97,32 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+        /// 
+        /// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+        /// </summary>
         [Output("definition")]
         public Output<Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new or updated policy.
+        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the policy. This is one of the following values:
+        /// 
+        /// - Static
+        /// - TemplateLinked
+        /// </summary>
         [Output("policyType")]
         public Output<Pulumi.AwsNative.VerifiedPermissions.PolicyType> PolicyType { get; private set; } = null!;
 
@@ -158,9 +175,17 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+        /// 
+        /// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+        /// </summary>
         [Input("definition", required: true)]
         public InputUnion<Inputs.PolicyDefinition0PropertiesArgs, Inputs.PolicyDefinition1PropertiesArgs> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 

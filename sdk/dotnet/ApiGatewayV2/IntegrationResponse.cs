@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("integrationId")]
         public Output<string> IntegrationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The integration response ID.
+        /// </summary>
         [Output("integrationResponseId")]
         public Output<string> IntegrationResponseId { get; private set; } = null!;
 

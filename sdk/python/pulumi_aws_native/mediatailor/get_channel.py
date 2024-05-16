@@ -63,16 +63,29 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="fillerSlate")
     def filler_slate(self) -> Optional['outputs.ChannelSlateSource']:
+        """
+        Slate VOD source configuration.
+        """
         return pulumi.get(self, "filler_slate")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ChannelLogConfigurationForChannel']:
+        """
+        The log configuration for the channel.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter(name="playbackMode")
     def playback_mode(self) -> Optional['ChannelPlaybackMode']:
+        """
+        The type of playback mode for this channel.
+
+        `LINEAR` - Programs play back-to-back only once.
+
+        `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+        """
         return pulumi.get(self, "playback_mode")
 
     @property
@@ -86,6 +99,9 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="timeShiftConfiguration")
     def time_shift_configuration(self) -> Optional['outputs.ChannelTimeShiftConfiguration']:
+        """
+        The configuration for time-shifted viewing.
+        """
         return pulumi.get(self, "time_shift_configuration")
 
 
@@ -108,6 +124,9 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Definition of AWS::MediaTailor::Channel Resource Type
+
+
+    :param str channel_name: The name of the channel.
     """
     __args__ = dict()
     __args__['channelName'] = channel_name
@@ -129,5 +148,8 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     Definition of AWS::MediaTailor::Channel Resource Type
+
+
+    :param str channel_name: The name of the channel.
     """
     ...

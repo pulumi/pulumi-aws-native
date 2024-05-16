@@ -89,6 +89,9 @@ export class VirtualCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualCluster.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Id of the virtual cluster.

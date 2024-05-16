@@ -7,4 +7,7 @@ export const DatasetResourceConfigurationComputeType = {
     Acu2: "ACU_2",
 } as const;
 
+/**
+ * The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
+ */
 export type DatasetResourceConfigurationComputeType = (typeof DatasetResourceConfigurationComputeType)[keyof typeof DatasetResourceConfigurationComputeType];

@@ -70,6 +70,9 @@ class GetLogAnomalyDetectorResult:
     @property
     @pulumi.getter(name="anomalyVisibilityTime")
     def anomaly_visibility_time(self) -> Optional[float]:
+        """
+        The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+        """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @property
@@ -99,6 +102,9 @@ class GetLogAnomalyDetectorResult:
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> Optional[str]:
+        """
+        You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+        """
         return pulumi.get(self, "filter_pattern")
 
     @property

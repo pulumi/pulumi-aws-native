@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterLoggingInfo
     {
+        /// <summary>
+        /// The broker logs configuration for this MSK cluster.
+        /// </summary>
         public readonly Outputs.ClusterBrokerLogs BrokerLogs;
 
         [OutputConstructor]

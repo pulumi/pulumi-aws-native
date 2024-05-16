@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetExtensionAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The system-generated ID for the association.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetExtensionAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The system-generated ID for the association.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetExtensionAssociationResult
     {
+        /// <summary>
+        /// The ARN of the extension defined in the association.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ARN of the extension defined in the association.
+        /// </summary>
         public readonly string? ExtensionArn;
+        /// <summary>
+        /// The system-generated ID for the association.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// The ARNs of applications, configuration profiles, or environments defined in the association.
+        /// </summary>
         public readonly string? ResourceArn;
 
         [OutputConstructor]

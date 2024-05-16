@@ -35,6 +35,10 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
 
         [Input("runtimeEnvironmentVariables")]
         private InputList<Inputs.ServiceKeyValuePairArgs>? _runtimeEnvironmentVariables;
+
+        /// <summary>
+        /// Environment variables that are available to your running App Runner service. An array of key-value pairs.
+        /// </summary>
         public InputList<Inputs.ServiceKeyValuePairArgs> RuntimeEnvironmentVariables
         {
             get => _runtimeEnvironmentVariables ?? (_runtimeEnvironmentVariables = new InputList<Inputs.ServiceKeyValuePairArgs>());

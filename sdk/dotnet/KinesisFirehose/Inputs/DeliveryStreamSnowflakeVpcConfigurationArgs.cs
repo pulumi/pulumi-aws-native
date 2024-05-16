@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSnowflakeVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-&lt;[id]&gt;. For more information, see [Amazon PrivateLink &amp; Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
+        /// </summary>
         [Input("privateLinkVpceId", required: true)]
         public Input<string> PrivateLinkVpceId { get; set; } = null!;
 

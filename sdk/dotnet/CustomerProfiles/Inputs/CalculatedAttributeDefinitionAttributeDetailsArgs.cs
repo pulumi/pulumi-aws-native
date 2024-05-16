@@ -17,12 +17,19 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     {
         [Input("attributes", required: true)]
         private InputList<Inputs.CalculatedAttributeDefinitionAttributeItemArgs>? _attributes;
+
+        /// <summary>
+        /// Mathematical expression and a list of attribute items specified in that expression.
+        /// </summary>
         public InputList<Inputs.CalculatedAttributeDefinitionAttributeItemArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.CalculatedAttributeDefinitionAttributeItemArgs>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

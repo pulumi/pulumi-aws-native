@@ -94,18 +94,36 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	CertificateArn                      pulumi.StringPtrOutput                     `pulumi:"certificateArn"`
-	DistributionDomainName              pulumi.StringOutput                        `pulumi:"distributionDomainName"`
-	DistributionHostedZoneId            pulumi.StringOutput                        `pulumi:"distributionHostedZoneId"`
-	DomainName                          pulumi.StringPtrOutput                     `pulumi:"domainName"`
-	EndpointConfiguration               DomainNameEndpointConfigurationPtrOutput   `pulumi:"endpointConfiguration"`
-	MutualTlsAuthentication             DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
-	OwnershipVerificationCertificateArn pulumi.StringPtrOutput                     `pulumi:"ownershipVerificationCertificateArn"`
-	RegionalCertificateArn              pulumi.StringPtrOutput                     `pulumi:"regionalCertificateArn"`
-	RegionalDomainName                  pulumi.StringOutput                        `pulumi:"regionalDomainName"`
-	RegionalHostedZoneId                pulumi.StringOutput                        `pulumi:"regionalHostedZoneId"`
-	SecurityPolicy                      pulumi.StringPtrOutput                     `pulumi:"securityPolicy"`
-	Tags                                aws.TagArrayOutput                         `pulumi:"tags"`
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
+	// The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
+	//
+	// Example: `d111111abcdef8.cloudfront.net`
+	DistributionDomainName pulumi.StringOutput `pulumi:"distributionDomainName"`
+	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
+	DistributionHostedZoneId pulumi.StringOutput `pulumi:"distributionHostedZoneId"`
+	// The custom domain name as an API host name, for example, `my-api.example.com` .
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
+	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+	//
+	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
+	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
+	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+	OwnershipVerificationCertificateArn pulumi.StringPtrOutput `pulumi:"ownershipVerificationCertificateArn"`
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	RegionalCertificateArn pulumi.StringPtrOutput `pulumi:"regionalCertificateArn"`
+	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
+	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+	RegionalHostedZoneId pulumi.StringOutput `pulumi:"regionalHostedZoneId"`
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -152,26 +170,50 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	CertificateArn                      *string                            `pulumi:"certificateArn"`
-	DomainName                          *string                            `pulumi:"domainName"`
-	EndpointConfiguration               *DomainNameEndpointConfiguration   `pulumi:"endpointConfiguration"`
-	MutualTlsAuthentication             *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	OwnershipVerificationCertificateArn *string                            `pulumi:"ownershipVerificationCertificateArn"`
-	RegionalCertificateArn              *string                            `pulumi:"regionalCertificateArn"`
-	SecurityPolicy                      *string                            `pulumi:"securityPolicy"`
-	Tags                                []aws.Tag                          `pulumi:"tags"`
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The custom domain name as an API host name, for example, `my-api.example.com` .
+	DomainName *string `pulumi:"domainName"`
+	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+	//
+	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
+	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
+	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	SecurityPolicy *string `pulumi:"securityPolicy"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	CertificateArn                      pulumi.StringPtrInput
-	DomainName                          pulumi.StringPtrInput
-	EndpointConfiguration               DomainNameEndpointConfigurationPtrInput
-	MutualTlsAuthentication             DomainNameMutualTlsAuthenticationPtrInput
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn pulumi.StringPtrInput
+	// The custom domain name as an API host name, for example, `my-api.example.com` .
+	DomainName pulumi.StringPtrInput
+	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+	//
+	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
+	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
+	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
-	RegionalCertificateArn              pulumi.StringPtrInput
-	SecurityPolicy                      pulumi.StringPtrInput
-	Tags                                aws.TagArrayInput
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	RegionalCertificateArn pulumi.StringPtrInput
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	SecurityPolicy pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -211,50 +253,68 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
+// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
 func (o DomainNameOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
+//
+// Example: `d111111abcdef8.cloudfront.net`
 func (o DomainNameOutput) DistributionDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DistributionDomainName }).(pulumi.StringOutput)
 }
 
+// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 func (o DomainNameOutput) DistributionHostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DistributionHostedZoneId }).(pulumi.StringOutput)
 }
 
+// The custom domain name as an API host name, for example, `my-api.example.com` .
 func (o DomainNameOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
+//
+// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
 func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
 }
 
+// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 func (o DomainNameOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameMutualTlsAuthenticationPtrOutput { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
+// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
 func (o DomainNameOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 func (o DomainNameOutput) RegionalDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
 }
 
+// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 func (o DomainNameOutput) RegionalHostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalHostedZoneId }).(pulumi.StringOutput)
 }
 
+// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 func (o DomainNameOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o DomainNameOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DomainName) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -36,11 +36,17 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the environment.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @property
@@ -54,6 +60,9 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the AWS Transit Gateway set up by the environment.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
 
@@ -73,6 +82,9 @@ def get_environment(environment_identifier: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Definition of AWS::RefactorSpaces::Environment Resource Type
+
+
+    :param str environment_identifier: The unique identifier of the environment.
     """
     __args__ = dict()
     __args__['environmentIdentifier'] = environment_identifier
@@ -91,5 +103,8 @@ def get_environment_output(environment_identifier: Optional[pulumi.Input[str]] =
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Definition of AWS::RefactorSpaces::Environment Resource Type
+
+
+    :param str environment_identifier: The unique identifier of the environment.
     """
     ...

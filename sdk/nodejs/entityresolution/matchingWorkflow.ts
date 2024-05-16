@@ -42,10 +42,25 @@ export class MatchingWorkflow extends pulumi.CustomResource {
      * The description of the MatchingWorkflow
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+     */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowInputSource[]>;
+    /**
+     * A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+     */
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowOutputSource[]>;
+    /**
+     * An object which defines the `resolutionType` and the `ruleBasedProperties` .
+     */
     public readonly resolutionTechniques!: pulumi.Output<outputs.entityresolution.MatchingWorkflowResolutionTechniques>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public /*out*/ readonly workflowArn!: pulumi.Output<string>;
@@ -114,10 +129,25 @@ export interface MatchingWorkflowArgs {
      * The description of the MatchingWorkflow
      */
     description?: pulumi.Input<string>;
+    /**
+     * An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+     */
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowInputSourceArgs>[]>;
+    /**
+     * A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+     */
     outputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowOutputSourceArgs>[]>;
+    /**
+     * An object which defines the `resolutionType` and the `ruleBasedProperties` .
+     */
     resolutionTechniques: pulumi.Input<inputs.entityresolution.MatchingWorkflowResolutionTechniquesArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the MatchingWorkflow

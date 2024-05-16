@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSnowflakeRoleConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable Snowflake role
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The Snowflake role you wish to configure
+        /// </summary>
         [Input("snowflakeRole")]
         public Input<string>? SnowflakeRole { get; set; }
 

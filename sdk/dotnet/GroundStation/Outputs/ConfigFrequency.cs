@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigFrequency
     {
+        /// <summary>
+        /// The units of the frequency.
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.ConfigFrequencyUnits? Units;
+        /// <summary>
+        /// The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
+        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

@@ -24,21 +24,45 @@ func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...p
 }
 
 type LookupDataSourceArgs struct {
-	Id      string `pulumi:"id"`
+	// The identifier for the data source. For example:
+	//
+	// `b8cae438-6787-4091-8897-684a652bbb0a` .
+	Id string `pulumi:"id"`
+	// The identifier of the index you want to use with the data source connector.
 	IndexId string `pulumi:"indexId"`
 }
 
 type LookupDataSourceResult struct {
-	Arn                                   *string                                          `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the data source. For example:
+	//
+	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
+	Arn *string `pulumi:"arn"`
+	// Provides the configuration information for altering document metadata and content during the document ingestion process.
+	//
+	// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
-	DataSourceConfiguration               *DataSourceConfiguration                         `pulumi:"dataSourceConfiguration"`
-	Description                           *string                                          `pulumi:"description"`
-	Id                                    *string                                          `pulumi:"id"`
-	IndexId                               *string                                          `pulumi:"indexId"`
-	LanguageCode                          *string                                          `pulumi:"languageCode"`
-	Name                                  *string                                          `pulumi:"name"`
-	RoleArn                               *string                                          `pulumi:"roleArn"`
-	Schedule                              *string                                          `pulumi:"schedule"`
+	// Provides the configuration information for an Amazon Kendra data source.
+	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	// A description for the data source connector.
+	Description *string `pulumi:"description"`
+	// The identifier for the data source. For example:
+	//
+	// `b8cae438-6787-4091-8897-684a652bbb0a` .
+	Id *string `pulumi:"id"`
+	// The identifier of the index you want to use with the data source connector.
+	IndexId *string `pulumi:"indexId"`
+	// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+	LanguageCode *string `pulumi:"languageCode"`
+	// The name of the data source.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+	//
+	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `RoleArn` parameter is required for all other data sources.
+	RoleArn *string `pulumi:"roleArn"`
+	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+	Schedule *string `pulumi:"schedule"`
 	// Tags for labeling the data source
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -57,7 +81,11 @@ func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs
 }
 
 type LookupDataSourceOutputArgs struct {
-	Id      pulumi.StringInput `pulumi:"id"`
+	// The identifier for the data source. For example:
+	//
+	// `b8cae438-6787-4091-8897-684a652bbb0a` .
+	Id pulumi.StringInput `pulumi:"id"`
+	// The identifier of the index you want to use with the data source connector.
 	IndexId pulumi.StringInput `pulumi:"indexId"`
 }
 
@@ -79,44 +107,64 @@ func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the data source. For example:
+//
+// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
 func (o LookupDataSourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Provides the configuration information for altering document metadata and content during the document ingestion process.
+//
+// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
 func (o LookupDataSourceResultOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceCustomDocumentEnrichmentConfiguration {
 		return v.CustomDocumentEnrichmentConfiguration
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
+// Provides the configuration information for an Amazon Kendra data source.
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceConfiguration { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }
 
+// A description for the data source connector.
 func (o LookupDataSourceResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the data source. For example:
+//
+// `b8cae438-6787-4091-8897-684a652bbb0a` .
 func (o LookupDataSourceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the index you want to use with the data source connector.
 func (o LookupDataSourceResultOutput) IndexId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.IndexId }).(pulumi.StringPtrOutput)
 }
 
+// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 func (o LookupDataSourceResultOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
+// The name of the data source.
 func (o LookupDataSourceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+//
+// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+//
+// The `RoleArn` parameter is required for all other data sources.
 func (o LookupDataSourceResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
 func (o LookupDataSourceResultOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Schedule }).(pulumi.StringPtrOutput)
 }

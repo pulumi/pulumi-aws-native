@@ -33,7 +33,21 @@ class ExperimentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]] metric_goals: Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        :param pulumi.Input['ExperimentOnlineAbConfigObjectArgs'] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        :param pulumi.Input[str] project: The name or the ARN of the project where this experiment is to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]] treatments: A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        :param pulumi.Input[str] description: An optional description of the experiment.
+        :param pulumi.Input[str] name: A name for the new experiment.
+        :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+        :param pulumi.Input[bool] remove_segment: Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
         :param pulumi.Input['ExperimentRunningStatusObjectArgs'] running_status: Start Experiment. Default is False
+        :param pulumi.Input[int] sampling_rate: The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+               
+               This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+        :param pulumi.Input[str] segment: Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+               
+               For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "metric_goals", metric_goals)
@@ -60,6 +74,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter(name="metricGoals")
     def metric_goals(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]]:
+        """
+        Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        """
         return pulumi.get(self, "metric_goals")
 
     @metric_goals.setter
@@ -69,6 +86,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter(name="onlineAbConfig")
     def online_ab_config(self) -> pulumi.Input['ExperimentOnlineAbConfigObjectArgs']:
+        """
+        A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        """
         return pulumi.get(self, "online_ab_config")
 
     @online_ab_config.setter
@@ -78,6 +98,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter
     def project(self) -> pulumi.Input[str]:
+        """
+        The name or the ARN of the project where this experiment is to be created.
+        """
         return pulumi.get(self, "project")
 
     @project.setter
@@ -87,6 +110,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter
     def treatments(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]]:
+        """
+        A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        """
         return pulumi.get(self, "treatments")
 
     @treatments.setter
@@ -96,6 +122,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the experiment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -105,6 +134,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the new experiment.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -114,6 +146,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> Optional[pulumi.Input[str]]:
+        """
+        When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+        """
         return pulumi.get(self, "randomization_salt")
 
     @randomization_salt.setter
@@ -123,6 +158,9 @@ class ExperimentArgs:
     @property
     @pulumi.getter(name="removeSegment")
     def remove_segment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+        """
         return pulumi.get(self, "remove_segment")
 
     @remove_segment.setter
@@ -144,6 +182,11 @@ class ExperimentArgs:
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+
+        This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+        """
         return pulumi.get(self, "sampling_rate")
 
     @sampling_rate.setter
@@ -153,6 +196,11 @@ class ExperimentArgs:
     @property
     @pulumi.getter
     def segment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+
+        For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        """
         return pulumi.get(self, "segment")
 
     @segment.setter
@@ -195,8 +243,22 @@ class Experiment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: An optional description of the experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentMetricGoalObjectArgs']]]] metric_goals: Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        :param pulumi.Input[str] name: A name for the new experiment.
+        :param pulumi.Input[pulumi.InputType['ExperimentOnlineAbConfigObjectArgs']] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        :param pulumi.Input[str] project: The name or the ARN of the project where this experiment is to be created.
+        :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+        :param pulumi.Input[bool] remove_segment: Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
         :param pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']] running_status: Start Experiment. Default is False
+        :param pulumi.Input[int] sampling_rate: The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+               
+               This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+        :param pulumi.Input[str] segment: Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+               
+               For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]] treatments: A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
         """
         ...
     @overload
@@ -306,41 +368,65 @@ class Experiment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description of the experiment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="metricGoals")
     def metric_goals(self) -> pulumi.Output[Sequence['outputs.ExperimentMetricGoalObject']]:
+        """
+        Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        """
         return pulumi.get(self, "metric_goals")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the new experiment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="onlineAbConfig")
     def online_ab_config(self) -> pulumi.Output['outputs.ExperimentOnlineAbConfigObject']:
+        """
+        A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        """
         return pulumi.get(self, "online_ab_config")
 
     @property
     @pulumi.getter
     def project(self) -> pulumi.Output[str]:
+        """
+        The name or the ARN of the project where this experiment is to be created.
+        """
         return pulumi.get(self, "project")
 
     @property
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> pulumi.Output[Optional[str]]:
+        """
+        When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+        """
         return pulumi.get(self, "randomization_salt")
 
     @property
     @pulumi.getter(name="removeSegment")
     def remove_segment(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+        """
         return pulumi.get(self, "remove_segment")
 
     @property
@@ -354,11 +440,21 @@ class Experiment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> pulumi.Output[Optional[int]]:
+        """
+        The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+
+        This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+        """
         return pulumi.get(self, "sampling_rate")
 
     @property
     @pulumi.getter
     def segment(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+
+        For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        """
         return pulumi.get(self, "segment")
 
     @property
@@ -372,5 +468,8 @@ class Experiment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def treatments(self) -> pulumi.Output[Sequence['outputs.ExperimentTreatmentObject']]:
+        """
+        A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        """
         return pulumi.get(self, "treatments")
 

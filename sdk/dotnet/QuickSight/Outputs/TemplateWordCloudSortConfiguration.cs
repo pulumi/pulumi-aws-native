@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWordCloudSortConfiguration
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
 
         [OutputConstructor]

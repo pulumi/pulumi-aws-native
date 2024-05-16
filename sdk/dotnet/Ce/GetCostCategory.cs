@@ -65,7 +65,13 @@ namespace Pulumi.AwsNative.Ce
         /// The default value for the cost category
         /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// The Cost Category's effective start date.
+        /// </summary>
         public readonly string? EffectiveStart;
+        /// <summary>
+        /// The rule schema version in this particular Cost Category.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ce.CostCategoryRuleVersion? RuleVersion;
         /// <summary>
         /// JSON array format of Expression in Billing and Cost Management API

@@ -65,66 +65,105 @@ class GetNetworkInsightsAnalysisResult:
     @property
     @pulumi.getter(name="additionalAccounts")
     def additional_accounts(self) -> Optional[Sequence[str]]:
+        """
+        The member accounts that contain resources that the path can traverse.
+        """
         return pulumi.get(self, "additional_accounts")
 
     @property
     @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]:
+        """
+        Describes an potential intermediate component of a feasible path.
+        """
         return pulumi.get(self, "alternate_path_hints")
 
     @property
     @pulumi.getter
     def explanations(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
+        """
+        Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        """
         return pulumi.get(self, "explanations")
 
     @property
     @pulumi.getter(name="forwardPathComponents")
     def forward_path_components(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
+        """
+        Describes a path component.
+        """
         return pulumi.get(self, "forward_path_components")
 
     @property
     @pulumi.getter(name="networkInsightsAnalysisArn")
     def network_insights_analysis_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the network insights analysis.
+        """
         return pulumi.get(self, "network_insights_analysis_arn")
 
     @property
     @pulumi.getter(name="networkInsightsAnalysisId")
     def network_insights_analysis_id(self) -> Optional[str]:
+        """
+        The ID of the network insights analysis.
+        """
         return pulumi.get(self, "network_insights_analysis_id")
 
     @property
     @pulumi.getter(name="networkPathFound")
     def network_path_found(self) -> Optional[bool]:
+        """
+        Indicates whether the destination is reachable from the source.
+        """
         return pulumi.get(self, "network_path_found")
 
     @property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
+        """
+        Describes a path component.
+        """
         return pulumi.get(self, "return_path_components")
 
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[str]:
+        """
+        The time the analysis started.
+        """
         return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['NetworkInsightsAnalysisStatus']:
+        """
+        The status of the network insights analysis.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[str]:
+        """
+        The status message, if the status is `failed` .
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="suggestedAccounts")
     def suggested_accounts(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of potential intermediate accounts.
+        """
         return pulumi.get(self, "suggested_accounts")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -153,6 +192,9 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAnalysisResult:
     """
     Resource schema for AWS::EC2::NetworkInsightsAnalysis
+
+
+    :param str network_insights_analysis_id: The ID of the network insights analysis.
     """
     __args__ = dict()
     __args__['networkInsightsAnalysisId'] = network_insights_analysis_id
@@ -180,5 +222,8 @@ def get_network_insights_analysis_output(network_insights_analysis_id: Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAnalysis
+
+
+    :param str network_insights_analysis_id: The ID of the network insights analysis.
     """
     ...

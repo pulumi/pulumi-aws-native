@@ -101,9 +101,15 @@ namespace Pulumi.AwsNative.Personalize
         [Output("recipeArn")]
         public Output<string?> RecipeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the solution.
+        /// </summary>
         [Output("solutionArn")]
         public Output<string> SolutionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the configuration properties for the solution.
+        /// </summary>
         [Output("solutionConfig")]
         public Output<Outputs.SolutionConfig?> SolutionConfig { get; private set; } = null!;
 
@@ -198,6 +204,9 @@ namespace Pulumi.AwsNative.Personalize
         [Input("recipeArn")]
         public Input<string>? RecipeArn { get; set; }
 
+        /// <summary>
+        /// Describes the configuration properties for the solution.
+        /// </summary>
         [Input("solutionConfig")]
         public Input<Inputs.SolutionConfigArgs>? SolutionConfig { get; set; }
 

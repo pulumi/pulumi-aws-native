@@ -37,6 +37,9 @@ export class UsagePlanKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlanKey.__pulumiType;
     }
 
+    /**
+     * The ID for the usage plan key. For example: `abc123` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The Id of the UsagePlanKey resource.

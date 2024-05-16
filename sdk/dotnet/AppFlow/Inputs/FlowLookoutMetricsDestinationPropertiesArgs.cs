@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowLookoutMetricsDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The object specified in the Amazon Lookout for Metrics flow destination.
+        /// </summary>
         [Input("object")]
         public Input<string>? Object { get; set; }
 

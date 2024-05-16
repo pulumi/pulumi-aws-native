@@ -48,6 +48,9 @@ class GetSecretResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ARN of the secret.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -112,6 +115,9 @@ def get_secret(id: Optional[str] = None,
      A common scenario is to first create a secret with ``GenerateSecretString``, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.
      For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
      For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
+
+
+    :param str id: The ARN of the secret.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -136,5 +142,8 @@ def get_secret_output(id: Optional[pulumi.Input[str]] = None,
      A common scenario is to first create a secret with ``GenerateSecretString``, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.
      For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
      For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
+
+
+    :param str id: The ARN of the secret.
     """
     ...

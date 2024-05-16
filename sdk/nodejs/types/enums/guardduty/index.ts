@@ -7,4 +7,7 @@ export const DetectorCfnFeatureConfigurationStatus = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * Status of the feature configuration.
+ */
 export type DetectorCfnFeatureConfigurationStatus = (typeof DetectorCfnFeatureConfigurationStatus)[keyof typeof DetectorCfnFeatureConfigurationStatus];

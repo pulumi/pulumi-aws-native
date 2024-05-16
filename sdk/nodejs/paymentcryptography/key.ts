@@ -37,13 +37,36 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
+    /**
+     * Specifies whether the key is enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the key is exportable. This data is immutable after the key is created.
+     */
     public readonly exportable!: pulumi.Output<boolean>;
+    /**
+     * The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+     */
     public readonly keyAttributes!: pulumi.Output<outputs.paymentcryptography.KeyAttributes>;
+    /**
+     * The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+     *
+     * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+     */
     public readonly keyCheckValueAlgorithm!: pulumi.Output<enums.paymentcryptography.KeyCheckValueAlgorithm | undefined>;
     public /*out*/ readonly keyIdentifier!: pulumi.Output<string>;
+    /**
+     * The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+     */
     public /*out*/ readonly keyOrigin!: pulumi.Output<enums.paymentcryptography.KeyOrigin>;
+    /**
+     * The state of key that is being created or deleted.
+     */
     public /*out*/ readonly keyState!: pulumi.Output<enums.paymentcryptography.KeyState>;
+    /**
+     * A structure that contains information about a tag.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -90,9 +113,26 @@ export class Key extends pulumi.CustomResource {
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
+    /**
+     * Specifies whether the key is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the key is exportable. This data is immutable after the key is created.
+     */
     exportable: pulumi.Input<boolean>;
+    /**
+     * The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+     */
     keyAttributes: pulumi.Input<inputs.paymentcryptography.KeyAttributesArgs>;
+    /**
+     * The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+     *
+     * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+     */
     keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm>;
+    /**
+     * A structure that contains information about a tag.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

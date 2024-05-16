@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class PatchBaselineRuleGroup
     {
+        /// <summary>
+        /// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
+        /// 
+        /// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PatchBaselineRule> PatchRules;
 
         [OutputConstructor]

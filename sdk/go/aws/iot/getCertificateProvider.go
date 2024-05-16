@@ -24,13 +24,23 @@ func LookupCertificateProvider(ctx *pulumi.Context, args *LookupCertificateProvi
 }
 
 type LookupCertificateProviderArgs struct {
+	// The name of the certificate provider.
 	CertificateProviderName string `pulumi:"certificateProviderName"`
 }
 
 type LookupCertificateProviderResult struct {
+	// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 	AccountDefaultForOperations []CertificateProviderOperation `pulumi:"accountDefaultForOperations"`
-	Arn                         *string                        `pulumi:"arn"`
-	LambdaFunctionArn           *string                        `pulumi:"lambdaFunctionArn"`
+	// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+	//
+	// `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+	//
+	// A value similar to the following is returned:
+	//
+	// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+	Arn *string `pulumi:"arn"`
+	// The ARN of the Lambda function.
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -49,6 +59,7 @@ func LookupCertificateProviderOutput(ctx *pulumi.Context, args LookupCertificate
 }
 
 type LookupCertificateProviderOutputArgs struct {
+	// The name of the certificate provider.
 	CertificateProviderName pulumi.StringInput `pulumi:"certificateProviderName"`
 }
 
@@ -70,16 +81,25 @@ func (o LookupCertificateProviderResultOutput) ToLookupCertificateProviderResult
 	return o
 }
 
+// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 func (o LookupCertificateProviderResultOutput) AccountDefaultForOperations() CertificateProviderOperationArrayOutput {
 	return o.ApplyT(func(v LookupCertificateProviderResult) []CertificateProviderOperation {
 		return v.AccountDefaultForOperations
 	}).(CertificateProviderOperationArrayOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+//
+// `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+//
+// A value similar to the following is returned:
+//
+// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
 func (o LookupCertificateProviderResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateProviderResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Lambda function.
 func (o LookupCertificateProviderResultOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateProviderResult) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
 }

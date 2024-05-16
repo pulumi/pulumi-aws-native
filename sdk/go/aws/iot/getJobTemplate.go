@@ -23,10 +23,12 @@ func LookupJobTemplate(ctx *pulumi.Context, args *LookupJobTemplateArgs, opts ..
 }
 
 type LookupJobTemplateArgs struct {
+	// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
 	JobTemplateId string `pulumi:"jobTemplateId"`
 }
 
 type LookupJobTemplateResult struct {
+	// The ARN of the job to use as the basis for the job template.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -44,6 +46,7 @@ func LookupJobTemplateOutput(ctx *pulumi.Context, args LookupJobTemplateOutputAr
 }
 
 type LookupJobTemplateOutputArgs struct {
+	// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
 	JobTemplateId pulumi.StringInput `pulumi:"jobTemplateId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupJobTemplateResultOutput) ToLookupJobTemplateResultOutputWithContex
 	return o
 }
 
+// The ARN of the job to use as the basis for the job template.
 func (o LookupJobTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

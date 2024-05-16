@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.Kendra
     [AwsNativeResourceType("aws-native:kendra:Faq")]
     public partial class Faq : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for the FAQ. For example:
+        /// 
+        /// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -39,6 +47,9 @@ namespace Pulumi.AwsNative.Kendra
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
+        /// <summary>
+        /// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        /// </summary>
         [Output("languageCode")]
         public Output<string?> LanguageCode { get; private set; } = null!;
 
@@ -138,6 +149,9 @@ namespace Pulumi.AwsNative.Kendra
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
+        /// <summary>
+        /// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 

@@ -61,7 +61,13 @@ namespace Pulumi.AwsNative.Synthetics
         /// Id of the group.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The ARNs of the canaries that you want to associate with this group.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
+        /// <summary>
+        /// The list of key-value pairs that are associated with the group.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

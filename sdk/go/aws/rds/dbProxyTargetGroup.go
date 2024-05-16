@@ -16,9 +16,12 @@ import (
 type DbProxyTargetGroup struct {
 	pulumi.CustomResourceState
 
+	// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 	ConnectionPoolConfigurationInfo DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput `pulumi:"connectionPoolConfigurationInfo"`
-	DbClusterIdentifiers            pulumi.StringArrayOutput                                         `pulumi:"dbClusterIdentifiers"`
-	DbInstanceIdentifiers           pulumi.StringArrayOutput                                         `pulumi:"dbInstanceIdentifiers"`
+	// One or more DB cluster identifiers.
+	DbClusterIdentifiers pulumi.StringArrayOutput `pulumi:"dbClusterIdentifiers"`
+	// One or more DB instance identifiers.
+	DbInstanceIdentifiers pulumi.StringArrayOutput `pulumi:"dbInstanceIdentifiers"`
 	// The identifier for the proxy.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// The Amazon Resource Name (ARN) representing the target group.
@@ -78,9 +81,12 @@ func (DbProxyTargetGroupState) ElementType() reflect.Type {
 }
 
 type dbProxyTargetGroupArgs struct {
+	// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 	ConnectionPoolConfigurationInfo *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
-	DbClusterIdentifiers            []string                                                 `pulumi:"dbClusterIdentifiers"`
-	DbInstanceIdentifiers           []string                                                 `pulumi:"dbInstanceIdentifiers"`
+	// One or more DB cluster identifiers.
+	DbClusterIdentifiers []string `pulumi:"dbClusterIdentifiers"`
+	// One or more DB instance identifiers.
+	DbInstanceIdentifiers []string `pulumi:"dbInstanceIdentifiers"`
 	// The identifier for the proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
 	// The identifier for the DBProxyTargetGroup
@@ -89,9 +95,12 @@ type dbProxyTargetGroupArgs struct {
 
 // The set of arguments for constructing a DbProxyTargetGroup resource.
 type DbProxyTargetGroupArgs struct {
+	// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 	ConnectionPoolConfigurationInfo DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput
-	DbClusterIdentifiers            pulumi.StringArrayInput
-	DbInstanceIdentifiers           pulumi.StringArrayInput
+	// One or more DB cluster identifiers.
+	DbClusterIdentifiers pulumi.StringArrayInput
+	// One or more DB instance identifiers.
+	DbInstanceIdentifiers pulumi.StringArrayInput
 	// The identifier for the proxy.
 	DbProxyName pulumi.StringInput
 	// The identifier for the DBProxyTargetGroup
@@ -135,16 +144,19 @@ func (o DbProxyTargetGroupOutput) ToDbProxyTargetGroupOutputWithContext(ctx cont
 	return o
 }
 
+// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 func (o DbProxyTargetGroupOutput) ConnectionPoolConfigurationInfo() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o.ApplyT(func(v *DbProxyTargetGroup) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 		return v.ConnectionPoolConfigurationInfo
 	}).(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
+// One or more DB cluster identifiers.
 func (o DbProxyTargetGroupOutput) DbClusterIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DbProxyTargetGroup) pulumi.StringArrayOutput { return v.DbClusterIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// One or more DB instance identifiers.
 func (o DbProxyTargetGroupOutput) DbInstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DbProxyTargetGroup) pulumi.StringArrayOutput { return v.DbInstanceIdentifiers }).(pulumi.StringArrayOutput)
 }

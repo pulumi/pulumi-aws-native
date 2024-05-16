@@ -24,17 +24,21 @@ type Instance struct {
 	// The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
 	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
 	// The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
-	BundleId    pulumi.StringOutput       `pulumi:"bundleId"`
-	Hardware    InstanceHardwarePtrOutput `pulumi:"hardware"`
-	InstanceArn pulumi.StringOutput       `pulumi:"instanceArn"`
+	BundleId pulumi.StringOutput `pulumi:"bundleId"`
+	// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+	Hardware InstanceHardwarePtrOutput `pulumi:"hardware"`
+	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The names to use for your new Lightsail instance.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// Is the IP Address of the Instance is the static IP
 	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
 	// The name of your key pair.
-	KeyPairName pulumi.StringPtrOutput      `pulumi:"keyPairName"`
-	Location    InstanceLocationPtrOutput   `pulumi:"location"`
-	Networking  InstanceNetworkingPtrOutput `pulumi:"networking"`
+	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
+	// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+	Location InstanceLocationPtrOutput `pulumi:"location"`
+	// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+	Networking InstanceNetworkingPtrOutput `pulumi:"networking"`
 	// Private IP Address of the Instance
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// Public IP Address of the Instance
@@ -42,8 +46,9 @@ type Instance struct {
 	// Resource type of Lightsail instance.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// SSH Key Name of the  Lightsail instance.
-	SshKeyName pulumi.StringOutput        `pulumi:"sshKeyName"`
-	State      InstanceStateTypePtrOutput `pulumi:"state"`
+	SshKeyName pulumi.StringOutput `pulumi:"sshKeyName"`
+	// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+	State InstanceStateTypePtrOutput `pulumi:"state"`
 	// Support code to help identify any issues
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 	// An array of key-value pairs to apply to this resource.
@@ -114,15 +119,19 @@ type instanceArgs struct {
 	// The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
 	BlueprintId string `pulumi:"blueprintId"`
 	// The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
-	BundleId string            `pulumi:"bundleId"`
+	BundleId string `pulumi:"bundleId"`
+	// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
 	Hardware *InstanceHardware `pulumi:"hardware"`
 	// The names to use for your new Lightsail instance.
 	InstanceName *string `pulumi:"instanceName"`
 	// The name of your key pair.
-	KeyPairName *string             `pulumi:"keyPairName"`
-	Location    *InstanceLocation   `pulumi:"location"`
-	Networking  *InstanceNetworking `pulumi:"networking"`
-	State       *InstanceStateType  `pulumi:"state"`
+	KeyPairName *string `pulumi:"keyPairName"`
+	// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+	Location *InstanceLocation `pulumi:"location"`
+	// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+	Networking *InstanceNetworking `pulumi:"networking"`
+	// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+	State *InstanceStateType `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
@@ -139,14 +148,18 @@ type InstanceArgs struct {
 	BlueprintId pulumi.StringInput
 	// The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
 	BundleId pulumi.StringInput
+	// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
 	Hardware InstanceHardwarePtrInput
 	// The names to use for your new Lightsail instance.
 	InstanceName pulumi.StringPtrInput
 	// The name of your key pair.
 	KeyPairName pulumi.StringPtrInput
-	Location    InstanceLocationPtrInput
-	Networking  InstanceNetworkingPtrInput
-	State       InstanceStateTypePtrInput
+	// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+	Location InstanceLocationPtrInput
+	// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+	Networking InstanceNetworkingPtrInput
+	// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+	State InstanceStateTypePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
@@ -210,10 +223,12 @@ func (o InstanceOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }
 
+// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
 func (o InstanceOutput) Hardware() InstanceHardwarePtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceHardwarePtrOutput { return v.Hardware }).(InstanceHardwarePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 func (o InstanceOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
@@ -233,10 +248,12 @@ func (o InstanceOutput) KeyPairName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.KeyPairName }).(pulumi.StringPtrOutput)
 }
 
+// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
 func (o InstanceOutput) Location() InstanceLocationPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceLocationPtrOutput { return v.Location }).(InstanceLocationPtrOutput)
 }
 
+// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
 func (o InstanceOutput) Networking() InstanceNetworkingPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceNetworkingPtrOutput { return v.Networking }).(InstanceNetworkingPtrOutput)
 }
@@ -261,6 +278,7 @@ func (o InstanceOutput) SshKeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.SshKeyName }).(pulumi.StringOutput)
 }
 
+// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
 func (o InstanceOutput) State() InstanceStateTypePtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceStateTypePtrOutput { return v.State }).(InstanceStateTypePtrOutput)
 }

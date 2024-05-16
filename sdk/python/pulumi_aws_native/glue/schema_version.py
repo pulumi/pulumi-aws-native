@@ -20,6 +20,7 @@ class SchemaVersionInitArgs:
                  schema_definition: pulumi.Input[str]):
         """
         The set of arguments for constructing a SchemaVersion resource.
+        :param pulumi.Input['SchemaVersionSchemaArgs'] schema: A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
         :param pulumi.Input[str] schema_definition: Complete definition of the schema in plain-text.
         """
         pulumi.set(__self__, "schema", schema)
@@ -28,6 +29,9 @@ class SchemaVersionInitArgs:
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Input['SchemaVersionSchemaArgs']:
+        """
+        A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -60,6 +64,7 @@ class SchemaVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']] schema: A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
         :param pulumi.Input[str] schema_definition: Complete definition of the schema in plain-text.
         """
         ...
@@ -136,6 +141,9 @@ class SchemaVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output['outputs.SchemaVersionSchema']:
+        """
+        A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+        """
         return pulumi.get(self, "schema")
 
     @property

@@ -23,10 +23,12 @@ func LookupDrtAccess(ctx *pulumi.Context, args *LookupDrtAccessArgs, opts ...pul
 }
 
 type LookupDrtAccessArgs struct {
+	// The ID of the account that submitted the template.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupDrtAccessResult struct {
+	// The ID of the account that submitted the template.
 	AccountId *string `pulumi:"accountId"`
 	// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
 	LogBucketList []string `pulumi:"logBucketList"`
@@ -48,6 +50,7 @@ func LookupDrtAccessOutput(ctx *pulumi.Context, args LookupDrtAccessOutputArgs, 
 }
 
 type LookupDrtAccessOutputArgs struct {
+	// The ID of the account that submitted the template.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -69,6 +72,7 @@ func (o LookupDrtAccessResultOutput) ToLookupDrtAccessResultOutputWithContext(ct
 	return o
 }
 
+// The ID of the account that submitted the template.
 func (o LookupDrtAccessResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDrtAccessResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

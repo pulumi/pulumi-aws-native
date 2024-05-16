@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeDeadLetterConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the specified target for the dead-letter queue.
+        /// 
+        /// For Amazon Kinesis stream and Amazon DynamoDB stream sources, specify either an Amazon SNS topic or Amazon SQS queue ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

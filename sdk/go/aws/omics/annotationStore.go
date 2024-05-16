@@ -16,20 +16,34 @@ import (
 type AnnotationStore struct {
 	pulumi.CustomResourceState
 
-	AwsId          pulumi.StringOutput                            `pulumi:"awsId"`
-	CreationTime   pulumi.StringOutput                            `pulumi:"creationTime"`
-	Description    pulumi.StringPtrOutput                         `pulumi:"description"`
-	Name           pulumi.StringOutput                            `pulumi:"name"`
-	Reference      AnnotationStoreReferenceItemPtrOutput          `pulumi:"reference"`
-	SseConfig      AnnotationStoreSseConfigPtrOutput              `pulumi:"sseConfig"`
-	Status         AnnotationStoreStoreStatusOutput               `pulumi:"status"`
-	StatusMessage  pulumi.StringOutput                            `pulumi:"statusMessage"`
-	StoreArn       pulumi.StringOutput                            `pulumi:"storeArn"`
-	StoreFormat    AnnotationStoreStoreFormatOutput               `pulumi:"storeFormat"`
-	StoreOptions   AnnotationStoreStoreOptionsPropertiesPtrOutput `pulumi:"storeOptions"`
-	StoreSizeBytes pulumi.Float64Output                           `pulumi:"storeSizeBytes"`
-	Tags           pulumi.StringMapOutput                         `pulumi:"tags"`
-	UpdateTime     pulumi.StringOutput                            `pulumi:"updateTime"`
+	// The store's ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// When the store was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// A description for the store.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the Annotation Store.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A genome reference.
+	Reference AnnotationStoreReferenceItemPtrOutput `pulumi:"reference"`
+	// Server-side encryption (SSE) settings for a store.
+	SseConfig AnnotationStoreSseConfigPtrOutput `pulumi:"sseConfig"`
+	// The store's status.
+	Status AnnotationStoreStoreStatusOutput `pulumi:"status"`
+	// The store's status message.
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// The store's ARN.
+	StoreArn pulumi.StringOutput `pulumi:"storeArn"`
+	// The annotation file format of the store.
+	StoreFormat AnnotationStoreStoreFormatOutput `pulumi:"storeFormat"`
+	// The store's file parsing options.
+	StoreOptions AnnotationStoreStoreOptionsPropertiesPtrOutput `pulumi:"storeOptions"`
+	// The store's size in bytes.
+	StoreSizeBytes pulumi.Float64Output `pulumi:"storeSizeBytes"`
+	// Tags for the store.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// When the store was updated.
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewAnnotationStore registers a new resource with the given unique name, arguments, and options.
@@ -84,24 +98,38 @@ func (AnnotationStoreState) ElementType() reflect.Type {
 }
 
 type annotationStoreArgs struct {
-	Description  *string                                `pulumi:"description"`
-	Name         *string                                `pulumi:"name"`
-	Reference    *AnnotationStoreReferenceItem          `pulumi:"reference"`
-	SseConfig    *AnnotationStoreSseConfig              `pulumi:"sseConfig"`
-	StoreFormat  AnnotationStoreStoreFormat             `pulumi:"storeFormat"`
+	// A description for the store.
+	Description *string `pulumi:"description"`
+	// The name of the Annotation Store.
+	Name *string `pulumi:"name"`
+	// A genome reference.
+	Reference *AnnotationStoreReferenceItem `pulumi:"reference"`
+	// Server-side encryption (SSE) settings for a store.
+	SseConfig *AnnotationStoreSseConfig `pulumi:"sseConfig"`
+	// The annotation file format of the store.
+	StoreFormat AnnotationStoreStoreFormat `pulumi:"storeFormat"`
+	// The store's file parsing options.
 	StoreOptions *AnnotationStoreStoreOptionsProperties `pulumi:"storeOptions"`
-	Tags         map[string]string                      `pulumi:"tags"`
+	// Tags for the store.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnnotationStore resource.
 type AnnotationStoreArgs struct {
-	Description  pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	Reference    AnnotationStoreReferenceItemPtrInput
-	SseConfig    AnnotationStoreSseConfigPtrInput
-	StoreFormat  AnnotationStoreStoreFormatInput
+	// A description for the store.
+	Description pulumi.StringPtrInput
+	// The name of the Annotation Store.
+	Name pulumi.StringPtrInput
+	// A genome reference.
+	Reference AnnotationStoreReferenceItemPtrInput
+	// Server-side encryption (SSE) settings for a store.
+	SseConfig AnnotationStoreSseConfigPtrInput
+	// The annotation file format of the store.
+	StoreFormat AnnotationStoreStoreFormatInput
+	// The store's file parsing options.
 	StoreOptions AnnotationStoreStoreOptionsPropertiesPtrInput
-	Tags         pulumi.StringMapInput
+	// Tags for the store.
+	Tags pulumi.StringMapInput
 }
 
 func (AnnotationStoreArgs) ElementType() reflect.Type {
@@ -141,58 +169,72 @@ func (o AnnotationStoreOutput) ToAnnotationStoreOutputWithContext(ctx context.Co
 	return o
 }
 
+// The store's ID.
 func (o AnnotationStoreOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// When the store was created.
 func (o AnnotationStoreOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// A description for the store.
 func (o AnnotationStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Annotation Store.
 func (o AnnotationStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A genome reference.
 func (o AnnotationStoreOutput) Reference() AnnotationStoreReferenceItemPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreReferenceItemPtrOutput { return v.Reference }).(AnnotationStoreReferenceItemPtrOutput)
 }
 
+// Server-side encryption (SSE) settings for a store.
 func (o AnnotationStoreOutput) SseConfig() AnnotationStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreSseConfigPtrOutput { return v.SseConfig }).(AnnotationStoreSseConfigPtrOutput)
 }
 
+// The store's status.
 func (o AnnotationStoreOutput) Status() AnnotationStoreStoreStatusOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreStatusOutput { return v.Status }).(AnnotationStoreStoreStatusOutput)
 }
 
+// The store's status message.
 func (o AnnotationStoreOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// The store's ARN.
 func (o AnnotationStoreOutput) StoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.StoreArn }).(pulumi.StringOutput)
 }
 
+// The annotation file format of the store.
 func (o AnnotationStoreOutput) StoreFormat() AnnotationStoreStoreFormatOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreFormatOutput { return v.StoreFormat }).(AnnotationStoreStoreFormatOutput)
 }
 
+// The store's file parsing options.
 func (o AnnotationStoreOutput) StoreOptions() AnnotationStoreStoreOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreOptionsPropertiesPtrOutput { return v.StoreOptions }).(AnnotationStoreStoreOptionsPropertiesPtrOutput)
 }
 
+// The store's size in bytes.
 func (o AnnotationStoreOutput) StoreSizeBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.Float64Output { return v.StoreSizeBytes }).(pulumi.Float64Output)
 }
 
+// Tags for the store.
 func (o AnnotationStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// When the store was updated.
 func (o AnnotationStoreOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

@@ -52,6 +52,9 @@ class StateMachineAliasDeploymentPreference(dict):
                  percentage: Optional[int] = None):
         """
         The settings to enable gradual state machine deployments.
+        :param str state_machine_version_arn: The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+               
+               While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
         :param 'StateMachineAliasDeploymentPreferenceType' type: The type of deployment to perform.
         :param Sequence[str] alarms: A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
         :param int interval: The time in minutes between each traffic shifting increment.
@@ -69,6 +72,11 @@ class StateMachineAliasDeploymentPreference(dict):
     @property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+
+        While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
+        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @property
@@ -171,12 +179,18 @@ class StateMachineCloudWatchLogsLogGroup(dict):
 
     def __init__(__self__, *,
                  log_group_arn: Optional[str] = None):
+        """
+        :param str log_group_arn: The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        """
         if log_group_arn is not None:
             pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[str]:
+        """
+        The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        """
         return pulumi.get(self, "log_group_arn")
 
 
@@ -207,12 +221,22 @@ class StateMachineLogDestination(dict):
 
     def __init__(__self__, *,
                  cloud_watch_logs_log_group: Optional['outputs.StateMachineCloudWatchLogsLogGroup'] = None):
+        """
+        :param 'StateMachineCloudWatchLogsLogGroup' cloud_watch_logs_log_group: Defines a CloudWatch log group.
+               
+               > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        """
         if cloud_watch_logs_log_group is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
 
     @property
     @pulumi.getter(name="cloudWatchLogsLogGroup")
     def cloud_watch_logs_log_group(self) -> Optional['outputs.StateMachineCloudWatchLogsLogGroup']:
+        """
+        Defines a CloudWatch log group.
+
+        > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        """
         return pulumi.get(self, "cloud_watch_logs_log_group")
 
 
@@ -239,6 +263,13 @@ class StateMachineLoggingConfiguration(dict):
                  destinations: Optional[Sequence['outputs.StateMachineLogDestination']] = None,
                  include_execution_data: Optional[bool] = None,
                  level: Optional['StateMachineLoggingConfigurationLevel'] = None):
+        """
+        :param Sequence['StateMachineLogDestination'] destinations: Defines a destination for `LoggingConfiguration` .
+               
+               > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        :param bool include_execution_data: Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        :param 'StateMachineLoggingConfigurationLevel' level: Defines which category of execution history events are logged.
+        """
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if include_execution_data is not None:
@@ -249,16 +280,27 @@ class StateMachineLoggingConfiguration(dict):
     @property
     @pulumi.getter
     def destinations(self) -> Optional[Sequence['outputs.StateMachineLogDestination']]:
+        """
+        Defines a destination for `LoggingConfiguration` .
+
+        > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        """
         return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[bool]:
+        """
+        Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        """
         return pulumi.get(self, "include_execution_data")
 
     @property
     @pulumi.getter
     def level(self) -> Optional['StateMachineLoggingConfigurationLevel']:
+        """
+        Defines which category of execution history events are logged.
+        """
         return pulumi.get(self, "level")
 
 
@@ -268,6 +310,11 @@ class StateMachineS3Location(dict):
                  bucket: str,
                  key: str,
                  version: Optional[str] = None):
+        """
+        :param str bucket: The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        :param str key: The name of the state machine definition file (Amazon S3 object name).
+        :param str version: For versioning-enabled buckets, a specific version of the state machine definition.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         if version is not None:
@@ -276,16 +323,25 @@ class StateMachineS3Location(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The name of the state machine definition file (Amazon S3 object name).
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        For versioning-enabled buckets, a specific version of the state machine definition.
+        """
         return pulumi.get(self, "version")
 
 
@@ -293,12 +349,18 @@ class StateMachineS3Location(dict):
 class StateMachineTracingConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
+        """
+        :param bool enabled: When set to `true` , X-Ray tracing is enabled.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        When set to `true` , X-Ray tracing is enabled.
+        """
         return pulumi.get(self, "enabled")
 
 

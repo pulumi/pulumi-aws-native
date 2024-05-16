@@ -23,14 +23,21 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
+	// The Amazon Resource Name (ARN) of the application.
 	ApplicationArn string `pulumi:"applicationArn"`
 }
 
 type LookupApplicationResult struct {
-	ApplicationArn *string           `pulumi:"applicationArn"`
-	ApplicationId  *string           `pulumi:"applicationId"`
-	Description    *string           `pulumi:"description"`
-	Tags           map[string]string `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the application.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// The identifier of the application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The description of the application.
+	Description *string `pulumi:"description"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -47,6 +54,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the application.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
 }
 
@@ -68,18 +76,24 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the application.
 func (o LookupApplicationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the application.
 func (o LookupApplicationResultOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// The description of the application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupApplicationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

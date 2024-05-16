@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class WirelessGatewayLoRaWanGateway
     {
+        /// <summary>
+        /// The gateway's EUI value.
+        /// </summary>
         public readonly string GatewayEui;
+        /// <summary>
+        /// The frequency band (RFRegion) value.
+        /// </summary>
         public readonly string RfRegion;
 
         [OutputConstructor]

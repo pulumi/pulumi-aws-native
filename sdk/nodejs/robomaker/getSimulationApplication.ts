@@ -19,10 +19,16 @@ export function getSimulationApplication(args: GetSimulationApplicationArgs, opt
 }
 
 export interface GetSimulationApplicationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application.
+     */
     arn: string;
 }
 
 export interface GetSimulationApplicationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application.
+     */
     readonly arn?: string;
     /**
      * The current revision id.
@@ -40,6 +46,9 @@ export interface GetSimulationApplicationResult {
      * The simulation software suite used by the simulation application.
      */
     readonly simulationSoftwareSuite?: outputs.robomaker.SimulationApplicationSimulationSoftwareSuite;
+    /**
+     * A map that contains tag keys and tag values that are attached to the simulation application.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -50,5 +59,8 @@ export function getSimulationApplicationOutput(args: GetSimulationApplicationOut
 }
 
 export interface GetSimulationApplicationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application.
+     */
     arn: pulumi.Input<string>;
 }

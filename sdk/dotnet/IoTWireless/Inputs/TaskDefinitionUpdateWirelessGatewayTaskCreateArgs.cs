@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The signature used to verify the update firmware.
+        /// </summary>
         [Input("loRaWan")]
         public Input<Inputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs>? LoRaWan { get; set; }
 
+        /// <summary>
+        /// The IAM role used to read data from the S3 bucket.
+        /// </summary>
         [Input("updateDataRole")]
         public Input<string>? UpdateDataRole { get; set; }
 
+        /// <summary>
+        /// The link to the S3 bucket.
+        /// </summary>
         [Input("updateDataSource")]
         public Input<string>? UpdateDataSource { get; set; }
 

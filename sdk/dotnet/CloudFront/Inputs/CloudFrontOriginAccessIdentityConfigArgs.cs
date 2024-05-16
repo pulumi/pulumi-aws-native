@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class CloudFrontOriginAccessIdentityConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
+        /// </summary>
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;
 

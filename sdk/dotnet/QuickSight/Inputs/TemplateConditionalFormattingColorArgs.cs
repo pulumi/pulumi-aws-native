@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateConditionalFormattingColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Formatting configuration for gradient color.
+        /// </summary>
         [Input("gradient")]
         public Input<Inputs.TemplateConditionalFormattingGradientColorArgs>? Gradient { get; set; }
 
+        /// <summary>
+        /// Formatting configuration for solid color.
+        /// </summary>
         [Input("solid")]
         public Input<Inputs.TemplateConditionalFormattingSolidColorArgs>? Solid { get; set; }
 

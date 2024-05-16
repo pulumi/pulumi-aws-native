@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("conditionalFormattingOptions")]
         private InputList<Inputs.TemplateTableConditionalFormattingOptionArgs>? _conditionalFormattingOptions;
+
+        /// <summary>
+        /// Conditional formatting options for a `PivotTableVisual` .
+        /// </summary>
         public InputList<Inputs.TemplateTableConditionalFormattingOptionArgs> ConditionalFormattingOptions
         {
             get => _conditionalFormattingOptions ?? (_conditionalFormattingOptions = new InputList<Inputs.TemplateTableConditionalFormattingOptionArgs>());

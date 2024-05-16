@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class FunctionConfig
     {
+        /// <summary>
+        /// A comment to describe the function.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// The key value store association.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FunctionKeyValueStoreAssociation> KeyValueStoreAssociations;
+        /// <summary>
+        /// The function's runtime environment version.
+        /// </summary>
         public readonly string Runtime;
 
         [OutputConstructor]

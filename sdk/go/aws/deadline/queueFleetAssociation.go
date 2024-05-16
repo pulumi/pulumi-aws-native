@@ -16,8 +16,11 @@ import (
 type QueueFleetAssociation struct {
 	pulumi.CustomResourceState
 
-	FarmId  pulumi.StringOutput `pulumi:"farmId"`
+	// The identifier of the farm that contains the queue and the fleet.
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
+	// The fleet ID.
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
+	// The queue ID.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 }
 
@@ -76,15 +79,21 @@ func (QueueFleetAssociationState) ElementType() reflect.Type {
 }
 
 type queueFleetAssociationArgs struct {
-	FarmId  string `pulumi:"farmId"`
+	// The identifier of the farm that contains the queue and the fleet.
+	FarmId string `pulumi:"farmId"`
+	// The fleet ID.
 	FleetId string `pulumi:"fleetId"`
+	// The queue ID.
 	QueueId string `pulumi:"queueId"`
 }
 
 // The set of arguments for constructing a QueueFleetAssociation resource.
 type QueueFleetAssociationArgs struct {
-	FarmId  pulumi.StringInput
+	// The identifier of the farm that contains the queue and the fleet.
+	FarmId pulumi.StringInput
+	// The fleet ID.
 	FleetId pulumi.StringInput
+	// The queue ID.
 	QueueId pulumi.StringInput
 }
 
@@ -125,14 +134,17 @@ func (o QueueFleetAssociationOutput) ToQueueFleetAssociationOutputWithContext(ct
 	return o
 }
 
+// The identifier of the farm that contains the queue and the fleet.
 func (o QueueFleetAssociationOutput) FarmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueFleetAssociation) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
+// The fleet ID.
 func (o QueueFleetAssociationOutput) FleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueFleetAssociation) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
 }
 
+// The queue ID.
 func (o QueueFleetAssociationOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueFleetAssociation) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }

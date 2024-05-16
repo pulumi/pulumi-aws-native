@@ -39,6 +39,9 @@ class GetReplicationConfigurationResult:
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional['outputs.ReplicationConfiguration']:
+        """
+        The replication configuration for a registry.
+        """
         return pulumi.get(self, "replication_configuration")
 
 

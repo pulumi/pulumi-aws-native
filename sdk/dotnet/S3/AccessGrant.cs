@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.S3
         [Output("s3PrefixType")]
         public Output<Pulumi.AwsNative.S3.AccessGrantS3PrefixType?> S3PrefixType { get; private set; } = null!;
 
+        /// <summary>
+        /// A container of a key value name pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -160,6 +163,10 @@ namespace Pulumi.AwsNative.S3
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// A container of a key value name pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSheetControlLayout
     {
+        /// <summary>
+        /// The configuration that determines the elements and canvas size options of sheet control.
+        /// </summary>
         public readonly Outputs.TemplateSheetControlLayoutConfiguration Configuration;
 
         [OutputConstructor]

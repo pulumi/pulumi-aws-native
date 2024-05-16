@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration
     {
+        /// <summary>
+        /// The name of the field that contains the document data to index.
+        /// </summary>
         public readonly string DocumentDataFieldName;
+        /// <summary>
+        /// The name of the field that contains the document title.
+        /// </summary>
         public readonly string? DocumentTitleFieldName;
+        /// <summary>
+        /// Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]

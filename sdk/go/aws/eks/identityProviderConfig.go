@@ -22,8 +22,9 @@ type IdentityProviderConfig struct {
 	// The ARN of the configuration.
 	IdentityProviderConfigArn pulumi.StringOutput `pulumi:"identityProviderConfigArn"`
 	// The name of the OIDC provider configuration.
-	IdentityProviderConfigName pulumi.StringPtrOutput                                    `pulumi:"identityProviderConfigName"`
-	Oidc                       IdentityProviderConfigOidcIdentityProviderConfigPtrOutput `pulumi:"oidc"`
+	IdentityProviderConfigName pulumi.StringPtrOutput `pulumi:"identityProviderConfigName"`
+	// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+	Oidc IdentityProviderConfigOidcIdentityProviderConfigPtrOutput `pulumi:"oidc"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the identity provider configuration.
@@ -86,8 +87,9 @@ type identityProviderConfigArgs struct {
 	// The name of the identity provider configuration.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the OIDC provider configuration.
-	IdentityProviderConfigName *string                                           `pulumi:"identityProviderConfigName"`
-	Oidc                       *IdentityProviderConfigOidcIdentityProviderConfig `pulumi:"oidc"`
+	IdentityProviderConfigName *string `pulumi:"identityProviderConfigName"`
+	// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+	Oidc *IdentityProviderConfigOidcIdentityProviderConfig `pulumi:"oidc"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the identity provider configuration.
@@ -100,7 +102,8 @@ type IdentityProviderConfigArgs struct {
 	ClusterName pulumi.StringInput
 	// The name of the OIDC provider configuration.
 	IdentityProviderConfigName pulumi.StringPtrInput
-	Oidc                       IdentityProviderConfigOidcIdentityProviderConfigPtrInput
+	// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+	Oidc IdentityProviderConfigOidcIdentityProviderConfigPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The type of the identity provider configuration.
@@ -159,6 +162,7 @@ func (o IdentityProviderConfigOutput) IdentityProviderConfigName() pulumi.String
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringPtrOutput { return v.IdentityProviderConfigName }).(pulumi.StringPtrOutput)
 }
 
+// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
 func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
 		return v.Oidc

@@ -16,13 +16,23 @@ import (
 type ThingGroup struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput    `pulumi:"arn"`
-	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
+	// The thing group ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The thing group ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The parent thing group name.
+	//
+	// A Dynamic Thing Group does not have `parentGroupName` defined.
 	ParentGroupName pulumi.StringPtrOutput `pulumi:"parentGroupName"`
-	QueryString     pulumi.StringPtrOutput `pulumi:"queryString"`
+	// The dynamic thing group search query string.
+	//
+	// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+	QueryString pulumi.StringPtrOutput `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                 aws.TagArrayOutput                      `pulumi:"tags"`
-	ThingGroupName       pulumi.StringPtrOutput                  `pulumi:"thingGroupName"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The thing group name.
+	ThingGroupName pulumi.StringPtrOutput `pulumi:"thingGroupName"`
+	// Thing group properties.
 	ThingGroupProperties ThingGroupPropertiesPropertiesPtrOutput `pulumi:"thingGroupProperties"`
 }
 
@@ -71,21 +81,37 @@ func (ThingGroupState) ElementType() reflect.Type {
 }
 
 type thingGroupArgs struct {
+	// The parent thing group name.
+	//
+	// A Dynamic Thing Group does not have `parentGroupName` defined.
 	ParentGroupName *string `pulumi:"parentGroupName"`
-	QueryString     *string `pulumi:"queryString"`
+	// The dynamic thing group search query string.
+	//
+	// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+	QueryString *string `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                 []aws.Tag                       `pulumi:"tags"`
-	ThingGroupName       *string                         `pulumi:"thingGroupName"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The thing group name.
+	ThingGroupName *string `pulumi:"thingGroupName"`
+	// Thing group properties.
 	ThingGroupProperties *ThingGroupPropertiesProperties `pulumi:"thingGroupProperties"`
 }
 
 // The set of arguments for constructing a ThingGroup resource.
 type ThingGroupArgs struct {
+	// The parent thing group name.
+	//
+	// A Dynamic Thing Group does not have `parentGroupName` defined.
 	ParentGroupName pulumi.StringPtrInput
-	QueryString     pulumi.StringPtrInput
+	// The dynamic thing group search query string.
+	//
+	// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+	QueryString pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                 aws.TagArrayInput
-	ThingGroupName       pulumi.StringPtrInput
+	Tags aws.TagArrayInput
+	// The thing group name.
+	ThingGroupName pulumi.StringPtrInput
+	// Thing group properties.
 	ThingGroupProperties ThingGroupPropertiesPropertiesPtrInput
 }
 
@@ -126,18 +152,26 @@ func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) Thi
 	return o
 }
 
+// The thing group ARN.
 func (o ThingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The thing group ID.
 func (o ThingGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The parent thing group name.
+//
+// A Dynamic Thing Group does not have `parentGroupName` defined.
 func (o ThingGroupOutput) ParentGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringPtrOutput { return v.ParentGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The dynamic thing group search query string.
+//
+// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
 func (o ThingGroupOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringPtrOutput { return v.QueryString }).(pulumi.StringPtrOutput)
 }
@@ -147,10 +181,12 @@ func (o ThingGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ThingGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The thing group name.
 func (o ThingGroupOutput) ThingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringPtrOutput { return v.ThingGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Thing group properties.
 func (o ThingGroupOutput) ThingGroupProperties() ThingGroupPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) ThingGroupPropertiesPropertiesPtrOutput { return v.ThingGroupProperties }).(ThingGroupPropertiesPropertiesPtrOutput)
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetApiResult
     {
+        /// <summary>
+        /// The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
+        /// </summary>
         public readonly string? ApiEndpoint;
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         public readonly string? ApiId;
         /// <summary>
         /// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).

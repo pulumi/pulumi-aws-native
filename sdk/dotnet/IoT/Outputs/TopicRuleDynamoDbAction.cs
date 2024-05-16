@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleDynamoDbAction
     {
+        /// <summary>
+        /// The hash key name.
+        /// </summary>
         public readonly string HashKeyField;
+        /// <summary>
+        /// The hash key type. Valid values are "STRING" or "NUMBER"
+        /// </summary>
         public readonly string? HashKeyType;
+        /// <summary>
+        /// The hash key value.
+        /// </summary>
         public readonly string HashKeyValue;
+        /// <summary>
+        /// The action payload. This name can be customized.
+        /// </summary>
         public readonly string? PayloadField;
+        /// <summary>
+        /// The range key name.
+        /// </summary>
         public readonly string? RangeKeyField;
+        /// <summary>
+        /// The range key type. Valid values are "STRING" or "NUMBER"
+        /// </summary>
         public readonly string? RangeKeyType;
+        /// <summary>
+        /// The range key value.
+        /// </summary>
         public readonly string? RangeKeyValue;
+        /// <summary>
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The name of the DynamoDB table.
+        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

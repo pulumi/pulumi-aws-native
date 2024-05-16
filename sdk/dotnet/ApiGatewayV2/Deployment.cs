@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment ID.
+        /// </summary>
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
 

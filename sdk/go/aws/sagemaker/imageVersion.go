@@ -16,13 +16,28 @@ import (
 type ImageVersion struct {
 	pulumi.CustomResourceState
 
-	Alias           pulumi.StringPtrOutput              `pulumi:"alias"`
-	Aliases         pulumi.StringArrayOutput            `pulumi:"aliases"`
-	BaseImage       pulumi.StringOutput                 `pulumi:"baseImage"`
-	ContainerImage  pulumi.StringOutput                 `pulumi:"containerImage"`
-	Horovod         pulumi.BoolPtrOutput                `pulumi:"horovod"`
-	ImageArn        pulumi.StringOutput                 `pulumi:"imageArn"`
-	ImageName       pulumi.StringOutput                 `pulumi:"imageName"`
+	Alias   pulumi.StringPtrOutput   `pulumi:"alias"`
+	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
+	// The container image that the SageMaker image version is based on.
+	BaseImage pulumi.StringOutput `pulumi:"baseImage"`
+	// The URI of the container image version referenced by ImageVersion.
+	ContainerImage pulumi.StringOutput  `pulumi:"containerImage"`
+	Horovod        pulumi.BoolPtrOutput `pulumi:"horovod"`
+	// The Amazon Resource Name (ARN) of the parent Image.
+	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
+	// The name of the parent image.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+	//
+	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+	ImageName pulumi.StringOutput `pulumi:"imageName"`
+	// The Amazon Resource Name (ARN) of the image version.
+	//
+	// *Type* : String
+	//
+	// *Length Constraints* : Maximum length of 256.
+	//
+	// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
 	ImageVersionArn pulumi.StringOutput                 `pulumi:"imageVersionArn"`
 	JobType         ImageVersionJobTypePtrOutput        `pulumi:"jobType"`
 	MlFramework     pulumi.StringPtrOutput              `pulumi:"mlFramework"`
@@ -30,7 +45,8 @@ type ImageVersion struct {
 	ProgrammingLang pulumi.StringPtrOutput              `pulumi:"programmingLang"`
 	ReleaseNotes    pulumi.StringPtrOutput              `pulumi:"releaseNotes"`
 	VendorGuidance  ImageVersionVendorGuidancePtrOutput `pulumi:"vendorGuidance"`
-	Version         pulumi.IntOutput                    `pulumi:"version"`
+	// The version of the image.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewImageVersion registers a new resource with the given unique name, arguments, and options.
@@ -84,10 +100,16 @@ func (ImageVersionState) ElementType() reflect.Type {
 }
 
 type imageVersionArgs struct {
-	Alias           *string                     `pulumi:"alias"`
-	Aliases         []string                    `pulumi:"aliases"`
-	BaseImage       string                      `pulumi:"baseImage"`
-	Horovod         *bool                       `pulumi:"horovod"`
+	Alias   *string  `pulumi:"alias"`
+	Aliases []string `pulumi:"aliases"`
+	// The container image that the SageMaker image version is based on.
+	BaseImage string `pulumi:"baseImage"`
+	Horovod   *bool  `pulumi:"horovod"`
+	// The name of the parent image.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+	//
+	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
 	ImageName       string                      `pulumi:"imageName"`
 	JobType         *ImageVersionJobType        `pulumi:"jobType"`
 	MlFramework     *string                     `pulumi:"mlFramework"`
@@ -99,10 +121,16 @@ type imageVersionArgs struct {
 
 // The set of arguments for constructing a ImageVersion resource.
 type ImageVersionArgs struct {
-	Alias           pulumi.StringPtrInput
-	Aliases         pulumi.StringArrayInput
-	BaseImage       pulumi.StringInput
-	Horovod         pulumi.BoolPtrInput
+	Alias   pulumi.StringPtrInput
+	Aliases pulumi.StringArrayInput
+	// The container image that the SageMaker image version is based on.
+	BaseImage pulumi.StringInput
+	Horovod   pulumi.BoolPtrInput
+	// The name of the parent image.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+	//
+	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
 	ImageName       pulumi.StringInput
 	JobType         ImageVersionJobTypePtrInput
 	MlFramework     pulumi.StringPtrInput
@@ -157,10 +185,12 @@ func (o ImageVersionOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
+// The container image that the SageMaker image version is based on.
 func (o ImageVersionOutput) BaseImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.BaseImage }).(pulumi.StringOutput)
 }
 
+// The URI of the container image version referenced by ImageVersion.
 func (o ImageVersionOutput) ContainerImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ContainerImage }).(pulumi.StringOutput)
 }
@@ -169,14 +199,27 @@ func (o ImageVersionOutput) Horovod() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.BoolPtrOutput { return v.Horovod }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the parent Image.
 func (o ImageVersionOutput) ImageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
 }
 
+// The name of the parent image.
+//
+// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+//
+// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
 func (o ImageVersionOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the image version.
+//
+// *Type* : String
+//
+// *Length Constraints* : Maximum length of 256.
+//
+// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
 func (o ImageVersionOutput) ImageVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageVersionArn }).(pulumi.StringOutput)
 }
@@ -205,6 +248,7 @@ func (o ImageVersionOutput) VendorGuidance() ImageVersionVendorGuidancePtrOutput
 	return o.ApplyT(func(v *ImageVersion) ImageVersionVendorGuidancePtrOutput { return v.VendorGuidance }).(ImageVersionVendorGuidancePtrOutput)
 }
 
+// The version of the image.
 func (o ImageVersionOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

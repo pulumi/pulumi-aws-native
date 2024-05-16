@@ -53,18 +53,34 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:IdentitySource")]
     public partial class IdentitySource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A structure that contains configuration information used when creating or updating a new identity source.
+        /// 
+        /// &gt; At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
+        /// &gt; 
+        /// &gt; You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.IdentitySourceConfiguration> Configuration { get; private set; } = null!;
 
         [Output("details")]
         public Output<Outputs.IdentitySourceDetails> Details { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new or updated identity store.
+        /// </summary>
         [Output("identitySourceId")]
         public Output<string> IdentitySourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// </summary>
         [Output("principalEntityType")]
         public Output<string?> PrincipalEntityType { get; private set; } = null!;
 
@@ -117,12 +133,25 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class IdentitySourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that contains configuration information used when creating or updating a new identity source.
+        /// 
+        /// &gt; At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
+        /// &gt; 
+        /// &gt; You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.IdentitySourceConfigurationArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// </summary>
         [Input("principalEntityType")]
         public Input<string>? PrincipalEntityType { get; set; }
 

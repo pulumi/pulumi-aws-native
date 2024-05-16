@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///          &lt;/note&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetInputColumn> InputColumns;
+        /// <summary>
+        /// Information about the format for a source file or files.
+        /// </summary>
         public readonly Outputs.DataSetUploadSettings? UploadSettings;
 
         [OutputConstructor]

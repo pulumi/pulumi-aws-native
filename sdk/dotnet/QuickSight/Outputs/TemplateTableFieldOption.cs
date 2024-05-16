@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableFieldOption
     {
+        /// <summary>
+        /// The custom label for a table field.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The field ID for a table field.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The URL configuration for a table field.
+        /// </summary>
         public readonly Outputs.TemplateTableFieldUrlConfiguration? UrlStyling;
+        /// <summary>
+        /// The visibility of a table field.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px

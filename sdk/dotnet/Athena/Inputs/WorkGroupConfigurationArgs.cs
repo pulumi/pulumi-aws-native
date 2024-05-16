@@ -12,30 +12,59 @@ namespace Pulumi.AwsNative.Athena.Inputs
 
     public sealed class WorkGroupConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a user defined JSON string that is passed to the session engine.
+        /// </summary>
         [Input("additionalConfiguration")]
         public Input<string>? AdditionalConfiguration { get; set; }
 
+        /// <summary>
+        /// The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. No default is defined.
+        /// 
+        /// &gt; This property currently supports integer types. Support for long values is planned.
+        /// </summary>
         [Input("bytesScannedCutoffPerQuery")]
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
+        /// <summary>
+        /// Specifies the customer managed KMS key that is used to encrypt the user's data stores in Athena. When an AWS managed key is used, this value is null. This setting does not apply to Athena SQL workgroups.
+        /// </summary>
         [Input("customerContentEncryptionConfiguration")]
         public Input<Inputs.WorkGroupCustomerContentEncryptionConfigurationArgs>? CustomerContentEncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// </summary>
         [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
+        /// <summary>
+        /// The Athena engine version for running queries, or the PySpark engine version for running sessions.
+        /// </summary>
         [Input("engineVersion")]
         public Input<Inputs.WorkGroupEngineVersionArgs>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
+        /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
+        /// <summary>
+        /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+        /// </summary>
         [Input("publishCloudWatchMetricsEnabled")]
         public Input<bool>? PublishCloudWatchMetricsEnabled { get; set; }
 
+        /// <summary>
+        /// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
+        /// </summary>
         [Input("requesterPaysEnabled")]
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
+        /// <summary>
+        /// The location in Amazon S3 where query and calculation results are stored and the encryption option, if any, used for query and calculation results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
+        /// </summary>
         [Input("resultConfiguration")]
         public Input<Inputs.WorkGroupResultConfigurationArgs>? ResultConfiguration { get; set; }
 

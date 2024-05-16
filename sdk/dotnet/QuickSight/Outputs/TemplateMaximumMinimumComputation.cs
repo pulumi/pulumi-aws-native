@@ -13,10 +13,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateMaximumMinimumComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.TemplateDimensionField? Time;
+        /// <summary>
+        /// The type of computation. Choose one of the following options:
+        /// 
+        /// - MAXIMUM: A maximum computation.
+        /// - MINIMUM: A minimum computation.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateMaximumMinimumComputationType Type;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.TemplateMeasureField? Value;
 
         [OutputConstructor]

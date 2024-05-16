@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormValueMapping
     {
+        /// <summary>
+        /// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.FormInputValueProperty? DisplayValue;
+        /// <summary>
+        /// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        /// </summary>
         public readonly Outputs.FormInputValueProperty Value;
 
         [OutputConstructor]

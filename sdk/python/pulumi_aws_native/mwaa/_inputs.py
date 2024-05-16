@@ -26,6 +26,11 @@ class EnvironmentLoggingConfigurationArgs:
                  worker_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None):
         """
         Logging configuration for the environment.
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] dag_processing_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] scheduler_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] task_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] webserver_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] worker_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
         """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
@@ -41,6 +46,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+        """
+        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        """
         return pulumi.get(self, "dag_processing_logs")
 
     @dag_processing_logs.setter
@@ -50,6 +58,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="schedulerLogs")
     def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+        """
+        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        """
         return pulumi.get(self, "scheduler_logs")
 
     @scheduler_logs.setter
@@ -59,6 +70,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="taskLogs")
     def task_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+        """
+        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        """
         return pulumi.get(self, "task_logs")
 
     @task_logs.setter
@@ -68,6 +82,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="webserverLogs")
     def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+        """
+        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        """
         return pulumi.get(self, "webserver_logs")
 
     @webserver_logs.setter
@@ -77,6 +94,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="workerLogs")
     def worker_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+        """
+        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        """
         return pulumi.get(self, "worker_logs")
 
     @worker_logs.setter
@@ -92,6 +112,11 @@ class EnvironmentModuleLoggingConfigurationArgs:
                  log_level: Optional[pulumi.Input['EnvironmentLoggingLevel']] = None):
         """
         Logging configuration for a specific airflow component.
+        :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+               
+               > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
+        :param pulumi.Input[bool] enabled: Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
+        :param pulumi.Input['EnvironmentLoggingLevel'] log_level: Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
         """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
@@ -103,6 +128,11 @@ class EnvironmentModuleLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+
+        > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
+        """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @cloud_watch_log_group_arn.setter
@@ -112,6 +142,9 @@ class EnvironmentModuleLoggingConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -121,6 +154,9 @@ class EnvironmentModuleLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input['EnvironmentLoggingLevel']]:
+        """
+        Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter

@@ -24,19 +24,49 @@ export interface GetClusterArgs {
 
 export interface GetClusterResult {
     readonly arn?: string;
+    /**
+     * Describes the setup to be used for the broker nodes in the cluster.
+     */
     readonly brokerNodeGroupInfo?: outputs.msk.ClusterBrokerNodeGroupInfo;
+    /**
+     * Includes all client authentication information.
+     */
     readonly clientAuthentication?: outputs.msk.ClusterClientAuthentication;
+    /**
+     * Specifies the configuration to use for the brokers.
+     */
     readonly configurationInfo?: outputs.msk.ClusterConfigurationInfo;
     /**
      * The current version of the MSK cluster
      */
     readonly currentVersion?: string;
+    /**
+     * Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+     */
     readonly encryptionInfo?: outputs.msk.ClusterEncryptionInfo;
+    /**
+     * Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+     */
     readonly enhancedMonitoring?: enums.msk.ClusterEnhancedMonitoring;
+    /**
+     * The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
+     */
     readonly kafkaVersion?: string;
+    /**
+     * You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+     */
     readonly loggingInfo?: outputs.msk.ClusterLoggingInfo;
+    /**
+     * The number of broker nodes in the cluster.
+     */
     readonly numberOfBrokerNodes?: number;
+    /**
+     * JMX and Node monitoring for the MSK cluster.
+     */
     readonly openMonitoring?: outputs.msk.ClusterOpenMonitoring;
+    /**
+     * This controls storage mode for supported storage tiers.
+     */
     readonly storageMode?: enums.msk.ClusterStorageMode;
     /**
      * A key-value pair to associate with a resource.

@@ -13,7 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCustomActionUrlOperation
     {
+        /// <summary>
+        /// The target of the `CustomActionURLOperation` .
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `NEW_TAB` : Opens the target URL in a new browser tab.
+        /// - `NEW_WINDOW` : Opens the target URL in a new browser window.
+        /// - `SAME_TAB` : Opens the target URL in the same browser tab.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisUrlTargetConfiguration UrlTarget;
+        /// <summary>
+        /// THe URL link of the `CustomActionURLOperation` .
+        /// </summary>
         public readonly string UrlTemplate;
 
         [OutputConstructor]

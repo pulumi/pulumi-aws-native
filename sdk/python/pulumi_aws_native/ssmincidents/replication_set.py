@@ -24,6 +24,7 @@ class ReplicationSetArgs:
         """
         The set of arguments for constructing a ReplicationSet resource.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]] regions: The ReplicationSet configuration.
+        :param pulumi.Input[bool] deletion_protected: Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the replication set.
         """
         pulumi.set(__self__, "regions", regions)
@@ -47,6 +48,9 @@ class ReplicationSetArgs:
     @property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+        """
         return pulumi.get(self, "deletion_protected")
 
     @deletion_protected.setter
@@ -80,6 +84,7 @@ class ReplicationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] deletion_protected: Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]] regions: The ReplicationSet configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply to the replication set.
         """
@@ -164,6 +169,9 @@ class ReplicationSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+        """
         return pulumi.get(self, "deletion_protected")
 
     @property

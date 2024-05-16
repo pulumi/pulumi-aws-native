@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class FeatureGroupDataCatalogConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Glue table catalog.
+        /// </summary>
         [Input("catalog", required: true)]
         public Input<string> Catalog { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Glue table database.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Glue table.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

@@ -24,17 +24,25 @@ func LookupProvisioningTemplate(ctx *pulumi.Context, args *LookupProvisioningTem
 }
 
 type LookupProvisioningTemplateArgs struct {
+	// The name of the fleet provisioning template.
 	TemplateName string `pulumi:"templateName"`
 }
 
 type LookupProvisioningTemplateResult struct {
-	Description         *string                               `pulumi:"description"`
-	Enabled             *bool                                 `pulumi:"enabled"`
+	// The description of the fleet provisioning template.
+	Description *string `pulumi:"description"`
+	// True to enable the fleet provisioning template, otherwise false.
+	Enabled *bool `pulumi:"enabled"`
+	// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
 	PreProvisioningHook *ProvisioningTemplateProvisioningHook `pulumi:"preProvisioningHook"`
-	ProvisioningRoleArn *string                               `pulumi:"provisioningRoleArn"`
-	Tags                []aws.Tag                             `pulumi:"tags"`
-	TemplateArn         *string                               `pulumi:"templateArn"`
-	TemplateBody        *string                               `pulumi:"templateBody"`
+	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN that identifies the provisioning template.
+	TemplateArn *string `pulumi:"templateArn"`
+	// The JSON formatted contents of the fleet provisioning template version.
+	TemplateBody *string `pulumi:"templateBody"`
 }
 
 func LookupProvisioningTemplateOutput(ctx *pulumi.Context, args LookupProvisioningTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupProvisioningTemplateResultOutput {
@@ -51,6 +59,7 @@ func LookupProvisioningTemplateOutput(ctx *pulumi.Context, args LookupProvisioni
 }
 
 type LookupProvisioningTemplateOutputArgs struct {
+	// The name of the fleet provisioning template.
 	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
@@ -72,32 +81,39 @@ func (o LookupProvisioningTemplateResultOutput) ToLookupProvisioningTemplateResu
 	return o
 }
 
+// The description of the fleet provisioning template.
 func (o LookupProvisioningTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// True to enable the fleet provisioning template, otherwise false.
 func (o LookupProvisioningTemplateResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
 func (o LookupProvisioningTemplateResultOutput) PreProvisioningHook() ProvisioningTemplateProvisioningHookPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *ProvisioningTemplateProvisioningHook {
 		return v.PreProvisioningHook
 	}).(ProvisioningTemplateProvisioningHookPtrOutput)
 }
 
+// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 func (o LookupProvisioningTemplateResultOutput) ProvisioningRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *string { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// A set of key/value pairs that are used to manage the resource.
 func (o LookupProvisioningTemplateResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN that identifies the provisioning template.
 func (o LookupProvisioningTemplateResultOutput) TemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *string { return v.TemplateArn }).(pulumi.StringPtrOutput)
 }
 
+// The JSON formatted contents of the fleet provisioning template version.
 func (o LookupProvisioningTemplateResultOutput) TemplateBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }

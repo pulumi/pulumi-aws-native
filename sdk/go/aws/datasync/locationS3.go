@@ -84,8 +84,11 @@ type LocationS3 struct {
 	// The URL of the S3 location that was described.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-	S3BucketArn pulumi.StringPtrOutput   `pulumi:"s3BucketArn"`
-	S3Config    LocationS3s3ConfigOutput `pulumi:"s3Config"`
+	S3BucketArn pulumi.StringPtrOutput `pulumi:"s3BucketArn"`
+	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+	//
+	// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+	S3Config LocationS3s3ConfigOutput `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass LocationS3S3StorageClassPtrOutput `pulumi:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
@@ -145,8 +148,11 @@ func (LocationS3State) ElementType() reflect.Type {
 
 type locationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-	S3BucketArn *string            `pulumi:"s3BucketArn"`
-	S3Config    LocationS3s3Config `pulumi:"s3Config"`
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+	//
+	// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+	S3Config LocationS3s3Config `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass *LocationS3S3StorageClass `pulumi:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
@@ -159,7 +165,10 @@ type locationS3Args struct {
 type LocationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	S3BucketArn pulumi.StringPtrInput
-	S3Config    LocationS3s3ConfigInput
+	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+	//
+	// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+	S3Config LocationS3s3ConfigInput
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass LocationS3S3StorageClassPtrInput
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
@@ -220,6 +229,9 @@ func (o LocationS3Output) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationS3) pulumi.StringPtrOutput { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+//
+// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
 func (o LocationS3Output) S3Config() LocationS3s3ConfigOutput {
 	return o.ApplyT(func(v *LocationS3) LocationS3s3ConfigOutput { return v.S3Config }).(LocationS3s3ConfigOutput)
 }

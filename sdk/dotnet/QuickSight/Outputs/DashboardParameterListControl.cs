@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardParameterListControl
     {
+        /// <summary>
+        /// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+        /// </summary>
         public readonly Outputs.DashboardCascadingControlConfiguration? CascadingControlConfiguration;
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.DashboardListControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `ParameterListControl` .
+        /// </summary>
         public readonly string ParameterControlId;
+        /// <summary>
+        /// A list of selectable values that are used in a control.
+        /// </summary>
         public readonly Outputs.DashboardParameterSelectableValues? SelectableValues;
+        /// <summary>
+        /// The source parameter name of the `ParameterListControl` .
+        /// </summary>
         public readonly string SourceParameterName;
+        /// <summary>
+        /// The title of the `ParameterListControl` .
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// The type of `ParameterListControl` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSheetControlListType? Type;
 
         [OutputConstructor]

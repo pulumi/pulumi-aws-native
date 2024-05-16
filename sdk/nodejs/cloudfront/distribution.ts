@@ -37,11 +37,17 @@ export class Distribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Distribution.__pulumiType;
     }
 
+    /**
+     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The distribution's configuration.
      */
     public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionConfig>;
+    /**
+     * The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+     */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.

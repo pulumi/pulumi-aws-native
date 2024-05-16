@@ -31,6 +31,7 @@ type LookupRepositoryArgs struct {
 }
 
 type LookupRepositoryResult struct {
+	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
 	Arn *string `pulumi:"arn"`
 	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
@@ -42,7 +43,8 @@ type LookupRepositoryResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
-	RepositoryUri        *string     `pulumi:"repositoryUri"`
+	// Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+	RepositoryUri *string `pulumi:"repositoryUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -85,6 +87,7 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
 func (o LookupRepositoryResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -113,6 +116,7 @@ func (o LookupRepositoryResultOutput) RepositoryPolicyText() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) interface{} { return v.RepositoryPolicyText }).(pulumi.AnyOutput)
 }
 
+// Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
 func (o LookupRepositoryResultOutput) RepositoryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.RepositoryUri }).(pulumi.StringPtrOutput)
 }

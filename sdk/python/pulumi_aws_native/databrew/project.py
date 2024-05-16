@@ -32,6 +32,7 @@ class ProjectArgs:
         :param pulumi.Input[str] role_arn: Role arn
         :param pulumi.Input[str] name: Project name
         :param pulumi.Input['ProjectSampleArgs'] sample: Sample
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the project.
         """
         pulumi.set(__self__, "dataset_name", dataset_name)
         pulumi.set(__self__, "recipe_name", recipe_name)
@@ -106,6 +107,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Metadata tags that have been applied to the project.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,6 +179,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] recipe_name: Recipe name
         :param pulumi.Input[str] role_arn: Role arn
         :param pulumi.Input[pulumi.InputType['ProjectSampleArgs']] sample: Sample
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the project.
         """
         ...
     @overload
@@ -342,5 +347,8 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Metadata tags that have been applied to the project.
+        """
         return pulumi.get(self, "tags")
 

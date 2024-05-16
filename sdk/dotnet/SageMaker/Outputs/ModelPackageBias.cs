@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageBias
     {
+        /// <summary>
+        /// Details about the metrics source.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? PostTrainingReport;
+        /// <summary>
+        /// Details about the metrics source.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? PreTrainingReport;
+        /// <summary>
+        /// Details about the metrics source.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Report;
 
         [OutputConstructor]

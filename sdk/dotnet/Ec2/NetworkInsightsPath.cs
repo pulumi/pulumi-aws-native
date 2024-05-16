@@ -15,45 +15,87 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsPath")]
     public partial class NetworkInsightsPath : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time stamp when the path was created.
+        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+        /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the destination.
+        /// </summary>
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address of the destination.
+        /// </summary>
         [Output("destinationIp")]
         public Output<string?> DestinationIp { get; private set; } = null!;
 
+        /// <summary>
+        /// The destination port.
+        /// </summary>
         [Output("destinationPort")]
         public Output<int?> DestinationPort { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// </summary>
         [Output("filterAtDestination")]
         public Output<Outputs.NetworkInsightsPathPathFilter?> FilterAtDestination { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// </summary>
         [Output("filterAtSource")]
         public Output<Outputs.NetworkInsightsPathPathFilter?> FilterAtSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the path.
+        /// </summary>
         [Output("networkInsightsPathArn")]
         public Output<string> NetworkInsightsPathArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         [Output("networkInsightsPathId")]
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
 
+        /// <summary>
+        /// The protocol.
+        /// </summary>
         [Output("protocol")]
         public Output<Pulumi.AwsNative.Ec2.NetworkInsightsPathProtocol> Protocol { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+        /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the source.
+        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address of the source.
+        /// </summary>
         [Output("sourceIp")]
         public Output<string?> SourceIp { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -113,32 +155,60 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class NetworkInsightsPathArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
+        /// <summary>
+        /// The IP address of the destination.
+        /// </summary>
         [Input("destinationIp")]
         public Input<string>? DestinationIp { get; set; }
 
+        /// <summary>
+        /// The destination port.
+        /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
+        /// <summary>
+        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// </summary>
         [Input("filterAtDestination")]
         public Input<Inputs.NetworkInsightsPathPathFilterArgs>? FilterAtDestination { get; set; }
 
+        /// <summary>
+        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// </summary>
         [Input("filterAtSource")]
         public Input<Inputs.NetworkInsightsPathPathFilterArgs>? FilterAtSource { get; set; }
 
+        /// <summary>
+        /// The protocol.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<Pulumi.AwsNative.Ec2.NetworkInsightsPathProtocol> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
+        /// <summary>
+        /// The IP address of the source.
+        /// </summary>
         [Input("sourceIp")]
         public Input<string>? SourceIp { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

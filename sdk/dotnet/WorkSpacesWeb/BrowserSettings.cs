@@ -15,21 +15,41 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:BrowserSettings")]
     public partial class BrowserSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional encryption context of the browser settings.
+        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of web portal ARNs that the browser settings resource is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+        /// </summary>
         [Output("browserPolicy")]
         public Output<string?> BrowserPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the browser settings.
+        /// </summary>
         [Output("browserSettingsArn")]
         public Output<string> BrowserSettingsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom managed key of the browser settings.
+        /// 
+        /// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -85,20 +105,36 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
+
+        /// <summary>
+        /// Additional encryption context of the browser settings.
+        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
+        /// <summary>
+        /// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+        /// </summary>
         [Input("browserPolicy")]
         public Input<string>? BrowserPolicy { get; set; }
 
+        /// <summary>
+        /// The custom managed key of the browser settings.
+        /// 
+        /// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tag.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

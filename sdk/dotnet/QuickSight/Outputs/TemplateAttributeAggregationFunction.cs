@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAttributeAggregationFunction
     {
+        /// <summary>
+        /// The built-in aggregation functions for attributes.
+        /// 
+        /// - `UNIQUE_VALUE` : Returns the unique value for a field, aggregated by the dimension fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSimpleAttributeAggregationFunction? SimpleAttributeAggregation;
+        /// <summary>
+        /// Used by the `UNIQUE_VALUE` aggregation function. If there are multiple values for the field used by the aggregation, the value for this property will be returned instead. Defaults to '*'.
+        /// </summary>
         public readonly string? ValueForMultipleValues;
 
         [OutputConstructor]

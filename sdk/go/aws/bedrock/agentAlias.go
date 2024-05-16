@@ -23,7 +23,14 @@ type AgentAlias struct {
 	// Id for an Agent Alias generated at the server side.
 	AgentAliasId pulumi.StringOutput `pulumi:"agentAliasId"`
 	// Name for a resource.
-	AgentAliasName   pulumi.StringOutput    `pulumi:"agentAliasName"`
+	AgentAliasName pulumi.StringOutput `pulumi:"agentAliasName"`
+	// The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+	//
+	// - CREATING – The agent alias is being created.
+	// - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+	// - FAILED – The agent alias API operation failed.
+	// - UPDATING – The agent alias is being updated.
+	// - DELETING – The agent alias is being deleted.
 	AgentAliasStatus AgentAliasStatusOutput `pulumi:"agentAliasStatus"`
 	// Identifier for a resource.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
@@ -33,7 +40,11 @@ type AgentAlias struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Routing configuration for an Agent alias.
 	RoutingConfiguration AgentAliasRoutingConfigurationListItemArrayOutput `pulumi:"routingConfiguration"`
-	Tags                 pulumi.StringMapOutput                            `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -93,7 +104,11 @@ type agentAliasArgs struct {
 	Description *string `pulumi:"description"`
 	// Routing configuration for an Agent alias.
 	RoutingConfiguration []AgentAliasRoutingConfigurationListItem `pulumi:"routingConfiguration"`
-	Tags                 map[string]string                        `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AgentAlias resource.
@@ -106,7 +121,11 @@ type AgentAliasArgs struct {
 	Description pulumi.StringPtrInput
 	// Routing configuration for an Agent alias.
 	RoutingConfiguration AgentAliasRoutingConfigurationListItemArrayInput
-	Tags                 pulumi.StringMapInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapInput
 }
 
 func (AgentAliasArgs) ElementType() reflect.Type {
@@ -166,6 +185,13 @@ func (o AgentAliasOutput) AgentAliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAlias) pulumi.StringOutput { return v.AgentAliasName }).(pulumi.StringOutput)
 }
 
+// The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+//
+// - CREATING – The agent alias is being created.
+// - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+// - FAILED – The agent alias API operation failed.
+// - UPDATING – The agent alias is being updated.
+// - DELETING – The agent alias is being deleted.
 func (o AgentAliasOutput) AgentAliasStatus() AgentAliasStatusOutput {
 	return o.ApplyT(func(v *AgentAlias) AgentAliasStatusOutput { return v.AgentAliasStatus }).(AgentAliasStatusOutput)
 }
@@ -190,6 +216,10 @@ func (o AgentAliasOutput) RoutingConfiguration() AgentAliasRoutingConfigurationL
 	return o.ApplyT(func(v *AgentAlias) AgentAliasRoutingConfigurationListItemArrayOutput { return v.RoutingConfiguration }).(AgentAliasRoutingConfigurationListItemArrayOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o AgentAliasOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAlias) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

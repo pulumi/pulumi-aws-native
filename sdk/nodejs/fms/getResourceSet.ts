@@ -19,15 +19,33 @@ export function getResourceSet(args: GetResourceSetArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetResourceSetArgs {
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     id: string;
 }
 
 export interface GetResourceSetResult {
+    /**
+     * A description of the resource set.
+     */
     readonly description?: string;
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     readonly id?: string;
+    /**
+     * The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+     */
     readonly name?: string;
+    /**
+     * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     */
     readonly resourceTypeList?: string[];
     readonly resources?: string[];
+    /**
+     * A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +56,8 @@ export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulu
 }
 
 export interface GetResourceSetOutputArgs {
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     id: pulumi.Input<string>;
 }

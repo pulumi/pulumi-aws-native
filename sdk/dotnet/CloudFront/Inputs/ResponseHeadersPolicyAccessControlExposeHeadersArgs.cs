@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("items", required: true)]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// The list of HTTP headers. You can specify `*` to expose all headers.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());

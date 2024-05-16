@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCustomColor
     {
+        /// <summary>
+        /// The color that is applied to the data value.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// The data value that the color is applied to.
+        /// </summary>
         public readonly string? FieldValue;
+        /// <summary>
+        /// The value of a special data value.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSpecialValue? SpecialValue;
 
         [OutputConstructor]

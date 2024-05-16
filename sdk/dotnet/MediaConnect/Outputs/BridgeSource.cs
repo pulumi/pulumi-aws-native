@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     [OutputType]
     public sealed class BridgeSource
     {
+        /// <summary>
+        /// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        /// </summary>
         public readonly Outputs.BridgeFlowSource? FlowSource;
+        /// <summary>
+        /// The source of the bridge. A network source originates at your premises.
+        /// </summary>
         public readonly Outputs.BridgeNetworkSource? NetworkSource;
 
         [OutputConstructor]

@@ -14,29 +14,49 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.DashboardVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.DashboardVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.DashboardVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The configuration of a `GeospatialMapVisual` .
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.DashboardGeospatialMapConfigurationArgs>? ChartConfiguration { get; set; }
 
         [Input("columnHierarchies")]
         private InputList<Inputs.DashboardColumnHierarchyArgs>? _columnHierarchies;
+
+        /// <summary>
+        /// The column hierarchy that is used during drill-downs and drill-ups.
+        /// </summary>
         public InputList<Inputs.DashboardColumnHierarchyArgs> ColumnHierarchies
         {
             get => _columnHierarchies ?? (_columnHierarchies = new InputList<Inputs.DashboardColumnHierarchyArgs>());
             set => _columnHierarchies = value;
         }
 
+        /// <summary>
+        /// The subtitle label options for a visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.DashboardVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title label options for a visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.DashboardVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

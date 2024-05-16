@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAxisLinearScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The step count setup of a linear axis.
+        /// </summary>
         [Input("stepCount")]
         public Input<double>? StepCount { get; set; }
 
+        /// <summary>
+        /// The step size setup of a linear axis.
+        /// </summary>
         [Input("stepSize")]
         public Input<double>? StepSize { get; set; }
 

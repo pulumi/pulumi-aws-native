@@ -23,6 +23,11 @@ class FunctionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Function resource.
+        :param pulumi.Input[str] function_code: The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        :param pulumi.Input['FunctionConfigArgs'] function_config: Contains configuration information about a CloudFront function.
+        :param pulumi.Input[bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        :param pulumi.Input['FunctionMetadataArgs'] function_metadata: Contains metadata about a CloudFront function.
+        :param pulumi.Input[str] name: A name to identify the function.
         """
         pulumi.set(__self__, "function_code", function_code)
         pulumi.set(__self__, "function_config", function_config)
@@ -36,6 +41,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionCode")
     def function_code(self) -> pulumi.Input[str]:
+        """
+        The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "function_code")
 
     @function_code.setter
@@ -45,6 +53,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionConfig")
     def function_config(self) -> pulumi.Input['FunctionConfigArgs']:
+        """
+        Contains configuration information about a CloudFront function.
+        """
         return pulumi.get(self, "function_config")
 
     @function_config.setter
@@ -54,6 +65,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="autoPublish")
     def auto_publish(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        """
         return pulumi.get(self, "auto_publish")
 
     @auto_publish.setter
@@ -63,6 +77,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionMetadata")
     def function_metadata(self) -> Optional[pulumi.Input['FunctionMetadataArgs']]:
+        """
+        Contains metadata about a CloudFront function.
+        """
         return pulumi.get(self, "function_metadata")
 
     @function_metadata.setter
@@ -72,6 +89,9 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name to identify the function.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -95,6 +115,11 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        :param pulumi.Input[str] function_code: The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        :param pulumi.Input[pulumi.InputType['FunctionConfigArgs']] function_config: Contains configuration information about a CloudFront function.
+        :param pulumi.Input[pulumi.InputType['FunctionMetadataArgs']] function_metadata: Contains metadata about a CloudFront function.
+        :param pulumi.Input[str] name: A name to identify the function.
         """
         ...
     @overload
@@ -179,31 +204,55 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoPublish")
     def auto_publish(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        """
         return pulumi.get(self, "auto_publish")
 
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the function. For example:
+
+        `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+
+        To get the function ARN, use the following syntax:
+
+        `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+        """
         return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="functionCode")
     def function_code(self) -> pulumi.Output[str]:
+        """
+        The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "function_code")
 
     @property
     @pulumi.getter(name="functionConfig")
     def function_config(self) -> pulumi.Output['outputs.FunctionConfig']:
+        """
+        Contains configuration information about a CloudFront function.
+        """
         return pulumi.get(self, "function_config")
 
     @property
     @pulumi.getter(name="functionMetadata")
     def function_metadata(self) -> pulumi.Output[Optional['outputs.FunctionMetadata']]:
+        """
+        Contains metadata about a CloudFront function.
+        """
         return pulumi.get(self, "function_metadata")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name to identify the function.
+        """
         return pulumi.get(self, "name")
 
     @property

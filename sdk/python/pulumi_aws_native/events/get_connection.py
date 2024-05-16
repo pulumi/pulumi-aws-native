@@ -44,6 +44,11 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> Optional['ConnectionAuthorizationType']:
+        """
+        The type of authorization to use for the connection.
+
+        > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+        """
         return pulumi.get(self, "authorization_type")
 
     @property

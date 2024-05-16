@@ -28,12 +28,14 @@ type LookupCrlArgs struct {
 }
 
 type LookupCrlResult struct {
-	CrlData        *string   `pulumi:"crlData"`
-	CrlId          *string   `pulumi:"crlId"`
-	Enabled        *bool     `pulumi:"enabled"`
-	Name           *string   `pulumi:"name"`
-	Tags           []aws.Tag `pulumi:"tags"`
-	TrustAnchorArn *string   `pulumi:"trustAnchorArn"`
+	CrlData *string `pulumi:"crlData"`
+	CrlId   *string `pulumi:"crlId"`
+	Enabled *bool   `pulumi:"enabled"`
+	Name    *string `pulumi:"name"`
+	// A label that consists of a key and value you define.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
 }
 
 func LookupCrlOutput(ctx *pulumi.Context, args LookupCrlOutputArgs, opts ...pulumi.InvokeOption) LookupCrlResultOutput {
@@ -87,10 +89,12 @@ func (o LookupCrlResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrlResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A label that consists of a key and value you define.
 func (o LookupCrlResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCrlResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 func (o LookupCrlResultOutput) TrustAnchorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrlResult) *string { return v.TrustAnchorArn }).(pulumi.StringPtrOutput)
 }

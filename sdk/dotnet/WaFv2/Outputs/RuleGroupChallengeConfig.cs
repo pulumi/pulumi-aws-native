@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupChallengeConfig
     {
+        /// <summary>
+        /// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+        /// </summary>
         public readonly Outputs.RuleGroupImmunityTimeProperty? ImmunityTimeProperty;
 
         [OutputConstructor]

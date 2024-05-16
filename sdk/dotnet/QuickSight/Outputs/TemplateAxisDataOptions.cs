@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAxisDataOptions
     {
+        /// <summary>
+        /// The options that determine how a date axis is displayed.
+        /// </summary>
         public readonly Outputs.TemplateDateAxisOptions? DateAxisOptions;
+        /// <summary>
+        /// The options for an axis with a numeric field.
+        /// </summary>
         public readonly Outputs.TemplateNumericAxisOptions? NumericAxisOptions;
 
         [OutputConstructor]

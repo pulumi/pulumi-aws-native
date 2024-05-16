@@ -16,9 +16,29 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableTargetTrackingScalingPolicyConfiguration
     {
+        /// <summary>
+        /// Specifies if `scale-in` is enabled.
+        /// 
+        /// When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
+        /// </summary>
         public readonly bool? DisableScaleIn;
+        /// <summary>
+        /// Specifies a `scale-in` cool down period.
+        /// 
+        /// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+        /// </summary>
         public readonly int? ScaleInCooldown;
+        /// <summary>
+        /// Specifies a scale out cool down period.
+        /// 
+        /// A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+        /// </summary>
         public readonly int? ScaleOutCooldown;
+        /// <summary>
+        /// Specifies the target value for the target tracking auto scaling policy.
+        /// 
+        /// Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
+        /// </summary>
         public readonly int TargetValue;
 
         [OutputConstructor]

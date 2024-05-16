@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeBatchArrayPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The size of the array, if this is an array batch job.
+        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 

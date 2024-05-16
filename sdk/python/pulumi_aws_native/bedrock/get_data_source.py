@@ -63,11 +63,17 @@ class GetDataSourceResult:
     @property
     @pulumi.getter(name="dataDeletionPolicy")
     def data_deletion_policy(self) -> Optional['DataSourceDataDeletionPolicy']:
+        """
+        The data deletion policy for a data source.
+        """
         return pulumi.get(self, "data_deletion_policy")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional['outputs.DataSourceConfiguration']:
+        """
+        Contains details about how a data source is stored.
+        """
         return pulumi.get(self, "data_source_configuration")
 
     @property
@@ -81,6 +87,12 @@ class GetDataSourceResult:
     @property
     @pulumi.getter(name="dataSourceStatus")
     def data_source_status(self) -> Optional['DataSourceStatus']:
+        """
+        The status of the data source. The following statuses are possible:
+
+        - Available – The data source has been created and is ready for ingestion into the knowledge base.
+        - Deleting – The data source is being deleted.
+        """
         return pulumi.get(self, "data_source_status")
 
     @property
@@ -110,6 +122,9 @@ class GetDataSourceResult:
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional['outputs.DataSourceServerSideEncryptionConfiguration']:
+        """
+        Contains the configuration for server-side encryption.
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @property

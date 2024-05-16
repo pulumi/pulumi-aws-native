@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class TrustStoreRevocationRevocationContent
     {
+        /// <summary>
+        /// The type of revocation file.
+        /// </summary>
         public readonly string? RevocationType;
+        /// <summary>
+        /// The Amazon S3 bucket for the revocation file.
+        /// </summary>
         public readonly string? S3Bucket;
+        /// <summary>
+        /// The Amazon S3 path for the revocation file.
+        /// </summary>
         public readonly string? S3Key;
+        /// <summary>
+        /// The Amazon S3 object version of the revocation file.
+        /// </summary>
         public readonly string? S3ObjectVersion;
 
         [OutputConstructor]

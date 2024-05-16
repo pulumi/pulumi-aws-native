@@ -13,11 +13,36 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardReferenceLineLabelConfiguration
     {
+        /// <summary>
+        /// The configuration for a custom label on a `ReferenceLine` .
+        /// </summary>
         public readonly Outputs.DashboardReferenceLineCustomLabelConfiguration? CustomLabelConfiguration;
+        /// <summary>
+        /// The font color configuration of the label in a reference line.
+        /// </summary>
         public readonly string? FontColor;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.DashboardFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// The horizontal position configuration of the label in a reference line. Choose one of the following options:
+        /// 
+        /// - `LEFT`
+        /// - `CENTER`
+        /// - `RIGHT`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardReferenceLineLabelHorizontalPosition? HorizontalPosition;
+        /// <summary>
+        /// The value label configuration of the label in a reference line.
+        /// </summary>
         public readonly Outputs.DashboardReferenceLineValueLabelConfiguration? ValueLabelConfiguration;
+        /// <summary>
+        /// The vertical position configuration of the label in a reference line. Choose one of the following options:
+        /// 
+        /// - `ABOVE`
+        /// - `BELOW`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardReferenceLineLabelVerticalPosition? VerticalPosition;
 
         [OutputConstructor]

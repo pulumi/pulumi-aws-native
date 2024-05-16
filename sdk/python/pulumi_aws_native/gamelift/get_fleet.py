@@ -107,6 +107,11 @@ class GetFleetResult:
     @property
     @pulumi.getter
     def locations(self) -> Optional[Sequence['outputs.FleetLocationConfiguration']]:
+        """
+        *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+
+        A remote location where a multi-location fleet can deploy game servers for game hosting.
+        """
         return pulumi.get(self, "locations")
 
     @property

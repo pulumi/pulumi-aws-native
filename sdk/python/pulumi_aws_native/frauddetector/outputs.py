@@ -56,9 +56,14 @@ class DetectorEntityType(dict):
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
+        :param str arn: The entity type ARN.
         :param str created_time: The time when the entity type was created.
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
         :param str last_updated_time: The time when the entity type was last updated.
+        :param str name: The entity type name.
         :param Sequence['DetectorTag'] tags: Tags associated with this entity type.
         """
         if arn is not None:
@@ -79,6 +84,9 @@ class DetectorEntityType(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The entity type ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -100,6 +108,11 @@ class DetectorEntityType(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -113,6 +126,9 @@ class DetectorEntityType(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The entity type name.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -164,6 +180,12 @@ class DetectorEventType(dict):
         :param str arn: The ARN of the event type.
         :param str created_time: The time when the event type was created.
         :param str description: The description of the event type.
+        :param Sequence['DetectorEntityType'] entity_types: The entity type details.
+        :param Sequence['DetectorEventVariable'] event_variables: The event type variable for the detector.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        :param Sequence['DetectorLabel'] labels: The label details.
         :param str last_updated_time: The time when the event type was last updated.
         :param str name: The name for the event type
         :param Sequence['DetectorTag'] tags: Tags associated with this event type.
@@ -216,21 +238,35 @@ class DetectorEventType(dict):
     @property
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> Optional[Sequence['outputs.DetectorEntityType']]:
+        """
+        The entity type details.
+        """
         return pulumi.get(self, "entity_types")
 
     @property
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> Optional[Sequence['outputs.DetectorEventVariable']]:
+        """
+        The event type variable for the detector.
+        """
         return pulumi.get(self, "event_variables")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter
     def labels(self) -> Optional[Sequence['outputs.DetectorLabel']]:
+        """
+        The label details.
+        """
         return pulumi.get(self, "labels")
 
     @property
@@ -300,10 +336,25 @@ class DetectorEventVariable(dict):
                  tags: Optional[Sequence['outputs.DetectorTag']] = None,
                  variable_type: Optional['DetectorEventVariableVariableType'] = None):
         """
+        :param str arn: The event variable ARN.
         :param str created_time: The time when the event variable was created.
+        :param 'DetectorEventVariableDataSource' data_source: The data source of the event variable.
+               
+               Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+               
+               When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+        :param 'DetectorEventVariableDataType' data_type: The data type of the event variable.
+               
+               Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+        :param str default_value: The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
         :param str last_updated_time: The time when the event variable was last updated.
+        :param str name: The name of the event variable.
         :param Sequence['DetectorTag'] tags: Tags associated with this event variable.
+        :param 'DetectorEventVariableVariableType' variable_type: The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -331,6 +382,9 @@ class DetectorEventVariable(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The event variable ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -344,16 +398,31 @@ class DetectorEventVariable(dict):
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional['DetectorEventVariableDataSource']:
+        """
+        The data source of the event variable.
+
+        Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+
+        When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional['DetectorEventVariableDataType']:
+        """
+        The data type of the event variable.
+
+        Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[str]:
+        """
+        The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
+        """
         return pulumi.get(self, "default_value")
 
     @property
@@ -367,6 +436,11 @@ class DetectorEventVariable(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -380,6 +454,9 @@ class DetectorEventVariable(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the event variable.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -393,6 +470,9 @@ class DetectorEventVariable(dict):
     @property
     @pulumi.getter(name="variableType")
     def variable_type(self) -> Optional['DetectorEventVariableVariableType']:
+        """
+        The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+        """
         return pulumi.get(self, "variable_type")
 
 
@@ -426,9 +506,14 @@ class DetectorLabel(dict):
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
+        :param str arn: The label ARN.
         :param str created_time: The time when the label was created.
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
         :param str last_updated_time: The time when the label was last updated.
+        :param str name: The label name.
         :param Sequence['DetectorTag'] tags: Tags associated with this label.
         """
         if arn is not None:
@@ -449,6 +534,9 @@ class DetectorLabel(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The label ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -470,6 +558,11 @@ class DetectorLabel(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -483,6 +576,9 @@ class DetectorLabel(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The label name.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -503,6 +599,7 @@ class DetectorModel(dict):
                  arn: Optional[str] = None):
         """
         A model to associate with a detector.
+        :param str arn: The ARN of the model.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -510,6 +607,9 @@ class DetectorModel(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the model.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -543,9 +643,14 @@ class DetectorOutcome(dict):
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
+        :param str arn: The outcome ARN.
         :param str created_time: The time when the outcome was created.
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
         :param str last_updated_time: The time when the outcome was last updated.
+        :param str name: The outcome name.
         :param Sequence['DetectorTag'] tags: Tags associated with this outcome.
         """
         if arn is not None:
@@ -566,6 +671,9 @@ class DetectorOutcome(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The outcome ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -587,6 +695,11 @@ class DetectorOutcome(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -600,6 +713,9 @@ class DetectorOutcome(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The outcome name.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -651,9 +767,18 @@ class DetectorRule(dict):
                  rule_version: Optional[str] = None,
                  tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
+        :param str arn: The rule ARN.
         :param str created_time: The time when the event type was created.
         :param str description: The description.
+        :param str detector_id: The detector for which the rule is associated.
+        :param str expression: The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
+        :param 'DetectorRuleLanguage' language: The rule language.
+               
+               Valid Value: DETECTORPL
         :param str last_updated_time: The time when the event type was last updated.
+        :param Sequence['DetectorOutcome'] outcomes: The outcome.
+        :param str rule_id: The rule ID.
+        :param str rule_version: The rule version.
         :param Sequence['DetectorTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
@@ -682,6 +807,9 @@ class DetectorRule(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The rule ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -703,16 +831,27 @@ class DetectorRule(dict):
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[str]:
+        """
+        The detector for which the rule is associated.
+        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
+        """
+        The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter
     def language(self) -> Optional['DetectorRuleLanguage']:
+        """
+        The rule language.
+
+        Valid Value: DETECTORPL
+        """
         return pulumi.get(self, "language")
 
     @property
@@ -726,16 +865,25 @@ class DetectorRule(dict):
     @property
     @pulumi.getter
     def outcomes(self) -> Optional[Sequence['outputs.DetectorOutcome']]:
+        """
+        The outcome.
+        """
         return pulumi.get(self, "outcomes")
 
     @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[str]:
+        """
+        The rule ID.
+        """
         return pulumi.get(self, "rule_id")
 
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> Optional[str]:
+        """
+        The rule version.
+        """
         return pulumi.get(self, "rule_version")
 
     @property
@@ -752,17 +900,27 @@ class DetectorTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: A tag key.
+        :param str value: A value assigned to a tag key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A value assigned to a tag key.
+        """
         return pulumi.get(self, "value")
 
 
@@ -796,9 +954,16 @@ class EventTypeEntityType(dict):
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.EventTypeTag']] = None):
         """
+        :param str arn: The entity type ARN.
         :param str created_time: The time when the event type was created.
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
         :param str last_updated_time: The time when the event type was last updated.
+        :param str name: The entity type name.
+               
+               `^[0-9a-z_-]+$`
         :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
@@ -819,6 +984,9 @@ class EventTypeEntityType(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The entity type ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -840,6 +1008,11 @@ class EventTypeEntityType(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -853,6 +1026,11 @@ class EventTypeEntityType(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The entity type name.
+
+        `^[0-9a-z_-]+$`
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -906,10 +1084,23 @@ class EventTypeEventVariable(dict):
                  tags: Optional[Sequence['outputs.EventTypeTag']] = None,
                  variable_type: Optional['EventTypeEventVariableVariableType'] = None):
         """
+        :param str arn: The event variable ARN.
         :param str created_time: The time when the event type was created.
+        :param 'EventTypeEventVariableDataSource' data_source: The source of the event variable.
+               
+               Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+               
+               When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+        :param 'EventTypeEventVariableDataType' data_type: The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+        :param str default_value: The default value of the event variable
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
         :param str last_updated_time: The time when the event type was last updated.
+        :param str name: The name of the event variable.
         :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
+        :param 'EventTypeEventVariableVariableType' variable_type: The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -937,6 +1128,9 @@ class EventTypeEventVariable(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The event variable ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -950,16 +1144,29 @@ class EventTypeEventVariable(dict):
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional['EventTypeEventVariableDataSource']:
+        """
+        The source of the event variable.
+
+        Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+
+        When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional['EventTypeEventVariableDataType']:
+        """
+        The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[str]:
+        """
+        The default value of the event variable
+        """
         return pulumi.get(self, "default_value")
 
     @property
@@ -973,6 +1180,11 @@ class EventTypeEventVariable(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -986,6 +1198,9 @@ class EventTypeEventVariable(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the event variable.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -999,6 +1214,9 @@ class EventTypeEventVariable(dict):
     @property
     @pulumi.getter(name="variableType")
     def variable_type(self) -> Optional['EventTypeEventVariableVariableType']:
+        """
+        The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
+        """
         return pulumi.get(self, "variable_type")
 
 
@@ -1032,9 +1250,14 @@ class EventTypeLabel(dict):
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.EventTypeTag']] = None):
         """
+        :param str arn: The label ARN.
         :param str created_time: The time when the event type was created.
         :param str description: The description.
+        :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+               
+               For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
         :param str last_updated_time: The time when the event type was last updated.
+        :param str name: The label name.
         :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
@@ -1055,6 +1278,9 @@ class EventTypeLabel(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The label ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -1076,6 +1302,11 @@ class EventTypeLabel(dict):
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
+        """
+        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+
+        For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
+        """
         return pulumi.get(self, "inline")
 
     @property
@@ -1089,6 +1320,9 @@ class EventTypeLabel(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The label name.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1105,17 +1339,27 @@ class EventTypeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: A tag key.
+        :param str value: A value assigned to a tag key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A value assigned to a tag key.
+        """
         return pulumi.get(self, "value")
 
 

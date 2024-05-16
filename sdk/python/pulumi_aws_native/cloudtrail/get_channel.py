@@ -34,6 +34,9 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="channelArn")
     def channel_arn(self) -> Optional[str]:
+        """
+        `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+        """
         return pulumi.get(self, "channel_arn")
 
     @property
@@ -47,6 +50,9 @@ class GetChannelResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "name")
 
 
@@ -65,6 +71,9 @@ def get_channel(channel_arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
+
+
+    :param str channel_arn: `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
     """
     __args__ = dict()
     __args__['channelArn'] = channel_arn
@@ -82,5 +91,8 @@ def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
+
+
+    :param str channel_arn: `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
     """
     ...

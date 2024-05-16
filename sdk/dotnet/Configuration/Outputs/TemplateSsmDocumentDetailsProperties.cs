@@ -16,7 +16,15 @@ namespace Pulumi.AwsNative.Configuration.Outputs
     [OutputType]
     public sealed class TemplateSsmDocumentDetailsProperties
     {
+        /// <summary>
+        /// The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
+        /// </summary>
         public readonly string? DocumentName;
+        /// <summary>
+        /// The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+        /// 
+        /// &gt; This field is optional.
+        /// </summary>
         public readonly string? DocumentVersion;
 
         [OutputConstructor]

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+        /// </summary>
         [Input("selectionCriteria")]
         public Input<Inputs.StorageLensSelectionCriteriaArgs>? SelectionCriteria { get; set; }
 

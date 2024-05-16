@@ -12,12 +12,29 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class DataSourceDocumentAttributeConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the document attribute used for the condition.
+        /// 
+        /// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+        /// 
+        /// Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the document attribute used for the condition.
+        /// 
+        /// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+        /// 
+        /// Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.QBusiness.DataSourceDocumentEnrichmentConditionOperator> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// The value of a document attribute. You can only provide one value for a document attribute.
+        /// </summary>
         [Input("value")]
         public object? Value { get; set; }
 

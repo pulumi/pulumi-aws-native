@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         [Input("minWorkerCount", required: true)]
         public Input<int> MinWorkerCount { get; set; } = null!;
 
+        /// <summary>
+        /// The scale-in policy for the connector.
+        /// </summary>
         [Input("scaleInPolicy", required: true)]
         public Input<Inputs.ConnectorScaleInPolicyArgs> ScaleInPolicy { get; set; } = null!;
 
+        /// <summary>
+        /// The scale-out policy for the connector.
+        /// </summary>
         [Input("scaleOutPolicy", required: true)]
         public Input<Inputs.ConnectorScaleOutPolicyArgs> ScaleOutPolicy { get; set; } = null!;
 

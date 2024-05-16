@@ -32,8 +32,12 @@ class PipelineArgs:
         :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration.
+        :param pulumi.Input['PipelineBufferOptionsArgs'] buffer_options: Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        :param pulumi.Input['PipelineEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Options to control how OpenSearch encrypts buffer data.
+        :param pulumi.Input['PipelineLogPublishingOptionsArgs'] log_publishing_options: Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['PipelineVpcOptionsArgs'] vpc_options: Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
         """
         pulumi.set(__self__, "max_units", max_units)
         pulumi.set(__self__, "min_units", min_units)
@@ -90,6 +94,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> Optional[pulumi.Input['PipelineBufferOptionsArgs']]:
+        """
+        Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        """
         return pulumi.get(self, "buffer_options")
 
     @buffer_options.setter
@@ -99,6 +106,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']]:
+        """
+        Options to control how OpenSearch encrypts buffer data.
+        """
         return pulumi.get(self, "encryption_at_rest_options")
 
     @encryption_at_rest_options.setter
@@ -108,6 +118,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']]:
+        """
+        Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        """
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
@@ -141,6 +154,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['PipelineVpcOptionsArgs']]:
+        """
+        Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -168,11 +184,15 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['PipelineBufferOptionsArgs']] buffer_options: Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        :param pulumi.Input[pulumi.InputType['PipelineEncryptionAtRestOptionsArgs']] encryption_at_rest_options: Options to control how OpenSearch encrypts buffer data.
+        :param pulumi.Input[pulumi.InputType['PipelineLogPublishingOptionsArgs']] log_publishing_options: Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
         :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration.
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[pulumi.InputType['PipelineVpcOptionsArgs']] vpc_options: Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
         """
         ...
     @overload
@@ -275,11 +295,17 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> pulumi.Output[Optional['outputs.PipelineBufferOptions']]:
+        """
+        Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        """
         return pulumi.get(self, "buffer_options")
 
     @property
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> pulumi.Output[Optional['outputs.PipelineEncryptionAtRestOptions']]:
+        """
+        Options to control how OpenSearch encrypts buffer data.
+        """
         return pulumi.get(self, "encryption_at_rest_options")
 
     @property
@@ -293,6 +319,9 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> pulumi.Output[Optional['outputs.PipelineLogPublishingOptions']]:
+        """
+        Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        """
         return pulumi.get(self, "log_publishing_options")
 
     @property
@@ -354,5 +383,8 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Output[Optional['outputs.PipelineVpcOptions']]:
+        """
+        Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+        """
         return pulumi.get(self, "vpc_options")
 

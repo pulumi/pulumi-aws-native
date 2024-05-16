@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetOverrideDatasetParameterOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The new default values for the parameter.
+        /// </summary>
         [Input("newDefaultValues")]
         public Input<Inputs.DataSetNewDefaultValuesArgs>? NewDefaultValues { get; set; }
 

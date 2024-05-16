@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisLineChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The category field wells of a line chart. Values are grouped by category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Category;
+        /// <summary>
+        /// The color field wells of a line chart. Values are grouped by category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Colors;
+        /// <summary>
+        /// The small multiples field well of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> SmallMultiples;
+        /// <summary>
+        /// The value field wells of a line chart. Values are aggregated based on categories.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Values;
 
         [OutputConstructor]

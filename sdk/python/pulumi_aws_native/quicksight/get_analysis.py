@@ -104,6 +104,9 @@ class GetAnalysisResult:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.AnalysisResourcePermission']]:
+        """
+        Permission for the resource.
+        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -117,6 +120,9 @@ class GetAnalysisResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -151,6 +157,10 @@ def get_analysis(analysis_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalysisResult:
     """
     Definition of the AWS::QuickSight::Analysis Resource Type.
+
+
+    :param str analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+    :param str aws_account_id: The ID of the AWS account where you are creating an analysis.
     """
     __args__ = dict()
     __args__['analysisId'] = analysis_id
@@ -177,5 +187,9 @@ def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisResult]:
     """
     Definition of the AWS::QuickSight::Analysis Resource Type.
+
+
+    :param str analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+    :param str aws_account_id: The ID of the AWS account where you are creating an analysis.
     """
     ...

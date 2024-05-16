@@ -37,6 +37,9 @@ export class Database extends pulumi.CustomResource {
         return obj['__pulumiType'] === Database.__pulumiType;
     }
 
+    /**
+     * The `arn` of the database.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.

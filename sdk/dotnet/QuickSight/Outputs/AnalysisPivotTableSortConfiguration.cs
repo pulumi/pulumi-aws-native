@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPivotTableSortConfiguration
     {
+        /// <summary>
+        /// The field sort options for a pivot table sort configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisPivotFieldSortOptions> FieldSortOptions;
 
         [OutputConstructor]

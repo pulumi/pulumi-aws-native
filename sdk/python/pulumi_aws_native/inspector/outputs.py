@@ -19,17 +19,27 @@ class AssessmentTemplateTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: A tag key.
+        :param str value: A value assigned to a tag key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A value assigned to a tag key.
+        """
         return pulumi.get(self, "value")
 
 
@@ -38,17 +48,27 @@ class ResourceGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: A tag key.
+        :param str value: A value assigned to a tag key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A value assigned to a tag key.
+        """
         return pulumi.get(self, "value")
 
 

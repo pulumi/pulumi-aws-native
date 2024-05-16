@@ -13,10 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSmallMultiplesOptions
     {
+        /// <summary>
+        /// Sets the maximum number of visible columns to display in the grid of small multiples panels.
+        /// 
+        /// The default is `Auto` , which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.
+        /// </summary>
         public readonly double? MaxVisibleColumns;
+        /// <summary>
+        /// Sets the maximum number of visible rows to display in the grid of small multiples panels.
+        /// 
+        /// The default value is `Auto` , which automatically adjusts the rows in the grid to fit the overall layout and size of the given chart.
+        /// </summary>
         public readonly double? MaxVisibleRows;
+        /// <summary>
+        /// A collection of options that configure how each panel displays in a small multiples chart.
+        /// </summary>
         public readonly Outputs.AnalysisPanelConfiguration? PanelConfiguration;
+        /// <summary>
+        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// </summary>
         public readonly Outputs.AnalysisSmallMultiplesAxisProperties? XAxis;
+        /// <summary>
+        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// </summary>
         public readonly Outputs.AnalysisSmallMultiplesAxisProperties? YAxis;
 
         [OutputConstructor]

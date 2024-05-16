@@ -45,6 +45,9 @@ class GetVpcIngressConnectionResult:
     @property
     @pulumi.getter(name="ingressVpcConfiguration")
     def ingress_vpc_configuration(self) -> Optional['outputs.VpcIngressConnectionIngressVpcConfiguration']:
+        """
+        Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+        """
         return pulumi.get(self, "ingress_vpc_configuration")
 
     @property

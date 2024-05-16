@@ -34,6 +34,7 @@ class AccessGrantArgs:
         :param pulumi.Input['AccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
         :param pulumi.Input[str] application_arn: The ARN of the application grantees will use to access the location
         :param pulumi.Input['AccessGrantS3PrefixType'] s3_prefix_type: The type of S3SubPrefix.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A container of a key value name pair.
         """
         pulumi.set(__self__, "access_grants_location_id", access_grants_location_id)
         pulumi.set(__self__, "grantee", grantee)
@@ -122,6 +123,9 @@ class AccessGrantArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        A container of a key value name pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -153,6 +157,7 @@ class AccessGrant(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccessGrantGranteeArgs']] grantee: The principal who will be granted permission to access S3.
         :param pulumi.Input['AccessGrantPermission'] permission: The level of access to be afforded to the grantee
         :param pulumi.Input['AccessGrantS3PrefixType'] s3_prefix_type: The type of S3SubPrefix.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A container of a key value name pair.
         """
         ...
     @overload
@@ -321,5 +326,8 @@ class AccessGrant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        A container of a key value name pair.
+        """
         return pulumi.get(self, "tags")
 

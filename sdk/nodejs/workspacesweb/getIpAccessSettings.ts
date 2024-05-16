@@ -19,16 +19,40 @@ export function getIpAccessSettings(args: GetIpAccessSettingsArgs, opts?: pulumi
 }
 
 export interface GetIpAccessSettingsArgs {
+    /**
+     * The ARN of the IP access settings resource.
+     */
     ipAccessSettingsArn: string;
 }
 
 export interface GetIpAccessSettingsResult {
+    /**
+     * A list of web portal ARNs that this IP access settings resource is associated with.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * The creation date timestamp of the IP access settings.
+     */
     readonly creationDate?: string;
+    /**
+     * The description of the IP access settings.
+     */
     readonly description?: string;
+    /**
+     * The display name of the IP access settings.
+     */
     readonly displayName?: string;
+    /**
+     * The ARN of the IP access settings resource.
+     */
     readonly ipAccessSettingsArn?: string;
+    /**
+     * The IP rules of the IP access settings.
+     */
     readonly ipRules?: outputs.workspacesweb.IpAccessSettingsIpRule[];
+    /**
+     * The tag.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -39,5 +63,8 @@ export function getIpAccessSettingsOutput(args: GetIpAccessSettingsOutputArgs, o
 }
 
 export interface GetIpAccessSettingsOutputArgs {
+    /**
+     * The ARN of the IP access settings resource.
+     */
     ipAccessSettingsArn: pulumi.Input<string>;
 }

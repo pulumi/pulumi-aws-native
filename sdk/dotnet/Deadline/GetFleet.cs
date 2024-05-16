@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetFleetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the fleet.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the fleet.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,16 +57,49 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetFleetResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the fleet.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The amounts and attributes of fleets.
+        /// </summary>
         public readonly Outputs.FleetCapabilities? Capabilities;
+        /// <summary>
+        /// Fleet configuration details.
+        /// </summary>
         public readonly Union<Outputs.FleetConfiguration0Properties, Outputs.FleetConfiguration1Properties>? Configuration;
+        /// <summary>
+        /// A description that helps identify what the fleet is used for.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the fleet summary to update.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The fleet ID.
+        /// </summary>
         public readonly string? FleetId;
+        /// <summary>
+        /// The maximum number of workers specified in the fleet.
+        /// </summary>
         public readonly int? MaxWorkerCount;
+        /// <summary>
+        /// The minimum number of workers in the fleet.
+        /// </summary>
         public readonly int? MinWorkerCount;
+        /// <summary>
+        /// The IAM role that workers in the fleet use when processing jobs.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The status of the fleet.
+        /// </summary>
         public readonly Pulumi.AwsNative.Deadline.FleetStatus? Status;
+        /// <summary>
+        /// The number of workers in the fleet summary.
+        /// </summary>
         public readonly int? WorkerCount;
 
         [OutputConstructor]

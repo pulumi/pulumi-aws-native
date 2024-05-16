@@ -16,7 +16,9 @@ import (
 type Location struct {
 	pulumi.CustomResourceState
 
-	LocationArn  pulumi.StringOutput `pulumi:"locationArn"`
+	// A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
+	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
+	// A descriptive name for the custom location.
 	LocationName pulumi.StringOutput `pulumi:"locationName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -66,6 +68,7 @@ func (LocationState) ElementType() reflect.Type {
 }
 
 type locationArgs struct {
+	// A descriptive name for the custom location.
 	LocationName *string `pulumi:"locationName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -73,6 +76,7 @@ type locationArgs struct {
 
 // The set of arguments for constructing a Location resource.
 type LocationArgs struct {
+	// A descriptive name for the custom location.
 	LocationName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -115,10 +119,12 @@ func (o LocationOutput) ToLocationOutputWithContext(ctx context.Context) Locatio
 	return o
 }
 
+// A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
 func (o LocationOutput) LocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Location) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
 }
 
+// A descriptive name for the custom location.
 func (o LocationOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Location) pulumi.StringOutput { return v.LocationName }).(pulumi.StringOutput)
 }

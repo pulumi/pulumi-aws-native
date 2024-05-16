@@ -14,30 +14,51 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DestinationTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
 type DeviceProfileLoRaWanDeviceProfile struct {
-	ClassBTimeout          *int    `pulumi:"classBTimeout"`
-	ClassCTimeout          *int    `pulumi:"classCTimeout"`
-	FactoryPresetFreqsList []int   `pulumi:"factoryPresetFreqsList"`
-	MacVersion             *string `pulumi:"macVersion"`
-	MaxDutyCycle           *int    `pulumi:"maxDutyCycle"`
-	MaxEirp                *int    `pulumi:"maxEirp"`
-	PingSlotDr             *int    `pulumi:"pingSlotDr"`
-	PingSlotFreq           *int    `pulumi:"pingSlotFreq"`
-	PingSlotPeriod         *int    `pulumi:"pingSlotPeriod"`
-	RegParamsRevision      *string `pulumi:"regParamsRevision"`
-	RfRegion               *string `pulumi:"rfRegion"`
-	RxDataRate2            *int    `pulumi:"rxDataRate2"`
-	RxDelay1               *int    `pulumi:"rxDelay1"`
-	RxDrOffset1            *int    `pulumi:"rxDrOffset1"`
-	RxFreq2                *int    `pulumi:"rxFreq2"`
-	Supports32BitFCnt      *bool   `pulumi:"supports32BitFCnt"`
-	SupportsClassB         *bool   `pulumi:"supportsClassB"`
-	SupportsClassC         *bool   `pulumi:"supportsClassC"`
-	SupportsJoin           *bool   `pulumi:"supportsJoin"`
+	// The ClassBTimeout value.
+	ClassBTimeout *int `pulumi:"classBTimeout"`
+	// The ClassCTimeout value.
+	ClassCTimeout *int `pulumi:"classCTimeout"`
+	// The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
+	FactoryPresetFreqsList []int `pulumi:"factoryPresetFreqsList"`
+	// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
+	MacVersion *string `pulumi:"macVersion"`
+	// The MaxDutyCycle value.
+	MaxDutyCycle *int `pulumi:"maxDutyCycle"`
+	// The MaxEIRP value.
+	MaxEirp *int `pulumi:"maxEirp"`
+	// The PingSlotDR value.
+	PingSlotDr *int `pulumi:"pingSlotDr"`
+	// The PingSlotFreq value.
+	PingSlotFreq *int `pulumi:"pingSlotFreq"`
+	// The PingSlotPeriod value.
+	PingSlotPeriod *int `pulumi:"pingSlotPeriod"`
+	// The version of regional parameters.
+	RegParamsRevision *string `pulumi:"regParamsRevision"`
+	// The frequency band (RFRegion) value.
+	RfRegion *string `pulumi:"rfRegion"`
+	// The RXDataRate2 value.
+	RxDataRate2 *int `pulumi:"rxDataRate2"`
+	// The RXDelay1 value.
+	RxDelay1 *int `pulumi:"rxDelay1"`
+	// The RXDROffset1 value.
+	RxDrOffset1 *int `pulumi:"rxDrOffset1"`
+	// The RXFreq2 value.
+	RxFreq2 *int `pulumi:"rxFreq2"`
+	// The Supports32BitFCnt value.
+	Supports32BitFCnt *bool `pulumi:"supports32BitFCnt"`
+	// The SupportsClassB value.
+	SupportsClassB *bool `pulumi:"supportsClassB"`
+	// The SupportsClassC value.
+	SupportsClassC *bool `pulumi:"supportsClassC"`
+	// The SupportsJoin value.
+	SupportsJoin *bool `pulumi:"supportsJoin"`
 }
 
 // DeviceProfileLoRaWanDeviceProfileInput is an input type that accepts DeviceProfileLoRaWanDeviceProfileArgs and DeviceProfileLoRaWanDeviceProfileOutput values.
@@ -52,25 +73,44 @@ type DeviceProfileLoRaWanDeviceProfileInput interface {
 }
 
 type DeviceProfileLoRaWanDeviceProfileArgs struct {
-	ClassBTimeout          pulumi.IntPtrInput    `pulumi:"classBTimeout"`
-	ClassCTimeout          pulumi.IntPtrInput    `pulumi:"classCTimeout"`
-	FactoryPresetFreqsList pulumi.IntArrayInput  `pulumi:"factoryPresetFreqsList"`
-	MacVersion             pulumi.StringPtrInput `pulumi:"macVersion"`
-	MaxDutyCycle           pulumi.IntPtrInput    `pulumi:"maxDutyCycle"`
-	MaxEirp                pulumi.IntPtrInput    `pulumi:"maxEirp"`
-	PingSlotDr             pulumi.IntPtrInput    `pulumi:"pingSlotDr"`
-	PingSlotFreq           pulumi.IntPtrInput    `pulumi:"pingSlotFreq"`
-	PingSlotPeriod         pulumi.IntPtrInput    `pulumi:"pingSlotPeriod"`
-	RegParamsRevision      pulumi.StringPtrInput `pulumi:"regParamsRevision"`
-	RfRegion               pulumi.StringPtrInput `pulumi:"rfRegion"`
-	RxDataRate2            pulumi.IntPtrInput    `pulumi:"rxDataRate2"`
-	RxDelay1               pulumi.IntPtrInput    `pulumi:"rxDelay1"`
-	RxDrOffset1            pulumi.IntPtrInput    `pulumi:"rxDrOffset1"`
-	RxFreq2                pulumi.IntPtrInput    `pulumi:"rxFreq2"`
-	Supports32BitFCnt      pulumi.BoolPtrInput   `pulumi:"supports32BitFCnt"`
-	SupportsClassB         pulumi.BoolPtrInput   `pulumi:"supportsClassB"`
-	SupportsClassC         pulumi.BoolPtrInput   `pulumi:"supportsClassC"`
-	SupportsJoin           pulumi.BoolPtrInput   `pulumi:"supportsJoin"`
+	// The ClassBTimeout value.
+	ClassBTimeout pulumi.IntPtrInput `pulumi:"classBTimeout"`
+	// The ClassCTimeout value.
+	ClassCTimeout pulumi.IntPtrInput `pulumi:"classCTimeout"`
+	// The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
+	FactoryPresetFreqsList pulumi.IntArrayInput `pulumi:"factoryPresetFreqsList"`
+	// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
+	MacVersion pulumi.StringPtrInput `pulumi:"macVersion"`
+	// The MaxDutyCycle value.
+	MaxDutyCycle pulumi.IntPtrInput `pulumi:"maxDutyCycle"`
+	// The MaxEIRP value.
+	MaxEirp pulumi.IntPtrInput `pulumi:"maxEirp"`
+	// The PingSlotDR value.
+	PingSlotDr pulumi.IntPtrInput `pulumi:"pingSlotDr"`
+	// The PingSlotFreq value.
+	PingSlotFreq pulumi.IntPtrInput `pulumi:"pingSlotFreq"`
+	// The PingSlotPeriod value.
+	PingSlotPeriod pulumi.IntPtrInput `pulumi:"pingSlotPeriod"`
+	// The version of regional parameters.
+	RegParamsRevision pulumi.StringPtrInput `pulumi:"regParamsRevision"`
+	// The frequency band (RFRegion) value.
+	RfRegion pulumi.StringPtrInput `pulumi:"rfRegion"`
+	// The RXDataRate2 value.
+	RxDataRate2 pulumi.IntPtrInput `pulumi:"rxDataRate2"`
+	// The RXDelay1 value.
+	RxDelay1 pulumi.IntPtrInput `pulumi:"rxDelay1"`
+	// The RXDROffset1 value.
+	RxDrOffset1 pulumi.IntPtrInput `pulumi:"rxDrOffset1"`
+	// The RXFreq2 value.
+	RxFreq2 pulumi.IntPtrInput `pulumi:"rxFreq2"`
+	// The Supports32BitFCnt value.
+	Supports32BitFCnt pulumi.BoolPtrInput `pulumi:"supports32BitFCnt"`
+	// The SupportsClassB value.
+	SupportsClassB pulumi.BoolPtrInput `pulumi:"supportsClassB"`
+	// The SupportsClassC value.
+	SupportsClassC pulumi.BoolPtrInput `pulumi:"supportsClassC"`
+	// The SupportsJoin value.
+	SupportsJoin pulumi.BoolPtrInput `pulumi:"supportsJoin"`
 }
 
 func (DeviceProfileLoRaWanDeviceProfileArgs) ElementType() reflect.Type {
@@ -150,78 +190,97 @@ func (o DeviceProfileLoRaWanDeviceProfileOutput) ToDeviceProfileLoRaWanDevicePro
 	}).(DeviceProfileLoRaWanDeviceProfilePtrOutput)
 }
 
+// The ClassBTimeout value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) ClassBTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.ClassBTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The ClassCTimeout value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) ClassCTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.ClassCTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) []int { return v.FactoryPresetFreqsList }).(pulumi.IntArrayOutput)
 }
 
+// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) MacVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *string { return v.MacVersion }).(pulumi.StringPtrOutput)
 }
 
+// The MaxDutyCycle value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) MaxDutyCycle() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.MaxDutyCycle }).(pulumi.IntPtrOutput)
 }
 
+// The MaxEIRP value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) MaxEirp() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.MaxEirp }).(pulumi.IntPtrOutput)
 }
 
+// The PingSlotDR value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) PingSlotDr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.PingSlotDr }).(pulumi.IntPtrOutput)
 }
 
+// The PingSlotFreq value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) PingSlotFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.PingSlotFreq }).(pulumi.IntPtrOutput)
 }
 
+// The PingSlotPeriod value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) PingSlotPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.PingSlotPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The version of regional parameters.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) RegParamsRevision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *string { return v.RegParamsRevision }).(pulumi.StringPtrOutput)
 }
 
+// The frequency band (RFRegion) value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *string { return v.RfRegion }).(pulumi.StringPtrOutput)
 }
 
+// The RXDataRate2 value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) RxDataRate2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxDataRate2 }).(pulumi.IntPtrOutput)
 }
 
+// The RXDelay1 value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) RxDelay1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxDelay1 }).(pulumi.IntPtrOutput)
 }
 
+// The RXDROffset1 value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) RxDrOffset1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxDrOffset1 }).(pulumi.IntPtrOutput)
 }
 
+// The RXFreq2 value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) RxFreq2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *int { return v.RxFreq2 }).(pulumi.IntPtrOutput)
 }
 
+// The Supports32BitFCnt value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.Supports32BitFCnt }).(pulumi.BoolPtrOutput)
 }
 
+// The SupportsClassB value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) SupportsClassB() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.SupportsClassB }).(pulumi.BoolPtrOutput)
 }
 
+// The SupportsClassC value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) SupportsClassC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.SupportsClassC }).(pulumi.BoolPtrOutput)
 }
 
+// The SupportsJoin value.
 func (o DeviceProfileLoRaWanDeviceProfileOutput) SupportsJoin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWanDeviceProfile) *bool { return v.SupportsJoin }).(pulumi.BoolPtrOutput)
 }
@@ -250,6 +309,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) Elem() DeviceProfileLoRaWanD
 	}).(DeviceProfileLoRaWanDeviceProfileOutput)
 }
 
+// The ClassBTimeout value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -259,6 +319,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ClassCTimeout value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -268,6 +329,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) []int {
 		if v == nil {
@@ -277,6 +339,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) FactoryPresetFreqsList() pul
 	}).(pulumi.IntArrayOutput)
 }
 
+// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MacVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *string {
 		if v == nil {
@@ -286,6 +349,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MacVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The MaxDutyCycle value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -295,6 +359,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The MaxEIRP value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -304,6 +369,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The PingSlotDR value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -313,6 +379,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The PingSlotFreq value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -322,6 +389,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The PingSlotPeriod value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -331,6 +399,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The version of regional parameters.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RegParamsRevision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *string {
 		if v == nil {
@@ -340,6 +409,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RegParamsRevision() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The frequency band (RFRegion) value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *string {
 		if v == nil {
@@ -349,6 +419,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The RXDataRate2 value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDataRate2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -358,6 +429,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDataRate2() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The RXDelay1 value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDelay1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -367,6 +439,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDelay1() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The RXDROffset1 value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDrOffset1() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -376,6 +449,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxDrOffset1() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The RXFreq2 value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxFreq2() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *int {
 		if v == nil {
@@ -385,6 +459,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) RxFreq2() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Supports32BitFCnt value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
@@ -394,6 +469,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The SupportsClassB value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsClassB() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
@@ -403,6 +479,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsClassB() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The SupportsClassC value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsClassC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
@@ -412,6 +489,7 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsClassC() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The SupportsJoin value.
 func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsJoin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWanDeviceProfile) *bool {
 		if v == nil {
@@ -422,7 +500,9 @@ func (o DeviceProfileLoRaWanDeviceProfilePtrOutput) SupportsJoin() pulumi.BoolPt
 }
 
 type DeviceProfileTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
@@ -532,7 +612,9 @@ func (o FuotaTaskLoRaWanPtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 type FuotaTaskTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
@@ -680,7 +762,9 @@ func (o MulticastGroupLoRaWanPtrOutput) RfRegion() pulumi.StringPtrOutput {
 }
 
 type MulticastGroupTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
@@ -693,25 +777,78 @@ type NetworkAnalyzerConfigurationTag struct {
 }
 
 type ServiceProfileLoRaWanServiceProfile struct {
-	AddGwMetadata          *bool   `pulumi:"addGwMetadata"`
-	ChannelMask            *string `pulumi:"channelMask"`
-	DevStatusReqFreq       *int    `pulumi:"devStatusReqFreq"`
-	DlBucketSize           *int    `pulumi:"dlBucketSize"`
-	DlRate                 *int    `pulumi:"dlRate"`
-	DlRatePolicy           *string `pulumi:"dlRatePolicy"`
-	DrMax                  *int    `pulumi:"drMax"`
-	DrMin                  *int    `pulumi:"drMin"`
-	HrAllowed              *bool   `pulumi:"hrAllowed"`
-	MinGwDiversity         *int    `pulumi:"minGwDiversity"`
-	NwkGeoLoc              *bool   `pulumi:"nwkGeoLoc"`
-	PrAllowed              *bool   `pulumi:"prAllowed"`
-	RaAllowed              *bool   `pulumi:"raAllowed"`
-	ReportDevStatusBattery *bool   `pulumi:"reportDevStatusBattery"`
-	ReportDevStatusMargin  *bool   `pulumi:"reportDevStatusMargin"`
-	TargetPer              *int    `pulumi:"targetPer"`
-	UlBucketSize           *int    `pulumi:"ulBucketSize"`
-	UlRate                 *int    `pulumi:"ulRate"`
-	UlRatePolicy           *string `pulumi:"ulRatePolicy"`
+	// The AddGWMetaData value.
+	AddGwMetadata *bool `pulumi:"addGwMetadata"`
+	// The ChannelMask value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	ChannelMask *string `pulumi:"channelMask"`
+	// The DevStatusReqFreq value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DevStatusReqFreq *int `pulumi:"devStatusReqFreq"`
+	// The DLBucketSize value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DlBucketSize *int `pulumi:"dlBucketSize"`
+	// The DLRate value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DlRate *int `pulumi:"dlRate"`
+	// The DLRatePolicy value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DlRatePolicy *string `pulumi:"dlRatePolicy"`
+	// The DRMax value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DrMax *int `pulumi:"drMax"`
+	// The DRMin value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DrMin *int `pulumi:"drMin"`
+	// The HRAllowed value that describes whether handover roaming is allowed.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	HrAllowed *bool `pulumi:"hrAllowed"`
+	// The MinGwDiversity value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	MinGwDiversity *int `pulumi:"minGwDiversity"`
+	// The NwkGeoLoc value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	NwkGeoLoc *bool `pulumi:"nwkGeoLoc"`
+	// The PRAllowed value that describes whether passive roaming is allowed.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	PrAllowed *bool `pulumi:"prAllowed"`
+	// The RAAllowed value that describes whether roaming activation is allowed.
+	RaAllowed *bool `pulumi:"raAllowed"`
+	// The ReportDevStatusBattery value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	ReportDevStatusBattery *bool `pulumi:"reportDevStatusBattery"`
+	// The ReportDevStatusMargin value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	ReportDevStatusMargin *bool `pulumi:"reportDevStatusMargin"`
+	// The TargetPer value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	TargetPer *int `pulumi:"targetPer"`
+	// The UlBucketSize value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	UlBucketSize *int `pulumi:"ulBucketSize"`
+	// The ULRate value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	UlRate *int `pulumi:"ulRate"`
+	// The ULRatePolicy value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	UlRatePolicy *string `pulumi:"ulRatePolicy"`
 }
 
 // ServiceProfileLoRaWanServiceProfileInput is an input type that accepts ServiceProfileLoRaWanServiceProfileArgs and ServiceProfileLoRaWanServiceProfileOutput values.
@@ -726,25 +863,78 @@ type ServiceProfileLoRaWanServiceProfileInput interface {
 }
 
 type ServiceProfileLoRaWanServiceProfileArgs struct {
-	AddGwMetadata          pulumi.BoolPtrInput   `pulumi:"addGwMetadata"`
-	ChannelMask            pulumi.StringPtrInput `pulumi:"channelMask"`
-	DevStatusReqFreq       pulumi.IntPtrInput    `pulumi:"devStatusReqFreq"`
-	DlBucketSize           pulumi.IntPtrInput    `pulumi:"dlBucketSize"`
-	DlRate                 pulumi.IntPtrInput    `pulumi:"dlRate"`
-	DlRatePolicy           pulumi.StringPtrInput `pulumi:"dlRatePolicy"`
-	DrMax                  pulumi.IntPtrInput    `pulumi:"drMax"`
-	DrMin                  pulumi.IntPtrInput    `pulumi:"drMin"`
-	HrAllowed              pulumi.BoolPtrInput   `pulumi:"hrAllowed"`
-	MinGwDiversity         pulumi.IntPtrInput    `pulumi:"minGwDiversity"`
-	NwkGeoLoc              pulumi.BoolPtrInput   `pulumi:"nwkGeoLoc"`
-	PrAllowed              pulumi.BoolPtrInput   `pulumi:"prAllowed"`
-	RaAllowed              pulumi.BoolPtrInput   `pulumi:"raAllowed"`
-	ReportDevStatusBattery pulumi.BoolPtrInput   `pulumi:"reportDevStatusBattery"`
-	ReportDevStatusMargin  pulumi.BoolPtrInput   `pulumi:"reportDevStatusMargin"`
-	TargetPer              pulumi.IntPtrInput    `pulumi:"targetPer"`
-	UlBucketSize           pulumi.IntPtrInput    `pulumi:"ulBucketSize"`
-	UlRate                 pulumi.IntPtrInput    `pulumi:"ulRate"`
-	UlRatePolicy           pulumi.StringPtrInput `pulumi:"ulRatePolicy"`
+	// The AddGWMetaData value.
+	AddGwMetadata pulumi.BoolPtrInput `pulumi:"addGwMetadata"`
+	// The ChannelMask value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	ChannelMask pulumi.StringPtrInput `pulumi:"channelMask"`
+	// The DevStatusReqFreq value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DevStatusReqFreq pulumi.IntPtrInput `pulumi:"devStatusReqFreq"`
+	// The DLBucketSize value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DlBucketSize pulumi.IntPtrInput `pulumi:"dlBucketSize"`
+	// The DLRate value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DlRate pulumi.IntPtrInput `pulumi:"dlRate"`
+	// The DLRatePolicy value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DlRatePolicy pulumi.StringPtrInput `pulumi:"dlRatePolicy"`
+	// The DRMax value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DrMax pulumi.IntPtrInput `pulumi:"drMax"`
+	// The DRMin value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	DrMin pulumi.IntPtrInput `pulumi:"drMin"`
+	// The HRAllowed value that describes whether handover roaming is allowed.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	HrAllowed pulumi.BoolPtrInput `pulumi:"hrAllowed"`
+	// The MinGwDiversity value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	MinGwDiversity pulumi.IntPtrInput `pulumi:"minGwDiversity"`
+	// The NwkGeoLoc value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	NwkGeoLoc pulumi.BoolPtrInput `pulumi:"nwkGeoLoc"`
+	// The PRAllowed value that describes whether passive roaming is allowed.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	PrAllowed pulumi.BoolPtrInput `pulumi:"prAllowed"`
+	// The RAAllowed value that describes whether roaming activation is allowed.
+	RaAllowed pulumi.BoolPtrInput `pulumi:"raAllowed"`
+	// The ReportDevStatusBattery value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	ReportDevStatusBattery pulumi.BoolPtrInput `pulumi:"reportDevStatusBattery"`
+	// The ReportDevStatusMargin value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	ReportDevStatusMargin pulumi.BoolPtrInput `pulumi:"reportDevStatusMargin"`
+	// The TargetPer value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	TargetPer pulumi.IntPtrInput `pulumi:"targetPer"`
+	// The UlBucketSize value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	UlBucketSize pulumi.IntPtrInput `pulumi:"ulBucketSize"`
+	// The ULRate value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	UlRate pulumi.IntPtrInput `pulumi:"ulRate"`
+	// The ULRatePolicy value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+	UlRatePolicy pulumi.StringPtrInput `pulumi:"ulRatePolicy"`
 }
 
 func (ServiceProfileLoRaWanServiceProfileArgs) ElementType() reflect.Type {
@@ -824,78 +1014,131 @@ func (o ServiceProfileLoRaWanServiceProfileOutput) ToServiceProfileLoRaWanServic
 	}).(ServiceProfileLoRaWanServiceProfilePtrOutput)
 }
 
+// The AddGWMetaData value.
 func (o ServiceProfileLoRaWanServiceProfileOutput) AddGwMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.AddGwMetadata }).(pulumi.BoolPtrOutput)
 }
 
+// The ChannelMask value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) ChannelMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *string { return v.ChannelMask }).(pulumi.StringPtrOutput)
 }
 
+// The DevStatusReqFreq value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DevStatusReqFreq }).(pulumi.IntPtrOutput)
 }
 
+// The DLBucketSize value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) DlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DlBucketSize }).(pulumi.IntPtrOutput)
 }
 
+// The DLRate value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) DlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DlRate }).(pulumi.IntPtrOutput)
 }
 
+// The DLRatePolicy value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) DlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *string { return v.DlRatePolicy }).(pulumi.StringPtrOutput)
 }
 
+// The DRMax value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) DrMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DrMax }).(pulumi.IntPtrOutput)
 }
 
+// The DRMin value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) DrMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.DrMin }).(pulumi.IntPtrOutput)
 }
 
+// The HRAllowed value that describes whether handover roaming is allowed.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) HrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.HrAllowed }).(pulumi.BoolPtrOutput)
 }
 
+// The MinGwDiversity value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) MinGwDiversity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.MinGwDiversity }).(pulumi.IntPtrOutput)
 }
 
+// The NwkGeoLoc value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.NwkGeoLoc }).(pulumi.BoolPtrOutput)
 }
 
+// The PRAllowed value that describes whether passive roaming is allowed.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) PrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.PrAllowed }).(pulumi.BoolPtrOutput)
 }
 
+// The RAAllowed value that describes whether roaming activation is allowed.
 func (o ServiceProfileLoRaWanServiceProfileOutput) RaAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.RaAllowed }).(pulumi.BoolPtrOutput)
 }
 
+// The ReportDevStatusBattery value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.ReportDevStatusBattery }).(pulumi.BoolPtrOutput)
 }
 
+// The ReportDevStatusMargin value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *bool { return v.ReportDevStatusMargin }).(pulumi.BoolPtrOutput)
 }
 
+// The TargetPer value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) TargetPer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.TargetPer }).(pulumi.IntPtrOutput)
 }
 
+// The UlBucketSize value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) UlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.UlBucketSize }).(pulumi.IntPtrOutput)
 }
 
+// The ULRate value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) UlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *int { return v.UlRate }).(pulumi.IntPtrOutput)
 }
 
+// The ULRatePolicy value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfileOutput) UlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWanServiceProfile) *string { return v.UlRatePolicy }).(pulumi.StringPtrOutput)
 }
@@ -924,6 +1167,7 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) Elem() ServiceProfileLoRaW
 	}).(ServiceProfileLoRaWanServiceProfileOutput)
 }
 
+// The AddGWMetaData value.
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) AddGwMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -933,6 +1177,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) AddGwMetadata() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The ChannelMask value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ChannelMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *string {
 		if v == nil {
@@ -942,6 +1189,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ChannelMask() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The DevStatusReqFreq value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -951,6 +1201,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DevStatusReqFreq() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The DLBucketSize value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -960,6 +1213,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlBucketSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The DLRate value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -969,6 +1225,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The DLRatePolicy value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *string {
 		if v == nil {
@@ -978,6 +1237,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DlRatePolicy() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The DRMax value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -987,6 +1249,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The DRMin value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -996,6 +1261,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The HRAllowed value that describes whether handover roaming is allowed.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -1005,6 +1273,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The MinGwDiversity value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) MinGwDiversity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -1014,6 +1285,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) MinGwDiversity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The NwkGeoLoc value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -1023,6 +1297,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The PRAllowed value that describes whether passive roaming is allowed.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -1032,6 +1309,7 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The RAAllowed value that describes whether roaming activation is allowed.
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -1041,6 +1319,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The ReportDevStatusBattery value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -1050,6 +1331,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ReportDevStatusBattery() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The ReportDevStatusMargin value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *bool {
 		if v == nil {
@@ -1059,6 +1343,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) ReportDevStatusMargin() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The TargetPer value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) TargetPer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -1068,6 +1355,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) TargetPer() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The UlBucketSize value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -1077,6 +1367,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlBucketSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ULRate value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *int {
 		if v == nil {
@@ -1086,6 +1379,9 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ULRatePolicy value.
+//
+// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWanServiceProfile) *string {
 		if v == nil {
@@ -1096,14 +1392,19 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRatePolicy() pulumi.Stri
 }
 
 type ServiceProfileTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
 type TaskDefinitionLoRaWanGatewayVersion struct {
-	Model          *string `pulumi:"model"`
+	// The model number of the wireless gateway.
+	Model *string `pulumi:"model"`
+	// The version of the wireless gateway firmware.
 	PackageVersion *string `pulumi:"packageVersion"`
-	Station        *string `pulumi:"station"`
+	// The basic station version of the wireless gateway.
+	Station *string `pulumi:"station"`
 }
 
 // TaskDefinitionLoRaWanGatewayVersionInput is an input type that accepts TaskDefinitionLoRaWanGatewayVersionArgs and TaskDefinitionLoRaWanGatewayVersionOutput values.
@@ -1118,9 +1419,12 @@ type TaskDefinitionLoRaWanGatewayVersionInput interface {
 }
 
 type TaskDefinitionLoRaWanGatewayVersionArgs struct {
-	Model          pulumi.StringPtrInput `pulumi:"model"`
+	// The model number of the wireless gateway.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// The version of the wireless gateway firmware.
 	PackageVersion pulumi.StringPtrInput `pulumi:"packageVersion"`
-	Station        pulumi.StringPtrInput `pulumi:"station"`
+	// The basic station version of the wireless gateway.
+	Station pulumi.StringPtrInput `pulumi:"station"`
 }
 
 func (TaskDefinitionLoRaWanGatewayVersionArgs) ElementType() reflect.Type {
@@ -1200,14 +1504,17 @@ func (o TaskDefinitionLoRaWanGatewayVersionOutput) ToTaskDefinitionLoRaWanGatewa
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
+// The model number of the wireless gateway.
 func (o TaskDefinitionLoRaWanGatewayVersionOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanGatewayVersion) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
+// The version of the wireless gateway firmware.
 func (o TaskDefinitionLoRaWanGatewayVersionOutput) PackageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanGatewayVersion) *string { return v.PackageVersion }).(pulumi.StringPtrOutput)
 }
 
+// The basic station version of the wireless gateway.
 func (o TaskDefinitionLoRaWanGatewayVersionOutput) Station() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanGatewayVersion) *string { return v.Station }).(pulumi.StringPtrOutput)
 }
@@ -1236,6 +1543,7 @@ func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Elem() TaskDefinitionLoRaW
 	}).(TaskDefinitionLoRaWanGatewayVersionOutput)
 }
 
+// The model number of the wireless gateway.
 func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) *string {
 		if v == nil {
@@ -1245,6 +1553,7 @@ func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Model() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the wireless gateway firmware.
 func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) PackageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) *string {
 		if v == nil {
@@ -1254,6 +1563,7 @@ func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) PackageVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The basic station version of the wireless gateway.
 func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Station() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanGatewayVersion) *string {
 		if v == nil {
@@ -1264,10 +1574,14 @@ func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Station() pulumi.StringPtr
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskCreate struct {
-	CurrentVersion  *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
-	SigKeyCrc       *int                                 `pulumi:"sigKeyCrc"`
-	UpdateSignature *string                              `pulumi:"updateSignature"`
-	UpdateVersion   *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
+	// LoRaWANGatewayVersion object.
+	CurrentVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
+	// The CRC of the signature private key to check.
+	SigKeyCrc *int `pulumi:"sigKeyCrc"`
+	// The signature used to verify the update firmware.
+	UpdateSignature *string `pulumi:"updateSignature"`
+	// LoRaWANGatewayVersion object.
+	UpdateVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
 }
 
 // TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput is an input type that accepts TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs and TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput values.
@@ -1282,10 +1596,14 @@ type TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput interface {
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs struct {
-	CurrentVersion  TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
-	SigKeyCrc       pulumi.IntPtrInput                          `pulumi:"sigKeyCrc"`
-	UpdateSignature pulumi.StringPtrInput                       `pulumi:"updateSignature"`
-	UpdateVersion   TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
+	// LoRaWANGatewayVersion object.
+	CurrentVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
+	// The CRC of the signature private key to check.
+	SigKeyCrc pulumi.IntPtrInput `pulumi:"sigKeyCrc"`
+	// The signature used to verify the update firmware.
+	UpdateSignature pulumi.StringPtrInput `pulumi:"updateSignature"`
+	// LoRaWANGatewayVersion object.
+	UpdateVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
 func (TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs) ElementType() reflect.Type {
@@ -1365,20 +1683,24 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRa
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.CurrentVersion
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
+// The CRC of the signature private key to check.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) SigKeyCrc() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *int { return v.SigKeyCrc }).(pulumi.IntPtrOutput)
 }
 
+// The signature used to verify the update firmware.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) UpdateSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *string { return v.UpdateSignature }).(pulumi.StringPtrOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.UpdateVersion
@@ -1409,6 +1731,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) Elem() TaskDefini
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1418,6 +1741,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) CurrentVersion() 
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
+// The CRC of the signature private key to check.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *int {
 		if v == nil {
@@ -1427,6 +1751,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// The signature used to verify the update firmware.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *string {
 		if v == nil {
@@ -1436,6 +1761,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateSignature()
 	}).(pulumi.StringPtrOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1446,8 +1772,10 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateVersion() T
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskEntry struct {
+	// LoRaWANGatewayVersion object.
 	CurrentVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
-	UpdateVersion  *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
+	// LoRaWANGatewayVersion object.
+	UpdateVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
 }
 
 // TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput is an input type that accepts TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs and TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput values.
@@ -1462,8 +1790,10 @@ type TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput interface {
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs struct {
+	// LoRaWANGatewayVersion object.
 	CurrentVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
-	UpdateVersion  TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
+	// LoRaWANGatewayVersion object.
+	UpdateVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
 func (TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs) ElementType() reflect.Type {
@@ -1543,12 +1873,14 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaW
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.CurrentVersion
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.UpdateVersion
@@ -1579,6 +1911,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) Elem() TaskDefinit
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1588,6 +1921,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) CurrentVersion() T
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
+// LoRaWANGatewayVersion object.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1598,14 +1932,19 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) UpdateVersion() Ta
 }
 
 type TaskDefinitionTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
-	LoRaWan          *TaskDefinitionLoRaWanUpdateGatewayTaskCreate `pulumi:"loRaWan"`
-	UpdateDataRole   *string                                       `pulumi:"updateDataRole"`
-	UpdateDataSource *string                                       `pulumi:"updateDataSource"`
+	// The signature used to verify the update firmware.
+	LoRaWan *TaskDefinitionLoRaWanUpdateGatewayTaskCreate `pulumi:"loRaWan"`
+	// The IAM role used to read data from the S3 bucket.
+	UpdateDataRole *string `pulumi:"updateDataRole"`
+	// The link to the S3 bucket.
+	UpdateDataSource *string `pulumi:"updateDataSource"`
 }
 
 // TaskDefinitionUpdateWirelessGatewayTaskCreateInput is an input type that accepts TaskDefinitionUpdateWirelessGatewayTaskCreateArgs and TaskDefinitionUpdateWirelessGatewayTaskCreateOutput values.
@@ -1620,9 +1959,12 @@ type TaskDefinitionUpdateWirelessGatewayTaskCreateInput interface {
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreateArgs struct {
-	LoRaWan          TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWan"`
-	UpdateDataRole   pulumi.StringPtrInput                                `pulumi:"updateDataRole"`
-	UpdateDataSource pulumi.StringPtrInput                                `pulumi:"updateDataSource"`
+	// The signature used to verify the update firmware.
+	LoRaWan TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWan"`
+	// The IAM role used to read data from the S3 bucket.
+	UpdateDataRole pulumi.StringPtrInput `pulumi:"updateDataRole"`
+	// The link to the S3 bucket.
+	UpdateDataSource pulumi.StringPtrInput `pulumi:"updateDataSource"`
 }
 
 func (TaskDefinitionUpdateWirelessGatewayTaskCreateArgs) ElementType() reflect.Type {
@@ -1702,16 +2044,19 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToTaskDefinitionUpd
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
+// The signature used to verify the update firmware.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWan() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		return v.LoRaWan
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
+// The IAM role used to read data from the S3 bucket.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) UpdateDataRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *string { return v.UpdateDataRole }).(pulumi.StringPtrOutput)
 }
 
+// The link to the S3 bucket.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) UpdateDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *string { return v.UpdateDataSource }).(pulumi.StringPtrOutput)
 }
@@ -1740,6 +2085,7 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) Elem() TaskDefin
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput)
 }
 
+// The signature used to verify the update firmware.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWan() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		if v == nil {
@@ -1749,6 +2095,7 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWan() TaskDe
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
+// The IAM role used to read data from the S3 bucket.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *string {
 		if v == nil {
@@ -1758,6 +2105,7 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataRole()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The link to the S3 bucket.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *string {
 		if v == nil {
@@ -1769,7 +2117,9 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataSource
 
 // Trace content for your wireless gateway and wireless device resources
 type TraceContentProperties struct {
-	LogLevel                *NetworkAnalyzerConfigurationLogLevel                `pulumi:"logLevel"`
+	// The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
+	LogLevel *NetworkAnalyzerConfigurationLogLevel `pulumi:"logLevel"`
+	// `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
 	WirelessDeviceFrameInfo *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo `pulumi:"wirelessDeviceFrameInfo"`
 }
 
@@ -1786,7 +2136,9 @@ type TraceContentPropertiesInput interface {
 
 // Trace content for your wireless gateway and wireless device resources
 type TraceContentPropertiesArgs struct {
-	LogLevel                NetworkAnalyzerConfigurationLogLevelPtrInput                `pulumi:"logLevel"`
+	// The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
+	LogLevel NetworkAnalyzerConfigurationLogLevelPtrInput `pulumi:"logLevel"`
+	// `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
 	WirelessDeviceFrameInfo NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrInput `pulumi:"wirelessDeviceFrameInfo"`
 }
 
@@ -1868,10 +2220,12 @@ func (o TraceContentPropertiesOutput) ToTraceContentPropertiesPtrOutputWithConte
 	}).(TraceContentPropertiesPtrOutput)
 }
 
+// The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
 func (o TraceContentPropertiesOutput) LogLevel() NetworkAnalyzerConfigurationLogLevelPtrOutput {
 	return o.ApplyT(func(v TraceContentProperties) *NetworkAnalyzerConfigurationLogLevel { return v.LogLevel }).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
 }
 
+// `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
 func (o TraceContentPropertiesOutput) WirelessDeviceFrameInfo() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
 	return o.ApplyT(func(v TraceContentProperties) *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
 		return v.WirelessDeviceFrameInfo
@@ -1902,6 +2256,7 @@ func (o TraceContentPropertiesPtrOutput) Elem() TraceContentPropertiesOutput {
 	}).(TraceContentPropertiesOutput)
 }
 
+// The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
 func (o TraceContentPropertiesPtrOutput) LogLevel() NetworkAnalyzerConfigurationLogLevelPtrOutput {
 	return o.ApplyT(func(v *TraceContentProperties) *NetworkAnalyzerConfigurationLogLevel {
 		if v == nil {
@@ -1911,6 +2266,7 @@ func (o TraceContentPropertiesPtrOutput) LogLevel() NetworkAnalyzerConfiguration
 	}).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
 }
 
+// `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
 func (o TraceContentPropertiesPtrOutput) WirelessDeviceFrameInfo() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
 	return o.ApplyT(func(v *TraceContentProperties) *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
 		if v == nil {
@@ -1921,7 +2277,9 @@ func (o TraceContentPropertiesPtrOutput) WirelessDeviceFrameInfo() NetworkAnalyz
 }
 
 type WirelessDeviceAbpV10x struct {
-	DevAddr     string                           `pulumi:"devAddr"`
+	// The DevAddr value.
+	DevAddr string `pulumi:"devAddr"`
+	// Session keys for ABP v1.0.x.
 	SessionKeys WirelessDeviceSessionKeysAbpV10x `pulumi:"sessionKeys"`
 }
 
@@ -1937,7 +2295,9 @@ type WirelessDeviceAbpV10xInput interface {
 }
 
 type WirelessDeviceAbpV10xArgs struct {
-	DevAddr     pulumi.StringInput                    `pulumi:"devAddr"`
+	// The DevAddr value.
+	DevAddr pulumi.StringInput `pulumi:"devAddr"`
+	// Session keys for ABP v1.0.x.
 	SessionKeys WirelessDeviceSessionKeysAbpV10xInput `pulumi:"sessionKeys"`
 }
 
@@ -2018,10 +2378,12 @@ func (o WirelessDeviceAbpV10xOutput) ToWirelessDeviceAbpV10xPtrOutputWithContext
 	}).(WirelessDeviceAbpV10xPtrOutput)
 }
 
+// The DevAddr value.
 func (o WirelessDeviceAbpV10xOutput) DevAddr() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV10x) string { return v.DevAddr }).(pulumi.StringOutput)
 }
 
+// Session keys for ABP v1.0.x.
 func (o WirelessDeviceAbpV10xOutput) SessionKeys() WirelessDeviceSessionKeysAbpV10xOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV10x) WirelessDeviceSessionKeysAbpV10x { return v.SessionKeys }).(WirelessDeviceSessionKeysAbpV10xOutput)
 }
@@ -2050,6 +2412,7 @@ func (o WirelessDeviceAbpV10xPtrOutput) Elem() WirelessDeviceAbpV10xOutput {
 	}).(WirelessDeviceAbpV10xOutput)
 }
 
+// The DevAddr value.
 func (o WirelessDeviceAbpV10xPtrOutput) DevAddr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV10x) *string {
 		if v == nil {
@@ -2059,6 +2422,7 @@ func (o WirelessDeviceAbpV10xPtrOutput) DevAddr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Session keys for ABP v1.0.x.
 func (o WirelessDeviceAbpV10xPtrOutput) SessionKeys() WirelessDeviceSessionKeysAbpV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV10x) *WirelessDeviceSessionKeysAbpV10x {
 		if v == nil {
@@ -2069,7 +2433,9 @@ func (o WirelessDeviceAbpV10xPtrOutput) SessionKeys() WirelessDeviceSessionKeysA
 }
 
 type WirelessDeviceAbpV11 struct {
-	DevAddr     string                          `pulumi:"devAddr"`
+	// The DevAddr value.
+	DevAddr string `pulumi:"devAddr"`
+	// Session keys for ABP v1.1.
 	SessionKeys WirelessDeviceSessionKeysAbpV11 `pulumi:"sessionKeys"`
 }
 
@@ -2085,7 +2451,9 @@ type WirelessDeviceAbpV11Input interface {
 }
 
 type WirelessDeviceAbpV11Args struct {
-	DevAddr     pulumi.StringInput                   `pulumi:"devAddr"`
+	// The DevAddr value.
+	DevAddr pulumi.StringInput `pulumi:"devAddr"`
+	// Session keys for ABP v1.1.
 	SessionKeys WirelessDeviceSessionKeysAbpV11Input `pulumi:"sessionKeys"`
 }
 
@@ -2166,10 +2534,12 @@ func (o WirelessDeviceAbpV11Output) ToWirelessDeviceAbpV11PtrOutputWithContext(c
 	}).(WirelessDeviceAbpV11PtrOutput)
 }
 
+// The DevAddr value.
 func (o WirelessDeviceAbpV11Output) DevAddr() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV11) string { return v.DevAddr }).(pulumi.StringOutput)
 }
 
+// Session keys for ABP v1.1.
 func (o WirelessDeviceAbpV11Output) SessionKeys() WirelessDeviceSessionKeysAbpV11Output {
 	return o.ApplyT(func(v WirelessDeviceAbpV11) WirelessDeviceSessionKeysAbpV11 { return v.SessionKeys }).(WirelessDeviceSessionKeysAbpV11Output)
 }
@@ -2198,6 +2568,7 @@ func (o WirelessDeviceAbpV11PtrOutput) Elem() WirelessDeviceAbpV11Output {
 	}).(WirelessDeviceAbpV11Output)
 }
 
+// The DevAddr value.
 func (o WirelessDeviceAbpV11PtrOutput) DevAddr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV11) *string {
 		if v == nil {
@@ -2207,6 +2578,7 @@ func (o WirelessDeviceAbpV11PtrOutput) DevAddr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Session keys for ABP v1.1.
 func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAbpV11PtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV11) *WirelessDeviceSessionKeysAbpV11 {
 		if v == nil {
@@ -2217,13 +2589,20 @@ func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAb
 }
 
 type WirelessDeviceLoRaWanDevice struct {
-	AbpV10x          *WirelessDeviceAbpV10x  `pulumi:"abpV10x"`
-	AbpV11           *WirelessDeviceAbpV11   `pulumi:"abpV11"`
-	DevEui           *string                 `pulumi:"devEui"`
-	DeviceProfileId  *string                 `pulumi:"deviceProfileId"`
-	OtaaV10x         *WirelessDeviceOtaaV10x `pulumi:"otaaV10x"`
-	OtaaV11          *WirelessDeviceOtaaV11  `pulumi:"otaaV11"`
-	ServiceProfileId *string                 `pulumi:"serviceProfileId"`
+	// ABP device object for LoRaWAN specification v1.0.x
+	AbpV10x *WirelessDeviceAbpV10x `pulumi:"abpV10x"`
+	// ABP device object for create APIs for v1.1.
+	AbpV11 *WirelessDeviceAbpV11 `pulumi:"abpV11"`
+	// The DevEUI value.
+	DevEui *string `pulumi:"devEui"`
+	// The ID of the device profile for the new wireless device.
+	DeviceProfileId *string `pulumi:"deviceProfileId"`
+	// OTAA device object for create APIs for v1.0.x
+	OtaaV10x *WirelessDeviceOtaaV10x `pulumi:"otaaV10x"`
+	// OTAA device object for v1.1 for create APIs.
+	OtaaV11 *WirelessDeviceOtaaV11 `pulumi:"otaaV11"`
+	// The ID of the service profile.
+	ServiceProfileId *string `pulumi:"serviceProfileId"`
 }
 
 // WirelessDeviceLoRaWanDeviceInput is an input type that accepts WirelessDeviceLoRaWanDeviceArgs and WirelessDeviceLoRaWanDeviceOutput values.
@@ -2238,13 +2617,20 @@ type WirelessDeviceLoRaWanDeviceInput interface {
 }
 
 type WirelessDeviceLoRaWanDeviceArgs struct {
-	AbpV10x          WirelessDeviceAbpV10xPtrInput  `pulumi:"abpV10x"`
-	AbpV11           WirelessDeviceAbpV11PtrInput   `pulumi:"abpV11"`
-	DevEui           pulumi.StringPtrInput          `pulumi:"devEui"`
-	DeviceProfileId  pulumi.StringPtrInput          `pulumi:"deviceProfileId"`
-	OtaaV10x         WirelessDeviceOtaaV10xPtrInput `pulumi:"otaaV10x"`
-	OtaaV11          WirelessDeviceOtaaV11PtrInput  `pulumi:"otaaV11"`
-	ServiceProfileId pulumi.StringPtrInput          `pulumi:"serviceProfileId"`
+	// ABP device object for LoRaWAN specification v1.0.x
+	AbpV10x WirelessDeviceAbpV10xPtrInput `pulumi:"abpV10x"`
+	// ABP device object for create APIs for v1.1.
+	AbpV11 WirelessDeviceAbpV11PtrInput `pulumi:"abpV11"`
+	// The DevEUI value.
+	DevEui pulumi.StringPtrInput `pulumi:"devEui"`
+	// The ID of the device profile for the new wireless device.
+	DeviceProfileId pulumi.StringPtrInput `pulumi:"deviceProfileId"`
+	// OTAA device object for create APIs for v1.0.x
+	OtaaV10x WirelessDeviceOtaaV10xPtrInput `pulumi:"otaaV10x"`
+	// OTAA device object for v1.1 for create APIs.
+	OtaaV11 WirelessDeviceOtaaV11PtrInput `pulumi:"otaaV11"`
+	// The ID of the service profile.
+	ServiceProfileId pulumi.StringPtrInput `pulumi:"serviceProfileId"`
 }
 
 func (WirelessDeviceLoRaWanDeviceArgs) ElementType() reflect.Type {
@@ -2324,30 +2710,37 @@ func (o WirelessDeviceLoRaWanDeviceOutput) ToWirelessDeviceLoRaWanDevicePtrOutpu
 	}).(WirelessDeviceLoRaWanDevicePtrOutput)
 }
 
+// ABP device object for LoRaWAN specification v1.0.x
 func (o WirelessDeviceLoRaWanDeviceOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV10x { return v.AbpV10x }).(WirelessDeviceAbpV10xPtrOutput)
 }
 
+// ABP device object for create APIs for v1.1.
 func (o WirelessDeviceLoRaWanDeviceOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV11 { return v.AbpV11 }).(WirelessDeviceAbpV11PtrOutput)
 }
 
+// The DevEUI value.
 func (o WirelessDeviceLoRaWanDeviceOutput) DevEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.DevEui }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the device profile for the new wireless device.
 func (o WirelessDeviceLoRaWanDeviceOutput) DeviceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.DeviceProfileId }).(pulumi.StringPtrOutput)
 }
 
+// OTAA device object for create APIs for v1.0.x
 func (o WirelessDeviceLoRaWanDeviceOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV10x { return v.OtaaV10x }).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
+// OTAA device object for v1.1 for create APIs.
 func (o WirelessDeviceLoRaWanDeviceOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV11 { return v.OtaaV11 }).(WirelessDeviceOtaaV11PtrOutput)
 }
 
+// The ID of the service profile.
 func (o WirelessDeviceLoRaWanDeviceOutput) ServiceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.ServiceProfileId }).(pulumi.StringPtrOutput)
 }
@@ -2376,6 +2769,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) Elem() WirelessDeviceLoRaWanDevice
 	}).(WirelessDeviceLoRaWanDeviceOutput)
 }
 
+// ABP device object for LoRaWAN specification v1.0.x
 func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV10x {
 		if v == nil {
@@ -2385,6 +2779,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtr
 	}).(WirelessDeviceAbpV10xPtrOutput)
 }
 
+// ABP device object for create APIs for v1.1.
 func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV11 {
 		if v == nil {
@@ -2394,6 +2789,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOu
 	}).(WirelessDeviceAbpV11PtrOutput)
 }
 
+// The DevEUI value.
 func (o WirelessDeviceLoRaWanDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *string {
 		if v == nil {
@@ -2403,6 +2799,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the device profile for the new wireless device.
 func (o WirelessDeviceLoRaWanDevicePtrOutput) DeviceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *string {
 		if v == nil {
@@ -2412,6 +2809,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) DeviceProfileId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// OTAA device object for create APIs for v1.0.x
 func (o WirelessDeviceLoRaWanDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV10x {
 		if v == nil {
@@ -2421,6 +2819,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xP
 	}).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
+// OTAA device object for v1.1 for create APIs.
 func (o WirelessDeviceLoRaWanDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV11 {
 		if v == nil {
@@ -2430,6 +2829,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11Ptr
 	}).(WirelessDeviceOtaaV11PtrOutput)
 }
 
+// The ID of the service profile.
 func (o WirelessDeviceLoRaWanDevicePtrOutput) ServiceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *string {
 		if v == nil {
@@ -2440,7 +2840,9 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) ServiceProfileId() pulumi.StringPt
 }
 
 type WirelessDeviceOtaaV10x struct {
+	// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
 	AppEui string `pulumi:"appEui"`
+	// The AppKey value.
 	AppKey string `pulumi:"appKey"`
 }
 
@@ -2456,7 +2858,9 @@ type WirelessDeviceOtaaV10xInput interface {
 }
 
 type WirelessDeviceOtaaV10xArgs struct {
+	// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
 	AppEui pulumi.StringInput `pulumi:"appEui"`
+	// The AppKey value.
 	AppKey pulumi.StringInput `pulumi:"appKey"`
 }
 
@@ -2537,10 +2941,12 @@ func (o WirelessDeviceOtaaV10xOutput) ToWirelessDeviceOtaaV10xPtrOutputWithConte
 	}).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
+// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
 func (o WirelessDeviceOtaaV10xOutput) AppEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV10x) string { return v.AppEui }).(pulumi.StringOutput)
 }
 
+// The AppKey value.
 func (o WirelessDeviceOtaaV10xOutput) AppKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV10x) string { return v.AppKey }).(pulumi.StringOutput)
 }
@@ -2569,6 +2975,7 @@ func (o WirelessDeviceOtaaV10xPtrOutput) Elem() WirelessDeviceOtaaV10xOutput {
 	}).(WirelessDeviceOtaaV10xOutput)
 }
 
+// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
 func (o WirelessDeviceOtaaV10xPtrOutput) AppEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV10x) *string {
 		if v == nil {
@@ -2578,6 +2985,7 @@ func (o WirelessDeviceOtaaV10xPtrOutput) AppEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AppKey value.
 func (o WirelessDeviceOtaaV10xPtrOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV10x) *string {
 		if v == nil {
@@ -2588,9 +2996,12 @@ func (o WirelessDeviceOtaaV10xPtrOutput) AppKey() pulumi.StringPtrOutput {
 }
 
 type WirelessDeviceOtaaV11 struct {
-	AppKey  string `pulumi:"appKey"`
+	// The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	AppKey string `pulumi:"appKey"`
+	// The JoinEUI value.
 	JoinEui string `pulumi:"joinEui"`
-	NwkKey  string `pulumi:"nwkKey"`
+	// The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	NwkKey string `pulumi:"nwkKey"`
 }
 
 // WirelessDeviceOtaaV11Input is an input type that accepts WirelessDeviceOtaaV11Args and WirelessDeviceOtaaV11Output values.
@@ -2605,9 +3016,12 @@ type WirelessDeviceOtaaV11Input interface {
 }
 
 type WirelessDeviceOtaaV11Args struct {
-	AppKey  pulumi.StringInput `pulumi:"appKey"`
+	// The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	AppKey pulumi.StringInput `pulumi:"appKey"`
+	// The JoinEUI value.
 	JoinEui pulumi.StringInput `pulumi:"joinEui"`
-	NwkKey  pulumi.StringInput `pulumi:"nwkKey"`
+	// The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	NwkKey pulumi.StringInput `pulumi:"nwkKey"`
 }
 
 func (WirelessDeviceOtaaV11Args) ElementType() reflect.Type {
@@ -2687,14 +3101,17 @@ func (o WirelessDeviceOtaaV11Output) ToWirelessDeviceOtaaV11PtrOutputWithContext
 	}).(WirelessDeviceOtaaV11PtrOutput)
 }
 
+// The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceOtaaV11Output) AppKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV11) string { return v.AppKey }).(pulumi.StringOutput)
 }
 
+// The JoinEUI value.
 func (o WirelessDeviceOtaaV11Output) JoinEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV11) string { return v.JoinEui }).(pulumi.StringOutput)
 }
 
+// The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceOtaaV11Output) NwkKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV11) string { return v.NwkKey }).(pulumi.StringOutput)
 }
@@ -2723,6 +3140,7 @@ func (o WirelessDeviceOtaaV11PtrOutput) Elem() WirelessDeviceOtaaV11Output {
 	}).(WirelessDeviceOtaaV11Output)
 }
 
+// The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceOtaaV11PtrOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV11) *string {
 		if v == nil {
@@ -2732,6 +3150,7 @@ func (o WirelessDeviceOtaaV11PtrOutput) AppKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The JoinEUI value.
 func (o WirelessDeviceOtaaV11PtrOutput) JoinEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV11) *string {
 		if v == nil {
@@ -2741,6 +3160,7 @@ func (o WirelessDeviceOtaaV11PtrOutput) JoinEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceOtaaV11PtrOutput) NwkKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV11) *string {
 		if v == nil {
@@ -2751,7 +3171,9 @@ func (o WirelessDeviceOtaaV11PtrOutput) NwkKey() pulumi.StringPtrOutput {
 }
 
 type WirelessDeviceSessionKeysAbpV10x struct {
+	// The AppSKey value.
 	AppSKey string `pulumi:"appSKey"`
+	// The NwkKey value.
 	NwkSKey string `pulumi:"nwkSKey"`
 }
 
@@ -2767,7 +3189,9 @@ type WirelessDeviceSessionKeysAbpV10xInput interface {
 }
 
 type WirelessDeviceSessionKeysAbpV10xArgs struct {
+	// The AppSKey value.
 	AppSKey pulumi.StringInput `pulumi:"appSKey"`
+	// The NwkKey value.
 	NwkSKey pulumi.StringInput `pulumi:"nwkSKey"`
 }
 
@@ -2848,10 +3272,12 @@ func (o WirelessDeviceSessionKeysAbpV10xOutput) ToWirelessDeviceSessionKeysAbpV1
 	}).(WirelessDeviceSessionKeysAbpV10xPtrOutput)
 }
 
+// The AppSKey value.
 func (o WirelessDeviceSessionKeysAbpV10xOutput) AppSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV10x) string { return v.AppSKey }).(pulumi.StringOutput)
 }
 
+// The NwkKey value.
 func (o WirelessDeviceSessionKeysAbpV10xOutput) NwkSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV10x) string { return v.NwkSKey }).(pulumi.StringOutput)
 }
@@ -2880,6 +3306,7 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) Elem() WirelessDeviceSessionK
 	}).(WirelessDeviceSessionKeysAbpV10xOutput)
 }
 
+// The AppSKey value.
 func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) AppSKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV10x) *string {
 		if v == nil {
@@ -2889,6 +3316,7 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) AppSKey() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NwkKey value.
 func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) NwkSKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV10x) *string {
 		if v == nil {
@@ -2899,9 +3327,13 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) NwkSKey() pulumi.StringPtrOut
 }
 
 type WirelessDeviceSessionKeysAbpV11 struct {
-	AppSKey     string `pulumi:"appSKey"`
+	// The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	AppSKey string `pulumi:"appSKey"`
+	// The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	FNwkSIntKey string `pulumi:"fNwkSIntKey"`
-	NwkSEncKey  string `pulumi:"nwkSEncKey"`
+	// The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	NwkSEncKey string `pulumi:"nwkSEncKey"`
+	// The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	SNwkSIntKey string `pulumi:"sNwkSIntKey"`
 }
 
@@ -2917,9 +3349,13 @@ type WirelessDeviceSessionKeysAbpV11Input interface {
 }
 
 type WirelessDeviceSessionKeysAbpV11Args struct {
-	AppSKey     pulumi.StringInput `pulumi:"appSKey"`
+	// The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	AppSKey pulumi.StringInput `pulumi:"appSKey"`
+	// The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	FNwkSIntKey pulumi.StringInput `pulumi:"fNwkSIntKey"`
-	NwkSEncKey  pulumi.StringInput `pulumi:"nwkSEncKey"`
+	// The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+	NwkSEncKey pulumi.StringInput `pulumi:"nwkSEncKey"`
+	// The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	SNwkSIntKey pulumi.StringInput `pulumi:"sNwkSIntKey"`
 }
 
@@ -3000,18 +3436,22 @@ func (o WirelessDeviceSessionKeysAbpV11Output) ToWirelessDeviceSessionKeysAbpV11
 	}).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
+// The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11Output) AppSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.AppSKey }).(pulumi.StringOutput)
 }
 
+// The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11Output) FNwkSIntKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.FNwkSIntKey }).(pulumi.StringOutput)
 }
 
+// The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11Output) NwkSEncKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.NwkSEncKey }).(pulumi.StringOutput)
 }
 
+// The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11Output) SNwkSIntKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.SNwkSIntKey }).(pulumi.StringOutput)
 }
@@ -3040,6 +3480,7 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) Elem() WirelessDeviceSessionKe
 	}).(WirelessDeviceSessionKeysAbpV11Output)
 }
 
+// The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) AppSKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -3049,6 +3490,7 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) AppSKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) FNwkSIntKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -3058,6 +3500,7 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) FNwkSIntKey() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) NwkSEncKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -3067,6 +3510,7 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) NwkSEncKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) SNwkSIntKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -3077,13 +3521,17 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) SNwkSIntKey() pulumi.StringPtr
 }
 
 type WirelessDeviceTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 
 type WirelessGatewayLoRaWanGateway struct {
+	// The gateway's EUI value.
 	GatewayEui string `pulumi:"gatewayEui"`
-	RfRegion   string `pulumi:"rfRegion"`
+	// The frequency band (RFRegion) value.
+	RfRegion string `pulumi:"rfRegion"`
 }
 
 // WirelessGatewayLoRaWanGatewayInput is an input type that accepts WirelessGatewayLoRaWanGatewayArgs and WirelessGatewayLoRaWanGatewayOutput values.
@@ -3098,8 +3546,10 @@ type WirelessGatewayLoRaWanGatewayInput interface {
 }
 
 type WirelessGatewayLoRaWanGatewayArgs struct {
+	// The gateway's EUI value.
 	GatewayEui pulumi.StringInput `pulumi:"gatewayEui"`
-	RfRegion   pulumi.StringInput `pulumi:"rfRegion"`
+	// The frequency band (RFRegion) value.
+	RfRegion pulumi.StringInput `pulumi:"rfRegion"`
 }
 
 func (WirelessGatewayLoRaWanGatewayArgs) ElementType() reflect.Type {
@@ -3128,10 +3578,12 @@ func (o WirelessGatewayLoRaWanGatewayOutput) ToWirelessGatewayLoRaWanGatewayOutp
 	return o
 }
 
+// The gateway's EUI value.
 func (o WirelessGatewayLoRaWanGatewayOutput) GatewayEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessGatewayLoRaWanGateway) string { return v.GatewayEui }).(pulumi.StringOutput)
 }
 
+// The frequency band (RFRegion) value.
 func (o WirelessGatewayLoRaWanGatewayOutput) RfRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessGatewayLoRaWanGateway) string { return v.RfRegion }).(pulumi.StringOutput)
 }
@@ -3160,6 +3612,7 @@ func (o WirelessGatewayLoRaWanGatewayPtrOutput) Elem() WirelessGatewayLoRaWanGat
 	}).(WirelessGatewayLoRaWanGatewayOutput)
 }
 
+// The gateway's EUI value.
 func (o WirelessGatewayLoRaWanGatewayPtrOutput) GatewayEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessGatewayLoRaWanGateway) *string {
 		if v == nil {
@@ -3169,6 +3622,7 @@ func (o WirelessGatewayLoRaWanGatewayPtrOutput) GatewayEui() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The frequency band (RFRegion) value.
 func (o WirelessGatewayLoRaWanGatewayPtrOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessGatewayLoRaWanGateway) *string {
 		if v == nil {
@@ -3179,7 +3633,9 @@ func (o WirelessGatewayLoRaWanGatewayPtrOutput) RfRegion() pulumi.StringPtrOutpu
 }
 
 type WirelessGatewayTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag's key value.
+	Key *string `pulumi:"key"`
+	// The tag's value.
 	Value *string `pulumi:"value"`
 }
 

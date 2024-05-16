@@ -52,6 +52,9 @@ export class HostedZone extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostedZone.__pulumiType;
     }
 
+    /**
+     * The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * A complex type that contains an optional comment.
@@ -68,6 +71,11 @@ export class HostedZone extends pulumi.CustomResource {
      *  If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+     *
+     * This attribute is not supported for private hosted zones.
+     */
     public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
      * Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.

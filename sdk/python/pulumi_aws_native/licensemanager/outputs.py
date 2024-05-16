@@ -44,17 +44,27 @@ class LicenseBorrowConfiguration(dict):
     def __init__(__self__, *,
                  allow_early_check_in: bool,
                  max_time_to_live_in_minutes: int):
+        """
+        :param bool allow_early_check_in: Indicates whether early check-ins are allowed.
+        :param int max_time_to_live_in_minutes: Maximum time for the borrow configuration, in minutes.
+        """
         pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
     def allow_early_check_in(self) -> bool:
+        """
+        Indicates whether early check-ins are allowed.
+        """
         return pulumi.get(self, "allow_early_check_in")
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> int:
+        """
+        Maximum time for the borrow configuration, in minutes.
+        """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
 
@@ -85,6 +95,11 @@ class LicenseConsumptionConfiguration(dict):
                  borrow_configuration: Optional['outputs.LicenseBorrowConfiguration'] = None,
                  provisional_configuration: Optional['outputs.LicenseProvisionalConfiguration'] = None,
                  renew_type: Optional[str] = None):
+        """
+        :param 'LicenseBorrowConfiguration' borrow_configuration: Details about a borrow configuration.
+        :param 'LicenseProvisionalConfiguration' provisional_configuration: Details about a provisional configuration.
+        :param str renew_type: Renewal frequency.
+        """
         if borrow_configuration is not None:
             pulumi.set(__self__, "borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
@@ -95,16 +110,25 @@ class LicenseConsumptionConfiguration(dict):
     @property
     @pulumi.getter(name="borrowConfiguration")
     def borrow_configuration(self) -> Optional['outputs.LicenseBorrowConfiguration']:
+        """
+        Details about a borrow configuration.
+        """
         return pulumi.get(self, "borrow_configuration")
 
     @property
     @pulumi.getter(name="provisionalConfiguration")
     def provisional_configuration(self) -> Optional['outputs.LicenseProvisionalConfiguration']:
+        """
+        Details about a provisional configuration.
+        """
         return pulumi.get(self, "provisional_configuration")
 
     @property
     @pulumi.getter(name="renewType")
     def renew_type(self) -> Optional[str]:
+        """
+        Renewal frequency.
+        """
         return pulumi.get(self, "renew_type")
 
 
@@ -136,6 +160,14 @@ class LicenseEntitlement(dict):
                  max_count: Optional[int] = None,
                  overage: Optional[bool] = None,
                  value: Optional[str] = None):
+        """
+        :param str name: Entitlement name.
+        :param str unit: Entitlement unit.
+        :param bool allow_check_in: Indicates whether check-ins are allowed.
+        :param int max_count: Maximum entitlement count. Use if the unit is not None.
+        :param bool overage: Indicates whether overages are allowed.
+        :param str value: Entitlement resource. Use only if the unit is None.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "unit", unit)
         if allow_check_in is not None:
@@ -150,31 +182,49 @@ class LicenseEntitlement(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Entitlement name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def unit(self) -> str:
+        """
+        Entitlement unit.
+        """
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter(name="allowCheckIn")
     def allow_check_in(self) -> Optional[bool]:
+        """
+        Indicates whether check-ins are allowed.
+        """
         return pulumi.get(self, "allow_check_in")
 
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[int]:
+        """
+        Maximum entitlement count. Use if the unit is not None.
+        """
         return pulumi.get(self, "max_count")
 
     @property
     @pulumi.getter
     def overage(self) -> Optional[bool]:
+        """
+        Indicates whether overages are allowed.
+        """
         return pulumi.get(self, "overage")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        Entitlement resource. Use only if the unit is None.
+        """
         return pulumi.get(self, "value")
 
 
@@ -200,6 +250,10 @@ class LicenseIssuerData(dict):
     def __init__(__self__, *,
                  name: str,
                  sign_key: Optional[str] = None):
+        """
+        :param str name: Issuer name.
+        :param str sign_key: Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        """
         pulumi.set(__self__, "name", name)
         if sign_key is not None:
             pulumi.set(__self__, "sign_key", sign_key)
@@ -207,11 +261,17 @@ class LicenseIssuerData(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Issuer name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="signKey")
     def sign_key(self) -> Optional[str]:
+        """
+        Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        """
         return pulumi.get(self, "sign_key")
 
 
@@ -220,17 +280,27 @@ class LicenseMetadata(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: The key name.
+        :param str value: The value.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The key name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -255,11 +325,17 @@ class LicenseProvisionalConfiguration(dict):
 
     def __init__(__self__, *,
                  max_time_to_live_in_minutes: int):
+        """
+        :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
+        """
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> int:
+        """
+        Maximum time for the provisional configuration, in minutes.
+        """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
 

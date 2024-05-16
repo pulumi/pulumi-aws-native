@@ -24,14 +24,17 @@ func LookupTrainingDataset(ctx *pulumi.Context, args *LookupTrainingDatasetArgs,
 }
 
 type LookupTrainingDatasetArgs struct {
+	// The Amazon Resource Name (ARN) of the training dataset.
 	TrainingDatasetArn string `pulumi:"trainingDatasetArn"`
 }
 
 type LookupTrainingDatasetResult struct {
+	// The status of the training dataset.
 	Status *TrainingDatasetStatus `pulumi:"status"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
-	Tags               []aws.Tag `pulumi:"tags"`
-	TrainingDatasetArn *string   `pulumi:"trainingDatasetArn"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the training dataset.
+	TrainingDatasetArn *string `pulumi:"trainingDatasetArn"`
 }
 
 func LookupTrainingDatasetOutput(ctx *pulumi.Context, args LookupTrainingDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupTrainingDatasetResultOutput {
@@ -48,6 +51,7 @@ func LookupTrainingDatasetOutput(ctx *pulumi.Context, args LookupTrainingDataset
 }
 
 type LookupTrainingDatasetOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the training dataset.
 	TrainingDatasetArn pulumi.StringInput `pulumi:"trainingDatasetArn"`
 }
 
@@ -69,6 +73,7 @@ func (o LookupTrainingDatasetResultOutput) ToLookupTrainingDatasetResultOutputWi
 	return o
 }
 
+// The status of the training dataset.
 func (o LookupTrainingDatasetResultOutput) Status() TrainingDatasetStatusPtrOutput {
 	return o.ApplyT(func(v LookupTrainingDatasetResult) *TrainingDatasetStatus { return v.Status }).(TrainingDatasetStatusPtrOutput)
 }
@@ -78,6 +83,7 @@ func (o LookupTrainingDatasetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrainingDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the training dataset.
 func (o LookupTrainingDatasetResultOutput) TrainingDatasetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrainingDatasetResult) *string { return v.TrainingDatasetArn }).(pulumi.StringPtrOutput)
 }

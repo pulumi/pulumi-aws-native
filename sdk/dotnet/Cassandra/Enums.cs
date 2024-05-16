@@ -49,6 +49,14 @@ namespace Pulumi.AwsNative.Cassandra
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The options are:
+    /// 
+    /// - `SINGLE_REGION` (optional)
+    /// - `MULTI_REGION`
+    /// 
+    /// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
+    /// </summary>
     [EnumType]
     public readonly struct KeyspaceReplicationSpecificationReplicationStrategy : IEquatable<KeyspaceReplicationSpecificationReplicationStrategy>
     {
@@ -77,6 +85,12 @@ namespace Pulumi.AwsNative.Cassandra
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The order in which this column's data is stored:
+    /// 
+    /// - `ASC` (default) - The column's data is stored in ascending order.
+    /// - `DESC` - The column's data is stored in descending order.
+    /// </summary>
     [EnumType]
     public readonly struct TableClusteringKeyColumnOrderBy : IEquatable<TableClusteringKeyColumnOrderBy>
     {

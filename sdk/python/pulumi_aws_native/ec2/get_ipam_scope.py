@@ -57,6 +57,9 @@ class GetIpamScopeResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the scope.
+        """
         return pulumi.get(self, "description")
 
     @property

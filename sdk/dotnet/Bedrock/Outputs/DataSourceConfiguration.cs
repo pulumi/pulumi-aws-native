@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceConfiguration
     {
+        /// <summary>
+        /// Contains information about the S3 configuration of the data source.
+        /// </summary>
         public readonly Outputs.DataSourceS3DataSourceConfiguration S3Configuration;
+        /// <summary>
+        /// The type of storage for the data source.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceType Type;
 
         [OutputConstructor]

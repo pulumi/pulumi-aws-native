@@ -16,10 +16,14 @@ import (
 type BackupSelection struct {
 	pulumi.CustomResourceState
 
-	AwsId           pulumi.StringOutput               `pulumi:"awsId"`
-	BackupPlanId    pulumi.StringOutput               `pulumi:"backupPlanId"`
+	// Uniquely identifies the backup selection.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Uniquely identifies a backup plan.
+	BackupPlanId pulumi.StringOutput `pulumi:"backupPlanId"`
+	// Specifies an object containing properties used to assign a set of resources to a backup plan.
 	BackupSelection BackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
-	SelectionId     pulumi.StringOutput               `pulumi:"selectionId"`
+	// Uniquely identifies a request to assign a set of resources to a backup plan.
+	SelectionId pulumi.StringOutput `pulumi:"selectionId"`
 }
 
 // NewBackupSelection registers a new resource with the given unique name, arguments, and options.
@@ -73,13 +77,17 @@ func (BackupSelectionState) ElementType() reflect.Type {
 }
 
 type backupSelectionArgs struct {
-	BackupPlanId    string                      `pulumi:"backupPlanId"`
+	// Uniquely identifies a backup plan.
+	BackupPlanId string `pulumi:"backupPlanId"`
+	// Specifies an object containing properties used to assign a set of resources to a backup plan.
 	BackupSelection BackupSelectionResourceType `pulumi:"backupSelection"`
 }
 
 // The set of arguments for constructing a BackupSelection resource.
 type BackupSelectionArgs struct {
-	BackupPlanId    pulumi.StringInput
+	// Uniquely identifies a backup plan.
+	BackupPlanId pulumi.StringInput
+	// Specifies an object containing properties used to assign a set of resources to a backup plan.
 	BackupSelection BackupSelectionResourceTypeInput
 }
 
@@ -120,18 +128,22 @@ func (o BackupSelectionOutput) ToBackupSelectionOutputWithContext(ctx context.Co
 	return o
 }
 
+// Uniquely identifies the backup selection.
 func (o BackupSelectionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Uniquely identifies a backup plan.
 func (o BackupSelectionOutput) BackupPlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.BackupPlanId }).(pulumi.StringOutput)
 }
 
+// Specifies an object containing properties used to assign a set of resources to a backup plan.
 func (o BackupSelectionOutput) BackupSelection() BackupSelectionResourceTypeOutput {
 	return o.ApplyT(func(v *BackupSelection) BackupSelectionResourceTypeOutput { return v.BackupSelection }).(BackupSelectionResourceTypeOutput)
 }
 
+// Uniquely identifies a request to assign a set of resources to a backup plan.
 func (o BackupSelectionOutput) SelectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.SelectionId }).(pulumi.StringOutput)
 }

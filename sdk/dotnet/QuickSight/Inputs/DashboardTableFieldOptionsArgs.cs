@@ -14,17 +14,28 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("order")]
         private InputList<string>? _order;
+
+        /// <summary>
+        /// The order of the field IDs that are configured as field options for a table visual.
+        /// </summary>
         public InputList<string> Order
         {
             get => _order ?? (_order = new InputList<string>());
             set => _order = value;
         }
 
+        /// <summary>
+        /// The settings for the pinned columns of a table visual.
+        /// </summary>
         [Input("pinnedFieldOptions")]
         public Input<Inputs.DashboardTablePinnedFieldOptionsArgs>? PinnedFieldOptions { get; set; }
 
         [Input("selectedFieldOptions")]
         private InputList<Inputs.DashboardTableFieldOptionArgs>? _selectedFieldOptions;
+
+        /// <summary>
+        /// The options for a table field.
+        /// </summary>
         public InputList<Inputs.DashboardTableFieldOptionArgs> SelectedFieldOptions
         {
             get => _selectedFieldOptions ?? (_selectedFieldOptions = new InputList<Inputs.DashboardTableFieldOptionArgs>());

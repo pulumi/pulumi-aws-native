@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("fontFamilies")]
         private InputList<Inputs.ThemeFontArgs>? _fontFamilies;
+
+        /// <summary>
+        /// Determines the font settings.
+        /// </summary>
         public InputList<Inputs.ThemeFontArgs> FontFamilies
         {
             get => _fontFamilies ?? (_fontFamilies = new InputList<Inputs.ThemeFontArgs>());

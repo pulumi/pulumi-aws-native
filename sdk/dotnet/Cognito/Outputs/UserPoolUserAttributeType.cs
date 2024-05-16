@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolUserAttributeType
     {
+        /// <summary>
+        /// The name of the attribute.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

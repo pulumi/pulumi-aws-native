@@ -12,15 +12,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardWordCloudChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
+        /// <summary>
+        /// The field wells of a word cloud visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.DashboardWordCloudFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a word cloud visual.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.DashboardWordCloudSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The word cloud options for a word cloud visual.
+        /// </summary>
         [Input("wordCloudOptions")]
         public Input<Inputs.DashboardWordCloudOptionsArgs>? WordCloudOptions { get; set; }
 

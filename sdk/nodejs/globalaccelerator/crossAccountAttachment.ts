@@ -53,6 +53,9 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
      * Resources shared using the attachment.
      */
     public readonly resources!: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
+    /**
+     * A complex type that contains a `Tag` key and `Tag` value.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -99,5 +102,8 @@ export interface CrossAccountAttachmentArgs {
      * Resources shared using the attachment.
      */
     resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResourceArgs>[]>;
+    /**
+     * A complex type that contains a `Tag` key and `Tag` value.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -14,15 +14,24 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ComponentActionParameters struct {
-	Anchor *ComponentProperty                        `pulumi:"anchor"`
-	Fields map[string]ComponentProperty              `pulumi:"fields"`
-	Global *ComponentProperty                        `pulumi:"global"`
-	Id     *ComponentProperty                        `pulumi:"id"`
-	Model  *string                                   `pulumi:"model"`
-	State  *ComponentMutationActionSetStateParameter `pulumi:"state"`
-	Target *ComponentProperty                        `pulumi:"target"`
-	Type   *ComponentProperty                        `pulumi:"type"`
-	Url    *ComponentProperty                        `pulumi:"url"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Anchor *ComponentProperty `pulumi:"anchor"`
+	// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+	Fields map[string]ComponentProperty `pulumi:"fields"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Global *ComponentProperty `pulumi:"global"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Id *ComponentProperty `pulumi:"id"`
+	// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+	Model *string `pulumi:"model"`
+	// Represents the state configuration when an action modifies a property of another element within the same component.
+	State *ComponentMutationActionSetStateParameter `pulumi:"state"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Target *ComponentProperty `pulumi:"target"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Type *ComponentProperty `pulumi:"type"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Url *ComponentProperty `pulumi:"url"`
 }
 
 // ComponentActionParametersInput is an input type that accepts ComponentActionParametersArgs and ComponentActionParametersOutput values.
@@ -37,15 +46,24 @@ type ComponentActionParametersInput interface {
 }
 
 type ComponentActionParametersArgs struct {
-	Anchor ComponentPropertyPtrInput                        `pulumi:"anchor"`
-	Fields ComponentPropertyMapInput                        `pulumi:"fields"`
-	Global ComponentPropertyPtrInput                        `pulumi:"global"`
-	Id     ComponentPropertyPtrInput                        `pulumi:"id"`
-	Model  pulumi.StringPtrInput                            `pulumi:"model"`
-	State  ComponentMutationActionSetStateParameterPtrInput `pulumi:"state"`
-	Target ComponentPropertyPtrInput                        `pulumi:"target"`
-	Type   ComponentPropertyPtrInput                        `pulumi:"type"`
-	Url    ComponentPropertyPtrInput                        `pulumi:"url"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Anchor ComponentPropertyPtrInput `pulumi:"anchor"`
+	// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+	Fields ComponentPropertyMapInput `pulumi:"fields"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Global ComponentPropertyPtrInput `pulumi:"global"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Id ComponentPropertyPtrInput `pulumi:"id"`
+	// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// Represents the state configuration when an action modifies a property of another element within the same component.
+	State ComponentMutationActionSetStateParameterPtrInput `pulumi:"state"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Target ComponentPropertyPtrInput `pulumi:"target"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Type ComponentPropertyPtrInput `pulumi:"type"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Url ComponentPropertyPtrInput `pulumi:"url"`
 }
 
 func (ComponentActionParametersArgs) ElementType() reflect.Type {
@@ -125,38 +143,47 @@ func (o ComponentActionParametersOutput) ToComponentActionParametersPtrOutputWit
 	}).(ComponentActionParametersPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersOutput) Anchor() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Anchor }).(ComponentPropertyPtrOutput)
 }
 
+// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
 func (o ComponentActionParametersOutput) Fields() ComponentPropertyMapOutput {
 	return o.ApplyT(func(v ComponentActionParameters) map[string]ComponentProperty { return v.Fields }).(ComponentPropertyMapOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersOutput) Global() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Global }).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersOutput) Id() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Id }).(ComponentPropertyPtrOutput)
 }
 
+// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
 func (o ComponentActionParametersOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
+// Represents the state configuration when an action modifies a property of another element within the same component.
 func (o ComponentActionParametersOutput) State() ComponentMutationActionSetStateParameterPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentMutationActionSetStateParameter { return v.State }).(ComponentMutationActionSetStateParameterPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersOutput) Target() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Target }).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersOutput) Type() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Type }).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersOutput) Url() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Url }).(ComponentPropertyPtrOutput)
 }
@@ -185,6 +212,7 @@ func (o ComponentActionParametersPtrOutput) Elem() ComponentActionParametersOutp
 	}).(ComponentActionParametersOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersPtrOutput) Anchor() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
 		if v == nil {
@@ -194,6 +222,7 @@ func (o ComponentActionParametersPtrOutput) Anchor() ComponentPropertyPtrOutput 
 	}).(ComponentPropertyPtrOutput)
 }
 
+// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
 func (o ComponentActionParametersPtrOutput) Fields() ComponentPropertyMapOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) map[string]ComponentProperty {
 		if v == nil {
@@ -203,6 +232,7 @@ func (o ComponentActionParametersPtrOutput) Fields() ComponentPropertyMapOutput 
 	}).(ComponentPropertyMapOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersPtrOutput) Global() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
 		if v == nil {
@@ -212,6 +242,7 @@ func (o ComponentActionParametersPtrOutput) Global() ComponentPropertyPtrOutput 
 	}).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersPtrOutput) Id() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
 		if v == nil {
@@ -221,6 +252,7 @@ func (o ComponentActionParametersPtrOutput) Id() ComponentPropertyPtrOutput {
 	}).(ComponentPropertyPtrOutput)
 }
 
+// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
 func (o ComponentActionParametersPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *string {
 		if v == nil {
@@ -230,6 +262,7 @@ func (o ComponentActionParametersPtrOutput) Model() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the state configuration when an action modifies a property of another element within the same component.
 func (o ComponentActionParametersPtrOutput) State() ComponentMutationActionSetStateParameterPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentMutationActionSetStateParameter {
 		if v == nil {
@@ -239,6 +272,7 @@ func (o ComponentActionParametersPtrOutput) State() ComponentMutationActionSetSt
 	}).(ComponentMutationActionSetStateParameterPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersPtrOutput) Target() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
 		if v == nil {
@@ -248,6 +282,7 @@ func (o ComponentActionParametersPtrOutput) Target() ComponentPropertyPtrOutput 
 	}).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersPtrOutput) Type() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
 		if v == nil {
@@ -257,6 +292,7 @@ func (o ComponentActionParametersPtrOutput) Type() ComponentPropertyPtrOutput {
 	}).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentActionParametersPtrOutput) Url() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
 		if v == nil {
@@ -267,9 +303,12 @@ func (o ComponentActionParametersPtrOutput) Url() ComponentPropertyPtrOutput {
 }
 
 type ComponentBindingPropertiesValue struct {
+	// The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
 	BindingProperties *ComponentBindingPropertiesValueProperties `pulumi:"bindingProperties"`
-	DefaultValue      *string                                    `pulumi:"defaultValue"`
-	Type              *string                                    `pulumi:"type"`
+	// The default value of the property.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The property type.
+	Type *string `pulumi:"type"`
 }
 
 // ComponentBindingPropertiesValueInput is an input type that accepts ComponentBindingPropertiesValueArgs and ComponentBindingPropertiesValueOutput values.
@@ -284,9 +323,12 @@ type ComponentBindingPropertiesValueInput interface {
 }
 
 type ComponentBindingPropertiesValueArgs struct {
+	// The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
 	BindingProperties ComponentBindingPropertiesValuePropertiesPtrInput `pulumi:"bindingProperties"`
-	DefaultValue      pulumi.StringPtrInput                             `pulumi:"defaultValue"`
-	Type              pulumi.StringPtrInput                             `pulumi:"type"`
+	// The default value of the property.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The property type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ComponentBindingPropertiesValueArgs) ElementType() reflect.Type {
@@ -340,16 +382,19 @@ func (o ComponentBindingPropertiesValueOutput) ToComponentBindingPropertiesValue
 	return o
 }
 
+// The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
 func (o ComponentBindingPropertiesValueOutput) BindingProperties() ComponentBindingPropertiesValuePropertiesPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValue) *ComponentBindingPropertiesValueProperties {
 		return v.BindingProperties
 	}).(ComponentBindingPropertiesValuePropertiesPtrOutput)
 }
 
+// The default value of the property.
 func (o ComponentBindingPropertiesValueOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValue) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// The property type.
 func (o ComponentBindingPropertiesValueOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -375,14 +420,22 @@ func (o ComponentBindingPropertiesValueMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 type ComponentBindingPropertiesValueProperties struct {
-	Bucket        *string              `pulumi:"bucket"`
-	DefaultValue  *string              `pulumi:"defaultValue"`
-	Field         *string              `pulumi:"field"`
-	Key           *string              `pulumi:"key"`
-	Model         *string              `pulumi:"model"`
-	Predicates    []ComponentPredicate `pulumi:"predicates"`
-	SlotName      *string              `pulumi:"slotName"`
-	UserAttribute *string              `pulumi:"userAttribute"`
+	// An Amazon S3 bucket.
+	Bucket *string `pulumi:"bucket"`
+	// The default value to assign to the property.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The field to bind the data to.
+	Field *string `pulumi:"field"`
+	// The storage key for an Amazon S3 bucket.
+	Key *string `pulumi:"key"`
+	// An Amplify DataStore model.
+	Model *string `pulumi:"model"`
+	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	Predicates []ComponentPredicate `pulumi:"predicates"`
+	// The name of a component slot.
+	SlotName *string `pulumi:"slotName"`
+	// An authenticated user attribute.
+	UserAttribute *string `pulumi:"userAttribute"`
 }
 
 // ComponentBindingPropertiesValuePropertiesInput is an input type that accepts ComponentBindingPropertiesValuePropertiesArgs and ComponentBindingPropertiesValuePropertiesOutput values.
@@ -397,14 +450,22 @@ type ComponentBindingPropertiesValuePropertiesInput interface {
 }
 
 type ComponentBindingPropertiesValuePropertiesArgs struct {
-	Bucket        pulumi.StringPtrInput        `pulumi:"bucket"`
-	DefaultValue  pulumi.StringPtrInput        `pulumi:"defaultValue"`
-	Field         pulumi.StringPtrInput        `pulumi:"field"`
-	Key           pulumi.StringPtrInput        `pulumi:"key"`
-	Model         pulumi.StringPtrInput        `pulumi:"model"`
-	Predicates    ComponentPredicateArrayInput `pulumi:"predicates"`
-	SlotName      pulumi.StringPtrInput        `pulumi:"slotName"`
-	UserAttribute pulumi.StringPtrInput        `pulumi:"userAttribute"`
+	// An Amazon S3 bucket.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The default value to assign to the property.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The field to bind the data to.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The storage key for an Amazon S3 bucket.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// An Amplify DataStore model.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	Predicates ComponentPredicateArrayInput `pulumi:"predicates"`
+	// The name of a component slot.
+	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
+	// An authenticated user attribute.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
 }
 
 func (ComponentBindingPropertiesValuePropertiesArgs) ElementType() reflect.Type {
@@ -484,34 +545,42 @@ func (o ComponentBindingPropertiesValuePropertiesOutput) ToComponentBindingPrope
 	}).(ComponentBindingPropertiesValuePropertiesPtrOutput)
 }
 
+// An Amazon S3 bucket.
 func (o ComponentBindingPropertiesValuePropertiesOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The default value to assign to the property.
 func (o ComponentBindingPropertiesValuePropertiesOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// The field to bind the data to.
 func (o ComponentBindingPropertiesValuePropertiesOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The storage key for an Amazon S3 bucket.
 func (o ComponentBindingPropertiesValuePropertiesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// An Amplify DataStore model.
 func (o ComponentBindingPropertiesValuePropertiesOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
+// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
 func (o ComponentBindingPropertiesValuePropertiesOutput) Predicates() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) []ComponentPredicate { return v.Predicates }).(ComponentPredicateArrayOutput)
 }
 
+// The name of a component slot.
 func (o ComponentBindingPropertiesValuePropertiesOutput) SlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.SlotName }).(pulumi.StringPtrOutput)
 }
 
+// An authenticated user attribute.
 func (o ComponentBindingPropertiesValuePropertiesOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
 }
@@ -540,6 +609,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Elem() ComponentBind
 	}).(ComponentBindingPropertiesValuePropertiesOutput)
 }
 
+// An Amazon S3 bucket.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -549,6 +619,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Bucket() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default value to assign to the property.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -558,6 +629,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) DefaultValue() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The field to bind the data to.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -567,6 +639,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Field() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The storage key for an Amazon S3 bucket.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -576,6 +649,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Key() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Amplify DataStore model.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -585,6 +659,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Model() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Predicates() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) []ComponentPredicate {
 		if v == nil {
@@ -594,6 +669,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Predicates() Compone
 	}).(ComponentPredicateArrayOutput)
 }
 
+// The name of a component slot.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) SlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -603,6 +679,7 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) SlotName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// An authenticated user attribute.
 func (o ComponentBindingPropertiesValuePropertiesPtrOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -613,12 +690,18 @@ func (o ComponentBindingPropertiesValuePropertiesPtrOutput) UserAttribute() pulu
 }
 
 type ComponentChild struct {
-	Children      []ComponentChild             `pulumi:"children"`
-	ComponentType string                       `pulumi:"componentType"`
-	Events        map[string]ComponentEvent    `pulumi:"events"`
-	Name          string                       `pulumi:"name"`
-	Properties    map[string]ComponentProperty `pulumi:"properties"`
-	SourceId      *string                      `pulumi:"sourceId"`
+	// The list of `ComponentChild` instances for this component.
+	Children []ComponentChild `pulumi:"children"`
+	// The type of the child component.
+	ComponentType string `pulumi:"componentType"`
+	// Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+	Events map[string]ComponentEvent `pulumi:"events"`
+	// The name of the child component.
+	Name string `pulumi:"name"`
+	// Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
+	Properties map[string]ComponentProperty `pulumi:"properties"`
+	// The unique ID of the child component in its original source system, such as Figma.
+	SourceId *string `pulumi:"sourceId"`
 }
 
 // ComponentChildInput is an input type that accepts ComponentChildArgs and ComponentChildOutput values.
@@ -633,12 +716,18 @@ type ComponentChildInput interface {
 }
 
 type ComponentChildArgs struct {
-	Children      ComponentChildArrayInput  `pulumi:"children"`
-	ComponentType pulumi.StringInput        `pulumi:"componentType"`
-	Events        ComponentEventMapInput    `pulumi:"events"`
-	Name          pulumi.StringInput        `pulumi:"name"`
-	Properties    ComponentPropertyMapInput `pulumi:"properties"`
-	SourceId      pulumi.StringPtrInput     `pulumi:"sourceId"`
+	// The list of `ComponentChild` instances for this component.
+	Children ComponentChildArrayInput `pulumi:"children"`
+	// The type of the child component.
+	ComponentType pulumi.StringInput `pulumi:"componentType"`
+	// Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+	Events ComponentEventMapInput `pulumi:"events"`
+	// The name of the child component.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
+	Properties ComponentPropertyMapInput `pulumi:"properties"`
+	// The unique ID of the child component in its original source system, such as Figma.
+	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
 }
 
 func (ComponentChildArgs) ElementType() reflect.Type {
@@ -692,26 +781,32 @@ func (o ComponentChildOutput) ToComponentChildOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The list of `ComponentChild` instances for this component.
 func (o ComponentChildOutput) Children() ComponentChildArrayOutput {
 	return o.ApplyT(func(v ComponentChild) []ComponentChild { return v.Children }).(ComponentChildArrayOutput)
 }
 
+// The type of the child component.
 func (o ComponentChildOutput) ComponentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentChild) string { return v.ComponentType }).(pulumi.StringOutput)
 }
 
+// Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
 func (o ComponentChildOutput) Events() ComponentEventMapOutput {
 	return o.ApplyT(func(v ComponentChild) map[string]ComponentEvent { return v.Events }).(ComponentEventMapOutput)
 }
 
+// The name of the child component.
 func (o ComponentChildOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentChild) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
 func (o ComponentChildOutput) Properties() ComponentPropertyMapOutput {
 	return o.ApplyT(func(v ComponentChild) map[string]ComponentProperty { return v.Properties }).(ComponentPropertyMapOutput)
 }
 
+// The unique ID of the child component in its original source system, such as Figma.
 func (o ComponentChildOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentChild) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
@@ -737,13 +832,20 @@ func (o ComponentChildArrayOutput) Index(i pulumi.IntInput) ComponentChildOutput
 }
 
 type ComponentConditionProperty struct {
-	Else        *ComponentProperty `pulumi:"else"`
-	Field       *string            `pulumi:"field"`
-	Operand     *string            `pulumi:"operand"`
-	OperandType *string            `pulumi:"operandType"`
-	Operator    *string            `pulumi:"operator"`
-	Property    *string            `pulumi:"property"`
-	Then        *ComponentProperty `pulumi:"then"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Else *ComponentProperty `pulumi:"else"`
+	// The name of a field. Specify this when the property is a data model.
+	Field *string `pulumi:"field"`
+	// The value of the property to evaluate.
+	Operand *string `pulumi:"operand"`
+	// The type of the property to evaluate.
+	OperandType *string `pulumi:"operandType"`
+	// The operator to use to perform the evaluation, such as `eq` to represent equals.
+	Operator *string `pulumi:"operator"`
+	// The name of the conditional property.
+	Property *string `pulumi:"property"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Then *ComponentProperty `pulumi:"then"`
 }
 
 // ComponentConditionPropertyInput is an input type that accepts ComponentConditionPropertyArgs and ComponentConditionPropertyOutput values.
@@ -758,13 +860,20 @@ type ComponentConditionPropertyInput interface {
 }
 
 type ComponentConditionPropertyArgs struct {
-	Else        ComponentPropertyPtrInput `pulumi:"else"`
-	Field       pulumi.StringPtrInput     `pulumi:"field"`
-	Operand     pulumi.StringPtrInput     `pulumi:"operand"`
-	OperandType pulumi.StringPtrInput     `pulumi:"operandType"`
-	Operator    pulumi.StringPtrInput     `pulumi:"operator"`
-	Property    pulumi.StringPtrInput     `pulumi:"property"`
-	Then        ComponentPropertyPtrInput `pulumi:"then"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Else ComponentPropertyPtrInput `pulumi:"else"`
+	// The name of a field. Specify this when the property is a data model.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The value of the property to evaluate.
+	Operand pulumi.StringPtrInput `pulumi:"operand"`
+	// The type of the property to evaluate.
+	OperandType pulumi.StringPtrInput `pulumi:"operandType"`
+	// The operator to use to perform the evaluation, such as `eq` to represent equals.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The name of the conditional property.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Then ComponentPropertyPtrInput `pulumi:"then"`
 }
 
 func (ComponentConditionPropertyArgs) ElementType() reflect.Type {
@@ -844,30 +953,37 @@ func (o ComponentConditionPropertyOutput) ToComponentConditionPropertyPtrOutputW
 	}).(ComponentConditionPropertyPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentConditionPropertyOutput) Else() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *ComponentProperty { return v.Else }).(ComponentPropertyPtrOutput)
 }
 
+// The name of a field. Specify this when the property is a data model.
 func (o ComponentConditionPropertyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The value of the property to evaluate.
 func (o ComponentConditionPropertyOutput) Operand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Operand }).(pulumi.StringPtrOutput)
 }
 
+// The type of the property to evaluate.
 func (o ComponentConditionPropertyOutput) OperandType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.OperandType }).(pulumi.StringPtrOutput)
 }
 
+// The operator to use to perform the evaluation, such as `eq` to represent equals.
 func (o ComponentConditionPropertyOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// The name of the conditional property.
 func (o ComponentConditionPropertyOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentConditionPropertyOutput) Then() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentConditionProperty) *ComponentProperty { return v.Then }).(ComponentPropertyPtrOutput)
 }
@@ -896,6 +1012,7 @@ func (o ComponentConditionPropertyPtrOutput) Elem() ComponentConditionPropertyOu
 	}).(ComponentConditionPropertyOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentConditionPropertyPtrOutput) Else() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *ComponentProperty {
 		if v == nil {
@@ -905,6 +1022,7 @@ func (o ComponentConditionPropertyPtrOutput) Else() ComponentPropertyPtrOutput {
 	}).(ComponentPropertyPtrOutput)
 }
 
+// The name of a field. Specify this when the property is a data model.
 func (o ComponentConditionPropertyPtrOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *string {
 		if v == nil {
@@ -914,6 +1032,7 @@ func (o ComponentConditionPropertyPtrOutput) Field() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the property to evaluate.
 func (o ComponentConditionPropertyPtrOutput) Operand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *string {
 		if v == nil {
@@ -923,6 +1042,7 @@ func (o ComponentConditionPropertyPtrOutput) Operand() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of the property to evaluate.
 func (o ComponentConditionPropertyPtrOutput) OperandType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *string {
 		if v == nil {
@@ -932,6 +1052,7 @@ func (o ComponentConditionPropertyPtrOutput) OperandType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operator to use to perform the evaluation, such as `eq` to represent equals.
 func (o ComponentConditionPropertyPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *string {
 		if v == nil {
@@ -941,6 +1062,7 @@ func (o ComponentConditionPropertyPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the conditional property.
 func (o ComponentConditionPropertyPtrOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *string {
 		if v == nil {
@@ -950,6 +1072,7 @@ func (o ComponentConditionPropertyPtrOutput) Property() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentConditionPropertyPtrOutput) Then() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentConditionProperty) *ComponentProperty {
 		if v == nil {
@@ -960,10 +1083,14 @@ func (o ComponentConditionPropertyPtrOutput) Then() ComponentPropertyPtrOutput {
 }
 
 type ComponentDataConfiguration struct {
-	Identifiers []string                `pulumi:"identifiers"`
-	Model       string                  `pulumi:"model"`
-	Predicate   *ComponentPredicate     `pulumi:"predicate"`
-	Sort        []ComponentSortProperty `pulumi:"sort"`
+	// A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+	Identifiers []string `pulumi:"identifiers"`
+	// The name of the data model to use to bind data to a component.
+	Model string `pulumi:"model"`
+	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	Predicate *ComponentPredicate `pulumi:"predicate"`
+	// The `SortProperty` property specifies how to sort the data that you bind to a component.
+	Sort []ComponentSortProperty `pulumi:"sort"`
 }
 
 // ComponentDataConfigurationInput is an input type that accepts ComponentDataConfigurationArgs and ComponentDataConfigurationOutput values.
@@ -978,10 +1105,14 @@ type ComponentDataConfigurationInput interface {
 }
 
 type ComponentDataConfigurationArgs struct {
-	Identifiers pulumi.StringArrayInput         `pulumi:"identifiers"`
-	Model       pulumi.StringInput              `pulumi:"model"`
-	Predicate   ComponentPredicatePtrInput      `pulumi:"predicate"`
-	Sort        ComponentSortPropertyArrayInput `pulumi:"sort"`
+	// A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
+	// The name of the data model to use to bind data to a component.
+	Model pulumi.StringInput `pulumi:"model"`
+	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	Predicate ComponentPredicatePtrInput `pulumi:"predicate"`
+	// The `SortProperty` property specifies how to sort the data that you bind to a component.
+	Sort ComponentSortPropertyArrayInput `pulumi:"sort"`
 }
 
 func (ComponentDataConfigurationArgs) ElementType() reflect.Type {
@@ -1035,18 +1166,22 @@ func (o ComponentDataConfigurationOutput) ToComponentDataConfigurationOutputWith
 	return o
 }
 
+// A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
 func (o ComponentDataConfigurationOutput) Identifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComponentDataConfiguration) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
+// The name of the data model to use to bind data to a component.
 func (o ComponentDataConfigurationOutput) Model() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentDataConfiguration) string { return v.Model }).(pulumi.StringOutput)
 }
 
+// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
 func (o ComponentDataConfigurationOutput) Predicate() ComponentPredicatePtrOutput {
 	return o.ApplyT(func(v ComponentDataConfiguration) *ComponentPredicate { return v.Predicate }).(ComponentPredicatePtrOutput)
 }
 
+// The `SortProperty` property specifies how to sort the data that you bind to a component.
 func (o ComponentDataConfigurationOutput) Sort() ComponentSortPropertyArrayOutput {
 	return o.ApplyT(func(v ComponentDataConfiguration) []ComponentSortProperty { return v.Sort }).(ComponentSortPropertyArrayOutput)
 }
@@ -1072,9 +1207,12 @@ func (o ComponentDataConfigurationMapOutput) MapIndex(k pulumi.StringInput) Comp
 }
 
 type ComponentEvent struct {
-	Action       *string                    `pulumi:"action"`
-	BindingEvent *string                    `pulumi:"bindingEvent"`
-	Parameters   *ComponentActionParameters `pulumi:"parameters"`
+	// The action to perform when a specific event is raised.
+	Action *string `pulumi:"action"`
+	// Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+	BindingEvent *string `pulumi:"bindingEvent"`
+	// Represents the event action configuration for an element of a `Component` or `ComponentChild` . Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
+	Parameters *ComponentActionParameters `pulumi:"parameters"`
 }
 
 // ComponentEventInput is an input type that accepts ComponentEventArgs and ComponentEventOutput values.
@@ -1089,9 +1227,12 @@ type ComponentEventInput interface {
 }
 
 type ComponentEventArgs struct {
-	Action       pulumi.StringPtrInput             `pulumi:"action"`
-	BindingEvent pulumi.StringPtrInput             `pulumi:"bindingEvent"`
-	Parameters   ComponentActionParametersPtrInput `pulumi:"parameters"`
+	// The action to perform when a specific event is raised.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+	BindingEvent pulumi.StringPtrInput `pulumi:"bindingEvent"`
+	// Represents the event action configuration for an element of a `Component` or `ComponentChild` . Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
+	Parameters ComponentActionParametersPtrInput `pulumi:"parameters"`
 }
 
 func (ComponentEventArgs) ElementType() reflect.Type {
@@ -1145,14 +1286,17 @@ func (o ComponentEventOutput) ToComponentEventOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The action to perform when a specific event is raised.
 func (o ComponentEventOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentEvent) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
 func (o ComponentEventOutput) BindingEvent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentEvent) *string { return v.BindingEvent }).(pulumi.StringPtrOutput)
 }
 
+// Represents the event action configuration for an element of a `Component` or `ComponentChild` . Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
 func (o ComponentEventOutput) Parameters() ComponentActionParametersPtrOutput {
 	return o.ApplyT(func(v ComponentEvent) *ComponentActionParameters { return v.Parameters }).(ComponentActionParametersPtrOutput)
 }
@@ -1178,7 +1322,9 @@ func (o ComponentEventMapOutput) MapIndex(k pulumi.StringInput) ComponentEventOu
 }
 
 type ComponentFormBindingElement struct {
-	Element  string `pulumi:"element"`
+	// The name of the component to retrieve a value from.
+	Element string `pulumi:"element"`
+	// The property to retrieve a value from.
 	Property string `pulumi:"property"`
 }
 
@@ -1194,7 +1340,9 @@ type ComponentFormBindingElementInput interface {
 }
 
 type ComponentFormBindingElementArgs struct {
-	Element  pulumi.StringInput `pulumi:"element"`
+	// The name of the component to retrieve a value from.
+	Element pulumi.StringInput `pulumi:"element"`
+	// The property to retrieve a value from.
 	Property pulumi.StringInput `pulumi:"property"`
 }
 
@@ -1249,10 +1397,12 @@ func (o ComponentFormBindingElementOutput) ToComponentFormBindingElementOutputWi
 	return o
 }
 
+// The name of the component to retrieve a value from.
 func (o ComponentFormBindingElementOutput) Element() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentFormBindingElement) string { return v.Element }).(pulumi.StringOutput)
 }
 
+// The property to retrieve a value from.
 func (o ComponentFormBindingElementOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentFormBindingElement) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -1278,9 +1428,12 @@ func (o ComponentFormBindingElementMapOutput) MapIndex(k pulumi.StringInput) Com
 }
 
 type ComponentMutationActionSetStateParameter struct {
-	ComponentName string            `pulumi:"componentName"`
-	Property      string            `pulumi:"property"`
-	Set           ComponentProperty `pulumi:"set"`
+	// The name of the component that is being modified.
+	ComponentName string `pulumi:"componentName"`
+	// The name of the component property to apply the state configuration to.
+	Property string `pulumi:"property"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Set ComponentProperty `pulumi:"set"`
 }
 
 // ComponentMutationActionSetStateParameterInput is an input type that accepts ComponentMutationActionSetStateParameterArgs and ComponentMutationActionSetStateParameterOutput values.
@@ -1295,9 +1448,12 @@ type ComponentMutationActionSetStateParameterInput interface {
 }
 
 type ComponentMutationActionSetStateParameterArgs struct {
-	ComponentName pulumi.StringInput     `pulumi:"componentName"`
-	Property      pulumi.StringInput     `pulumi:"property"`
-	Set           ComponentPropertyInput `pulumi:"set"`
+	// The name of the component that is being modified.
+	ComponentName pulumi.StringInput `pulumi:"componentName"`
+	// The name of the component property to apply the state configuration to.
+	Property pulumi.StringInput `pulumi:"property"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Set ComponentPropertyInput `pulumi:"set"`
 }
 
 func (ComponentMutationActionSetStateParameterArgs) ElementType() reflect.Type {
@@ -1377,14 +1533,17 @@ func (o ComponentMutationActionSetStateParameterOutput) ToComponentMutationActio
 	}).(ComponentMutationActionSetStateParameterPtrOutput)
 }
 
+// The name of the component that is being modified.
 func (o ComponentMutationActionSetStateParameterOutput) ComponentName() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentMutationActionSetStateParameter) string { return v.ComponentName }).(pulumi.StringOutput)
 }
 
+// The name of the component property to apply the state configuration to.
 func (o ComponentMutationActionSetStateParameterOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentMutationActionSetStateParameter) string { return v.Property }).(pulumi.StringOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentMutationActionSetStateParameterOutput) Set() ComponentPropertyOutput {
 	return o.ApplyT(func(v ComponentMutationActionSetStateParameter) ComponentProperty { return v.Set }).(ComponentPropertyOutput)
 }
@@ -1413,6 +1572,7 @@ func (o ComponentMutationActionSetStateParameterPtrOutput) Elem() ComponentMutat
 	}).(ComponentMutationActionSetStateParameterOutput)
 }
 
+// The name of the component that is being modified.
 func (o ComponentMutationActionSetStateParameterPtrOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) *string {
 		if v == nil {
@@ -1422,6 +1582,7 @@ func (o ComponentMutationActionSetStateParameterPtrOutput) ComponentName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the component property to apply the state configuration to.
 func (o ComponentMutationActionSetStateParameterPtrOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) *string {
 		if v == nil {
@@ -1431,6 +1592,7 @@ func (o ComponentMutationActionSetStateParameterPtrOutput) Property() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentMutationActionSetStateParameterPtrOutput) Set() ComponentPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) *ComponentProperty {
 		if v == nil {
@@ -1441,12 +1603,18 @@ func (o ComponentMutationActionSetStateParameterPtrOutput) Set() ComponentProper
 }
 
 type ComponentPredicate struct {
-	And         []ComponentPredicate `pulumi:"and"`
-	Field       *string              `pulumi:"field"`
-	Operand     *string              `pulumi:"operand"`
-	OperandType *string              `pulumi:"operandType"`
-	Operator    *string              `pulumi:"operator"`
-	Or          []ComponentPredicate `pulumi:"or"`
+	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	And []ComponentPredicate `pulumi:"and"`
+	// The field to query.
+	Field *string `pulumi:"field"`
+	// The value to use when performing the evaluation.
+	Operand *string `pulumi:"operand"`
+	// The type of value to use when performing the evaluation.
+	OperandType *string `pulumi:"operandType"`
+	// The operator to use to perform the evaluation.
+	Operator *string `pulumi:"operator"`
+	// A list of predicates to combine logically.
+	Or []ComponentPredicate `pulumi:"or"`
 }
 
 // ComponentPredicateInput is an input type that accepts ComponentPredicateArgs and ComponentPredicateOutput values.
@@ -1461,12 +1629,18 @@ type ComponentPredicateInput interface {
 }
 
 type ComponentPredicateArgs struct {
-	And         ComponentPredicateArrayInput `pulumi:"and"`
-	Field       pulumi.StringPtrInput        `pulumi:"field"`
-	Operand     pulumi.StringPtrInput        `pulumi:"operand"`
-	OperandType pulumi.StringPtrInput        `pulumi:"operandType"`
-	Operator    pulumi.StringPtrInput        `pulumi:"operator"`
-	Or          ComponentPredicateArrayInput `pulumi:"or"`
+	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	And ComponentPredicateArrayInput `pulumi:"and"`
+	// The field to query.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The value to use when performing the evaluation.
+	Operand pulumi.StringPtrInput `pulumi:"operand"`
+	// The type of value to use when performing the evaluation.
+	OperandType pulumi.StringPtrInput `pulumi:"operandType"`
+	// The operator to use to perform the evaluation.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// A list of predicates to combine logically.
+	Or ComponentPredicateArrayInput `pulumi:"or"`
 }
 
 func (ComponentPredicateArgs) ElementType() reflect.Type {
@@ -1571,26 +1745,32 @@ func (o ComponentPredicateOutput) ToComponentPredicatePtrOutputWithContext(ctx c
 	}).(ComponentPredicatePtrOutput)
 }
 
+// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
 func (o ComponentPredicateOutput) And() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v ComponentPredicate) []ComponentPredicate { return v.And }).(ComponentPredicateArrayOutput)
 }
 
+// The field to query.
 func (o ComponentPredicateOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentPredicate) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The value to use when performing the evaluation.
 func (o ComponentPredicateOutput) Operand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentPredicate) *string { return v.Operand }).(pulumi.StringPtrOutput)
 }
 
+// The type of value to use when performing the evaluation.
 func (o ComponentPredicateOutput) OperandType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentPredicate) *string { return v.OperandType }).(pulumi.StringPtrOutput)
 }
 
+// The operator to use to perform the evaluation.
 func (o ComponentPredicateOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentPredicate) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// A list of predicates to combine logically.
 func (o ComponentPredicateOutput) Or() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v ComponentPredicate) []ComponentPredicate { return v.Or }).(ComponentPredicateArrayOutput)
 }
@@ -1619,6 +1799,7 @@ func (o ComponentPredicatePtrOutput) Elem() ComponentPredicateOutput {
 	}).(ComponentPredicateOutput)
 }
 
+// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
 func (o ComponentPredicatePtrOutput) And() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v *ComponentPredicate) []ComponentPredicate {
 		if v == nil {
@@ -1628,6 +1809,7 @@ func (o ComponentPredicatePtrOutput) And() ComponentPredicateArrayOutput {
 	}).(ComponentPredicateArrayOutput)
 }
 
+// The field to query.
 func (o ComponentPredicatePtrOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentPredicate) *string {
 		if v == nil {
@@ -1637,6 +1819,7 @@ func (o ComponentPredicatePtrOutput) Field() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value to use when performing the evaluation.
 func (o ComponentPredicatePtrOutput) Operand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentPredicate) *string {
 		if v == nil {
@@ -1646,6 +1829,7 @@ func (o ComponentPredicatePtrOutput) Operand() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of value to use when performing the evaluation.
 func (o ComponentPredicatePtrOutput) OperandType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentPredicate) *string {
 		if v == nil {
@@ -1655,6 +1839,7 @@ func (o ComponentPredicatePtrOutput) OperandType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operator to use to perform the evaluation.
 func (o ComponentPredicatePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentPredicate) *string {
 		if v == nil {
@@ -1664,6 +1849,7 @@ func (o ComponentPredicatePtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of predicates to combine logically.
 func (o ComponentPredicatePtrOutput) Or() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v *ComponentPredicate) []ComponentPredicate {
 		if v == nil {
@@ -1694,21 +1880,36 @@ func (o ComponentPredicateArrayOutput) Index(i pulumi.IntInput) ComponentPredica
 }
 
 type ComponentProperty struct {
-	BindingProperties           *ComponentPropertyBindingProperties    `pulumi:"bindingProperties"`
-	Bindings                    map[string]ComponentFormBindingElement `pulumi:"bindings"`
-	CollectionBindingProperties *ComponentPropertyBindingProperties    `pulumi:"collectionBindingProperties"`
-	ComponentName               *string                                `pulumi:"componentName"`
-	Concat                      []ComponentProperty                    `pulumi:"concat"`
-	Condition                   *ComponentConditionProperty            `pulumi:"condition"`
-	Configured                  *bool                                  `pulumi:"configured"`
-	DefaultValue                *string                                `pulumi:"defaultValue"`
-	Event                       *string                                `pulumi:"event"`
-	ImportedValue               *string                                `pulumi:"importedValue"`
-	Model                       *string                                `pulumi:"model"`
-	Property                    *string                                `pulumi:"property"`
-	Type                        *string                                `pulumi:"type"`
-	UserAttribute               *string                                `pulumi:"userAttribute"`
-	Value                       *string                                `pulumi:"value"`
+	// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+	BindingProperties *ComponentPropertyBindingProperties `pulumi:"bindingProperties"`
+	// The information to bind the component property to form data.
+	Bindings map[string]ComponentFormBindingElement `pulumi:"bindings"`
+	// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+	CollectionBindingProperties *ComponentPropertyBindingProperties `pulumi:"collectionBindingProperties"`
+	// The name of the component that is affected by an event.
+	ComponentName *string `pulumi:"componentName"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Concat []ComponentProperty `pulumi:"concat"`
+	// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+	Condition *ComponentConditionProperty `pulumi:"condition"`
+	// Specifies whether the user configured the property in Amplify Studio after importing it.
+	Configured *bool `pulumi:"configured"`
+	// The default value to assign to the component property.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// An event that occurs in your app. Use this for workflow data binding.
+	Event *string `pulumi:"event"`
+	// The default value assigned to the property when the component is imported into an app.
+	ImportedValue *string `pulumi:"importedValue"`
+	// The data model to use to assign a value to the component property.
+	Model *string `pulumi:"model"`
+	// The name of the component's property that is affected by an event.
+	Property *string `pulumi:"property"`
+	// The component type.
+	Type *string `pulumi:"type"`
+	// An authenticated user attribute to use to assign a value to the component property.
+	UserAttribute *string `pulumi:"userAttribute"`
+	// The value to assign to the component property.
+	Value *string `pulumi:"value"`
 }
 
 // ComponentPropertyInput is an input type that accepts ComponentPropertyArgs and ComponentPropertyOutput values.
@@ -1723,21 +1924,36 @@ type ComponentPropertyInput interface {
 }
 
 type ComponentPropertyArgs struct {
-	BindingProperties           ComponentPropertyBindingPropertiesPtrInput `pulumi:"bindingProperties"`
-	Bindings                    ComponentFormBindingElementMapInput        `pulumi:"bindings"`
+	// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+	BindingProperties ComponentPropertyBindingPropertiesPtrInput `pulumi:"bindingProperties"`
+	// The information to bind the component property to form data.
+	Bindings ComponentFormBindingElementMapInput `pulumi:"bindings"`
+	// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
 	CollectionBindingProperties ComponentPropertyBindingPropertiesPtrInput `pulumi:"collectionBindingProperties"`
-	ComponentName               pulumi.StringPtrInput                      `pulumi:"componentName"`
-	Concat                      ComponentPropertyArrayInput                `pulumi:"concat"`
-	Condition                   ComponentConditionPropertyPtrInput         `pulumi:"condition"`
-	Configured                  pulumi.BoolPtrInput                        `pulumi:"configured"`
-	DefaultValue                pulumi.StringPtrInput                      `pulumi:"defaultValue"`
-	Event                       pulumi.StringPtrInput                      `pulumi:"event"`
-	ImportedValue               pulumi.StringPtrInput                      `pulumi:"importedValue"`
-	Model                       pulumi.StringPtrInput                      `pulumi:"model"`
-	Property                    pulumi.StringPtrInput                      `pulumi:"property"`
-	Type                        pulumi.StringPtrInput                      `pulumi:"type"`
-	UserAttribute               pulumi.StringPtrInput                      `pulumi:"userAttribute"`
-	Value                       pulumi.StringPtrInput                      `pulumi:"value"`
+	// The name of the component that is affected by an event.
+	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
+	// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+	Concat ComponentPropertyArrayInput `pulumi:"concat"`
+	// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+	Condition ComponentConditionPropertyPtrInput `pulumi:"condition"`
+	// Specifies whether the user configured the property in Amplify Studio after importing it.
+	Configured pulumi.BoolPtrInput `pulumi:"configured"`
+	// The default value to assign to the component property.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// An event that occurs in your app. Use this for workflow data binding.
+	Event pulumi.StringPtrInput `pulumi:"event"`
+	// The default value assigned to the property when the component is imported into an app.
+	ImportedValue pulumi.StringPtrInput `pulumi:"importedValue"`
+	// The data model to use to assign a value to the component property.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// The name of the component's property that is affected by an event.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// The component type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// An authenticated user attribute to use to assign a value to the component property.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+	// The value to assign to the component property.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ComponentPropertyArgs) ElementType() reflect.Type {
@@ -1867,62 +2083,77 @@ func (o ComponentPropertyOutput) ToComponentPropertyPtrOutputWithContext(ctx con
 	}).(ComponentPropertyPtrOutput)
 }
 
+// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
 func (o ComponentPropertyOutput) BindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *ComponentPropertyBindingProperties { return v.BindingProperties }).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
+// The information to bind the component property to form data.
 func (o ComponentPropertyOutput) Bindings() ComponentFormBindingElementMapOutput {
 	return o.ApplyT(func(v ComponentProperty) map[string]ComponentFormBindingElement { return v.Bindings }).(ComponentFormBindingElementMapOutput)
 }
 
+// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
 func (o ComponentPropertyOutput) CollectionBindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *ComponentPropertyBindingProperties { return v.CollectionBindingProperties }).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
+// The name of the component that is affected by an event.
 func (o ComponentPropertyOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentPropertyOutput) Concat() ComponentPropertyArrayOutput {
 	return o.ApplyT(func(v ComponentProperty) []ComponentProperty { return v.Concat }).(ComponentPropertyArrayOutput)
 }
 
+// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
 func (o ComponentPropertyOutput) Condition() ComponentConditionPropertyPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *ComponentConditionProperty { return v.Condition }).(ComponentConditionPropertyPtrOutput)
 }
 
+// Specifies whether the user configured the property in Amplify Studio after importing it.
 func (o ComponentPropertyOutput) Configured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
 }
 
+// The default value to assign to the component property.
 func (o ComponentPropertyOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// An event that occurs in your app. Use this for workflow data binding.
 func (o ComponentPropertyOutput) Event() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.Event }).(pulumi.StringPtrOutput)
 }
 
+// The default value assigned to the property when the component is imported into an app.
 func (o ComponentPropertyOutput) ImportedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.ImportedValue }).(pulumi.StringPtrOutput)
 }
 
+// The data model to use to assign a value to the component property.
 func (o ComponentPropertyOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
+// The name of the component's property that is affected by an event.
 func (o ComponentPropertyOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
 
+// The component type.
 func (o ComponentPropertyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// An authenticated user attribute to use to assign a value to the component property.
 func (o ComponentPropertyOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
 }
 
+// The value to assign to the component property.
 func (o ComponentPropertyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1951,6 +2182,7 @@ func (o ComponentPropertyPtrOutput) Elem() ComponentPropertyOutput {
 	}).(ComponentPropertyOutput)
 }
 
+// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
 func (o ComponentPropertyPtrOutput) BindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *ComponentPropertyBindingProperties {
 		if v == nil {
@@ -1960,6 +2192,7 @@ func (o ComponentPropertyPtrOutput) BindingProperties() ComponentPropertyBinding
 	}).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
+// The information to bind the component property to form data.
 func (o ComponentPropertyPtrOutput) Bindings() ComponentFormBindingElementMapOutput {
 	return o.ApplyT(func(v *ComponentProperty) map[string]ComponentFormBindingElement {
 		if v == nil {
@@ -1969,6 +2202,7 @@ func (o ComponentPropertyPtrOutput) Bindings() ComponentFormBindingElementMapOut
 	}).(ComponentFormBindingElementMapOutput)
 }
 
+// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
 func (o ComponentPropertyPtrOutput) CollectionBindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *ComponentPropertyBindingProperties {
 		if v == nil {
@@ -1978,6 +2212,7 @@ func (o ComponentPropertyPtrOutput) CollectionBindingProperties() ComponentPrope
 	}).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
+// The name of the component that is affected by an event.
 func (o ComponentPropertyPtrOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -1987,6 +2222,7 @@ func (o ComponentPropertyPtrOutput) ComponentName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
 func (o ComponentPropertyPtrOutput) Concat() ComponentPropertyArrayOutput {
 	return o.ApplyT(func(v *ComponentProperty) []ComponentProperty {
 		if v == nil {
@@ -1996,6 +2232,7 @@ func (o ComponentPropertyPtrOutput) Concat() ComponentPropertyArrayOutput {
 	}).(ComponentPropertyArrayOutput)
 }
 
+// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
 func (o ComponentPropertyPtrOutput) Condition() ComponentConditionPropertyPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *ComponentConditionProperty {
 		if v == nil {
@@ -2005,6 +2242,7 @@ func (o ComponentPropertyPtrOutput) Condition() ComponentConditionPropertyPtrOut
 	}).(ComponentConditionPropertyPtrOutput)
 }
 
+// Specifies whether the user configured the property in Amplify Studio after importing it.
 func (o ComponentPropertyPtrOutput) Configured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *bool {
 		if v == nil {
@@ -2014,6 +2252,7 @@ func (o ComponentPropertyPtrOutput) Configured() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The default value to assign to the component property.
 func (o ComponentPropertyPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2023,6 +2262,7 @@ func (o ComponentPropertyPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An event that occurs in your app. Use this for workflow data binding.
 func (o ComponentPropertyPtrOutput) Event() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2032,6 +2272,7 @@ func (o ComponentPropertyPtrOutput) Event() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default value assigned to the property when the component is imported into an app.
 func (o ComponentPropertyPtrOutput) ImportedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2041,6 +2282,7 @@ func (o ComponentPropertyPtrOutput) ImportedValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data model to use to assign a value to the component property.
 func (o ComponentPropertyPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2050,6 +2292,7 @@ func (o ComponentPropertyPtrOutput) Model() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the component's property that is affected by an event.
 func (o ComponentPropertyPtrOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2059,6 +2302,7 @@ func (o ComponentPropertyPtrOutput) Property() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The component type.
 func (o ComponentPropertyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2068,6 +2312,7 @@ func (o ComponentPropertyPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An authenticated user attribute to use to assign a value to the component property.
 func (o ComponentPropertyPtrOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2077,6 +2322,7 @@ func (o ComponentPropertyPtrOutput) UserAttribute() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value to assign to the component property.
 func (o ComponentPropertyPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentProperty) *string {
 		if v == nil {
@@ -2127,8 +2373,10 @@ func (o ComponentPropertyMapOutput) MapIndex(k pulumi.StringInput) ComponentProp
 }
 
 type ComponentPropertyBindingProperties struct {
-	Field    *string `pulumi:"field"`
-	Property string  `pulumi:"property"`
+	// The data field to bind the property to.
+	Field *string `pulumi:"field"`
+	// The component property to bind to the data field.
+	Property string `pulumi:"property"`
 }
 
 // ComponentPropertyBindingPropertiesInput is an input type that accepts ComponentPropertyBindingPropertiesArgs and ComponentPropertyBindingPropertiesOutput values.
@@ -2143,8 +2391,10 @@ type ComponentPropertyBindingPropertiesInput interface {
 }
 
 type ComponentPropertyBindingPropertiesArgs struct {
-	Field    pulumi.StringPtrInput `pulumi:"field"`
-	Property pulumi.StringInput    `pulumi:"property"`
+	// The data field to bind the property to.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The component property to bind to the data field.
+	Property pulumi.StringInput `pulumi:"property"`
 }
 
 func (ComponentPropertyBindingPropertiesArgs) ElementType() reflect.Type {
@@ -2224,10 +2474,12 @@ func (o ComponentPropertyBindingPropertiesOutput) ToComponentPropertyBindingProp
 	}).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
+// The data field to bind the property to.
 func (o ComponentPropertyBindingPropertiesOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentPropertyBindingProperties) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The component property to bind to the data field.
 func (o ComponentPropertyBindingPropertiesOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentPropertyBindingProperties) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -2256,6 +2508,7 @@ func (o ComponentPropertyBindingPropertiesPtrOutput) Elem() ComponentPropertyBin
 	}).(ComponentPropertyBindingPropertiesOutput)
 }
 
+// The data field to bind the property to.
 func (o ComponentPropertyBindingPropertiesPtrOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentPropertyBindingProperties) *string {
 		if v == nil {
@@ -2265,6 +2518,7 @@ func (o ComponentPropertyBindingPropertiesPtrOutput) Field() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The component property to bind to the data field.
 func (o ComponentPropertyBindingPropertiesPtrOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentPropertyBindingProperties) *string {
 		if v == nil {
@@ -2275,8 +2529,10 @@ func (o ComponentPropertyBindingPropertiesPtrOutput) Property() pulumi.StringPtr
 }
 
 type ComponentSortProperty struct {
+	// The direction of the sort, either ascending or descending.
 	Direction ComponentSortDirection `pulumi:"direction"`
-	Field     string                 `pulumi:"field"`
+	// The field to perform the sort on.
+	Field string `pulumi:"field"`
 }
 
 // ComponentSortPropertyInput is an input type that accepts ComponentSortPropertyArgs and ComponentSortPropertyOutput values.
@@ -2291,8 +2547,10 @@ type ComponentSortPropertyInput interface {
 }
 
 type ComponentSortPropertyArgs struct {
+	// The direction of the sort, either ascending or descending.
 	Direction ComponentSortDirectionInput `pulumi:"direction"`
-	Field     pulumi.StringInput          `pulumi:"field"`
+	// The field to perform the sort on.
+	Field pulumi.StringInput `pulumi:"field"`
 }
 
 func (ComponentSortPropertyArgs) ElementType() reflect.Type {
@@ -2346,10 +2604,12 @@ func (o ComponentSortPropertyOutput) ToComponentSortPropertyOutputWithContext(ct
 	return o
 }
 
+// The direction of the sort, either ascending or descending.
 func (o ComponentSortPropertyOutput) Direction() ComponentSortDirectionOutput {
 	return o.ApplyT(func(v ComponentSortProperty) ComponentSortDirection { return v.Direction }).(ComponentSortDirectionOutput)
 }
 
+// The field to perform the sort on.
 func (o ComponentSortPropertyOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSortProperty) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -2375,8 +2635,10 @@ func (o ComponentSortPropertyArrayOutput) Index(i pulumi.IntInput) ComponentSort
 }
 
 type ComponentVariant struct {
-	Overrides     map[string]interface{} `pulumi:"overrides"`
-	VariantValues map[string]string      `pulumi:"variantValues"`
+	// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+	Overrides map[string]interface{} `pulumi:"overrides"`
+	// The combination of variants that comprise this variant.
+	VariantValues map[string]string `pulumi:"variantValues"`
 }
 
 // ComponentVariantInput is an input type that accepts ComponentVariantArgs and ComponentVariantOutput values.
@@ -2391,7 +2653,9 @@ type ComponentVariantInput interface {
 }
 
 type ComponentVariantArgs struct {
-	Overrides     pulumi.MapInput       `pulumi:"overrides"`
+	// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+	Overrides pulumi.MapInput `pulumi:"overrides"`
+	// The combination of variants that comprise this variant.
 	VariantValues pulumi.StringMapInput `pulumi:"variantValues"`
 }
 
@@ -2446,10 +2710,12 @@ func (o ComponentVariantOutput) ToComponentVariantOutputWithContext(ctx context.
 	return o
 }
 
+// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
 func (o ComponentVariantOutput) Overrides() pulumi.MapOutput {
 	return o.ApplyT(func(v ComponentVariant) map[string]interface{} { return v.Overrides }).(pulumi.MapOutput)
 }
 
+// The combination of variants that comprise this variant.
 func (o ComponentVariantOutput) VariantValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ComponentVariant) map[string]string { return v.VariantValues }).(pulumi.StringMapOutput)
 }
@@ -2475,8 +2741,11 @@ func (o ComponentVariantArrayOutput) Index(i pulumi.IntInput) ComponentVariantOu
 }
 
 type FormButton struct {
-	Children *string     `pulumi:"children"`
-	Excluded *bool       `pulumi:"excluded"`
+	// Describes the button's properties.
+	Children *string `pulumi:"children"`
+	// Specifies whether the button is visible on the form.
+	Excluded *bool `pulumi:"excluded"`
+	// The `FieldPosition` property specifies the field position.
 	Position interface{} `pulumi:"position"`
 }
 
@@ -2492,9 +2761,12 @@ type FormButtonInput interface {
 }
 
 type FormButtonArgs struct {
+	// Describes the button's properties.
 	Children pulumi.StringPtrInput `pulumi:"children"`
-	Excluded pulumi.BoolPtrInput   `pulumi:"excluded"`
-	Position pulumi.Input          `pulumi:"position"`
+	// Specifies whether the button is visible on the form.
+	Excluded pulumi.BoolPtrInput `pulumi:"excluded"`
+	// The `FieldPosition` property specifies the field position.
+	Position pulumi.Input `pulumi:"position"`
 }
 
 func (FormButtonArgs) ElementType() reflect.Type {
@@ -2574,14 +2846,17 @@ func (o FormButtonOutput) ToFormButtonPtrOutputWithContext(ctx context.Context) 
 	}).(FormButtonPtrOutput)
 }
 
+// Describes the button's properties.
 func (o FormButtonOutput) Children() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormButton) *string { return v.Children }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the button is visible on the form.
 func (o FormButtonOutput) Excluded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormButton) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
 }
 
+// The `FieldPosition` property specifies the field position.
 func (o FormButtonOutput) Position() pulumi.AnyOutput {
 	return o.ApplyT(func(v FormButton) interface{} { return v.Position }).(pulumi.AnyOutput)
 }
@@ -2610,6 +2885,7 @@ func (o FormButtonPtrOutput) Elem() FormButtonOutput {
 	}).(FormButtonOutput)
 }
 
+// Describes the button's properties.
 func (o FormButtonPtrOutput) Children() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormButton) *string {
 		if v == nil {
@@ -2619,6 +2895,7 @@ func (o FormButtonPtrOutput) Children() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the button is visible on the form.
 func (o FormButtonPtrOutput) Excluded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormButton) *bool {
 		if v == nil {
@@ -2628,6 +2905,7 @@ func (o FormButtonPtrOutput) Excluded() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The `FieldPosition` property specifies the field position.
 func (o FormButtonPtrOutput) Position() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FormButton) interface{} {
 		if v == nil {
@@ -2638,10 +2916,14 @@ func (o FormButtonPtrOutput) Position() pulumi.AnyOutput {
 }
 
 type FormCta struct {
-	Cancel   *FormButton          `pulumi:"cancel"`
-	Clear    *FormButton          `pulumi:"clear"`
+	// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+	Cancel *FormButton `pulumi:"cancel"`
+	// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+	Clear *FormButton `pulumi:"clear"`
+	// The position of the button.
 	Position *FormButtonsPosition `pulumi:"position"`
-	Submit   *FormButton          `pulumi:"submit"`
+	// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+	Submit *FormButton `pulumi:"submit"`
 }
 
 // FormCtaInput is an input type that accepts FormCtaArgs and FormCtaOutput values.
@@ -2656,10 +2938,14 @@ type FormCtaInput interface {
 }
 
 type FormCtaArgs struct {
-	Cancel   FormButtonPtrInput          `pulumi:"cancel"`
-	Clear    FormButtonPtrInput          `pulumi:"clear"`
+	// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+	Cancel FormButtonPtrInput `pulumi:"cancel"`
+	// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+	Clear FormButtonPtrInput `pulumi:"clear"`
+	// The position of the button.
 	Position FormButtonsPositionPtrInput `pulumi:"position"`
-	Submit   FormButtonPtrInput          `pulumi:"submit"`
+	// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+	Submit FormButtonPtrInput `pulumi:"submit"`
 }
 
 func (FormCtaArgs) ElementType() reflect.Type {
@@ -2739,18 +3025,22 @@ func (o FormCtaOutput) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCt
 	}).(FormCtaPtrOutput)
 }
 
+// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
 func (o FormCtaOutput) Cancel() FormButtonPtrOutput {
 	return o.ApplyT(func(v FormCta) *FormButton { return v.Cancel }).(FormButtonPtrOutput)
 }
 
+// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
 func (o FormCtaOutput) Clear() FormButtonPtrOutput {
 	return o.ApplyT(func(v FormCta) *FormButton { return v.Clear }).(FormButtonPtrOutput)
 }
 
+// The position of the button.
 func (o FormCtaOutput) Position() FormButtonsPositionPtrOutput {
 	return o.ApplyT(func(v FormCta) *FormButtonsPosition { return v.Position }).(FormButtonsPositionPtrOutput)
 }
 
+// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
 func (o FormCtaOutput) Submit() FormButtonPtrOutput {
 	return o.ApplyT(func(v FormCta) *FormButton { return v.Submit }).(FormButtonPtrOutput)
 }
@@ -2779,6 +3069,7 @@ func (o FormCtaPtrOutput) Elem() FormCtaOutput {
 	}).(FormCtaOutput)
 }
 
+// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
 func (o FormCtaPtrOutput) Cancel() FormButtonPtrOutput {
 	return o.ApplyT(func(v *FormCta) *FormButton {
 		if v == nil {
@@ -2788,6 +3079,7 @@ func (o FormCtaPtrOutput) Cancel() FormButtonPtrOutput {
 	}).(FormButtonPtrOutput)
 }
 
+// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
 func (o FormCtaPtrOutput) Clear() FormButtonPtrOutput {
 	return o.ApplyT(func(v *FormCta) *FormButton {
 		if v == nil {
@@ -2797,6 +3089,7 @@ func (o FormCtaPtrOutput) Clear() FormButtonPtrOutput {
 	}).(FormButtonPtrOutput)
 }
 
+// The position of the button.
 func (o FormCtaPtrOutput) Position() FormButtonsPositionPtrOutput {
 	return o.ApplyT(func(v *FormCta) *FormButtonsPosition {
 		if v == nil {
@@ -2806,6 +3099,7 @@ func (o FormCtaPtrOutput) Position() FormButtonsPositionPtrOutput {
 	}).(FormButtonsPositionPtrOutput)
 }
 
+// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
 func (o FormCtaPtrOutput) Submit() FormButtonPtrOutput {
 	return o.ApplyT(func(v *FormCta) *FormButton {
 		if v == nil {
@@ -2816,8 +3110,10 @@ func (o FormCtaPtrOutput) Submit() FormButtonPtrOutput {
 }
 
 type FormDataTypeConfig struct {
+	// The data source type, either an Amplify DataStore model or a custom data type.
 	DataSourceType FormDataSourceType `pulumi:"dataSourceType"`
-	DataTypeName   string             `pulumi:"dataTypeName"`
+	// The unique name of the data type you are using as the data source for the form.
+	DataTypeName string `pulumi:"dataTypeName"`
 }
 
 // FormDataTypeConfigInput is an input type that accepts FormDataTypeConfigArgs and FormDataTypeConfigOutput values.
@@ -2832,8 +3128,10 @@ type FormDataTypeConfigInput interface {
 }
 
 type FormDataTypeConfigArgs struct {
+	// The data source type, either an Amplify DataStore model or a custom data type.
 	DataSourceType FormDataSourceTypeInput `pulumi:"dataSourceType"`
-	DataTypeName   pulumi.StringInput      `pulumi:"dataTypeName"`
+	// The unique name of the data type you are using as the data source for the form.
+	DataTypeName pulumi.StringInput `pulumi:"dataTypeName"`
 }
 
 func (FormDataTypeConfigArgs) ElementType() reflect.Type {
@@ -2913,10 +3211,12 @@ func (o FormDataTypeConfigOutput) ToFormDataTypeConfigPtrOutputWithContext(ctx c
 	}).(FormDataTypeConfigPtrOutput)
 }
 
+// The data source type, either an Amplify DataStore model or a custom data type.
 func (o FormDataTypeConfigOutput) DataSourceType() FormDataSourceTypeOutput {
 	return o.ApplyT(func(v FormDataTypeConfig) FormDataSourceType { return v.DataSourceType }).(FormDataSourceTypeOutput)
 }
 
+// The unique name of the data type you are using as the data source for the form.
 func (o FormDataTypeConfigOutput) DataTypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v FormDataTypeConfig) string { return v.DataTypeName }).(pulumi.StringOutput)
 }
@@ -2945,6 +3245,7 @@ func (o FormDataTypeConfigPtrOutput) Elem() FormDataTypeConfigOutput {
 	}).(FormDataTypeConfigOutput)
 }
 
+// The data source type, either an Amplify DataStore model or a custom data type.
 func (o FormDataTypeConfigPtrOutput) DataSourceType() FormDataSourceTypePtrOutput {
 	return o.ApplyT(func(v *FormDataTypeConfig) *FormDataSourceType {
 		if v == nil {
@@ -2954,6 +3255,7 @@ func (o FormDataTypeConfigPtrOutput) DataSourceType() FormDataSourceTypePtrOutpu
 	}).(FormDataSourceTypePtrOutput)
 }
 
+// The unique name of the data type you are using as the data source for the form.
 func (o FormDataTypeConfigPtrOutput) DataTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormDataTypeConfig) *string {
 		if v == nil {
@@ -2964,10 +3266,15 @@ func (o FormDataTypeConfigPtrOutput) DataTypeName() pulumi.StringPtrOutput {
 }
 
 type FormFieldConfig struct {
-	Excluded    *bool                              `pulumi:"excluded"`
-	InputType   *FormFieldInputConfig              `pulumi:"inputType"`
-	Label       *string                            `pulumi:"label"`
-	Position    interface{}                        `pulumi:"position"`
+	// Specifies whether to hide a field.
+	Excluded *bool `pulumi:"excluded"`
+	// The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+	InputType *FormFieldInputConfig `pulumi:"inputType"`
+	// The label for the field.
+	Label *string `pulumi:"label"`
+	// The `FieldPosition` property specifies the field position.
+	Position interface{} `pulumi:"position"`
+	// The `FieldValidationConfiguration` property specifies the validation configuration for a field.
 	Validations []FormFieldValidationConfiguration `pulumi:"validations"`
 }
 
@@ -2983,10 +3290,15 @@ type FormFieldConfigInput interface {
 }
 
 type FormFieldConfigArgs struct {
-	Excluded    pulumi.BoolPtrInput                        `pulumi:"excluded"`
-	InputType   FormFieldInputConfigPtrInput               `pulumi:"inputType"`
-	Label       pulumi.StringPtrInput                      `pulumi:"label"`
-	Position    pulumi.Input                               `pulumi:"position"`
+	// Specifies whether to hide a field.
+	Excluded pulumi.BoolPtrInput `pulumi:"excluded"`
+	// The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+	InputType FormFieldInputConfigPtrInput `pulumi:"inputType"`
+	// The label for the field.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The `FieldPosition` property specifies the field position.
+	Position pulumi.Input `pulumi:"position"`
+	// The `FieldValidationConfiguration` property specifies the validation configuration for a field.
 	Validations FormFieldValidationConfigurationArrayInput `pulumi:"validations"`
 }
 
@@ -3041,22 +3353,27 @@ func (o FormFieldConfigOutput) ToFormFieldConfigOutputWithContext(ctx context.Co
 	return o
 }
 
+// Specifies whether to hide a field.
 func (o FormFieldConfigOutput) Excluded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFieldConfig) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
 }
 
+// The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
 func (o FormFieldConfigOutput) InputType() FormFieldInputConfigPtrOutput {
 	return o.ApplyT(func(v FormFieldConfig) *FormFieldInputConfig { return v.InputType }).(FormFieldInputConfigPtrOutput)
 }
 
+// The label for the field.
 func (o FormFieldConfigOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldConfig) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The `FieldPosition` property specifies the field position.
 func (o FormFieldConfigOutput) Position() pulumi.AnyOutput {
 	return o.ApplyT(func(v FormFieldConfig) interface{} { return v.Position }).(pulumi.AnyOutput)
 }
 
+// The `FieldValidationConfiguration` property specifies the validation configuration for a field.
 func (o FormFieldConfigOutput) Validations() FormFieldValidationConfigurationArrayOutput {
 	return o.ApplyT(func(v FormFieldConfig) []FormFieldValidationConfiguration { return v.Validations }).(FormFieldValidationConfigurationArrayOutput)
 }
@@ -3082,22 +3399,38 @@ func (o FormFieldConfigMapOutput) MapIndex(k pulumi.StringInput) FormFieldConfig
 }
 
 type FormFieldInputConfig struct {
-	DefaultChecked     *bool                        `pulumi:"defaultChecked"`
-	DefaultCountryCode *string                      `pulumi:"defaultCountryCode"`
-	DefaultValue       *string                      `pulumi:"defaultValue"`
-	DescriptiveText    *string                      `pulumi:"descriptiveText"`
+	// Specifies whether a field has a default value.
+	DefaultChecked *bool `pulumi:"defaultChecked"`
+	// The default country code for a phone number.
+	DefaultCountryCode *string `pulumi:"defaultCountryCode"`
+	// The default value for the field.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The text to display to describe the field.
+	DescriptiveText *string `pulumi:"descriptiveText"`
+	// Describes the configuration for the file uploader field.
 	FileUploaderConfig *FormFileUploaderFieldConfig `pulumi:"fileUploaderConfig"`
-	IsArray            *bool                        `pulumi:"isArray"`
-	MaxValue           *float64                     `pulumi:"maxValue"`
-	MinValue           *float64                     `pulumi:"minValue"`
-	Name               *string                      `pulumi:"name"`
-	Placeholder        *string                      `pulumi:"placeholder"`
-	ReadOnly           *bool                        `pulumi:"readOnly"`
-	Required           *bool                        `pulumi:"required"`
-	Step               *float64                     `pulumi:"step"`
-	Type               string                       `pulumi:"type"`
-	Value              *string                      `pulumi:"value"`
-	ValueMappings      *FormValueMappings           `pulumi:"valueMappings"`
+	// Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+	IsArray *bool `pulumi:"isArray"`
+	// The maximum value to display for the field.
+	MaxValue *float64 `pulumi:"maxValue"`
+	// The minimum value to display for the field.
+	MinValue *float64 `pulumi:"minValue"`
+	// The name of the field.
+	Name *string `pulumi:"name"`
+	// The text to display as a placeholder for the field.
+	Placeholder *string `pulumi:"placeholder"`
+	// Specifies a read only field.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Specifies a field that requires input.
+	Required *bool `pulumi:"required"`
+	// The stepping increment for a numeric value in a field.
+	Step *float64 `pulumi:"step"`
+	// The input type for the field.
+	Type string `pulumi:"type"`
+	// The value for the field.
+	Value *string `pulumi:"value"`
+	// The `ValueMappings` property specifies the data binding configuration for a value map.
+	ValueMappings *FormValueMappings `pulumi:"valueMappings"`
 }
 
 // FormFieldInputConfigInput is an input type that accepts FormFieldInputConfigArgs and FormFieldInputConfigOutput values.
@@ -3112,22 +3445,38 @@ type FormFieldInputConfigInput interface {
 }
 
 type FormFieldInputConfigArgs struct {
-	DefaultChecked     pulumi.BoolPtrInput                 `pulumi:"defaultChecked"`
-	DefaultCountryCode pulumi.StringPtrInput               `pulumi:"defaultCountryCode"`
-	DefaultValue       pulumi.StringPtrInput               `pulumi:"defaultValue"`
-	DescriptiveText    pulumi.StringPtrInput               `pulumi:"descriptiveText"`
+	// Specifies whether a field has a default value.
+	DefaultChecked pulumi.BoolPtrInput `pulumi:"defaultChecked"`
+	// The default country code for a phone number.
+	DefaultCountryCode pulumi.StringPtrInput `pulumi:"defaultCountryCode"`
+	// The default value for the field.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The text to display to describe the field.
+	DescriptiveText pulumi.StringPtrInput `pulumi:"descriptiveText"`
+	// Describes the configuration for the file uploader field.
 	FileUploaderConfig FormFileUploaderFieldConfigPtrInput `pulumi:"fileUploaderConfig"`
-	IsArray            pulumi.BoolPtrInput                 `pulumi:"isArray"`
-	MaxValue           pulumi.Float64PtrInput              `pulumi:"maxValue"`
-	MinValue           pulumi.Float64PtrInput              `pulumi:"minValue"`
-	Name               pulumi.StringPtrInput               `pulumi:"name"`
-	Placeholder        pulumi.StringPtrInput               `pulumi:"placeholder"`
-	ReadOnly           pulumi.BoolPtrInput                 `pulumi:"readOnly"`
-	Required           pulumi.BoolPtrInput                 `pulumi:"required"`
-	Step               pulumi.Float64PtrInput              `pulumi:"step"`
-	Type               pulumi.StringInput                  `pulumi:"type"`
-	Value              pulumi.StringPtrInput               `pulumi:"value"`
-	ValueMappings      FormValueMappingsPtrInput           `pulumi:"valueMappings"`
+	// Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+	IsArray pulumi.BoolPtrInput `pulumi:"isArray"`
+	// The maximum value to display for the field.
+	MaxValue pulumi.Float64PtrInput `pulumi:"maxValue"`
+	// The minimum value to display for the field.
+	MinValue pulumi.Float64PtrInput `pulumi:"minValue"`
+	// The name of the field.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The text to display as a placeholder for the field.
+	Placeholder pulumi.StringPtrInput `pulumi:"placeholder"`
+	// Specifies a read only field.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// Specifies a field that requires input.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// The stepping increment for a numeric value in a field.
+	Step pulumi.Float64PtrInput `pulumi:"step"`
+	// The input type for the field.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the field.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The `ValueMappings` property specifies the data binding configuration for a value map.
+	ValueMappings FormValueMappingsPtrInput `pulumi:"valueMappings"`
 }
 
 func (FormFieldInputConfigArgs) ElementType() reflect.Type {
@@ -3207,66 +3556,82 @@ func (o FormFieldInputConfigOutput) ToFormFieldInputConfigPtrOutputWithContext(c
 	}).(FormFieldInputConfigPtrOutput)
 }
 
+// Specifies whether a field has a default value.
 func (o FormFieldInputConfigOutput) DefaultChecked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.DefaultChecked }).(pulumi.BoolPtrOutput)
 }
 
+// The default country code for a phone number.
 func (o FormFieldInputConfigOutput) DefaultCountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.DefaultCountryCode }).(pulumi.StringPtrOutput)
 }
 
+// The default value for the field.
 func (o FormFieldInputConfigOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// The text to display to describe the field.
 func (o FormFieldInputConfigOutput) DescriptiveText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.DescriptiveText }).(pulumi.StringPtrOutput)
 }
 
+// Describes the configuration for the file uploader field.
 func (o FormFieldInputConfigOutput) FileUploaderConfig() FormFileUploaderFieldConfigPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *FormFileUploaderFieldConfig { return v.FileUploaderConfig }).(FormFileUploaderFieldConfigPtrOutput)
 }
 
+// Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
 func (o FormFieldInputConfigOutput) IsArray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.IsArray }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum value to display for the field.
 func (o FormFieldInputConfigOutput) MaxValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *float64 { return v.MaxValue }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum value to display for the field.
 func (o FormFieldInputConfigOutput) MinValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *float64 { return v.MinValue }).(pulumi.Float64PtrOutput)
 }
 
+// The name of the field.
 func (o FormFieldInputConfigOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The text to display as a placeholder for the field.
 func (o FormFieldInputConfigOutput) Placeholder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.Placeholder }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a read only field.
 func (o FormFieldInputConfigOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a field that requires input.
 func (o FormFieldInputConfigOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
+// The stepping increment for a numeric value in a field.
 func (o FormFieldInputConfigOutput) Step() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *float64 { return v.Step }).(pulumi.Float64PtrOutput)
 }
 
+// The input type for the field.
 func (o FormFieldInputConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The value for the field.
 func (o FormFieldInputConfigOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+// The `ValueMappings` property specifies the data binding configuration for a value map.
 func (o FormFieldInputConfigOutput) ValueMappings() FormValueMappingsPtrOutput {
 	return o.ApplyT(func(v FormFieldInputConfig) *FormValueMappings { return v.ValueMappings }).(FormValueMappingsPtrOutput)
 }
@@ -3295,6 +3660,7 @@ func (o FormFieldInputConfigPtrOutput) Elem() FormFieldInputConfigOutput {
 	}).(FormFieldInputConfigOutput)
 }
 
+// Specifies whether a field has a default value.
 func (o FormFieldInputConfigPtrOutput) DefaultChecked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
 		if v == nil {
@@ -3304,6 +3670,7 @@ func (o FormFieldInputConfigPtrOutput) DefaultChecked() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The default country code for a phone number.
 func (o FormFieldInputConfigPtrOutput) DefaultCountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3313,6 +3680,7 @@ func (o FormFieldInputConfigPtrOutput) DefaultCountryCode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default value for the field.
 func (o FormFieldInputConfigPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3322,6 +3690,7 @@ func (o FormFieldInputConfigPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text to display to describe the field.
 func (o FormFieldInputConfigPtrOutput) DescriptiveText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3331,6 +3700,7 @@ func (o FormFieldInputConfigPtrOutput) DescriptiveText() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the configuration for the file uploader field.
 func (o FormFieldInputConfigPtrOutput) FileUploaderConfig() FormFileUploaderFieldConfigPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *FormFileUploaderFieldConfig {
 		if v == nil {
@@ -3340,6 +3710,7 @@ func (o FormFieldInputConfigPtrOutput) FileUploaderConfig() FormFileUploaderFiel
 	}).(FormFileUploaderFieldConfigPtrOutput)
 }
 
+// Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
 func (o FormFieldInputConfigPtrOutput) IsArray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
 		if v == nil {
@@ -3349,6 +3720,7 @@ func (o FormFieldInputConfigPtrOutput) IsArray() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum value to display for the field.
 func (o FormFieldInputConfigPtrOutput) MaxValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *float64 {
 		if v == nil {
@@ -3358,6 +3730,7 @@ func (o FormFieldInputConfigPtrOutput) MaxValue() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum value to display for the field.
 func (o FormFieldInputConfigPtrOutput) MinValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *float64 {
 		if v == nil {
@@ -3367,6 +3740,7 @@ func (o FormFieldInputConfigPtrOutput) MinValue() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The name of the field.
 func (o FormFieldInputConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3376,6 +3750,7 @@ func (o FormFieldInputConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text to display as a placeholder for the field.
 func (o FormFieldInputConfigPtrOutput) Placeholder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3385,6 +3760,7 @@ func (o FormFieldInputConfigPtrOutput) Placeholder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a read only field.
 func (o FormFieldInputConfigPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
 		if v == nil {
@@ -3394,6 +3770,7 @@ func (o FormFieldInputConfigPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a field that requires input.
 func (o FormFieldInputConfigPtrOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
 		if v == nil {
@@ -3403,6 +3780,7 @@ func (o FormFieldInputConfigPtrOutput) Required() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The stepping increment for a numeric value in a field.
 func (o FormFieldInputConfigPtrOutput) Step() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *float64 {
 		if v == nil {
@@ -3412,6 +3790,7 @@ func (o FormFieldInputConfigPtrOutput) Step() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The input type for the field.
 func (o FormFieldInputConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3421,6 +3800,7 @@ func (o FormFieldInputConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value for the field.
 func (o FormFieldInputConfigPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *string {
 		if v == nil {
@@ -3430,6 +3810,7 @@ func (o FormFieldInputConfigPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `ValueMappings` property specifies the data binding configuration for a value map.
 func (o FormFieldInputConfigPtrOutput) ValueMappings() FormValueMappingsPtrOutput {
 	return o.ApplyT(func(v *FormFieldInputConfig) *FormValueMappings {
 		if v == nil {
@@ -3839,10 +4220,14 @@ func (o FormFieldPosition2PropertiesPtrOutput) Below() pulumi.StringPtrOutput {
 }
 
 type FormFieldValidationConfiguration struct {
-	NumValues         []float64 `pulumi:"numValues"`
-	StrValues         []string  `pulumi:"strValues"`
-	Type              string    `pulumi:"type"`
-	ValidationMessage *string   `pulumi:"validationMessage"`
+	// The validation to perform on a number value.
+	NumValues []float64 `pulumi:"numValues"`
+	// The validation to perform on a string value.
+	StrValues []string `pulumi:"strValues"`
+	// The validation to perform on an object type. ``
+	Type string `pulumi:"type"`
+	// The validation message to display.
+	ValidationMessage *string `pulumi:"validationMessage"`
 }
 
 // FormFieldValidationConfigurationInput is an input type that accepts FormFieldValidationConfigurationArgs and FormFieldValidationConfigurationOutput values.
@@ -3857,10 +4242,14 @@ type FormFieldValidationConfigurationInput interface {
 }
 
 type FormFieldValidationConfigurationArgs struct {
-	NumValues         pulumi.Float64ArrayInput `pulumi:"numValues"`
-	StrValues         pulumi.StringArrayInput  `pulumi:"strValues"`
-	Type              pulumi.StringInput       `pulumi:"type"`
-	ValidationMessage pulumi.StringPtrInput    `pulumi:"validationMessage"`
+	// The validation to perform on a number value.
+	NumValues pulumi.Float64ArrayInput `pulumi:"numValues"`
+	// The validation to perform on a string value.
+	StrValues pulumi.StringArrayInput `pulumi:"strValues"`
+	// The validation to perform on an object type. ``
+	Type pulumi.StringInput `pulumi:"type"`
+	// The validation message to display.
+	ValidationMessage pulumi.StringPtrInput `pulumi:"validationMessage"`
 }
 
 func (FormFieldValidationConfigurationArgs) ElementType() reflect.Type {
@@ -3914,18 +4303,22 @@ func (o FormFieldValidationConfigurationOutput) ToFormFieldValidationConfigurati
 	return o
 }
 
+// The validation to perform on a number value.
 func (o FormFieldValidationConfigurationOutput) NumValues() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v FormFieldValidationConfiguration) []float64 { return v.NumValues }).(pulumi.Float64ArrayOutput)
 }
 
+// The validation to perform on a string value.
 func (o FormFieldValidationConfigurationOutput) StrValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FormFieldValidationConfiguration) []string { return v.StrValues }).(pulumi.StringArrayOutput)
 }
 
+// The validation to perform on an object type. “
 func (o FormFieldValidationConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FormFieldValidationConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The validation message to display.
 func (o FormFieldValidationConfigurationOutput) ValidationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormFieldValidationConfiguration) *string { return v.ValidationMessage }).(pulumi.StringPtrOutput)
 }
@@ -3951,12 +4344,20 @@ func (o FormFieldValidationConfigurationArrayOutput) Index(i pulumi.IntInput) Fo
 }
 
 type FormFileUploaderFieldConfig struct {
-	AcceptedFileTypes []string               `pulumi:"acceptedFileTypes"`
-	AccessLevel       FormStorageAccessLevel `pulumi:"accessLevel"`
-	IsResumable       *bool                  `pulumi:"isResumable"`
-	MaxFileCount      *float64               `pulumi:"maxFileCount"`
-	MaxSize           *float64               `pulumi:"maxSize"`
-	ShowThumbnails    *bool                  `pulumi:"showThumbnails"`
+	// The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
+	AcceptedFileTypes []string `pulumi:"acceptedFileTypes"`
+	// The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
+	AccessLevel FormStorageAccessLevel `pulumi:"accessLevel"`
+	// Allows the file upload operation to be paused and resumed. The default value is `false` .
+	//
+	// When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
+	IsResumable *bool `pulumi:"isResumable"`
+	// Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
+	MaxFileCount *float64 `pulumi:"maxFileCount"`
+	// The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
+	MaxSize *float64 `pulumi:"maxSize"`
+	// Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
+	ShowThumbnails *bool `pulumi:"showThumbnails"`
 }
 
 // FormFileUploaderFieldConfigInput is an input type that accepts FormFileUploaderFieldConfigArgs and FormFileUploaderFieldConfigOutput values.
@@ -3971,12 +4372,20 @@ type FormFileUploaderFieldConfigInput interface {
 }
 
 type FormFileUploaderFieldConfigArgs struct {
-	AcceptedFileTypes pulumi.StringArrayInput     `pulumi:"acceptedFileTypes"`
-	AccessLevel       FormStorageAccessLevelInput `pulumi:"accessLevel"`
-	IsResumable       pulumi.BoolPtrInput         `pulumi:"isResumable"`
-	MaxFileCount      pulumi.Float64PtrInput      `pulumi:"maxFileCount"`
-	MaxSize           pulumi.Float64PtrInput      `pulumi:"maxSize"`
-	ShowThumbnails    pulumi.BoolPtrInput         `pulumi:"showThumbnails"`
+	// The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
+	AcceptedFileTypes pulumi.StringArrayInput `pulumi:"acceptedFileTypes"`
+	// The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
+	AccessLevel FormStorageAccessLevelInput `pulumi:"accessLevel"`
+	// Allows the file upload operation to be paused and resumed. The default value is `false` .
+	//
+	// When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
+	IsResumable pulumi.BoolPtrInput `pulumi:"isResumable"`
+	// Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
+	MaxFileCount pulumi.Float64PtrInput `pulumi:"maxFileCount"`
+	// The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
+	MaxSize pulumi.Float64PtrInput `pulumi:"maxSize"`
+	// Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
+	ShowThumbnails pulumi.BoolPtrInput `pulumi:"showThumbnails"`
 }
 
 func (FormFileUploaderFieldConfigArgs) ElementType() reflect.Type {
@@ -4056,26 +4465,34 @@ func (o FormFileUploaderFieldConfigOutput) ToFormFileUploaderFieldConfigPtrOutpu
 	}).(FormFileUploaderFieldConfigPtrOutput)
 }
 
+// The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
 func (o FormFileUploaderFieldConfigOutput) AcceptedFileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FormFileUploaderFieldConfig) []string { return v.AcceptedFileTypes }).(pulumi.StringArrayOutput)
 }
 
+// The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
 func (o FormFileUploaderFieldConfigOutput) AccessLevel() FormStorageAccessLevelOutput {
 	return o.ApplyT(func(v FormFileUploaderFieldConfig) FormStorageAccessLevel { return v.AccessLevel }).(FormStorageAccessLevelOutput)
 }
 
+// Allows the file upload operation to be paused and resumed. The default value is `false` .
+//
+// When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
 func (o FormFileUploaderFieldConfigOutput) IsResumable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFileUploaderFieldConfig) *bool { return v.IsResumable }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
 func (o FormFileUploaderFieldConfigOutput) MaxFileCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FormFileUploaderFieldConfig) *float64 { return v.MaxFileCount }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
 func (o FormFileUploaderFieldConfigOutput) MaxSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FormFileUploaderFieldConfig) *float64 { return v.MaxSize }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
 func (o FormFileUploaderFieldConfigOutput) ShowThumbnails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormFileUploaderFieldConfig) *bool { return v.ShowThumbnails }).(pulumi.BoolPtrOutput)
 }
@@ -4104,6 +4521,7 @@ func (o FormFileUploaderFieldConfigPtrOutput) Elem() FormFileUploaderFieldConfig
 	}).(FormFileUploaderFieldConfigOutput)
 }
 
+// The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
 func (o FormFileUploaderFieldConfigPtrOutput) AcceptedFileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FormFileUploaderFieldConfig) []string {
 		if v == nil {
@@ -4113,6 +4531,7 @@ func (o FormFileUploaderFieldConfigPtrOutput) AcceptedFileTypes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
+// The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
 func (o FormFileUploaderFieldConfigPtrOutput) AccessLevel() FormStorageAccessLevelPtrOutput {
 	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *FormStorageAccessLevel {
 		if v == nil {
@@ -4122,6 +4541,9 @@ func (o FormFileUploaderFieldConfigPtrOutput) AccessLevel() FormStorageAccessLev
 	}).(FormStorageAccessLevelPtrOutput)
 }
 
+// Allows the file upload operation to be paused and resumed. The default value is `false` .
+//
+// When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
 func (o FormFileUploaderFieldConfigPtrOutput) IsResumable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *bool {
 		if v == nil {
@@ -4131,6 +4553,7 @@ func (o FormFileUploaderFieldConfigPtrOutput) IsResumable() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
 func (o FormFileUploaderFieldConfigPtrOutput) MaxFileCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *float64 {
 		if v == nil {
@@ -4140,6 +4563,7 @@ func (o FormFileUploaderFieldConfigPtrOutput) MaxFileCount() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
 func (o FormFileUploaderFieldConfigPtrOutput) MaxSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *float64 {
 		if v == nil {
@@ -4149,6 +4573,7 @@ func (o FormFileUploaderFieldConfigPtrOutput) MaxSize() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
 func (o FormFileUploaderFieldConfigPtrOutput) ShowThumbnails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *bool {
 		if v == nil {
@@ -4159,8 +4584,10 @@ func (o FormFileUploaderFieldConfigPtrOutput) ShowThumbnails() pulumi.BoolPtrOut
 }
 
 type FormInputBindingPropertiesValue struct {
+	// Represents the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amplify DataStore model.
 	BindingProperties *FormInputBindingPropertiesValueProperties `pulumi:"bindingProperties"`
-	Type              *string                                    `pulumi:"type"`
+	// The property type.
+	Type *string `pulumi:"type"`
 }
 
 // FormInputBindingPropertiesValueInput is an input type that accepts FormInputBindingPropertiesValueArgs and FormInputBindingPropertiesValueOutput values.
@@ -4175,8 +4602,10 @@ type FormInputBindingPropertiesValueInput interface {
 }
 
 type FormInputBindingPropertiesValueArgs struct {
+	// Represents the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amplify DataStore model.
 	BindingProperties FormInputBindingPropertiesValuePropertiesPtrInput `pulumi:"bindingProperties"`
-	Type              pulumi.StringPtrInput                             `pulumi:"type"`
+	// The property type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (FormInputBindingPropertiesValueArgs) ElementType() reflect.Type {
@@ -4230,12 +4659,14 @@ func (o FormInputBindingPropertiesValueOutput) ToFormInputBindingPropertiesValue
 	return o
 }
 
+// Represents the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amplify DataStore model.
 func (o FormInputBindingPropertiesValueOutput) BindingProperties() FormInputBindingPropertiesValuePropertiesPtrOutput {
 	return o.ApplyT(func(v FormInputBindingPropertiesValue) *FormInputBindingPropertiesValueProperties {
 		return v.BindingProperties
 	}).(FormInputBindingPropertiesValuePropertiesPtrOutput)
 }
 
+// The property type.
 func (o FormInputBindingPropertiesValueOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormInputBindingPropertiesValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4261,6 +4692,7 @@ func (o FormInputBindingPropertiesValueMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 type FormInputBindingPropertiesValueProperties struct {
+	// An Amplify DataStore model.
 	Model *string `pulumi:"model"`
 }
 
@@ -4276,6 +4708,7 @@ type FormInputBindingPropertiesValuePropertiesInput interface {
 }
 
 type FormInputBindingPropertiesValuePropertiesArgs struct {
+	// An Amplify DataStore model.
 	Model pulumi.StringPtrInput `pulumi:"model"`
 }
 
@@ -4356,6 +4789,7 @@ func (o FormInputBindingPropertiesValuePropertiesOutput) ToFormInputBindingPrope
 	}).(FormInputBindingPropertiesValuePropertiesPtrOutput)
 }
 
+// An Amplify DataStore model.
 func (o FormInputBindingPropertiesValuePropertiesOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormInputBindingPropertiesValueProperties) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
@@ -4384,6 +4818,7 @@ func (o FormInputBindingPropertiesValuePropertiesPtrOutput) Elem() FormInputBind
 	}).(FormInputBindingPropertiesValuePropertiesOutput)
 }
 
+// An Amplify DataStore model.
 func (o FormInputBindingPropertiesValuePropertiesPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormInputBindingPropertiesValueProperties) *string {
 		if v == nil {
@@ -4394,9 +4829,12 @@ func (o FormInputBindingPropertiesValuePropertiesPtrOutput) Model() pulumi.Strin
 }
 
 type FormInputValueProperty struct {
+	// Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
 	BindingProperties *FormInputValuePropertyBindingProperties `pulumi:"bindingProperties"`
-	Concat            []FormInputValueProperty                 `pulumi:"concat"`
-	Value             *string                                  `pulumi:"value"`
+	// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+	Concat []FormInputValueProperty `pulumi:"concat"`
+	// The value to assign to the input field.
+	Value *string `pulumi:"value"`
 }
 
 // FormInputValuePropertyInput is an input type that accepts FormInputValuePropertyArgs and FormInputValuePropertyOutput values.
@@ -4411,9 +4849,12 @@ type FormInputValuePropertyInput interface {
 }
 
 type FormInputValuePropertyArgs struct {
+	// Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
 	BindingProperties FormInputValuePropertyBindingPropertiesPtrInput `pulumi:"bindingProperties"`
-	Concat            FormInputValuePropertyArrayInput                `pulumi:"concat"`
-	Value             pulumi.StringPtrInput                           `pulumi:"value"`
+	// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+	Concat FormInputValuePropertyArrayInput `pulumi:"concat"`
+	// The value to assign to the input field.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (FormInputValuePropertyArgs) ElementType() reflect.Type {
@@ -4518,14 +4959,17 @@ func (o FormInputValuePropertyOutput) ToFormInputValuePropertyPtrOutputWithConte
 	}).(FormInputValuePropertyPtrOutput)
 }
 
+// Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
 func (o FormInputValuePropertyOutput) BindingProperties() FormInputValuePropertyBindingPropertiesPtrOutput {
 	return o.ApplyT(func(v FormInputValueProperty) *FormInputValuePropertyBindingProperties { return v.BindingProperties }).(FormInputValuePropertyBindingPropertiesPtrOutput)
 }
 
+// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
 func (o FormInputValuePropertyOutput) Concat() FormInputValuePropertyArrayOutput {
 	return o.ApplyT(func(v FormInputValueProperty) []FormInputValueProperty { return v.Concat }).(FormInputValuePropertyArrayOutput)
 }
 
+// The value to assign to the input field.
 func (o FormInputValuePropertyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormInputValueProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4554,6 +4998,7 @@ func (o FormInputValuePropertyPtrOutput) Elem() FormInputValuePropertyOutput {
 	}).(FormInputValuePropertyOutput)
 }
 
+// Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
 func (o FormInputValuePropertyPtrOutput) BindingProperties() FormInputValuePropertyBindingPropertiesPtrOutput {
 	return o.ApplyT(func(v *FormInputValueProperty) *FormInputValuePropertyBindingProperties {
 		if v == nil {
@@ -4563,6 +5008,7 @@ func (o FormInputValuePropertyPtrOutput) BindingProperties() FormInputValuePrope
 	}).(FormInputValuePropertyBindingPropertiesPtrOutput)
 }
 
+// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
 func (o FormInputValuePropertyPtrOutput) Concat() FormInputValuePropertyArrayOutput {
 	return o.ApplyT(func(v *FormInputValueProperty) []FormInputValueProperty {
 		if v == nil {
@@ -4572,6 +5018,7 @@ func (o FormInputValuePropertyPtrOutput) Concat() FormInputValuePropertyArrayOut
 	}).(FormInputValuePropertyArrayOutput)
 }
 
+// The value to assign to the input field.
 func (o FormInputValuePropertyPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormInputValueProperty) *string {
 		if v == nil {
@@ -4602,8 +5049,10 @@ func (o FormInputValuePropertyArrayOutput) Index(i pulumi.IntInput) FormInputVal
 }
 
 type FormInputValuePropertyBindingProperties struct {
-	Field    *string `pulumi:"field"`
-	Property string  `pulumi:"property"`
+	// The data field to bind the property to.
+	Field *string `pulumi:"field"`
+	// The form property to bind to the data field.
+	Property string `pulumi:"property"`
 }
 
 // FormInputValuePropertyBindingPropertiesInput is an input type that accepts FormInputValuePropertyBindingPropertiesArgs and FormInputValuePropertyBindingPropertiesOutput values.
@@ -4618,8 +5067,10 @@ type FormInputValuePropertyBindingPropertiesInput interface {
 }
 
 type FormInputValuePropertyBindingPropertiesArgs struct {
-	Field    pulumi.StringPtrInput `pulumi:"field"`
-	Property pulumi.StringInput    `pulumi:"property"`
+	// The data field to bind the property to.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The form property to bind to the data field.
+	Property pulumi.StringInput `pulumi:"property"`
 }
 
 func (FormInputValuePropertyBindingPropertiesArgs) ElementType() reflect.Type {
@@ -4699,10 +5150,12 @@ func (o FormInputValuePropertyBindingPropertiesOutput) ToFormInputValuePropertyB
 	}).(FormInputValuePropertyBindingPropertiesPtrOutput)
 }
 
+// The data field to bind the property to.
 func (o FormInputValuePropertyBindingPropertiesOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormInputValuePropertyBindingProperties) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The form property to bind to the data field.
 func (o FormInputValuePropertyBindingPropertiesOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v FormInputValuePropertyBindingProperties) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -4731,6 +5184,7 @@ func (o FormInputValuePropertyBindingPropertiesPtrOutput) Elem() FormInputValueP
 	}).(FormInputValuePropertyBindingPropertiesOutput)
 }
 
+// The data field to bind the property to.
 func (o FormInputValuePropertyBindingPropertiesPtrOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormInputValuePropertyBindingProperties) *string {
 		if v == nil {
@@ -4740,6 +5194,7 @@ func (o FormInputValuePropertyBindingPropertiesPtrOutput) Field() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The form property to bind to the data field.
 func (o FormInputValuePropertyBindingPropertiesPtrOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormInputValuePropertyBindingProperties) *string {
 		if v == nil {
@@ -4750,12 +5205,18 @@ func (o FormInputValuePropertyBindingPropertiesPtrOutput) Property() pulumi.Stri
 }
 
 type FormSectionalElement struct {
-	Excluded    *bool       `pulumi:"excluded"`
-	Level       *float64    `pulumi:"level"`
-	Orientation *string     `pulumi:"orientation"`
-	Position    interface{} `pulumi:"position"`
-	Text        *string     `pulumi:"text"`
-	Type        string      `pulumi:"type"`
+	// Excludes a sectional element that was generated by default for a specified data model.
+	Excluded *bool `pulumi:"excluded"`
+	// Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
+	Level *float64 `pulumi:"level"`
+	// Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
+	Orientation *string `pulumi:"orientation"`
+	// The `FieldPosition` property specifies the field position.
+	Position interface{} `pulumi:"position"`
+	// The text for a `Text` sectional element.
+	Text *string `pulumi:"text"`
+	// The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
+	Type string `pulumi:"type"`
 }
 
 // FormSectionalElementInput is an input type that accepts FormSectionalElementArgs and FormSectionalElementOutput values.
@@ -4770,12 +5231,18 @@ type FormSectionalElementInput interface {
 }
 
 type FormSectionalElementArgs struct {
-	Excluded    pulumi.BoolPtrInput    `pulumi:"excluded"`
-	Level       pulumi.Float64PtrInput `pulumi:"level"`
-	Orientation pulumi.StringPtrInput  `pulumi:"orientation"`
-	Position    pulumi.Input           `pulumi:"position"`
-	Text        pulumi.StringPtrInput  `pulumi:"text"`
-	Type        pulumi.StringInput     `pulumi:"type"`
+	// Excludes a sectional element that was generated by default for a specified data model.
+	Excluded pulumi.BoolPtrInput `pulumi:"excluded"`
+	// Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
+	Level pulumi.Float64PtrInput `pulumi:"level"`
+	// Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
+	Orientation pulumi.StringPtrInput `pulumi:"orientation"`
+	// The `FieldPosition` property specifies the field position.
+	Position pulumi.Input `pulumi:"position"`
+	// The text for a `Text` sectional element.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (FormSectionalElementArgs) ElementType() reflect.Type {
@@ -4829,26 +5296,32 @@ func (o FormSectionalElementOutput) ToFormSectionalElementOutputWithContext(ctx 
 	return o
 }
 
+// Excludes a sectional element that was generated by default for a specified data model.
 func (o FormSectionalElementOutput) Excluded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormSectionalElement) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
 func (o FormSectionalElementOutput) Level() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FormSectionalElement) *float64 { return v.Level }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
 func (o FormSectionalElementOutput) Orientation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormSectionalElement) *string { return v.Orientation }).(pulumi.StringPtrOutput)
 }
 
+// The `FieldPosition` property specifies the field position.
 func (o FormSectionalElementOutput) Position() pulumi.AnyOutput {
 	return o.ApplyT(func(v FormSectionalElement) interface{} { return v.Position }).(pulumi.AnyOutput)
 }
 
+// The text for a `Text` sectional element.
 func (o FormSectionalElementOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FormSectionalElement) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
+// The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
 func (o FormSectionalElementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FormSectionalElement) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4874,9 +5347,12 @@ func (o FormSectionalElementMapOutput) MapIndex(k pulumi.StringInput) FormSectio
 }
 
 type FormStyle struct {
+	// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 	HorizontalGap interface{} `pulumi:"horizontalGap"`
-	OuterPadding  interface{} `pulumi:"outerPadding"`
-	VerticalGap   interface{} `pulumi:"verticalGap"`
+	// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+	OuterPadding interface{} `pulumi:"outerPadding"`
+	// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+	VerticalGap interface{} `pulumi:"verticalGap"`
 }
 
 // FormStyleInput is an input type that accepts FormStyleArgs and FormStyleOutput values.
@@ -4891,9 +5367,12 @@ type FormStyleInput interface {
 }
 
 type FormStyleArgs struct {
+	// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 	HorizontalGap pulumi.Input `pulumi:"horizontalGap"`
-	OuterPadding  pulumi.Input `pulumi:"outerPadding"`
-	VerticalGap   pulumi.Input `pulumi:"verticalGap"`
+	// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+	OuterPadding pulumi.Input `pulumi:"outerPadding"`
+	// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+	VerticalGap pulumi.Input `pulumi:"verticalGap"`
 }
 
 func (FormStyleArgs) ElementType() reflect.Type {
@@ -4973,14 +5452,17 @@ func (o FormStyleOutput) ToFormStylePtrOutputWithContext(ctx context.Context) Fo
 	}).(FormStylePtrOutput)
 }
 
+// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 func (o FormStyleOutput) HorizontalGap() pulumi.AnyOutput {
 	return o.ApplyT(func(v FormStyle) interface{} { return v.HorizontalGap }).(pulumi.AnyOutput)
 }
 
+// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 func (o FormStyleOutput) OuterPadding() pulumi.AnyOutput {
 	return o.ApplyT(func(v FormStyle) interface{} { return v.OuterPadding }).(pulumi.AnyOutput)
 }
 
+// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 func (o FormStyleOutput) VerticalGap() pulumi.AnyOutput {
 	return o.ApplyT(func(v FormStyle) interface{} { return v.VerticalGap }).(pulumi.AnyOutput)
 }
@@ -5009,6 +5491,7 @@ func (o FormStylePtrOutput) Elem() FormStyleOutput {
 	}).(FormStyleOutput)
 }
 
+// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 func (o FormStylePtrOutput) HorizontalGap() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FormStyle) interface{} {
 		if v == nil {
@@ -5018,6 +5501,7 @@ func (o FormStylePtrOutput) HorizontalGap() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 func (o FormStylePtrOutput) OuterPadding() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FormStyle) interface{} {
 		if v == nil {
@@ -5027,6 +5511,7 @@ func (o FormStylePtrOutput) OuterPadding() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
 func (o FormStylePtrOutput) VerticalGap() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FormStyle) interface{} {
 		if v == nil {
@@ -5303,8 +5788,10 @@ func (o FormStyleConfig1PropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type FormValueMapping struct {
+	// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
 	DisplayValue *FormInputValueProperty `pulumi:"displayValue"`
-	Value        FormInputValueProperty  `pulumi:"value"`
+	// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+	Value FormInputValueProperty `pulumi:"value"`
 }
 
 // FormValueMappingInput is an input type that accepts FormValueMappingArgs and FormValueMappingOutput values.
@@ -5319,8 +5806,10 @@ type FormValueMappingInput interface {
 }
 
 type FormValueMappingArgs struct {
+	// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
 	DisplayValue FormInputValuePropertyPtrInput `pulumi:"displayValue"`
-	Value        FormInputValuePropertyInput    `pulumi:"value"`
+	// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+	Value FormInputValuePropertyInput `pulumi:"value"`
 }
 
 func (FormValueMappingArgs) ElementType() reflect.Type {
@@ -5374,10 +5863,12 @@ func (o FormValueMappingOutput) ToFormValueMappingOutputWithContext(ctx context.
 	return o
 }
 
+// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
 func (o FormValueMappingOutput) DisplayValue() FormInputValuePropertyPtrOutput {
 	return o.ApplyT(func(v FormValueMapping) *FormInputValueProperty { return v.DisplayValue }).(FormInputValuePropertyPtrOutput)
 }
 
+// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
 func (o FormValueMappingOutput) Value() FormInputValuePropertyOutput {
 	return o.ApplyT(func(v FormValueMapping) FormInputValueProperty { return v.Value }).(FormInputValuePropertyOutput)
 }
@@ -5403,8 +5894,10 @@ func (o FormValueMappingArrayOutput) Index(i pulumi.IntInput) FormValueMappingOu
 }
 
 type FormValueMappings struct {
+	// The information to bind fields to data at runtime.
 	BindingProperties map[string]FormInputBindingPropertiesValue `pulumi:"bindingProperties"`
-	Values            []FormValueMapping                         `pulumi:"values"`
+	// The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+	Values []FormValueMapping `pulumi:"values"`
 }
 
 // FormValueMappingsInput is an input type that accepts FormValueMappingsArgs and FormValueMappingsOutput values.
@@ -5419,8 +5912,10 @@ type FormValueMappingsInput interface {
 }
 
 type FormValueMappingsArgs struct {
+	// The information to bind fields to data at runtime.
 	BindingProperties FormInputBindingPropertiesValueMapInput `pulumi:"bindingProperties"`
-	Values            FormValueMappingArrayInput              `pulumi:"values"`
+	// The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+	Values FormValueMappingArrayInput `pulumi:"values"`
 }
 
 func (FormValueMappingsArgs) ElementType() reflect.Type {
@@ -5500,10 +5995,12 @@ func (o FormValueMappingsOutput) ToFormValueMappingsPtrOutputWithContext(ctx con
 	}).(FormValueMappingsPtrOutput)
 }
 
+// The information to bind fields to data at runtime.
 func (o FormValueMappingsOutput) BindingProperties() FormInputBindingPropertiesValueMapOutput {
 	return o.ApplyT(func(v FormValueMappings) map[string]FormInputBindingPropertiesValue { return v.BindingProperties }).(FormInputBindingPropertiesValueMapOutput)
 }
 
+// The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
 func (o FormValueMappingsOutput) Values() FormValueMappingArrayOutput {
 	return o.ApplyT(func(v FormValueMappings) []FormValueMapping { return v.Values }).(FormValueMappingArrayOutput)
 }
@@ -5532,6 +6029,7 @@ func (o FormValueMappingsPtrOutput) Elem() FormValueMappingsOutput {
 	}).(FormValueMappingsOutput)
 }
 
+// The information to bind fields to data at runtime.
 func (o FormValueMappingsPtrOutput) BindingProperties() FormInputBindingPropertiesValueMapOutput {
 	return o.ApplyT(func(v *FormValueMappings) map[string]FormInputBindingPropertiesValue {
 		if v == nil {
@@ -5541,6 +6039,7 @@ func (o FormValueMappingsPtrOutput) BindingProperties() FormInputBindingProperti
 	}).(FormInputBindingPropertiesValueMapOutput)
 }
 
+// The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
 func (o FormValueMappingsPtrOutput) Values() FormValueMappingArrayOutput {
 	return o.ApplyT(func(v *FormValueMappings) []FormValueMapping {
 		if v == nil {
@@ -5551,8 +6050,10 @@ func (o FormValueMappingsPtrOutput) Values() FormValueMappingArrayOutput {
 }
 
 type ThemeValue struct {
+	// A list of key-value pairs that define the theme's properties.
 	Children []ThemeValues `pulumi:"children"`
-	Value    *string       `pulumi:"value"`
+	// The value of a theme property.
+	Value *string `pulumi:"value"`
 }
 
 // ThemeValueInput is an input type that accepts ThemeValueArgs and ThemeValueOutput values.
@@ -5567,8 +6068,10 @@ type ThemeValueInput interface {
 }
 
 type ThemeValueArgs struct {
+	// A list of key-value pairs that define the theme's properties.
 	Children ThemeValuesArrayInput `pulumi:"children"`
-	Value    pulumi.StringPtrInput `pulumi:"value"`
+	// The value of a theme property.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ThemeValueArgs) ElementType() reflect.Type {
@@ -5648,10 +6151,12 @@ func (o ThemeValueOutput) ToThemeValuePtrOutputWithContext(ctx context.Context) 
 	}).(ThemeValuePtrOutput)
 }
 
+// A list of key-value pairs that define the theme's properties.
 func (o ThemeValueOutput) Children() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v ThemeValue) []ThemeValues { return v.Children }).(ThemeValuesArrayOutput)
 }
 
+// The value of a theme property.
 func (o ThemeValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5680,6 +6185,7 @@ func (o ThemeValuePtrOutput) Elem() ThemeValueOutput {
 	}).(ThemeValueOutput)
 }
 
+// A list of key-value pairs that define the theme's properties.
 func (o ThemeValuePtrOutput) Children() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v *ThemeValue) []ThemeValues {
 		if v == nil {
@@ -5689,6 +6195,7 @@ func (o ThemeValuePtrOutput) Children() ThemeValuesArrayOutput {
 	}).(ThemeValuesArrayOutput)
 }
 
+// The value of a theme property.
 func (o ThemeValuePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeValue) *string {
 		if v == nil {
@@ -5699,7 +6206,9 @@ func (o ThemeValuePtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type ThemeValues struct {
-	Key   *string     `pulumi:"key"`
+	// The name of the property.
+	Key *string `pulumi:"key"`
+	// The `ThemeValue` property specifies the configuration of a theme's properties.
 	Value *ThemeValue `pulumi:"value"`
 }
 
@@ -5715,8 +6224,10 @@ type ThemeValuesInput interface {
 }
 
 type ThemeValuesArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value ThemeValuePtrInput    `pulumi:"value"`
+	// The name of the property.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The `ThemeValue` property specifies the configuration of a theme's properties.
+	Value ThemeValuePtrInput `pulumi:"value"`
 }
 
 func (ThemeValuesArgs) ElementType() reflect.Type {
@@ -5770,10 +6281,12 @@ func (o ThemeValuesOutput) ToThemeValuesOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The name of the property.
 func (o ThemeValuesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeValues) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The `ThemeValue` property specifies the configuration of a theme's properties.
 func (o ThemeValuesOutput) Value() ThemeValuePtrOutput {
 	return o.ApplyT(func(v ThemeValues) *ThemeValue { return v.Value }).(ThemeValuePtrOutput)
 }

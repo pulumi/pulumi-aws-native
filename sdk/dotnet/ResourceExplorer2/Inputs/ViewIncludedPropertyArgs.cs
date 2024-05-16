@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.ResourceExplorer2.Inputs
 
     public sealed class ViewIncludedPropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the property that is included in this view.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

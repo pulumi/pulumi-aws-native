@@ -17,10 +17,14 @@ import (
 type TrustStore struct {
 	pulumi.CustomResourceState
 
+	// A list of web portal ARNs that this trust store is associated with.
 	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	CertificateList      pulumi.StringArrayOutput `pulumi:"certificateList"`
-	Tags                 aws.TagArrayOutput       `pulumi:"tags"`
-	TrustStoreArn        pulumi.StringOutput      `pulumi:"trustStoreArn"`
+	// A list of CA certificates to be added to the trust store.
+	CertificateList pulumi.StringArrayOutput `pulumi:"certificateList"`
+	// The tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ARN of the trust store.
+	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
 }
 
 // NewTrustStore registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +70,18 @@ func (TrustStoreState) ElementType() reflect.Type {
 }
 
 type trustStoreArgs struct {
-	CertificateList []string  `pulumi:"certificateList"`
-	Tags            []aws.Tag `pulumi:"tags"`
+	// A list of CA certificates to be added to the trust store.
+	CertificateList []string `pulumi:"certificateList"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustStore resource.
 type TrustStoreArgs struct {
+	// A list of CA certificates to be added to the trust store.
 	CertificateList pulumi.StringArrayInput
-	Tags            aws.TagArrayInput
+	// The tag.
+	Tags aws.TagArrayInput
 }
 
 func (TrustStoreArgs) ElementType() reflect.Type {
@@ -113,18 +121,22 @@ func (o TrustStoreOutput) ToTrustStoreOutputWithContext(ctx context.Context) Tru
 	return o
 }
 
+// A list of web portal ARNs that this trust store is associated with.
 func (o TrustStoreOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// A list of CA certificates to be added to the trust store.
 func (o TrustStoreOutput) CertificateList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringArrayOutput { return v.CertificateList }).(pulumi.StringArrayOutput)
 }
 
+// The tag.
 func (o TrustStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrustStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the trust store.
 func (o TrustStoreOutput) TrustStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.TrustStoreArn }).(pulumi.StringOutput)
 }

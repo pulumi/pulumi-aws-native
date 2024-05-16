@@ -317,6 +317,9 @@ class Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['EndpointStatus']:
+        """
+        The status of the endpoint.
+        """
         return pulumi.get(self, "status")
 
     @property

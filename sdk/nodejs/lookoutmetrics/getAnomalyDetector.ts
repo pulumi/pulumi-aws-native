@@ -19,6 +19,9 @@ export function getAnomalyDetector(args: GetAnomalyDetectorArgs, opts?: pulumi.I
 }
 
 export interface GetAnomalyDetectorArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+     */
     arn: string;
 }
 
@@ -31,6 +34,9 @@ export interface GetAnomalyDetectorResult {
      * A description for the AnomalyDetector.
      */
     readonly anomalyDetectorDescription?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+     */
     readonly arn?: string;
     /**
      * KMS key used to encrypt the AnomalyDetector data
@@ -49,5 +55,8 @@ export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opt
 }
 
 export interface GetAnomalyDetectorOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+     */
     arn: pulumi.Input<string>;
 }

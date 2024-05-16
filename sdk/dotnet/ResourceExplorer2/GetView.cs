@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class GetViewArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Input("viewArn", required: true)]
         public string ViewArn { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class GetViewInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Input("viewArn", required: true)]
         public Input<string> ViewArn { get; set; } = null!;
 
@@ -51,9 +61,23 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     [OutputType]
     public sealed class GetViewResult
     {
+        /// <summary>
+        /// A search filter defines which resources can be part of a search query result set.
+        /// </summary>
         public readonly Outputs.ViewSearchFilter? Filters;
+        /// <summary>
+        /// Information about an additional property that describes a resource, that you can optionally include in a view.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ViewIncludedProperty> IncludedProperties;
+        /// <summary>
+        /// Tag key and value pairs that are attached to the view.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         public readonly string? ViewArn;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreFileFormatConfiguration
     {
+        /// <summary>
+        /// Contains the configuration information of the JSON format.
+        /// </summary>
         public readonly Outputs.DatastoreJsonConfiguration? JsonConfiguration;
+        /// <summary>
+        /// Contains the configuration information of the Parquet format.
+        /// </summary>
         public readonly Outputs.DatastoreParquetConfiguration? ParquetConfiguration;
 
         [OutputConstructor]

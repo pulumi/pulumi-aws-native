@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetInstanceProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetInstanceProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,12 +57,35 @@ namespace Pulumi.AwsNative.DeviceFarm
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The description of the instance profile.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+        /// 
+        /// The list of packages is considered only if you set `packageCleanup` to `true` .
+        /// </summary>
         public readonly ImmutableArray<string> ExcludeAppPackagesFromCleanup;
+        /// <summary>
+        /// The name of the instance profile.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+        /// </summary>
         public readonly bool? PackageCleanup;
+        /// <summary>
+        /// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+        /// </summary>
         public readonly bool? RebootAfterUse;
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

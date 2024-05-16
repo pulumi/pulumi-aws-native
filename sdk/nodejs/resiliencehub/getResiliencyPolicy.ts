@@ -30,6 +30,9 @@ export interface GetResiliencyPolicyResult {
      * Data Location Constraint of the Policy.
      */
     readonly dataLocationConstraint?: enums.resiliencehub.ResiliencyPolicyDataLocationConstraint;
+    /**
+     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+     */
     readonly policy?: outputs.resiliencehub.ResiliencyPolicyPolicyMap;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -43,6 +46,9 @@ export interface GetResiliencyPolicyResult {
      * Name of Resiliency Policy.
      */
     readonly policyName?: string;
+    /**
+     * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+     */
     readonly tags?: {[key: string]: string};
     /**
      * Resiliency Policy Tier.

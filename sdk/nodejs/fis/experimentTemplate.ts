@@ -105,14 +105,43 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExperimentTemplate.__pulumiType;
     }
 
+    /**
+     * The actions for the experiment.
+     */
     public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateAction} | undefined>;
+    /**
+     * The ID of the experiment template.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The description for the experiment template.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * Describes the experiment options for an experiment template.
+     */
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
+    /**
+     * Specifies the configuration for experiment logging.
+     *
+     * For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+     */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The stop conditions for the experiment.
+     */
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
+    /**
+     * The tags for the experiment template.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The targets for the experiment.
+     */
     public readonly targets!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateTarget}>;
 
     /**
@@ -162,7 +191,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["experimentOptions.accountTargeting", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -172,12 +201,38 @@ export class ExperimentTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a ExperimentTemplate resource.
  */
 export interface ExperimentTemplateArgs {
+    /**
+     * The actions for the experiment.
+     */
     actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateActionArgs>}>;
+    /**
+     * The description for the experiment template.
+     */
     description: pulumi.Input<string>;
+    /**
+     * Describes the experiment options for an experiment template.
+     */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
+    /**
+     * Specifies the configuration for experiment logging.
+     *
+     * For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+     */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The stop conditions for the experiment.
+     */
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopConditionArgs>[]>;
+    /**
+     * The tags for the experiment template.
+     */
     tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The targets for the experiment.
+     */
     targets: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateTargetArgs>}>;
 }

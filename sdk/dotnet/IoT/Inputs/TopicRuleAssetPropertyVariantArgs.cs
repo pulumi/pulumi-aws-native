@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleAssetPropertyVariantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
+        /// </summary>
         [Input("booleanValue")]
         public Input<string>? BooleanValue { get; set; }
 
+        /// <summary>
+        /// Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+        /// </summary>
         [Input("doubleValue")]
         public Input<string>? DoubleValue { get; set; }
 
+        /// <summary>
+        /// Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+        /// </summary>
         [Input("integerValue")]
         public Input<string>? IntegerValue { get; set; }
 
+        /// <summary>
+        /// Optional. The string value of the value entry. Accepts substitution templates.
+        /// </summary>
         [Input("stringValue")]
         public Input<string>? StringValue { get; set; }
 

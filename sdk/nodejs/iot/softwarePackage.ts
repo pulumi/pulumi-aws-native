@@ -38,6 +38,9 @@ export class SoftwarePackage extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) for the package.
+     */
     public /*out*/ readonly packageArn!: pulumi.Output<string>;
     public readonly packageName!: pulumi.Output<string | undefined>;
     /**

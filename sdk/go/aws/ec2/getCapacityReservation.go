@@ -23,16 +23,32 @@ func LookupCapacityReservation(ctx *pulumi.Context, args *LookupCapacityReservat
 }
 
 type LookupCapacityReservationArgs struct {
+	// The ID of the Capacity Reservation.
 	Id string `pulumi:"id"`
 }
 
 type LookupCapacityReservationResult struct {
-	AvailableInstanceCount *int    `pulumi:"availableInstanceCount"`
-	EndDate                *string `pulumi:"endDate"`
-	EndDateType            *string `pulumi:"endDateType"`
-	Id                     *string `pulumi:"id"`
-	InstanceCount          *int    `pulumi:"instanceCount"`
-	TotalInstanceCount     *int    `pulumi:"totalInstanceCount"`
+	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+	AvailableInstanceCount *int `pulumi:"availableInstanceCount"`
+	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+	//
+	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+	//
+	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	EndDate *string `pulumi:"endDate"`
+	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+	//
+	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+	EndDateType *string `pulumi:"endDateType"`
+	// The ID of the Capacity Reservation.
+	Id *string `pulumi:"id"`
+	// The number of instances for which to reserve capacity.
+	//
+	// Valid range: 1 - 1000
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+	TotalInstanceCount *int `pulumi:"totalInstanceCount"`
 }
 
 func LookupCapacityReservationOutput(ctx *pulumi.Context, args LookupCapacityReservationOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityReservationResultOutput {
@@ -49,6 +65,7 @@ func LookupCapacityReservationOutput(ctx *pulumi.Context, args LookupCapacityRes
 }
 
 type LookupCapacityReservationOutputArgs struct {
+	// The ID of the Capacity Reservation.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,26 +87,41 @@ func (o LookupCapacityReservationResultOutput) ToLookupCapacityReservationResult
 	return o
 }
 
+// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 func (o LookupCapacityReservationResultOutput) AvailableInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.AvailableInstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+//
+// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+//
+// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
 func (o LookupCapacityReservationResultOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
+// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+//
+// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
 func (o LookupCapacityReservationResultOutput) EndDateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.EndDateType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Capacity Reservation.
 func (o LookupCapacityReservationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The number of instances for which to reserve capacity.
+//
+// Valid range: 1 - 1000
 func (o LookupCapacityReservationResultOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
 func (o LookupCapacityReservationResultOutput) TotalInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.TotalInstanceCount }).(pulumi.IntPtrOutput)
 }

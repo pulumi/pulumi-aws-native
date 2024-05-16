@@ -129,9 +129,14 @@ type DatasetGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 type EncryptionConfigProperties struct {
+	// The Amazon Resource Name (ARN) of the KMS key.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	RoleArn   *string `pulumi:"roleArn"`
+	// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+	//
+	// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // EncryptionConfigPropertiesInput is an input type that accepts EncryptionConfigPropertiesArgs and EncryptionConfigPropertiesOutput values.
@@ -145,9 +150,14 @@ type EncryptionConfigPropertiesInput interface {
 	ToEncryptionConfigPropertiesOutputWithContext(context.Context) EncryptionConfigPropertiesOutput
 }
 
+// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 type EncryptionConfigPropertiesArgs struct {
+	// The Amazon Resource Name (ARN) of the KMS key.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	RoleArn   pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+	//
+	// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (EncryptionConfigPropertiesArgs) ElementType() reflect.Type {
@@ -203,6 +213,7 @@ func (i *encryptionConfigPropertiesPtrType) ToEncryptionConfigPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigPropertiesPtrOutput)
 }
 
+// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 type EncryptionConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigPropertiesOutput) ElementType() reflect.Type {
@@ -227,10 +238,14 @@ func (o EncryptionConfigPropertiesOutput) ToEncryptionConfigPropertiesPtrOutputW
 	}).(EncryptionConfigPropertiesPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the KMS key.
 func (o EncryptionConfigPropertiesOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionConfigProperties) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+//
+// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
 func (o EncryptionConfigPropertiesOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionConfigProperties) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -259,6 +274,7 @@ func (o EncryptionConfigPropertiesPtrOutput) Elem() EncryptionConfigPropertiesOu
 	}).(EncryptionConfigPropertiesOutput)
 }
 
+// The Amazon Resource Name (ARN) of the KMS key.
 func (o EncryptionConfigPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionConfigProperties) *string {
 		if v == nil {
@@ -268,6 +284,9 @@ func (o EncryptionConfigPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+//
+// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
 func (o EncryptionConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionConfigProperties) *string {
 		if v == nil {
@@ -277,7 +296,9 @@ func (o EncryptionConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 type SchemaProperties struct {
+	// An array of attributes specifying the name and type of each field in a dataset.
 	Attributes []DatasetAttributesItemProperties `pulumi:"attributes"`
 }
 
@@ -292,7 +313,9 @@ type SchemaPropertiesInput interface {
 	ToSchemaPropertiesOutputWithContext(context.Context) SchemaPropertiesOutput
 }
 
+// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 type SchemaPropertiesArgs struct {
+	// An array of attributes specifying the name and type of each field in a dataset.
 	Attributes DatasetAttributesItemPropertiesArrayInput `pulumi:"attributes"`
 }
 
@@ -308,6 +331,7 @@ func (i SchemaPropertiesArgs) ToSchemaPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput)
 }
 
+// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 type SchemaPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SchemaPropertiesOutput) ElementType() reflect.Type {
@@ -322,6 +346,7 @@ func (o SchemaPropertiesOutput) ToSchemaPropertiesOutputWithContext(ctx context.
 	return o
 }
 
+// An array of attributes specifying the name and type of each field in a dataset.
 func (o SchemaPropertiesOutput) Attributes() DatasetAttributesItemPropertiesArrayOutput {
 	return o.ApplyT(func(v SchemaProperties) []DatasetAttributesItemProperties { return v.Attributes }).(DatasetAttributesItemPropertiesArrayOutput)
 }
@@ -350,6 +375,7 @@ func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
 	}).(SchemaPropertiesOutput)
 }
 
+// An array of attributes specifying the name and type of each field in a dataset.
 func (o SchemaPropertiesPtrOutput) Attributes() DatasetAttributesItemPropertiesArrayOutput {
 	return o.ApplyT(func(v *SchemaProperties) []DatasetAttributesItemProperties {
 		if v == nil {

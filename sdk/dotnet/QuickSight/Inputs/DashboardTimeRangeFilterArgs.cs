@@ -12,33 +12,71 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTimeRangeFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.DashboardDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
+        /// <summary>
+        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// </summary>
         [Input("excludePeriodConfiguration")]
         public Input<Inputs.DashboardExcludePeriodConfigurationArgs>? ExcludePeriodConfiguration { get; set; }
 
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 
+        /// <summary>
+        /// Determines whether the maximum value in the filter value range should be included in the filtered results.
+        /// </summary>
         [Input("includeMaximum")]
         public Input<bool>? IncludeMaximum { get; set; }
 
+        /// <summary>
+        /// Determines whether the minimum value in the filter value range should be included in the filtered results.
+        /// </summary>
         [Input("includeMinimum")]
         public Input<bool>? IncludeMinimum { get; set; }
 
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         [Input("nullOption", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardFilterNullOption> NullOption { get; set; } = null!;
 
+        /// <summary>
+        /// The value of a time range filter.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("rangeMaximumValue")]
         public Input<Inputs.DashboardTimeRangeFilterValueArgs>? RangeMaximumValue { get; set; }
 
+        /// <summary>
+        /// The value of a time range filter.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("rangeMinimumValue")]
         public Input<Inputs.DashboardTimeRangeFilterValueArgs>? RangeMinimumValue { get; set; }
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTimeGranularity>? TimeGranularity { get; set; }
 

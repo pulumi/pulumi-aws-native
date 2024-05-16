@@ -79,11 +79,17 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def hardware(self) -> Optional['outputs.InstanceHardware']:
+        """
+        `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        """
         return pulumi.get(self, "hardware")
 
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        """
         return pulumi.get(self, "instance_arn")
 
     @property
@@ -105,11 +111,17 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def location(self) -> Optional['outputs.InstanceLocation']:
+        """
+        `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def networking(self) -> Optional['outputs.InstanceNetworking']:
+        """
+        `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        """
         return pulumi.get(self, "networking")
 
     @property
@@ -147,6 +159,9 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def state(self) -> Optional['outputs.InstanceState']:
+        """
+        `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        """
         return pulumi.get(self, "state")
 
     @property

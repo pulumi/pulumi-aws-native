@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class FormStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        /// </summary>
         [Input("horizontalGap")]
         public InputUnion<Inputs.FormStyleConfig0PropertiesArgs, Inputs.FormStyleConfig1PropertiesArgs>? HorizontalGap { get; set; }
 
+        /// <summary>
+        /// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        /// </summary>
         [Input("outerPadding")]
         public InputUnion<Inputs.FormStyleConfig0PropertiesArgs, Inputs.FormStyleConfig1PropertiesArgs>? OuterPadding { get; set; }
 
+        /// <summary>
+        /// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        /// </summary>
         [Input("verticalGap")]
         public InputUnion<Inputs.FormStyleConfig0PropertiesArgs, Inputs.FormStyleConfig1PropertiesArgs>? VerticalGap { get; set; }
 

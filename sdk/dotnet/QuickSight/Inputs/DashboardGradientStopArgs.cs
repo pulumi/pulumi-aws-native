@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGradientStopArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// Determines the data value.
+        /// </summary>
         [Input("dataValue")]
         public Input<double>? DataValue { get; set; }
 
+        /// <summary>
+        /// Determines gradient offset value.
+        /// </summary>
         [Input("gradientOffset", required: true)]
         public Input<double> GradientOffset { get; set; } = null!;
 

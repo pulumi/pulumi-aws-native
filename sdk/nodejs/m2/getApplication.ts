@@ -16,13 +16,30 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetApplicationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the application.
+     */
     applicationArn: string;
 }
 
 export interface GetApplicationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the application.
+     */
     readonly applicationArn?: string;
+    /**
+     * The identifier of the application.
+     */
     readonly applicationId?: string;
+    /**
+     * The description of the application.
+     */
     readonly description?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -33,5 +50,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the application.
+     */
     applicationArn: pulumi.Input<string>;
 }

@@ -35,21 +35,35 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
+        """
+        The identifier of the application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the application.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -69,6 +83,9 @@ def get_application(application_arn: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Represents an application that runs on an AWS Mainframe Modernization Environment
+
+
+    :param str application_arn: The Amazon Resource Name (ARN) of the application.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -87,5 +104,8 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Represents an application that runs on an AWS Mainframe Modernization Environment
+
+
+    :param str application_arn: The Amazon Resource Name (ARN) of the application.
     """
     ...

@@ -35,9 +35,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the service network or service.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any>;
+    /**
+     * An IAM policy.
+     */
     public readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -75,8 +80,13 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyArgs {
     /**
+     * The Amazon Resource Name (ARN) of the service network or service.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
      */
     policy: any;
+    /**
+     * An IAM policy.
+     */
     resourceArn: pulumi.Input<string>;
 }

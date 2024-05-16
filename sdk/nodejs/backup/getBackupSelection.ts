@@ -16,11 +16,20 @@ export function getBackupSelection(args: GetBackupSelectionArgs, opts?: pulumi.I
 }
 
 export interface GetBackupSelectionArgs {
+    /**
+     * Uniquely identifies the backup selection.
+     */
     id: string;
 }
 
 export interface GetBackupSelectionResult {
+    /**
+     * Uniquely identifies the backup selection.
+     */
     readonly id?: string;
+    /**
+     * Uniquely identifies a request to assign a set of resources to a backup plan.
+     */
     readonly selectionId?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getBackupSelectionOutput(args: GetBackupSelectionOutputArgs, opt
 }
 
 export interface GetBackupSelectionOutputArgs {
+    /**
+     * Uniquely identifies the backup selection.
+     */
     id: pulumi.Input<string>;
 }

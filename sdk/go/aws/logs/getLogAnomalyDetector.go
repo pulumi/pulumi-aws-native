@@ -31,7 +31,8 @@ type LookupLogAnomalyDetectorResult struct {
 	// ARN of LogAnomalyDetector
 	AnomalyDetectorArn *string `pulumi:"anomalyDetectorArn"`
 	// Current status of detector.
-	AnomalyDetectorStatus *string  `pulumi:"anomalyDetectorStatus"`
+	AnomalyDetectorStatus *string `pulumi:"anomalyDetectorStatus"`
+	// The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
 	AnomalyVisibilityTime *float64 `pulumi:"anomalyVisibilityTime"`
 	// When detector was created.
 	CreationTimeStamp *float64 `pulumi:"creationTimeStamp"`
@@ -39,7 +40,8 @@ type LookupLogAnomalyDetectorResult struct {
 	DetectorName *string `pulumi:"detectorName"`
 	// How often log group is evaluated
 	EvaluationFrequency *LogAnomalyDetectorEvaluationFrequency `pulumi:"evaluationFrequency"`
-	FilterPattern       *string                                `pulumi:"filterPattern"`
+	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+	FilterPattern *string `pulumi:"filterPattern"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// When detector was lsat modified.
@@ -94,6 +96,7 @@ func (o LookupLogAnomalyDetectorResultOutput) AnomalyDetectorStatus() pulumi.Str
 	return o.ApplyT(func(v LookupLogAnomalyDetectorResult) *string { return v.AnomalyDetectorStatus }).(pulumi.StringPtrOutput)
 }
 
+// The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
 func (o LookupLogAnomalyDetectorResultOutput) AnomalyVisibilityTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupLogAnomalyDetectorResult) *float64 { return v.AnomalyVisibilityTime }).(pulumi.Float64PtrOutput)
 }
@@ -115,6 +118,7 @@ func (o LookupLogAnomalyDetectorResultOutput) EvaluationFrequency() LogAnomalyDe
 	}).(LogAnomalyDetectorEvaluationFrequencyPtrOutput)
 }
 
+// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
 func (o LookupLogAnomalyDetectorResultOutput) FilterPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogAnomalyDetectorResult) *string { return v.FilterPattern }).(pulumi.StringPtrOutput)
 }

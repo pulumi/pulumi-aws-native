@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
     [OutputType]
     public sealed class ContainerPortInfo
     {
+        /// <summary>
+        /// The open firewall ports of the container.
+        /// </summary>
         public readonly string? Port;
+        /// <summary>
+        /// The protocol name for the open ports.
+        /// 
+        /// *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]

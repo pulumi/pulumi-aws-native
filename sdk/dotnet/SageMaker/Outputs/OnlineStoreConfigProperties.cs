@@ -10,12 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
+    /// <summary>
+    /// The configuration of an `OnlineStore` .
+    /// </summary>
     [OutputType]
     public sealed class OnlineStoreConfigProperties
     {
+        /// <summary>
+        /// Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag. Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
+        /// 
+        /// The default value is `False` .
+        /// </summary>
         public readonly bool? EnableOnlineStore;
+        /// <summary>
+        /// The security configuration for `OnlineStore` .
+        /// </summary>
         public readonly Outputs.FeatureGroupOnlineStoreSecurityConfig? SecurityConfig;
+        /// <summary>
+        /// Option for different tiers of low latency storage for real-time data retrieval.
+        /// 
+        /// - `Standard` : A managed low latency data store for feature groups.
+        /// - `InMemory` : A managed data store for feature groups that supports very low latency retrieval.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.FeatureGroupStorageType? StorageType;
+        /// <summary>
+        /// Time to live duration, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration` . For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
+        /// </summary>
         public readonly Outputs.FeatureGroupTtlDuration? TtlDuration;
 
         [OutputConstructor]

@@ -18,21 +18,31 @@ type Template struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) of the template.</p>
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// <p>Time when this was created.</p>
-	CreatedTime pulumi.StringOutput                `pulumi:"createdTime"`
-	Definition  TemplateVersionDefinitionPtrOutput `pulumi:"definition"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The detailed definition of a template.
+	Definition TemplateVersionDefinitionPtrOutput `pulumi:"definition"`
 	// <p>Time when this was last updated.</p>
-	LastUpdatedTime    pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
-	Name               pulumi.StringPtrOutput                `pulumi:"name"`
-	Permissions        TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	SourceEntity       TemplateSourceEntityPtrOutput         `pulumi:"sourceEntity"`
-	Tags               aws.TagArrayOutput                    `pulumi:"tags"`
-	TemplateId         pulumi.StringOutput                   `pulumi:"templateId"`
-	ValidationStrategy TemplateValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
-	Version            TemplateVersionOutput                 `pulumi:"version"`
-	VersionDescription pulumi.StringPtrOutput                `pulumi:"versionDescription"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// A display name for the template.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Permission for the resource.
+	Permissions TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
+	// The source entity of the template.
+	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+	TemplateId pulumi.StringOutput `pulumi:"templateId"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+	ValidationStrategy TemplateValidationStrategyPtrOutput `pulumi:"validationStrategy"`
+	// A version of a template.
+	Version TemplateVersionOutput `pulumi:"version"`
+	// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -86,27 +96,45 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	AwsAccountId       string                       `pulumi:"awsAccountId"`
-	Definition         *TemplateVersionDefinition   `pulumi:"definition"`
-	Name               *string                      `pulumi:"name"`
-	Permissions        []TemplateResourcePermission `pulumi:"permissions"`
-	SourceEntity       *TemplateSourceEntity        `pulumi:"sourceEntity"`
-	Tags               []aws.Tag                    `pulumi:"tags"`
-	TemplateId         string                       `pulumi:"templateId"`
-	ValidationStrategy *TemplateValidationStrategy  `pulumi:"validationStrategy"`
-	VersionDescription *string                      `pulumi:"versionDescription"`
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	AwsAccountId string `pulumi:"awsAccountId"`
+	// The detailed definition of a template.
+	Definition *TemplateVersionDefinition `pulumi:"definition"`
+	// A display name for the template.
+	Name *string `pulumi:"name"`
+	// Permission for the resource.
+	Permissions []TemplateResourcePermission `pulumi:"permissions"`
+	// The source entity of the template.
+	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+	TemplateId string `pulumi:"templateId"`
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+	ValidationStrategy *TemplateValidationStrategy `pulumi:"validationStrategy"`
+	// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	AwsAccountId       pulumi.StringInput
-	Definition         TemplateVersionDefinitionPtrInput
-	Name               pulumi.StringPtrInput
-	Permissions        TemplateResourcePermissionArrayInput
-	SourceEntity       TemplateSourceEntityPtrInput
-	Tags               aws.TagArrayInput
-	TemplateId         pulumi.StringInput
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	AwsAccountId pulumi.StringInput
+	// The detailed definition of a template.
+	Definition TemplateVersionDefinitionPtrInput
+	// A display name for the template.
+	Name pulumi.StringPtrInput
+	// Permission for the resource.
+	Permissions TemplateResourcePermissionArrayInput
+	// The source entity of the template.
+	SourceEntity TemplateSourceEntityPtrInput
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	Tags aws.TagArrayInput
+	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+	TemplateId pulumi.StringInput
+	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
 	ValidationStrategy TemplateValidationStrategyPtrInput
+	// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
 	VersionDescription pulumi.StringPtrInput
 }
 
@@ -152,6 +180,7 @@ func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
@@ -161,6 +190,7 @@ func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The detailed definition of a template.
 func (o TemplateOutput) Definition() TemplateVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateVersionDefinitionPtrOutput { return v.Definition }).(TemplateVersionDefinitionPtrOutput)
 }
@@ -170,34 +200,42 @@ func (o TemplateOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// A display name for the template.
 func (o TemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Permission for the resource.
 func (o TemplateOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplateResourcePermissionArrayOutput { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
+// The source entity of the template.
 func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
 
+// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
 func (o TemplateOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Template) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
 func (o TemplateOutput) TemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.TemplateId }).(pulumi.StringOutput)
 }
 
+// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
 func (o TemplateOutput) ValidationStrategy() TemplateValidationStrategyPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateValidationStrategyPtrOutput { return v.ValidationStrategy }).(TemplateValidationStrategyPtrOutput)
 }
 
+// A version of a template.
 func (o TemplateOutput) Version() TemplateVersionOutput {
 	return o.ApplyT(func(v *Template) TemplateVersionOutput { return v.Version }).(TemplateVersionOutput)
 }
 
+// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
 func (o TemplateOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }

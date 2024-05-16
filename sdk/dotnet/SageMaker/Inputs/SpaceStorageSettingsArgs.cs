@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class SpaceStorageSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A collection of EBS storage settings that apply to both private and shared spaces.
+        /// </summary>
         [Input("ebsStorageSettings")]
         public Input<Inputs.SpaceEbsStorageSettingsArgs>? EbsStorageSettings { get; set; }
 

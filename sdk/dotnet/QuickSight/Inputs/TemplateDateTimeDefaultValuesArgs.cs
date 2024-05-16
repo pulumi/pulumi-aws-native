@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDateTimeDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines different defaults to the users or groups based on mapping.
+        /// </summary>
         [Input("dynamicValue")]
         public Input<Inputs.TemplateDynamicDefaultValueArgs>? DynamicValue { get; set; }
 
+        /// <summary>
+        /// The rolling date configuration of a date time filter.
+        /// </summary>
         [Input("rollingDate")]
         public Input<Inputs.TemplateRollingDateConfigurationArgs>? RollingDate { get; set; }
 
         [Input("staticValues")]
         private InputList<string>? _staticValues;
+
+        /// <summary>
+        /// The static values of the `DataTimeDefaultValues` .
+        /// </summary>
         public InputList<string> StaticValues
         {
             get => _staticValues ?? (_staticValues = new InputList<string>());

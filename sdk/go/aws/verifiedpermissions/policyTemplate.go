@@ -51,10 +51,14 @@ import (
 type PolicyTemplate struct {
 	pulumi.CustomResourceState
 
-	Description      pulumi.StringPtrOutput `pulumi:"description"`
-	PolicyStoreId    pulumi.StringOutput    `pulumi:"policyStoreId"`
-	PolicyTemplateId pulumi.StringOutput    `pulumi:"policyTemplateId"`
-	Statement        pulumi.StringOutput    `pulumi:"statement"`
+	// The description to attach to the new or updated policy template.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique identifier of the policy store that contains the template.
+	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	// The unique identifier of the new or modified policy template.
+	PolicyTemplateId pulumi.StringOutput `pulumi:"policyTemplateId"`
+	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+	Statement pulumi.StringOutput `pulumi:"statement"`
 }
 
 // NewPolicyTemplate registers a new resource with the given unique name, arguments, and options.
@@ -107,16 +111,22 @@ func (PolicyTemplateState) ElementType() reflect.Type {
 }
 
 type policyTemplateArgs struct {
-	Description   *string `pulumi:"description"`
-	PolicyStoreId string  `pulumi:"policyStoreId"`
-	Statement     string  `pulumi:"statement"`
+	// The description to attach to the new or updated policy template.
+	Description *string `pulumi:"description"`
+	// The unique identifier of the policy store that contains the template.
+	PolicyStoreId string `pulumi:"policyStoreId"`
+	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+	Statement string `pulumi:"statement"`
 }
 
 // The set of arguments for constructing a PolicyTemplate resource.
 type PolicyTemplateArgs struct {
-	Description   pulumi.StringPtrInput
+	// The description to attach to the new or updated policy template.
+	Description pulumi.StringPtrInput
+	// The unique identifier of the policy store that contains the template.
 	PolicyStoreId pulumi.StringInput
-	Statement     pulumi.StringInput
+	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+	Statement pulumi.StringInput
 }
 
 func (PolicyTemplateArgs) ElementType() reflect.Type {
@@ -156,18 +166,22 @@ func (o PolicyTemplateOutput) ToPolicyTemplateOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The description to attach to the new or updated policy template.
 func (o PolicyTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the policy store that contains the template.
 func (o PolicyTemplateOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the new or modified policy template.
 func (o PolicyTemplateOutput) PolicyTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.PolicyTemplateId }).(pulumi.StringOutput)
 }
 
+// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
 func (o PolicyTemplateOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }

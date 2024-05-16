@@ -18,7 +18,8 @@ type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 
 	// The time at which the schedule was created.
-	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The name of the endpoint using the monitoring schedule.
 	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason pulumi.StringPtrOutput `pulumi:"failureReason"`
@@ -27,9 +28,11 @@ type MonitoringSchedule struct {
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrOutput `pulumi:"lastMonitoringExecutionSummary"`
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
-	MonitoringScheduleArn    pulumi.StringOutput            `pulumi:"monitoringScheduleArn"`
+	MonitoringScheduleArn pulumi.StringOutput `pulumi:"monitoringScheduleArn"`
+	// Configures the monitoring schedule and defines the monitoring job.
 	MonitoringScheduleConfig MonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
-	MonitoringScheduleName   pulumi.StringOutput            `pulumi:"monitoringScheduleName"`
+	// The name of the monitoring schedule.
+	MonitoringScheduleName pulumi.StringOutput `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
 	MonitoringScheduleStatus MonitoringScheduleStatusPtrOutput `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
@@ -83,13 +86,16 @@ func (MonitoringScheduleState) ElementType() reflect.Type {
 }
 
 type monitoringScheduleArgs struct {
+	// The name of the endpoint using the monitoring schedule.
 	EndpointName *string `pulumi:"endpointName"`
 	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason *string `pulumi:"failureReason"`
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
-	MonitoringScheduleConfig       MonitoringScheduleConfig                      `pulumi:"monitoringScheduleConfig"`
-	MonitoringScheduleName         *string                                       `pulumi:"monitoringScheduleName"`
+	// Configures the monitoring schedule and defines the monitoring job.
+	MonitoringScheduleConfig MonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
+	// The name of the monitoring schedule.
+	MonitoringScheduleName *string `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
 	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
@@ -98,13 +104,16 @@ type monitoringScheduleArgs struct {
 
 // The set of arguments for constructing a MonitoringSchedule resource.
 type MonitoringScheduleArgs struct {
+	// The name of the endpoint using the monitoring schedule.
 	EndpointName pulumi.StringPtrInput
 	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason pulumi.StringPtrInput
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrInput
-	MonitoringScheduleConfig       MonitoringScheduleConfigInput
-	MonitoringScheduleName         pulumi.StringPtrInput
+	// Configures the monitoring schedule and defines the monitoring job.
+	MonitoringScheduleConfig MonitoringScheduleConfigInput
+	// The name of the monitoring schedule.
+	MonitoringScheduleName pulumi.StringPtrInput
 	// The status of a schedule job.
 	MonitoringScheduleStatus MonitoringScheduleStatusPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -153,6 +162,7 @@ func (o MonitoringScheduleOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The name of the endpoint using the monitoring schedule.
 func (o MonitoringScheduleOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
@@ -179,10 +189,12 @@ func (o MonitoringScheduleOutput) MonitoringScheduleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.MonitoringScheduleArn }).(pulumi.StringOutput)
 }
 
+// Configures the monitoring schedule and defines the monitoring job.
 func (o MonitoringScheduleOutput) MonitoringScheduleConfig() MonitoringScheduleConfigOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleConfigOutput { return v.MonitoringScheduleConfig }).(MonitoringScheduleConfigOutput)
 }
 
+// The name of the monitoring schedule.
 func (o MonitoringScheduleOutput) MonitoringScheduleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.MonitoringScheduleName }).(pulumi.StringOutput)
 }

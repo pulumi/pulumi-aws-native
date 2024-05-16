@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationMssEncryption
     {
+        /// <summary>
+        /// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

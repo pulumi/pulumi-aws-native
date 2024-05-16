@@ -45,6 +45,11 @@ export class InferenceExperiment extends pulumi.CustomResource {
      * The timestamp at which you created the inference experiment.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The Amazon S3 location and configuration for storing inference request and response data.
+     *
+     * This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
+     */
     public readonly dataStorageConfig!: pulumi.Output<outputs.sagemaker.InferenceExperimentDataStorageConfig | undefined>;
     /**
      * The description of the inference experiment.
@@ -54,7 +59,13 @@ export class InferenceExperiment extends pulumi.CustomResource {
      * The desired state of the experiment after starting or stopping operation.
      */
     public readonly desiredState!: pulumi.Output<enums.sagemaker.InferenceExperimentDesiredState | undefined>;
+    /**
+     * The metadata of the endpoint.
+     */
     public /*out*/ readonly endpointMetadata!: pulumi.Output<outputs.sagemaker.InferenceExperimentEndpointMetadata>;
+    /**
+     * The name of the endpoint.
+     */
     public readonly endpointName!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
@@ -76,7 +87,15 @@ export class InferenceExperiment extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The start and end times of an inference experiment.
+     *
+     * The maximum duration that you can set for an inference experiment is 30 days.
+     */
     public readonly schedule!: pulumi.Output<outputs.sagemaker.InferenceExperimentSchedule | undefined>;
+    /**
+     * The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+     */
     public readonly shadowModeConfig!: pulumi.Output<outputs.sagemaker.InferenceExperimentShadowModeConfig | undefined>;
     /**
      * The status of the inference experiment.
@@ -167,6 +186,11 @@ export class InferenceExperiment extends pulumi.CustomResource {
  * The set of arguments for constructing a InferenceExperiment resource.
  */
 export interface InferenceExperimentArgs {
+    /**
+     * The Amazon S3 location and configuration for storing inference request and response data.
+     *
+     * This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
+     */
     dataStorageConfig?: pulumi.Input<inputs.sagemaker.InferenceExperimentDataStorageConfigArgs>;
     /**
      * The description of the inference experiment.
@@ -176,6 +200,9 @@ export interface InferenceExperimentArgs {
      * The desired state of the experiment after starting or stopping operation.
      */
     desiredState?: pulumi.Input<enums.sagemaker.InferenceExperimentDesiredState>;
+    /**
+     * The name of the endpoint.
+     */
     endpointName: pulumi.Input<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
@@ -193,7 +220,15 @@ export interface InferenceExperimentArgs {
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * The start and end times of an inference experiment.
+     *
+     * The maximum duration that you can set for an inference experiment is 30 days.
+     */
     schedule?: pulumi.Input<inputs.sagemaker.InferenceExperimentScheduleArgs>;
+    /**
+     * The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+     */
     shadowModeConfig?: pulumi.Input<inputs.sagemaker.InferenceExperimentShadowModeConfigArgs>;
     /**
      * The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
     /// </summary>
     public sealed class MultiplexprogramMultiplexProgramSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates which pipeline is preferred by the multiplex for program ingest.
+        /// </summary>
         [Input("preferredChannelPipeline")]
         public Input<Pulumi.AwsNative.MediaLive.MultiplexprogramPreferredChannelPipeline>? PreferredChannelPipeline { get; set; }
 

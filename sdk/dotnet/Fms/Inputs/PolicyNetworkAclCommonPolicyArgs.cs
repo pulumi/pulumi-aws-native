@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Fms.Inputs
     /// </summary>
     public sealed class PolicyNetworkAclCommonPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+        /// </summary>
         [Input("networkAclEntrySet", required: true)]
         public Input<Inputs.PolicyNetworkAclEntrySetArgs> NetworkAclEntrySet { get; set; } = null!;
 

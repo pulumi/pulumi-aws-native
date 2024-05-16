@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetTriggeringDatasetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the data set whose content generation triggers the new data set content generation.
+        /// </summary>
         [Input("datasetName", required: true)]
         public Input<string> DatasetName { get; set; } = null!;
 

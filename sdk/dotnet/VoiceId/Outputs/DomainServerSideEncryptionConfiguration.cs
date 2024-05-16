@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VoiceId.Outputs
     [OutputType]
     public sealed class DomainServerSideEncryptionConfiguration
     {
+        /// <summary>
+        /// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
+        /// </summary>
         public readonly string KmsKeyId;
 
         [OutputConstructor]

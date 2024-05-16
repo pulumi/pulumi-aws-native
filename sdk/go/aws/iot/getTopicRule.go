@@ -24,12 +24,18 @@ func LookupTopicRule(ctx *pulumi.Context, args *LookupTopicRuleArgs, opts ...pul
 }
 
 type LookupTopicRuleArgs struct {
+	// The name of the rule.
+	//
+	// *Pattern* : `[a-zA-Z0-9:_-]+`
 	RuleName string `pulumi:"ruleName"`
 }
 
 type LookupTopicRuleResult struct {
-	Arn              *string           `pulumi:"arn"`
-	Tags             []aws.Tag         `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+	Arn *string `pulumi:"arn"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Describes a rule.
 	TopicRulePayload *TopicRulePayload `pulumi:"topicRulePayload"`
 }
 
@@ -47,6 +53,9 @@ func LookupTopicRuleOutput(ctx *pulumi.Context, args LookupTopicRuleOutputArgs, 
 }
 
 type LookupTopicRuleOutputArgs struct {
+	// The name of the rule.
+	//
+	// *Pattern* : `[a-zA-Z0-9:_-]+`
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
@@ -68,14 +77,17 @@ func (o LookupTopicRuleResultOutput) ToLookupTopicRuleResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
 func (o LookupTopicRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A set of key/value pairs that are used to manage the resource.
 func (o LookupTopicRuleResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTopicRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Describes a rule.
 func (o LookupTopicRuleResultOutput) TopicRulePayload() TopicRulePayloadPtrOutput {
 	return o.ApplyT(func(v LookupTopicRuleResult) *TopicRulePayload { return v.TopicRulePayload }).(TopicRulePayloadPtrOutput)
 }

@@ -788,6 +788,9 @@ namespace Pulumi.AwsNative.AppFlow
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
+    /// </summary>
     [EnumType]
     public readonly struct FlowS3InputFormatConfigS3InputFileType : IEquatable<FlowS3InputFormatConfigS3InputFileType>
     {
@@ -910,6 +913,9 @@ namespace Pulumi.AwsNative.AppFlow
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+    /// </summary>
     [EnumType]
     public readonly struct FlowScheduledTriggerPropertiesDataPullMode : IEquatable<FlowScheduledTriggerPropertiesDataPullMode>
     {

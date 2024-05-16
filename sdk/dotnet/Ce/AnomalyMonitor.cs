@@ -389,6 +389,9 @@ namespace Pulumi.AwsNative.Ce
         [Output("lastUpdatedDate")]
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) value for the monitor.
+        /// </summary>
         [Output("monitorArn")]
         public Output<string> MonitorArn { get; private set; } = null!;
 
@@ -404,9 +407,15 @@ namespace Pulumi.AwsNative.Ce
         [Output("monitorName")]
         public Output<string> MonitorName { get; private set; } = null!;
 
+        /// <summary>
+        /// The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+        /// </summary>
         [Output("monitorSpecification")]
         public Output<string?> MonitorSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The possible type values.
+        /// </summary>
         [Output("monitorType")]
         public Output<Pulumi.AwsNative.Ce.AnomalyMonitorMonitorType> MonitorType { get; private set; } = null!;
 
@@ -480,9 +489,15 @@ namespace Pulumi.AwsNative.Ce
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
 
+        /// <summary>
+        /// The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
+        /// </summary>
         [Input("monitorSpecification")]
         public Input<string>? MonitorSpecification { get; set; }
 
+        /// <summary>
+        /// The possible type values.
+        /// </summary>
         [Input("monitorType", required: true)]
         public Input<Pulumi.AwsNative.Ce.AnomalyMonitorMonitorType> MonitorType { get; set; } = null!;
 

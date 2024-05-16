@@ -14,32 +14,58 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     {
         [Input("capacityProviderStrategy")]
         private InputList<Inputs.PipeCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
+
+        /// <summary>
+        /// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        /// </summary>
         public InputList<Inputs.PipeCapacityProviderStrategyItemArgs> CapacityProviderStrategy
         {
             get => _capacityProviderStrategy ?? (_capacityProviderStrategy = new InputList<Inputs.PipeCapacityProviderStrategyItemArgs>());
             set => _capacityProviderStrategy = value;
         }
 
+        /// <summary>
+        /// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
+        /// <summary>
+        /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
 
+        /// <summary>
+        /// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+        /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
+        /// <summary>
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Input("launchType")]
         public Input<Pulumi.AwsNative.Pipes.PipeLaunchType>? LaunchType { get; set; }
 
+        /// <summary>
+        /// This structure specifies the network configuration for an Amazon ECS task.
+        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PipeNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        /// <summary>
+        /// The overrides that are associated with a task.
+        /// </summary>
         [Input("overrides")]
         public Input<Inputs.PipeEcsTaskOverrideArgs>? Overrides { get; set; }
 
         [Input("placementConstraints")]
         private InputList<Inputs.PipePlacementConstraintArgs>? _placementConstraints;
+
+        /// <summary>
+        /// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+        /// </summary>
         public InputList<Inputs.PipePlacementConstraintArgs> PlacementConstraints
         {
             get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.PipePlacementConstraintArgs>());
@@ -48,32 +74,57 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
         [Input("placementStrategy")]
         private InputList<Inputs.PipePlacementStrategyArgs>? _placementStrategy;
+
+        /// <summary>
+        /// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        /// </summary>
         public InputList<Inputs.PipePlacementStrategyArgs> PlacementStrategy
         {
             get => _placementStrategy ?? (_placementStrategy = new InputList<Inputs.PipePlacementStrategyArgs>());
             set => _placementStrategy = value;
         }
 
+        /// <summary>
+        /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
+        /// 
+        /// This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the `TagResource` API action.
+        /// </summary>
         [Input("propagateTags")]
         public Input<Pulumi.AwsNative.Pipes.PipePropagateTags>? PropagateTags { get; set; }
 
+        /// <summary>
+        /// The reference ID to use for the task.
+        /// </summary>
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.PipeTagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
+        /// </summary>
         public InputList<Inputs.PipeTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.PipeTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The number of tasks to create based on `TaskDefinition` . The default is 1.
+        /// </summary>
         [Input("taskCount")]
         public Input<int>? TaskCount { get; set; }
 
+        /// <summary>
+        /// The ARN of the task definition to use if the event target is an Amazon ECS task.
+        /// </summary>
         [Input("taskDefinitionArn", required: true)]
         public Input<string> TaskDefinitionArn { get; set; } = null!;
 

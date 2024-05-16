@@ -17,12 +17,24 @@ import (
 type NetworkSettings struct {
 	pulumi.CustomResourceState
 
+	// A list of web portal ARNs that this network settings is associated with.
 	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	NetworkSettingsArn   pulumi.StringOutput      `pulumi:"networkSettingsArn"`
-	SecurityGroupIds     pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	SubnetIds            pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags                 aws.TagArrayOutput       `pulumi:"tags"`
-	VpcId                pulumi.StringOutput      `pulumi:"vpcId"`
+	// The ARN of the network settings.
+	NetworkSettingsArn pulumi.StringOutput `pulumi:"networkSettingsArn"`
+	// One or more security groups used to control access from streaming instances to your VPC.
+	//
+	// *Pattern* : `^[\w+\-]+$`
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+	//
+	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// The tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC that streaming instances will connect to.
+	//
+	// *Pattern* : `^vpc-[0-9a-z]*$`
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkSettings registers a new resource with the given unique name, arguments, and options.
@@ -74,18 +86,38 @@ func (NetworkSettingsState) ElementType() reflect.Type {
 }
 
 type networkSettingsArgs struct {
-	SecurityGroupIds []string  `pulumi:"securityGroupIds"`
-	SubnetIds        []string  `pulumi:"subnetIds"`
-	Tags             []aws.Tag `pulumi:"tags"`
-	VpcId            string    `pulumi:"vpcId"`
+	// One or more security groups used to control access from streaming instances to your VPC.
+	//
+	// *Pattern* : `^[\w+\-]+$`
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+	//
+	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC that streaming instances will connect to.
+	//
+	// *Pattern* : `^vpc-[0-9a-z]*$`
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkSettings resource.
 type NetworkSettingsArgs struct {
+	// One or more security groups used to control access from streaming instances to your VPC.
+	//
+	// *Pattern* : `^[\w+\-]+$`
 	SecurityGroupIds pulumi.StringArrayInput
-	SubnetIds        pulumi.StringArrayInput
-	Tags             aws.TagArrayInput
-	VpcId            pulumi.StringInput
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+	//
+	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+	SubnetIds pulumi.StringArrayInput
+	// The tag.
+	Tags aws.TagArrayInput
+	// The VPC that streaming instances will connect to.
+	//
+	// *Pattern* : `^vpc-[0-9a-z]*$`
+	VpcId pulumi.StringInput
 }
 
 func (NetworkSettingsArgs) ElementType() reflect.Type {
@@ -125,26 +157,38 @@ func (o NetworkSettingsOutput) ToNetworkSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
+// A list of web portal ARNs that this network settings is associated with.
 func (o NetworkSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The ARN of the network settings.
 func (o NetworkSettingsOutput) NetworkSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringOutput { return v.NetworkSettingsArn }).(pulumi.StringOutput)
 }
 
+// One or more security groups used to control access from streaming instances to your VPC.
+//
+// *Pattern* : `^[\w+\-]+$`
 func (o NetworkSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+//
+// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
 func (o NetworkSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The tag.
 func (o NetworkSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC that streaming instances will connect to.
+//
+// *Pattern* : `^vpc-[0-9a-z]*$`
 func (o NetworkSettingsOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

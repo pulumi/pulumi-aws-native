@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDecimalValueWhenUnsetConfiguration
     {
+        /// <summary>
+        /// A custom value that's used when the value of a parameter isn't set.
+        /// </summary>
         public readonly double? CustomValue;
+        /// <summary>
+        /// The built-in options for default values. The value can be one of the following:
+        /// 
+        /// - `RECOMMENDED` : The recommended value.
+        /// - `NULL` : The `NULL` value.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisValueWhenUnsetOption? ValueWhenUnsetOption;
 
         [OutputConstructor]

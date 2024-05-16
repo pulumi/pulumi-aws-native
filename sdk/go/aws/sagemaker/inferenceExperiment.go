@@ -20,14 +20,19 @@ type InferenceExperiment struct {
 	// The Amazon Resource Name (ARN) of the inference experiment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The timestamp at which you created the inference experiment.
-	CreationTime      pulumi.StringOutput                           `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The Amazon S3 location and configuration for storing inference request and response data.
+	//
+	// This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
 	DataStorageConfig InferenceExperimentDataStorageConfigPtrOutput `pulumi:"dataStorageConfig"`
 	// The description of the inference experiment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The desired state of the experiment after starting or stopping operation.
-	DesiredState     InferenceExperimentDesiredStatePtrOutput  `pulumi:"desiredState"`
+	DesiredState InferenceExperimentDesiredStatePtrOutput `pulumi:"desiredState"`
+	// The metadata of the endpoint.
 	EndpointMetadata InferenceExperimentEndpointMetadataOutput `pulumi:"endpointMetadata"`
-	EndpointName     pulumi.StringOutput                       `pulumi:"endpointName"`
+	// The name of the endpoint.
+	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// The timestamp at which you last modified the inference experiment.
@@ -37,8 +42,12 @@ type InferenceExperiment struct {
 	// The name for the inference experiment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
-	RoleArn          pulumi.StringOutput                          `pulumi:"roleArn"`
-	Schedule         InferenceExperimentSchedulePtrOutput         `pulumi:"schedule"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The start and end times of an inference experiment.
+	//
+	// The maximum duration that you can set for an inference experiment is 30 days.
+	Schedule InferenceExperimentSchedulePtrOutput `pulumi:"schedule"`
+	// The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
 	ShadowModeConfig InferenceExperimentShadowModeConfigPtrOutput `pulumi:"shadowModeConfig"`
 	// The status of the inference experiment.
 	Status InferenceExperimentStatusOutput `pulumi:"status"`
@@ -110,12 +119,16 @@ func (InferenceExperimentState) ElementType() reflect.Type {
 }
 
 type inferenceExperimentArgs struct {
+	// The Amazon S3 location and configuration for storing inference request and response data.
+	//
+	// This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
 	DataStorageConfig *InferenceExperimentDataStorageConfig `pulumi:"dataStorageConfig"`
 	// The description of the inference experiment.
 	Description *string `pulumi:"description"`
 	// The desired state of the experiment after starting or stopping operation.
 	DesiredState *InferenceExperimentDesiredState `pulumi:"desiredState"`
-	EndpointName string                           `pulumi:"endpointName"`
+	// The name of the endpoint.
+	EndpointName string `pulumi:"endpointName"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKey *string `pulumi:"kmsKey"`
 	// An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
@@ -123,8 +136,12 @@ type inferenceExperimentArgs struct {
 	// The name for the inference experiment.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
-	RoleArn          string                               `pulumi:"roleArn"`
-	Schedule         *InferenceExperimentSchedule         `pulumi:"schedule"`
+	RoleArn string `pulumi:"roleArn"`
+	// The start and end times of an inference experiment.
+	//
+	// The maximum duration that you can set for an inference experiment is 30 days.
+	Schedule *InferenceExperimentSchedule `pulumi:"schedule"`
+	// The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
 	ShadowModeConfig *InferenceExperimentShadowModeConfig `pulumi:"shadowModeConfig"`
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
 	StatusReason *string `pulumi:"statusReason"`
@@ -136,11 +153,15 @@ type inferenceExperimentArgs struct {
 
 // The set of arguments for constructing a InferenceExperiment resource.
 type InferenceExperimentArgs struct {
+	// The Amazon S3 location and configuration for storing inference request and response data.
+	//
+	// This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
 	DataStorageConfig InferenceExperimentDataStorageConfigPtrInput
 	// The description of the inference experiment.
 	Description pulumi.StringPtrInput
 	// The desired state of the experiment after starting or stopping operation.
 	DesiredState InferenceExperimentDesiredStatePtrInput
+	// The name of the endpoint.
 	EndpointName pulumi.StringInput
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKey pulumi.StringPtrInput
@@ -149,8 +170,12 @@ type InferenceExperimentArgs struct {
 	// The name for the inference experiment.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
-	RoleArn          pulumi.StringInput
-	Schedule         InferenceExperimentSchedulePtrInput
+	RoleArn pulumi.StringInput
+	// The start and end times of an inference experiment.
+	//
+	// The maximum duration that you can set for an inference experiment is 30 days.
+	Schedule InferenceExperimentSchedulePtrInput
+	// The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
 	ShadowModeConfig InferenceExperimentShadowModeConfigPtrInput
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
 	StatusReason pulumi.StringPtrInput
@@ -207,6 +232,9 @@ func (o InferenceExperimentOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceExperiment) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 location and configuration for storing inference request and response data.
+//
+// This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
 func (o InferenceExperimentOutput) DataStorageConfig() InferenceExperimentDataStorageConfigPtrOutput {
 	return o.ApplyT(func(v *InferenceExperiment) InferenceExperimentDataStorageConfigPtrOutput { return v.DataStorageConfig }).(InferenceExperimentDataStorageConfigPtrOutput)
 }
@@ -221,10 +249,12 @@ func (o InferenceExperimentOutput) DesiredState() InferenceExperimentDesiredStat
 	return o.ApplyT(func(v *InferenceExperiment) InferenceExperimentDesiredStatePtrOutput { return v.DesiredState }).(InferenceExperimentDesiredStatePtrOutput)
 }
 
+// The metadata of the endpoint.
 func (o InferenceExperimentOutput) EndpointMetadata() InferenceExperimentEndpointMetadataOutput {
 	return o.ApplyT(func(v *InferenceExperiment) InferenceExperimentEndpointMetadataOutput { return v.EndpointMetadata }).(InferenceExperimentEndpointMetadataOutput)
 }
 
+// The name of the endpoint.
 func (o InferenceExperimentOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceExperiment) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
 }
@@ -254,10 +284,14 @@ func (o InferenceExperimentOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceExperiment) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The start and end times of an inference experiment.
+//
+// The maximum duration that you can set for an inference experiment is 30 days.
 func (o InferenceExperimentOutput) Schedule() InferenceExperimentSchedulePtrOutput {
 	return o.ApplyT(func(v *InferenceExperiment) InferenceExperimentSchedulePtrOutput { return v.Schedule }).(InferenceExperimentSchedulePtrOutput)
 }
 
+// The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
 func (o InferenceExperimentOutput) ShadowModeConfig() InferenceExperimentShadowModeConfigPtrOutput {
 	return o.ApplyT(func(v *InferenceExperiment) InferenceExperimentShadowModeConfigPtrOutput { return v.ShadowModeConfig }).(InferenceExperimentShadowModeConfigPtrOutput)
 }

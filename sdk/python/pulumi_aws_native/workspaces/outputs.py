@@ -44,6 +44,12 @@ class ConnectionAliasAssociation(dict):
                  association_status: Optional['ConnectionAliasAssociationAssociationStatus'] = None,
                  connection_identifier: Optional[str] = None,
                  resource_id: Optional[str] = None):
+        """
+        :param str associated_account_id: The identifier of the AWS account that associated the connection alias with a directory.
+        :param 'ConnectionAliasAssociationAssociationStatus' association_status: The association status of the connection alias.
+        :param str connection_identifier: The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
+        :param str resource_id: The identifier of the directory associated with a connection alias.
+        """
         if associated_account_id is not None:
             pulumi.set(__self__, "associated_account_id", associated_account_id)
         if association_status is not None:
@@ -56,21 +62,33 @@ class ConnectionAliasAssociation(dict):
     @property
     @pulumi.getter(name="associatedAccountId")
     def associated_account_id(self) -> Optional[str]:
+        """
+        The identifier of the AWS account that associated the connection alias with a directory.
+        """
         return pulumi.get(self, "associated_account_id")
 
     @property
     @pulumi.getter(name="associationStatus")
     def association_status(self) -> Optional['ConnectionAliasAssociationAssociationStatus']:
+        """
+        The association status of the connection alias.
+        """
         return pulumi.get(self, "association_status")
 
     @property
     @pulumi.getter(name="connectionIdentifier")
     def connection_identifier(self) -> Optional[str]:
+        """
+        The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
+        """
         return pulumi.get(self, "connection_identifier")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
+        """
+        The identifier of the directory associated with a connection alias.
+        """
         return pulumi.get(self, "resource_id")
 
 

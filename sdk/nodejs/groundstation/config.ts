@@ -37,11 +37,29 @@ export class Config extends pulumi.CustomResource {
         return obj['__pulumiType'] === Config.__pulumiType;
     }
 
+    /**
+     * The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+     */
     public readonly configData!: pulumi.Output<outputs.groundstation.ConfigData>;
+    /**
+     * The name of the config object.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Tags assigned to a resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of the config, such as `tracking` .
+     */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
@@ -81,7 +99,16 @@ export class Config extends pulumi.CustomResource {
  * The set of arguments for constructing a Config resource.
  */
 export interface ConfigArgs {
+    /**
+     * Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+     */
     configData: pulumi.Input<inputs.groundstation.ConfigDataArgs>;
+    /**
+     * The name of the config object.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Tags assigned to a resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("conditionalFormattingOptions")]
         private InputList<Inputs.TemplateGaugeChartConditionalFormattingOptionArgs>? _conditionalFormattingOptions;
+
+        /// <summary>
+        /// Conditional formatting options of a `GaugeChartVisual` .
+        /// </summary>
         public InputList<Inputs.TemplateGaugeChartConditionalFormattingOptionArgs> ConditionalFormattingOptions
         {
             get => _conditionalFormattingOptions ?? (_conditionalFormattingOptions = new InputList<Inputs.TemplateGaugeChartConditionalFormattingOptionArgs>());

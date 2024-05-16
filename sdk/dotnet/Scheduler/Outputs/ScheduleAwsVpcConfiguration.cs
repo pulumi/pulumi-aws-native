@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleAwsVpcConfiguration
     {
+        /// <summary>
+        /// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.ScheduleAssignPublicIp? AssignPublicIp;
         /// <summary>
         /// Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.

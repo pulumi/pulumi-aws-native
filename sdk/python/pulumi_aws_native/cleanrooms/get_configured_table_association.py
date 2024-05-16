@@ -39,21 +39,37 @@ class GetConfiguredTableAssociationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified configured table association.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configuredTableAssociationIdentifier")
     def configured_table_association_identifier(self) -> Optional[str]:
+        """
+        Returns the unique identifier of the specified configured table association.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "configured_table_association_identifier")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the configured table association.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The service will assume this role to access catalog metadata and query the table.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
@@ -83,6 +99,12 @@ def get_configured_table_association(configured_table_association_identifier: Op
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfiguredTableAssociationResult:
     """
     Represents a table that can be queried within a collaboration
+
+
+    :param str configured_table_association_identifier: Returns the unique identifier of the specified configured table association.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+    :param str membership_identifier: The unique ID for the membership this configured table association belongs to.
     """
     __args__ = dict()
     __args__['configuredTableAssociationIdentifier'] = configured_table_association_identifier
@@ -104,5 +126,11 @@ def get_configured_table_association_output(configured_table_association_identif
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfiguredTableAssociationResult]:
     """
     Represents a table that can be queried within a collaboration
+
+
+    :param str configured_table_association_identifier: Returns the unique identifier of the specified configured table association.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+    :param str membership_identifier: The unique ID for the membership this configured table association belongs to.
     """
     ...

@@ -19,13 +19,34 @@ export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetIndexArgs {
+    /**
+     * The ARN of the new index for the AWS Region . For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     arn: string;
 }
 
 export interface GetIndexResult {
+    /**
+     * The ARN of the new index for the AWS Region . For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     readonly arn?: string;
+    /**
+     * Indicates the current state of the index. For example:
+     *
+     * `CREATING`
+     */
     readonly indexState?: enums.resourceexplorer2.IndexState;
+    /**
+     * The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+     */
     readonly type?: enums.resourceexplorer2.IndexType;
 }
 /**
@@ -36,5 +57,10 @@ export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetIndexOutputArgs {
+    /**
+     * The ARN of the new index for the AWS Region . For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     arn: pulumi.Input<string>;
 }

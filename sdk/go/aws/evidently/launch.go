@@ -17,16 +17,24 @@ import (
 type Launch struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An optional description for the launch.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Start or Stop Launch Launch. Default is not started.
-	ExecutionStatus       LaunchExecutionStatusObjectPtrOutput    `pulumi:"executionStatus"`
-	Groups                LaunchGroupObjectArrayOutput            `pulumi:"groups"`
-	MetricMonitors        LaunchMetricDefinitionObjectArrayOutput `pulumi:"metricMonitors"`
-	Name                  pulumi.StringOutput                     `pulumi:"name"`
-	Project               pulumi.StringOutput                     `pulumi:"project"`
-	RandomizationSalt     pulumi.StringPtrOutput                  `pulumi:"randomizationSalt"`
-	ScheduledSplitsConfig LaunchStepConfigArrayOutput             `pulumi:"scheduledSplitsConfig"`
+	ExecutionStatus LaunchExecutionStatusObjectPtrOutput `pulumi:"executionStatus"`
+	// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+	Groups LaunchGroupObjectArrayOutput `pulumi:"groups"`
+	// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+	MetricMonitors LaunchMetricDefinitionObjectArrayOutput `pulumi:"metricMonitors"`
+	// The name for the launch. It can include up to 127 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The name or ARN of the project that you want to create the launch in.
+	Project pulumi.StringOutput `pulumi:"project"`
+	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+	RandomizationSalt pulumi.StringPtrOutput `pulumi:"randomizationSalt"`
+	// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+	ScheduledSplitsConfig LaunchStepConfigArrayOutput `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -85,29 +93,43 @@ func (LaunchState) ElementType() reflect.Type {
 }
 
 type launchArgs struct {
+	// An optional description for the launch.
 	Description *string `pulumi:"description"`
 	// Start or Stop Launch Launch. Default is not started.
-	ExecutionStatus       *LaunchExecutionStatusObject   `pulumi:"executionStatus"`
-	Groups                []LaunchGroupObject            `pulumi:"groups"`
-	MetricMonitors        []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
-	Name                  *string                        `pulumi:"name"`
-	Project               string                         `pulumi:"project"`
-	RandomizationSalt     *string                        `pulumi:"randomizationSalt"`
-	ScheduledSplitsConfig []LaunchStepConfig             `pulumi:"scheduledSplitsConfig"`
+	ExecutionStatus *LaunchExecutionStatusObject `pulumi:"executionStatus"`
+	// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+	Groups []LaunchGroupObject `pulumi:"groups"`
+	// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+	MetricMonitors []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
+	// The name for the launch. It can include up to 127 characters.
+	Name *string `pulumi:"name"`
+	// The name or ARN of the project that you want to create the launch in.
+	Project string `pulumi:"project"`
+	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+	RandomizationSalt *string `pulumi:"randomizationSalt"`
+	// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+	ScheduledSplitsConfig []LaunchStepConfig `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Launch resource.
 type LaunchArgs struct {
+	// An optional description for the launch.
 	Description pulumi.StringPtrInput
 	// Start or Stop Launch Launch. Default is not started.
-	ExecutionStatus       LaunchExecutionStatusObjectPtrInput
-	Groups                LaunchGroupObjectArrayInput
-	MetricMonitors        LaunchMetricDefinitionObjectArrayInput
-	Name                  pulumi.StringPtrInput
-	Project               pulumi.StringInput
-	RandomizationSalt     pulumi.StringPtrInput
+	ExecutionStatus LaunchExecutionStatusObjectPtrInput
+	// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+	Groups LaunchGroupObjectArrayInput
+	// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+	MetricMonitors LaunchMetricDefinitionObjectArrayInput
+	// The name for the launch. It can include up to 127 characters.
+	Name pulumi.StringPtrInput
+	// The name or ARN of the project that you want to create the launch in.
+	Project pulumi.StringInput
+	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+	RandomizationSalt pulumi.StringPtrInput
+	// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
 	ScheduledSplitsConfig LaunchStepConfigArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -150,10 +172,12 @@ func (o LaunchOutput) ToLaunchOutputWithContext(ctx context.Context) LaunchOutpu
 	return o
 }
 
+// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
 func (o LaunchOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An optional description for the launch.
 func (o LaunchOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -163,26 +187,32 @@ func (o LaunchOutput) ExecutionStatus() LaunchExecutionStatusObjectPtrOutput {
 	return o.ApplyT(func(v *Launch) LaunchExecutionStatusObjectPtrOutput { return v.ExecutionStatus }).(LaunchExecutionStatusObjectPtrOutput)
 }
 
+// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
 func (o LaunchOutput) Groups() LaunchGroupObjectArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchGroupObjectArrayOutput { return v.Groups }).(LaunchGroupObjectArrayOutput)
 }
 
+// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
 func (o LaunchOutput) MetricMonitors() LaunchMetricDefinitionObjectArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchMetricDefinitionObjectArrayOutput { return v.MetricMonitors }).(LaunchMetricDefinitionObjectArrayOutput)
 }
 
+// The name for the launch. It can include up to 127 characters.
 func (o LaunchOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name or ARN of the project that you want to create the launch in.
 func (o LaunchOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
+// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
 func (o LaunchOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
 }
 
+// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
 func (o LaunchOutput) ScheduledSplitsConfig() LaunchStepConfigArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchStepConfigArrayOutput { return v.ScheduledSplitsConfig }).(LaunchStepConfigArrayOutput)
 }

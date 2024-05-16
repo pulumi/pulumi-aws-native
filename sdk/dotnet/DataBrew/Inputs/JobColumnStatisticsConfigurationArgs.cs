@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     {
         [Input("selectors")]
         private InputList<Inputs.JobColumnSelectorArgs>? _selectors;
+
+        /// <summary>
+        /// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        /// </summary>
         public InputList<Inputs.JobColumnSelectorArgs> Selectors
         {
             get => _selectors ?? (_selectors = new InputList<Inputs.JobColumnSelectorArgs>());
             set => _selectors = value;
         }
 
+        /// <summary>
+        /// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        /// </summary>
         [Input("statistics", required: true)]
         public Input<Inputs.JobStatisticsConfigurationArgs> Statistics { get; set; } = null!;
 

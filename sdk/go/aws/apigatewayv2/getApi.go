@@ -23,12 +23,15 @@ func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupApiArgs struct {
+	// The API identifier.
 	ApiId string `pulumi:"apiId"`
 }
 
 type LookupApiResult struct {
+	// The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
 	ApiEndpoint *string `pulumi:"apiEndpoint"`
-	ApiId       *string `pulumi:"apiId"`
+	// The API identifier.
+	ApiId *string `pulumi:"apiId"`
 	// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	ApiKeySelectionExpression *string `pulumi:"apiKeySelectionExpression"`
 	// A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
@@ -61,6 +64,7 @@ func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulu
 }
 
 type LookupApiOutputArgs struct {
+	// The API identifier.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
 }
 
@@ -82,10 +86,12 @@ func (o LookupApiResultOutput) ToLookupApiResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
 func (o LookupApiResultOutput) ApiEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The API identifier.
 func (o LookupApiResultOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }

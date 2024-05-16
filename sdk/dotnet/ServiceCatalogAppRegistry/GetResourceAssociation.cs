@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetResourceAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the application.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the resource.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public string ResourceArn { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetResourceAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the application.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the resource.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -69,7 +81,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [OutputType]
     public sealed class GetResourceAssociationResult
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the application.
+        /// </summary>
         public readonly string? ApplicationArn;
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the resource.
+        /// </summary>
         public readonly string? ResourceArn;
 
         [OutputConstructor]

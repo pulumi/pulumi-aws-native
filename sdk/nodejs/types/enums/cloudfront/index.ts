@@ -7,6 +7,9 @@ export const ContinuousDeploymentPolicyConfigType = {
     SingleHeader: "SingleHeader",
 } as const;
 
+/**
+ * The type of traffic configuration.
+ */
 export type ContinuousDeploymentPolicyConfigType = (typeof ContinuousDeploymentPolicyConfigType)[keyof typeof ContinuousDeploymentPolicyConfigType];
 
 export const ContinuousDeploymentPolicyTrafficConfigType = {
@@ -14,6 +17,9 @@ export const ContinuousDeploymentPolicyTrafficConfigType = {
     SingleHeader: "SingleHeader",
 } as const;
 
+/**
+ * The type of traffic configuration.
+ */
 export type ContinuousDeploymentPolicyTrafficConfigType = (typeof ContinuousDeploymentPolicyTrafficConfigType)[keyof typeof ContinuousDeploymentPolicyTrafficConfigType];
 
 export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = {
@@ -21,4 +27,7 @@ export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetr
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+ */
 export type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = (typeof MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus)[keyof typeof MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus];

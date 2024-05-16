@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("amazonManagedKafkaEventSourceConfig")]
         public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig?> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The event source mapping's ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

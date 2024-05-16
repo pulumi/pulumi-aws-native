@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the route table.
+        /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 

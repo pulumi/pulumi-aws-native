@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         [Input("validationProfiles", required: true)]
         private InputList<Inputs.ModelPackageValidationProfileArgs>? _validationProfiles;
+
+        /// <summary>
+        /// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+        /// 
+        /// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
+        /// </summary>
         public InputList<Inputs.ModelPackageValidationProfileArgs> ValidationProfiles
         {
             get => _validationProfiles ?? (_validationProfiles = new InputList<Inputs.ModelPackageValidationProfileArgs>());

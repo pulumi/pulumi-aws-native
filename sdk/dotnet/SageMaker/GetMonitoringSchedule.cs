@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// The time at which the schedule was created.
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The name of the endpoint using the monitoring schedule.
+        /// </summary>
         public readonly string? EndpointName;
         /// <summary>
         /// Contains the reason a monitoring job failed, if it failed.
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// The Amazon Resource Name (ARN) of the monitoring schedule.
         /// </summary>
         public readonly string? MonitoringScheduleArn;
+        /// <summary>
+        /// Configures the monitoring schedule and defines the monitoring job.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleConfig? MonitoringScheduleConfig;
         /// <summary>
         /// The status of a schedule job.

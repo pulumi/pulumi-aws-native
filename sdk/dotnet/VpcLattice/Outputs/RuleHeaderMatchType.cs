@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleHeaderMatchType
     {
+        /// <summary>
+        /// A contains type match.
+        /// </summary>
         public readonly string? Contains;
+        /// <summary>
+        /// An exact type match.
+        /// </summary>
         public readonly string? Exact;
+        /// <summary>
+        /// A prefix type match. Matches the value with the prefix.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

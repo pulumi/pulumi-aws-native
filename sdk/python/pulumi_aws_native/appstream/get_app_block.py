@@ -29,11 +29,17 @@ class GetAppBlockResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the app block.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        The time when the app block was created.
+        """
         return pulumi.get(self, "created_time")
 
 
@@ -51,6 +57,9 @@ def get_app_block(arn: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppBlockResult:
     """
     Resource Type definition for AWS::AppStream::AppBlock
+
+
+    :param str arn: The ARN of the app block.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -67,5 +76,8 @@ def get_app_block_output(arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppBlockResult]:
     """
     Resource Type definition for AWS::AppStream::AppBlock
+
+
+    :param str arn: The ARN of the app block.
     """
     ...

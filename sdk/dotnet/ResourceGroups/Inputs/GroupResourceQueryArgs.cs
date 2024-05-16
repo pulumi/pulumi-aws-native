@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
 
     public sealed class GroupResourceQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+        /// </summary>
         [Input("query")]
         public Input<Inputs.GroupQueryArgs>? Query { get; set; }
 
+        /// <summary>
+        /// Specifies the type of resource query that determines this group's membership. There are two valid query types:
+        /// 
+        /// - `TAG_FILTERS_1_0` indicates that the group is a tag-based group. To complete the group membership, you must include the `TagFilters` property to specify the tag filters to use in the query.
+        /// - `CLOUDFORMATION_STACK_1_0` , the default, indicates that the group is a CloudFormation stack-based group. Group membership is based on the CloudFormation stack. You must specify the `StackIdentifier` property in the query to define which stack to associate the group with, or leave it empty to default to the stack where the group is defined.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.ResourceGroups.GroupResourceQueryType>? Type { get; set; }
 

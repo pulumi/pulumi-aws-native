@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN for the Domain Association.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN for the Domain Association.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,15 +57,55 @@ namespace Pulumi.AwsNative.Amplify
     [OutputType]
     public sealed class GetDomainResult
     {
+        /// <summary>
+        /// ARN for the Domain Association.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Sets the branch patterns for automatic subdomain creation.
+        /// </summary>
         public readonly ImmutableArray<string> AutoSubDomainCreationPatterns;
+        /// <summary>
+        /// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
+        /// </summary>
         public readonly string? AutoSubDomainIamRole;
+        /// <summary>
+        /// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
+        /// 
+        /// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
+        /// </summary>
         public readonly Outputs.DomainCertificate? Certificate;
+        /// <summary>
+        /// DNS Record for certificate verification.
+        /// </summary>
         public readonly string? CertificateRecord;
+        /// <summary>
+        /// Status for the Domain Association.
+        /// </summary>
         public readonly string? DomainStatus;
+        /// <summary>
+        /// Enables the automated creation of subdomains for branches.
+        /// </summary>
         public readonly bool? EnableAutoSubDomain;
+        /// <summary>
+        /// Reason for the current status of the domain.
+        /// </summary>
         public readonly string? StatusReason;
+        /// <summary>
+        /// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DomainSubDomainSetting> SubDomainSettings;
+        /// <summary>
+        /// The status of the domain update operation that is currently in progress. The following list describes the valid update states.
+        /// 
+        /// - **REQUESTING_CERTIFICATE** - The certificate is in the process of being updated.
+        /// - **PENDING_VERIFICATION** - Indicates that an Amplify managed certificate is in the process of being verified. This occurs during the creation of a custom domain or when a custom domain is updated to use a managed certificate.
+        /// - **IMPORTING_CUSTOM_CERTIFICATE** - Indicates that an Amplify custom certificate is in the process of being imported. This occurs during the creation of a custom domain or when a custom domain is updated to use a custom certificate.
+        /// - **PENDING_DEPLOYMENT** - Indicates that the subdomain or certificate changes are being propagated.
+        /// - **AWAITING_APP_CNAME** - Amplify is waiting for CNAME records corresponding to subdomains to be propagated. If your custom domain is on Route 53, Amplify handles this for you automatically. For more information about custom domains, see [Setting up custom domains](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html) in the *Amplify Hosting User Guide* .
+        /// - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
+        /// - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
+        /// </summary>
         public readonly string? UpdateStatus;
 
         [OutputConstructor]

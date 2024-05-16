@@ -18,7 +18,8 @@ type DefaultViewAssociation struct {
 
 	// The AWS principal that the default view is associated with, used as the unique identifier for this resource.
 	AssociatedAwsPrincipal pulumi.StringOutput `pulumi:"associatedAwsPrincipal"`
-	ViewArn                pulumi.StringOutput `pulumi:"viewArn"`
+	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+	ViewArn pulumi.StringOutput `pulumi:"viewArn"`
 }
 
 // NewDefaultViewAssociation registers a new resource with the given unique name, arguments, and options.
@@ -64,11 +65,13 @@ func (DefaultViewAssociationState) ElementType() reflect.Type {
 }
 
 type defaultViewAssociationArgs struct {
+	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
 	ViewArn string `pulumi:"viewArn"`
 }
 
 // The set of arguments for constructing a DefaultViewAssociation resource.
 type DefaultViewAssociationArgs struct {
+	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
 	ViewArn pulumi.StringInput
 }
 
@@ -114,6 +117,7 @@ func (o DefaultViewAssociationOutput) AssociatedAwsPrincipal() pulumi.StringOutp
 	return o.ApplyT(func(v *DefaultViewAssociation) pulumi.StringOutput { return v.AssociatedAwsPrincipal }).(pulumi.StringOutput)
 }
 
+// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
 func (o DefaultViewAssociationOutput) ViewArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultViewAssociation) pulumi.StringOutput { return v.ViewArn }).(pulumi.StringOutput)
 }

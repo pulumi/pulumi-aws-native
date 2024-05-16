@@ -29,6 +29,9 @@ class GetDocumentationPartResult:
     @property
     @pulumi.getter(name="documentationPartId")
     def documentation_part_id(self) -> Optional[str]:
+        """
+        The ID for the documentation part.
+        """
         return pulumi.get(self, "documentation_part_id")
 
     @property
@@ -57,6 +60,7 @@ def get_documentation_part(documentation_part_id: Optional[str] = None,
     The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
 
+    :param str documentation_part_id: The ID for the documentation part.
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
@@ -78,6 +82,7 @@ def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[s
     The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
 
+    :param str documentation_part_id: The ID for the documentation part.
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

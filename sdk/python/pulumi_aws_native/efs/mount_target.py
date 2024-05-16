@@ -182,6 +182,11 @@ class MountTarget(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon EFS file system that the mount target provides access to.
+
+        Example: `fs-0123456789111222a`
+        """
         return pulumi.get(self, "aws_id")
 
     @property

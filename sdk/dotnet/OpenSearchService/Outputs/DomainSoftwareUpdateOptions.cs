@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainSoftwareUpdateOptions
     {
+        /// <summary>
+        /// Specifies whether automatic service software updates are enabled for the domain.
+        /// </summary>
         public readonly bool? AutoSoftwareUpdateEnabled;
 
         [OutputConstructor]

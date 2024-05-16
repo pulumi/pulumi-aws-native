@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of this policy.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of this policy.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,12 +57,23 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetPolicyResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The name of this policy.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The JSON document that describes the policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyDocument;
+        /// <summary>
+        /// A set of key/value pairs that are used to manage the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

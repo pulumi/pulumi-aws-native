@@ -38,26 +38,41 @@ class GetExtensionAssociationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> Optional[str]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "extension_arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The system-generated ID for the association.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
+        """
+        The ARNs of applications, configuration profiles, or environments defined in the association.
+        """
         return pulumi.get(self, "resource_arn")
 
 
@@ -78,6 +93,9 @@ def get_extension_association(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionAssociationResult:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
+
+
+    :param str id: The system-generated ID for the association.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -97,5 +115,8 @@ def get_extension_association_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionAssociationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
+
+
+    :param str id: The system-generated ID for the association.
     """
     ...

@@ -13,16 +13,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWaterfallChartConfiguration
     {
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? CategoryAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryAxisLabelOptions;
+        /// <summary>
+        /// The color configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.TemplateWaterfallChartColorConfiguration? ColorConfiguration;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.TemplateWaterfallChartFieldWells? FieldWells;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The sort configuration of a waterfall visual.
+        /// </summary>
         public readonly Outputs.TemplateWaterfallChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
+        /// <summary>
+        /// The options that determine the presentation of a waterfall visual.
+        /// </summary>
         public readonly Outputs.TemplateWaterfallChartOptions? WaterfallChartOptions;
 
         [OutputConstructor]

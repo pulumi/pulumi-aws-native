@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConnectorVpcInformation struct {
+	// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 }
 
@@ -29,6 +30,7 @@ type ConnectorVpcInformationInput interface {
 }
 
 type ConnectorVpcInformationArgs struct {
+	// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 }
 
@@ -58,6 +60,7 @@ func (o ConnectorVpcInformationOutput) ToConnectorVpcInformationOutputWithContex
 	return o
 }
 
+// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
 func (o ConnectorVpcInformationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorVpcInformation) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -1060,8 +1063,10 @@ func (o TemplateGeneralFlagsV4Output) MachineType() pulumi.BoolPtrOutput {
 }
 
 type TemplateGroupAccessControlEntryAccessRights struct {
+	// Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
 	AutoEnroll *TemplateGroupAccessControlEntryAccessRight `pulumi:"autoEnroll"`
-	Enroll     *TemplateGroupAccessControlEntryAccessRight `pulumi:"enroll"`
+	// Allow or deny an Active Directory group from enrolling certificates issued against a template.
+	Enroll *TemplateGroupAccessControlEntryAccessRight `pulumi:"enroll"`
 }
 
 // TemplateGroupAccessControlEntryAccessRightsInput is an input type that accepts TemplateGroupAccessControlEntryAccessRightsArgs and TemplateGroupAccessControlEntryAccessRightsOutput values.
@@ -1076,8 +1081,10 @@ type TemplateGroupAccessControlEntryAccessRightsInput interface {
 }
 
 type TemplateGroupAccessControlEntryAccessRightsArgs struct {
+	// Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
 	AutoEnroll TemplateGroupAccessControlEntryAccessRightPtrInput `pulumi:"autoEnroll"`
-	Enroll     TemplateGroupAccessControlEntryAccessRightPtrInput `pulumi:"enroll"`
+	// Allow or deny an Active Directory group from enrolling certificates issued against a template.
+	Enroll TemplateGroupAccessControlEntryAccessRightPtrInput `pulumi:"enroll"`
 }
 
 func (TemplateGroupAccessControlEntryAccessRightsArgs) ElementType() reflect.Type {
@@ -1106,12 +1113,14 @@ func (o TemplateGroupAccessControlEntryAccessRightsOutput) ToTemplateGroupAccess
 	return o
 }
 
+// Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
 func (o TemplateGroupAccessControlEntryAccessRightsOutput) AutoEnroll() TemplateGroupAccessControlEntryAccessRightPtrOutput {
 	return o.ApplyT(func(v TemplateGroupAccessControlEntryAccessRights) *TemplateGroupAccessControlEntryAccessRight {
 		return v.AutoEnroll
 	}).(TemplateGroupAccessControlEntryAccessRightPtrOutput)
 }
 
+// Allow or deny an Active Directory group from enrolling certificates issued against a template.
 func (o TemplateGroupAccessControlEntryAccessRightsOutput) Enroll() TemplateGroupAccessControlEntryAccessRightPtrOutput {
 	return o.ApplyT(func(v TemplateGroupAccessControlEntryAccessRights) *TemplateGroupAccessControlEntryAccessRight {
 		return v.Enroll

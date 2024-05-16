@@ -26,6 +26,9 @@ export interface GetContainerArgs {
 }
 
 export interface GetContainerResult {
+    /**
+     * The Amazon Resource Name (ARN) of the container.
+     */
     readonly containerArn?: string;
     /**
      * Describes a container deployment configuration of an Amazon Lightsail container service.

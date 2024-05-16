@@ -41,27 +41,57 @@ export class VpcConnection extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The availability status of the VPC connection.
+     */
     public readonly availabilityStatus!: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus | undefined>;
+    /**
+     * The AWS account ID of the account where you want to create a new VPC connection.
+     */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * <p>The time that the VPC connection was created.</p>
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     */
     public readonly dnsResolvers!: pulumi.Output<string[] | undefined>;
     /**
      * <p>The time that the VPC connection was last updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * The display name for the VPC connection.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * <p>A list of network interfaces.</p>
      */
     public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.quicksight.VpcConnectionNetworkInterface[]>;
+    /**
+     * The ARN of the IAM role associated with the VPC connection.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon EC2 security group IDs associated with the VPC connection.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The HTTP status of the request.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionResourceStatus>;
+    /**
+     * A list of subnet IDs for the VPC connection.
+     */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+     */
     public readonly vpcConnectionId!: pulumi.Output<string | undefined>;
     /**
      * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
@@ -122,13 +152,40 @@ export class VpcConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcConnection resource.
  */
 export interface VpcConnectionArgs {
+    /**
+     * The availability status of the VPC connection.
+     */
     availabilityStatus?: pulumi.Input<enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus>;
+    /**
+     * The AWS account ID of the account where you want to create a new VPC connection.
+     */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     */
     dnsResolvers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The display name for the VPC connection.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role associated with the VPC connection.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The Amazon EC2 security group IDs associated with the VPC connection.
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of subnet IDs for the VPC connection.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+     */
     vpcConnectionId?: pulumi.Input<string>;
 }

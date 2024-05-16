@@ -36,9 +36,21 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:ApprovedOrigin")]
     public partial class ApprovedOrigin : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Domain name to be added to the allow-list of the instance.
+        /// 
+        /// *Maximum* : `267`
+        /// </summary>
         [Output("origin")]
         public Output<string> Origin { get; private set; } = null!;
 
@@ -92,9 +104,21 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class ApprovedOriginArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// Domain name to be added to the allow-list of the instance.
+        /// 
+        /// *Maximum* : `267`
+        /// </summary>
         [Input("origin", required: true)]
         public Input<string> Origin { get; set; } = null!;
 

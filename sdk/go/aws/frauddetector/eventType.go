@@ -22,10 +22,13 @@ type EventType struct {
 	// The time when the event type was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The description of the event type.
-	Description    pulumi.StringPtrOutput            `pulumi:"description"`
-	EntityTypes    EventTypeEntityTypeArrayOutput    `pulumi:"entityTypes"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The entity type details.
+	EntityTypes EventTypeEntityTypeArrayOutput `pulumi:"entityTypes"`
+	// The variables associated with this event type.
 	EventVariables EventTypeEventVariableArrayOutput `pulumi:"eventVariables"`
-	Labels         EventTypeLabelArrayOutput         `pulumi:"labels"`
+	// The label associated with the event type.
+	Labels EventTypeLabelArrayOutput `pulumi:"labels"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// The name for the event type
@@ -88,10 +91,13 @@ func (EventTypeState) ElementType() reflect.Type {
 
 type eventTypeArgs struct {
 	// The description of the event type.
-	Description    *string                  `pulumi:"description"`
-	EntityTypes    []EventTypeEntityType    `pulumi:"entityTypes"`
+	Description *string `pulumi:"description"`
+	// The entity type details.
+	EntityTypes []EventTypeEntityType `pulumi:"entityTypes"`
+	// The variables associated with this event type.
 	EventVariables []EventTypeEventVariable `pulumi:"eventVariables"`
-	Labels         []EventTypeLabel         `pulumi:"labels"`
+	// The label associated with the event type.
+	Labels []EventTypeLabel `pulumi:"labels"`
 	// The name for the event type
 	Name *string `pulumi:"name"`
 	// Tags associated with this event type.
@@ -101,10 +107,13 @@ type eventTypeArgs struct {
 // The set of arguments for constructing a EventType resource.
 type EventTypeArgs struct {
 	// The description of the event type.
-	Description    pulumi.StringPtrInput
-	EntityTypes    EventTypeEntityTypeArrayInput
+	Description pulumi.StringPtrInput
+	// The entity type details.
+	EntityTypes EventTypeEntityTypeArrayInput
+	// The variables associated with this event type.
 	EventVariables EventTypeEventVariableArrayInput
-	Labels         EventTypeLabelArrayInput
+	// The label associated with the event type.
+	Labels EventTypeLabelArrayInput
 	// The name for the event type
 	Name pulumi.StringPtrInput
 	// Tags associated with this event type.
@@ -163,14 +172,17 @@ func (o EventTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The entity type details.
 func (o EventTypeOutput) EntityTypes() EventTypeEntityTypeArrayOutput {
 	return o.ApplyT(func(v *EventType) EventTypeEntityTypeArrayOutput { return v.EntityTypes }).(EventTypeEntityTypeArrayOutput)
 }
 
+// The variables associated with this event type.
 func (o EventTypeOutput) EventVariables() EventTypeEventVariableArrayOutput {
 	return o.ApplyT(func(v *EventType) EventTypeEventVariableArrayOutput { return v.EventVariables }).(EventTypeEventVariableArrayOutput)
 }
 
+// The label associated with the event type.
 func (o EventTypeOutput) Labels() EventTypeLabelArrayOutput {
 	return o.ApplyT(func(v *EventType) EventTypeLabelArrayOutput { return v.Labels }).(EventTypeLabelArrayOutput)
 }

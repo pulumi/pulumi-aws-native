@@ -15,24 +15,57 @@ namespace Pulumi.AwsNative.Backup
     [AwsNativeResourceType("aws-native:backup:RestoreTestingPlan")]
     public partial class RestoreTestingPlan : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+        /// 
+        /// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+        /// 
+        /// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+        /// 
+        /// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+        /// 
+        /// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+        /// 
+        /// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        /// </summary>
         [Output("recoveryPointSelection")]
         public Output<Outputs.RestoreTestingPlanRestoreTestingRecoveryPointSelection> RecoveryPointSelection { get; private set; } = null!;
 
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+        /// </summary>
         [Output("restoreTestingPlanArn")]
         public Output<string> RestoreTestingPlanArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        /// </summary>
         [Output("restoreTestingPlanName")]
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
 
+        /// <summary>
+        /// A CRON expression in specified timezone when a restore testing plan is executed.
+        /// </summary>
         [Output("scheduleExpression")]
         public Output<string> ScheduleExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        /// </summary>
         [Output("scheduleExpressionTimezone")]
         public Output<string?> ScheduleExpressionTimezone { get; private set; } = null!;
 
+        /// <summary>
+        /// Defaults to 24 hours.
+        /// 
+        /// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        /// </summary>
         [Output("startWindowHours")]
         public Output<int?> StartWindowHours { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to assign to the restore testing plan.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -85,23 +118,54 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class RestoreTestingPlanArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+        /// 
+        /// `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+        /// 
+        /// `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+        /// 
+        /// `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+        /// 
+        /// `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+        /// 
+        /// `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        /// </summary>
         [Input("recoveryPointSelection", required: true)]
         public Input<Inputs.RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs> RecoveryPointSelection { get; set; } = null!;
 
+        /// <summary>
+        /// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        /// </summary>
         [Input("restoreTestingPlanName")]
         public Input<string>? RestoreTestingPlanName { get; set; }
 
+        /// <summary>
+        /// A CRON expression in specified timezone when a restore testing plan is executed.
+        /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
+        /// <summary>
+        /// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
+        /// <summary>
+        /// Defaults to 24 hours.
+        /// 
+        /// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        /// </summary>
         [Input("startWindowHours")]
         public Input<int>? StartWindowHours { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to assign to the restore testing plan.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -76,6 +76,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def architecture(self) -> Optional['ApplicationArchitecture']:
+        """
+        The CPU architecture of an application.
+        """
         return pulumi.get(self, "architecture")
 
     @property
@@ -105,6 +108,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional['outputs.ApplicationImageConfigurationInput']:
+        """
+        The image configuration.
+        """
         return pulumi.get(self, "image_configuration")
 
     @property
@@ -126,6 +132,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfiguration']:
+        """
+        The configuration setting for monitoring.
+        """
         return pulumi.get(self, "monitoring_configuration")
 
     @property
@@ -147,6 +156,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> Optional[Sequence['outputs.ApplicationConfigurationObject']]:
+        """
+        The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        """
         return pulumi.get(self, "runtime_configuration")
 
     @property

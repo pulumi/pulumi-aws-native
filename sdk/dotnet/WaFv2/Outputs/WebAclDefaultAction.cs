@@ -16,7 +16,17 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclDefaultAction
     {
+        /// <summary>
+        /// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
+        /// 
+        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// </summary>
         public readonly Outputs.WebAclAllowAction? Allow;
+        /// <summary>
+        /// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
+        /// 
+        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// </summary>
         public readonly Outputs.WebAclBlockAction? Block;
 
         [OutputConstructor]

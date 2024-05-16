@@ -49,6 +49,9 @@ export class LocationFSxOpenZfs extends pulumi.CustomResource {
      * The URL of the FSx OpenZFS that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    /**
+     * Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+     */
     public readonly protocol!: pulumi.Output<outputs.datasync.LocationFSxOpenZfsProtocol>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
@@ -111,6 +114,9 @@ export interface LocationFSxOpenZfsArgs {
      * The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
      */
     fsxFilesystemArn?: pulumi.Input<string>;
+    /**
+     * Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+     */
     protocol: pulumi.Input<inputs.datasync.LocationFSxOpenZfsProtocolArgs>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.

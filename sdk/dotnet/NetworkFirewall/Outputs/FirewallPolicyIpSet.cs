@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyIpSet
     {
+        /// <summary>
+        /// The list of IP addresses and address ranges, in CIDR notation.
+        /// </summary>
         public readonly ImmutableArray<string> Definition;
 
         [OutputConstructor]

@@ -19,6 +19,9 @@ export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetDistributionArgs {
+    /**
+     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     */
     id: string;
 }
 
@@ -27,7 +30,13 @@ export interface GetDistributionResult {
      * The distribution's configuration.
      */
     readonly distributionConfig?: outputs.cloudfront.DistributionConfig;
+    /**
+     * The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+     */
     readonly domainName?: string;
+    /**
+     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     */
     readonly id?: string;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
@@ -42,5 +51,8 @@ export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pu
 }
 
 export interface GetDistributionOutputArgs {
+    /**
+     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     */
     id: pulumi.Input<string>;
 }

@@ -25,6 +25,7 @@ class EventStreamArgs:
         """
         The set of arguments for constructing a EventStream resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[str] uri: The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
         :param pulumi.Input[str] event_stream_name: The name of the event stream.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
@@ -50,6 +51,9 @@ class EventStreamArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -99,6 +103,7 @@ class EventStream(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] event_stream_name: The name of the event stream.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[str] uri: The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
         """
         ...
     @overload
@@ -242,5 +247,8 @@ class EventStream(pulumi.CustomResource):
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Output[str]:
+        """
+        The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+        """
         return pulumi.get(self, "uri")
 

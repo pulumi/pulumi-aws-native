@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateMeasureField
     {
+        /// <summary>
+        /// The table calculation measure field for pivot tables.
+        /// </summary>
         public readonly Outputs.TemplateCalculatedMeasureField? CalculatedMeasureField;
+        /// <summary>
+        /// The measure type field with categorical type columns.
+        /// </summary>
         public readonly Outputs.TemplateCategoricalMeasureField? CategoricalMeasureField;
+        /// <summary>
+        /// The measure type field with date type columns.
+        /// </summary>
         public readonly Outputs.TemplateDateMeasureField? DateMeasureField;
+        /// <summary>
+        /// The measure type field with numerical type columns.
+        /// </summary>
         public readonly Outputs.TemplateNumericalMeasureField? NumericalMeasureField;
 
         [OutputConstructor]

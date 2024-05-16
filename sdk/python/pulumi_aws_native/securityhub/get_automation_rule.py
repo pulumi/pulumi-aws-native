@@ -61,16 +61,27 @@ class GetAutomationRuleResult:
     @property
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.AutomationRulesAction']]:
+        """
+        One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        A timestamp that indicates when the rule was created.
+
+        Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
+        """
+        The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
+        """
         return pulumi.get(self, "created_by")
 
     @property
@@ -84,26 +95,41 @@ class GetAutomationRuleResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[bool]:
+        """
+        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        """
         return pulumi.get(self, "is_terminal")
 
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+        """
         return pulumi.get(self, "rule_arn")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[str]:
+        """
+        The name of the rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[int]:
+        """
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        """
         return pulumi.get(self, "rule_order")
 
     @property
@@ -117,11 +143,19 @@ class GetAutomationRuleResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        User-defined tags associated with an automation rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        A timestamp that indicates when the rule was most recently updated.
+
+        Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -149,6 +183,9 @@ def get_automation_rule(rule_arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
     The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+
+
+    :param str rule_arn: The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
@@ -175,5 +212,8 @@ def get_automation_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
     The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+
+
+    :param str rule_arn: The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
     """
     ...

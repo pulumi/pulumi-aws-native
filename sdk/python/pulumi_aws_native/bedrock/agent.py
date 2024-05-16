@@ -43,7 +43,16 @@ class AgentArgs:
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]] knowledge_bases: List of Agent Knowledge Bases
+        :param pulumi.Input['AgentPromptOverrideConfigurationArgs'] prompt_override_configuration: Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_alias_tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
@@ -197,6 +206,9 @@ class AgentArgs:
     @property
     @pulumi.getter(name="promptOverrideConfiguration")
     def prompt_override_configuration(self) -> Optional[pulumi.Input['AgentPromptOverrideConfigurationArgs']]:
+        """
+        Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        """
         return pulumi.get(self, "prompt_override_configuration")
 
     @prompt_override_configuration.setter
@@ -218,6 +230,12 @@ class AgentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -227,6 +245,12 @@ class AgentArgs:
     @property
     @pulumi.getter(name="testAliasTags")
     def test_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "test_alias_tags")
 
     @test_alias_tags.setter
@@ -269,7 +293,16 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]] knowledge_bases: List of Agent Knowledge Bases
+        :param pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']] prompt_override_configuration: Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_alias_tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         ...
     @overload
@@ -431,6 +464,17 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> pulumi.Output['AgentStatus']:
+        """
+        The status of the agent and whether it is ready for use. The following statuses are possible:
+
+        - CREATING – The agent is being created.
+        - PREPARING – The agent is being prepared.
+        - PREPARED – The agent is prepared and ready to be invoked.
+        - NOT_PREPARED – The agent has been created but not yet prepared.
+        - FAILED – The agent API operation failed.
+        - UPDATING – The agent is being updated.
+        - DELETING – The agent is being deleted.
+        """
         return pulumi.get(self, "agent_status")
 
     @property
@@ -524,6 +568,9 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="promptOverrideConfiguration")
     def prompt_override_configuration(self) -> pulumi.Output[Optional['outputs.AgentPromptOverrideConfiguration']]:
+        """
+        Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        """
         return pulumi.get(self, "prompt_override_configuration")
 
     @property
@@ -545,11 +592,23 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="testAliasTags")
     def test_alias_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "test_alias_tags")
 
     @property

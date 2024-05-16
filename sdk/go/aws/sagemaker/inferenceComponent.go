@@ -17,18 +17,28 @@ import (
 type InferenceComponent struct {
 	pulumi.CustomResourceState
 
-	CreationTime             pulumi.StringOutput                   `pulumi:"creationTime"`
-	EndpointArn              pulumi.StringPtrOutput                `pulumi:"endpointArn"`
-	EndpointName             pulumi.StringOutput                   `pulumi:"endpointName"`
-	FailureReason            pulumi.StringOutput                   `pulumi:"failureReason"`
-	InferenceComponentArn    pulumi.StringOutput                   `pulumi:"inferenceComponentArn"`
-	InferenceComponentName   pulumi.StringPtrOutput                `pulumi:"inferenceComponentName"`
-	InferenceComponentStatus InferenceComponentStatusOutput        `pulumi:"inferenceComponentStatus"`
-	LastModifiedTime         pulumi.StringOutput                   `pulumi:"lastModifiedTime"`
-	RuntimeConfig            InferenceComponentRuntimeConfigOutput `pulumi:"runtimeConfig"`
-	Specification            InferenceComponentSpecificationOutput `pulumi:"specification"`
-	Tags                     aws.TagArrayOutput                    `pulumi:"tags"`
-	VariantName              pulumi.StringOutput                   `pulumi:"variantName"`
+	// The time when the inference component was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+	EndpointArn pulumi.StringPtrOutput `pulumi:"endpointArn"`
+	// The name of the endpoint that hosts the inference component.
+	EndpointName  pulumi.StringOutput `pulumi:"endpointName"`
+	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
+	// The Amazon Resource Name (ARN) of the inference component.
+	InferenceComponentArn pulumi.StringOutput `pulumi:"inferenceComponentArn"`
+	// The name of the inference component.
+	InferenceComponentName pulumi.StringPtrOutput `pulumi:"inferenceComponentName"`
+	// The status of the inference component.
+	InferenceComponentStatus InferenceComponentStatusOutput `pulumi:"inferenceComponentStatus"`
+	// The time when the inference component was last updated.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// Runtime settings for a model that is deployed with an inference component.
+	RuntimeConfig InferenceComponentRuntimeConfigOutput `pulumi:"runtimeConfig"`
+	// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
+	Specification InferenceComponentSpecificationOutput `pulumi:"specification"`
+	Tags          aws.TagArrayOutput                    `pulumi:"tags"`
+	// The name of the production variant that hosts the inference component.
+	VariantName pulumi.StringOutput `pulumi:"variantName"`
 }
 
 // NewInferenceComponent registers a new resource with the given unique name, arguments, and options.
@@ -83,24 +93,36 @@ func (InferenceComponentState) ElementType() reflect.Type {
 }
 
 type inferenceComponentArgs struct {
-	EndpointArn            *string                         `pulumi:"endpointArn"`
-	EndpointName           string                          `pulumi:"endpointName"`
-	InferenceComponentName *string                         `pulumi:"inferenceComponentName"`
-	RuntimeConfig          InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
-	Specification          InferenceComponentSpecification `pulumi:"specification"`
-	Tags                   []aws.Tag                       `pulumi:"tags"`
-	VariantName            string                          `pulumi:"variantName"`
+	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+	EndpointArn *string `pulumi:"endpointArn"`
+	// The name of the endpoint that hosts the inference component.
+	EndpointName string `pulumi:"endpointName"`
+	// The name of the inference component.
+	InferenceComponentName *string `pulumi:"inferenceComponentName"`
+	// Runtime settings for a model that is deployed with an inference component.
+	RuntimeConfig InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
+	// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
+	Specification InferenceComponentSpecification `pulumi:"specification"`
+	Tags          []aws.Tag                       `pulumi:"tags"`
+	// The name of the production variant that hosts the inference component.
+	VariantName string `pulumi:"variantName"`
 }
 
 // The set of arguments for constructing a InferenceComponent resource.
 type InferenceComponentArgs struct {
-	EndpointArn            pulumi.StringPtrInput
-	EndpointName           pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+	EndpointArn pulumi.StringPtrInput
+	// The name of the endpoint that hosts the inference component.
+	EndpointName pulumi.StringInput
+	// The name of the inference component.
 	InferenceComponentName pulumi.StringPtrInput
-	RuntimeConfig          InferenceComponentRuntimeConfigInput
-	Specification          InferenceComponentSpecificationInput
-	Tags                   aws.TagArrayInput
-	VariantName            pulumi.StringInput
+	// Runtime settings for a model that is deployed with an inference component.
+	RuntimeConfig InferenceComponentRuntimeConfigInput
+	// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
+	Specification InferenceComponentSpecificationInput
+	Tags          aws.TagArrayInput
+	// The name of the production variant that hosts the inference component.
+	VariantName pulumi.StringInput
 }
 
 func (InferenceComponentArgs) ElementType() reflect.Type {
@@ -140,14 +162,17 @@ func (o InferenceComponentOutput) ToInferenceComponentOutputWithContext(ctx cont
 	return o
 }
 
+// The time when the inference component was created.
 func (o InferenceComponentOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 func (o InferenceComponentOutput) EndpointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringPtrOutput { return v.EndpointArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the endpoint that hosts the inference component.
 func (o InferenceComponentOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
 }
@@ -156,26 +181,32 @@ func (o InferenceComponentOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the inference component.
 func (o InferenceComponentOutput) InferenceComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.InferenceComponentArn }).(pulumi.StringOutput)
 }
 
+// The name of the inference component.
 func (o InferenceComponentOutput) InferenceComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringPtrOutput { return v.InferenceComponentName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the inference component.
 func (o InferenceComponentOutput) InferenceComponentStatus() InferenceComponentStatusOutput {
 	return o.ApplyT(func(v *InferenceComponent) InferenceComponentStatusOutput { return v.InferenceComponentStatus }).(InferenceComponentStatusOutput)
 }
 
+// The time when the inference component was last updated.
 func (o InferenceComponentOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// Runtime settings for a model that is deployed with an inference component.
 func (o InferenceComponentOutput) RuntimeConfig() InferenceComponentRuntimeConfigOutput {
 	return o.ApplyT(func(v *InferenceComponent) InferenceComponentRuntimeConfigOutput { return v.RuntimeConfig }).(InferenceComponentRuntimeConfigOutput)
 }
 
+// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
 func (o InferenceComponentOutput) Specification() InferenceComponentSpecificationOutput {
 	return o.ApplyT(func(v *InferenceComponent) InferenceComponentSpecificationOutput { return v.Specification }).(InferenceComponentSpecificationOutput)
 }
@@ -184,6 +215,7 @@ func (o InferenceComponentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *InferenceComponent) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The name of the production variant that hosts the inference component.
 func (o InferenceComponentOutput) VariantName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.VariantName }).(pulumi.StringOutput)
 }

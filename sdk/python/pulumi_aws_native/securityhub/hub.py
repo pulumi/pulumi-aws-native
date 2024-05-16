@@ -23,6 +23,9 @@ class HubArgs:
         :param pulumi.Input[bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled
         :param pulumi.Input[str] control_finding_generator: This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
         :param pulumi.Input[bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         if auto_enable_controls is not None:
             pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
@@ -72,6 +75,11 @@ class HubArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -163,6 +171,9 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled
         :param pulumi.Input[str] control_finding_generator: This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
         :param pulumi.Input[bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -346,5 +357,10 @@ class Hub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

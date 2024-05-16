@@ -28,6 +28,7 @@ class CustomerGatewayArgs:
         :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports (``ipsec.1``).
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
                 Default: 65000
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: The name of customer gateway device.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags for the customer gateway.
         """
@@ -82,6 +83,9 @@ class CustomerGatewayArgs:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -132,6 +136,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
                 Default: 65000
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: The name of customer gateway device.
         :param pulumi.Input[str] ip_address: IPv4 address for the customer gateway device's outside interface. The address must be static.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags for the customer gateway.
@@ -232,11 +237,17 @@ class CustomerGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the customer gateway.
+        """
         return pulumi.get(self, "customer_gateway_id")
 
     @property

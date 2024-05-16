@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
     {
         [Input("invisibleFields")]
         private InputList<Inputs.TaskTemplateInvisibleFieldInfoArgs>? _invisibleFields;
+
+        /// <summary>
+        /// Lists the fields that are invisible to agents.
+        /// </summary>
         public InputList<Inputs.TaskTemplateInvisibleFieldInfoArgs> InvisibleFields
         {
             get => _invisibleFields ?? (_invisibleFields = new InputList<Inputs.TaskTemplateInvisibleFieldInfoArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         [Input("readOnlyFields")]
         private InputList<Inputs.TaskTemplateReadOnlyFieldInfoArgs>? _readOnlyFields;
+
+        /// <summary>
+        /// Lists the fields that are read-only to agents, and cannot be edited.
+        /// </summary>
         public InputList<Inputs.TaskTemplateReadOnlyFieldInfoArgs> ReadOnlyFields
         {
             get => _readOnlyFields ?? (_readOnlyFields = new InputList<Inputs.TaskTemplateReadOnlyFieldInfoArgs>());
@@ -33,6 +41,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         [Input("requiredFields")]
         private InputList<Inputs.TaskTemplateRequiredFieldInfoArgs>? _requiredFields;
+
+        /// <summary>
+        /// Lists the fields that are required to be filled by agents.
+        /// </summary>
         public InputList<Inputs.TaskTemplateRequiredFieldInfoArgs> RequiredFields
         {
             get => _requiredFields ?? (_requiredFields = new InputList<Inputs.TaskTemplateRequiredFieldInfoArgs>());

@@ -702,8 +702,9 @@ type OriginEndpointCmafEncryption struct {
 	// The encryption method used
 	EncryptionMethod *OriginEndpointCmafEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
 	// Time (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds *int                           `pulumi:"keyRotationIntervalSeconds"`
-	SpekeKeyProvider           OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
+	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
+	// Key provider settings for DRM.
+	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // OriginEndpointCmafEncryptionInput is an input type that accepts OriginEndpointCmafEncryptionArgs and OriginEndpointCmafEncryptionOutput values.
@@ -724,8 +725,9 @@ type OriginEndpointCmafEncryptionArgs struct {
 	// The encryption method used
 	EncryptionMethod OriginEndpointCmafEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
 	// Time (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds pulumi.IntPtrInput                  `pulumi:"keyRotationIntervalSeconds"`
-	SpekeKeyProvider           OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
+	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
+	// Key provider settings for DRM.
+	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (OriginEndpointCmafEncryptionArgs) ElementType() reflect.Type {
@@ -823,6 +825,7 @@ func (o OriginEndpointCmafEncryptionOutput) KeyRotationIntervalSeconds() pulumi.
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointCmafEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -881,6 +884,7 @@ func (o OriginEndpointCmafEncryptionPtrOutput) KeyRotationIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointCmafEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -892,13 +896,15 @@ func (o OriginEndpointCmafEncryptionPtrOutput) SpekeKeyProvider() OriginEndpoint
 
 // A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackage struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption *OriginEndpointCmafEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations
 	HlsManifests []OriginEndpointHlsManifest `pulumi:"hlsManifests"`
 	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 	// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
-	SegmentPrefix   *string                        `pulumi:"segmentPrefix"`
+	SegmentPrefix *string `pulumi:"segmentPrefix"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -915,13 +921,15 @@ type OriginEndpointCmafPackageInput interface {
 
 // A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackageArgs struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption OriginEndpointCmafEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations
 	HlsManifests OriginEndpointHlsManifestArrayInput `pulumi:"hlsManifests"`
 	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 	// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
-	SegmentPrefix   pulumi.StringPtrInput                 `pulumi:"segmentPrefix"`
+	SegmentPrefix pulumi.StringPtrInput `pulumi:"segmentPrefix"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -1003,6 +1011,7 @@ func (o OriginEndpointCmafPackageOutput) ToOriginEndpointCmafPackagePtrOutputWit
 	}).(OriginEndpointCmafPackagePtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointCmafPackageOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *OriginEndpointCmafEncryption { return v.Encryption }).(OriginEndpointCmafEncryptionPtrOutput)
 }
@@ -1022,6 +1031,7 @@ func (o OriginEndpointCmafPackageOutput) SegmentPrefix() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *string { return v.SegmentPrefix }).(pulumi.StringPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointCmafPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
@@ -1050,6 +1060,7 @@ func (o OriginEndpointCmafPackagePtrOutput) Elem() OriginEndpointCmafPackageOutp
 	}).(OriginEndpointCmafPackageOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointCmafPackagePtrOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *OriginEndpointCmafEncryption {
 		if v == nil {
@@ -1089,6 +1100,7 @@ func (o OriginEndpointCmafPackagePtrOutput) SegmentPrefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointCmafPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -1101,8 +1113,9 @@ func (o OriginEndpointCmafPackagePtrOutput) StreamSelection() OriginEndpointStre
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type OriginEndpointDashEncryption struct {
 	// Time (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds *int                           `pulumi:"keyRotationIntervalSeconds"`
-	SpekeKeyProvider           OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
+	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
+	// Key provider settings for DRM.
+	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // OriginEndpointDashEncryptionInput is an input type that accepts OriginEndpointDashEncryptionArgs and OriginEndpointDashEncryptionOutput values.
@@ -1119,8 +1132,9 @@ type OriginEndpointDashEncryptionInput interface {
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type OriginEndpointDashEncryptionArgs struct {
 	// Time (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds pulumi.IntPtrInput                  `pulumi:"keyRotationIntervalSeconds"`
-	SpekeKeyProvider           OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
+	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
+	// Key provider settings for DRM.
+	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (OriginEndpointDashEncryptionArgs) ElementType() reflect.Type {
@@ -1206,6 +1220,7 @@ func (o OriginEndpointDashEncryptionOutput) KeyRotationIntervalSeconds() pulumi.
 	return o.ApplyT(func(v OriginEndpointDashEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointDashEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointDashEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -1244,6 +1259,7 @@ func (o OriginEndpointDashEncryptionPtrOutput) KeyRotationIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointDashEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -1256,9 +1272,11 @@ func (o OriginEndpointDashEncryptionPtrOutput) SpekeKeyProvider() OriginEndpoint
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackage struct {
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                []OriginEndpointDashPackageAdTriggersItem `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions  `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                *OriginEndpointDashEncryption             `pulumi:"encryption"`
+	AdTriggers []OriginEndpointDashPackageAdTriggersItem `pulumi:"adTriggers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	Encryption *OriginEndpointDashEncryption `pulumi:"encryption"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
 	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -1277,7 +1295,8 @@ type OriginEndpointDashPackage struct {
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat *OriginEndpointDashPackageSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
-	StreamSelection       *OriginEndpointStreamSelection                  `pulumi:"streamSelection"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 	// Duration (in seconds) to delay live content before presentation.
 	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
@@ -1300,9 +1319,11 @@ type OriginEndpointDashPackageInput interface {
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackageArgs struct {
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                OriginEndpointDashPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                OriginEndpointDashEncryptionPtrInput              `pulumi:"encryption"`
+	AdTriggers OriginEndpointDashPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput `pulumi:"adsOnDeliveryRestrictions"`
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	Encryption OriginEndpointDashEncryptionPtrInput `pulumi:"encryption"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
 	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -1321,7 +1342,8 @@ type OriginEndpointDashPackageArgs struct {
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat OriginEndpointDashPackageSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
-	StreamSelection       OriginEndpointStreamSelectionPtrInput                  `pulumi:"streamSelection"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 	// Duration (in seconds) to delay live content before presentation.
 	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
@@ -1413,12 +1435,14 @@ func (o OriginEndpointDashPackageOutput) AdTriggers() OriginEndpointDashPackageA
 	return o.ApplyT(func(v OriginEndpointDashPackage) []OriginEndpointDashPackageAdTriggersItem { return v.AdTriggers }).(OriginEndpointDashPackageAdTriggersItemArrayOutput)
 }
 
+// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 func (o OriginEndpointDashPackageOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointAdsOnDeliveryRestrictions {
 		return v.AdsOnDeliveryRestrictions
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointDashPackageOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashEncryption { return v.Encryption }).(OriginEndpointDashEncryptionPtrOutput)
 }
@@ -1472,6 +1496,7 @@ func (o OriginEndpointDashPackageOutput) SegmentTemplateFormat() OriginEndpointD
 	}).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointDashPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
@@ -1525,6 +1550,7 @@ func (o OriginEndpointDashPackagePtrOutput) AdTriggers() OriginEndpointDashPacka
 	}).(OriginEndpointDashPackageAdTriggersItemArrayOutput)
 }
 
+// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointAdsOnDeliveryRestrictions {
 		if v == nil {
@@ -1534,6 +1560,7 @@ func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEn
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashEncryption {
 		if v == nil {
@@ -1633,6 +1660,7 @@ func (o OriginEndpointDashPackagePtrOutput) SegmentTemplateFormat() OriginEndpoi
 	}).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointDashPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -1844,7 +1872,8 @@ type OriginEndpointHlsEncryption struct {
 	// Interval (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-	RepeatExtXKey    *bool                          `pulumi:"repeatExtXKey"`
+	RepeatExtXKey *bool `pulumi:"repeatExtXKey"`
+	// Key provider settings for DRM.
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -1868,7 +1897,8 @@ type OriginEndpointHlsEncryptionArgs struct {
 	// Interval (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-	RepeatExtXKey    pulumi.BoolPtrInput                 `pulumi:"repeatExtXKey"`
+	RepeatExtXKey pulumi.BoolPtrInput `pulumi:"repeatExtXKey"`
+	// Key provider settings for DRM.
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -1972,6 +2002,7 @@ func (o OriginEndpointHlsEncryptionOutput) RepeatExtXKey() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) *bool { return v.RepeatExtXKey }).(pulumi.BoolPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointHlsEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -2040,6 +2071,7 @@ func (o OriginEndpointHlsEncryptionPtrOutput) RepeatExtXKey() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointHlsEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -2054,8 +2086,9 @@ type OriginEndpointHlsManifest struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers *OriginEndpointHlsManifestAdMarkers `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                []OriginEndpointHlsManifestAdTriggersItem `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions  `pulumi:"adsOnDeliveryRestrictions"`
+	AdTriggers []OriginEndpointHlsManifestAdTriggersItem `pulumi:"adTriggers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
 	// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 	Id string `pulumi:"id"`
 	// When enabled, an I-Frame only stream will be included in the output.
@@ -2088,8 +2121,9 @@ type OriginEndpointHlsManifestArgs struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers OriginEndpointHlsManifestAdMarkersPtrInput `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                OriginEndpointHlsManifestAdTriggersItemArrayInput `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
+	AdTriggers OriginEndpointHlsManifestAdTriggersItemArrayInput `pulumi:"adTriggers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput `pulumi:"adsOnDeliveryRestrictions"`
 	// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 	Id pulumi.StringInput `pulumi:"id"`
 	// When enabled, an I-Frame only stream will be included in the output.
@@ -2168,6 +2202,7 @@ func (o OriginEndpointHlsManifestOutput) AdTriggers() OriginEndpointHlsManifestA
 	return o.ApplyT(func(v OriginEndpointHlsManifest) []OriginEndpointHlsManifestAdTriggersItem { return v.AdTriggers }).(OriginEndpointHlsManifestAdTriggersItemArrayOutput)
 }
 
+// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 func (o OriginEndpointHlsManifestOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *OriginEndpointAdsOnDeliveryRestrictions {
 		return v.AdsOnDeliveryRestrictions
@@ -2234,9 +2269,11 @@ type OriginEndpointHlsPackage struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers *OriginEndpointHlsPackageAdMarkers `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                []OriginEndpointHlsPackageAdTriggersItem `pulumi:"adTriggers"`
+	AdTriggers []OriginEndpointHlsPackageAdTriggersItem `pulumi:"adTriggers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                *OriginEndpointHlsEncryption             `pulumi:"encryption"`
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	Encryption *OriginEndpointHlsEncryption `pulumi:"encryption"`
 	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
 	IncludeDvbSubtitles *bool `pulumi:"includeDvbSubtitles"`
 	// When enabled, an I-Frame only stream will be included in the output.
@@ -2248,8 +2285,9 @@ type OriginEndpointHlsPackage struct {
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *int                           `pulumi:"segmentDurationSeconds"`
-	StreamSelection        *OriginEndpointStreamSelection `pulumi:"streamSelection"`
+	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup *bool `pulumi:"useAudioRenditionGroup"`
 }
@@ -2270,9 +2308,11 @@ type OriginEndpointHlsPackageArgs struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers OriginEndpointHlsPackageAdMarkersPtrInput `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                OriginEndpointHlsPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput  `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                OriginEndpointHlsEncryptionPtrInput              `pulumi:"encryption"`
+	AdTriggers OriginEndpointHlsPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput `pulumi:"adsOnDeliveryRestrictions"`
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	Encryption OriginEndpointHlsEncryptionPtrInput `pulumi:"encryption"`
 	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
 	IncludeDvbSubtitles pulumi.BoolPtrInput `pulumi:"includeDvbSubtitles"`
 	// When enabled, an I-Frame only stream will be included in the output.
@@ -2284,8 +2324,9 @@ type OriginEndpointHlsPackageArgs struct {
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds pulumi.IntPtrInput                    `pulumi:"segmentDurationSeconds"`
-	StreamSelection        OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
+	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup pulumi.BoolPtrInput `pulumi:"useAudioRenditionGroup"`
 }
@@ -2378,12 +2419,14 @@ func (o OriginEndpointHlsPackageOutput) AdTriggers() OriginEndpointHlsPackageAdT
 	return o.ApplyT(func(v OriginEndpointHlsPackage) []OriginEndpointHlsPackageAdTriggersItem { return v.AdTriggers }).(OriginEndpointHlsPackageAdTriggersItemArrayOutput)
 }
 
+// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 func (o OriginEndpointHlsPackageOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointAdsOnDeliveryRestrictions {
 		return v.AdsOnDeliveryRestrictions
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointHlsPackageOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointHlsEncryption { return v.Encryption }).(OriginEndpointHlsEncryptionPtrOutput)
 }
@@ -2418,6 +2461,7 @@ func (o OriginEndpointHlsPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointHlsPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
@@ -2471,6 +2515,7 @@ func (o OriginEndpointHlsPackagePtrOutput) AdTriggers() OriginEndpointHlsPackage
 	}).(OriginEndpointHlsPackageAdTriggersItemArrayOutput)
 }
 
+// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointAdsOnDeliveryRestrictions {
 		if v == nil {
@@ -2480,6 +2525,7 @@ func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEnd
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointHlsPackagePtrOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointHlsEncryption {
 		if v == nil {
@@ -2549,6 +2595,7 @@ func (o OriginEndpointHlsPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointHlsPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -2570,6 +2617,7 @@ func (o OriginEndpointHlsPackagePtrOutput) UseAudioRenditionGroup() pulumi.BoolP
 
 // A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryption struct {
+	// Key provider settings for DRM.
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -2586,6 +2634,7 @@ type OriginEndpointMssEncryptionInput interface {
 
 // A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryptionArgs struct {
+	// Key provider settings for DRM.
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -2667,6 +2716,7 @@ func (o OriginEndpointMssEncryptionOutput) ToOriginEndpointMssEncryptionPtrOutpu
 	}).(OriginEndpointMssEncryptionPtrOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointMssEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointMssEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -2695,6 +2745,7 @@ func (o OriginEndpointMssEncryptionPtrOutput) Elem() OriginEndpointMssEncryption
 	}).(OriginEndpointMssEncryptionOutput)
 }
 
+// Key provider settings for DRM.
 func (o OriginEndpointMssEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -2706,12 +2757,14 @@ func (o OriginEndpointMssEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointS
 
 // A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackage struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption *OriginEndpointMssEncryption `pulumi:"encryption"`
 	// The time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
 	// The duration (in seconds) of each segment.
-	SegmentDurationSeconds *int                           `pulumi:"segmentDurationSeconds"`
-	StreamSelection        *OriginEndpointStreamSelection `pulumi:"streamSelection"`
+	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 }
 
 // OriginEndpointMssPackageInput is an input type that accepts OriginEndpointMssPackageArgs and OriginEndpointMssPackageOutput values.
@@ -2727,12 +2780,14 @@ type OriginEndpointMssPackageInput interface {
 
 // A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackageArgs struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption OriginEndpointMssEncryptionPtrInput `pulumi:"encryption"`
 	// The time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
 	// The duration (in seconds) of each segment.
-	SegmentDurationSeconds pulumi.IntPtrInput                    `pulumi:"segmentDurationSeconds"`
-	StreamSelection        OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
+	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
 func (OriginEndpointMssPackageArgs) ElementType() reflect.Type {
@@ -2813,6 +2868,7 @@ func (o OriginEndpointMssPackageOutput) ToOriginEndpointMssPackagePtrOutputWithC
 	}).(OriginEndpointMssPackagePtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointMssPackageOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *OriginEndpointMssEncryption { return v.Encryption }).(OriginEndpointMssEncryptionPtrOutput)
 }
@@ -2827,6 +2883,7 @@ func (o OriginEndpointMssPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v OriginEndpointMssPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointMssPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
@@ -2855,6 +2912,7 @@ func (o OriginEndpointMssPackagePtrOutput) Elem() OriginEndpointMssPackageOutput
 	}).(OriginEndpointMssPackageOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o OriginEndpointMssPackagePtrOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *OriginEndpointMssEncryption {
 		if v == nil {
@@ -2884,6 +2942,7 @@ func (o OriginEndpointMssPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o OriginEndpointMssPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -2896,7 +2955,14 @@ func (o OriginEndpointMssPackagePtrOutput) StreamSelection() OriginEndpointStrea
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProvider struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
-	CertificateArn                  *string                                        `pulumi:"certificateArn"`
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+	//
+	// Note the following considerations when using `encryptionContractConfiguration` :
+	//
+	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 	EncryptionContractConfiguration *OriginEndpointEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
 	// The resource ID to include in key requests.
 	ResourceId string `pulumi:"resourceId"`
@@ -2922,7 +2988,14 @@ type OriginEndpointSpekeKeyProviderInput interface {
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProviderArgs struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
-	CertificateArn                  pulumi.StringPtrInput                                 `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+	//
+	// Note the following considerations when using `encryptionContractConfiguration` :
+	//
+	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 	EncryptionContractConfiguration OriginEndpointEncryptionContractConfigurationPtrInput `pulumi:"encryptionContractConfiguration"`
 	// The resource ID to include in key requests.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -3017,6 +3090,13 @@ func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrO
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+//
+// Note the following considerations when using `encryptionContractConfiguration` :
+//
+// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 func (o OriginEndpointSpekeKeyProviderOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
 		return v.EncryptionContractConfiguration
@@ -3077,6 +3157,13 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+//
+// Note the following considerations when using `encryptionContractConfiguration` :
+//
+// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 func (o OriginEndpointSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
 		if v == nil {
@@ -3311,6 +3398,7 @@ type OriginEndpointTag struct {
 
 // A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryption struct {
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -3327,6 +3415,7 @@ type PackagingConfigurationCmafEncryptionInput interface {
 
 // A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryptionArgs struct {
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -3408,6 +3497,7 @@ func (o PackagingConfigurationCmafEncryptionOutput) ToPackagingConfigurationCmaf
 	}).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationCmafEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -3438,6 +3528,7 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) Elem() PackagingConfigura
 	}).(PackagingConfigurationCmafEncryptionOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -3449,12 +3540,14 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() Packag
 
 // A CMAF packaging configuration.
 type PackagingConfigurationCmafPackage struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption *PackagingConfigurationCmafEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
-	SegmentDurationSeconds                *int  `pulumi:"segmentDurationSeconds"`
+	// Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 }
 
 // PackagingConfigurationCmafPackageInput is an input type that accepts PackagingConfigurationCmafPackageArgs and PackagingConfigurationCmafPackageOutput values.
@@ -3470,12 +3563,14 @@ type PackagingConfigurationCmafPackageInput interface {
 
 // A CMAF packaging configuration.
 type PackagingConfigurationCmafPackageArgs struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption PackagingConfigurationCmafEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
-	SegmentDurationSeconds                pulumi.IntPtrInput  `pulumi:"segmentDurationSeconds"`
+	// Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 }
 
 func (PackagingConfigurationCmafPackageArgs) ElementType() reflect.Type {
@@ -3556,6 +3651,7 @@ func (o PackagingConfigurationCmafPackageOutput) ToPackagingConfigurationCmafPac
 	}).(PackagingConfigurationCmafPackagePtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationCmafPackageOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *PackagingConfigurationCmafEncryption { return v.Encryption }).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
@@ -3570,6 +3666,7 @@ func (o PackagingConfigurationCmafPackageOutput) IncludeEncoderConfigurationInSe
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *bool { return v.IncludeEncoderConfigurationInSegments }).(pulumi.BoolPtrOutput)
 }
 
+// Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
 func (o PackagingConfigurationCmafPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3598,6 +3695,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) Elem() PackagingConfiguratio
 	}).(PackagingConfigurationCmafPackageOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationCmafPackagePtrOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *PackagingConfigurationCmafEncryption {
 		if v == nil {
@@ -3627,6 +3725,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) IncludeEncoderConfigurationI
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
 func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *int {
 		if v == nil {
@@ -3638,6 +3737,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pul
 
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryption struct {
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -3654,6 +3754,7 @@ type PackagingConfigurationDashEncryptionInput interface {
 
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryptionArgs struct {
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -3735,6 +3836,7 @@ func (o PackagingConfigurationDashEncryptionOutput) ToPackagingConfigurationDash
 	}).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationDashEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -3765,6 +3867,7 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) Elem() PackagingConfigura
 	}).(PackagingConfigurationDashEncryptionOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -3778,14 +3881,16 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() Packag
 type PackagingConfigurationDashManifest struct {
 	// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout *PackagingConfigurationDashManifestManifestLayout `pulumi:"manifestLayout"`
-	ManifestName   *string                                           `pulumi:"manifestName"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+	ManifestName *string `pulumi:"manifestName"`
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds *int `pulumi:"minBufferTimeSeconds"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 	Profile *PackagingConfigurationDashManifestProfile `pulumi:"profile"`
 	// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
 	ScteMarkersSource *PackagingConfigurationDashManifestScteMarkersSource `pulumi:"scteMarkersSource"`
-	StreamSelection   *PackagingConfigurationStreamSelection               `pulumi:"streamSelection"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
 // PackagingConfigurationDashManifestInput is an input type that accepts PackagingConfigurationDashManifestArgs and PackagingConfigurationDashManifestOutput values.
@@ -3803,14 +3908,16 @@ type PackagingConfigurationDashManifestInput interface {
 type PackagingConfigurationDashManifestArgs struct {
 	// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout PackagingConfigurationDashManifestManifestLayoutPtrInput `pulumi:"manifestLayout"`
-	ManifestName   pulumi.StringPtrInput                                    `pulumi:"manifestName"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds pulumi.IntPtrInput `pulumi:"minBufferTimeSeconds"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 	Profile PackagingConfigurationDashManifestProfilePtrInput `pulumi:"profile"`
 	// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
 	ScteMarkersSource PackagingConfigurationDashManifestScteMarkersSourcePtrInput `pulumi:"scteMarkersSource"`
-	StreamSelection   PackagingConfigurationStreamSelectionPtrInput               `pulumi:"streamSelection"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
+	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
 func (PackagingConfigurationDashManifestArgs) ElementType() reflect.Type {
@@ -3872,6 +3979,7 @@ func (o PackagingConfigurationDashManifestOutput) ManifestLayout() PackagingConf
 	}).(PackagingConfigurationDashManifestManifestLayoutPtrOutput)
 }
 
+// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 func (o PackagingConfigurationDashManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
@@ -3895,6 +4003,7 @@ func (o PackagingConfigurationDashManifestOutput) ScteMarkersSource() PackagingC
 	}).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o PackagingConfigurationDashManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -3924,15 +4033,17 @@ func (o PackagingConfigurationDashManifestArrayOutput) Index(i pulumi.IntInput) 
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type PackagingConfigurationDashPackage struct {
 	// A list of DASH manifest configurations.
-	DashManifests []PackagingConfigurationDashManifest  `pulumi:"dashManifests"`
-	Encryption    *PackagingConfigurationDashEncryption `pulumi:"encryption"`
+	DashManifests []PackagingConfigurationDashManifest `pulumi:"dashManifests"`
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	Encryption *PackagingConfigurationDashEncryption `pulumi:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-	PeriodTriggers         []PackagingConfigurationDashPackagePeriodTriggersItem `pulumi:"periodTriggers"`
-	SegmentDurationSeconds *int                                                  `pulumi:"segmentDurationSeconds"`
+	PeriodTriggers []PackagingConfigurationDashPackagePeriodTriggersItem `pulumi:"periodTriggers"`
+	// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
+	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat *PackagingConfigurationDashPackageSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
 }
@@ -3952,14 +4063,16 @@ type PackagingConfigurationDashPackageInput interface {
 type PackagingConfigurationDashPackageArgs struct {
 	// A list of DASH manifest configurations.
 	DashManifests PackagingConfigurationDashManifestArrayInput `pulumi:"dashManifests"`
-	Encryption    PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	Encryption PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-	PeriodTriggers         PackagingConfigurationDashPackagePeriodTriggersItemArrayInput `pulumi:"periodTriggers"`
-	SegmentDurationSeconds pulumi.IntPtrInput                                            `pulumi:"segmentDurationSeconds"`
+	PeriodTriggers PackagingConfigurationDashPackagePeriodTriggersItemArrayInput `pulumi:"periodTriggers"`
+	// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
+	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat PackagingConfigurationDashPackageSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
 }
@@ -4047,6 +4160,7 @@ func (o PackagingConfigurationDashPackageOutput) DashManifests() PackagingConfig
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) []PackagingConfigurationDashManifest { return v.DashManifests }).(PackagingConfigurationDashManifestArrayOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationDashPackageOutput) Encryption() PackagingConfigurationDashEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption { return v.Encryption }).(PackagingConfigurationDashEncryptionPtrOutput)
 }
@@ -4068,6 +4182,7 @@ func (o PackagingConfigurationDashPackageOutput) PeriodTriggers() PackagingConfi
 	}).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
 }
 
+// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
 func (o PackagingConfigurationDashPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4113,6 +4228,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) DashManifests() PackagingCon
 	}).(PackagingConfigurationDashManifestArrayOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationDashPackagePtrOutput) Encryption() PackagingConfigurationDashEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption {
 		if v == nil {
@@ -4152,6 +4268,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) PeriodTriggers() PackagingCo
 	}).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
 }
 
+// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
 func (o PackagingConfigurationDashPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *int {
 		if v == nil {
@@ -4340,7 +4457,8 @@ type PackagingConfigurationHlsEncryption struct {
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
 	EncryptionMethod *PackagingConfigurationHlsEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
-	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider               `pulumi:"spekeKeyProvider"`
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // PackagingConfigurationHlsEncryptionInput is an input type that accepts PackagingConfigurationHlsEncryptionArgs and PackagingConfigurationHlsEncryptionOutput values.
@@ -4360,7 +4478,8 @@ type PackagingConfigurationHlsEncryptionArgs struct {
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
 	EncryptionMethod PackagingConfigurationHlsEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
-	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput                 `pulumi:"spekeKeyProvider"`
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (PackagingConfigurationHlsEncryptionArgs) ElementType() reflect.Type {
@@ -4453,6 +4572,7 @@ func (o PackagingConfigurationHlsEncryptionOutput) EncryptionMethod() PackagingC
 	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationHlsEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -4503,6 +4623,7 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() Packagi
 	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -4517,12 +4638,14 @@ type PackagingConfigurationHlsManifest struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
 	AdMarkers *PackagingConfigurationHlsManifestAdMarkers `pulumi:"adMarkers"`
 	// When enabled, an I-Frame only stream will be included in the output.
-	IncludeIframeOnlyStream *bool   `pulumi:"includeIframeOnlyStream"`
-	ManifestName            *string `pulumi:"manifestName"`
+	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+	ManifestName *string `pulumi:"manifestName"`
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-	RepeatExtXKey   *bool                                  `pulumi:"repeatExtXKey"`
+	RepeatExtXKey *bool `pulumi:"repeatExtXKey"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -4542,12 +4665,14 @@ type PackagingConfigurationHlsManifestArgs struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
 	AdMarkers PackagingConfigurationHlsManifestAdMarkersPtrInput `pulumi:"adMarkers"`
 	// When enabled, an I-Frame only stream will be included in the output.
-	IncludeIframeOnlyStream pulumi.BoolPtrInput   `pulumi:"includeIframeOnlyStream"`
-	ManifestName            pulumi.StringPtrInput `pulumi:"manifestName"`
+	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-	RepeatExtXKey   pulumi.BoolPtrInput                           `pulumi:"repeatExtXKey"`
+	RepeatExtXKey pulumi.BoolPtrInput `pulumi:"repeatExtXKey"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -4615,6 +4740,7 @@ func (o PackagingConfigurationHlsManifestOutput) IncludeIframeOnlyStream() pulum
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
 }
 
+// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 func (o PackagingConfigurationHlsManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
@@ -4629,6 +4755,7 @@ func (o PackagingConfigurationHlsManifestOutput) RepeatExtXKey() pulumi.BoolPtrO
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *bool { return v.RepeatExtXKey }).(pulumi.BoolPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o PackagingConfigurationHlsManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -4657,12 +4784,14 @@ func (o PackagingConfigurationHlsManifestArrayOutput) Index(i pulumi.IntInput) P
 
 // An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackage struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption *PackagingConfigurationHlsEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
 	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
-	IncludeDvbSubtitles    *bool `pulumi:"includeDvbSubtitles"`
-	SegmentDurationSeconds *int  `pulumi:"segmentDurationSeconds"`
+	IncludeDvbSubtitles *bool `pulumi:"includeDvbSubtitles"`
+	// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup *bool `pulumi:"useAudioRenditionGroup"`
 }
@@ -4680,12 +4809,14 @@ type PackagingConfigurationHlsPackageInput interface {
 
 // An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackageArgs struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption PackagingConfigurationHlsEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
 	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
-	IncludeDvbSubtitles    pulumi.BoolPtrInput `pulumi:"includeDvbSubtitles"`
-	SegmentDurationSeconds pulumi.IntPtrInput  `pulumi:"segmentDurationSeconds"`
+	IncludeDvbSubtitles pulumi.BoolPtrInput `pulumi:"includeDvbSubtitles"`
+	// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup pulumi.BoolPtrInput `pulumi:"useAudioRenditionGroup"`
 }
@@ -4768,6 +4899,7 @@ func (o PackagingConfigurationHlsPackageOutput) ToPackagingConfigurationHlsPacka
 	}).(PackagingConfigurationHlsPackagePtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationHlsPackageOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *PackagingConfigurationHlsEncryption { return v.Encryption }).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
@@ -4782,6 +4914,7 @@ func (o PackagingConfigurationHlsPackageOutput) IncludeDvbSubtitles() pulumi.Boo
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *bool { return v.IncludeDvbSubtitles }).(pulumi.BoolPtrOutput)
 }
 
+// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
 func (o PackagingConfigurationHlsPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4815,6 +4948,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) Elem() PackagingConfiguration
 	}).(PackagingConfigurationHlsPackageOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationHlsPackagePtrOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *PackagingConfigurationHlsEncryption {
 		if v == nil {
@@ -4844,6 +4978,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) IncludeDvbSubtitles() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
 func (o PackagingConfigurationHlsPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *int {
 		if v == nil {
@@ -4865,6 +5000,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) UseAudioRenditionGroup() pulu
 
 // A CMAF encryption configuration.
 type PackagingConfigurationMssEncryption struct {
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -4881,6 +5017,7 @@ type PackagingConfigurationMssEncryptionInput interface {
 
 // A CMAF encryption configuration.
 type PackagingConfigurationMssEncryptionArgs struct {
+	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -4962,6 +5099,7 @@ func (o PackagingConfigurationMssEncryptionOutput) ToPackagingConfigurationMssEn
 	}).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationMssEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -4992,6 +5130,7 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) Elem() PackagingConfigurat
 	}).(PackagingConfigurationMssEncryptionOutput)
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -5003,7 +5142,9 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() Packagi
 
 // A Microsoft Smooth Streaming (MSS) manifest configuration.
 type PackagingConfigurationMssManifest struct {
-	ManifestName    *string                                `pulumi:"manifestName"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+	ManifestName *string `pulumi:"manifestName"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -5020,7 +5161,9 @@ type PackagingConfigurationMssManifestInput interface {
 
 // A Microsoft Smooth Streaming (MSS) manifest configuration.
 type PackagingConfigurationMssManifestArgs struct {
-	ManifestName    pulumi.StringPtrInput                         `pulumi:"manifestName"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -5076,10 +5219,12 @@ func (o PackagingConfigurationMssManifestOutput) ToPackagingConfigurationMssMani
 	return o
 }
 
+// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 func (o PackagingConfigurationMssManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
 func (o PackagingConfigurationMssManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -5108,10 +5253,12 @@ func (o PackagingConfigurationMssManifestArrayOutput) Index(i pulumi.IntInput) P
 
 // A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackage struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption *PackagingConfigurationMssEncryption `pulumi:"encryption"`
 	// A list of MSS manifest configurations.
-	MssManifests           []PackagingConfigurationMssManifest `pulumi:"mssManifests"`
-	SegmentDurationSeconds *int                                `pulumi:"segmentDurationSeconds"`
+	MssManifests []PackagingConfigurationMssManifest `pulumi:"mssManifests"`
+	// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 }
 
 // PackagingConfigurationMssPackageInput is an input type that accepts PackagingConfigurationMssPackageArgs and PackagingConfigurationMssPackageOutput values.
@@ -5127,10 +5274,12 @@ type PackagingConfigurationMssPackageInput interface {
 
 // A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackageArgs struct {
+	// Holds encryption information so that access to the content can be controlled by a DRM solution.
 	Encryption PackagingConfigurationMssEncryptionPtrInput `pulumi:"encryption"`
 	// A list of MSS manifest configurations.
-	MssManifests           PackagingConfigurationMssManifestArrayInput `pulumi:"mssManifests"`
-	SegmentDurationSeconds pulumi.IntPtrInput                          `pulumi:"segmentDurationSeconds"`
+	MssManifests PackagingConfigurationMssManifestArrayInput `pulumi:"mssManifests"`
+	// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 }
 
 func (PackagingConfigurationMssPackageArgs) ElementType() reflect.Type {
@@ -5211,6 +5360,7 @@ func (o PackagingConfigurationMssPackageOutput) ToPackagingConfigurationMssPacka
 	}).(PackagingConfigurationMssPackagePtrOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationMssPackageOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) *PackagingConfigurationMssEncryption { return v.Encryption }).(PackagingConfigurationMssEncryptionPtrOutput)
 }
@@ -5220,6 +5370,7 @@ func (o PackagingConfigurationMssPackageOutput) MssManifests() PackagingConfigur
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) []PackagingConfigurationMssManifest { return v.MssManifests }).(PackagingConfigurationMssManifestArrayOutput)
 }
 
+// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
 func (o PackagingConfigurationMssPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -5248,6 +5399,7 @@ func (o PackagingConfigurationMssPackagePtrOutput) Elem() PackagingConfiguration
 	}).(PackagingConfigurationMssPackageOutput)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
 func (o PackagingConfigurationMssPackagePtrOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssPackage) *PackagingConfigurationMssEncryption {
 		if v == nil {
@@ -5267,6 +5419,7 @@ func (o PackagingConfigurationMssPackagePtrOutput) MssManifests() PackagingConfi
 	}).(PackagingConfigurationMssManifestArrayOutput)
 }
 
+// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
 func (o PackagingConfigurationMssPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssPackage) *int {
 		if v == nil {
@@ -5278,8 +5431,16 @@ func (o PackagingConfigurationMssPackagePtrOutput) SegmentDurationSeconds() pulu
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProvider struct {
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+	//
+	// Note the following considerations when using `encryptionContractConfiguration` :
+	//
+	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 	EncryptionContractConfiguration *PackagingConfigurationEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
-	RoleArn                         string                                                 `pulumi:"roleArn"`
+	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
+	RoleArn string `pulumi:"roleArn"`
 	// The system IDs to include in key requests.
 	SystemIds []string `pulumi:"systemIds"`
 	// The URL of the external key provider service.
@@ -5299,8 +5460,16 @@ type PackagingConfigurationSpekeKeyProviderInput interface {
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProviderArgs struct {
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+	//
+	// Note the following considerations when using `encryptionContractConfiguration` :
+	//
+	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 	EncryptionContractConfiguration PackagingConfigurationEncryptionContractConfigurationPtrInput `pulumi:"encryptionContractConfiguration"`
-	RoleArn                         pulumi.StringInput                                            `pulumi:"roleArn"`
+	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The system IDs to include in key requests.
 	SystemIds pulumi.StringArrayInput `pulumi:"systemIds"`
 	// The URL of the external key provider service.
@@ -5385,12 +5554,20 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSp
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+//
+// Note the following considerations when using `encryptionContractConfiguration` :
+//
+// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 func (o PackagingConfigurationSpekeKeyProviderOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationEncryptionContractConfiguration {
 		return v.EncryptionContractConfiguration
 	}).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
 }
 
+// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
 func (o PackagingConfigurationSpekeKeyProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5429,6 +5606,13 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Elem() PackagingConfigu
 	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
+//
+// Note the following considerations when using `encryptionContractConfiguration` :
+//
+// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
+// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
+// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationEncryptionContractConfiguration {
 		if v == nil {
@@ -5438,6 +5622,7 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) EncryptionContractConfi
 	}).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
 }
 
+// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *string {
 		if v == nil {

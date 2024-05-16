@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetInAppTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the in-app message template.
+        /// </summary>
         [Input("templateName", required: true)]
         public string TemplateName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetInAppTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the in-app message template.
+        /// </summary>
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
 
@@ -51,17 +57,42 @@ namespace Pulumi.AwsNative.Pinpoint
     [OutputType]
     public sealed class GetInAppTemplateResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the message template.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InAppTemplateInAppMessageContent> Content;
         /// <summary>
+        /// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? CustomConfig;
+        /// <summary>
+        /// A string that determines the appearance of the in-app message. You can specify one of the following:
+        /// 
+        /// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+        /// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+        /// - `OVERLAYS` – a message that covers entire screen.
+        /// - `MOBILE_FEED` – a message that appears in a window in front of the page.
+        /// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+        /// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pinpoint.InAppTemplateLayout? Layout;
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Tags;
+        /// <summary>
+        /// An optional description of the in-app template.
+        /// </summary>
         public readonly string? TemplateDescription;
 
         [OutputConstructor]

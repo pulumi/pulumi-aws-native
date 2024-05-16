@@ -37,21 +37,72 @@ export class DeliveryStream extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeliveryStream.__pulumiType;
     }
 
+    /**
+     * Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+     */
     public readonly amazonOpenSearchServerlessDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration | undefined>;
+    /**
+     * Describes the configuration of a destination in Amazon OpenSearch Service.
+     */
     public readonly amazonopensearchserviceDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+     */
     public readonly deliveryStreamEncryptionConfigurationInput!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput | undefined>;
+    /**
+     * The name of the delivery stream.
+     */
     public readonly deliveryStreamName!: pulumi.Output<string | undefined>;
+    /**
+     * The delivery stream type. This can be one of the following values:
+     *
+     * - `DirectPut` : Provider applications access the delivery stream directly.
+     * - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+     */
     public readonly deliveryStreamType!: pulumi.Output<enums.kinesisfirehose.DeliveryStreamType | undefined>;
+    /**
+     * The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+     */
     public readonly elasticsearchDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration | undefined>;
+    /**
+     * The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+     */
     public readonly extendedS3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
+    /**
+     * Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+     */
     public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
+    /**
+     * The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
+     */
     public readonly kinesisStreamSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
+    /**
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
+     */
     public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamMskSourceConfiguration | undefined>;
+    /**
+     * The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     */
     public readonly redshiftDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
+    /**
+     * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     */
     public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
+    /**
+     * Configure Snowflake destination
+     */
     public readonly snowflakeDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration | undefined>;
+    /**
+     * The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+     */
     public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
+    /**
+     * Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -100,7 +151,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["deliveryStreamName", "deliveryStreamType", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,19 +161,67 @@ export class DeliveryStream extends pulumi.CustomResource {
  * The set of arguments for constructing a DeliveryStream resource.
  */
 export interface DeliveryStreamArgs {
+    /**
+     * Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+     */
     amazonOpenSearchServerlessDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs>;
+    /**
+     * Describes the configuration of a destination in Amazon OpenSearch Service.
+     */
     amazonopensearchserviceDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>;
+    /**
+     * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+     */
     deliveryStreamEncryptionConfigurationInput?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInputArgs>;
+    /**
+     * The name of the delivery stream.
+     */
     deliveryStreamName?: pulumi.Input<string>;
+    /**
+     * The delivery stream type. This can be one of the following values:
+     *
+     * - `DirectPut` : Provider applications access the delivery stream directly.
+     * - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+     */
     deliveryStreamType?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamType>;
+    /**
+     * The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+     */
     elasticsearchDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationArgs>;
+    /**
+     * The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+     */
     extendedS3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationArgs>;
+    /**
+     * Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+     */
     httpEndpointDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfigurationArgs>;
+    /**
+     * The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
+     */
     kinesisStreamSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfigurationArgs>;
+    /**
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
+     */
     mskSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamMskSourceConfigurationArgs>;
+    /**
+     * The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     */
     redshiftDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationArgs>;
+    /**
+     * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     */
     s3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
+    /**
+     * Configure Snowflake destination
+     */
     snowflakeDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfigurationArgs>;
+    /**
+     * The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+     */
     splunkDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationArgs>;
+    /**
+     * Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

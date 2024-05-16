@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateNumericalDimensionField
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         public readonly Outputs.TemplateNumberFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         public readonly string? HierarchyId;
 
         [OutputConstructor]

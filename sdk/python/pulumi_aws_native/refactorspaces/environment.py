@@ -23,6 +23,9 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input['EnvironmentNetworkFabricType'] network_fabric_type: The network fabric type of the environment.
+        :param pulumi.Input[str] description: A description of the environment.
+        :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         pulumi.set(__self__, "network_fabric_type", network_fabric_type)
@@ -36,6 +39,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="networkFabricType")
     def network_fabric_type(self) -> pulumi.Input['EnvironmentNetworkFabricType']:
+        """
+        The network fabric type of the environment.
+        """
         return pulumi.get(self, "network_fabric_type")
 
     @network_fabric_type.setter
@@ -45,6 +51,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -54,6 +63,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the environment.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,6 +100,9 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the environment.
+        :param pulumi.Input[str] name: The name of the environment.
+        :param pulumi.Input['EnvironmentNetworkFabricType'] network_fabric_type: The network fabric type of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         ...
@@ -172,26 +187,41 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the environment.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the environment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkFabricType")
     def network_fabric_type(self) -> pulumi.Output['EnvironmentNetworkFabricType']:
+        """
+        The network fabric type of the environment.
+        """
         return pulumi.get(self, "network_fabric_type")
 
     @property
@@ -205,5 +235,8 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS Transit Gateway set up by the environment.
+        """
         return pulumi.get(self, "transit_gateway_id")
 

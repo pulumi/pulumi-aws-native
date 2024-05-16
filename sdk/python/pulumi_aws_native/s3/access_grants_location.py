@@ -23,6 +23,7 @@ class AccessGrantsLocationArgs:
         The set of arguments for constructing a AccessGrantsLocation resource.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         :param pulumi.Input[str] location_scope: Descriptor for where the location actually points
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A container of a key value name pair.
         """
         if iam_role_arn is not None:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -58,6 +59,9 @@ class AccessGrantsLocationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        A container of a key value name pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +85,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         :param pulumi.Input[str] location_scope: Descriptor for where the location actually points
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A container of a key value name pair.
         """
         ...
     @overload
@@ -189,5 +194,8 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        A container of a key value name pair.
+        """
         return pulumi.get(self, "tags")
 

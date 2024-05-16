@@ -44,26 +44,49 @@ class GetCaCertificateResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+
+        `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+
+        A value similar to the following is returned:
+
+        `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoRegistrationStatus")
     def auto_registration_status(self) -> Optional['CaCertificateAutoRegistrationStatus']:
+        """
+        Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+        """
         return pulumi.get(self, "auto_registration_status")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The CA certificate ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional['outputs.CaCertificateRegistrationConfig']:
+        """
+        The registration configuration.
+        """
         return pulumi.get(self, "registration_config")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['CaCertificateStatus']:
+        """
+        The status of the CA certificate.
+
+        Valid values are "ACTIVE" and "INACTIVE".
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -93,6 +116,9 @@ def get_ca_certificate(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCaCertificateResult:
     """
     Registers a CA Certificate in IoT.
+
+
+    :param str id: The CA certificate ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -113,5 +139,8 @@ def get_ca_certificate_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
     Registers a CA Certificate in IoT.
+
+
+    :param str id: The CA certificate ID.
     """
     ...

@@ -41,26 +41,45 @@ class GetRuleGroupResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the rule group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> Optional['outputs.RuleGroup']:
+        """
+        The object that defines the rules in a rule group.
+
+        AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
+
+        To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+        """
         return pulumi.get(self, "rule_group")
 
     @property
     @pulumi.getter(name="ruleGroupArn")
     def rule_group_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the `RuleGroup` .
+        """
         return pulumi.get(self, "rule_group_arn")
 
     @property
     @pulumi.getter(name="ruleGroupId")
     def rule_group_id(self) -> Optional[str]:
+        """
+        The unique ID of the `RuleGroup` resource.
+        """
         return pulumi.get(self, "rule_group_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -81,6 +100,9 @@ def get_rule_group(rule_group_arn: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleGroupResult:
     """
     Resource type definition for AWS::NetworkFirewall::RuleGroup
+
+
+    :param str rule_group_arn: The Amazon Resource Name (ARN) of the `RuleGroup` .
     """
     __args__ = dict()
     __args__['ruleGroupArn'] = rule_group_arn
@@ -100,5 +122,8 @@ def get_rule_group_output(rule_group_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Resource type definition for AWS::NetworkFirewall::RuleGroup
+
+
+    :param str rule_group_arn: The Amazon Resource Name (ARN) of the `RuleGroup` .
     """
     ...

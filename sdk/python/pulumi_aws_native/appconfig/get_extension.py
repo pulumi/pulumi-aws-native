@@ -42,11 +42,17 @@ class GetExtensionResult:
     @property
     @pulumi.getter
     def actions(self) -> Optional[Mapping[str, Sequence['outputs.ExtensionAction']]]:
+        """
+        The actions defined in the extension.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The system-generated Amazon Resource Name (ARN) for the extension.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -60,16 +66,25 @@ class GetExtensionResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The system-generated ID of the extension.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, 'outputs.ExtensionParameter']]:
+        """
+        The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[int]:
+        """
+        The extension version number.
+        """
         return pulumi.get(self, "version_number")
 
 
@@ -91,6 +106,9 @@ def get_extension(id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Resource Type definition for AWS::AppConfig::Extension
+
+
+    :param str id: The system-generated ID of the extension.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -111,5 +129,8 @@ def get_extension_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Resource Type definition for AWS::AppConfig::Extension
+
+
+    :param str id: The system-generated ID of the extension.
     """
     ...

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSheetElementRenderingRule
     {
+        /// <summary>
+        /// The override configuration of the rendering rules of a sheet.
+        /// </summary>
         public readonly Outputs.AnalysisSheetElementConfigurationOverrides ConfigurationOverrides;
+        /// <summary>
+        /// The expression of the rendering rules of a sheet.
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

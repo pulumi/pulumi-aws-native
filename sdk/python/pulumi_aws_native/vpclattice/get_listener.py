@@ -43,31 +43,49 @@ class GetListenerResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional['outputs.ListenerDefaultAction']:
+        """
+        The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+        """
         return pulumi.get(self, "default_action")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the listener.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_arn")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[str]:
+        """
+        The ID of the service.
+        """
         return pulumi.get(self, "service_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the listener.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -89,6 +107,9 @@ def get_listener(arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
     Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the listener.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -109,5 +130,8 @@ def get_listener_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
     Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the listener.
     """
     ...

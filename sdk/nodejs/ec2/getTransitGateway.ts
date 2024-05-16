@@ -19,21 +19,57 @@ export function getTransitGateway(args: GetTransitGatewayArgs, opts?: pulumi.Inv
 }
 
 export interface GetTransitGatewayArgs {
+    /**
+     * The ID of the transit gateway.
+     */
     id: string;
 }
 
 export interface GetTransitGatewayResult {
+    /**
+     * The ID of the default association route table.
+     */
     readonly associationDefaultRouteTableId?: string;
+    /**
+     * Enable or disable automatic acceptance of attachment requests. Disabled by default.
+     */
     readonly autoAcceptSharedAttachments?: string;
+    /**
+     * Enable or disable automatic association with the default association route table. Enabled by default.
+     */
     readonly defaultRouteTableAssociation?: string;
+    /**
+     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+     */
     readonly defaultRouteTablePropagation?: string;
+    /**
+     * The description of the transit gateway.
+     */
     readonly description?: string;
+    /**
+     * Enable or disable DNS support. Enabled by default.
+     */
     readonly dnsSupport?: string;
+    /**
+     * The ID of the transit gateway.
+     */
     readonly id?: string;
+    /**
+     * The ID of the default propagation route table.
+     */
     readonly propagationDefaultRouteTableId?: string;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     readonly tags?: outputs.Tag[];
     readonly transitGatewayArn?: string;
+    /**
+     * The transit gateway CIDR blocks.
+     */
     readonly transitGatewayCidrBlocks?: string[];
+    /**
+     * Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+     */
     readonly vpnEcmpSupport?: string;
 }
 /**
@@ -44,5 +80,8 @@ export function getTransitGatewayOutput(args: GetTransitGatewayOutputArgs, opts?
 }
 
 export interface GetTransitGatewayOutputArgs {
+    /**
+     * The ID of the transit gateway.
+     */
     id: pulumi.Input<string>;
 }

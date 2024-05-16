@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Events.Inputs
     {
         [Input("bodyParameters")]
         private InputList<Inputs.ConnectionParameterArgs>? _bodyParameters;
+
+        /// <summary>
+        /// Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+        /// </summary>
         public InputList<Inputs.ConnectionParameterArgs> BodyParameters
         {
             get => _bodyParameters ?? (_bodyParameters = new InputList<Inputs.ConnectionParameterArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.Events.Inputs
 
         [Input("headerParameters")]
         private InputList<Inputs.ConnectionParameterArgs>? _headerParameters;
+
+        /// <summary>
+        /// Contains additional header parameters for the connection.
+        /// </summary>
         public InputList<Inputs.ConnectionParameterArgs> HeaderParameters
         {
             get => _headerParameters ?? (_headerParameters = new InputList<Inputs.ConnectionParameterArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.Events.Inputs
 
         [Input("queryStringParameters")]
         private InputList<Inputs.ConnectionParameterArgs>? _queryStringParameters;
+
+        /// <summary>
+        /// Contains additional query string parameters for the connection.
+        /// </summary>
         public InputList<Inputs.ConnectionParameterArgs> QueryStringParameters
         {
             get => _queryStringParameters ?? (_queryStringParameters = new InputList<Inputs.ConnectionParameterArgs>());

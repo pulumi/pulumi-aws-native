@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.RecordingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("recordingReconnectWindowSeconds")]
         public Output<int?> RecordingReconnectWindowSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+        /// </summary>
         [Output("renditionConfiguration")]
         public Output<Outputs.RecordingConfigurationRenditionConfiguration?> RenditionConfiguration { get; private set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+        /// </summary>
         [Output("thumbnailConfiguration")]
         public Output<Outputs.RecordingConfigurationThumbnailConfiguration?> ThumbnailConfiguration { get; private set; } = null!;
 
@@ -107,6 +116,9 @@ namespace Pulumi.AwsNative.Ivs
 
     public sealed class RecordingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+        /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.RecordingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 
@@ -122,6 +134,9 @@ namespace Pulumi.AwsNative.Ivs
         [Input("recordingReconnectWindowSeconds")]
         public Input<int>? RecordingReconnectWindowSeconds { get; set; }
 
+        /// <summary>
+        /// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+        /// </summary>
         [Input("renditionConfiguration")]
         public Input<Inputs.RecordingConfigurationRenditionConfigurationArgs>? RenditionConfiguration { get; set; }
 
@@ -137,6 +152,9 @@ namespace Pulumi.AwsNative.Ivs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+        /// </summary>
         [Input("thumbnailConfiguration")]
         public Input<Inputs.RecordingConfigurationThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }
 

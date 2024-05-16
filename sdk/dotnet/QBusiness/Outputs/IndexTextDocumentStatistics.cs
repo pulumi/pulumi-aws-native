@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class IndexTextDocumentStatistics
     {
+        /// <summary>
+        /// The total size, in bytes, of the indexed documents.
+        /// </summary>
         public readonly double? IndexedTextBytes;
+        /// <summary>
+        /// The number of text documents indexed.
+        /// </summary>
         public readonly double? IndexedTextDocumentCount;
 
         [OutputConstructor]

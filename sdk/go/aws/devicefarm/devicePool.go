@@ -17,13 +17,22 @@ import (
 type DevicePool struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput       `pulumi:"arn"`
-	Description pulumi.StringPtrOutput    `pulumi:"description"`
-	MaxDevices  pulumi.IntPtrOutput       `pulumi:"maxDevices"`
-	Name        pulumi.StringOutput       `pulumi:"name"`
-	ProjectArn  pulumi.StringOutput       `pulumi:"projectArn"`
-	Rules       DevicePoolRuleArrayOutput `pulumi:"rules"`
-	Tags        aws.TagArrayOutput        `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The device pool's description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices pulumi.IntPtrOutput `pulumi:"maxDevices"`
+	// The device pool's name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARN of the project for the device pool.
+	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// Represents a condition for a device pool.
+	Rules DevicePoolRuleArrayOutput `pulumi:"rules"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDevicePool registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +85,38 @@ func (DevicePoolState) ElementType() reflect.Type {
 }
 
 type devicePoolArgs struct {
-	Description *string          `pulumi:"description"`
-	MaxDevices  *int             `pulumi:"maxDevices"`
-	Name        *string          `pulumi:"name"`
-	ProjectArn  string           `pulumi:"projectArn"`
-	Rules       []DevicePoolRule `pulumi:"rules"`
-	Tags        []aws.Tag        `pulumi:"tags"`
+	// The device pool's description.
+	Description *string `pulumi:"description"`
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices *int `pulumi:"maxDevices"`
+	// The device pool's name.
+	Name *string `pulumi:"name"`
+	// The ARN of the project for the device pool.
+	ProjectArn string `pulumi:"projectArn"`
+	// Represents a condition for a device pool.
+	Rules []DevicePoolRule `pulumi:"rules"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DevicePool resource.
 type DevicePoolArgs struct {
+	// The device pool's description.
 	Description pulumi.StringPtrInput
-	MaxDevices  pulumi.IntPtrInput
-	Name        pulumi.StringPtrInput
-	ProjectArn  pulumi.StringInput
-	Rules       DevicePoolRuleArrayInput
-	Tags        aws.TagArrayInput
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices pulumi.IntPtrInput
+	// The device pool's name.
+	Name pulumi.StringPtrInput
+	// The ARN of the project for the device pool.
+	ProjectArn pulumi.StringInput
+	// Represents a condition for a device pool.
+	Rules DevicePoolRuleArrayInput
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags aws.TagArrayInput
 }
 
 func (DevicePoolArgs) ElementType() reflect.Type {
@@ -131,30 +156,39 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o DevicePoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The device pool's description.
 func (o DevicePoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+//
+// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
 func (o DevicePoolOutput) MaxDevices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.IntPtrOutput { return v.MaxDevices }).(pulumi.IntPtrOutput)
 }
 
+// The device pool's name.
 func (o DevicePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARN of the project for the device pool.
 func (o DevicePoolOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
+// Represents a condition for a device pool.
 func (o DevicePoolOutput) Rules() DevicePoolRuleArrayOutput {
 	return o.ApplyT(func(v *DevicePool) DevicePoolRuleArrayOutput { return v.Rules }).(DevicePoolRuleArrayOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o DevicePoolOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DevicePool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

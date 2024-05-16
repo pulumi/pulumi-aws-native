@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableFieldUrlConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The image configuration of a table field URL.
+        /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.TemplateTableFieldImageConfigurationArgs>? ImageConfiguration { get; set; }
 
+        /// <summary>
+        /// The link configuration of a table field URL.
+        /// </summary>
         [Input("linkConfiguration")]
         public Input<Inputs.TemplateTableFieldLinkConfigurationArgs>? LinkConfiguration { get; set; }
 

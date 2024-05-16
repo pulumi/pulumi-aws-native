@@ -17,8 +17,9 @@ type FleetMetric struct {
 	pulumi.CustomResourceState
 
 	// The aggregation field to perform aggregation and metric emission
-	AggregationField pulumi.StringPtrOutput              `pulumi:"aggregationField"`
-	AggregationType  FleetMetricAggregationTypePtrOutput `pulumi:"aggregationType"`
+	AggregationField pulumi.StringPtrOutput `pulumi:"aggregationField"`
+	// The type of aggregation queries.
+	AggregationType FleetMetricAggregationTypePtrOutput `pulumi:"aggregationType"`
 	// The creation date of a fleet metric
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The description of a fleet metric
@@ -90,8 +91,9 @@ func (FleetMetricState) ElementType() reflect.Type {
 
 type fleetMetricArgs struct {
 	// The aggregation field to perform aggregation and metric emission
-	AggregationField *string                     `pulumi:"aggregationField"`
-	AggregationType  *FleetMetricAggregationType `pulumi:"aggregationType"`
+	AggregationField *string `pulumi:"aggregationField"`
+	// The type of aggregation queries.
+	AggregationType *FleetMetricAggregationType `pulumi:"aggregationType"`
 	// The description of a fleet metric
 	Description *string `pulumi:"description"`
 	// The index name of a fleet metric
@@ -114,7 +116,8 @@ type fleetMetricArgs struct {
 type FleetMetricArgs struct {
 	// The aggregation field to perform aggregation and metric emission
 	AggregationField pulumi.StringPtrInput
-	AggregationType  FleetMetricAggregationTypePtrInput
+	// The type of aggregation queries.
+	AggregationType FleetMetricAggregationTypePtrInput
 	// The description of a fleet metric
 	Description pulumi.StringPtrInput
 	// The index name of a fleet metric
@@ -175,6 +178,7 @@ func (o FleetMetricOutput) AggregationField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.AggregationField }).(pulumi.StringPtrOutput)
 }
 
+// The type of aggregation queries.
 func (o FleetMetricOutput) AggregationType() FleetMetricAggregationTypePtrOutput {
 	return o.ApplyT(func(v *FleetMetric) FleetMetricAggregationTypePtrOutput { return v.AggregationType }).(FleetMetricAggregationTypePtrOutput)
 }

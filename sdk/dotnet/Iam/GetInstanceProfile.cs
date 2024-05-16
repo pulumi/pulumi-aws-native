@@ -61,6 +61,13 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the instance profile. For example:
+        /// 
+        /// `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
+        /// 
+        /// This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.

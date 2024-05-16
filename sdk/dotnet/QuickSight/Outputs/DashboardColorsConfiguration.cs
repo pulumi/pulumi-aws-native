@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardColorsConfiguration
     {
+        /// <summary>
+        /// Determines the color that's applied to a particular data value in a column.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardCustomColor> CustomColors;
 
         [OutputConstructor]

@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFunnelChartDataLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the category labels within the data labels.
+        /// </summary>
         [Input("categoryLabelVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? CategoryLabelVisibility { get; set; }
 
+        /// <summary>
+        /// The color of the data label text.
+        /// </summary>
         [Input("labelColor")]
         public Input<string>? LabelColor { get; set; }
 
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         [Input("labelFontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? LabelFontConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines the style of the metric labels.
+        /// </summary>
         [Input("measureDataLabelStyle")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardFunnelChartMeasureDataLabelStyle>? MeasureDataLabelStyle { get; set; }
 
+        /// <summary>
+        /// The visibility of the measure labels within the data labels.
+        /// </summary>
         [Input("measureLabelVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? MeasureLabelVisibility { get; set; }
 
+        /// <summary>
+        /// Determines the positioning of the data label relative to a section of the funnel.
+        /// </summary>
         [Input("position")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardDataLabelPosition>? Position { get; set; }
 
+        /// <summary>
+        /// The visibility option that determines if data labels are displayed.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

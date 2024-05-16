@@ -18,12 +18,21 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("createColumn")]
         public Input<bool>? CreateColumn { get; set; }
 
+        /// <summary>
+        /// Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+        /// </summary>
         [Input("datetimeOptions")]
         public Input<Inputs.DatasetDatetimeOptionsArgs>? DatetimeOptions { get; set; }
 
+        /// <summary>
+        /// Represents a structure for defining parameter conditions.
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.DatasetFilterExpressionArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// The name of the parameter that is used in the dataset's Amazon S3 path.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

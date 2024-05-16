@@ -30,7 +30,9 @@ type LookupBridgeSourceArgs struct {
 }
 
 type LookupBridgeSourceResult struct {
-	FlowSource    *BridgeSourceBridgeFlowSource    `pulumi:"flowSource"`
+	// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+	FlowSource *BridgeSourceBridgeFlowSource `pulumi:"flowSource"`
+	// The source of the bridge. A network source originates at your premises.
 	NetworkSource *BridgeSourceBridgeNetworkSource `pulumi:"networkSource"`
 }
 
@@ -72,10 +74,12 @@ func (o LookupBridgeSourceResultOutput) ToLookupBridgeSourceResultOutputWithCont
 	return o
 }
 
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 func (o LookupBridgeSourceResultOutput) FlowSource() BridgeSourceBridgeFlowSourcePtrOutput {
 	return o.ApplyT(func(v LookupBridgeSourceResult) *BridgeSourceBridgeFlowSource { return v.FlowSource }).(BridgeSourceBridgeFlowSourcePtrOutput)
 }
 
+// The source of the bridge. A network source originates at your premises.
 func (o LookupBridgeSourceResultOutput) NetworkSource() BridgeSourceBridgeNetworkSourcePtrOutput {
 	return o.ApplyT(func(v LookupBridgeSourceResult) *BridgeSourceBridgeNetworkSource { return v.NetworkSource }).(BridgeSourceBridgeNetworkSourcePtrOutput)
 }

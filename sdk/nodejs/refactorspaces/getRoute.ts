@@ -21,14 +21,32 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetRouteArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: string;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: string;
+    /**
+     * The unique identifier of the route.
+     */
     routeIdentifier: string;
 }
 
 export interface GetRouteResult {
+    /**
+     * The Amazon Resource Name (ARN) of the route.
+     */
     readonly arn?: string;
+    /**
+     * A mapping of Amazon API Gateway path resources to resource IDs.
+     */
     readonly pathResourceToId?: string;
+    /**
+     * The unique identifier of the route.
+     */
     readonly routeIdentifier?: string;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
@@ -43,7 +61,16 @@ export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetRouteOutputArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: pulumi.Input<string>;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
+    /**
+     * The unique identifier of the route.
+     */
     routeIdentifier: pulumi.Input<string>;
 }

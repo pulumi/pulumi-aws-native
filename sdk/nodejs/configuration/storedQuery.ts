@@ -37,10 +37,25 @@ export class StoredQuery extends pulumi.CustomResource {
         return obj['__pulumiType'] === StoredQuery.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+     */
     public /*out*/ readonly queryArn!: pulumi.Output<string>;
+    /**
+     * A unique description for the query.
+     */
     public readonly queryDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+     */
     public readonly queryExpression!: pulumi.Output<string>;
+    /**
+     * The ID of the query.
+     */
     public /*out*/ readonly queryId!: pulumi.Output<string>;
+    /**
+     * The name of the query.
+     */
     public readonly queryName!: pulumi.Output<string>;
     /**
      * The tags for the stored query.
@@ -86,8 +101,17 @@ export class StoredQuery extends pulumi.CustomResource {
  * The set of arguments for constructing a StoredQuery resource.
  */
 export interface StoredQueryArgs {
+    /**
+     * A unique description for the query.
+     */
     queryDescription?: pulumi.Input<string>;
+    /**
+     * The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+     */
     queryExpression: pulumi.Input<string>;
+    /**
+     * The name of the query.
+     */
     queryName?: pulumi.Input<string>;
     /**
      * The tags for the stored query.

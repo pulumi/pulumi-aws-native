@@ -41,7 +41,13 @@ export class Bucket extends pulumi.CustomResource {
      * Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
      */
     public /*out*/ readonly ableToUpdateBundle!: pulumi.Output<boolean>;
+    /**
+     * `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+     */
     public readonly accessRules!: pulumi.Output<outputs.lightsail.BucketAccessRules | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the bucket.
+     */
     public /*out*/ readonly bucketArn!: pulumi.Output<string>;
     /**
      * The name for the bucket.
@@ -119,6 +125,9 @@ export class Bucket extends pulumi.CustomResource {
  * The set of arguments for constructing a Bucket resource.
  */
 export interface BucketArgs {
+    /**
+     * `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+     */
     accessRules?: pulumi.Input<inputs.lightsail.BucketAccessRulesArgs>;
     /**
      * The name for the bucket.

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisShortFormatText
     {
+        /// <summary>
+        /// Plain text format.
+        /// </summary>
         public readonly string? PlainText;
+        /// <summary>
+        /// Rich text. Examples of rich text include bold, underline, and italics.
+        /// </summary>
         public readonly string? RichText;
 
         [OutputConstructor]

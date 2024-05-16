@@ -20,9 +20,12 @@ class AttributeGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AttributeGroup resource.
-        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        :param Any attributes: A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: The description of the attribute group. 
         :param pulumi.Input[str] name: The name of the attribute group. 
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs you can use to associate with the attribute group.
         """
         pulumi.set(__self__, "attributes", attributes)
         if description is not None:
@@ -36,6 +39,8 @@ class AttributeGroupArgs:
     @pulumi.getter
     def attributes(self) -> Any:
         """
+        A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attributes")
@@ -71,6 +76,9 @@ class AttributeGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs you can use to associate with the attribute group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,9 +101,12 @@ class AttributeGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        :param Any attributes: A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: The description of the attribute group. 
         :param pulumi.Input[str] name: The name of the attribute group. 
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs you can use to associate with the attribute group.
         """
         ...
     @overload
@@ -175,12 +186,17 @@ class AttributeGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) that specifies the attribute group across services.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Any]:
         """
+        A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attributes")
@@ -188,6 +204,9 @@ class AttributeGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The globally unique attribute group identifier of the attribute group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -209,5 +228,8 @@ class AttributeGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value pairs you can use to associate with the attribute group.
+        """
         return pulumi.get(self, "tags")
 

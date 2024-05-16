@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowLookoutMetricsDestinationProperties
     {
+        /// <summary>
+        /// The object specified in the Amazon Lookout for Metrics flow destination.
+        /// </summary>
         public readonly string? Object;
 
         [OutputConstructor]

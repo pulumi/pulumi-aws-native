@@ -310,7 +310,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tier"] = tier
             __props__.__dict__["version_label"] = version_label
             __props__.__dict__["endpoint_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName", "cnamePrefix", "environmentName", "solutionStackName", "tier.name", "tier.type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName", "cnamePrefix", "environmentName", "solutionStackName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:elasticbeanstalk:Environment',
@@ -376,6 +376,15 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[str]:
+        """
+        For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+
+        Example load balancer URL:
+
+        Example instance IP address:
+
+        `192.0.2.0`
+        """
         return pulumi.get(self, "endpoint_url")
 
     @property

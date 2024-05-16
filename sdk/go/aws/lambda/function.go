@@ -366,7 +366,8 @@ type Function struct {
 
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures FunctionArchitecturesItemArrayOutput `pulumi:"architectures"`
-	Arn           pulumi.StringOutput                  `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the function.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The code for the function.
 	Code FunctionCodeOutput `pulumi:"code"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -409,7 +410,8 @@ type Function struct {
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig FunctionRuntimeManagementConfigPtrOutput `pulumi:"runtimeManagementConfig"`
 	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-	SnapStart         FunctionSnapStartPtrOutput      `pulumi:"snapStart"`
+	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
+	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	SnapStartResponse FunctionSnapStartResponseOutput `pulumi:"snapStartResponse"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -625,6 +627,7 @@ func (o FunctionOutput) Architectures() FunctionArchitecturesItemArrayOutput {
 	return o.ApplyT(func(v *Function) FunctionArchitecturesItemArrayOutput { return v.Architectures }).(FunctionArchitecturesItemArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -735,6 +738,7 @@ func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 func (o FunctionOutput) SnapStartResponse() FunctionSnapStartResponseOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartResponseOutput { return v.SnapStartResponse }).(FunctionSnapStartResponseOutput)
 }

@@ -31,18 +31,25 @@ type LookupDataSourceArgs struct {
 
 type LookupDataSourceResult struct {
 	// The time at which the data source was created.
-	CreatedAt               *string                       `pulumi:"createdAt"`
-	DataDeletionPolicy      *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
-	DataSourceConfiguration *DataSourceConfiguration      `pulumi:"dataSourceConfiguration"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// The data deletion policy for a data source.
+	DataDeletionPolicy *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
+	// Contains details about how a data source is stored.
+	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
-	DataSourceId     *string           `pulumi:"dataSourceId"`
+	DataSourceId *string `pulumi:"dataSourceId"`
+	// The status of the data source. The following statuses are possible:
+	//
+	// - Available – The data source has been created and is ready for ingestion into the knowledge base.
+	// - Deleting – The data source is being deleted.
 	DataSourceStatus *DataSourceStatus `pulumi:"dataSourceStatus"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
 	// The details of the failure reasons related to the data source.
 	FailureReasons []string `pulumi:"failureReasons"`
 	// The name of the data source.
-	Name                              *string                                      `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Contains the configuration for server-side encryption.
 	ServerSideEncryptionConfiguration *DataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The time at which the knowledge base was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -91,10 +98,12 @@ func (o LookupDataSourceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The data deletion policy for a data source.
 func (o LookupDataSourceResultOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceDataDeletionPolicy { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
+// Contains details about how a data source is stored.
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceConfiguration { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }
@@ -104,6 +113,10 @@ func (o LookupDataSourceResultOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.DataSourceId }).(pulumi.StringPtrOutput)
 }
 
+// The status of the data source. The following statuses are possible:
+//
+// - Available – The data source has been created and is ready for ingestion into the knowledge base.
+// - Deleting – The data source is being deleted.
 func (o LookupDataSourceResultOutput) DataSourceStatus() DataSourceStatusPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceStatus { return v.DataSourceStatus }).(DataSourceStatusPtrOutput)
 }
@@ -123,6 +136,7 @@ func (o LookupDataSourceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Contains the configuration for server-side encryption.
 func (o LookupDataSourceResultOutput) ServerSideEncryptionConfiguration() DataSourceServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceServerSideEncryptionConfiguration {
 		return v.ServerSideEncryptionConfiguration

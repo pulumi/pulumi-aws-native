@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeCloudwatchLogsLogDestination
     {
+        /// <summary>
+        /// The AWS Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+        /// </summary>
         public readonly string? LogGroupArn;
 
         [OutputConstructor]

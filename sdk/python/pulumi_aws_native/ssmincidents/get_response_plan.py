@@ -66,6 +66,9 @@ class GetResponsePlanResult:
     @property
     @pulumi.getter(name="chatChannel")
     def chat_channel(self) -> Optional['outputs.ResponsePlanChatChannel']:
+        """
+        The AWS Chatbot chat channel used for collaboration during an incident.
+        """
         return pulumi.get(self, "chat_channel")
 
     @property
@@ -87,6 +90,9 @@ class GetResponsePlanResult:
     @property
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> Optional['outputs.ResponsePlanIncidentTemplate']:
+        """
+        The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        """
         return pulumi.get(self, "incident_template")
 
     @property

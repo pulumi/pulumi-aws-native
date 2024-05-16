@@ -17,23 +17,44 @@ import (
 type DataSource struct {
 	pulumi.CustomResourceState
 
+	// The identifier of the Amazon Q Business application the data source will be attached to.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
-	Configuration                   pulumi.AnyOutput                                   `pulumi:"configuration"`
-	CreatedAt                       pulumi.StringOutput                                `pulumi:"createdAt"`
-	DataSourceArn                   pulumi.StringOutput                                `pulumi:"dataSourceArn"`
-	DataSourceId                    pulumi.StringOutput                                `pulumi:"dataSourceId"`
-	Description                     pulumi.StringPtrOutput                             `pulumi:"description"`
-	DisplayName                     pulumi.StringOutput                                `pulumi:"displayName"`
+	Configuration pulumi.AnyOutput `pulumi:"configuration"`
+	// The Unix timestamp when the Amazon Q Business data source was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
+	DataSourceArn pulumi.StringOutput `pulumi:"dataSourceArn"`
+	// The identifier of the Amazon Q Business data source.
+	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
+	// A description for the data source connector.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the Amazon Q Business data source.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Provides the configuration information for altering document metadata and content during the document ingestion process.
+	//
+	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration DataSourceDocumentEnrichmentConfigurationPtrOutput `pulumi:"documentEnrichmentConfiguration"`
-	IndexId                         pulumi.StringOutput                                `pulumi:"indexId"`
-	RoleArn                         pulumi.StringPtrOutput                             `pulumi:"roleArn"`
-	Status                          DataSourceStatusOutput                             `pulumi:"status"`
-	SyncSchedule                    pulumi.StringPtrOutput                             `pulumi:"syncSchedule"`
-	Tags                            aws.TagArrayOutput                                 `pulumi:"tags"`
-	Type                            pulumi.StringOutput                                `pulumi:"type"`
-	UpdatedAt                       pulumi.StringOutput                                `pulumi:"updatedAt"`
-	VpcConfiguration                DataSourceVpcConfigurationPtrOutput                `pulumi:"vpcConfiguration"`
+	// The identifier of the index the data source is attached to.
+	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The status of the Amazon Q Business data source.
+	Status DataSourceStatusOutput `pulumi:"status"`
+	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+	//
+	// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+	SyncSchedule pulumi.StringPtrOutput `pulumi:"syncSchedule"`
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of the Amazon Q Business data source.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// The Unix timestamp when the Amazon Q Business data source was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+	VpcConfiguration DataSourceVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -93,32 +114,62 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
+	// The identifier of the Amazon Q Business application the data source will be attached to.
 	ApplicationId string `pulumi:"applicationId"`
+	// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
-	Configuration                   interface{}                                `pulumi:"configuration"`
-	Description                     *string                                    `pulumi:"description"`
-	DisplayName                     string                                     `pulumi:"displayName"`
+	Configuration interface{} `pulumi:"configuration"`
+	// A description for the data source connector.
+	Description *string `pulumi:"description"`
+	// The name of the Amazon Q Business data source.
+	DisplayName string `pulumi:"displayName"`
+	// Provides the configuration information for altering document metadata and content during the document ingestion process.
+	//
+	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration *DataSourceDocumentEnrichmentConfiguration `pulumi:"documentEnrichmentConfiguration"`
-	IndexId                         string                                     `pulumi:"indexId"`
-	RoleArn                         *string                                    `pulumi:"roleArn"`
-	SyncSchedule                    *string                                    `pulumi:"syncSchedule"`
-	Tags                            []aws.Tag                                  `pulumi:"tags"`
-	VpcConfiguration                *DataSourceVpcConfiguration                `pulumi:"vpcConfiguration"`
+	// The identifier of the index the data source is attached to.
+	IndexId string `pulumi:"indexId"`
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	RoleArn *string `pulumi:"roleArn"`
+	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+	//
+	// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+	SyncSchedule *string `pulumi:"syncSchedule"`
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+	VpcConfiguration *DataSourceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
+	// The identifier of the Amazon Q Business application the data source will be attached to.
 	ApplicationId pulumi.StringInput
+	// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
-	Configuration                   pulumi.Input
-	Description                     pulumi.StringPtrInput
-	DisplayName                     pulumi.StringInput
+	Configuration pulumi.Input
+	// A description for the data source connector.
+	Description pulumi.StringPtrInput
+	// The name of the Amazon Q Business data source.
+	DisplayName pulumi.StringInput
+	// Provides the configuration information for altering document metadata and content during the document ingestion process.
+	//
+	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration DataSourceDocumentEnrichmentConfigurationPtrInput
-	IndexId                         pulumi.StringInput
-	RoleArn                         pulumi.StringPtrInput
-	SyncSchedule                    pulumi.StringPtrInput
-	Tags                            aws.TagArrayInput
-	VpcConfiguration                DataSourceVpcConfigurationPtrInput
+	// The identifier of the index the data source is attached to.
+	IndexId pulumi.StringInput
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	RoleArn pulumi.StringPtrInput
+	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+	//
+	// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+	SyncSchedule pulumi.StringPtrInput
+	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayInput
+	// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+	VpcConfiguration DataSourceVpcConfigurationPtrInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -158,69 +209,90 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+// The identifier of the Amazon Q Business application the data source will be attached to.
 func (o DataSourceOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
 func (o DataSourceOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// The Unix timestamp when the Amazon Q Business data source was created.
 func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
 func (o DataSourceOutput) DataSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the Amazon Q Business data source.
 func (o DataSourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
+// A description for the data source connector.
 func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Q Business data source.
 func (o DataSourceOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// Provides the configuration information for altering document metadata and content during the document ingestion process.
+//
+// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 func (o DataSourceOutput) DocumentEnrichmentConfiguration() DataSourceDocumentEnrichmentConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceDocumentEnrichmentConfigurationPtrOutput {
 		return v.DocumentEnrichmentConfiguration
 	}).(DataSourceDocumentEnrichmentConfigurationPtrOutput)
 }
 
+// The identifier of the index the data source is attached to.
 func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 func (o DataSourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the Amazon Q Business data source.
 func (o DataSourceOutput) Status() DataSourceStatusOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceStatusOutput { return v.Status }).(DataSourceStatusOutput)
 }
 
+// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+//
+// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
 func (o DataSourceOutput) SyncSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.SyncSchedule }).(pulumi.StringPtrOutput)
 }
 
+// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o DataSourceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the Amazon Q Business data source.
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
+// The Unix timestamp when the Amazon Q Business data source was last updated.
 func (o DataSourceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
 func (o DataSourceOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceVpcConfigurationPtrOutput { return v.VpcConfiguration }).(DataSourceVpcConfigurationPtrOutput)
 }

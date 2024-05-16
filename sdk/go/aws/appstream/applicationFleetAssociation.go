@@ -16,8 +16,10 @@ import (
 type ApplicationFleetAssociation struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the application.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	FleetName      pulumi.StringOutput `pulumi:"fleetName"`
+	// The name of the fleet.
+	FleetName pulumi.StringOutput `pulumi:"fleetName"`
 }
 
 // NewApplicationFleetAssociation registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +73,18 @@ func (ApplicationFleetAssociationState) ElementType() reflect.Type {
 }
 
 type applicationFleetAssociationArgs struct {
+	// The ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`
-	FleetName      string `pulumi:"fleetName"`
+	// The name of the fleet.
+	FleetName string `pulumi:"fleetName"`
 }
 
 // The set of arguments for constructing a ApplicationFleetAssociation resource.
 type ApplicationFleetAssociationArgs struct {
+	// The ARN of the application.
 	ApplicationArn pulumi.StringInput
-	FleetName      pulumi.StringInput
+	// The name of the fleet.
+	FleetName pulumi.StringInput
 }
 
 func (ApplicationFleetAssociationArgs) ElementType() reflect.Type {
@@ -118,10 +124,12 @@ func (o ApplicationFleetAssociationOutput) ToApplicationFleetAssociationOutputWi
 	return o
 }
 
+// The ARN of the application.
 func (o ApplicationFleetAssociationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationFleetAssociation) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
+// The name of the fleet.
 func (o ApplicationFleetAssociationOutput) FleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationFleetAssociation) pulumi.StringOutput { return v.FleetName }).(pulumi.StringOutput)
 }

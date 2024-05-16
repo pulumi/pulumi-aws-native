@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardVersionDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for default analysis settings.
+        /// </summary>
         [Input("analysisDefaults")]
         public Input<Inputs.DashboardAnalysisDefaultsArgs>? AnalysisDefaults { get; set; }
 
         [Input("calculatedFields")]
         private InputList<Inputs.DashboardCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// The calculated field of an analysis.
+        /// </summary>
         public InputList<Inputs.DashboardCalculatedFieldArgs> CalculatedFields
         {
             get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.DashboardCalculatedFieldArgs>());
@@ -25,6 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("columnConfigurations")]
         private InputList<Inputs.DashboardColumnConfigurationArgs>? _columnConfigurations;
+
+        /// <summary>
+        /// The general configuration of a column.
+        /// </summary>
         public InputList<Inputs.DashboardColumnConfigurationArgs> ColumnConfigurations
         {
             get => _columnConfigurations ?? (_columnConfigurations = new InputList<Inputs.DashboardColumnConfigurationArgs>());
@@ -33,6 +44,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("dataSetIdentifierDeclarations", required: true)]
         private InputList<Inputs.DashboardDataSetIdentifierDeclarationArgs>? _dataSetIdentifierDeclarations;
+
+        /// <summary>
+        /// A data set.
+        /// </summary>
         public InputList<Inputs.DashboardDataSetIdentifierDeclarationArgs> DataSetIdentifierDeclarations
         {
             get => _dataSetIdentifierDeclarations ?? (_dataSetIdentifierDeclarations = new InputList<Inputs.DashboardDataSetIdentifierDeclarationArgs>());
@@ -41,17 +56,34 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("filterGroups")]
         private InputList<Inputs.DashboardFilterGroupArgs>? _filterGroups;
+
+        /// <summary>
+        /// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+        /// 
+        /// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.DashboardFilterGroupArgs> FilterGroups
         {
             get => _filterGroups ?? (_filterGroups = new InputList<Inputs.DashboardFilterGroupArgs>());
             set => _filterGroups = value;
         }
 
+        /// <summary>
+        /// An array of analysis level configurations.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.DashboardAssetOptionsArgs>? Options { get; set; }
 
         [Input("parameterDeclarations")]
         private InputList<Inputs.DashboardParameterDeclarationArgs>? _parameterDeclarations;
+
+        /// <summary>
+        /// The declaration definition of a parameter.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardParameterDeclarationArgs> ParameterDeclarations
         {
             get => _parameterDeclarations ?? (_parameterDeclarations = new InputList<Inputs.DashboardParameterDeclarationArgs>());
@@ -60,6 +92,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sheets")]
         private InputList<Inputs.DashboardSheetDefinitionArgs>? _sheets;
+
+        /// <summary>
+        /// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
+        /// </summary>
         public InputList<Inputs.DashboardSheetDefinitionArgs> Sheets
         {
             get => _sheets ?? (_sheets = new InputList<Inputs.DashboardSheetDefinitionArgs>());

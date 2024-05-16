@@ -12,57 +12,111 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSnowflakeDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
+        /// </summary>
         [Input("accountUrl", required: true)]
         public Input<string> AccountUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
+        /// <summary>
+        /// The name of the record content column
+        /// </summary>
         [Input("contentColumnName")]
         public Input<string>? ContentColumnName { get; set; }
 
+        /// <summary>
+        /// Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
+        /// </summary>
         [Input("dataLoadingOption")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption>? DataLoadingOption { get; set; }
 
+        /// <summary>
+        /// All data in Snowflake is maintained in databases.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        /// </summary>
         [Input("keyPassphrase")]
         public Input<string>? KeyPassphrase { get; set; }
 
+        /// <summary>
+        /// The name of the record metadata column
+        /// </summary>
         [Input("metaDataColumnName")]
         public Input<string>? MetaDataColumnName { get; set; }
 
+        /// <summary>
+        /// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
+        /// <summary>
+        /// Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+        /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamSnowflakeRetryOptionsArgs>? RetryOptions { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Snowflake role
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Choose an S3 backup mode
+        /// </summary>
         [Input("s3BackupMode")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// Optionally configure a Snowflake role. Otherwise the default user role will be used.
+        /// </summary>
         [Input("snowflakeRoleConfiguration")]
         public Input<Inputs.DeliveryStreamSnowflakeRoleConfigurationArgs>? SnowflakeRoleConfiguration { get; set; }
 
+        /// <summary>
+        /// Configure a Snowflake VPC
+        /// </summary>
         [Input("snowflakeVpcConfiguration")]
         public Input<Inputs.DeliveryStreamSnowflakeVpcConfigurationArgs>? SnowflakeVpcConfiguration { get; set; }
 
+        /// <summary>
+        /// All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
+        /// </summary>
         [Input("table", required: true)]
         public Input<string> Table { get; set; } = null!;
 
+        /// <summary>
+        /// User login name for the Snowflake account.
+        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 

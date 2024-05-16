@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetClientCertificateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the client certificate. For example: `abc123` .
+        /// </summary>
         [Input("clientCertificateId", required: true)]
         public string ClientCertificateId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetClientCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the client certificate. For example: `abc123` .
+        /// </summary>
         [Input("clientCertificateId", required: true)]
         public Input<string> ClientCertificateId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetClientCertificateResult
     {
+        /// <summary>
+        /// The ID for the client certificate. For example: `abc123` .
+        /// </summary>
         public readonly string? ClientCertificateId;
         /// <summary>
         /// The description of the client certificate.

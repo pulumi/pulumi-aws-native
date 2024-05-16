@@ -23,10 +23,12 @@ func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opt
 }
 
 type LookupResourceGroupArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupResourceGroupResult struct {
+	// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -44,6 +46,7 @@ func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutp
 }
 
 type LookupResourceGroupOutputArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupResourceGroupResultOutput) ToLookupResourceGroupResultOutputWithCo
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 func (o LookupResourceGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

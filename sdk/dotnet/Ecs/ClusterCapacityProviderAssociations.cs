@@ -97,12 +97,21 @@ namespace Pulumi.AwsNative.Ecs
     [AwsNativeResourceType("aws-native:ecs:ClusterCapacityProviderAssociations")]
     public partial class ClusterCapacityProviderAssociations : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The capacity providers to associate with the cluster.
+        /// </summary>
         [Output("capacityProviders")]
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
 
+        /// <summary>
+        /// The cluster the capacity provider association is the target of.
+        /// </summary>
         [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
+        /// <summary>
+        /// The default capacity provider strategy to associate with the cluster.
+        /// </summary>
         [Output("defaultCapacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy>> DefaultCapacityProviderStrategy { get; private set; } = null!;
 
@@ -157,17 +166,28 @@ namespace Pulumi.AwsNative.Ecs
     {
         [Input("capacityProviders", required: true)]
         private InputList<Union<Pulumi.AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider, string>>? _capacityProviders;
+
+        /// <summary>
+        /// The capacity providers to associate with the cluster.
+        /// </summary>
         public InputList<Union<Pulumi.AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider, string>> CapacityProviders
         {
             get => _capacityProviders ?? (_capacityProviders = new InputList<Union<Pulumi.AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider, string>>());
             set => _capacityProviders = value;
         }
 
+        /// <summary>
+        /// The cluster the capacity provider association is the target of.
+        /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         [Input("defaultCapacityProviderStrategy", required: true)]
         private InputList<Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>? _defaultCapacityProviderStrategy;
+
+        /// <summary>
+        /// The default capacity provider strategy to associate with the cluster.
+        /// </summary>
         public InputList<Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs> DefaultCapacityProviderStrategy
         {
             get => _defaultCapacityProviderStrategy ?? (_defaultCapacityProviderStrategy = new InputList<Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>());

@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationExternalUrlConfig struct {
-	AccessUrl       string   `pulumi:"accessUrl"`
+	// The URL to access the application.
+	AccessUrl string `pulumi:"accessUrl"`
+	// Additional URLs to allow list if different than the access URL.
 	ApprovedOrigins []string `pulumi:"approvedOrigins"`
 }
 
@@ -30,7 +32,9 @@ type ApplicationExternalUrlConfigInput interface {
 }
 
 type ApplicationExternalUrlConfigArgs struct {
-	AccessUrl       pulumi.StringInput      `pulumi:"accessUrl"`
+	// The URL to access the application.
+	AccessUrl pulumi.StringInput `pulumi:"accessUrl"`
+	// Additional URLs to allow list if different than the access URL.
 	ApprovedOrigins pulumi.StringArrayInput `pulumi:"approvedOrigins"`
 }
 
@@ -60,10 +64,12 @@ func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigOutput
 	return o
 }
 
+// The URL to access the application.
 func (o ApplicationExternalUrlConfigOutput) AccessUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationExternalUrlConfig) string { return v.AccessUrl }).(pulumi.StringOutput)
 }
 
+// Additional URLs to allow list if different than the access URL.
 func (o ApplicationExternalUrlConfigOutput) ApprovedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationExternalUrlConfig) []string { return v.ApprovedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -92,6 +98,7 @@ func (o ApplicationExternalUrlConfigPtrOutput) Elem() ApplicationExternalUrlConf
 	}).(ApplicationExternalUrlConfigOutput)
 }
 
+// The URL to access the application.
 func (o ApplicationExternalUrlConfigPtrOutput) AccessUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationExternalUrlConfig) *string {
 		if v == nil {
@@ -101,6 +108,7 @@ func (o ApplicationExternalUrlConfigPtrOutput) AccessUrl() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional URLs to allow list if different than the access URL.
 func (o ApplicationExternalUrlConfigPtrOutput) ApprovedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationExternalUrlConfig) []string {
 		if v == nil {
@@ -112,6 +120,7 @@ func (o ApplicationExternalUrlConfigPtrOutput) ApprovedOrigins() pulumi.StringAr
 
 // Application source config
 type ApplicationSourceConfigProperties struct {
+	// The external URL source for the application.
 	ExternalUrlConfig ApplicationExternalUrlConfig `pulumi:"externalUrlConfig"`
 }
 
@@ -128,6 +137,7 @@ type ApplicationSourceConfigPropertiesInput interface {
 
 // Application source config
 type ApplicationSourceConfigPropertiesArgs struct {
+	// The external URL source for the application.
 	ExternalUrlConfig ApplicationExternalUrlConfigInput `pulumi:"externalUrlConfig"`
 }
 
@@ -158,6 +168,7 @@ func (o ApplicationSourceConfigPropertiesOutput) ToApplicationSourceConfigProper
 	return o
 }
 
+// The external URL source for the application.
 func (o ApplicationSourceConfigPropertiesOutput) ExternalUrlConfig() ApplicationExternalUrlConfigOutput {
 	return o.ApplyT(func(v ApplicationSourceConfigProperties) ApplicationExternalUrlConfig { return v.ExternalUrlConfig }).(ApplicationExternalUrlConfigOutput)
 }
@@ -186,6 +197,7 @@ func (o ApplicationSourceConfigPropertiesPtrOutput) Elem() ApplicationSourceConf
 	}).(ApplicationSourceConfigPropertiesOutput)
 }
 
+// The external URL source for the application.
 func (o ApplicationSourceConfigPropertiesPtrOutput) ExternalUrlConfig() ApplicationExternalUrlConfigPtrOutput {
 	return o.ApplyT(func(v *ApplicationSourceConfigProperties) *ApplicationExternalUrlConfig {
 		if v == nil {

@@ -69,6 +69,9 @@ export class Multiplex extends pulumi.CustomResource {
      * The number of programs in the multiplex.
      */
     public /*out*/ readonly programCount!: pulumi.Output<number>;
+    /**
+     * The current state of the multiplex.
+     */
     public /*out*/ readonly state!: pulumi.Output<enums.medialive.MultiplexState>;
     /**
      * A collection of key-value pairs.

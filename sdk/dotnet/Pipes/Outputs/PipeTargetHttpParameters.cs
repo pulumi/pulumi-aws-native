@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetHttpParameters
     {
+        /// <summary>
+        /// The headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? HeaderParameters;
+        /// <summary>
+        /// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
+        /// </summary>
         public readonly ImmutableArray<string> PathParameterValues;
+        /// <summary>
+        /// The query string keys/values that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? QueryStringParameters;
 
         [OutputConstructor]

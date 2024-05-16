@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class EndpointSecondaryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the secondary Region.
+        /// </summary>
         [Input("route", required: true)]
         public Input<string> Route { get; set; } = null!;
 

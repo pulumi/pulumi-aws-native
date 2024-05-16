@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardVisualAxisSortOption
     {
+        /// <summary>
+        /// The availaiblity status of a visual's axis sort options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]

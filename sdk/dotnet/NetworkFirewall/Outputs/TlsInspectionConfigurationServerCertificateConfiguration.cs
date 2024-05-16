@@ -13,9 +13,30 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class TlsInspectionConfigurationServerCertificateConfiguration
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+        /// 
+        /// The following limitations apply:
+        /// 
+        /// - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
+        /// - You can't use certificates issued by AWS Private Certificate Authority .
+        /// 
+        /// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
+        /// 
+        /// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        /// </summary>
         public readonly string? CertificateAuthorityArn;
+        /// <summary>
+        /// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+        /// </summary>
         public readonly Outputs.TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties? CheckCertificateRevocationStatus;
+        /// <summary>
+        /// Settings that define the Secure Sockets Layer/Transport Layer Security (SSL/TLS) traffic that Network Firewall should decrypt for inspection by the stateful rule engine.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationServerCertificateScope> Scopes;
+        /// <summary>
+        /// Any AWS Certificate Manager (ACM) Secure Sockets Layer/Transport Layer Security (SSL/TLS) server certificate that's associated with a [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html) . Used in a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) for inspection of inbound traffic to your firewall. You must request or import a SSL/TLS certificate into ACM for each domain Network Firewall needs to decrypt and inspect. AWS Network Firewall uses the SSL/TLS certificates to decrypt specified inbound SSL/TLS traffic going to your firewall. For information about working with certificates in AWS Certificate Manager , see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) or [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationServerCertificate> ServerCertificates;
 
         [OutputConstructor]

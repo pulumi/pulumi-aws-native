@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.Rekognition.Outputs
     [OutputType]
     public sealed class StreamProcessorBoundingBox
     {
+        /// <summary>
+        /// Height of the bounding box as a ratio of the overall image height.
+        /// </summary>
         public readonly double Height;
+        /// <summary>
+        /// Left coordinate of the bounding box as a ratio of overall image width.
+        /// </summary>
         public readonly double Left;
+        /// <summary>
+        /// Top coordinate of the bounding box as a ratio of overall image height.
+        /// </summary>
         public readonly double Top;
+        /// <summary>
+        /// Width of the bounding box as a ratio of the overall image width.
+        /// </summary>
         public readonly double Width;
 
         [OutputConstructor]

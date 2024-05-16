@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("cellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? CellStyle { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("headerStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? HeaderStyle { get; set; }
 
+        /// <summary>
+        /// The orientation (vertical, horizontal) for a table.
+        /// </summary>
         [Input("orientation")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTableOrientation>? Orientation { get; set; }
 
+        /// <summary>
+        /// Determines the row alternate color options.
+        /// </summary>
         [Input("rowAlternateColorOptions")]
         public Input<Inputs.TemplateRowAlternateColorOptionsArgs>? RowAlternateColorOptions { get; set; }
 

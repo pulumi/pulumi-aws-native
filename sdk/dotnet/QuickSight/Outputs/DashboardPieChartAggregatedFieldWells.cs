@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPieChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The category (group/color) field wells of a pie chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Category;
+        /// <summary>
+        /// The small multiples field well of a pie chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> SmallMultiples;
+        /// <summary>
+        /// The value field wells of a pie chart. Values are aggregated based on categories.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Values;
 
         [OutputConstructor]

@@ -36,21 +36,35 @@ class GetViewResult:
     @property
     @pulumi.getter
     def filters(self) -> Optional['outputs.ViewSearchFilter']:
+        """
+        A search filter defines which resources can be part of a search query result set.
+        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> Optional[Sequence['outputs.ViewIncludedProperty']]:
+        """
+        Information about an additional property that describes a resource, that you can optionally include in a view.
+        """
         return pulumi.get(self, "included_properties")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag key and value pairs that are attached to the view.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="viewArn")
     def view_arn(self) -> Optional[str]:
+        """
+        The ARN of the new view. For example:
+
+        `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        """
         return pulumi.get(self, "view_arn")
 
 
@@ -70,6 +84,11 @@ def get_view(view_arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Definition of AWS::ResourceExplorer2::View Resource Type
+
+
+    :param str view_arn: The ARN of the new view. For example:
+           
+           `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
     """
     __args__ = dict()
     __args__['viewArn'] = view_arn
@@ -88,5 +107,10 @@ def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
     Definition of AWS::ResourceExplorer2::View Resource Type
+
+
+    :param str view_arn: The ARN of the new view. For example:
+           
+           `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
     """
     ...

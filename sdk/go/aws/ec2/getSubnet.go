@@ -27,6 +27,7 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 }
 
 type LookupSubnetArgs struct {
+	// The ID of the subnet.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -43,7 +44,8 @@ type LookupSubnetResult struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
 	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
-	MapPublicIpOnLaunch     *bool   `pulumi:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
 	NetworkAclAssociationId *string `pulumi:"networkAclAssociationId"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	//  Available options:
@@ -51,7 +53,8 @@ type LookupSubnetResult struct {
 	//   +  EnableResourceNameDnsARecord (true | false)
 	//   +  HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
-	SubnetId                      *string                                  `pulumi:"subnetId"`
+	// The ID of the subnet.
+	SubnetId *string `pulumi:"subnetId"`
 	// Any tags assigned to the subnet.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -70,6 +73,7 @@ func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts .
 }
 
 type LookupSubnetOutputArgs struct {
+	// The ID of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -122,6 +126,7 @@ func (o LookupSubnetResultOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
 func (o LookupSubnetResultOutput) NetworkAclAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.NetworkAclAssociationId }).(pulumi.StringPtrOutput)
 }
@@ -138,6 +143,7 @@ func (o LookupSubnetResultOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsName
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
+// The ID of the subnet.
 func (o LookupSubnetResultOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }

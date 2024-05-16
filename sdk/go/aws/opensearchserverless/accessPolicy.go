@@ -21,8 +21,9 @@ type AccessPolicy struct {
 	// The name of the policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy pulumi.StringOutput    `pulumi:"policy"`
-	Type   AccessPolicyTypeOutput `pulumi:"type"`
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The type of access policy. Currently the only option is `data` .
+	Type AccessPolicyTypeOutput `pulumi:"type"`
 }
 
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +82,9 @@ type accessPolicyArgs struct {
 	// The name of the policy
 	Name *string `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy string           `pulumi:"policy"`
-	Type   AccessPolicyType `pulumi:"type"`
+	Policy string `pulumi:"policy"`
+	// The type of access policy. Currently the only option is `data` .
+	Type AccessPolicyType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
@@ -93,7 +95,8 @@ type AccessPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The JSON policy document that is the content for the policy
 	Policy pulumi.StringInput
-	Type   AccessPolicyTypeInput
+	// The type of access policy. Currently the only option is `data` .
+	Type AccessPolicyTypeInput
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {
@@ -148,6 +151,7 @@ func (o AccessPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// The type of access policy. Currently the only option is `data` .
 func (o AccessPolicyOutput) Type() AccessPolicyTypeOutput {
 	return o.ApplyT(func(v *AccessPolicy) AccessPolicyTypeOutput { return v.Type }).(AccessPolicyTypeOutput)
 }

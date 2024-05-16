@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleDynamoDBv2Action
     {
+        /// <summary>
+        /// The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+        /// </summary>
         public readonly Outputs.TopicRulePutItemInput? PutItem;
+        /// <summary>
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
+        /// </summary>
         public readonly string? RoleArn;
 
         [OutputConstructor]

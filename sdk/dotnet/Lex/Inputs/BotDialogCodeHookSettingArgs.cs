@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotDialogCodeHookSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables the dialog code hook so that it processes user requests.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

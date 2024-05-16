@@ -41,11 +41,19 @@ export class JobTemplate extends pulumi.CustomResource {
      * The criteria that determine when and how a job abort takes place.
      */
     public readonly abortConfig!: pulumi.Output<outputs.iot.AbortConfigProperties | undefined>;
+    /**
+     * The ARN of the job to use as the basis for the job template.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A description of the Job Template.
      */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+     *
+     * *Note:* Up to 25 package version ARNS are allowed.
+     */
     public readonly destinationPackageVersions!: pulumi.Output<string[] | undefined>;
     /**
      * The job document. Required if you don't specify a value for documentSource.
@@ -59,12 +67,21 @@ export class JobTemplate extends pulumi.CustomResource {
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
     public readonly jobArn!: pulumi.Output<string | undefined>;
+    /**
+     * Allows you to create the criteria to retry a job.
+     */
     public readonly jobExecutionsRetryConfig!: pulumi.Output<outputs.iot.JobExecutionsRetryConfigProperties | undefined>;
     /**
      * Allows you to create a staged rollout of a job.
      */
     public readonly jobExecutionsRolloutConfig!: pulumi.Output<outputs.iot.JobExecutionsRolloutConfigProperties | undefined>;
+    /**
+     * A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+     */
     public readonly jobTemplateId!: pulumi.Output<string>;
+    /**
+     * An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+     */
     public readonly maintenanceWindows!: pulumi.Output<outputs.iot.JobTemplateMaintenanceWindow[] | undefined>;
     /**
      * Configuration for pre-signed S3 URLs.
@@ -145,6 +162,11 @@ export interface JobTemplateArgs {
      * A description of the Job Template.
      */
     description: pulumi.Input<string>;
+    /**
+     * The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+     *
+     * *Note:* Up to 25 package version ARNS are allowed.
+     */
     destinationPackageVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The job document. Required if you don't specify a value for documentSource.
@@ -158,12 +180,21 @@ export interface JobTemplateArgs {
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
     jobArn?: pulumi.Input<string>;
+    /**
+     * Allows you to create the criteria to retry a job.
+     */
     jobExecutionsRetryConfig?: pulumi.Input<inputs.iot.JobExecutionsRetryConfigPropertiesArgs>;
     /**
      * Allows you to create a staged rollout of a job.
      */
     jobExecutionsRolloutConfig?: pulumi.Input<inputs.iot.JobExecutionsRolloutConfigPropertiesArgs>;
+    /**
+     * A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+     */
     jobTemplateId: pulumi.Input<string>;
+    /**
+     * An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+     */
     maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateMaintenanceWindowArgs>[]>;
     /**
      * Configuration for pre-signed S3 URLs.

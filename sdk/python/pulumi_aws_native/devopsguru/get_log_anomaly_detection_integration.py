@@ -26,6 +26,9 @@ class GetLogAnomalyDetectionIntegrationResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+        """
         return pulumi.get(self, "account_id")
 
 
@@ -42,6 +45,9 @@ def get_log_anomaly_detection_integration(account_id: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnomalyDetectionIntegrationResult:
     """
     This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
+
+
+    :param str account_id: The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -57,5 +63,8 @@ def get_log_anomaly_detection_integration_output(account_id: Optional[pulumi.Inp
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnomalyDetectionIntegrationResult]:
     """
     This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
+
+
+    :param str account_id: The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
     """
     ...

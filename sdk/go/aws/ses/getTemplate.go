@@ -27,7 +27,8 @@ type LookupTemplateArgs struct {
 }
 
 type LookupTemplateResult struct {
-	Id       *string       `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template *TemplateType `pulumi:"template"`
 }
 
@@ -70,6 +71,7 @@ func (o LookupTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 func (o LookupTemplateResultOutput) Template() TemplateTypePtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *TemplateType { return v.Template }).(TemplateTypePtrOutput)
 }

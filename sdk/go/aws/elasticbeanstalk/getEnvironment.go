@@ -31,6 +31,13 @@ type LookupEnvironmentArgs struct {
 type LookupEnvironmentResult struct {
 	// Your description for this environment.
 	Description *string `pulumi:"description"`
+	// For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+	//
+	// Example load balancer URL:
+	//
+	// Example instance IP address:
+	//
+	// `192.0.2.0`
 	EndpointUrl *string `pulumi:"endpointUrl"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
 	OperationsRole *string `pulumi:"operationsRole"`
@@ -85,6 +92,13 @@ func (o LookupEnvironmentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+//
+// Example load balancer URL:
+//
+// Example instance IP address:
+//
+// `192.0.2.0`
 func (o LookupEnvironmentResultOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }

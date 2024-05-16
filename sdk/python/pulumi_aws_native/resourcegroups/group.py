@@ -27,8 +27,25 @@ class GroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+               
+               > You can include either a `Configuration` or a `ResourceQuery` , but not both.
         :param pulumi.Input[str] description: The description of the resource group
         :param pulumi.Input[str] name: The name of the resource group
+        :param pulumi.Input['GroupResourceQueryArgs'] resource_query: The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+               
+               > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+               > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+               
+               > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
+               
+               *Minimum permissions*
+               
+               To run this command, you must have the following permissions:
+               
+               - `resource-groups:Tag`
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -46,6 +63,11 @@ class GroupArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]]]:
+        """
+        The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+
+        > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -79,6 +101,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="resourceQuery")
     def resource_query(self) -> Optional[pulumi.Input['GroupResourceQueryArgs']]:
+        """
+        The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+        """
         return pulumi.get(self, "resource_query")
 
     @resource_query.setter
@@ -88,6 +113,12 @@ class GroupArgs:
     @property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+
+        > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -97,6 +128,17 @@ class GroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+
+        > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
+
+        *Minimum permissions*
+
+        To run this command, you must have the following permissions:
+
+        - `resource-groups:Tag`
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -121,8 +163,25 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationItemArgs']]]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+               
+               > You can include either a `Configuration` or a `ResourceQuery` , but not both.
         :param pulumi.Input[str] description: The description of the resource group
         :param pulumi.Input[str] name: The name of the resource group
+        :param pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']] resource_query: The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+               
+               > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+               > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+               
+               > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
+               
+               *Minimum permissions*
+               
+               To run this command, you must have the following permissions:
+               
+               - `resource-groups:Tag`
         """
         ...
     @overload
@@ -214,6 +273,11 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional[Sequence['outputs.GroupConfigurationItem']]]:
+        """
+        The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+
+        > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -235,15 +299,35 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceQuery")
     def resource_query(self) -> pulumi.Output[Optional['outputs.GroupResourceQuery']]:
+        """
+        The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+        """
         return pulumi.get(self, "resource_query")
 
     @property
     @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+
+        > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        """
         return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+
+        > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
+
+        *Minimum permissions*
+
+        To run this command, you must have the following permissions:
+
+        - `resource-groups:Tag`
+        """
         return pulumi.get(self, "tags")
 

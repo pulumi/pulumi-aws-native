@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class GetTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the task definition.
+        /// </summary>
         [Input("taskDefinitionArn", required: true)]
         public string TaskDefinitionArn { get; set; } = null!;
 
@@ -46,6 +49,9 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class GetTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the task definition.
+        /// </summary>
         [Input("taskDefinitionArn", required: true)]
         public Input<string> TaskDefinitionArn { get; set; } = null!;
 
@@ -71,6 +77,9 @@ namespace Pulumi.AwsNative.Ecs
         ///   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of the task definition.
+        /// </summary>
         public readonly string? TaskDefinitionArn;
 
         [OutputConstructor]

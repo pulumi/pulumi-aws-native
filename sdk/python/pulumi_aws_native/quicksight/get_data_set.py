@@ -123,11 +123,17 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="dataSetRefreshProperties")
     def data_set_refresh_properties(self) -> Optional['outputs.DataSetRefreshProperties']:
+        """
+        The refresh properties of a dataset.
+        """
         return pulumi.get(self, "data_set_refresh_properties")
 
     @property
     @pulumi.getter(name="dataSetUsageConfiguration")
     def data_set_usage_configuration(self) -> Optional['outputs.DataSetUsageConfiguration']:
+        """
+        The usage configuration to apply to child datasets that reference this dataset as a source.
+        """
         return pulumi.get(self, "data_set_usage_configuration")
 
     @property
@@ -141,6 +147,9 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="importMode")
     def import_mode(self) -> Optional['DataSetImportMode']:
+        """
+        Indicates whether you want to import the data into SPICE.
+        """
         return pulumi.get(self, "import_mode")
 
     @property
@@ -154,6 +163,9 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="logicalTableMap")
     def logical_table_map(self) -> Optional[Mapping[str, 'outputs.DataSetLogicalTable']]:
+        """
+        Configures the combination and transformation of the data from the physical tables.
+        """
         return pulumi.get(self, "logical_table_map")
 
     @property
@@ -184,16 +196,27 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="physicalTableMap")
     def physical_table_map(self) -> Optional[Mapping[str, 'outputs.DataSetPhysicalTable']]:
+        """
+        Declares the physical tables that are available in the underlying data sources.
+        """
         return pulumi.get(self, "physical_table_map")
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional['outputs.DataSetRowLevelPermissionDataSet']:
+        """
+        Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+
+        The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @property
     @pulumi.getter(name="rowLevelPermissionTagConfiguration")
     def row_level_permission_tag_configuration(self) -> Optional['outputs.DataSetRowLevelPermissionTagConfiguration']:
+        """
+        The element you can use to define tags for row-level security.
+        """
         return pulumi.get(self, "row_level_permission_tag_configuration")
 
     @property
@@ -236,6 +259,10 @@ def get_data_set(aws_account_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
     Definition of the AWS::QuickSight::DataSet Resource Type.
+
+
+    :param str aws_account_id: The AWS account ID.
+    :param str data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -270,5 +297,9 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Definition of the AWS::QuickSight::DataSet Resource Type.
+
+
+    :param str aws_account_id: The AWS account ID.
+    :param str data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
     """
     ...

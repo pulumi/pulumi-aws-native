@@ -14,20 +14,36 @@ namespace Pulumi.AwsNative.Batch.Inputs
     {
         [Input("containers")]
         private InputList<Inputs.JobDefinitionEksContainerArgs>? _containers;
+
+        /// <summary>
+        /// EKS container properties are used in job definitions for Amazon EKS based job definitions to describe the properties for a container node in the pod that's launched as part of a job. This can't be specified for Amazon ECS based job definitions.
+        /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerArgs> Containers
         {
             get => _containers ?? (_containers = new InputList<Inputs.JobDefinitionEksContainerArgs>());
             set => _containers = value;
         }
 
+        /// <summary>
+        /// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+        /// 
+        /// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+        /// </summary>
         [Input("dnsPolicy")]
         public Input<string>? DnsPolicy { get; set; }
 
+        /// <summary>
+        /// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("hostNetwork")]
         public Input<bool>? HostNetwork { get; set; }
 
         [Input("imagePullSecrets")]
         private InputList<Inputs.JobDefinitionImagePullSecretArgs>? _imagePullSecrets;
+
+        /// <summary>
+        /// References a Kubernetes secret resource. This name of the secret must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.
+        /// </summary>
         public InputList<Inputs.JobDefinitionImagePullSecretArgs> ImagePullSecrets
         {
             get => _imagePullSecrets ?? (_imagePullSecrets = new InputList<Inputs.JobDefinitionImagePullSecretArgs>());
@@ -36,23 +52,42 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         [Input("initContainers")]
         private InputList<Inputs.JobDefinitionEksContainerArgs>? _initContainers;
+
+        /// <summary>
+        /// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+        /// 
+        /// &gt; This object is limited to 10 elements
+        /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerArgs> InitContainers
         {
             get => _initContainers ?? (_initContainers = new InputList<Inputs.JobDefinitionEksContainerArgs>());
             set => _initContainers = value;
         }
 
+        /// <summary>
+        /// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("metadata")]
         public Input<Inputs.JobDefinitionMetadataArgs>? Metadata { get; set; }
 
+        /// <summary>
+        /// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("serviceAccountName")]
         public Input<string>? ServiceAccountName { get; set; }
 
+        /// <summary>
+        /// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+        /// </summary>
         [Input("shareProcessNamespace")]
         public Input<bool>? ShareProcessNamespace { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.JobDefinitionEksVolumeArgs>? _volumes;
+
+        /// <summary>
+        /// Specifies an Amazon EKS volume for a job definition.
+        /// </summary>
         public InputList<Inputs.JobDefinitionEksVolumeArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.JobDefinitionEksVolumeArgs>());

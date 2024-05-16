@@ -10,6 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The data source of the event variable.
+//
+// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+//
+// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
 type DetectorEventVariableDataSource string
 
 const (
@@ -173,6 +178,9 @@ func (in *detectorEventVariableDataSourcePtr) ToDetectorEventVariableDataSourceP
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorEventVariableDataSourcePtrOutput)
 }
 
+// The data type of the event variable.
+//
+// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
 type DetectorEventVariableDataType string
 
 const (
@@ -342,6 +350,7 @@ func (in *detectorEventVariableDataTypePtr) ToDetectorEventVariableDataTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorEventVariableDataTypePtrOutput)
 }
 
+// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 type DetectorEventVariableVariableType string
 
 const (
@@ -569,6 +578,15 @@ func (in *detectorEventVariableVariableTypePtr) ToDetectorEventVariableVariableT
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorEventVariableVariableTypePtrOutput)
 }
 
+// The rule execution mode for the rules included in the detector version.
+//
+// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+//
+// You can define and edit the rule mode at the detector version level, when it is in draft status.
+//
+// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+//
+// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 type DetectorRuleExecutionMode string
 
 const (
@@ -734,6 +752,9 @@ func (in *detectorRuleExecutionModePtr) ToDetectorRuleExecutionModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorRuleExecutionModePtrOutput)
 }
 
+// The rule language.
+//
+// Valid Value: DETECTORPL
 type DetectorRuleLanguage string
 
 const (
@@ -1063,6 +1084,11 @@ func (in *detectorVersionStatusPtr) ToDetectorVersionStatusPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorVersionStatusPtrOutput)
 }
 
+// The source of the event variable.
+//
+// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+//
+// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
 type EventTypeEventVariableDataSource string
 
 const (
@@ -1226,6 +1252,7 @@ func (in *eventTypeEventVariableDataSourcePtr) ToEventTypeEventVariableDataSourc
 	return pulumi.ToOutputWithContext(ctx, in).(EventTypeEventVariableDataSourcePtrOutput)
 }
 
+// The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
 type EventTypeEventVariableDataType string
 
 const (
@@ -1395,6 +1422,7 @@ func (in *eventTypeEventVariableDataTypePtr) ToEventTypeEventVariableDataTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(EventTypeEventVariableDataTypePtrOutput)
 }
 
+// The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
 type EventTypeEventVariableVariableType string
 
 const (

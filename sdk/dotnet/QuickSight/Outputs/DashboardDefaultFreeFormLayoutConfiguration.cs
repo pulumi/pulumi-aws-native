@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultFreeFormLayoutConfiguration
     {
+        /// <summary>
+        /// Configuration options for the canvas of a free-form layout.
+        /// </summary>
         public readonly Outputs.DashboardFreeFormLayoutCanvasSizeOptions CanvasSizeOptions;
 
         [OutputConstructor]

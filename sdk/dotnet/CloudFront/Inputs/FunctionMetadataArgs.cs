@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class FunctionMetadataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
+        /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 

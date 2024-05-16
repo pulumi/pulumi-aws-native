@@ -36,7 +36,8 @@ type Route struct {
 	RequestModels pulumi.AnyOutput `pulumi:"requestModels"`
 	// The request parameters for the route. Supported only for WebSocket APIs.
 	RequestParameters RouteParameterConstraintsArrayOutput `pulumi:"requestParameters"`
-	RouteId           pulumi.StringOutput                  `pulumi:"routeId"`
+	// The route ID.
+	RouteId pulumi.StringOutput `pulumi:"routeId"`
 	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
 	RouteKey pulumi.StringOutput `pulumi:"routeKey"`
 	// The route response selection expression for the route. Supported only for WebSocket APIs.
@@ -237,6 +238,7 @@ func (o RouteOutput) RequestParameters() RouteParameterConstraintsArrayOutput {
 	return o.ApplyT(func(v *Route) RouteParameterConstraintsArrayOutput { return v.RequestParameters }).(RouteParameterConstraintsArrayOutput)
 }
 
+// The route ID.
 func (o RouteOutput) RouteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
 }

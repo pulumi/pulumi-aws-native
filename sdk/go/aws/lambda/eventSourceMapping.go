@@ -27,7 +27,8 @@ type EventSourceMapping struct {
 
 	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput `pulumi:"amazonManagedKafkaEventSourceConfig"`
-	AwsId                               pulumi.StringOutput                                            `pulumi:"awsId"`
+	// The event source mapping's ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
 	//   +   *Amazon Kinesis* – Default 100. Max 10,000.
 	//   +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
@@ -355,6 +356,7 @@ func (o EventSourceMappingOutput) AmazonManagedKafkaEventSourceConfig() EventSou
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
+// The event source mapping's ID.
 func (o EventSourceMappingOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

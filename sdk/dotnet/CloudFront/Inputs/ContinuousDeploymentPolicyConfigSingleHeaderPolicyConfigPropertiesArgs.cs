@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
+    /// </summary>
     public sealed class ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("header", required: true)]

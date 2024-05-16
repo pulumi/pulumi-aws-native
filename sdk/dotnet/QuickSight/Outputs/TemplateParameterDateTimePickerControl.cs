@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateParameterDateTimePickerControl
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.TemplateDateTimePickerControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `ParameterDateTimePickerControl` .
+        /// </summary>
         public readonly string ParameterControlId;
+        /// <summary>
+        /// The name of the `ParameterDateTimePickerControl` .
+        /// </summary>
         public readonly string SourceParameterName;
+        /// <summary>
+        /// The title of the `ParameterDateTimePickerControl` .
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

@@ -16,14 +16,41 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityKeyUsage
     {
+        /// <summary>
+        /// Key can be used to sign CRLs.
+        /// </summary>
         public readonly bool? CrlSign;
+        /// <summary>
+        /// Key can be used to decipher data.
+        /// </summary>
         public readonly bool? DataEncipherment;
+        /// <summary>
+        /// Key can be used only to decipher data.
+        /// </summary>
         public readonly bool? DecipherOnly;
+        /// <summary>
+        /// Key can be used for digital signing.
+        /// </summary>
         public readonly bool? DigitalSignature;
+        /// <summary>
+        /// Key can be used only to encipher data.
+        /// </summary>
         public readonly bool? EncipherOnly;
+        /// <summary>
+        /// Key can be used in a key-agreement protocol.
+        /// </summary>
         public readonly bool? KeyAgreement;
+        /// <summary>
+        /// Key can be used to sign certificates.
+        /// </summary>
         public readonly bool? KeyCertSign;
+        /// <summary>
+        /// Key can be used to encipher data.
+        /// </summary>
         public readonly bool? KeyEncipherment;
+        /// <summary>
+        /// Key can be used for non-repudiation.
+        /// </summary>
         public readonly bool? NonRepudiation;
 
         [OutputConstructor]

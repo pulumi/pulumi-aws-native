@@ -28,22 +28,36 @@ type DataSource struct {
 	//             are automatically allowed.</p>
 	AlternateDataSourceParameters DataSourceParametersArrayOutput `pulumi:"alternateDataSourceParameters"`
 	// <p>The Amazon Resource Name (ARN) of the data source.</p>
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS account ID.
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// <p>The time that this data source was created.</p>
-	CreatedTime          pulumi.StringOutput            `pulumi:"createdTime"`
-	Credentials          DataSourceCredentialsPtrOutput `pulumi:"credentials"`
-	DataSourceId         pulumi.StringPtrOutput         `pulumi:"dataSourceId"`
-	DataSourceParameters DataSourceParametersPtrOutput  `pulumi:"dataSourceParameters"`
-	ErrorInfo            DataSourceErrorInfoPtrOutput   `pulumi:"errorInfo"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	Credentials DataSourceCredentialsPtrOutput `pulumi:"credentials"`
+	// An ID for the data source. This ID is unique per AWS Region for each AWS account.
+	DataSourceId pulumi.StringPtrOutput `pulumi:"dataSourceId"`
+	// The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	DataSourceParameters DataSourceParametersPtrOutput `pulumi:"dataSourceParameters"`
+	// Error information for the data source creation or update.
+	ErrorInfo DataSourceErrorInfoPtrOutput `pulumi:"errorInfo"`
 	// <p>The last time that this data source was updated.</p>
-	LastUpdatedTime         pulumi.StringOutput                        `pulumi:"lastUpdatedTime"`
-	Name                    pulumi.StringOutput                        `pulumi:"name"`
-	Permissions             DataSourceResourcePermissionArrayOutput    `pulumi:"permissions"`
-	SslProperties           DataSourceSslPropertiesPtrOutput           `pulumi:"sslProperties"`
-	Status                  DataSourceResourceStatusOutput             `pulumi:"status"`
-	Tags                    aws.TagArrayOutput                         `pulumi:"tags"`
-	Type                    DataSourceTypeOutput                       `pulumi:"type"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// A display name for the data source.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Permission for the resource.
+	Permissions DataSourceResourcePermissionArrayOutput `pulumi:"permissions"`
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+	SslProperties DataSourceSslPropertiesPtrOutput `pulumi:"sslProperties"`
+	// The HTTP status of the request.
+	Status DataSourceResourceStatusOutput `pulumi:"status"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	//
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+	Type DataSourceTypeOutput `pulumi:"type"`
+	// VPC connection properties.
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
 
@@ -105,18 +119,31 @@ type dataSourceArgs struct {
 	//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
 	//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
 	//             are automatically allowed.</p>
-	AlternateDataSourceParameters []DataSourceParameters             `pulumi:"alternateDataSourceParameters"`
-	AwsAccountId                  *string                            `pulumi:"awsAccountId"`
-	Credentials                   *DataSourceCredentials             `pulumi:"credentials"`
-	DataSourceId                  *string                            `pulumi:"dataSourceId"`
-	DataSourceParameters          *DataSourceParameters              `pulumi:"dataSourceParameters"`
-	ErrorInfo                     *DataSourceErrorInfo               `pulumi:"errorInfo"`
-	Name                          *string                            `pulumi:"name"`
-	Permissions                   []DataSourceResourcePermission     `pulumi:"permissions"`
-	SslProperties                 *DataSourceSslProperties           `pulumi:"sslProperties"`
-	Tags                          []aws.Tag                          `pulumi:"tags"`
-	Type                          DataSourceType                     `pulumi:"type"`
-	VpcConnectionProperties       *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
+	AlternateDataSourceParameters []DataSourceParameters `pulumi:"alternateDataSourceParameters"`
+	// The AWS account ID.
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	Credentials *DataSourceCredentials `pulumi:"credentials"`
+	// An ID for the data source. This ID is unique per AWS Region for each AWS account.
+	DataSourceId *string `pulumi:"dataSourceId"`
+	// The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	DataSourceParameters *DataSourceParameters `pulumi:"dataSourceParameters"`
+	// Error information for the data source creation or update.
+	ErrorInfo *DataSourceErrorInfo `pulumi:"errorInfo"`
+	// A display name for the data source.
+	Name *string `pulumi:"name"`
+	// Permission for the resource.
+	Permissions []DataSourceResourcePermission `pulumi:"permissions"`
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	//
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+	Type DataSourceType `pulumi:"type"`
+	// VPC connection properties.
+	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
 // The set of arguments for constructing a DataSource resource.
@@ -131,17 +158,30 @@ type DataSourceArgs struct {
 	//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
 	//             are automatically allowed.</p>
 	AlternateDataSourceParameters DataSourceParametersArrayInput
-	AwsAccountId                  pulumi.StringPtrInput
-	Credentials                   DataSourceCredentialsPtrInput
-	DataSourceId                  pulumi.StringPtrInput
-	DataSourceParameters          DataSourceParametersPtrInput
-	ErrorInfo                     DataSourceErrorInfoPtrInput
-	Name                          pulumi.StringPtrInput
-	Permissions                   DataSourceResourcePermissionArrayInput
-	SslProperties                 DataSourceSslPropertiesPtrInput
-	Tags                          aws.TagArrayInput
-	Type                          DataSourceTypeInput
-	VpcConnectionProperties       DataSourceVpcConnectionPropertiesPtrInput
+	// The AWS account ID.
+	AwsAccountId pulumi.StringPtrInput
+	// Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	Credentials DataSourceCredentialsPtrInput
+	// An ID for the data source. This ID is unique per AWS Region for each AWS account.
+	DataSourceId pulumi.StringPtrInput
+	// The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	DataSourceParameters DataSourceParametersPtrInput
+	// Error information for the data source creation or update.
+	ErrorInfo DataSourceErrorInfoPtrInput
+	// A display name for the data source.
+	Name pulumi.StringPtrInput
+	// Permission for the resource.
+	Permissions DataSourceResourcePermissionArrayInput
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+	SslProperties DataSourceSslPropertiesPtrInput
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+	Tags aws.TagArrayInput
+	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	//
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+	Type DataSourceTypeInput
+	// VPC connection properties.
+	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -200,6 +240,7 @@ func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AWS account ID.
 func (o DataSourceOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
@@ -209,18 +250,22 @@ func (o DataSourceOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 func (o DataSourceOutput) Credentials() DataSourceCredentialsPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceCredentialsPtrOutput { return v.Credentials }).(DataSourceCredentialsPtrOutput)
 }
 
+// An ID for the data source. This ID is unique per AWS Region for each AWS account.
 func (o DataSourceOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.DataSourceId }).(pulumi.StringPtrOutput)
 }
 
+// The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 func (o DataSourceOutput) DataSourceParameters() DataSourceParametersPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceParametersPtrOutput { return v.DataSourceParameters }).(DataSourceParametersPtrOutput)
 }
 
+// Error information for the data source creation or update.
 func (o DataSourceOutput) ErrorInfo() DataSourceErrorInfoPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceErrorInfoPtrOutput { return v.ErrorInfo }).(DataSourceErrorInfoPtrOutput)
 }
@@ -230,30 +275,39 @@ func (o DataSourceOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// A display name for the data source.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Permission for the resource.
 func (o DataSourceOutput) Permissions() DataSourceResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceResourcePermissionArrayOutput { return v.Permissions }).(DataSourceResourcePermissionArrayOutput)
 }
 
+// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
 func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesPtrOutput { return v.SslProperties }).(DataSourceSslPropertiesPtrOutput)
 }
 
+// The HTTP status of the request.
 func (o DataSourceOutput) Status() DataSourceResourceStatusOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceResourceStatusOutput { return v.Status }).(DataSourceResourceStatusOutput)
 }
 
+// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
 func (o DataSourceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+//
+// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 func (o DataSourceOutput) Type() DataSourceTypeOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceTypeOutput { return v.Type }).(DataSourceTypeOutput)
 }
 
+// VPC connection properties.
 func (o DataSourceOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceVpcConnectionPropertiesPtrOutput { return v.VpcConnectionProperties }).(DataSourceVpcConnectionPropertiesPtrOutput)
 }

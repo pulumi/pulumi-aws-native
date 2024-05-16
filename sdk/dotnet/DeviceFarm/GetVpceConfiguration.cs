@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetVpceConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetVpceConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,31 @@ namespace Pulumi.AwsNative.DeviceFarm
     [OutputType]
     public sealed class GetVpceConfigurationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The DNS name that Device Farm will use to map to the private service you want to access.
+        /// </summary>
         public readonly string? ServiceDnsName;
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// An optional description that provides details about your VPC endpoint configuration.
+        /// </summary>
         public readonly string? VpceConfigurationDescription;
+        /// <summary>
+        /// The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+        /// </summary>
         public readonly string? VpceConfigurationName;
+        /// <summary>
+        /// The name of the VPC endpoint service that you want to access from Device Farm.
+        /// 
+        /// The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+        /// </summary>
         public readonly string? VpceServiceName;
 
         [OutputConstructor]

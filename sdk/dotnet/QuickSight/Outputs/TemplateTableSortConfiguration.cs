@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableSortConfiguration
     {
+        /// <summary>
+        /// The pagination configuration for a table visual or boxplot.
+        /// </summary>
         public readonly Outputs.TemplatePaginationConfiguration? PaginationConfiguration;
+        /// <summary>
+        /// The field sort options for rows in the table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> RowSort;
 
         [OutputConstructor]

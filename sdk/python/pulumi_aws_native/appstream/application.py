@@ -30,6 +30,24 @@ class ApplicationArgs:
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] app_block_arn: The app block ARN with which the application should be associated.
+        :param pulumi.Input['ApplicationS3LocationArgs'] icon_s3_location: The S3 location of the application icon.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_families: The instance families the application supports.
+               
+               *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+        :param pulumi.Input[str] launch_path: The launch path of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The platforms the application supports.
+               
+               *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes_to_delete: A list of attributes to delete from an application.
+        :param pulumi.Input[str] description: The description of the application.
+        :param pulumi.Input[str] display_name: The display name of the application. This name is visible to users in the application catalog.
+        :param pulumi.Input[str] launch_parameters: The launch parameters of the application.
+        :param pulumi.Input[str] name: The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+               
+               *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]] tags: The tag of the application.
+        :param pulumi.Input[str] working_directory: The working directory of the application.
         """
         pulumi.set(__self__, "app_block_arn", app_block_arn)
         pulumi.set(__self__, "icon_s3_location", icon_s3_location)
@@ -54,6 +72,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="appBlockArn")
     def app_block_arn(self) -> pulumi.Input[str]:
+        """
+        The app block ARN with which the application should be associated.
+        """
         return pulumi.get(self, "app_block_arn")
 
     @app_block_arn.setter
@@ -63,6 +84,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="iconS3Location")
     def icon_s3_location(self) -> pulumi.Input['ApplicationS3LocationArgs']:
+        """
+        The S3 location of the application icon.
+        """
         return pulumi.get(self, "icon_s3_location")
 
     @icon_s3_location.setter
@@ -72,6 +96,11 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="instanceFamilies")
     def instance_families(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The instance families the application supports.
+
+        *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+        """
         return pulumi.get(self, "instance_families")
 
     @instance_families.setter
@@ -81,6 +110,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="launchPath")
     def launch_path(self) -> pulumi.Input[str]:
+        """
+        The launch path of the application.
+        """
         return pulumi.get(self, "launch_path")
 
     @launch_path.setter
@@ -90,6 +122,11 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def platforms(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The platforms the application supports.
+
+        *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+        """
         return pulumi.get(self, "platforms")
 
     @platforms.setter
@@ -99,6 +136,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="attributesToDelete")
     def attributes_to_delete(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of attributes to delete from an application.
+        """
         return pulumi.get(self, "attributes_to_delete")
 
     @attributes_to_delete.setter
@@ -108,6 +148,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the application.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -117,6 +160,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the application. This name is visible to users in the application catalog.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -126,6 +172,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="launchParameters")
     def launch_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The launch parameters of the application.
+        """
         return pulumi.get(self, "launch_parameters")
 
     @launch_parameters.setter
@@ -135,6 +184,11 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+
+        *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -144,6 +198,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]:
+        """
+        The tag of the application.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -153,6 +210,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The working directory of the application.
+        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -183,6 +243,24 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_block_arn: The app block ARN with which the application should be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes_to_delete: A list of attributes to delete from an application.
+        :param pulumi.Input[str] description: The description of the application.
+        :param pulumi.Input[str] display_name: The display name of the application. This name is visible to users in the application catalog.
+        :param pulumi.Input[pulumi.InputType['ApplicationS3LocationArgs']] icon_s3_location: The S3 location of the application icon.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_families: The instance families the application supports.
+               
+               *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+        :param pulumi.Input[str] launch_parameters: The launch parameters of the application.
+        :param pulumi.Input[str] launch_path: The launch path of the application.
+        :param pulumi.Input[str] name: The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+               
+               *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The platforms the application supports.
+               
+               *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ApplicationTag0PropertiesArgs'], pulumi.InputType['ApplicationTag1PropertiesArgs']]]]] tags: The tag of the application.
+        :param pulumi.Input[str] working_directory: The working directory of the application.
         """
         ...
     @overload
@@ -296,70 +374,118 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appBlockArn")
     def app_block_arn(self) -> pulumi.Output[str]:
+        """
+        The app block ARN with which the application should be associated.
+        """
         return pulumi.get(self, "app_block_arn")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the application.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributesToDelete")
     def attributes_to_delete(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of attributes to delete from an application.
+        """
         return pulumi.get(self, "attributes_to_delete")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the application was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the application.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the application. This name is visible to users in the application catalog.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="iconS3Location")
     def icon_s3_location(self) -> pulumi.Output['outputs.ApplicationS3Location']:
+        """
+        The S3 location of the application icon.
+        """
         return pulumi.get(self, "icon_s3_location")
 
     @property
     @pulumi.getter(name="instanceFamilies")
     def instance_families(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The instance families the application supports.
+
+        *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
+        """
         return pulumi.get(self, "instance_families")
 
     @property
     @pulumi.getter(name="launchParameters")
     def launch_parameters(self) -> pulumi.Output[Optional[str]]:
+        """
+        The launch parameters of the application.
+        """
         return pulumi.get(self, "launch_parameters")
 
     @property
     @pulumi.getter(name="launchPath")
     def launch_path(self) -> pulumi.Output[str]:
+        """
+        The launch path of the application.
+        """
         return pulumi.get(self, "launch_path")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
+
+        *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def platforms(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The platforms the application supports.
+
+        *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
+        """
         return pulumi.get(self, "platforms")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+        """
+        The tag of the application.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> pulumi.Output[Optional[str]]:
+        """
+        The working directory of the application.
+        """
         return pulumi.get(self, "working_directory")
 

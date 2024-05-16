@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountExpiryEventsConfiguration struct {
+	// This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
 	DaysBeforeExpiry *int `pulumi:"daysBeforeExpiry"`
 }
 
@@ -29,6 +30,7 @@ type AccountExpiryEventsConfigurationInput interface {
 }
 
 type AccountExpiryEventsConfigurationArgs struct {
+	// This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
 	DaysBeforeExpiry pulumi.IntPtrInput `pulumi:"daysBeforeExpiry"`
 }
 
@@ -58,6 +60,7 @@ func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurati
 	return o
 }
 
+// This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
 func (o AccountExpiryEventsConfigurationOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountExpiryEventsConfiguration) *int { return v.DaysBeforeExpiry }).(pulumi.IntPtrOutput)
 }
@@ -86,6 +89,7 @@ func (o AccountExpiryEventsConfigurationPtrOutput) Elem() AccountExpiryEventsCon
 	}).(AccountExpiryEventsConfigurationOutput)
 }
 
+// This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
 func (o AccountExpiryEventsConfigurationPtrOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountExpiryEventsConfiguration) *int {
 		if v == nil {

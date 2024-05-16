@@ -29,6 +29,7 @@ type LookupNetworkInterfaceArgs struct {
 }
 
 type LookupNetworkInterfaceResult struct {
+	// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
 	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
@@ -104,6 +105,7 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 	return o
 }
 
+// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
 func (o LookupNetworkInterfaceResultOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) *NetworkInterfaceConnectionTrackingSpecification {
 		return v.ConnectionTrackingSpecification

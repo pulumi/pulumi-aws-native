@@ -19,17 +19,44 @@ export function getAnnotationStore(args: GetAnnotationStoreArgs, opts?: pulumi.I
 }
 
 export interface GetAnnotationStoreArgs {
+    /**
+     * The name of the Annotation Store.
+     */
     name: string;
 }
 
 export interface GetAnnotationStoreResult {
+    /**
+     * When the store was created.
+     */
     readonly creationTime?: string;
+    /**
+     * A description for the store.
+     */
     readonly description?: string;
+    /**
+     * The store's ID.
+     */
     readonly id?: string;
+    /**
+     * The store's status.
+     */
     readonly status?: enums.omics.AnnotationStoreStoreStatus;
+    /**
+     * The store's status message.
+     */
     readonly statusMessage?: string;
+    /**
+     * The store's ARN.
+     */
     readonly storeArn?: string;
+    /**
+     * The store's size in bytes.
+     */
     readonly storeSizeBytes?: number;
+    /**
+     * When the store was updated.
+     */
     readonly updateTime?: string;
 }
 /**
@@ -40,5 +67,8 @@ export function getAnnotationStoreOutput(args: GetAnnotationStoreOutputArgs, opt
 }
 
 export interface GetAnnotationStoreOutputArgs {
+    /**
+     * The name of the Annotation Store.
+     */
     name: pulumi.Input<string>;
 }

@@ -82,96 +82,165 @@ class GetPortalResult:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional['PortalAuthenticationType']:
+        """
+        The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
+
+        `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+
+        1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
+
+        2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+
+        3. Submit the data to your IdP.
+
+        4. Add an `IdentityProvider` resource to your CloudFormation template.
+
+        `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+        """
         return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the browser settings that is associated with this web portal.
+        """
         return pulumi.get(self, "browser_settings_arn")
 
     @property
     @pulumi.getter(name="browserType")
     def browser_type(self) -> Optional['PortalBrowserType']:
+        """
+        The browser that users see when using a streaming session.
+        """
         return pulumi.get(self, "browser_type")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
+        """
+        The creation date of the web portal.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the web portal.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional['PortalInstanceType']:
+        """
+        The type and resources of the underlying instance.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the IP access settings that is associated with the web portal.
+        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @property
     @pulumi.getter(name="maxConcurrentSessions")
     def max_concurrent_sessions(self) -> Optional[float]:
+        """
+        The maximum number of concurrent sessions for the portal.
+        """
         return pulumi.get(self, "max_concurrent_sessions")
 
     @property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the network settings that is associated with the web portal.
+        """
         return pulumi.get(self, "network_settings_arn")
 
     @property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> Optional[str]:
+        """
+        The ARN of the web portal.
+        """
         return pulumi.get(self, "portal_arn")
 
     @property
     @pulumi.getter(name="portalEndpoint")
     def portal_endpoint(self) -> Optional[str]:
+        """
+        The endpoint URL of the web portal that users access in order to start streaming sessions.
+        """
         return pulumi.get(self, "portal_endpoint")
 
     @property
     @pulumi.getter(name="portalStatus")
     def portal_status(self) -> Optional['PortalStatus']:
+        """
+        The status of the web portal.
+        """
         return pulumi.get(self, "portal_status")
 
     @property
     @pulumi.getter(name="rendererType")
     def renderer_type(self) -> Optional['PortalRendererType']:
+        """
+        The renderer that is used in streaming sessions.
+        """
         return pulumi.get(self, "renderer_type")
 
     @property
     @pulumi.getter(name="serviceProviderSamlMetadata")
     def service_provider_saml_metadata(self) -> Optional[str]:
+        """
+        The SAML metadata of the service provider.
+        """
         return pulumi.get(self, "service_provider_saml_metadata")
 
     @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[str]:
+        """
+        A message that explains why the web portal is in its current status.
+        """
         return pulumi.get(self, "status_reason")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> Optional[str]:
+        """
+        The ARN of the trust store that is associated with the web portal.
+        """
         return pulumi.get(self, "trust_store_arn")
 
     @property
     @pulumi.getter(name="userAccessLoggingSettingsArn")
     def user_access_logging_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the user access logging settings that is associated with the web portal.
+        """
         return pulumi.get(self, "user_access_logging_settings_arn")
 
     @property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the user settings that is associated with the web portal.
+        """
         return pulumi.get(self, "user_settings_arn")
 
 
@@ -206,6 +275,9 @@ def get_portal(portal_arn: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPortalResult:
     """
     Definition of AWS::WorkSpacesWeb::Portal Resource Type
+
+
+    :param str portal_arn: The ARN of the web portal.
     """
     __args__ = dict()
     __args__['portalArn'] = portal_arn
@@ -239,5 +311,8 @@ def get_portal_output(portal_arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortalResult]:
     """
     Definition of AWS::WorkSpacesWeb::Portal Resource Type
+
+
+    :param str portal_arn: The ARN of the web portal.
     """
     ...

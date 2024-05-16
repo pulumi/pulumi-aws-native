@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AlertAction struct {
+	// Contains information about a Lambda configuration.
 	LambdaConfiguration *AlertLambdaConfiguration `pulumi:"lambdaConfiguration"`
-	SnsConfiguration    *AlertSnsConfiguration    `pulumi:"snsConfiguration"`
+	// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+	SnsConfiguration *AlertSnsConfiguration `pulumi:"snsConfiguration"`
 }
 
 // AlertActionInput is an input type that accepts AlertActionArgs and AlertActionOutput values.
@@ -30,8 +32,10 @@ type AlertActionInput interface {
 }
 
 type AlertActionArgs struct {
+	// Contains information about a Lambda configuration.
 	LambdaConfiguration AlertLambdaConfigurationPtrInput `pulumi:"lambdaConfiguration"`
-	SnsConfiguration    AlertSnsConfigurationPtrInput    `pulumi:"snsConfiguration"`
+	// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+	SnsConfiguration AlertSnsConfigurationPtrInput `pulumi:"snsConfiguration"`
 }
 
 func (AlertActionArgs) ElementType() reflect.Type {
@@ -60,10 +64,12 @@ func (o AlertActionOutput) ToAlertActionOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Contains information about a Lambda configuration.
 func (o AlertActionOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v AlertAction) *AlertLambdaConfiguration { return v.LambdaConfiguration }).(AlertLambdaConfigurationPtrOutput)
 }
 
+// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
 func (o AlertActionOutput) SnsConfiguration() AlertSnsConfigurationPtrOutput {
 	return o.ApplyT(func(v AlertAction) *AlertSnsConfiguration { return v.SnsConfiguration }).(AlertSnsConfigurationPtrOutput)
 }
@@ -387,8 +393,10 @@ func (o AlertSnsConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 }
 
 type AnomalyDetectorAppFlowConfig struct {
+	// name of the flow.
 	FlowName string `pulumi:"flowName"`
-	RoleArn  string `pulumi:"roleArn"`
+	// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // AnomalyDetectorAppFlowConfigInput is an input type that accepts AnomalyDetectorAppFlowConfigArgs and AnomalyDetectorAppFlowConfigOutput values.
@@ -403,8 +411,10 @@ type AnomalyDetectorAppFlowConfigInput interface {
 }
 
 type AnomalyDetectorAppFlowConfigArgs struct {
+	// name of the flow.
 	FlowName pulumi.StringInput `pulumi:"flowName"`
-	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
+	// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnomalyDetectorAppFlowConfigArgs) ElementType() reflect.Type {
@@ -484,10 +494,12 @@ func (o AnomalyDetectorAppFlowConfigOutput) ToAnomalyDetectorAppFlowConfigPtrOut
 	}).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
+// name of the flow.
 func (o AnomalyDetectorAppFlowConfigOutput) FlowName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorAppFlowConfig) string { return v.FlowName }).(pulumi.StringOutput)
 }
 
+// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
 func (o AnomalyDetectorAppFlowConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorAppFlowConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -516,6 +528,7 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) Elem() AnomalyDetectorAppFlowConf
 	}).(AnomalyDetectorAppFlowConfigOutput)
 }
 
+// name of the flow.
 func (o AnomalyDetectorAppFlowConfigPtrOutput) FlowName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorAppFlowConfig) *string {
 		if v == nil {
@@ -525,6 +538,7 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) FlowName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
 func (o AnomalyDetectorAppFlowConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorAppFlowConfig) *string {
 		if v == nil {
@@ -535,6 +549,7 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) RoleArn() pulumi.StringPtrOutput 
 }
 
 type AnomalyDetectorCloudwatchConfig struct {
+	// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -550,6 +565,7 @@ type AnomalyDetectorCloudwatchConfigInput interface {
 }
 
 type AnomalyDetectorCloudwatchConfigArgs struct {
+	// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -630,6 +646,7 @@ func (o AnomalyDetectorCloudwatchConfigOutput) ToAnomalyDetectorCloudwatchConfig
 	}).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
+// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
 func (o AnomalyDetectorCloudwatchConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorCloudwatchConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -658,6 +675,7 @@ func (o AnomalyDetectorCloudwatchConfigPtrOutput) Elem() AnomalyDetectorCloudwat
 	}).(AnomalyDetectorCloudwatchConfigOutput)
 }
 
+// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
 func (o AnomalyDetectorCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCloudwatchConfig) *string {
 		if v == nil {
@@ -754,12 +772,18 @@ func (o AnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() AnomalyDetect
 }
 
 type AnomalyDetectorCsvFormatDescriptor struct {
-	Charset         *string                                            `pulumi:"charset"`
-	ContainsHeader  *bool                                              `pulumi:"containsHeader"`
-	Delimiter       *string                                            `pulumi:"delimiter"`
+	// The character set in which the source CSV file is written.
+	Charset *string `pulumi:"charset"`
+	// Whether or not the source CSV file contains a header.
+	ContainsHeader *bool `pulumi:"containsHeader"`
+	// The character used to delimit the source CSV file.
+	Delimiter *string `pulumi:"delimiter"`
+	// The level of compression of the source CSV file.
 	FileCompression *AnomalyDetectorCsvFormatDescriptorFileCompression `pulumi:"fileCompression"`
-	HeaderList      []string                                           `pulumi:"headerList"`
-	QuoteSymbol     *string                                            `pulumi:"quoteSymbol"`
+	// A list of the source CSV file's headers, if any.
+	HeaderList []string `pulumi:"headerList"`
+	// The character used as a quote character.
+	QuoteSymbol *string `pulumi:"quoteSymbol"`
 }
 
 // AnomalyDetectorCsvFormatDescriptorInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorArgs and AnomalyDetectorCsvFormatDescriptorOutput values.
@@ -774,12 +798,18 @@ type AnomalyDetectorCsvFormatDescriptorInput interface {
 }
 
 type AnomalyDetectorCsvFormatDescriptorArgs struct {
-	Charset         pulumi.StringPtrInput                                     `pulumi:"charset"`
-	ContainsHeader  pulumi.BoolPtrInput                                       `pulumi:"containsHeader"`
-	Delimiter       pulumi.StringPtrInput                                     `pulumi:"delimiter"`
+	// The character set in which the source CSV file is written.
+	Charset pulumi.StringPtrInput `pulumi:"charset"`
+	// Whether or not the source CSV file contains a header.
+	ContainsHeader pulumi.BoolPtrInput `pulumi:"containsHeader"`
+	// The character used to delimit the source CSV file.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// The level of compression of the source CSV file.
 	FileCompression AnomalyDetectorCsvFormatDescriptorFileCompressionPtrInput `pulumi:"fileCompression"`
-	HeaderList      pulumi.StringArrayInput                                   `pulumi:"headerList"`
-	QuoteSymbol     pulumi.StringPtrInput                                     `pulumi:"quoteSymbol"`
+	// A list of the source CSV file's headers, if any.
+	HeaderList pulumi.StringArrayInput `pulumi:"headerList"`
+	// The character used as a quote character.
+	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
 }
 
 func (AnomalyDetectorCsvFormatDescriptorArgs) ElementType() reflect.Type {
@@ -859,28 +889,34 @@ func (o AnomalyDetectorCsvFormatDescriptorOutput) ToAnomalyDetectorCsvFormatDesc
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
+// The character set in which the source CSV file is written.
 func (o AnomalyDetectorCsvFormatDescriptorOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.Charset }).(pulumi.StringPtrOutput)
 }
 
+// Whether or not the source CSV file contains a header.
 func (o AnomalyDetectorCsvFormatDescriptorOutput) ContainsHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *bool { return v.ContainsHeader }).(pulumi.BoolPtrOutput)
 }
 
+// The character used to delimit the source CSV file.
 func (o AnomalyDetectorCsvFormatDescriptorOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
+// The level of compression of the source CSV file.
 func (o AnomalyDetectorCsvFormatDescriptorOutput) FileCompression() AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *AnomalyDetectorCsvFormatDescriptorFileCompression {
 		return v.FileCompression
 	}).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
 }
 
+// A list of the source CSV file's headers, if any.
 func (o AnomalyDetectorCsvFormatDescriptorOutput) HeaderList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) []string { return v.HeaderList }).(pulumi.StringArrayOutput)
 }
 
+// The character used as a quote character.
 func (o AnomalyDetectorCsvFormatDescriptorOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
@@ -909,6 +945,7 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Elem() AnomalyDetectorCsvFo
 	}).(AnomalyDetectorCsvFormatDescriptorOutput)
 }
 
+// The character set in which the source CSV file is written.
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -918,6 +955,7 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Charset() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether or not the source CSV file contains a header.
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ContainsHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *bool {
 		if v == nil {
@@ -927,6 +965,7 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ContainsHeader() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The character used to delimit the source CSV file.
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -936,6 +975,7 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Delimiter() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The level of compression of the source CSV file.
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) FileCompression() AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *AnomalyDetectorCsvFormatDescriptorFileCompression {
 		if v == nil {
@@ -945,6 +985,7 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) FileCompression() AnomalyDe
 	}).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
 }
 
+// A list of the source CSV file's headers, if any.
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) HeaderList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) []string {
 		if v == nil {
@@ -954,6 +995,7 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) HeaderList() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
+// The character used as a quote character.
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -964,7 +1006,9 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) QuoteSymbol() pulumi.String
 }
 
 type AnomalyDetectorFileFormatDescriptor struct {
-	CsvFormatDescriptor  *AnomalyDetectorCsvFormatDescriptor  `pulumi:"csvFormatDescriptor"`
+	// Contains information about how a source CSV data file should be analyzed.
+	CsvFormatDescriptor *AnomalyDetectorCsvFormatDescriptor `pulumi:"csvFormatDescriptor"`
+	// Contains information about how a source JSON data file should be analyzed.
 	JsonFormatDescriptor *AnomalyDetectorJsonFormatDescriptor `pulumi:"jsonFormatDescriptor"`
 }
 
@@ -980,7 +1024,9 @@ type AnomalyDetectorFileFormatDescriptorInput interface {
 }
 
 type AnomalyDetectorFileFormatDescriptorArgs struct {
-	CsvFormatDescriptor  AnomalyDetectorCsvFormatDescriptorPtrInput  `pulumi:"csvFormatDescriptor"`
+	// Contains information about how a source CSV data file should be analyzed.
+	CsvFormatDescriptor AnomalyDetectorCsvFormatDescriptorPtrInput `pulumi:"csvFormatDescriptor"`
+	// Contains information about how a source JSON data file should be analyzed.
 	JsonFormatDescriptor AnomalyDetectorJsonFormatDescriptorPtrInput `pulumi:"jsonFormatDescriptor"`
 }
 
@@ -1061,12 +1107,14 @@ func (o AnomalyDetectorFileFormatDescriptorOutput) ToAnomalyDetectorFileFormatDe
 	}).(AnomalyDetectorFileFormatDescriptorPtrOutput)
 }
 
+// Contains information about how a source CSV data file should be analyzed.
 func (o AnomalyDetectorFileFormatDescriptorOutput) CsvFormatDescriptor() AnomalyDetectorCsvFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorCsvFormatDescriptor {
 		return v.CsvFormatDescriptor
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
+// Contains information about how a source JSON data file should be analyzed.
 func (o AnomalyDetectorFileFormatDescriptorOutput) JsonFormatDescriptor() AnomalyDetectorJsonFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorJsonFormatDescriptor {
 		return v.JsonFormatDescriptor
@@ -1097,6 +1145,7 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) Elem() AnomalyDetectorFile
 	}).(AnomalyDetectorFileFormatDescriptorOutput)
 }
 
+// Contains information about how a source CSV data file should be analyzed.
 func (o AnomalyDetectorFileFormatDescriptorPtrOutput) CsvFormatDescriptor() AnomalyDetectorCsvFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorCsvFormatDescriptor {
 		if v == nil {
@@ -1106,6 +1155,7 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) CsvFormatDescriptor() Anom
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
+// Contains information about how a source JSON data file should be analyzed.
 func (o AnomalyDetectorFileFormatDescriptorPtrOutput) JsonFormatDescriptor() AnomalyDetectorJsonFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorJsonFormatDescriptor {
 		if v == nil {
@@ -1116,7 +1166,9 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) JsonFormatDescriptor() Ano
 }
 
 type AnomalyDetectorJsonFormatDescriptor struct {
-	Charset         *string                                             `pulumi:"charset"`
+	// The character set in which the source JSON file is written.
+	Charset *string `pulumi:"charset"`
+	// The level of compression of the source CSV file.
 	FileCompression *AnomalyDetectorJsonFormatDescriptorFileCompression `pulumi:"fileCompression"`
 }
 
@@ -1132,7 +1184,9 @@ type AnomalyDetectorJsonFormatDescriptorInput interface {
 }
 
 type AnomalyDetectorJsonFormatDescriptorArgs struct {
-	Charset         pulumi.StringPtrInput                                      `pulumi:"charset"`
+	// The character set in which the source JSON file is written.
+	Charset pulumi.StringPtrInput `pulumi:"charset"`
+	// The level of compression of the source CSV file.
 	FileCompression AnomalyDetectorJsonFormatDescriptorFileCompressionPtrInput `pulumi:"fileCompression"`
 }
 
@@ -1213,10 +1267,12 @@ func (o AnomalyDetectorJsonFormatDescriptorOutput) ToAnomalyDetectorJsonFormatDe
 	}).(AnomalyDetectorJsonFormatDescriptorPtrOutput)
 }
 
+// The character set in which the source JSON file is written.
 func (o AnomalyDetectorJsonFormatDescriptorOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *string { return v.Charset }).(pulumi.StringPtrOutput)
 }
 
+// The level of compression of the source CSV file.
 func (o AnomalyDetectorJsonFormatDescriptorOutput) FileCompression() AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *AnomalyDetectorJsonFormatDescriptorFileCompression {
 		return v.FileCompression
@@ -1247,6 +1303,7 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Elem() AnomalyDetectorJson
 	}).(AnomalyDetectorJsonFormatDescriptorOutput)
 }
 
+// The character set in which the source JSON file is written.
 func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptor) *string {
 		if v == nil {
@@ -1256,6 +1313,7 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Charset() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The level of compression of the source CSV file.
 func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) FileCompression() AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptor) *AnomalyDetectorJsonFormatDescriptorFileCompression {
 		if v == nil {
@@ -1268,8 +1326,10 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) FileCompression() AnomalyD
 type AnomalyDetectorMetric struct {
 	// Operator used to aggregate metric values
 	AggregationFunction AnomalyDetectorMetricAggregationFunction `pulumi:"aggregationFunction"`
-	MetricName          string                                   `pulumi:"metricName"`
-	Namespace           *string                                  `pulumi:"namespace"`
+	// The name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// The namespace for the metric.
+	Namespace *string `pulumi:"namespace"`
 }
 
 // AnomalyDetectorMetricInput is an input type that accepts AnomalyDetectorMetricArgs and AnomalyDetectorMetricOutput values.
@@ -1286,8 +1346,10 @@ type AnomalyDetectorMetricInput interface {
 type AnomalyDetectorMetricArgs struct {
 	// Operator used to aggregate metric values
 	AggregationFunction AnomalyDetectorMetricAggregationFunctionInput `pulumi:"aggregationFunction"`
-	MetricName          pulumi.StringInput                            `pulumi:"metricName"`
-	Namespace           pulumi.StringPtrInput                         `pulumi:"namespace"`
+	// The name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace for the metric.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (AnomalyDetectorMetricArgs) ElementType() reflect.Type {
@@ -1346,10 +1408,12 @@ func (o AnomalyDetectorMetricOutput) AggregationFunction() AnomalyDetectorMetric
 	return o.ApplyT(func(v AnomalyDetectorMetric) AnomalyDetectorMetricAggregationFunction { return v.AggregationFunction }).(AnomalyDetectorMetricAggregationFunctionOutput)
 }
 
+// The name of the metric.
 func (o AnomalyDetectorMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The namespace for the metric.
 func (o AnomalyDetectorMetricOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -1384,12 +1448,15 @@ type AnomalyDetectorMetricSet struct {
 	// A frequency period to aggregate the data
 	MetricSetFrequency *AnomalyDetectorMetricSetMetricSetFrequency `pulumi:"metricSetFrequency"`
 	// The name of the MetricSet.
-	MetricSetName string                      `pulumi:"metricSetName"`
-	MetricSource  AnomalyDetectorMetricSource `pulumi:"metricSource"`
+	MetricSetName string `pulumi:"metricSetName"`
+	// Contains information about how the source data should be interpreted.
+	MetricSource AnomalyDetectorMetricSource `pulumi:"metricSource"`
 	// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
-	Offset          *int                            `pulumi:"offset"`
+	Offset *int `pulumi:"offset"`
+	// Contains information about the column used to track time in a source data file.
 	TimestampColumn *AnomalyDetectorTimestampColumn `pulumi:"timestampColumn"`
-	Timezone        *string                         `pulumi:"timezone"`
+	// The time zone in which your source data was recorded.
+	Timezone *string `pulumi:"timezone"`
 }
 
 // AnomalyDetectorMetricSetInput is an input type that accepts AnomalyDetectorMetricSetArgs and AnomalyDetectorMetricSetOutput values.
@@ -1413,12 +1480,15 @@ type AnomalyDetectorMetricSetArgs struct {
 	// A frequency period to aggregate the data
 	MetricSetFrequency AnomalyDetectorMetricSetMetricSetFrequencyPtrInput `pulumi:"metricSetFrequency"`
 	// The name of the MetricSet.
-	MetricSetName pulumi.StringInput               `pulumi:"metricSetName"`
-	MetricSource  AnomalyDetectorMetricSourceInput `pulumi:"metricSource"`
+	MetricSetName pulumi.StringInput `pulumi:"metricSetName"`
+	// Contains information about how the source data should be interpreted.
+	MetricSource AnomalyDetectorMetricSourceInput `pulumi:"metricSource"`
 	// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
-	Offset          pulumi.IntPtrInput                     `pulumi:"offset"`
+	Offset pulumi.IntPtrInput `pulumi:"offset"`
+	// Contains information about the column used to track time in a source data file.
 	TimestampColumn AnomalyDetectorTimestampColumnPtrInput `pulumi:"timestampColumn"`
-	Timezone        pulumi.StringPtrInput                  `pulumi:"timezone"`
+	// The time zone in which your source data was recorded.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (AnomalyDetectorMetricSetArgs) ElementType() reflect.Type {
@@ -1499,6 +1569,7 @@ func (o AnomalyDetectorMetricSetOutput) MetricSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) string { return v.MetricSetName }).(pulumi.StringOutput)
 }
 
+// Contains information about how the source data should be interpreted.
 func (o AnomalyDetectorMetricSetOutput) MetricSource() AnomalyDetectorMetricSourceOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) AnomalyDetectorMetricSource { return v.MetricSource }).(AnomalyDetectorMetricSourceOutput)
 }
@@ -1508,10 +1579,12 @@ func (o AnomalyDetectorMetricSetOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
+// Contains information about the column used to track time in a source data file.
 func (o AnomalyDetectorMetricSetOutput) TimestampColumn() AnomalyDetectorTimestampColumnPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *AnomalyDetectorTimestampColumn { return v.TimestampColumn }).(AnomalyDetectorTimestampColumnPtrOutput)
 }
 
+// The time zone in which your source data was recorded.
 func (o AnomalyDetectorMetricSetOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -1537,11 +1610,16 @@ func (o AnomalyDetectorMetricSetArrayOutput) Index(i pulumi.IntInput) AnomalyDet
 }
 
 type AnomalyDetectorMetricSource struct {
-	AppFlowConfig        *AnomalyDetectorAppFlowConfig        `pulumi:"appFlowConfig"`
-	CloudwatchConfig     *AnomalyDetectorCloudwatchConfig     `pulumi:"cloudwatchConfig"`
-	RdsSourceConfig      *AnomalyDetectorRdsSourceConfig      `pulumi:"rdsSourceConfig"`
+	// Details about an Amazon AppFlow flow datasource.
+	AppFlowConfig *AnomalyDetectorAppFlowConfig `pulumi:"appFlowConfig"`
+	// Details about an Amazon CloudWatch datasource.
+	CloudwatchConfig *AnomalyDetectorCloudwatchConfig `pulumi:"cloudwatchConfig"`
+	// Contains information about the Amazon Relational Database Service (RDS) configuration.
+	RdsSourceConfig *AnomalyDetectorRdsSourceConfig `pulumi:"rdsSourceConfig"`
+	// Provides information about the Amazon Redshift database configuration.
 	RedshiftSourceConfig *AnomalyDetectorRedshiftSourceConfig `pulumi:"redshiftSourceConfig"`
-	S3SourceConfig       *AnomalyDetectorS3SourceConfig       `pulumi:"s3SourceConfig"`
+	// Contains information about the configuration of the S3 bucket that contains source files.
+	S3SourceConfig *AnomalyDetectorS3SourceConfig `pulumi:"s3SourceConfig"`
 }
 
 // AnomalyDetectorMetricSourceInput is an input type that accepts AnomalyDetectorMetricSourceArgs and AnomalyDetectorMetricSourceOutput values.
@@ -1556,11 +1634,16 @@ type AnomalyDetectorMetricSourceInput interface {
 }
 
 type AnomalyDetectorMetricSourceArgs struct {
-	AppFlowConfig        AnomalyDetectorAppFlowConfigPtrInput        `pulumi:"appFlowConfig"`
-	CloudwatchConfig     AnomalyDetectorCloudwatchConfigPtrInput     `pulumi:"cloudwatchConfig"`
-	RdsSourceConfig      AnomalyDetectorRdsSourceConfigPtrInput      `pulumi:"rdsSourceConfig"`
+	// Details about an Amazon AppFlow flow datasource.
+	AppFlowConfig AnomalyDetectorAppFlowConfigPtrInput `pulumi:"appFlowConfig"`
+	// Details about an Amazon CloudWatch datasource.
+	CloudwatchConfig AnomalyDetectorCloudwatchConfigPtrInput `pulumi:"cloudwatchConfig"`
+	// Contains information about the Amazon Relational Database Service (RDS) configuration.
+	RdsSourceConfig AnomalyDetectorRdsSourceConfigPtrInput `pulumi:"rdsSourceConfig"`
+	// Provides information about the Amazon Redshift database configuration.
 	RedshiftSourceConfig AnomalyDetectorRedshiftSourceConfigPtrInput `pulumi:"redshiftSourceConfig"`
-	S3SourceConfig       AnomalyDetectorS3SourceConfigPtrInput       `pulumi:"s3SourceConfig"`
+	// Contains information about the configuration of the S3 bucket that contains source files.
+	S3SourceConfig AnomalyDetectorS3SourceConfigPtrInput `pulumi:"s3SourceConfig"`
 }
 
 func (AnomalyDetectorMetricSourceArgs) ElementType() reflect.Type {
@@ -1589,37 +1672,50 @@ func (o AnomalyDetectorMetricSourceOutput) ToAnomalyDetectorMetricSourceOutputWi
 	return o
 }
 
+// Details about an Amazon AppFlow flow datasource.
 func (o AnomalyDetectorMetricSourceOutput) AppFlowConfig() AnomalyDetectorAppFlowConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorAppFlowConfig { return v.AppFlowConfig }).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
+// Details about an Amazon CloudWatch datasource.
 func (o AnomalyDetectorMetricSourceOutput) CloudwatchConfig() AnomalyDetectorCloudwatchConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorCloudwatchConfig { return v.CloudwatchConfig }).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
+// Contains information about the Amazon Relational Database Service (RDS) configuration.
 func (o AnomalyDetectorMetricSourceOutput) RdsSourceConfig() AnomalyDetectorRdsSourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRdsSourceConfig { return v.RdsSourceConfig }).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
+// Provides information about the Amazon Redshift database configuration.
 func (o AnomalyDetectorMetricSourceOutput) RedshiftSourceConfig() AnomalyDetectorRedshiftSourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRedshiftSourceConfig {
 		return v.RedshiftSourceConfig
 	}).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
 }
 
+// Contains information about the configuration of the S3 bucket that contains source files.
 func (o AnomalyDetectorMetricSourceOutput) S3SourceConfig() AnomalyDetectorS3SourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorS3SourceConfig { return v.S3SourceConfig }).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
 type AnomalyDetectorRdsSourceConfig struct {
-	DatabaseHost         string                          `pulumi:"databaseHost"`
-	DatabaseName         string                          `pulumi:"databaseName"`
-	DatabasePort         int                             `pulumi:"databasePort"`
-	DbInstanceIdentifier string                          `pulumi:"dbInstanceIdentifier"`
-	RoleArn              string                          `pulumi:"roleArn"`
-	SecretManagerArn     string                          `pulumi:"secretManagerArn"`
-	TableName            string                          `pulumi:"tableName"`
-	VpcConfiguration     AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
+	// The host name of the database.
+	DatabaseHost string `pulumi:"databaseHost"`
+	// The name of the RDS database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The port number where the database can be accessed.
+	DatabasePort int `pulumi:"databasePort"`
+	// A string identifying the database instance.
+	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
+	// The Amazon Resource Name (ARN) of the role.
+	RoleArn string `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+	SecretManagerArn string `pulumi:"secretManagerArn"`
+	// The name of the table in the database.
+	TableName string `pulumi:"tableName"`
+	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	VpcConfiguration AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // AnomalyDetectorRdsSourceConfigInput is an input type that accepts AnomalyDetectorRdsSourceConfigArgs and AnomalyDetectorRdsSourceConfigOutput values.
@@ -1634,14 +1730,22 @@ type AnomalyDetectorRdsSourceConfigInput interface {
 }
 
 type AnomalyDetectorRdsSourceConfigArgs struct {
-	DatabaseHost         pulumi.StringInput                   `pulumi:"databaseHost"`
-	DatabaseName         pulumi.StringInput                   `pulumi:"databaseName"`
-	DatabasePort         pulumi.IntInput                      `pulumi:"databasePort"`
-	DbInstanceIdentifier pulumi.StringInput                   `pulumi:"dbInstanceIdentifier"`
-	RoleArn              pulumi.StringInput                   `pulumi:"roleArn"`
-	SecretManagerArn     pulumi.StringInput                   `pulumi:"secretManagerArn"`
-	TableName            pulumi.StringInput                   `pulumi:"tableName"`
-	VpcConfiguration     AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
+	// The host name of the database.
+	DatabaseHost pulumi.StringInput `pulumi:"databaseHost"`
+	// The name of the RDS database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The port number where the database can be accessed.
+	DatabasePort pulumi.IntInput `pulumi:"databasePort"`
+	// A string identifying the database instance.
+	DbInstanceIdentifier pulumi.StringInput `pulumi:"dbInstanceIdentifier"`
+	// The Amazon Resource Name (ARN) of the role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
+	// The name of the table in the database.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	VpcConfiguration AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
 func (AnomalyDetectorRdsSourceConfigArgs) ElementType() reflect.Type {
@@ -1721,34 +1825,42 @@ func (o AnomalyDetectorRdsSourceConfigOutput) ToAnomalyDetectorRdsSourceConfigPt
 	}).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
+// The host name of the database.
 func (o AnomalyDetectorRdsSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
 
+// The name of the RDS database.
 func (o AnomalyDetectorRdsSourceConfigOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The port number where the database can be accessed.
 func (o AnomalyDetectorRdsSourceConfigOutput) DatabasePort() pulumi.IntOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
 }
 
+// A string identifying the database instance.
 func (o AnomalyDetectorRdsSourceConfigOutput) DbInstanceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role.
 func (o AnomalyDetectorRdsSourceConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
 func (o AnomalyDetectorRdsSourceConfigOutput) SecretManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.SecretManagerArn }).(pulumi.StringOutput)
 }
 
+// The name of the table in the database.
 func (o AnomalyDetectorRdsSourceConfigOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
 func (o AnomalyDetectorRdsSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
@@ -1777,6 +1889,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) Elem() AnomalyDetectorRdsSource
 	}).(AnomalyDetectorRdsSourceConfigOutput)
 }
 
+// The host name of the database.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
@@ -1786,6 +1899,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the RDS database.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
@@ -1795,6 +1909,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabaseName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number where the database can be accessed.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *int {
 		if v == nil {
@@ -1804,6 +1919,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// A string identifying the database instance.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
@@ -1813,6 +1929,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) DbInstanceIdentifier() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
@@ -1822,6 +1939,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
@@ -1831,6 +1949,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) SecretManagerArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table in the database.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *string {
 		if v == nil {
@@ -1840,6 +1959,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) TableName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {
@@ -1850,14 +1970,22 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) VpcConfiguration() AnomalyDetec
 }
 
 type AnomalyDetectorRedshiftSourceConfig struct {
-	ClusterIdentifier string                          `pulumi:"clusterIdentifier"`
-	DatabaseHost      string                          `pulumi:"databaseHost"`
-	DatabaseName      string                          `pulumi:"databaseName"`
-	DatabasePort      int                             `pulumi:"databasePort"`
-	RoleArn           string                          `pulumi:"roleArn"`
-	SecretManagerArn  string                          `pulumi:"secretManagerArn"`
-	TableName         string                          `pulumi:"tableName"`
-	VpcConfiguration  AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
+	// A string identifying the Redshift cluster.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The name of the database host.
+	DatabaseHost string `pulumi:"databaseHost"`
+	// The Redshift database name.
+	DatabaseName string `pulumi:"databaseName"`
+	// The port number where the database can be accessed.
+	DatabasePort int `pulumi:"databasePort"`
+	// The Amazon Resource Name (ARN) of the role providing access to the database.
+	RoleArn string `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+	SecretManagerArn string `pulumi:"secretManagerArn"`
+	// The table name of the Redshift database.
+	TableName string `pulumi:"tableName"`
+	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	VpcConfiguration AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // AnomalyDetectorRedshiftSourceConfigInput is an input type that accepts AnomalyDetectorRedshiftSourceConfigArgs and AnomalyDetectorRedshiftSourceConfigOutput values.
@@ -1872,14 +2000,22 @@ type AnomalyDetectorRedshiftSourceConfigInput interface {
 }
 
 type AnomalyDetectorRedshiftSourceConfigArgs struct {
-	ClusterIdentifier pulumi.StringInput                   `pulumi:"clusterIdentifier"`
-	DatabaseHost      pulumi.StringInput                   `pulumi:"databaseHost"`
-	DatabaseName      pulumi.StringInput                   `pulumi:"databaseName"`
-	DatabasePort      pulumi.IntInput                      `pulumi:"databasePort"`
-	RoleArn           pulumi.StringInput                   `pulumi:"roleArn"`
-	SecretManagerArn  pulumi.StringInput                   `pulumi:"secretManagerArn"`
-	TableName         pulumi.StringInput                   `pulumi:"tableName"`
-	VpcConfiguration  AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
+	// A string identifying the Redshift cluster.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// The name of the database host.
+	DatabaseHost pulumi.StringInput `pulumi:"databaseHost"`
+	// The Redshift database name.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The port number where the database can be accessed.
+	DatabasePort pulumi.IntInput `pulumi:"databasePort"`
+	// The Amazon Resource Name (ARN) of the role providing access to the database.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
+	// The table name of the Redshift database.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	VpcConfiguration AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
 func (AnomalyDetectorRedshiftSourceConfigArgs) ElementType() reflect.Type {
@@ -1959,34 +2095,42 @@ func (o AnomalyDetectorRedshiftSourceConfigOutput) ToAnomalyDetectorRedshiftSour
 	}).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
 }
 
+// A string identifying the Redshift cluster.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the database host.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
 
+// The Redshift database name.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The port number where the database can be accessed.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) DatabasePort() pulumi.IntOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role providing access to the database.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) SecretManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.SecretManagerArn }).(pulumi.StringOutput)
 }
 
+// The table name of the Redshift database.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
 func (o AnomalyDetectorRedshiftSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
@@ -2015,6 +2159,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) Elem() AnomalyDetectorReds
 	}).(AnomalyDetectorRedshiftSourceConfigOutput)
 }
 
+// A string identifying the Redshift cluster.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2024,6 +2169,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ClusterIdentifier() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database host.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2033,6 +2179,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseHost() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Redshift database name.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2042,6 +2189,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number where the database can be accessed.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *int {
 		if v == nil {
@@ -2051,6 +2199,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabasePort() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role providing access to the database.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2060,6 +2209,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) RoleArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2069,6 +2219,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) SecretManagerArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The table name of the Redshift database.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2078,6 +2229,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) TableName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {
@@ -2088,10 +2240,14 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) VpcConfiguration() Anomaly
 }
 
 type AnomalyDetectorS3SourceConfig struct {
-	FileFormatDescriptor   AnomalyDetectorFileFormatDescriptor `pulumi:"fileFormatDescriptor"`
-	HistoricalDataPathList []string                            `pulumi:"historicalDataPathList"`
-	RoleArn                string                              `pulumi:"roleArn"`
-	TemplatedPathList      []string                            `pulumi:"templatedPathList"`
+	// Contains information about a source file's formatting.
+	FileFormatDescriptor AnomalyDetectorFileFormatDescriptor `pulumi:"fileFormatDescriptor"`
+	// A list of paths to the historical data files.
+	HistoricalDataPathList []string `pulumi:"historicalDataPathList"`
+	// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
+	RoleArn string `pulumi:"roleArn"`
+	// A list of templated paths to the source files.
+	TemplatedPathList []string `pulumi:"templatedPathList"`
 }
 
 // AnomalyDetectorS3SourceConfigInput is an input type that accepts AnomalyDetectorS3SourceConfigArgs and AnomalyDetectorS3SourceConfigOutput values.
@@ -2106,10 +2262,14 @@ type AnomalyDetectorS3SourceConfigInput interface {
 }
 
 type AnomalyDetectorS3SourceConfigArgs struct {
-	FileFormatDescriptor   AnomalyDetectorFileFormatDescriptorInput `pulumi:"fileFormatDescriptor"`
-	HistoricalDataPathList pulumi.StringArrayInput                  `pulumi:"historicalDataPathList"`
-	RoleArn                pulumi.StringInput                       `pulumi:"roleArn"`
-	TemplatedPathList      pulumi.StringArrayInput                  `pulumi:"templatedPathList"`
+	// Contains information about a source file's formatting.
+	FileFormatDescriptor AnomalyDetectorFileFormatDescriptorInput `pulumi:"fileFormatDescriptor"`
+	// A list of paths to the historical data files.
+	HistoricalDataPathList pulumi.StringArrayInput `pulumi:"historicalDataPathList"`
+	// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A list of templated paths to the source files.
+	TemplatedPathList pulumi.StringArrayInput `pulumi:"templatedPathList"`
 }
 
 func (AnomalyDetectorS3SourceConfigArgs) ElementType() reflect.Type {
@@ -2189,20 +2349,24 @@ func (o AnomalyDetectorS3SourceConfigOutput) ToAnomalyDetectorS3SourceConfigPtrO
 	}).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
+// Contains information about a source file's formatting.
 func (o AnomalyDetectorS3SourceConfigOutput) FileFormatDescriptor() AnomalyDetectorFileFormatDescriptorOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) AnomalyDetectorFileFormatDescriptor {
 		return v.FileFormatDescriptor
 	}).(AnomalyDetectorFileFormatDescriptorOutput)
 }
 
+// A list of paths to the historical data files.
 func (o AnomalyDetectorS3SourceConfigOutput) HistoricalDataPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) []string { return v.HistoricalDataPathList }).(pulumi.StringArrayOutput)
 }
 
+// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
 func (o AnomalyDetectorS3SourceConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A list of templated paths to the source files.
 func (o AnomalyDetectorS3SourceConfigOutput) TemplatedPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) []string { return v.TemplatedPathList }).(pulumi.StringArrayOutput)
 }
@@ -2231,6 +2395,7 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) Elem() AnomalyDetectorS3SourceCo
 	}).(AnomalyDetectorS3SourceConfigOutput)
 }
 
+// Contains information about a source file's formatting.
 func (o AnomalyDetectorS3SourceConfigPtrOutput) FileFormatDescriptor() AnomalyDetectorFileFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) *AnomalyDetectorFileFormatDescriptor {
 		if v == nil {
@@ -2240,6 +2405,7 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) FileFormatDescriptor() AnomalyDe
 	}).(AnomalyDetectorFileFormatDescriptorPtrOutput)
 }
 
+// A list of paths to the historical data files.
 func (o AnomalyDetectorS3SourceConfigPtrOutput) HistoricalDataPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) []string {
 		if v == nil {
@@ -2249,6 +2415,7 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) HistoricalDataPathList() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
 func (o AnomalyDetectorS3SourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) *string {
 		if v == nil {
@@ -2258,6 +2425,7 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of templated paths to the source files.
 func (o AnomalyDetectorS3SourceConfigPtrOutput) TemplatedPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) []string {
 		if v == nil {
@@ -2270,7 +2438,8 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) TemplatedPathList() pulumi.Strin
 type AnomalyDetectorTimestampColumn struct {
 	// A timestamp format for the timestamps in the dataset
 	ColumnFormat *string `pulumi:"columnFormat"`
-	ColumnName   *string `pulumi:"columnName"`
+	// The name of the timestamp column.
+	ColumnName *string `pulumi:"columnName"`
 }
 
 // AnomalyDetectorTimestampColumnInput is an input type that accepts AnomalyDetectorTimestampColumnArgs and AnomalyDetectorTimestampColumnOutput values.
@@ -2287,7 +2456,8 @@ type AnomalyDetectorTimestampColumnInput interface {
 type AnomalyDetectorTimestampColumnArgs struct {
 	// A timestamp format for the timestamps in the dataset
 	ColumnFormat pulumi.StringPtrInput `pulumi:"columnFormat"`
-	ColumnName   pulumi.StringPtrInput `pulumi:"columnName"`
+	// The name of the timestamp column.
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 }
 
 func (AnomalyDetectorTimestampColumnArgs) ElementType() reflect.Type {
@@ -2372,6 +2542,7 @@ func (o AnomalyDetectorTimestampColumnOutput) ColumnFormat() pulumi.StringPtrOut
 	return o.ApplyT(func(v AnomalyDetectorTimestampColumn) *string { return v.ColumnFormat }).(pulumi.StringPtrOutput)
 }
 
+// The name of the timestamp column.
 func (o AnomalyDetectorTimestampColumnOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorTimestampColumn) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
@@ -2410,6 +2581,7 @@ func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnFormat() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the timestamp column.
 func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorTimestampColumn) *string {
 		if v == nil {
@@ -2420,8 +2592,10 @@ func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnName() pulumi.StringPtrOu
 }
 
 type AnomalyDetectorVpcConfiguration struct {
+	// An array of strings containing the list of security groups.
 	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
-	SubnetIdList        []string `pulumi:"subnetIdList"`
+	// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
+	SubnetIdList []string `pulumi:"subnetIdList"`
 }
 
 // AnomalyDetectorVpcConfigurationInput is an input type that accepts AnomalyDetectorVpcConfigurationArgs and AnomalyDetectorVpcConfigurationOutput values.
@@ -2436,8 +2610,10 @@ type AnomalyDetectorVpcConfigurationInput interface {
 }
 
 type AnomalyDetectorVpcConfigurationArgs struct {
+	// An array of strings containing the list of security groups.
 	SecurityGroupIdList pulumi.StringArrayInput `pulumi:"securityGroupIdList"`
-	SubnetIdList        pulumi.StringArrayInput `pulumi:"subnetIdList"`
+	// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
+	SubnetIdList pulumi.StringArrayInput `pulumi:"subnetIdList"`
 }
 
 func (AnomalyDetectorVpcConfigurationArgs) ElementType() reflect.Type {
@@ -2517,10 +2693,12 @@ func (o AnomalyDetectorVpcConfigurationOutput) ToAnomalyDetectorVpcConfiguration
 	}).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
+// An array of strings containing the list of security groups.
 func (o AnomalyDetectorVpcConfigurationOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorVpcConfiguration) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
 }
 
+// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
 func (o AnomalyDetectorVpcConfigurationOutput) SubnetIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorVpcConfiguration) []string { return v.SubnetIdList }).(pulumi.StringArrayOutput)
 }
@@ -2549,6 +2727,7 @@ func (o AnomalyDetectorVpcConfigurationPtrOutput) Elem() AnomalyDetectorVpcConfi
 	}).(AnomalyDetectorVpcConfigurationOutput)
 }
 
+// An array of strings containing the list of security groups.
 func (o AnomalyDetectorVpcConfigurationPtrOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorVpcConfiguration) []string {
 		if v == nil {
@@ -2558,6 +2737,7 @@ func (o AnomalyDetectorVpcConfigurationPtrOutput) SecurityGroupIdList() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
 func (o AnomalyDetectorVpcConfigurationPtrOutput) SubnetIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorVpcConfiguration) []string {
 		if v == nil {

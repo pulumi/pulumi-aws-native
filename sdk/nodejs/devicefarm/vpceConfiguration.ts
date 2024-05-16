@@ -37,11 +37,31 @@ export class VpceConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpceConfiguration.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The DNS name that Device Farm will use to map to the private service you want to access.
+     */
     public readonly serviceDnsName!: pulumi.Output<string>;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * An optional description that provides details about your VPC endpoint configuration.
+     */
     public readonly vpceConfigurationDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+     */
     public readonly vpceConfigurationName!: pulumi.Output<string>;
+    /**
+     * The name of the VPC endpoint service that you want to access from Device Farm.
+     *
+     * The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+     */
     public readonly vpceServiceName!: pulumi.Output<string>;
 
     /**
@@ -84,9 +104,26 @@ export class VpceConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a VpceConfiguration resource.
  */
 export interface VpceConfigurationArgs {
+    /**
+     * The DNS name that Device Farm will use to map to the private service you want to access.
+     */
     serviceDnsName: pulumi.Input<string>;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * An optional description that provides details about your VPC endpoint configuration.
+     */
     vpceConfigurationDescription?: pulumi.Input<string>;
+    /**
+     * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+     */
     vpceConfigurationName?: pulumi.Input<string>;
+    /**
+     * The name of the VPC endpoint service that you want to access from Device Farm.
+     *
+     * The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+     */
     vpceServiceName: pulumi.Input<string>;
 }

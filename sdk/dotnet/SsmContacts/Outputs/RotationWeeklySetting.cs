@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SsmContacts.Outputs
     [OutputType]
     public sealed class RotationWeeklySetting
     {
+        /// <summary>
+        /// The day of the week when weekly recurring on-call shift rotations begins.
+        /// </summary>
         public readonly Pulumi.AwsNative.SsmContacts.RotationDayOfWeek DayOfWeek;
+        /// <summary>
+        /// The time of day when a weekly recurring on-call shift rotation begins.
+        /// </summary>
         public readonly string HandOffTime;
 
         [OutputConstructor]

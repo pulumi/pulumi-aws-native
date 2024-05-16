@@ -16,11 +16,33 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class FleetContainerGroupsConfiguration
     {
+        /// <summary>
+        /// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        /// 
+        /// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+        /// </summary>
         public readonly Outputs.FleetConnectionPortRange ConnectionPortRange;
         /// <summary>
         /// The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
         /// </summary>
         public readonly ImmutableArray<string> ContainerGroupDefinitionNames;
+        /// <summary>
+        /// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// 
+        /// Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
+        /// 
+        /// Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
+        /// 
+        /// - If no desired value is set, Amazon GameLift places the calculated maximum.
+        /// - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
+        /// - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
+        /// 
+        /// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+        /// 
+        /// *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
+        /// </summary>
         public readonly Outputs.FleetContainerGroupsPerInstance? ContainerGroupsPerInstance;
 
         [OutputConstructor]

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class AlarmModelAlarmEventActions
     {
+        /// <summary>
+        /// Specifies one or more supported actions to receive notifications when the alarm state changes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AlarmModelAlarmAction> AlarmActions;
 
         [OutputConstructor]

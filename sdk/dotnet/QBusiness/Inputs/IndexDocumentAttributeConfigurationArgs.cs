@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class IndexDocumentAttributeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the document attribute.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Information about whether the document attribute can be used by an end user to search for information on their web experience.
+        /// </summary>
         [Input("search")]
         public Input<Pulumi.AwsNative.QBusiness.QBusinessIndexStatus>? Search { get; set; }
 
+        /// <summary>
+        /// The type of document attribute.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QBusiness.IndexAttributeType>? Type { get; set; }
 

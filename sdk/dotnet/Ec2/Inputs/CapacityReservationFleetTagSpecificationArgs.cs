@@ -12,11 +12,20 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class CapacityReservationFleetTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
+        /// 
+        /// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.CapacityReservationFleetTagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public InputList<Inputs.CapacityReservationFleetTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.CapacityReservationFleetTagArgs>());

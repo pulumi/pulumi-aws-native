@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicCollectiveConstant
     {
+        /// <summary>
+        /// A list of values for the collective constant.
+        /// </summary>
         public readonly ImmutableArray<string> ValueList;
 
         [OutputConstructor]

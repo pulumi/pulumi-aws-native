@@ -57,11 +57,17 @@ class GetLocationNfsResult:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional['outputs.LocationNfsMountOptions']:
+        """
+        Specifies the options that DataSync can use to mount your NFS file server.
+        """
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> Optional['outputs.LocationNfsOnPremConfig']:
+        """
+        The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        """
         return pulumi.get(self, "on_prem_config")
 
     @property

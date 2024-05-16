@@ -31,12 +31,15 @@ type LookupApiDestinationResult struct {
 	// The arn of the api destination.
 	Arn *string `pulumi:"arn"`
 	// The arn of the connection.
-	ConnectionArn *string                   `pulumi:"connectionArn"`
-	Description   *string                   `pulumi:"description"`
-	HttpMethod    *ApiDestinationHttpMethod `pulumi:"httpMethod"`
+	ConnectionArn *string `pulumi:"connectionArn"`
+	// A description for the API destination to create.
+	Description *string `pulumi:"description"`
+	// The method to use for the request to the HTTP invocation endpoint.
+	HttpMethod *ApiDestinationHttpMethod `pulumi:"httpMethod"`
 	// Url endpoint to invoke.
-	InvocationEndpoint           *string `pulumi:"invocationEndpoint"`
-	InvocationRateLimitPerSecond *int    `pulumi:"invocationRateLimitPerSecond"`
+	InvocationEndpoint *string `pulumi:"invocationEndpoint"`
+	// The maximum number of requests per second to send to the HTTP invocation endpoint.
+	InvocationRateLimitPerSecond *int `pulumi:"invocationRateLimitPerSecond"`
 }
 
 func LookupApiDestinationOutput(ctx *pulumi.Context, args LookupApiDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupApiDestinationResultOutput {
@@ -85,10 +88,12 @@ func (o LookupApiDestinationResultOutput) ConnectionArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupApiDestinationResult) *string { return v.ConnectionArn }).(pulumi.StringPtrOutput)
 }
 
+// A description for the API destination to create.
 func (o LookupApiDestinationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiDestinationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The method to use for the request to the HTTP invocation endpoint.
 func (o LookupApiDestinationResultOutput) HttpMethod() ApiDestinationHttpMethodPtrOutput {
 	return o.ApplyT(func(v LookupApiDestinationResult) *ApiDestinationHttpMethod { return v.HttpMethod }).(ApiDestinationHttpMethodPtrOutput)
 }
@@ -98,6 +103,7 @@ func (o LookupApiDestinationResultOutput) InvocationEndpoint() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupApiDestinationResult) *string { return v.InvocationEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of requests per second to send to the HTTP invocation endpoint.
 func (o LookupApiDestinationResultOutput) InvocationRateLimitPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupApiDestinationResult) *int { return v.InvocationRateLimitPerSecond }).(pulumi.IntPtrOutput)
 }

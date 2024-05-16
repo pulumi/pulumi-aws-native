@@ -39,6 +39,11 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         [Input("percentage")]
         public Input<int>? Percentage { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+        /// 
+        /// While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
+        /// </summary>
         [Input("stateMachineVersionArn", required: true)]
         public Input<string> StateMachineVersionArn { get; set; } = null!;
 

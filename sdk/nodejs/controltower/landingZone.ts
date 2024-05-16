@@ -37,16 +37,39 @@ export class LandingZone extends pulumi.CustomResource {
         return obj['__pulumiType'] === LandingZone.__pulumiType;
     }
 
+    /**
+     * The ARN of the landing zone.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The drift status of the landing zone.
+     */
     public /*out*/ readonly driftStatus!: pulumi.Output<enums.controltower.LandingZoneDriftStatus>;
+    /**
+     * The unique identifier of the landing zone.
+     */
     public /*out*/ readonly landingZoneIdentifier!: pulumi.Output<string>;
+    /**
+     * The latest available version of the landing zone.
+     */
     public /*out*/ readonly latestAvailableVersion!: pulumi.Output<string>;
     /**
+     * The landing zone manifest JSON text file that specifies the landing zone configurations.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
      */
     public readonly manifest!: pulumi.Output<any>;
+    /**
+     * The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.controltower.LandingZoneStatus>;
+    /**
+     * Tags applied to the landing zone.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The landing zone's current deployed version.
+     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -94,9 +117,17 @@ export class LandingZone extends pulumi.CustomResource {
  */
 export interface LandingZoneArgs {
     /**
+     * The landing zone manifest JSON text file that specifies the landing zone configurations.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
      */
     manifest: any;
+    /**
+     * Tags applied to the landing zone.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The landing zone's current deployed version.
+     */
     version: pulumi.Input<string>;
 }

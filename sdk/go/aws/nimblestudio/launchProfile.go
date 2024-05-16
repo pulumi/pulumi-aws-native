@@ -20,20 +20,25 @@ type LaunchProfile struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
 	//             These subnets must support the specified instance types. </p>
-	Ec2SubnetIds    pulumi.StringArrayOutput `pulumi:"ec2SubnetIds"`
-	LaunchProfileId pulumi.StringOutput      `pulumi:"launchProfileId"`
+	Ec2SubnetIds pulumi.StringArrayOutput `pulumi:"ec2SubnetIds"`
+	// The unique identifier for the launch profile resource.
+	LaunchProfileId pulumi.StringOutput `pulumi:"launchProfileId"`
 	// <p>The version number of the protocol that is used by the launch profile. The only valid
 	//             version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions pulumi.StringArrayOutput `pulumi:"launchProfileProtocolVersions"`
 	// <p>The name for the launch profile.</p>
-	Name                pulumi.StringOutput                    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A configuration for a streaming session.
 	StreamConfiguration LaunchProfileStreamConfigurationOutput `pulumi:"streamConfiguration"`
 	// <p>Unique identifiers for a collection of studio components that can be used with this
 	//             launch profile.</p>
 	StudioComponentIds pulumi.StringArrayOutput `pulumi:"studioComponentIds"`
 	// <p>The studio ID. </p>
-	StudioId pulumi.StringOutput    `pulumi:"studioId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	StudioId pulumi.StringOutput `pulumi:"studioId"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLaunchProfile registers a new resource with the given unique name, arguments, and options.
@@ -106,14 +111,18 @@ type launchProfileArgs struct {
 	//             version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
 	// <p>The name for the launch profile.</p>
-	Name                *string                          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A configuration for a streaming session.
 	StreamConfiguration LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
 	// <p>Unique identifiers for a collection of studio components that can be used with this
 	//             launch profile.</p>
 	StudioComponentIds []string `pulumi:"studioComponentIds"`
 	// <p>The studio ID. </p>
-	StudioId string            `pulumi:"studioId"`
-	Tags     map[string]string `pulumi:"tags"`
+	StudioId string `pulumi:"studioId"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LaunchProfile resource.
@@ -127,14 +136,18 @@ type LaunchProfileArgs struct {
 	//             version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions pulumi.StringArrayInput
 	// <p>The name for the launch profile.</p>
-	Name                pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// A configuration for a streaming session.
 	StreamConfiguration LaunchProfileStreamConfigurationInput
 	// <p>Unique identifiers for a collection of studio components that can be used with this
 	//             launch profile.</p>
 	StudioComponentIds pulumi.StringArrayInput
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapInput
 }
 
 func (LaunchProfileArgs) ElementType() reflect.Type {
@@ -186,6 +199,7 @@ func (o LaunchProfileOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.Ec2SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier for the launch profile resource.
 func (o LaunchProfileOutput) LaunchProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.LaunchProfileId }).(pulumi.StringOutput)
 }
@@ -202,6 +216,7 @@ func (o LaunchProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A configuration for a streaming session.
 func (o LaunchProfileOutput) StreamConfiguration() LaunchProfileStreamConfigurationOutput {
 	return o.ApplyT(func(v *LaunchProfile) LaunchProfileStreamConfigurationOutput { return v.StreamConfiguration }).(LaunchProfileStreamConfigurationOutput)
 }
@@ -218,6 +233,9 @@ func (o LaunchProfileOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LaunchProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

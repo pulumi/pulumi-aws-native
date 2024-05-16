@@ -23,6 +23,9 @@ export interface GetDestinationArgs {
 }
 
 export interface GetDestinationResult {
+    /**
+     * The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
+     */
     readonly arn?: string;
     /**
      * An IAM policy document that governs which AWS accounts can create subscription filters against this destination.

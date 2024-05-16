@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInterfaceIpv6PrefixSpecification
     {
+        /// <summary>
+        /// The IPv6 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+        /// </summary>
         public readonly string Ipv6Prefix;
 
         [OutputConstructor]

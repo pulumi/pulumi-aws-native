@@ -34,10 +34,25 @@ export class DomainName extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainName.__pulumiType;
     }
 
+    /**
+     * The domain name provided by AWS AppSync .
+     */
     public /*out*/ readonly appSyncDomainName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+     */
     public readonly certificateArn!: pulumi.Output<string>;
+    /**
+     * The decription for your domain name.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The domain name.
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The ID of your Amazon Route 53 hosted zone.
+     */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
 
     /**
@@ -80,7 +95,16 @@ export class DomainName extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainName resource.
  */
 export interface DomainNameArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+     */
     certificateArn: pulumi.Input<string>;
+    /**
+     * The decription for your domain name.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The domain name.
+     */
     domainName: pulumi.Input<string>;
 }

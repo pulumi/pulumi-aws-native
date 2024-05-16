@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateHeatMapFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field wells of a heat map.
+        /// </summary>
         [Input("heatMapAggregatedFieldWells")]
         public Input<Inputs.TemplateHeatMapAggregatedFieldWellsArgs>? HeatMapAggregatedFieldWells { get; set; }
 

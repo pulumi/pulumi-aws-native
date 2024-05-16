@@ -24,14 +24,19 @@ func LookupEnabledBaseline(ctx *pulumi.Context, args *LookupEnabledBaselineArgs,
 }
 
 type LookupEnabledBaselineArgs struct {
+	// The ARN of the `EnabledBaseline` resource.
 	EnabledBaselineIdentifier string `pulumi:"enabledBaselineIdentifier"`
 }
 
 type LookupEnabledBaselineResult struct {
-	BaselineVersion           *string                    `pulumi:"baselineVersion"`
-	EnabledBaselineIdentifier *string                    `pulumi:"enabledBaselineIdentifier"`
-	Parameters                []EnabledBaselineParameter `pulumi:"parameters"`
-	Tags                      []aws.Tag                  `pulumi:"tags"`
+	// The enabled version of the `Baseline` .
+	BaselineVersion *string `pulumi:"baselineVersion"`
+	// The ARN of the `EnabledBaseline` resource.
+	EnabledBaselineIdentifier *string `pulumi:"enabledBaselineIdentifier"`
+	// A key-value parameter to an `EnabledBaseline` resource.
+	Parameters []EnabledBaselineParameter `pulumi:"parameters"`
+	// A key-value parameter to an `EnabledBaseline` resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEnabledBaselineOutput(ctx *pulumi.Context, args LookupEnabledBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupEnabledBaselineResultOutput {
@@ -48,6 +53,7 @@ func LookupEnabledBaselineOutput(ctx *pulumi.Context, args LookupEnabledBaseline
 }
 
 type LookupEnabledBaselineOutputArgs struct {
+	// The ARN of the `EnabledBaseline` resource.
 	EnabledBaselineIdentifier pulumi.StringInput `pulumi:"enabledBaselineIdentifier"`
 }
 
@@ -69,18 +75,22 @@ func (o LookupEnabledBaselineResultOutput) ToLookupEnabledBaselineResultOutputWi
 	return o
 }
 
+// The enabled version of the `Baseline` .
 func (o LookupEnabledBaselineResultOutput) BaselineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) *string { return v.BaselineVersion }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the `EnabledBaseline` resource.
 func (o LookupEnabledBaselineResultOutput) EnabledBaselineIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) *string { return v.EnabledBaselineIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A key-value parameter to an `EnabledBaseline` resource.
 func (o LookupEnabledBaselineResultOutput) Parameters() EnabledBaselineParameterArrayOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) []EnabledBaselineParameter { return v.Parameters }).(EnabledBaselineParameterArrayOutput)
 }
 
+// A key-value parameter to an `EnabledBaseline` resource.
 func (o LookupEnabledBaselineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

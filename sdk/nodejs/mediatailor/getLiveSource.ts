@@ -20,7 +20,13 @@ export function getLiveSource(args: GetLiveSourceArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetLiveSourceArgs {
+    /**
+     * The name that's used to refer to a live source.
+     */
     liveSourceName: string;
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: string;
 }
 
@@ -46,6 +52,12 @@ export function getLiveSourceOutput(args: GetLiveSourceOutputArgs, opts?: pulumi
 }
 
 export interface GetLiveSourceOutputArgs {
+    /**
+     * The name that's used to refer to a live source.
+     */
     liveSourceName: pulumi.Input<string>;
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: pulumi.Input<string>;
 }

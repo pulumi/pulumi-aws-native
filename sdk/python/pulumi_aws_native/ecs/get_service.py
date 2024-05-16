@@ -140,6 +140,9 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the Amazon ECS service, such as `sample-webapp` .
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -186,6 +189,9 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[str]:
+        """
+        Not currently supported in AWS CloudFormation .
+        """
         return pulumi.get(self, "service_arn")
 
     @property
@@ -259,6 +265,7 @@ def get_service(cluster: Optional[str] = None,
 
 
     :param str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
+    :param str service_arn: Not currently supported in AWS CloudFormation .
     """
     __args__ = dict()
     __args__['cluster'] = cluster
@@ -297,5 +304,6 @@ def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
 
 
     :param str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
+    :param str service_arn: Not currently supported in AWS CloudFormation .
     """
     ...

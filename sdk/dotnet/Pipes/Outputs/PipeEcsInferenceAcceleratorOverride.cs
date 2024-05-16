@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeEcsInferenceAcceleratorOverride
     {
+        /// <summary>
+        /// The Elastic Inference accelerator device name to override for the task. This parameter must match a `deviceName` specified in the task definition.
+        /// </summary>
         public readonly string? DeviceName;
+        /// <summary>
+        /// The Elastic Inference accelerator type to use.
+        /// </summary>
         public readonly string? DeviceType;
 
         [OutputConstructor]

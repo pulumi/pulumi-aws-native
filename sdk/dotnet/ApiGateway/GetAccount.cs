@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the account. For example: `abc123` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the account. For example: `abc123` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -55,6 +61,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The ARN of an Amazon CloudWatch role for the current Account.
         /// </summary>
         public readonly string? CloudWatchRoleArn;
+        /// <summary>
+        /// The ID for the account. For example: `abc123` .
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

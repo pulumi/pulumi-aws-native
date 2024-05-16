@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorCapacityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how the connector scales.
+        /// </summary>
         [Input("autoScaling")]
         public Input<Inputs.ConnectorAutoScalingArgs>? AutoScaling { get; set; }
 
+        /// <summary>
+        /// Details about a connector's provisioned capacity.
+        /// </summary>
         [Input("provisionedCapacity")]
         public Input<Inputs.ConnectorProvisionedCapacityArgs>? ProvisionedCapacity { get; set; }
 

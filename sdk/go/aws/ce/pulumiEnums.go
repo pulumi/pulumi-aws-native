@@ -174,6 +174,7 @@ func (in *anomalyMonitorMonitorDimensionPtr) ToAnomalyMonitorMonitorDimensionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalyMonitorMonitorDimensionPtrOutput)
 }
 
+// The possible type values.
 type AnomalyMonitorMonitorType string
 
 const (
@@ -507,6 +508,7 @@ func (in *anomalySubscriptionFrequencyPtr) ToAnomalySubscriptionFrequencyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalySubscriptionFrequencyPtrOutput)
 }
 
+// Indicates if the subscriber accepts the notifications.
 type AnomalySubscriptionSubscriberStatus string
 
 const (
@@ -672,6 +674,7 @@ func (in *anomalySubscriptionSubscriberStatusPtr) ToAnomalySubscriptionSubscribe
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalySubscriptionSubscriberStatusPtrOutput)
 }
 
+// The notification delivery channel.
 type AnomalySubscriptionSubscriberType string
 
 const (
@@ -837,6 +840,7 @@ func (in *anomalySubscriptionSubscriberTypePtr) ToAnomalySubscriptionSubscriberT
 	return pulumi.ToOutputWithContext(ctx, in).(AnomalySubscriptionSubscriberTypePtrOutput)
 }
 
+// The rule schema version in this particular Cost Category.
 type CostCategoryRuleVersion string
 
 const (

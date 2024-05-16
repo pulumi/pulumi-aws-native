@@ -22,8 +22,9 @@ type LocationFSxOntap struct {
 	// The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx ONTAP file system that was described.
-	LocationUri pulumi.StringOutput               `pulumi:"locationUri"`
-	Protocol    LocationFSxOntapProtocolPtrOutput `pulumi:"protocol"`
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	// Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+	Protocol LocationFSxOntapProtocolPtrOutput `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
@@ -87,6 +88,7 @@ func (LocationFSxOntapState) ElementType() reflect.Type {
 }
 
 type locationFSxOntapArgs struct {
+	// Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
 	Protocol *LocationFSxOntapProtocol `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -100,6 +102,7 @@ type locationFSxOntapArgs struct {
 
 // The set of arguments for constructing a LocationFSxOntap resource.
 type LocationFSxOntapArgs struct {
+	// Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
 	Protocol LocationFSxOntapProtocolPtrInput
 	// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -163,6 +166,7 @@ func (o LocationFSxOntapOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFSxOntap) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
+// Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
 func (o LocationFSxOntapOutput) Protocol() LocationFSxOntapProtocolPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntap) LocationFSxOntapProtocolPtrOutput { return v.Protocol }).(LocationFSxOntapProtocolPtrOutput)
 }

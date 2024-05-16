@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicCategoryFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category filter function. Valid values for this structure are `EXACT` and `CONTAINS` .
+        /// </summary>
         [Input("categoryFilterFunction")]
         public Input<Pulumi.AwsNative.QuickSight.TopicCategoryFilterFunction>? CategoryFilterFunction { get; set; }
 
+        /// <summary>
+        /// The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.
+        /// </summary>
         [Input("categoryFilterType")]
         public Input<Pulumi.AwsNative.QuickSight.TopicCategoryFilterType>? CategoryFilterType { get; set; }
 
+        /// <summary>
+        /// A constant used in a category filter.
+        /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicCategoryFilterConstantArgs>? Constant { get; set; }
 
+        /// <summary>
+        /// A Boolean value that indicates if the filter is inverse.
+        /// </summary>
         [Input("inverse")]
         public Input<bool>? Inverse { get; set; }
 

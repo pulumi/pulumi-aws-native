@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestAdTriggersItem> AdTriggers;
+        /// <summary>
+        /// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
         /// <summary>
         /// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.

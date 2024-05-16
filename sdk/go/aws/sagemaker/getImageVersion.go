@@ -23,13 +23,29 @@ func LookupImageVersion(ctx *pulumi.Context, args *LookupImageVersionArgs, opts 
 }
 
 type LookupImageVersionArgs struct {
+	// The Amazon Resource Name (ARN) of the image version.
+	//
+	// *Type* : String
+	//
+	// *Length Constraints* : Maximum length of 256.
+	//
+	// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
 	ImageVersionArn string `pulumi:"imageVersionArn"`
 }
 
 type LookupImageVersionResult struct {
-	ContainerImage  *string                     `pulumi:"containerImage"`
-	Horovod         *bool                       `pulumi:"horovod"`
-	ImageArn        *string                     `pulumi:"imageArn"`
+	// The URI of the container image version referenced by ImageVersion.
+	ContainerImage *string `pulumi:"containerImage"`
+	Horovod        *bool   `pulumi:"horovod"`
+	// The Amazon Resource Name (ARN) of the parent Image.
+	ImageArn *string `pulumi:"imageArn"`
+	// The Amazon Resource Name (ARN) of the image version.
+	//
+	// *Type* : String
+	//
+	// *Length Constraints* : Maximum length of 256.
+	//
+	// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
 	ImageVersionArn *string                     `pulumi:"imageVersionArn"`
 	JobType         *ImageVersionJobType        `pulumi:"jobType"`
 	MlFramework     *string                     `pulumi:"mlFramework"`
@@ -37,7 +53,8 @@ type LookupImageVersionResult struct {
 	ProgrammingLang *string                     `pulumi:"programmingLang"`
 	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
 	VendorGuidance  *ImageVersionVendorGuidance `pulumi:"vendorGuidance"`
-	Version         *int                        `pulumi:"version"`
+	// The version of the image.
+	Version *int `pulumi:"version"`
 }
 
 func LookupImageVersionOutput(ctx *pulumi.Context, args LookupImageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupImageVersionResultOutput {
@@ -54,6 +71,13 @@ func LookupImageVersionOutput(ctx *pulumi.Context, args LookupImageVersionOutput
 }
 
 type LookupImageVersionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the image version.
+	//
+	// *Type* : String
+	//
+	// *Length Constraints* : Maximum length of 256.
+	//
+	// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
 	ImageVersionArn pulumi.StringInput `pulumi:"imageVersionArn"`
 }
 
@@ -75,6 +99,7 @@ func (o LookupImageVersionResultOutput) ToLookupImageVersionResultOutputWithCont
 	return o
 }
 
+// The URI of the container image version referenced by ImageVersion.
 func (o LookupImageVersionResultOutput) ContainerImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ContainerImage }).(pulumi.StringPtrOutput)
 }
@@ -83,10 +108,18 @@ func (o LookupImageVersionResultOutput) Horovod() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *bool { return v.Horovod }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the parent Image.
 func (o LookupImageVersionResultOutput) ImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ImageArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the image version.
+//
+// *Type* : String
+//
+// *Length Constraints* : Maximum length of 256.
+//
+// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
 func (o LookupImageVersionResultOutput) ImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ImageVersionArn }).(pulumi.StringPtrOutput)
 }
@@ -115,6 +148,7 @@ func (o LookupImageVersionResultOutput) VendorGuidance() ImageVersionVendorGuida
 	return o.ApplyT(func(v LookupImageVersionResult) *ImageVersionVendorGuidance { return v.VendorGuidance }).(ImageVersionVendorGuidancePtrOutput)
 }
 
+// The version of the image.
 func (o LookupImageVersionResultOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *int { return v.Version }).(pulumi.IntPtrOutput)
 }

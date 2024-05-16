@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RoutingProfileCrossChannelBehavior
     {
+        /// <summary>
+        /// Specifies the other channels that can be routed to an agent handling their current channel.
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.RoutingProfileBehaviorType BehaviorType;
 
         [OutputConstructor]

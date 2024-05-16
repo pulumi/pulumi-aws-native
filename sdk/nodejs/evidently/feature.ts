@@ -37,17 +37,45 @@ export class Feature extends pulumi.CustomResource {
         return obj['__pulumiType'] === Feature.__pulumiType;
     }
 
+    /**
+     * The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+     *
+     * This variation must also be listed in the `Variations` structure.
+     *
+     * If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+     */
     public readonly defaultVariation!: pulumi.Output<string | undefined>;
+    /**
+     * An optional description of the feature.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+     */
     public readonly entityOverrides!: pulumi.Output<outputs.evidently.FeatureEntityOverride[] | undefined>;
+    /**
+     * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+     */
     public readonly evaluationStrategy!: pulumi.Output<enums.evidently.FeatureEvaluationStrategy | undefined>;
+    /**
+     * The name for the feature. It can include up to 127 characters.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name or ARN of the project that is to contain the new feature.
+     */
     public readonly project!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+     */
     public readonly variations!: pulumi.Output<outputs.evidently.FeatureVariationObject[]>;
 
     /**
@@ -98,15 +126,40 @@ export class Feature extends pulumi.CustomResource {
  * The set of arguments for constructing a Feature resource.
  */
 export interface FeatureArgs {
+    /**
+     * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+     *
+     * This variation must also be listed in the `Variations` structure.
+     *
+     * If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+     */
     defaultVariation?: pulumi.Input<string>;
+    /**
+     * An optional description of the feature.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+     */
     entityOverrides?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEntityOverrideArgs>[]>;
+    /**
+     * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+     */
     evaluationStrategy?: pulumi.Input<enums.evidently.FeatureEvaluationStrategy>;
+    /**
+     * The name for the feature. It can include up to 127 characters.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name or ARN of the project that is to contain the new feature.
+     */
     project: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+     */
     variations: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariationObjectArgs>[]>;
 }

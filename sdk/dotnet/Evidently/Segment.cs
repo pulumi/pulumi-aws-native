@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Evidently
     [AwsNativeResourceType("aws-native:evidently:Segment")]
     public partial class Segment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description for this segment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the segment.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        /// </summary>
         [Output("pattern")]
         public Output<string?> Pattern { get; private set; } = null!;
 
@@ -78,12 +90,21 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class SegmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An optional description for this segment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A name for the segment.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 

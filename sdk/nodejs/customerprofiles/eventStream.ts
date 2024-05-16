@@ -65,6 +65,9 @@ export class EventStream extends pulumi.CustomResource {
      * The tags used to organize, track, or control access for this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+     */
     public readonly uri!: pulumi.Output<string>;
 
     /**
@@ -125,5 +128,8 @@ export interface EventStreamArgs {
      * The tags used to organize, track, or control access for this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+     */
     uri: pulumi.Input<string>;
 }

@@ -46,6 +46,9 @@ export class LaunchProfile extends pulumi.CustomResource {
      *             These subnets must support the specified instance types. </p>
      */
     public readonly ec2SubnetIds!: pulumi.Output<string[]>;
+    /**
+     * The unique identifier for the launch profile resource.
+     */
     public /*out*/ readonly launchProfileId!: pulumi.Output<string>;
     /**
      * <p>The version number of the protocol that is used by the launch profile. The only valid
@@ -56,6 +59,9 @@ export class LaunchProfile extends pulumi.CustomResource {
      * <p>The name for the launch profile.</p>
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A configuration for a streaming session.
+     */
     public readonly streamConfiguration!: pulumi.Output<outputs.nimblestudio.LaunchProfileStreamConfiguration>;
     /**
      * <p>Unique identifiers for a collection of studio components that can be used with this
@@ -66,6 +72,11 @@ export class LaunchProfile extends pulumi.CustomResource {
      * <p>The studio ID. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -143,6 +154,9 @@ export interface LaunchProfileArgs {
      * <p>The name for the launch profile.</p>
      */
     name?: pulumi.Input<string>;
+    /**
+     * A configuration for a streaming session.
+     */
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
     /**
      * <p>Unique identifiers for a collection of studio components that can be used with this
@@ -153,5 +167,10 @@ export interface LaunchProfileArgs {
      * <p>The studio ID. </p>
      */
     studioId: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

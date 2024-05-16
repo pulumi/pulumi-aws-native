@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Eks.Inputs
     /// </summary>
     public sealed class AccessEntryAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
+        /// </summary>
         [Input("accessScope", required: true)]
         public Input<Inputs.AccessEntryAccessScopeArgs> AccessScope { get; set; } = null!;
 

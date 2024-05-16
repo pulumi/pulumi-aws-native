@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterLoggingInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The broker logs configuration for this MSK cluster.
+        /// </summary>
         [Input("brokerLogs", required: true)]
         public Input<Inputs.ClusterBrokerLogsArgs> BrokerLogs { get; set; } = null!;
 

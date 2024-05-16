@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Events.Inputs
     {
         [Input("runCommandTargets", required: true)]
         private InputList<Inputs.RuleRunCommandTargetArgs>? _runCommandTargets;
+
+        /// <summary>
+        /// Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+        /// </summary>
         public InputList<Inputs.RuleRunCommandTargetArgs> RunCommandTargets
         {
             get => _runCommandTargets ?? (_runCommandTargets = new InputList<Inputs.RuleRunCommandTargetArgs>());

@@ -16,10 +16,16 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
 }
 
 export interface GetResourceGroupArgs {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the resource group that is created.
+     */
     arn: string;
 }
 
 export interface GetResourceGroupResult {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the resource group that is created.
+     */
     readonly arn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: 
 }
 
 export interface GetResourceGroupOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the resource group that is created.
+     */
     arn: pulumi.Input<string>;
 }

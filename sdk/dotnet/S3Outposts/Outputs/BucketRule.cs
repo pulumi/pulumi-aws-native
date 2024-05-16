@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
         /// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        /// </summary>
         public readonly Pulumi.AwsNative.S3Outposts.BucketRuleStatus? Status;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// LoRaWANGatewayVersion object.
+        /// </summary>
         [Input("currentVersion")]
         public Input<Inputs.TaskDefinitionLoRaWanGatewayVersionArgs>? CurrentVersion { get; set; }
 
+        /// <summary>
+        /// LoRaWANGatewayVersion object.
+        /// </summary>
         [Input("updateVersion")]
         public Input<Inputs.TaskDefinitionLoRaWanGatewayVersionArgs>? UpdateVersion { get; set; }
 

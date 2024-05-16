@@ -28,6 +28,24 @@ class ApiKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+        :param pulumi.Input['ApiKeyRestrictionsArgs'] restrictions: API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        :param pulumi.Input[str] description: Updates the description for the API key resource.
+        :param pulumi.Input[str] expire_time: The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+        :param pulumi.Input[bool] force_delete: ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+               
+               Valid values: `true` , or `false` .
+               
+               > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+        :param pulumi.Input[bool] force_update: The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+               Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+        :param pulumi.Input[str] key_name: A custom name for the API key resource.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+               - Must be a unique API key name.
+               - No spaces allowed. For example, `ExampleAPIKey` .
+        :param pulumi.Input[bool] no_expiry: Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "restrictions", restrictions)
@@ -49,6 +67,9 @@ class ApiKeyArgs:
     @property
     @pulumi.getter
     def restrictions(self) -> pulumi.Input['ApiKeyRestrictionsArgs']:
+        """
+        API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -58,6 +79,9 @@ class ApiKeyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Updates the description for the API key resource.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,6 +91,9 @@ class ApiKeyArgs:
     @property
     @pulumi.getter(name="expireTime")
     def expire_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+        """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
@@ -76,6 +103,13 @@ class ApiKeyArgs:
     @property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+
+        Valid values: `true` , or `false` .
+
+        > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -85,6 +119,10 @@ class ApiKeyArgs:
     @property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+        Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+        """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
@@ -94,6 +132,15 @@ class ApiKeyArgs:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name for the API key resource.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        - Must be a unique API key name.
+        - No spaces allowed. For example, `ExampleAPIKey` .
+        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -103,6 +150,9 @@ class ApiKeyArgs:
     @property
     @pulumi.getter(name="noExpiry")
     def no_expiry(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+        """
         return pulumi.get(self, "no_expiry")
 
     @no_expiry.setter
@@ -141,6 +191,24 @@ class ApiKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Updates the description for the API key resource.
+        :param pulumi.Input[str] expire_time: The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+        :param pulumi.Input[bool] force_delete: ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+               
+               Valid values: `true` , or `false` .
+               
+               > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+        :param pulumi.Input[bool] force_update: The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+               Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+        :param pulumi.Input[str] key_name: A custom name for the API key resource.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+               - Must be a unique API key name.
+               - No spaces allowed. For example, `ExampleAPIKey` .
+        :param pulumi.Input[bool] no_expiry: Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+        :param pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']] restrictions: API Restrictions on the allowed actions, resources, and referers for an API key resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -239,51 +307,92 @@ class ApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Updates the description for the API key resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="expireTime")
     def expire_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+        """
         return pulumi.get(self, "expire_time")
 
     @property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+
+        Valid values: `true` , or `false` .
+
+        > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+        """
         return pulumi.get(self, "force_delete")
 
     @property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+        Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+        """
         return pulumi.get(self, "force_update")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+        """
         return pulumi.get(self, "key_arn")
 
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[str]:
+        """
+        A custom name for the API key resource.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        - Must be a unique API key name.
+        - No spaces allowed. For example, `ExampleAPIKey` .
+        """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="noExpiry")
     def no_expiry(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+        """
         return pulumi.get(self, "no_expiry")
 
     @property
     @pulumi.getter
     def restrictions(self) -> pulumi.Output['outputs.ApiKeyRestrictions']:
+        """
+        API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        """
         return pulumi.get(self, "restrictions")
 
     @property
@@ -297,5 +406,8 @@ class ApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 

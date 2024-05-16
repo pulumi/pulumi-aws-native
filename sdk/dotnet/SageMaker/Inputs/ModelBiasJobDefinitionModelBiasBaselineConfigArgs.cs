@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelBiasJobDefinitionModelBiasBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the baseline model bias job.
+        /// </summary>
         [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
+        /// <summary>
+        /// The constraints resource for a monitoring job.
+        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.ModelBiasJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 

@@ -32,6 +32,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 }
 
 type LookupVolumeArgs struct {
+	// The ID of the volume.
 	VolumeId string `pulumi:"volumeId"`
 }
 
@@ -80,8 +81,9 @@ type LookupVolumeResult struct {
 	// The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
 	//  This parameter is valid only for ``gp3`` volumes. The default value is 125.
 	//  Valid Range: Minimum value of 125. Maximum value of 1000.
-	Throughput *int    `pulumi:"throughput"`
-	VolumeId   *string `pulumi:"volumeId"`
+	Throughput *int `pulumi:"throughput"`
+	// The ID of the volume.
+	VolumeId *string `pulumi:"volumeId"`
 	// The volume type. This parameter can be one of the following values:
 	//   +  General Purpose SSD: ``gp2`` | ``gp3``
 	//   +  Provisioned IOPS SSD: ``io1`` | ``io2``
@@ -108,6 +110,7 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 }
 
 type LookupVolumeOutputArgs struct {
+	// The ID of the volume.
 	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }
 
@@ -213,6 +216,7 @@ func (o LookupVolumeResultOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the volume.
 func (o LookupVolumeResultOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }

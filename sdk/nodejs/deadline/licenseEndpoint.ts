@@ -37,13 +37,37 @@ export class LicenseEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === LicenseEndpoint.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the license endpoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The DNS name of the license server endpoint.
+     */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
+     * The license endpoint ID.
+     */
     public /*out*/ readonly licenseEndpointId!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon EC2 security group that controls access to the license endpoint.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
+    /**
+     * The status of the license endpoint.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.deadline.LicenseEndpointStatus>;
+    /**
+     * The status message of the license endpoint.
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * Identifies the VPC subnets that can connect to a license endpoint.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * The VCP(virtual private cloud) ID associated with the license endpoint.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -95,7 +119,16 @@ export class LicenseEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a LicenseEndpoint resource.
  */
 export interface LicenseEndpointArgs {
+    /**
+     * The identifier of the Amazon EC2 security group that controls access to the license endpoint.
+     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Identifies the VPC subnets that can connect to a license endpoint.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The VCP(virtual private cloud) ID associated with the license endpoint.
+     */
     vpcId: pulumi.Input<string>;
 }

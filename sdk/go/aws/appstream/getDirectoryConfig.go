@@ -23,13 +23,17 @@ func LookupDirectoryConfig(ctx *pulumi.Context, args *LookupDirectoryConfigArgs,
 }
 
 type LookupDirectoryConfigArgs struct {
+	// The fully qualified name of the directory (for example, corp.example.com).
 	DirectoryName string `pulumi:"directoryName"`
 }
 
 type LookupDirectoryConfigResult struct {
-	CertificateBasedAuthProperties       *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
-	OrganizationalUnitDistinguishedNames []string                                       `pulumi:"organizationalUnitDistinguishedNames"`
-	ServiceAccountCredentials            *DirectoryConfigServiceAccountCredentials      `pulumi:"serviceAccountCredentials"`
+	// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
+	// The distinguished names of the organizational units for computer accounts.
+	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
+	// The credentials for the service account used by the streaming instance to connect to the directory.
+	ServiceAccountCredentials *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
 }
 
 func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryConfigResultOutput {
@@ -46,6 +50,7 @@ func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfig
 }
 
 type LookupDirectoryConfigOutputArgs struct {
+	// The fully qualified name of the directory (for example, corp.example.com).
 	DirectoryName pulumi.StringInput `pulumi:"directoryName"`
 }
 
@@ -67,16 +72,19 @@ func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutputWi
 	return o
 }
 
+// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
 func (o LookupDirectoryConfigResultOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryConfigResult) *DirectoryConfigCertificateBasedAuthProperties {
 		return v.CertificateBasedAuthProperties
 	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
+// The distinguished names of the organizational units for computer accounts.
 func (o LookupDirectoryConfigResultOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryConfigResult) []string { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
 }
 
+// The credentials for the service account used by the streaming instance to connect to the directory.
 func (o LookupDirectoryConfigResultOutput) ServiceAccountCredentials() DirectoryConfigServiceAccountCredentialsPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryConfigResult) *DirectoryConfigServiceAccountCredentials {
 		return v.ServiceAccountCredentials

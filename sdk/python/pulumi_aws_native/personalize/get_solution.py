@@ -26,6 +26,9 @@ class GetSolutionResult:
     @property
     @pulumi.getter(name="solutionArn")
     def solution_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the solution.
+        """
         return pulumi.get(self, "solution_arn")
 
 
@@ -42,6 +45,9 @@ def get_solution(solution_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
     Resource schema for AWS::Personalize::Solution.
+
+
+    :param str solution_arn: The Amazon Resource Name (ARN) of the solution.
     """
     __args__ = dict()
     __args__['solutionArn'] = solution_arn
@@ -57,5 +63,8 @@ def get_solution_output(solution_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Resource schema for AWS::Personalize::Solution.
+
+
+    :param str solution_arn: The Amazon Resource Name (ARN) of the solution.
     """
     ...

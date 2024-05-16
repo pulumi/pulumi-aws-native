@@ -19,12 +19,30 @@ class CachePolicyArgs:
                  cache_policy_config: pulumi.Input['CachePolicyConfigArgs']):
         """
         The set of arguments for constructing a CachePolicy resource.
+        :param pulumi.Input['CachePolicyConfigArgs'] cache_policy_config: A cache policy configuration.
+               
+               This configuration determines the following:
+               
+               - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+               - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+               
+               The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
         """
         pulumi.set(__self__, "cache_policy_config", cache_policy_config)
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Input['CachePolicyConfigArgs']:
+        """
+        A cache policy configuration.
+
+        This configuration determines the following:
+
+        - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+        - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+
+        The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        """
         return pulumi.get(self, "cache_policy_config")
 
     @cache_policy_config.setter
@@ -44,6 +62,14 @@ class CachePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CachePolicyConfigArgs']] cache_policy_config: A cache policy configuration.
+               
+               This configuration determines the following:
+               
+               - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+               - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+               
+               The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
         """
         ...
     @overload
@@ -114,15 +140,31 @@ class CachePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Output['outputs.CachePolicyConfig']:
+        """
+        A cache policy configuration.
+
+        This configuration determines the following:
+
+        - The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+        - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+
+        The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        """
         return pulumi.get(self, "cache_policy_config")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the cache policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 

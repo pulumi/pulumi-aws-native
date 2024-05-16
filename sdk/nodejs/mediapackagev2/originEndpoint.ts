@@ -41,8 +41,17 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the channel group associated with the origin endpoint configuration.
+     */
     public readonly channelGroupName!: pulumi.Output<string>;
+    /**
+     * The channel name associated with the origin endpoint.
+     */
     public readonly channelName!: pulumi.Output<string>;
+    /**
+     * The container type associated with the origin endpoint configuration.
+     */
     public readonly containerType!: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType | undefined>;
     /**
      * <p>The date and time the origin endpoint was created.</p>
@@ -64,12 +73,21 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The date and time the origin endpoint was modified.</p>
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The name of the origin endpoint associated with the origin endpoint configuration.
+     */
     public readonly originEndpointName!: pulumi.Output<string>;
+    /**
+     * The segment configuration, including the segment name, duration, and other configuration values.
+     */
     public readonly segment!: pulumi.Output<outputs.mediapackagev2.OriginEndpointSegment | undefined>;
     /**
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     public readonly startoverWindowSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The tags associated with the origin endpoint.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -128,8 +146,17 @@ export class OriginEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpoint resource.
  */
 export interface OriginEndpointArgs {
+    /**
+     * The name of the channel group associated with the origin endpoint configuration.
+     */
     channelGroupName: pulumi.Input<string>;
+    /**
+     * The channel name associated with the origin endpoint.
+     */
     channelName: pulumi.Input<string>;
+    /**
+     * The container type associated with the origin endpoint configuration.
+     */
     containerType?: pulumi.Input<enums.mediapackagev2.OriginEndpointContainerType>;
     /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
@@ -143,11 +170,20 @@ export interface OriginEndpointArgs {
      * <p>A low-latency HLS manifest configuration.</p>
      */
     lowLatencyHlsManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointLowLatencyHlsManifestConfigurationArgs>[]>;
+    /**
+     * The name of the origin endpoint associated with the origin endpoint configuration.
+     */
     originEndpointName?: pulumi.Input<string>;
+    /**
+     * The segment configuration, including the segment name, duration, and other configuration values.
+     */
     segment?: pulumi.Input<inputs.mediapackagev2.OriginEndpointSegmentArgs>;
     /**
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     startoverWindowSeconds?: pulumi.Input<number>;
+    /**
+     * The tags associated with the origin endpoint.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -51,6 +51,9 @@ export class Listener extends pulumi.CustomResource {
      *  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
      */
     public readonly defaultActions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAction[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     public /*out*/ readonly listenerArn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.

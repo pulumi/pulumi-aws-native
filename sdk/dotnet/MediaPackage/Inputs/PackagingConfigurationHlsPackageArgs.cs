@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class PackagingConfigurationHlsPackageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationHlsEncryptionArgs>? Encryption { get; set; }
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("includeDvbSubtitles")]
         public Input<bool>? IncludeDvbSubtitles { get; set; }
 
+        /// <summary>
+        /// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+        /// </summary>
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 

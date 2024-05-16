@@ -27,7 +27,8 @@ type LoadBalancerTlsCertificate struct {
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
 	IsAttached pulumi.BoolPtrOutput `pulumi:"isAttached"`
 	// The name of your load balancer.
-	LoadBalancerName              pulumi.StringOutput `pulumi:"loadBalancerName"`
+	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
+	// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
 	LoadBalancerTlsCertificateArn pulumi.StringOutput `pulumi:"loadBalancerTlsCertificateArn"`
 	// The validation status of the SSL/TLS certificate.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -183,6 +184,7 @@ func (o LoadBalancerTlsCertificateOutput) LoadBalancerName() pulumi.StringOutput
 	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
 func (o LoadBalancerTlsCertificateOutput) LoadBalancerTlsCertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.LoadBalancerTlsCertificateArn }).(pulumi.StringOutput)
 }

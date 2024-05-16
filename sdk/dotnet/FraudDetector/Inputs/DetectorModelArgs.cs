@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
     /// </summary>
     public sealed class DetectorModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the model.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

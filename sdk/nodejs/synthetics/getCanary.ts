@@ -70,6 +70,9 @@ export interface GetCanaryResult {
      * Retention period of successful canary runs represented in number of days
      */
     readonly successRetentionPeriod?: number;
+    /**
+     * The list of key-value pairs that are associated with the canary.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * Provide VPC Configuration if enabled.

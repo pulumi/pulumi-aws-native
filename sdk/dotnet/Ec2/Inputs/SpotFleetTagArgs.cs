@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

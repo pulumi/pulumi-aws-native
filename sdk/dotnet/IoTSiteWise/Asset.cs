@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.IoTSiteWise
         [Output("assetExternalId")]
         public Output<string?> AssetExternalId { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes an asset hierarchy that contains a hierarchy's name and ID.
+        /// </summary>
         [Output("assetHierarchies")]
         public Output<ImmutableArray<Outputs.AssetHierarchy>> AssetHierarchies { get; private set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.IoTSiteWise
         [Output("assetName")]
         public Output<string> AssetName { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains asset property information.
+        /// </summary>
         [Output("assetProperties")]
         public Output<ImmutableArray<Outputs.AssetProperty>> AssetProperties { get; private set; } = null!;
 
@@ -122,6 +128,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
         [Input("assetHierarchies")]
         private InputList<Inputs.AssetHierarchyArgs>? _assetHierarchies;
+
+        /// <summary>
+        /// Describes an asset hierarchy that contains a hierarchy's name and ID.
+        /// </summary>
         public InputList<Inputs.AssetHierarchyArgs> AssetHierarchies
         {
             get => _assetHierarchies ?? (_assetHierarchies = new InputList<Inputs.AssetHierarchyArgs>());
@@ -142,6 +152,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
         [Input("assetProperties")]
         private InputList<Inputs.AssetPropertyArgs>? _assetProperties;
+
+        /// <summary>
+        /// Contains asset property information.
+        /// </summary>
         public InputList<Inputs.AssetPropertyArgs> AssetProperties
         {
             get => _assetProperties ?? (_assetProperties = new InputList<Inputs.AssetPropertyArgs>());

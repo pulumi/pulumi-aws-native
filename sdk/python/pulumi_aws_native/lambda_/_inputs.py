@@ -51,11 +51,17 @@ __all__ = [
 class AliasProvisionedConcurrencyConfigurationArgs:
     def __init__(__self__, *,
                  provisioned_concurrent_executions: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] provisioned_concurrent_executions: The amount of provisioned concurrency to allocate for the alias.
+        """
         pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
 
     @property
     @pulumi.getter(name="provisionedConcurrentExecutions")
     def provisioned_concurrent_executions(self) -> pulumi.Input[int]:
+        """
+        The amount of provisioned concurrency to allocate for the alias.
+        """
         return pulumi.get(self, "provisioned_concurrent_executions")
 
     @provisioned_concurrent_executions.setter
@@ -67,11 +73,17 @@ class AliasProvisionedConcurrencyConfigurationArgs:
 class AliasRoutingConfigurationArgs:
     def __init__(__self__, *,
                  additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]] additional_version_weights: The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        """
         pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
     def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
+        """
+        The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        """
         return pulumi.get(self, "additional_version_weights")
 
     @additional_version_weights.setter
@@ -84,12 +96,19 @@ class AliasVersionWeightArgs:
     def __init__(__self__, *,
                  function_version: pulumi.Input[str],
                  function_weight: pulumi.Input[float]):
+        """
+        :param pulumi.Input[str] function_version: The qualifier of the second version.
+        :param pulumi.Input[float] function_weight: The percentage of traffic that the alias routes to the second version.
+        """
         pulumi.set(__self__, "function_version", function_version)
         pulumi.set(__self__, "function_weight", function_weight)
 
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Input[str]:
+        """
+        The qualifier of the second version.
+        """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
@@ -99,6 +118,9 @@ class AliasVersionWeightArgs:
     @property
     @pulumi.getter(name="functionWeight")
     def function_weight(self) -> pulumi.Input[float]:
+        """
+        The percentage of traffic that the alias routes to the second version.
+        """
         return pulumi.get(self, "function_weight")
 
     @function_weight.setter
@@ -159,6 +181,8 @@ class EventInvokeConfigDestinationConfigArgs:
                  on_success: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']] = None):
         """
         A destination for events after they have been sent to a function for processing.
+        :param pulumi.Input['EventInvokeConfigOnFailureArgs'] on_failure: A destination for events that failed processing.
+        :param pulumi.Input['EventInvokeConfigOnSuccessArgs'] on_success: A destination for events that were processed successfully.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -168,6 +192,9 @@ class EventInvokeConfigDestinationConfigArgs:
     @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]:
+        """
+        A destination for events that failed processing.
+        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -177,6 +204,9 @@ class EventInvokeConfigDestinationConfigArgs:
     @property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]:
+        """
+        A destination for events that were processed successfully.
+        """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
@@ -1120,6 +1150,7 @@ class UrlCorsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]] allow_methods: Represents a collection of allowed HTTP methods.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_origins: Represents a collection of allowed origins.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: Represents a collection of exposed headers.
+        :param pulumi.Input[int] max_age: The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
         """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
@@ -1197,6 +1228,9 @@ class UrlCorsArgs:
     @property
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
+        """
         return pulumi.get(self, "max_age")
 
     @max_age.setter

@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("schemaName")]
         public Output<string> SchemaName { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -123,6 +126,10 @@ namespace Pulumi.AwsNative.EntityResolution
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

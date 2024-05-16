@@ -22,12 +22,26 @@ export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.Inv
 }
 
 export interface GetLaunchTemplateArgs {
+    /**
+     * The ID of the launch template.
+     */
     launchTemplateId: string;
 }
 
 export interface GetLaunchTemplateResult {
+    /**
+     * The default version of the launch template, such as 2.
+     *
+     * The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
+     */
     readonly defaultVersionNumber?: string;
+    /**
+     * The latest version of the launch template, such as `5` .
+     */
     readonly latestVersionNumber?: string;
+    /**
+     * The ID of the launch template.
+     */
     readonly launchTemplateId?: string;
 }
 /**
@@ -44,5 +58,8 @@ export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?
 }
 
 export interface GetLaunchTemplateOutputArgs {
+    /**
+     * The ID of the launch template.
+     */
     launchTemplateId: pulumi.Input<string>;
 }

@@ -13,18 +13,35 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclManagedRuleGroupStatement
     {
+        /// <summary>
+        /// Specifies a single rule in a rule group whose action you want to override to `Count` .
+        /// 
+        /// &gt; Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclExcludedRule> ExcludedRules;
         /// <summary>
         /// Collection of ManagedRuleGroupConfig.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclManagedRuleGroupConfig> ManagedRuleGroupConfigs;
+        /// <summary>
+        /// The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Action overrides for rules in the rule group.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleActionOverride> RuleActionOverrides;
+        /// <summary>
+        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// </summary>
         public readonly Outputs.WebAclStatement? ScopeDownStatement;
+        /// <summary>
+        /// The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.
+        /// </summary>
         public readonly string VendorName;
+        /// <summary>
+        /// The version of the managed rule group to use. If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

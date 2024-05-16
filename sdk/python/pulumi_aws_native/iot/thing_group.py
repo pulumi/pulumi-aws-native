@@ -25,7 +25,15 @@ class ThingGroupArgs:
                  thing_group_properties: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
+        :param pulumi.Input[str] parent_group_name: The parent thing group name.
+               
+               A Dynamic Thing Group does not have `parentGroupName` defined.
+        :param pulumi.Input[str] query_string: The dynamic thing group search query string.
+               
+               The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] thing_group_name: The thing group name.
+        :param pulumi.Input['ThingGroupPropertiesPropertiesArgs'] thing_group_properties: Thing group properties.
         """
         if parent_group_name is not None:
             pulumi.set(__self__, "parent_group_name", parent_group_name)
@@ -41,6 +49,11 @@ class ThingGroupArgs:
     @property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parent thing group name.
+
+        A Dynamic Thing Group does not have `parentGroupName` defined.
+        """
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
@@ -50,6 +63,11 @@ class ThingGroupArgs:
     @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dynamic thing group search query string.
+
+        The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+        """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
@@ -71,6 +89,9 @@ class ThingGroupArgs:
     @property
     @pulumi.getter(name="thingGroupName")
     def thing_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thing group name.
+        """
         return pulumi.get(self, "thing_group_name")
 
     @thing_group_name.setter
@@ -80,6 +101,9 @@ class ThingGroupArgs:
     @property
     @pulumi.getter(name="thingGroupProperties")
     def thing_group_properties(self) -> Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']]:
+        """
+        Thing group properties.
+        """
         return pulumi.get(self, "thing_group_properties")
 
     @thing_group_properties.setter
@@ -103,7 +127,15 @@ class ThingGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] parent_group_name: The parent thing group name.
+               
+               A Dynamic Thing Group does not have `parentGroupName` defined.
+        :param pulumi.Input[str] query_string: The dynamic thing group search query string.
+               
+               The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] thing_group_name: The thing group name.
+        :param pulumi.Input[pulumi.InputType['ThingGroupPropertiesPropertiesArgs']] thing_group_properties: Thing group properties.
         """
         ...
     @overload
@@ -186,21 +218,37 @@ class ThingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The thing group ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The thing group ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The parent thing group name.
+
+        A Dynamic Thing Group does not have `parentGroupName` defined.
+        """
         return pulumi.get(self, "parent_group_name")
 
     @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Output[Optional[str]]:
+        """
+        The dynamic thing group search query string.
+
+        The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+        """
         return pulumi.get(self, "query_string")
 
     @property
@@ -214,10 +262,16 @@ class ThingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="thingGroupName")
     def thing_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The thing group name.
+        """
         return pulumi.get(self, "thing_group_name")
 
     @property
     @pulumi.getter(name="thingGroupProperties")
     def thing_group_properties(self) -> pulumi.Output[Optional['outputs.ThingGroupPropertiesProperties']]:
+        """
+        Thing group properties.
+        """
         return pulumi.get(self, "thing_group_properties")
 

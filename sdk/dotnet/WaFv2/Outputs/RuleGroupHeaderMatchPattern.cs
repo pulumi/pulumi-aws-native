@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// Inspect all parts of the web request headers.
         /// </summary>
         public readonly object? All;
+        /// <summary>
+        /// Inspect only the headers whose keys don't match any of the strings specified here.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedHeaders;
+        /// <summary>
+        /// Inspect only the headers that have a key that matches one of the strings specified here.
+        /// </summary>
         public readonly ImmutableArray<string> IncludedHeaders;
 
         [OutputConstructor]

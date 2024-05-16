@@ -1038,37 +1038,68 @@ func (o CisScanConfigurationWeeklySchedulePtrOutput) StartTime() CisScanConfigur
 }
 
 type FilterCriteria struct {
-	AwsAccountId           []FilterStringFilter    `pulumi:"awsAccountId"`
-	ComponentId            []FilterStringFilter    `pulumi:"componentId"`
-	ComponentType          []FilterStringFilter    `pulumi:"componentType"`
-	Ec2InstanceImageId     []FilterStringFilter    `pulumi:"ec2InstanceImageId"`
-	Ec2InstanceSubnetId    []FilterStringFilter    `pulumi:"ec2InstanceSubnetId"`
-	Ec2InstanceVpcId       []FilterStringFilter    `pulumi:"ec2InstanceVpcId"`
-	EcrImageArchitecture   []FilterStringFilter    `pulumi:"ecrImageArchitecture"`
-	EcrImageHash           []FilterStringFilter    `pulumi:"ecrImageHash"`
-	EcrImagePushedAt       []FilterDateFilter      `pulumi:"ecrImagePushedAt"`
-	EcrImageRegistry       []FilterStringFilter    `pulumi:"ecrImageRegistry"`
-	EcrImageRepositoryName []FilterStringFilter    `pulumi:"ecrImageRepositoryName"`
-	EcrImageTags           []FilterStringFilter    `pulumi:"ecrImageTags"`
-	FindingArn             []FilterStringFilter    `pulumi:"findingArn"`
-	FindingStatus          []FilterStringFilter    `pulumi:"findingStatus"`
-	FindingType            []FilterStringFilter    `pulumi:"findingType"`
-	FirstObservedAt        []FilterDateFilter      `pulumi:"firstObservedAt"`
-	InspectorScore         []FilterNumberFilter    `pulumi:"inspectorScore"`
-	LastObservedAt         []FilterDateFilter      `pulumi:"lastObservedAt"`
-	NetworkProtocol        []FilterStringFilter    `pulumi:"networkProtocol"`
-	PortRange              []FilterPortRangeFilter `pulumi:"portRange"`
-	RelatedVulnerabilities []FilterStringFilter    `pulumi:"relatedVulnerabilities"`
-	ResourceId             []FilterStringFilter    `pulumi:"resourceId"`
-	ResourceTags           []FilterMapFilter       `pulumi:"resourceTags"`
-	ResourceType           []FilterStringFilter    `pulumi:"resourceType"`
-	Severity               []FilterStringFilter    `pulumi:"severity"`
-	Title                  []FilterStringFilter    `pulumi:"title"`
-	UpdatedAt              []FilterDateFilter      `pulumi:"updatedAt"`
-	VendorSeverity         []FilterStringFilter    `pulumi:"vendorSeverity"`
-	VulnerabilityId        []FilterStringFilter    `pulumi:"vulnerabilityId"`
-	VulnerabilitySource    []FilterStringFilter    `pulumi:"vulnerabilitySource"`
-	VulnerablePackages     []FilterPackageFilter   `pulumi:"vulnerablePackages"`
+	// Details of the AWS account IDs used to filter findings.
+	AwsAccountId []FilterStringFilter `pulumi:"awsAccountId"`
+	// Details of the component IDs used to filter findings.
+	ComponentId []FilterStringFilter `pulumi:"componentId"`
+	// Details of the component types used to filter findings.
+	ComponentType []FilterStringFilter `pulumi:"componentType"`
+	// Details of the Amazon EC2 instance image IDs used to filter findings.
+	Ec2InstanceImageId []FilterStringFilter `pulumi:"ec2InstanceImageId"`
+	// Details of the Amazon EC2 instance subnet IDs used to filter findings.
+	Ec2InstanceSubnetId []FilterStringFilter `pulumi:"ec2InstanceSubnetId"`
+	// Details of the Amazon EC2 instance VPC IDs used to filter findings.
+	Ec2InstanceVpcId []FilterStringFilter `pulumi:"ec2InstanceVpcId"`
+	// Details of the Amazon ECR image architecture types used to filter findings.
+	EcrImageArchitecture []FilterStringFilter `pulumi:"ecrImageArchitecture"`
+	// Details of the Amazon ECR image hashes used to filter findings.
+	EcrImageHash []FilterStringFilter `pulumi:"ecrImageHash"`
+	// Details on the Amazon ECR image push date and time used to filter findings.
+	EcrImagePushedAt []FilterDateFilter `pulumi:"ecrImagePushedAt"`
+	// Details on the Amazon ECR registry used to filter findings.
+	EcrImageRegistry []FilterStringFilter `pulumi:"ecrImageRegistry"`
+	// Details on the name of the Amazon ECR repository used to filter findings.
+	EcrImageRepositoryName []FilterStringFilter `pulumi:"ecrImageRepositoryName"`
+	// The tags attached to the Amazon ECR container image.
+	EcrImageTags []FilterStringFilter `pulumi:"ecrImageTags"`
+	// Details on the finding ARNs used to filter findings.
+	FindingArn []FilterStringFilter `pulumi:"findingArn"`
+	// Details on the finding status types used to filter findings.
+	FindingStatus []FilterStringFilter `pulumi:"findingStatus"`
+	// Details on the finding types used to filter findings.
+	FindingType []FilterStringFilter `pulumi:"findingType"`
+	// Details on the date and time a finding was first seen used to filter findings.
+	FirstObservedAt []FilterDateFilter `pulumi:"firstObservedAt"`
+	// The Amazon Inspector score to filter on.
+	InspectorScore []FilterNumberFilter `pulumi:"inspectorScore"`
+	// Details on the date and time a finding was last seen used to filter findings.
+	LastObservedAt []FilterDateFilter `pulumi:"lastObservedAt"`
+	// Details on network protocol used to filter findings.
+	NetworkProtocol []FilterStringFilter `pulumi:"networkProtocol"`
+	// Details on the port ranges used to filter findings.
+	PortRange []FilterPortRangeFilter `pulumi:"portRange"`
+	// Details on the related vulnerabilities used to filter findings.
+	RelatedVulnerabilities []FilterStringFilter `pulumi:"relatedVulnerabilities"`
+	// Details on the resource IDs used to filter findings.
+	ResourceId []FilterStringFilter `pulumi:"resourceId"`
+	// Details on the resource tags used to filter findings.
+	ResourceTags []FilterMapFilter `pulumi:"resourceTags"`
+	// Details on the resource types used to filter findings.
+	ResourceType []FilterStringFilter `pulumi:"resourceType"`
+	// Details on the severity used to filter findings.
+	Severity []FilterStringFilter `pulumi:"severity"`
+	// Details on the finding title used to filter findings.
+	Title []FilterStringFilter `pulumi:"title"`
+	// Details on the date and time a finding was last updated at used to filter findings.
+	UpdatedAt []FilterDateFilter `pulumi:"updatedAt"`
+	// Details on the vendor severity used to filter findings.
+	VendorSeverity []FilterStringFilter `pulumi:"vendorSeverity"`
+	// Details on the vulnerability ID used to filter findings.
+	VulnerabilityId []FilterStringFilter `pulumi:"vulnerabilityId"`
+	// Details on the vulnerability score to filter findings by.
+	VulnerabilitySource []FilterStringFilter `pulumi:"vulnerabilitySource"`
+	// Details on the vulnerable packages used to filter findings.
+	VulnerablePackages []FilterPackageFilter `pulumi:"vulnerablePackages"`
 }
 
 // FilterCriteriaInput is an input type that accepts FilterCriteriaArgs and FilterCriteriaOutput values.
@@ -1083,37 +1114,68 @@ type FilterCriteriaInput interface {
 }
 
 type FilterCriteriaArgs struct {
-	AwsAccountId           FilterStringFilterArrayInput    `pulumi:"awsAccountId"`
-	ComponentId            FilterStringFilterArrayInput    `pulumi:"componentId"`
-	ComponentType          FilterStringFilterArrayInput    `pulumi:"componentType"`
-	Ec2InstanceImageId     FilterStringFilterArrayInput    `pulumi:"ec2InstanceImageId"`
-	Ec2InstanceSubnetId    FilterStringFilterArrayInput    `pulumi:"ec2InstanceSubnetId"`
-	Ec2InstanceVpcId       FilterStringFilterArrayInput    `pulumi:"ec2InstanceVpcId"`
-	EcrImageArchitecture   FilterStringFilterArrayInput    `pulumi:"ecrImageArchitecture"`
-	EcrImageHash           FilterStringFilterArrayInput    `pulumi:"ecrImageHash"`
-	EcrImagePushedAt       FilterDateFilterArrayInput      `pulumi:"ecrImagePushedAt"`
-	EcrImageRegistry       FilterStringFilterArrayInput    `pulumi:"ecrImageRegistry"`
-	EcrImageRepositoryName FilterStringFilterArrayInput    `pulumi:"ecrImageRepositoryName"`
-	EcrImageTags           FilterStringFilterArrayInput    `pulumi:"ecrImageTags"`
-	FindingArn             FilterStringFilterArrayInput    `pulumi:"findingArn"`
-	FindingStatus          FilterStringFilterArrayInput    `pulumi:"findingStatus"`
-	FindingType            FilterStringFilterArrayInput    `pulumi:"findingType"`
-	FirstObservedAt        FilterDateFilterArrayInput      `pulumi:"firstObservedAt"`
-	InspectorScore         FilterNumberFilterArrayInput    `pulumi:"inspectorScore"`
-	LastObservedAt         FilterDateFilterArrayInput      `pulumi:"lastObservedAt"`
-	NetworkProtocol        FilterStringFilterArrayInput    `pulumi:"networkProtocol"`
-	PortRange              FilterPortRangeFilterArrayInput `pulumi:"portRange"`
-	RelatedVulnerabilities FilterStringFilterArrayInput    `pulumi:"relatedVulnerabilities"`
-	ResourceId             FilterStringFilterArrayInput    `pulumi:"resourceId"`
-	ResourceTags           FilterMapFilterArrayInput       `pulumi:"resourceTags"`
-	ResourceType           FilterStringFilterArrayInput    `pulumi:"resourceType"`
-	Severity               FilterStringFilterArrayInput    `pulumi:"severity"`
-	Title                  FilterStringFilterArrayInput    `pulumi:"title"`
-	UpdatedAt              FilterDateFilterArrayInput      `pulumi:"updatedAt"`
-	VendorSeverity         FilterStringFilterArrayInput    `pulumi:"vendorSeverity"`
-	VulnerabilityId        FilterStringFilterArrayInput    `pulumi:"vulnerabilityId"`
-	VulnerabilitySource    FilterStringFilterArrayInput    `pulumi:"vulnerabilitySource"`
-	VulnerablePackages     FilterPackageFilterArrayInput   `pulumi:"vulnerablePackages"`
+	// Details of the AWS account IDs used to filter findings.
+	AwsAccountId FilterStringFilterArrayInput `pulumi:"awsAccountId"`
+	// Details of the component IDs used to filter findings.
+	ComponentId FilterStringFilterArrayInput `pulumi:"componentId"`
+	// Details of the component types used to filter findings.
+	ComponentType FilterStringFilterArrayInput `pulumi:"componentType"`
+	// Details of the Amazon EC2 instance image IDs used to filter findings.
+	Ec2InstanceImageId FilterStringFilterArrayInput `pulumi:"ec2InstanceImageId"`
+	// Details of the Amazon EC2 instance subnet IDs used to filter findings.
+	Ec2InstanceSubnetId FilterStringFilterArrayInput `pulumi:"ec2InstanceSubnetId"`
+	// Details of the Amazon EC2 instance VPC IDs used to filter findings.
+	Ec2InstanceVpcId FilterStringFilterArrayInput `pulumi:"ec2InstanceVpcId"`
+	// Details of the Amazon ECR image architecture types used to filter findings.
+	EcrImageArchitecture FilterStringFilterArrayInput `pulumi:"ecrImageArchitecture"`
+	// Details of the Amazon ECR image hashes used to filter findings.
+	EcrImageHash FilterStringFilterArrayInput `pulumi:"ecrImageHash"`
+	// Details on the Amazon ECR image push date and time used to filter findings.
+	EcrImagePushedAt FilterDateFilterArrayInput `pulumi:"ecrImagePushedAt"`
+	// Details on the Amazon ECR registry used to filter findings.
+	EcrImageRegistry FilterStringFilterArrayInput `pulumi:"ecrImageRegistry"`
+	// Details on the name of the Amazon ECR repository used to filter findings.
+	EcrImageRepositoryName FilterStringFilterArrayInput `pulumi:"ecrImageRepositoryName"`
+	// The tags attached to the Amazon ECR container image.
+	EcrImageTags FilterStringFilterArrayInput `pulumi:"ecrImageTags"`
+	// Details on the finding ARNs used to filter findings.
+	FindingArn FilterStringFilterArrayInput `pulumi:"findingArn"`
+	// Details on the finding status types used to filter findings.
+	FindingStatus FilterStringFilterArrayInput `pulumi:"findingStatus"`
+	// Details on the finding types used to filter findings.
+	FindingType FilterStringFilterArrayInput `pulumi:"findingType"`
+	// Details on the date and time a finding was first seen used to filter findings.
+	FirstObservedAt FilterDateFilterArrayInput `pulumi:"firstObservedAt"`
+	// The Amazon Inspector score to filter on.
+	InspectorScore FilterNumberFilterArrayInput `pulumi:"inspectorScore"`
+	// Details on the date and time a finding was last seen used to filter findings.
+	LastObservedAt FilterDateFilterArrayInput `pulumi:"lastObservedAt"`
+	// Details on network protocol used to filter findings.
+	NetworkProtocol FilterStringFilterArrayInput `pulumi:"networkProtocol"`
+	// Details on the port ranges used to filter findings.
+	PortRange FilterPortRangeFilterArrayInput `pulumi:"portRange"`
+	// Details on the related vulnerabilities used to filter findings.
+	RelatedVulnerabilities FilterStringFilterArrayInput `pulumi:"relatedVulnerabilities"`
+	// Details on the resource IDs used to filter findings.
+	ResourceId FilterStringFilterArrayInput `pulumi:"resourceId"`
+	// Details on the resource tags used to filter findings.
+	ResourceTags FilterMapFilterArrayInput `pulumi:"resourceTags"`
+	// Details on the resource types used to filter findings.
+	ResourceType FilterStringFilterArrayInput `pulumi:"resourceType"`
+	// Details on the severity used to filter findings.
+	Severity FilterStringFilterArrayInput `pulumi:"severity"`
+	// Details on the finding title used to filter findings.
+	Title FilterStringFilterArrayInput `pulumi:"title"`
+	// Details on the date and time a finding was last updated at used to filter findings.
+	UpdatedAt FilterDateFilterArrayInput `pulumi:"updatedAt"`
+	// Details on the vendor severity used to filter findings.
+	VendorSeverity FilterStringFilterArrayInput `pulumi:"vendorSeverity"`
+	// Details on the vulnerability ID used to filter findings.
+	VulnerabilityId FilterStringFilterArrayInput `pulumi:"vulnerabilityId"`
+	// Details on the vulnerability score to filter findings by.
+	VulnerabilitySource FilterStringFilterArrayInput `pulumi:"vulnerabilitySource"`
+	// Details on the vulnerable packages used to filter findings.
+	VulnerablePackages FilterPackageFilterArrayInput `pulumi:"vulnerablePackages"`
 }
 
 func (FilterCriteriaArgs) ElementType() reflect.Type {
@@ -1142,126 +1204,157 @@ func (o FilterCriteriaOutput) ToFilterCriteriaOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Details of the AWS account IDs used to filter findings.
 func (o FilterCriteriaOutput) AwsAccountId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.AwsAccountId }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the component IDs used to filter findings.
 func (o FilterCriteriaOutput) ComponentId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.ComponentId }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the component types used to filter findings.
 func (o FilterCriteriaOutput) ComponentType() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.ComponentType }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon EC2 instance image IDs used to filter findings.
 func (o FilterCriteriaOutput) Ec2InstanceImageId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.Ec2InstanceImageId }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon EC2 instance subnet IDs used to filter findings.
 func (o FilterCriteriaOutput) Ec2InstanceSubnetId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.Ec2InstanceSubnetId }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon EC2 instance VPC IDs used to filter findings.
 func (o FilterCriteriaOutput) Ec2InstanceVpcId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.Ec2InstanceVpcId }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon ECR image architecture types used to filter findings.
 func (o FilterCriteriaOutput) EcrImageArchitecture() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageArchitecture }).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon ECR image hashes used to filter findings.
 func (o FilterCriteriaOutput) EcrImageHash() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageHash }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the Amazon ECR image push date and time used to filter findings.
 func (o FilterCriteriaOutput) EcrImagePushedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterDateFilter { return v.EcrImagePushedAt }).(FilterDateFilterArrayOutput)
 }
 
+// Details on the Amazon ECR registry used to filter findings.
 func (o FilterCriteriaOutput) EcrImageRegistry() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageRegistry }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the name of the Amazon ECR repository used to filter findings.
 func (o FilterCriteriaOutput) EcrImageRepositoryName() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageRepositoryName }).(FilterStringFilterArrayOutput)
 }
 
+// The tags attached to the Amazon ECR container image.
 func (o FilterCriteriaOutput) EcrImageTags() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageTags }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding ARNs used to filter findings.
 func (o FilterCriteriaOutput) FindingArn() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.FindingArn }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding status types used to filter findings.
 func (o FilterCriteriaOutput) FindingStatus() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.FindingStatus }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding types used to filter findings.
 func (o FilterCriteriaOutput) FindingType() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.FindingType }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the date and time a finding was first seen used to filter findings.
 func (o FilterCriteriaOutput) FirstObservedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterDateFilter { return v.FirstObservedAt }).(FilterDateFilterArrayOutput)
 }
 
+// The Amazon Inspector score to filter on.
 func (o FilterCriteriaOutput) InspectorScore() FilterNumberFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterNumberFilter { return v.InspectorScore }).(FilterNumberFilterArrayOutput)
 }
 
+// Details on the date and time a finding was last seen used to filter findings.
 func (o FilterCriteriaOutput) LastObservedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterDateFilter { return v.LastObservedAt }).(FilterDateFilterArrayOutput)
 }
 
+// Details on network protocol used to filter findings.
 func (o FilterCriteriaOutput) NetworkProtocol() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.NetworkProtocol }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the port ranges used to filter findings.
 func (o FilterCriteriaOutput) PortRange() FilterPortRangeFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterPortRangeFilter { return v.PortRange }).(FilterPortRangeFilterArrayOutput)
 }
 
+// Details on the related vulnerabilities used to filter findings.
 func (o FilterCriteriaOutput) RelatedVulnerabilities() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.RelatedVulnerabilities }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the resource IDs used to filter findings.
 func (o FilterCriteriaOutput) ResourceId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.ResourceId }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the resource tags used to filter findings.
 func (o FilterCriteriaOutput) ResourceTags() FilterMapFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterMapFilter { return v.ResourceTags }).(FilterMapFilterArrayOutput)
 }
 
+// Details on the resource types used to filter findings.
 func (o FilterCriteriaOutput) ResourceType() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.ResourceType }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the severity used to filter findings.
 func (o FilterCriteriaOutput) Severity() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.Severity }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding title used to filter findings.
 func (o FilterCriteriaOutput) Title() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.Title }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the date and time a finding was last updated at used to filter findings.
 func (o FilterCriteriaOutput) UpdatedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterDateFilter { return v.UpdatedAt }).(FilterDateFilterArrayOutput)
 }
 
+// Details on the vendor severity used to filter findings.
 func (o FilterCriteriaOutput) VendorSeverity() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.VendorSeverity }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the vulnerability ID used to filter findings.
 func (o FilterCriteriaOutput) VulnerabilityId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.VulnerabilityId }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the vulnerability score to filter findings by.
 func (o FilterCriteriaOutput) VulnerabilitySource() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.VulnerabilitySource }).(FilterStringFilterArrayOutput)
 }
 
+// Details on the vulnerable packages used to filter findings.
 func (o FilterCriteriaOutput) VulnerablePackages() FilterPackageFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterPackageFilter { return v.VulnerablePackages }).(FilterPackageFilterArrayOutput)
 }
@@ -1290,6 +1383,7 @@ func (o FilterCriteriaPtrOutput) Elem() FilterCriteriaOutput {
 	}).(FilterCriteriaOutput)
 }
 
+// Details of the AWS account IDs used to filter findings.
 func (o FilterCriteriaPtrOutput) AwsAccountId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1299,6 +1393,7 @@ func (o FilterCriteriaPtrOutput) AwsAccountId() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the component IDs used to filter findings.
 func (o FilterCriteriaPtrOutput) ComponentId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1308,6 +1403,7 @@ func (o FilterCriteriaPtrOutput) ComponentId() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the component types used to filter findings.
 func (o FilterCriteriaPtrOutput) ComponentType() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1317,6 +1413,7 @@ func (o FilterCriteriaPtrOutput) ComponentType() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon EC2 instance image IDs used to filter findings.
 func (o FilterCriteriaPtrOutput) Ec2InstanceImageId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1326,6 +1423,7 @@ func (o FilterCriteriaPtrOutput) Ec2InstanceImageId() FilterStringFilterArrayOut
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon EC2 instance subnet IDs used to filter findings.
 func (o FilterCriteriaPtrOutput) Ec2InstanceSubnetId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1335,6 +1433,7 @@ func (o FilterCriteriaPtrOutput) Ec2InstanceSubnetId() FilterStringFilterArrayOu
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon EC2 instance VPC IDs used to filter findings.
 func (o FilterCriteriaPtrOutput) Ec2InstanceVpcId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1344,6 +1443,7 @@ func (o FilterCriteriaPtrOutput) Ec2InstanceVpcId() FilterStringFilterArrayOutpu
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon ECR image architecture types used to filter findings.
 func (o FilterCriteriaPtrOutput) EcrImageArchitecture() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1353,6 +1453,7 @@ func (o FilterCriteriaPtrOutput) EcrImageArchitecture() FilterStringFilterArrayO
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details of the Amazon ECR image hashes used to filter findings.
 func (o FilterCriteriaPtrOutput) EcrImageHash() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1362,6 +1463,7 @@ func (o FilterCriteriaPtrOutput) EcrImageHash() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the Amazon ECR image push date and time used to filter findings.
 func (o FilterCriteriaPtrOutput) EcrImagePushedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
 		if v == nil {
@@ -1371,6 +1473,7 @@ func (o FilterCriteriaPtrOutput) EcrImagePushedAt() FilterDateFilterArrayOutput 
 	}).(FilterDateFilterArrayOutput)
 }
 
+// Details on the Amazon ECR registry used to filter findings.
 func (o FilterCriteriaPtrOutput) EcrImageRegistry() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1380,6 +1483,7 @@ func (o FilterCriteriaPtrOutput) EcrImageRegistry() FilterStringFilterArrayOutpu
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the name of the Amazon ECR repository used to filter findings.
 func (o FilterCriteriaPtrOutput) EcrImageRepositoryName() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1389,6 +1493,7 @@ func (o FilterCriteriaPtrOutput) EcrImageRepositoryName() FilterStringFilterArra
 	}).(FilterStringFilterArrayOutput)
 }
 
+// The tags attached to the Amazon ECR container image.
 func (o FilterCriteriaPtrOutput) EcrImageTags() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1398,6 +1503,7 @@ func (o FilterCriteriaPtrOutput) EcrImageTags() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding ARNs used to filter findings.
 func (o FilterCriteriaPtrOutput) FindingArn() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1407,6 +1513,7 @@ func (o FilterCriteriaPtrOutput) FindingArn() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding status types used to filter findings.
 func (o FilterCriteriaPtrOutput) FindingStatus() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1416,6 +1523,7 @@ func (o FilterCriteriaPtrOutput) FindingStatus() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding types used to filter findings.
 func (o FilterCriteriaPtrOutput) FindingType() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1425,6 +1533,7 @@ func (o FilterCriteriaPtrOutput) FindingType() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the date and time a finding was first seen used to filter findings.
 func (o FilterCriteriaPtrOutput) FirstObservedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
 		if v == nil {
@@ -1434,6 +1543,7 @@ func (o FilterCriteriaPtrOutput) FirstObservedAt() FilterDateFilterArrayOutput {
 	}).(FilterDateFilterArrayOutput)
 }
 
+// The Amazon Inspector score to filter on.
 func (o FilterCriteriaPtrOutput) InspectorScore() FilterNumberFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterNumberFilter {
 		if v == nil {
@@ -1443,6 +1553,7 @@ func (o FilterCriteriaPtrOutput) InspectorScore() FilterNumberFilterArrayOutput 
 	}).(FilterNumberFilterArrayOutput)
 }
 
+// Details on the date and time a finding was last seen used to filter findings.
 func (o FilterCriteriaPtrOutput) LastObservedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
 		if v == nil {
@@ -1452,6 +1563,7 @@ func (o FilterCriteriaPtrOutput) LastObservedAt() FilterDateFilterArrayOutput {
 	}).(FilterDateFilterArrayOutput)
 }
 
+// Details on network protocol used to filter findings.
 func (o FilterCriteriaPtrOutput) NetworkProtocol() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1461,6 +1573,7 @@ func (o FilterCriteriaPtrOutput) NetworkProtocol() FilterStringFilterArrayOutput
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the port ranges used to filter findings.
 func (o FilterCriteriaPtrOutput) PortRange() FilterPortRangeFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterPortRangeFilter {
 		if v == nil {
@@ -1470,6 +1583,7 @@ func (o FilterCriteriaPtrOutput) PortRange() FilterPortRangeFilterArrayOutput {
 	}).(FilterPortRangeFilterArrayOutput)
 }
 
+// Details on the related vulnerabilities used to filter findings.
 func (o FilterCriteriaPtrOutput) RelatedVulnerabilities() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1479,6 +1593,7 @@ func (o FilterCriteriaPtrOutput) RelatedVulnerabilities() FilterStringFilterArra
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the resource IDs used to filter findings.
 func (o FilterCriteriaPtrOutput) ResourceId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1488,6 +1603,7 @@ func (o FilterCriteriaPtrOutput) ResourceId() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the resource tags used to filter findings.
 func (o FilterCriteriaPtrOutput) ResourceTags() FilterMapFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterMapFilter {
 		if v == nil {
@@ -1497,6 +1613,7 @@ func (o FilterCriteriaPtrOutput) ResourceTags() FilterMapFilterArrayOutput {
 	}).(FilterMapFilterArrayOutput)
 }
 
+// Details on the resource types used to filter findings.
 func (o FilterCriteriaPtrOutput) ResourceType() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1506,6 +1623,7 @@ func (o FilterCriteriaPtrOutput) ResourceType() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the severity used to filter findings.
 func (o FilterCriteriaPtrOutput) Severity() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1515,6 +1633,7 @@ func (o FilterCriteriaPtrOutput) Severity() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the finding title used to filter findings.
 func (o FilterCriteriaPtrOutput) Title() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1524,6 +1643,7 @@ func (o FilterCriteriaPtrOutput) Title() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the date and time a finding was last updated at used to filter findings.
 func (o FilterCriteriaPtrOutput) UpdatedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
 		if v == nil {
@@ -1533,6 +1653,7 @@ func (o FilterCriteriaPtrOutput) UpdatedAt() FilterDateFilterArrayOutput {
 	}).(FilterDateFilterArrayOutput)
 }
 
+// Details on the vendor severity used to filter findings.
 func (o FilterCriteriaPtrOutput) VendorSeverity() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1542,6 +1663,7 @@ func (o FilterCriteriaPtrOutput) VendorSeverity() FilterStringFilterArrayOutput 
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the vulnerability ID used to filter findings.
 func (o FilterCriteriaPtrOutput) VulnerabilityId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1551,6 +1673,7 @@ func (o FilterCriteriaPtrOutput) VulnerabilityId() FilterStringFilterArrayOutput
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the vulnerability score to filter findings by.
 func (o FilterCriteriaPtrOutput) VulnerabilitySource() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
 		if v == nil {
@@ -1560,6 +1683,7 @@ func (o FilterCriteriaPtrOutput) VulnerabilitySource() FilterStringFilterArrayOu
 	}).(FilterStringFilterArrayOutput)
 }
 
+// Details on the vulnerable packages used to filter findings.
 func (o FilterCriteriaPtrOutput) VulnerablePackages() FilterPackageFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterPackageFilter {
 		if v == nil {

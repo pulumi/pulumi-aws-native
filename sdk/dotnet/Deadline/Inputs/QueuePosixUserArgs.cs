@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class QueuePosixUserArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the POSIX user's group.
+        /// </summary>
         [Input("group", required: true)]
         public Input<string> Group { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the POSIX user.
+        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 

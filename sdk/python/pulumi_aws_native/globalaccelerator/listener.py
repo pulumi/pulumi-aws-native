@@ -24,6 +24,7 @@ class ListenerArgs:
         """
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: A complex type for a range of ports for a listener.
         :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
         :param pulumi.Input['ListenerClientAffinity'] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
         """
@@ -48,6 +49,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]:
+        """
+        A complex type for a range of ports for a listener.
+        """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
@@ -96,6 +100,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
         :param pulumi.Input['ListenerClientAffinity'] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]] port_ranges: A complex type for a range of ports for a listener.
         :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
         """
         ...
@@ -204,6 +209,9 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence['outputs.ListenerPortRange']]:
+        """
+        A complex type for a range of ports for a listener.
+        """
         return pulumi.get(self, "port_ranges")
 
     @property

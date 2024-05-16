@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDateTimeParameterDeclaration
     {
+        /// <summary>
+        /// The default values of the `DateTimeParameterDeclaration` .
+        /// </summary>
         public readonly Outputs.DashboardDateTimeDefaultValues? DefaultValues;
+        /// <summary>
+        /// A dataset parameter that is mapped to an analysis parameter.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? TimeGranularity;
+        /// <summary>
+        /// The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+        /// </summary>
         public readonly Outputs.DashboardDateTimeValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

@@ -17,13 +17,20 @@ import (
 type Assistant struct {
 	pulumi.CustomResourceState
 
-	AssistantArn                      pulumi.StringOutput                                 `pulumi:"assistantArn"`
-	AssistantId                       pulumi.StringOutput                                 `pulumi:"assistantId"`
-	Description                       pulumi.StringPtrOutput                              `pulumi:"description"`
-	Name                              pulumi.StringOutput                                 `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the assistant.
+	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
+	// The ID of the Wisdom assistant.
+	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
+	// The description of the assistant.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the assistant.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              aws.CreateOnlyTagArrayOutput                        `pulumi:"tags"`
-	Type                              AssistantTypeOutput                                 `pulumi:"type"`
+	// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// The type of assistant.
+	Type AssistantTypeOutput `pulumi:"type"`
 }
 
 // NewAssistant registers a new resource with the given unique name, arguments, and options.
@@ -77,20 +84,30 @@ func (AssistantState) ElementType() reflect.Type {
 }
 
 type assistantArgs struct {
-	Description                       *string                                     `pulumi:"description"`
-	Name                              *string                                     `pulumi:"name"`
+	// The description of the assistant.
+	Description *string `pulumi:"description"`
+	// The name of the assistant.
+	Name *string `pulumi:"name"`
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration *AssistantServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              []aws.CreateOnlyTag                         `pulumi:"tags"`
-	Type                              AssistantType                               `pulumi:"type"`
+	// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	// The type of assistant.
+	Type AssistantType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Assistant resource.
 type AssistantArgs struct {
-	Description                       pulumi.StringPtrInput
-	Name                              pulumi.StringPtrInput
+	// The description of the assistant.
+	Description pulumi.StringPtrInput
+	// The name of the assistant.
+	Name pulumi.StringPtrInput
+	// The configuration information for the customer managed key used for encryption.
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrInput
-	Tags                              aws.CreateOnlyTagArrayInput
-	Type                              AssistantTypeInput
+	// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags aws.CreateOnlyTagArrayInput
+	// The type of assistant.
+	Type AssistantTypeInput
 }
 
 func (AssistantArgs) ElementType() reflect.Type {
@@ -130,32 +147,39 @@ func (o AssistantOutput) ToAssistantOutputWithContext(ctx context.Context) Assis
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the assistant.
 func (o AssistantOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }
 
+// The ID of the Wisdom assistant.
 func (o AssistantOutput) AssistantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
 }
 
+// The description of the assistant.
 func (o AssistantOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the assistant.
 func (o AssistantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration information for the customer managed key used for encryption.
 func (o AssistantOutput) ServerSideEncryptionConfiguration() AssistantServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Assistant) AssistantServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(AssistantServerSideEncryptionConfigurationPtrOutput)
 }
 
+// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
 func (o AssistantOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Assistant) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// The type of assistant.
 func (o AssistantOutput) Type() AssistantTypeOutput {
 	return o.ApplyT(func(v *Assistant) AssistantTypeOutput { return v.Type }).(AssistantTypeOutput)
 }

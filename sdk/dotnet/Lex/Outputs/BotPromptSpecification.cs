@@ -20,8 +20,17 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// Indicates whether the user can interrupt a speech prompt from the bot.
         /// </summary>
         public readonly bool? AllowInterrupt;
+        /// <summary>
+        /// The maximum number of times the bot tries to elicit a response from the user using this prompt.
+        /// </summary>
         public readonly int MaxRetries;
+        /// <summary>
+        /// A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroupsList;
+        /// <summary>
+        /// Indicates how a message is selected from a message group among retries.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? MessageSelectionStrategy;
         /// <summary>
         /// Specifies the advanced settings on each attempt of the prompt.

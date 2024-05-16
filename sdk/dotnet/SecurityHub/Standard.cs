@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("standardsArn")]
         public Output<string> StandardsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of a resource that represents your subscription to a supported standard.
+        /// </summary>
         [Output("standardsSubscriptionArn")]
         public Output<string> StandardsSubscriptionArn { get; private set; } = null!;
 

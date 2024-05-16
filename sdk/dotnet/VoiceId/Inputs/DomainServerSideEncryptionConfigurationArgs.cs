@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.VoiceId.Inputs
 
     public sealed class DomainServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
+        /// </summary>
         [Input("kmsKeyId", required: true)]
         public Input<string> KmsKeyId { get; set; } = null!;
 

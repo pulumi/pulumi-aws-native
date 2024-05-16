@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetStoredQueryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the query.
+        /// </summary>
         [Input("queryName", required: true)]
         public string QueryName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetStoredQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the query.
+        /// </summary>
         [Input("queryName", required: true)]
         public Input<string> QueryName { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Configuration
     [OutputType]
     public sealed class GetStoredQueryResult
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+        /// </summary>
         public readonly string? QueryArn;
+        /// <summary>
+        /// A unique description for the query.
+        /// </summary>
         public readonly string? QueryDescription;
+        /// <summary>
+        /// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        /// </summary>
         public readonly string? QueryExpression;
+        /// <summary>
+        /// The ID of the query.
+        /// </summary>
         public readonly string? QueryId;
         /// <summary>
         /// The tags for the stored query.

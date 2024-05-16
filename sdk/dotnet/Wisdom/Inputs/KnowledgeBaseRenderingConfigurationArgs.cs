@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class KnowledgeBaseRenderingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+        /// 
+        /// - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+        /// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+        /// - Zendesk: `id` , `title` , `updated_at` , or `draft`
+        /// 
+        /// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
+        /// </summary>
         [Input("templateUri")]
         public Input<string>? TemplateUri { get; set; }
 

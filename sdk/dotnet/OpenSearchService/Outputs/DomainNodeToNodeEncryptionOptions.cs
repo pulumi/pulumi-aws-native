@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainNodeToNodeEncryptionOptions
     {
+        /// <summary>
+        /// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

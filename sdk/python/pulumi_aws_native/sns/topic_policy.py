@@ -143,6 +143,9 @@ class TopicPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The provider-assigned unique ID for this managed resource.
+        """
         return pulumi.get(self, "aws_id")
 
     @property

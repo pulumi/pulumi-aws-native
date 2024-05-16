@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class LaunchGroupToWeightArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the launch group. It can include up to 127 characters.
+        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The portion of launch traffic to allocate to this launch group.
+        /// 
+        /// This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
+        /// </summary>
         [Input("splitWeight", required: true)]
         public Input<int> SplitWeight { get; set; } = null!;
 

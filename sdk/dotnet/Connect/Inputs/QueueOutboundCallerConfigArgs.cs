@@ -15,12 +15,23 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class QueueOutboundCallerConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The caller ID name.
+        /// </summary>
         [Input("outboundCallerIdName")]
         public Input<string>? OutboundCallerIdName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the outbound caller ID number.
+        /// 
+        /// &gt; Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+        /// </summary>
         [Input("outboundCallerIdNumberArn")]
         public Input<string>? OutboundCallerIdNumberArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the outbound flow.
+        /// </summary>
         [Input("outboundFlowArn")]
         public Input<string>? OutboundFlowArn { get; set; }
 

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowSalesforceSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API of the connector application that Amazon AppFlow uses to transfer your data.
+        /// </summary>
         [Input("dataTransferApi")]
         public Input<Pulumi.AwsNative.AppFlow.FlowDataTransferApi>? DataTransferApi { get; set; }
 
+        /// <summary>
+        /// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        /// </summary>
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
 
+        /// <summary>
+        /// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+        /// </summary>
         [Input("includeDeletedRecords")]
         public Input<bool>? IncludeDeletedRecords { get; set; }
 
+        /// <summary>
+        /// The object specified in the Salesforce flow source.
+        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

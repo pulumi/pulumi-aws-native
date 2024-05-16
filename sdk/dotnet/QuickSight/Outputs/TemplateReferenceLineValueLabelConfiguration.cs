@@ -13,7 +13,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateReferenceLineValueLabelConfiguration
     {
+        /// <summary>
+        /// The options that determine the numeric format configuration.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateNumericFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The relative position of the value label. Choose one of the following options:
+        /// 
+        /// - `BEFORE_CUSTOM_LABEL`
+        /// - `AFTER_CUSTOM_LABEL`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateReferenceLineValueLabelRelativePosition? RelativePosition;
 
         [OutputConstructor]

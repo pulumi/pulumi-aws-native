@@ -16,12 +16,37 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclManagedRuleGroupConfig
     {
+        /// <summary>
+        /// Details for your use of the account creation fraud prevention managed rule group, `AWSManagedRulesACFPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+        /// </summary>
         public readonly Outputs.WebAclAwsManagedRulesAcfpRuleSet? AwsManagedRulesAcfpRuleSet;
+        /// <summary>
+        /// Details for your use of the account takeover prevention managed rule group, `AWSManagedRulesATPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+        /// </summary>
         public readonly Outputs.WebAclAwsManagedRulesAtpRuleSet? AwsManagedRulesAtpRuleSet;
+        /// <summary>
+        /// Details for your use of the Bot Control managed rule group, `AWSManagedRulesBotControlRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+        /// </summary>
         public readonly Outputs.WebAclAwsManagedRulesBotControlRuleSet? AwsManagedRulesBotControlRuleSet;
+        /// <summary>
+        /// &gt; Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
+        /// </summary>
         public readonly string? LoginPath;
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? PasswordField;
+        /// <summary>
+        /// &gt; Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+        /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.WebAclManagedRuleGroupConfigPayloadType? PayloadType;
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? UsernameField;
 
         [OutputConstructor]

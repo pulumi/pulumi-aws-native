@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisColorScale
     {
+        /// <summary>
+        /// Determines the color fill type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisColorFillType ColorFillType;
+        /// <summary>
+        /// Determines the color that is applied to a particular data value.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataColor> Colors;
+        /// <summary>
+        /// Determines the color that is applied to a particular data value.
+        /// </summary>
         public readonly Outputs.AnalysisDataColor? NullValueColor;
 
         [OutputConstructor]

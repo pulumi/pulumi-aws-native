@@ -23,13 +23,17 @@ func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...p
 }
 
 type LookupDomainNameArgs struct {
+	// The domain name.
 	DomainName string `pulumi:"domainName"`
 }
 
 type LookupDomainNameResult struct {
+	// The domain name provided by AWS AppSync .
 	AppSyncDomainName *string `pulumi:"appSyncDomainName"`
-	Description       *string `pulumi:"description"`
-	HostedZoneId      *string `pulumi:"hostedZoneId"`
+	// The decription for your domain name.
+	Description *string `pulumi:"description"`
+	// The ID of your Amazon Route 53 hosted zone.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
@@ -46,6 +50,7 @@ func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs
 }
 
 type LookupDomainNameOutputArgs struct {
+	// The domain name.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(
 	return o
 }
 
+// The domain name provided by AWS AppSync .
 func (o LookupDomainNameResultOutput) AppSyncDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.AppSyncDomainName }).(pulumi.StringPtrOutput)
 }
 
+// The decription for your domain name.
 func (o LookupDomainNameResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of your Amazon Route 53 hosted zone.
 func (o LookupDomainNameResultOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }

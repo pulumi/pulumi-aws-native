@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDateMeasureField
     {
+        /// <summary>
+        /// The aggregation function of the measure field.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateDateAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         public readonly Outputs.TemplateDateTimeFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

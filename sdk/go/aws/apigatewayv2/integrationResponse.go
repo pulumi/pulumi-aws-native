@@ -24,7 +24,8 @@ type IntegrationResponse struct {
 	//  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
 	ContentHandlingStrategy pulumi.StringPtrOutput `pulumi:"contentHandlingStrategy"`
 	// The integration ID.
-	IntegrationId         pulumi.StringOutput `pulumi:"integrationId"`
+	IntegrationId pulumi.StringOutput `pulumi:"integrationId"`
+	// The integration response ID.
 	IntegrationResponseId pulumi.StringOutput `pulumi:"integrationResponseId"`
 	// The integration response key.
 	IntegrationResponseKey pulumi.StringOutput `pulumi:"integrationResponseKey"`
@@ -198,6 +199,7 @@ func (o IntegrationResponseOutput) IntegrationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.IntegrationId }).(pulumi.StringOutput)
 }
 
+// The integration response ID.
 func (o IntegrationResponseOutput) IntegrationResponseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.IntegrationResponseId }).(pulumi.StringOutput)
 }

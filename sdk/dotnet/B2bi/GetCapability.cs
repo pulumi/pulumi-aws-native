@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class GetCapabilityArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         [Input("capabilityId", required: true)]
         public string CapabilityId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class GetCapabilityInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         [Input("capabilityId", required: true)]
         public Input<string> CapabilityId { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.B2bi
     [OutputType]
     public sealed class GetCapabilityResult
     {
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        /// </summary>
         public readonly string? CapabilityArn;
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         public readonly string? CapabilityId;
+        /// <summary>
+        /// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        /// </summary>
         public readonly Outputs.CapabilityConfigurationProperties? Configuration;
+        /// <summary>
+        /// Returns a timestamp for creation date and time of the capability.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityS3Location> InstructionsDocuments;
+        /// <summary>
+        /// Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The display name of the capability.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

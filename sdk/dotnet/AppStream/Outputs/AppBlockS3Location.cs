@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class AppBlockS3Location
     {
+        /// <summary>
+        /// The S3 bucket of the app block.
+        /// </summary>
         public readonly string S3Bucket;
+        /// <summary>
+        /// The S3 key of the S3 object of the virtual hard disk.
+        /// 
+        /// This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
+        /// </summary>
         public readonly string? S3Key;
 
         [OutputConstructor]

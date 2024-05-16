@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRiskConfigurationAttachmentNotifyEmailType
     {
+        /// <summary>
+        /// The email HTML body.
+        /// </summary>
         public readonly string? HtmlBody;
+        /// <summary>
+        /// The email subject.
+        /// </summary>
         public readonly string Subject;
+        /// <summary>
+        /// The email text body.
+        /// </summary>
         public readonly string? TextBody;
 
         [OutputConstructor]

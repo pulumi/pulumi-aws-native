@@ -12,12 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTooltipOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The setup for the detailed tooltip.
+        /// </summary>
         [Input("fieldBasedTooltip")]
         public Input<Inputs.TemplateFieldBasedTooltipArgs>? FieldBasedTooltip { get; set; }
 
+        /// <summary>
+        /// The selected type for the tooltip. Choose one of the following options:
+        /// 
+        /// - `BASIC` : A basic tooltip.
+        /// - `DETAILED` : A detailed tooltip.
+        /// </summary>
         [Input("selectedTooltipType")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSelectedTooltipType>? SelectedTooltipType { get; set; }
 
+        /// <summary>
+        /// Determines whether or not the tooltip is visible.
+        /// </summary>
         [Input("tooltipVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TooltipVisibility { get; set; }
 

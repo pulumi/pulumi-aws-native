@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.Batch.Inputs
     {
         [Input("args")]
         private InputList<string>? _args;
+
+        /// <summary>
+        /// An array of arguments to the entrypoint. If this isn't specified, the `CMD` of the container image is used. This corresponds to the `args` member in the [Entrypoint](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint) portion of the [Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/) in Kubernetes. Environment variable references are expanded using the container's environment.
+        /// 
+        /// If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to " `$(NAME1)` " and the `NAME1` environment variable doesn't exist, the command string will remain " `$(NAME1)` ." `$$` is replaced with `$` , and the resulting string isn't expanded. For example, `$$(VAR_NAME)` is passed as `$(VAR_NAME)` whether or not the `VAR_NAME` environment variable exists. For more information, see [Dockerfile reference: CMD](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) and [Define a command and arguments for a pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/) in the *Kubernetes documentation* .
+        /// </summary>
         public InputList<string> Args
         {
             get => _args ?? (_args = new InputList<string>());
@@ -22,6 +28,12 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         [Input("command")]
         private InputList<string>? _command;
+
+        /// <summary>
+        /// The entrypoint for the container. This isn't run within a shell. If this isn't specified, the `ENTRYPOINT` of the container image is used. Environment variable references are expanded using the container's environment.
+        /// 
+        /// If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to " `$(NAME1)` " and the `NAME1` environment variable doesn't exist, the command string will remain " `$(NAME1)` ." `$$` is replaced with `$` and the resulting string isn't expanded. For example, `$$(VAR_NAME)` will be passed as `$(VAR_NAME)` whether or not the `VAR_NAME` environment variable exists. The entrypoint can't be updated. For more information, see [ENTRYPOINT](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint) in the *Dockerfile reference* and [Define a command and arguments for a container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/) and [Entrypoint](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint) in the *Kubernetes documentation* .
+        /// </summary>
         public InputList<string> Command
         {
             get => _command ?? (_command = new InputList<string>());
@@ -30,29 +42,52 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         [Input("env")]
         private InputList<Inputs.JobDefinitionEksContainerEnvironmentVariableArgs>? _env;
+
+        /// <summary>
+        /// An environment variable.
+        /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerEnvironmentVariableArgs> Env
         {
             get => _env ?? (_env = new InputList<Inputs.JobDefinitionEksContainerEnvironmentVariableArgs>());
             set => _env = value;
         }
 
+        /// <summary>
+        /// The Docker image used to start the container.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The image pull policy for the container. Supported values are `Always` , `IfNotPresent` , and `Never` . This parameter defaults to `IfNotPresent` . However, if the `:latest` tag is specified, it defaults to `Always` . For more information, see [Updating images](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/containers/images/#updating-images) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("imagePullPolicy")]
         public Input<string>? ImagePullPolicy { get; set; }
 
+        /// <summary>
+        /// The name of the container. If the name isn't specified, the default name " `Default` " is used. Each container in a pod must have a unique name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The type and amount of resources to assign to a container. The supported resources include `memory` , `cpu` , and `nvidia.com/gpu` . For more information, see [Resource management for pods and containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("resources")]
         public Input<Inputs.JobDefinitionEksContainerResourceRequirementsArgs>? Resources { get; set; }
 
+        /// <summary>
+        /// The security context for a job. For more information, see [Configure a security context for a pod or container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("securityContext")]
         public Input<Inputs.JobDefinitionEksContainerSecurityContextArgs>? SecurityContext { get; set; }
 
         [Input("volumeMounts")]
         private InputList<Inputs.JobDefinitionEksContainerVolumeMountArgs>? _volumeMounts;
+
+        /// <summary>
+        /// The volume mounts for a container for an Amazon EKS job. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
+        /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerVolumeMountArgs> VolumeMounts
         {
             get => _volumeMounts ?? (_volumeMounts = new InputList<Inputs.JobDefinitionEksContainerVolumeMountArgs>());

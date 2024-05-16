@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetStateMachineVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetStateMachineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.StepFunctions
     [OutputType]
     public sealed class GetStateMachineVersionResult
     {
+        /// <summary>
+        /// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// An optional description of the state machine version.
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

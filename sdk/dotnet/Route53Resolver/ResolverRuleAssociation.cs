@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+        /// </summary>
         [Output("resolverRuleAssociationId")]
         public Output<string> ResolverRuleAssociationId { get; private set; } = null!;
 

@@ -12,6 +12,9 @@ __all__ = [
 
 
 class BucketRuleStatus(str, Enum):
+    """
+    If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+    """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
@@ -25,6 +28,9 @@ class EndpointAccessType(str, Enum):
 
 
 class EndpointStatus(str, Enum):
+    """
+    The status of the endpoint.
+    """
     AVAILABLE = "Available"
     PENDING = "Pending"
     DELETING = "Deleting"

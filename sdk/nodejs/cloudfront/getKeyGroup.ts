@@ -19,12 +19,26 @@ export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetKeyGroupArgs {
+    /**
+     * The identifier for the key group.
+     */
     id: string;
 }
 
 export interface GetKeyGroupResult {
+    /**
+     * The identifier for the key group.
+     */
     readonly id?: string;
+    /**
+     * A key group configuration.
+     *
+     * A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+     */
     readonly keyGroupConfig?: outputs.cloudfront.KeyGroupConfig;
+    /**
+     * The date and time when the key group was last modified.
+     */
     readonly lastModifiedTime?: string;
 }
 /**
@@ -35,5 +49,8 @@ export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetKeyGroupOutputArgs {
+    /**
+     * The identifier for the key group.
+     */
     id: pulumi.Input<string>;
 }

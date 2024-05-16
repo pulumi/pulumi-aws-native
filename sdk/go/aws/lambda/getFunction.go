@@ -38,7 +38,8 @@ type LookupFunctionArgs struct {
 type LookupFunctionResult struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
-	Arn           *string                     `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the function.
+	Arn *string `pulumi:"arn"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
@@ -75,7 +76,8 @@ type LookupFunctionResult struct {
 	Runtime *string `pulumi:"runtime"`
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
-	SnapStartResponse       *FunctionSnapStartResponse       `pulumi:"snapStartResponse"`
+	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	SnapStartResponse *FunctionSnapStartResponse `pulumi:"snapStartResponse"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
@@ -128,6 +130,7 @@ func (o LookupFunctionResultOutput) Architectures() FunctionArchitecturesItemArr
 	return o.ApplyT(func(v LookupFunctionResult) []FunctionArchitecturesItem { return v.Architectures }).(FunctionArchitecturesItemArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -221,6 +224,7 @@ func (o LookupFunctionResultOutput) RuntimeManagementConfig() FunctionRuntimeMan
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionRuntimeManagementConfig { return v.RuntimeManagementConfig }).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 func (o LookupFunctionResultOutput) SnapStartResponse() FunctionSnapStartResponsePtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionSnapStartResponse { return v.SnapStartResponse }).(FunctionSnapStartResponsePtrOutput)
 }

@@ -525,6 +525,8 @@ class DomainSingleSignOnArgs:
                  user_assignment: Optional[pulumi.Input['DomainUserAssignment']] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
+        :param pulumi.Input['DomainAuthType'] type: The type of single sign-on in Amazon DataZone.
+        :param pulumi.Input['DomainUserAssignment'] user_assignment: The single sign-on user assignment in Amazon DataZone.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -534,6 +536,9 @@ class DomainSingleSignOnArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['DomainAuthType']]:
+        """
+        The type of single sign-on in Amazon DataZone.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -543,6 +548,9 @@ class DomainSingleSignOnArgs:
     @property
     @pulumi.getter(name="userAssignment")
     def user_assignment(self) -> Optional[pulumi.Input['DomainUserAssignment']]:
+        """
+        The single sign-on user assignment in Amazon DataZone.
+        """
         return pulumi.get(self, "user_assignment")
 
     @user_assignment.setter
@@ -555,6 +563,10 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
     def __init__(__self__, *,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A string to string map containing parameters for the region.
+        :param pulumi.Input[str] region: The region specified in the environment parameter.
+        """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if region is not None:
@@ -563,6 +575,9 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A string to string map containing parameters for the region.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -572,6 +587,9 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region specified in the environment parameter.
+        """
         return pulumi.get(self, "region")
 
     @region.setter

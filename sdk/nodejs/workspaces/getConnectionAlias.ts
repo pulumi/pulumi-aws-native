@@ -19,12 +19,24 @@ export function getConnectionAlias(args: GetConnectionAliasArgs, opts?: pulumi.I
 }
 
 export interface GetConnectionAliasArgs {
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     aliasId: string;
 }
 
 export interface GetConnectionAliasResult {
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     readonly aliasId?: string;
+    /**
+     * Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+     */
     readonly associations?: outputs.workspaces.ConnectionAliasAssociation[];
+    /**
+     * The current state of the connection alias, returned as a string.
+     */
     readonly connectionAliasState?: enums.workspaces.ConnectionAliasState;
 }
 /**
@@ -35,5 +47,8 @@ export function getConnectionAliasOutput(args: GetConnectionAliasOutputArgs, opt
 }
 
 export interface GetConnectionAliasOutputArgs {
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     aliasId: pulumi.Input<string>;
 }

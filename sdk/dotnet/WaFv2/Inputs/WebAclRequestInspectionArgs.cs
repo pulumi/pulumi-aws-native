@@ -15,12 +15,25 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclRequestInspectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         [Input("passwordField", required: true)]
         public Input<Inputs.WebAclFieldIdentifierArgs> PasswordField { get; set; } = null!;
 
+        /// <summary>
+        /// The payload type for your login endpoint, either JSON or form encoded.
+        /// </summary>
         [Input("payloadType", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.WebAclRequestInspectionPayloadType> PayloadType { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         [Input("usernameField", required: true)]
         public Input<Inputs.WebAclFieldIdentifierArgs> UsernameField { get; set; } = null!;
 

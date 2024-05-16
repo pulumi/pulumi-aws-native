@@ -12,56 +12,111 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisComboChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("barDataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? BarDataLabels { get; set; }
 
+        /// <summary>
+        /// Determines the bar arrangement in a combo chart. The following are valid values in this structure:
+        /// 
+        /// - `CLUSTERED` : For clustered bar combo charts.
+        /// - `STACKED` : For stacked bar combo charts.
+        /// - `STACKED_PERCENT` : Do not use. If you use this value, the operation returns a validation error.
+        /// </summary>
         [Input("barsArrangement")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisBarsArrangement>? BarsArrangement { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
+        /// <summary>
+        /// The field wells of the visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisComboChartFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("lineDataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? LineDataLabels { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
 
         [Input("referenceLines")]
         private InputList<Inputs.AnalysisReferenceLineArgs>? _referenceLines;
+
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public InputList<Inputs.AnalysisReferenceLineArgs> ReferenceLines
         {
             get => _referenceLines ?? (_referenceLines = new InputList<Inputs.AnalysisReferenceLineArgs>());
             set => _referenceLines = value;
         }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("secondaryYAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? SecondaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a `ComboChartVisual` .
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisComboChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 

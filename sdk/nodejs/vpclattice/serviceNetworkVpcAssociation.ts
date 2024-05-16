@@ -37,17 +37,53 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceNetworkVpcAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the specified association between the service network and the VPC.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The date and time that the association was created, specified in ISO-8601 format.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     public /*out*/ readonly serviceNetworkArn!: pulumi.Output<string>;
+    /**
+     * The ID of the service network.
+     */
     public /*out*/ readonly serviceNetworkId!: pulumi.Output<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+     */
     public readonly serviceNetworkIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the service network.
+     */
     public /*out*/ readonly serviceNetworkName!: pulumi.Output<string>;
+    /**
+     * The status of the association.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkVpcAssociationStatus>;
+    /**
+     * The tags for the association.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC.
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcIdentifier!: pulumi.Output<string | undefined>;
 
     /**
@@ -98,8 +134,20 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
  */
 export interface ServiceNetworkVpcAssociationArgs {
+    /**
+     * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+     */
     serviceNetworkIdentifier?: pulumi.Input<string>;
+    /**
+     * The tags for the association.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC.
+     */
     vpcIdentifier?: pulumi.Input<string>;
 }

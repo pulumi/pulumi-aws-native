@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class MonitoringScheduleConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the monitoring job.
+        /// </summary>
         [Input("monitoringJobDefinition")]
         public Input<Inputs.MonitoringScheduleMonitoringJobDefinitionArgs>? MonitoringJobDefinition { get; set; }
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("monitoringJobDefinitionName")]
         public Input<string>? MonitoringJobDefinitionName { get; set; }
 
+        /// <summary>
+        /// The type of the monitoring job definition to schedule.
+        /// </summary>
         [Input("monitoringType")]
         public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType>? MonitoringType { get; set; }
 
+        /// <summary>
+        /// Configuration details about the monitoring schedule.
+        /// </summary>
         [Input("scheduleConfig")]
         public Input<Inputs.MonitoringScheduleScheduleConfigArgs>? ScheduleConfig { get; set; }
 

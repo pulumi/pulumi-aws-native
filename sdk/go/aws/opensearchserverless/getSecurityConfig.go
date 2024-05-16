@@ -31,7 +31,8 @@ type LookupSecurityConfigResult struct {
 	// Security config description
 	Description *string `pulumi:"description"`
 	// The identifier of the security config
-	Id          *string                          `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
 	SamlOptions *SecurityConfigSamlConfigOptions `pulumi:"samlOptions"`
 }
 
@@ -81,6 +82,7 @@ func (o LookupSecurityConfigResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
 func (o LookupSecurityConfigResultOutput) SamlOptions() SecurityConfigSamlConfigOptionsPtrOutput {
 	return o.ApplyT(func(v LookupSecurityConfigResult) *SecurityConfigSamlConfigOptions { return v.SamlOptions }).(SecurityConfigSamlConfigOptionsPtrOutput)
 }

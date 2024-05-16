@@ -21,17 +21,27 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("allowInterrupt")]
         public Input<bool>? AllowInterrupt { get; set; }
 
+        /// <summary>
+        /// How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
+        /// </summary>
         [Input("frequencyInSeconds", required: true)]
         public Input<int> FrequencyInSeconds { get; set; } = null!;
 
         [Input("messageGroupsList", required: true)]
         private InputList<Inputs.BotMessageGroupArgs>? _messageGroupsList;
+
+        /// <summary>
+        /// One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
+        /// </summary>
         public InputList<Inputs.BotMessageGroupArgs> MessageGroupsList
         {
             get => _messageGroupsList ?? (_messageGroupsList = new InputList<Inputs.BotMessageGroupArgs>());
             set => _messageGroupsList = value;
         }
 
+        /// <summary>
+        /// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        /// </summary>
         [Input("timeoutInSeconds", required: true)]
         public Input<int> TimeoutInSeconds { get; set; } = null!;
 

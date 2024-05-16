@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupPlanResourceType
     {
+        /// <summary>
+        /// Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> AdvancedBackupSettings;
+        /// <summary>
+        /// The display name of a backup plan.
+        /// </summary>
         public readonly string BackupPlanName;
+        /// <summary>
+        /// Specifies an object containing properties used to schedule a task to back up a selection of resources.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> BackupPlanRule;
 
         [OutputConstructor]

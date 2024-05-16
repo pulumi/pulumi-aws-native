@@ -21,18 +21,48 @@ export function getPackageVersion(args: GetPackageVersionArgs, opts?: pulumi.Inv
 }
 
 export interface GetPackageVersionArgs {
+    /**
+     * A package ID.
+     */
     packageId: string;
+    /**
+     * A package version.
+     */
     packageVersion: string;
+    /**
+     * A patch version.
+     */
     patchVersion: string;
 }
 
 export interface GetPackageVersionResult {
+    /**
+     * Whether the package version is the latest version.
+     */
     readonly isLatestPatch?: boolean;
+    /**
+     * Whether to mark the new version as the latest version.
+     */
     readonly markLatest?: boolean;
+    /**
+     * The package version's ARN.
+     */
     readonly packageArn?: string;
+    /**
+     * The package version's name.
+     */
     readonly packageName?: string;
+    /**
+     * The package version's registered time.
+     */
     readonly registeredTime?: number;
+    /**
+     * The package version's status.
+     */
     readonly status?: enums.panorama.PackageVersionStatus;
+    /**
+     * The package version's status description.
+     */
     readonly statusDescription?: string;
 }
 /**
@@ -43,7 +73,16 @@ export function getPackageVersionOutput(args: GetPackageVersionOutputArgs, opts?
 }
 
 export interface GetPackageVersionOutputArgs {
+    /**
+     * A package ID.
+     */
     packageId: pulumi.Input<string>;
+    /**
+     * A package version.
+     */
     packageVersion: pulumi.Input<string>;
+    /**
+     * A patch version.
+     */
     patchVersion: pulumi.Input<string>;
 }

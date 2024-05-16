@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetFilterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        /// </summary>
         [Input("detectorId", required: true)]
         public string DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -57,10 +69,29 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetFilterResult
     {
+        /// <summary>
+        /// Specifies the action that is to be applied to the findings that match the filter.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Represents a map of finding properties that match specified conditions and values when querying findings.
+        /// </summary>
         public readonly Outputs.FilterFindingCriteria? FindingCriteria;
+        /// <summary>
+        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+        /// 
+        /// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        /// </summary>
         public readonly int? Rank;
+        /// <summary>
+        /// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

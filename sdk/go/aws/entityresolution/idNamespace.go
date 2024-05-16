@@ -18,16 +18,27 @@ type IdNamespace struct {
 	pulumi.CustomResourceState
 
 	// The date and time when the IdNamespace was created
-	CreatedAt                   pulumi.StringOutput                               `pulumi:"createdAt"`
-	Description                 pulumi.StringPtrOutput                            `pulumi:"description"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The description of the ID namespace.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An object containing `IdMappingType` and `ProviderProperties` .
 	IdMappingWorkflowProperties IdNamespaceIdMappingWorkflowPropertiesArrayOutput `pulumi:"idMappingWorkflowProperties"`
 	// The arn associated with the IdNamespace
-	IdNamespaceArn    pulumi.StringOutput               `pulumi:"idNamespaceArn"`
-	IdNamespaceName   pulumi.StringOutput               `pulumi:"idNamespaceName"`
+	IdNamespaceArn pulumi.StringOutput `pulumi:"idNamespaceArn"`
+	// The name of the ID namespace.
+	IdNamespaceName pulumi.StringOutput `pulumi:"idNamespaceName"`
+	// An object containing `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdNamespaceInputSourceArrayOutput `pulumi:"inputSourceConfig"`
-	RoleArn           pulumi.StringPtrOutput            `pulumi:"roleArn"`
-	Tags              aws.TagArrayOutput                `pulumi:"tags"`
-	Type              IdNamespaceTypeOutput             `pulumi:"type"`
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+	//
+	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+	//
+	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	Type IdNamespaceTypeOutput `pulumi:"type"`
 	// The date and time when the IdNamespace was updated
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -79,24 +90,46 @@ func (IdNamespaceState) ElementType() reflect.Type {
 }
 
 type idNamespaceArgs struct {
-	Description                 *string                                  `pulumi:"description"`
+	// The description of the ID namespace.
+	Description *string `pulumi:"description"`
+	// An object containing `IdMappingType` and `ProviderProperties` .
 	IdMappingWorkflowProperties []IdNamespaceIdMappingWorkflowProperties `pulumi:"idMappingWorkflowProperties"`
-	IdNamespaceName             *string                                  `pulumi:"idNamespaceName"`
-	InputSourceConfig           []IdNamespaceInputSource                 `pulumi:"inputSourceConfig"`
-	RoleArn                     *string                                  `pulumi:"roleArn"`
-	Tags                        []aws.Tag                                `pulumi:"tags"`
-	Type                        IdNamespaceType                          `pulumi:"type"`
+	// The name of the ID namespace.
+	IdNamespaceName *string `pulumi:"idNamespaceName"`
+	// An object containing `InputSourceARN` and `SchemaName` .
+	InputSourceConfig []IdNamespaceInputSource `pulumi:"inputSourceConfig"`
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+	RoleArn *string `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+	//
+	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+	//
+	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	Type IdNamespaceType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IdNamespace resource.
 type IdNamespaceArgs struct {
-	Description                 pulumi.StringPtrInput
+	// The description of the ID namespace.
+	Description pulumi.StringPtrInput
+	// An object containing `IdMappingType` and `ProviderProperties` .
 	IdMappingWorkflowProperties IdNamespaceIdMappingWorkflowPropertiesArrayInput
-	IdNamespaceName             pulumi.StringPtrInput
-	InputSourceConfig           IdNamespaceInputSourceArrayInput
-	RoleArn                     pulumi.StringPtrInput
-	Tags                        aws.TagArrayInput
-	Type                        IdNamespaceTypeInput
+	// The name of the ID namespace.
+	IdNamespaceName pulumi.StringPtrInput
+	// An object containing `InputSourceARN` and `SchemaName` .
+	InputSourceConfig IdNamespaceInputSourceArrayInput
+	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+	RoleArn pulumi.StringPtrInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayInput
+	// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+	//
+	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+	//
+	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	Type IdNamespaceTypeInput
 }
 
 func (IdNamespaceArgs) ElementType() reflect.Type {
@@ -141,10 +174,12 @@ func (o IdNamespaceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The description of the ID namespace.
 func (o IdNamespaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An object containing `IdMappingType` and `ProviderProperties` .
 func (o IdNamespaceOutput) IdMappingWorkflowProperties() IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
 	return o.ApplyT(func(v *IdNamespace) IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
 		return v.IdMappingWorkflowProperties
@@ -156,22 +191,31 @@ func (o IdNamespaceOutput) IdNamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringOutput { return v.IdNamespaceArn }).(pulumi.StringOutput)
 }
 
+// The name of the ID namespace.
 func (o IdNamespaceOutput) IdNamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringOutput { return v.IdNamespaceName }).(pulumi.StringOutput)
 }
 
+// An object containing `InputSourceARN` and `SchemaName` .
 func (o IdNamespaceOutput) InputSourceConfig() IdNamespaceInputSourceArrayOutput {
 	return o.ApplyT(func(v *IdNamespace) IdNamespaceInputSourceArrayOutput { return v.InputSourceConfig }).(IdNamespaceInputSourceArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
 func (o IdNamespaceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o IdNamespaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *IdNamespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+//
+// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+//
+// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
 func (o IdNamespaceOutput) Type() IdNamespaceTypeOutput {
 	return o.ApplyT(func(v *IdNamespace) IdNamespaceTypeOutput { return v.Type }).(IdNamespaceTypeOutput)
 }

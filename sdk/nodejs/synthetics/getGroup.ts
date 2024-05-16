@@ -30,7 +30,13 @@ export interface GetGroupResult {
      * Id of the group.
      */
     readonly id?: string;
+    /**
+     * The ARNs of the canaries that you want to associate with this group.
+     */
     readonly resourceArns?: string[];
+    /**
+     * The list of key-value pairs that are associated with the group.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

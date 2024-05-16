@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class CapabilityS3LocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the Amazon S3 bucket.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// Specifies the Amazon S3 key for the file location.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 

@@ -19,10 +19,16 @@ export function getDataflowEndpointGroup(args: GetDataflowEndpointGroupArgs, opt
 }
 
 export interface GetDataflowEndpointGroupArgs {
+    /**
+     * UUID of a dataflow endpoint group.
+     */
     id: string;
 }
 
 export interface GetDataflowEndpointGroupResult {
+    /**
+     * The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     readonly arn?: string;
     /**
      * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
@@ -32,8 +38,17 @@ export interface GetDataflowEndpointGroupResult {
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
     readonly contactPrePassDurationSeconds?: number;
+    /**
+     * The security details and endpoint information.
+     */
     readonly endpointDetails?: outputs.groundstation.DataflowEndpointGroupEndpointDetails[];
+    /**
+     * UUID of a dataflow endpoint group.
+     */
     readonly id?: string;
+    /**
+     * Tags assigned to a resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -44,5 +59,8 @@ export function getDataflowEndpointGroupOutput(args: GetDataflowEndpointGroupOut
 }
 
 export interface GetDataflowEndpointGroupOutputArgs {
+    /**
+     * UUID of a dataflow endpoint group.
+     */
     id: pulumi.Input<string>;
 }

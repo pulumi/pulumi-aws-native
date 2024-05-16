@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class DeploymentConfigurationValidationPolicy
     {
+        /// <summary>
+        /// The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
+        /// 
+        /// Default: `30`
+        /// </summary>
         public readonly int? TimeoutInSeconds;
 
         [OutputConstructor]

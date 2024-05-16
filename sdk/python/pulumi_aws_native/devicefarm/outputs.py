@@ -162,6 +162,9 @@ class TestGridProjectVpcConfig(dict):
         The VPC security groups and subnets that are attached to a TestGrid project.
         :param Sequence[str] security_group_ids: A list of VPC security group IDs in your Amazon VPC.
         :param Sequence[str] subnet_ids: A list of VPC subnet IDs in your Amazon VPC.
+        :param str vpc_id: A list of VPC IDs.
+               
+               Each VPC is given a unique ID upon creation.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -186,6 +189,11 @@ class TestGridProjectVpcConfig(dict):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        A list of VPC IDs.
+
+        Each VPC is given a unique ID upon creation.
+        """
         return pulumi.get(self, "vpc_id")
 
 

@@ -12,27 +12,51 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamS3DestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        /// </summary>
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamBufferingHintsArgs>? BufferingHints { get; set; }
 
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
+        /// <summary>
+        /// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        /// </summary>
         [Input("compressionFormat")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat>? CompressionFormat { get; set; }
 
+        /// <summary>
+        /// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DeliveryStreamEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
+        /// </summary>
         [Input("errorOutputPrefix")]
         public Input<string>? ErrorOutputPrefix { get; set; }
 
+        /// <summary>
+        /// A prefix that Kinesis Data Firehose adds to the files that it delivers to the Amazon S3 bucket. The prefix helps you identify the files that Kinesis Data Firehose delivered.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The ARN of an AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide* .
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

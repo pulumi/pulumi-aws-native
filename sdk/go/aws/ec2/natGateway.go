@@ -27,7 +27,8 @@ type NatGateway struct {
 	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
 	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
 	MaxDrainDurationSeconds pulumi.IntPtrOutput `pulumi:"maxDrainDurationSeconds"`
-	NatGatewayId            pulumi.StringOutput `pulumi:"natGatewayId"`
+	// The ID of the NAT gateway.
+	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
 	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
 	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
@@ -192,6 +193,7 @@ func (o NatGatewayOutput) MaxDrainDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.IntPtrOutput { return v.MaxDrainDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the NAT gateway.
 func (o NatGatewayOutput) NatGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.NatGatewayId }).(pulumi.StringOutput)
 }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamRedshiftRetryOptions
     {
+        /// <summary>
+        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of `DurationInSeconds` is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        /// </summary>
         public readonly int? DurationInSeconds;
 
         [OutputConstructor]

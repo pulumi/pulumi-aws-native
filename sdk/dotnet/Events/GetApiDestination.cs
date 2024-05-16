@@ -65,12 +65,21 @@ namespace Pulumi.AwsNative.Events
         /// The arn of the connection.
         /// </summary>
         public readonly string? ConnectionArn;
+        /// <summary>
+        /// A description for the API destination to create.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The method to use for the request to the HTTP invocation endpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.Events.ApiDestinationHttpMethod? HttpMethod;
         /// <summary>
         /// Url endpoint to invoke.
         /// </summary>
         public readonly string? InvocationEndpoint;
+        /// <summary>
+        /// The maximum number of requests per second to send to the HTTP invocation endpoint.
+        /// </summary>
         public readonly int? InvocationRateLimitPerSecond;
 
         [OutputConstructor]

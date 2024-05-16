@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionUpdateDeviceCertificateParams
     {
+        /// <summary>
+        /// The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.MitigationActionUpdateDeviceCertificateParamsAction Action;
 
         [OutputConstructor]

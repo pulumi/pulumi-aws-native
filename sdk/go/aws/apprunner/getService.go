@@ -28,16 +28,21 @@ type LookupServiceArgs struct {
 }
 
 type LookupServiceResult struct {
-	HealthCheckConfiguration   *ServiceHealthCheckConfiguration   `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration      *ServiceInstanceConfiguration      `pulumi:"instanceConfiguration"`
-	NetworkConfiguration       *ServiceNetworkConfiguration       `pulumi:"networkConfiguration"`
+	// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
+	// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+	InstanceConfiguration *ServiceInstanceConfiguration `pulumi:"instanceConfiguration"`
+	// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
+	// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
 	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The AppRunner Service Id
 	ServiceId *string `pulumi:"serviceId"`
 	// The Service Url of the AppRunner Service.
-	ServiceUrl          *string                     `pulumi:"serviceUrl"`
+	ServiceUrl *string `pulumi:"serviceUrl"`
+	// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
 	SourceConfiguration *ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
 	// AppRunner Service status.
 	Status *string `pulumi:"status"`
@@ -79,18 +84,22 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+// Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
 func (o LookupServiceResultOutput) HealthCheckConfiguration() ServiceHealthCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceHealthCheckConfiguration { return v.HealthCheckConfiguration }).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
+// Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
 func (o LookupServiceResultOutput) InstanceConfiguration() ServiceInstanceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceInstanceConfiguration { return v.InstanceConfiguration }).(ServiceInstanceConfigurationPtrOutput)
 }
 
+// Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
 func (o LookupServiceResultOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceNetworkConfiguration { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
 }
 
+// Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
 func (o LookupServiceResultOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceObservabilityConfiguration { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
 }
@@ -110,6 +119,7 @@ func (o LookupServiceResultOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
+// Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
 func (o LookupServiceResultOutput) SourceConfiguration() ServiceSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceSourceConfiguration { return v.SourceConfiguration }).(ServiceSourceConfigurationPtrOutput)
 }

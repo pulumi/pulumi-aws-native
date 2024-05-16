@@ -13,24 +13,115 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class ServiceProfileLoRaWanServiceProfile
     {
+        /// <summary>
+        /// The AddGWMetaData value.
+        /// </summary>
         public readonly bool? AddGwMetadata;
+        /// <summary>
+        /// The ChannelMask value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly string? ChannelMask;
+        /// <summary>
+        /// The DevStatusReqFreq value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? DevStatusReqFreq;
+        /// <summary>
+        /// The DLBucketSize value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? DlBucketSize;
+        /// <summary>
+        /// The DLRate value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? DlRate;
+        /// <summary>
+        /// The DLRatePolicy value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly string? DlRatePolicy;
+        /// <summary>
+        /// The DRMax value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? DrMax;
+        /// <summary>
+        /// The DRMin value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? DrMin;
+        /// <summary>
+        /// The HRAllowed value that describes whether handover roaming is allowed.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly bool? HrAllowed;
+        /// <summary>
+        /// The MinGwDiversity value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? MinGwDiversity;
+        /// <summary>
+        /// The NwkGeoLoc value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly bool? NwkGeoLoc;
+        /// <summary>
+        /// The PRAllowed value that describes whether passive roaming is allowed.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly bool? PrAllowed;
+        /// <summary>
+        /// The RAAllowed value that describes whether roaming activation is allowed.
+        /// </summary>
         public readonly bool? RaAllowed;
+        /// <summary>
+        /// The ReportDevStatusBattery value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly bool? ReportDevStatusBattery;
+        /// <summary>
+        /// The ReportDevStatusMargin value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly bool? ReportDevStatusMargin;
+        /// <summary>
+        /// The TargetPer value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? TargetPer;
+        /// <summary>
+        /// The UlBucketSize value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? UlBucketSize;
+        /// <summary>
+        /// The ULRate value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly int? UlRate;
+        /// <summary>
+        /// The ULRatePolicy value.
+        /// 
+        /// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+        /// </summary>
         public readonly string? UlRatePolicy;
 
         [OutputConstructor]

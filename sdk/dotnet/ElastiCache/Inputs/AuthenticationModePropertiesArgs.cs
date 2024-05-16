@@ -10,6 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
+    /// <summary>
+    /// Specifies the authentication mode to use. Below is an example of the possible JSON values:
+    /// 
+    /// ```
+    /// { Passwords: ["*****", "******"] // If Type is password.
+    /// }
+    /// ```
+    /// </summary>
     public sealed class AuthenticationModePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("passwords")]

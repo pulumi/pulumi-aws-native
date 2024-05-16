@@ -34,6 +34,9 @@ class GetDomainNameApiAssociationResult:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[str]:
+        """
+        The API ID.
+        """
         return pulumi.get(self, "api_id")
 
 

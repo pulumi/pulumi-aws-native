@@ -16,10 +16,33 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class PatchBaselineRule
     {
+        /// <summary>
+        /// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+        /// 
+        /// You must specify a value for `ApproveAfterDays` .
+        /// 
+        /// Exception: Not supported on Debian Server or Ubuntu Server.
+        /// </summary>
         public readonly int? ApproveAfterDays;
+        /// <summary>
+        /// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+        /// 
+        /// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+        /// </summary>
         public readonly string? ApproveUntilDate;
+        /// <summary>
+        /// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Ssm.PatchBaselineRuleComplianceLevel? ComplianceLevel;
+        /// <summary>
+        /// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
+        /// </summary>
         public readonly bool? EnableNonSecurity;
+        /// <summary>
+        /// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
+        /// 
+        /// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+        /// </summary>
         public readonly Outputs.PatchBaselinePatchFilterGroup? PatchFilterGroup;
 
         [OutputConstructor]

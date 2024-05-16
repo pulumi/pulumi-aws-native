@@ -26,9 +26,21 @@ export interface GetServiceArgs {
 }
 
 export interface GetServiceResult {
+    /**
+     * Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
+     */
     readonly healthCheckConfiguration?: outputs.apprunner.ServiceHealthCheckConfiguration;
+    /**
+     * Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
+     */
     readonly instanceConfiguration?: outputs.apprunner.ServiceInstanceConfiguration;
+    /**
+     * Describes configuration settings related to network traffic of an AWS App Runner service. Consists of embedded objects for each configurable network feature.
+     */
     readonly networkConfiguration?: outputs.apprunner.ServiceNetworkConfiguration;
+    /**
+     * Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
+     */
     readonly observabilityConfiguration?: outputs.apprunner.ServiceObservabilityConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
@@ -42,6 +54,9 @@ export interface GetServiceResult {
      * The Service Url of the AppRunner Service.
      */
     readonly serviceUrl?: string;
+    /**
+     * Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.
+     */
     readonly sourceConfiguration?: outputs.apprunner.ServiceSourceConfiguration;
     /**
      * AppRunner Service status.

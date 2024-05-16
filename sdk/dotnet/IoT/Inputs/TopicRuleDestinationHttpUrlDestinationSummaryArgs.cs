@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleDestinationHttpUrlDestinationSummaryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL used to confirm the HTTP topic rule destination URL.
+        /// </summary>
         [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }
 

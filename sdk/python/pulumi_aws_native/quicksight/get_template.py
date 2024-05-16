@@ -71,21 +71,33 @@ class GetTemplateResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A display name for the template.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.TemplateResourcePermission']]:
+        """
+        Permission for the resource.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> Optional['outputs.TemplateVersion']:
+        """
+        A version of a template.
+        """
         return pulumi.get(self, "version")
 
 
@@ -109,6 +121,10 @@ def get_template(aws_account_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateResult:
     """
     Definition of the AWS::QuickSight::Template Resource Type.
+
+
+    :param str aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+    :param str template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -132,5 +148,9 @@ def get_template_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Definition of the AWS::QuickSight::Template Resource Type.
+
+
+    :param str aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+    :param str template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
     """
     ...

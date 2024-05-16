@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateComboChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The aggregated `BarValues` field well of a combo chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> BarValues;
+        /// <summary>
+        /// The aggregated category field wells of a combo chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Category;
+        /// <summary>
+        /// The aggregated colors field well of a combo chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Colors;
+        /// <summary>
+        /// The aggregated `LineValues` field well of a combo chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> LineValues;
 
         [OutputConstructor]

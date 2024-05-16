@@ -37,13 +37,49 @@ export class CaCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === CaCertificate.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+     *
+     * `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+     *
+     * A value similar to the following is returned:
+     *
+     * `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+     */
     public readonly autoRegistrationStatus!: pulumi.Output<enums.iot.CaCertificateAutoRegistrationStatus | undefined>;
+    /**
+     * The CA certificate ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The certificate data in PEM format.
+     */
     public readonly caCertificatePem!: pulumi.Output<string>;
+    /**
+     * The mode of the CA.
+     *
+     * All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+     *
+     * Valid values are "DEFAULT" and "SNI_ONLY".
+     */
     public readonly certificateMode!: pulumi.Output<enums.iot.CaCertificateCertificateMode | undefined>;
+    /**
+     * The registration configuration.
+     */
     public readonly registrationConfig!: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
+    /**
+     * If true, removes auto registration.
+     */
     public readonly removeAutoRegistration!: pulumi.Output<boolean | undefined>;
+    /**
+     * The status of the CA certificate.
+     *
+     * Valid values are "ACTIVE" and "INACTIVE".
+     */
     public readonly status!: pulumi.Output<enums.iot.CaCertificateStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -104,11 +140,35 @@ export class CaCertificate extends pulumi.CustomResource {
  * The set of arguments for constructing a CaCertificate resource.
  */
 export interface CaCertificateArgs {
+    /**
+     * Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+     */
     autoRegistrationStatus?: pulumi.Input<enums.iot.CaCertificateAutoRegistrationStatus>;
+    /**
+     * The certificate data in PEM format.
+     */
     caCertificatePem: pulumi.Input<string>;
+    /**
+     * The mode of the CA.
+     *
+     * All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+     *
+     * Valid values are "DEFAULT" and "SNI_ONLY".
+     */
     certificateMode?: pulumi.Input<enums.iot.CaCertificateCertificateMode>;
+    /**
+     * The registration configuration.
+     */
     registrationConfig?: pulumi.Input<inputs.iot.CaCertificateRegistrationConfigArgs>;
+    /**
+     * If true, removes auto registration.
+     */
     removeAutoRegistration?: pulumi.Input<boolean>;
+    /**
+     * The status of the CA certificate.
+     *
+     * Valid values are "ACTIVE" and "INACTIVE".
+     */
     status: pulumi.Input<enums.iot.CaCertificateStatus>;
     /**
      * An array of key-value pairs to apply to this resource.

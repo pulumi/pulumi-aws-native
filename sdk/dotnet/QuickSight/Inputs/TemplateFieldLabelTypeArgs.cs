@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFieldLabelTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the field that is targeted by the field label.
+        /// </summary>
         [Input("fieldId")]
         public Input<string>? FieldId { get; set; }
 
+        /// <summary>
+        /// The visibility of the field label.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

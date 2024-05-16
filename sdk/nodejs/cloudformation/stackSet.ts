@@ -65,6 +65,9 @@ export class StackSet extends pulumi.CustomResource {
      * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
      */
     public readonly managedExecution!: pulumi.Output<outputs.cloudformation.ManagedExecutionProperties | undefined>;
+    /**
+     * The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+     */
     public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetOperationPreferences | undefined>;
     /**
      * The input parameters for the stack set template.
@@ -186,6 +189,9 @@ export interface StackSetArgs {
      * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
      */
     managedExecution?: pulumi.Input<inputs.cloudformation.ManagedExecutionPropertiesArgs>;
+    /**
+     * The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+     */
     operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferencesArgs>;
     /**
      * The input parameters for the stack set template.

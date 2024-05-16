@@ -90,6 +90,9 @@ class DomainJobScheduleDayOfTheWeek(str, Enum):
 
 
 class DomainRuleBasedMatchingStatus(str, Enum):
+    """
+    The status of rule-based matching rule.
+    """
     PENDING = "PENDING"
     IN_PROGRESS = "IN_PROGRESS"
     ACTIVE = "ACTIVE"
@@ -203,6 +206,9 @@ class IntegrationSalesforceConnectorOperator(str, Enum):
 
 
 class IntegrationScheduledTriggerPropertiesDataPullMode(str, Enum):
+    """
+    Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+    """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
 

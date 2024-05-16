@@ -12,23 +12,39 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDateTimeParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default values of the `DateTimeParameterDeclaration` .
+        /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.DashboardDateTimeDefaultValuesArgs>? DefaultValues { get; set; }
 
         [Input("mappedDataSetParameters")]
         private InputList<Inputs.DashboardMappedDataSetParameterArgs>? _mappedDataSetParameters;
+
+        /// <summary>
+        /// A dataset parameter that is mapped to an analysis parameter.
+        /// </summary>
         public InputList<Inputs.DashboardMappedDataSetParameterArgs> MappedDataSetParameters
         {
             get => _mappedDataSetParameters ?? (_mappedDataSetParameters = new InputList<Inputs.DashboardMappedDataSetParameterArgs>());
             set => _mappedDataSetParameters = value;
         }
 
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTimeGranularity>? TimeGranularity { get; set; }
 
+        /// <summary>
+        /// The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+        /// </summary>
         [Input("valueWhenUnset")]
         public Input<Inputs.DashboardDateTimeValueWhenUnsetConfigurationArgs>? ValueWhenUnset { get; set; }
 

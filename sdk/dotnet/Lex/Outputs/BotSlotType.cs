@@ -16,11 +16,31 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSlotType
     {
+        /// <summary>
+        /// A description of the slot type. Use the description to help identify the slot type in lists.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Provides information about the external source of the slot type's definition.
+        /// </summary>
         public readonly Outputs.BotExternalSourceSetting? ExternalSourceSetting;
+        /// <summary>
+        /// The name of the slot type. A slot type name must be unique withing the account.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent lot type.
+        /// 
+        /// Only `AMAZON.AlphaNumeric` is supported.
+        /// </summary>
         public readonly string? ParentSlotTypeSignature;
+        /// <summary>
+        /// A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotTypeValue> SlotTypeValues;
+        /// <summary>
+        /// Contains settings used by Amazon Lex to select a slot value.
+        /// </summary>
         public readonly Outputs.BotSlotValueSelectionSetting? ValueSelectionSetting;
 
         [OutputConstructor]

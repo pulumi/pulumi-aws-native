@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The IDs of the security groups for this canary.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -22,12 +26,19 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The IDs of the subnets where this canary is to run.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC where this canary is to run.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

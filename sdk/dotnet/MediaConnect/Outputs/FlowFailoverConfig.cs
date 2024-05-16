@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         /// </summary>
         public readonly Outputs.FlowFailoverConfigSourcePriorityProperties? SourcePriority;
+        /// <summary>
+        /// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowFailoverConfigState? State;
 
         [OutputConstructor]

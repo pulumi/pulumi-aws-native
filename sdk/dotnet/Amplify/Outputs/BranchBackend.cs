@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Amplify.Outputs
     [OutputType]
     public sealed class BranchBackend
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+        /// </summary>
         public readonly string? StackArn;
 
         [OutputConstructor]

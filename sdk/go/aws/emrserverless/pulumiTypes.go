@@ -1943,6 +1943,7 @@ func (o ApplicationWorkerConfigurationOutput) Memory() pulumi.StringOutput {
 
 // The specifications for a worker type.
 type ApplicationWorkerTypeSpecificationInput struct {
+	// The image configuration.
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 }
 
@@ -1959,6 +1960,7 @@ type ApplicationWorkerTypeSpecificationInputInput interface {
 
 // The specifications for a worker type.
 type ApplicationWorkerTypeSpecificationInputArgs struct {
+	// The image configuration.
 	ImageConfiguration ApplicationImageConfigurationInputPtrInput `pulumi:"imageConfiguration"`
 }
 
@@ -2014,6 +2016,7 @@ func (o ApplicationWorkerTypeSpecificationInputOutput) ToApplicationWorkerTypeSp
 	return o
 }
 
+// The image configuration.
 func (o ApplicationWorkerTypeSpecificationInputOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
 	return o.ApplyT(func(v ApplicationWorkerTypeSpecificationInput) *ApplicationImageConfigurationInput {
 		return v.ImageConfiguration

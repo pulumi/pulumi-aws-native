@@ -26,8 +26,17 @@ export interface GetDbProxyTargetGroupArgs {
 }
 
 export interface GetDbProxyTargetGroupResult {
+    /**
+     * Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+     */
     readonly connectionPoolConfigurationInfo?: outputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat;
+    /**
+     * One or more DB cluster identifiers.
+     */
     readonly dbClusterIdentifiers?: string[];
+    /**
+     * One or more DB instance identifiers.
+     */
     readonly dbInstanceIdentifiers?: string[];
     /**
      * The Amazon Resource Name (ARN) representing the target group.

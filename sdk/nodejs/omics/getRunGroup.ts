@@ -16,18 +16,48 @@ export function getRunGroup(args: GetRunGroupArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetRunGroupArgs {
+    /**
+     * The run group's ID.
+     */
     id: string;
 }
 
 export interface GetRunGroupResult {
+    /**
+     * The run group's ARN.
+     */
     readonly arn?: string;
+    /**
+     * When the run group was created.
+     */
     readonly creationTime?: string;
+    /**
+     * The run group's ID.
+     */
     readonly id?: string;
+    /**
+     * The group's maximum CPU count setting.
+     */
     readonly maxCpus?: number;
+    /**
+     * The group's maximum duration setting in minutes.
+     */
     readonly maxDuration?: number;
+    /**
+     * The maximum GPUs that can be used by a run group.
+     */
     readonly maxGpus?: number;
+    /**
+     * The group's maximum concurrent run setting.
+     */
     readonly maxRuns?: number;
+    /**
+     * The group's name.
+     */
     readonly name?: string;
+    /**
+     * Tags for the group.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -38,5 +68,8 @@ export function getRunGroupOutput(args: GetRunGroupOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetRunGroupOutputArgs {
+    /**
+     * The run group's ID.
+     */
     id: pulumi.Input<string>;
 }

@@ -21,8 +21,10 @@ type LiveSource struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// <p>A list of HTTP package configuration parameters for this live source.</p>
 	HttpPackageConfigurations LiveSourceHttpPackageConfigurationArrayOutput `pulumi:"httpPackageConfigurations"`
-	LiveSourceName            pulumi.StringOutput                           `pulumi:"liveSourceName"`
-	SourceLocationName        pulumi.StringOutput                           `pulumi:"sourceLocationName"`
+	// The name that's used to refer to a live source.
+	LiveSourceName pulumi.StringOutput `pulumi:"liveSourceName"`
+	// The name of the source location.
+	SourceLocationName pulumi.StringOutput `pulumi:"sourceLocationName"`
 	// The tags to assign to the live source.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -80,8 +82,10 @@ func (LiveSourceState) ElementType() reflect.Type {
 type liveSourceArgs struct {
 	// <p>A list of HTTP package configuration parameters for this live source.</p>
 	HttpPackageConfigurations []LiveSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`
-	LiveSourceName            *string                              `pulumi:"liveSourceName"`
-	SourceLocationName        string                               `pulumi:"sourceLocationName"`
+	// The name that's used to refer to a live source.
+	LiveSourceName *string `pulumi:"liveSourceName"`
+	// The name of the source location.
+	SourceLocationName string `pulumi:"sourceLocationName"`
 	// The tags to assign to the live source.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -90,8 +94,10 @@ type liveSourceArgs struct {
 type LiveSourceArgs struct {
 	// <p>A list of HTTP package configuration parameters for this live source.</p>
 	HttpPackageConfigurations LiveSourceHttpPackageConfigurationArrayInput
-	LiveSourceName            pulumi.StringPtrInput
-	SourceLocationName        pulumi.StringInput
+	// The name that's used to refer to a live source.
+	LiveSourceName pulumi.StringPtrInput
+	// The name of the source location.
+	SourceLocationName pulumi.StringInput
 	// The tags to assign to the live source.
 	Tags aws.TagArrayInput
 }
@@ -143,10 +149,12 @@ func (o LiveSourceOutput) HttpPackageConfigurations() LiveSourceHttpPackageConfi
 	return o.ApplyT(func(v *LiveSource) LiveSourceHttpPackageConfigurationArrayOutput { return v.HttpPackageConfigurations }).(LiveSourceHttpPackageConfigurationArrayOutput)
 }
 
+// The name that's used to refer to a live source.
 func (o LiveSourceOutput) LiveSourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LiveSource) pulumi.StringOutput { return v.LiveSourceName }).(pulumi.StringOutput)
 }
 
+// The name of the source location.
 func (o LiveSourceOutput) SourceLocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LiveSource) pulumi.StringOutput { return v.SourceLocationName }).(pulumi.StringOutput)
 }

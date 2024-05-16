@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     [OutputType]
     public sealed class BudgetsActionActionThreshold
     {
+        /// <summary>
+        /// The type of threshold for a notification.
+        /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionActionThresholdType Type;
+        /// <summary>
+        /// The threshold of a notification.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

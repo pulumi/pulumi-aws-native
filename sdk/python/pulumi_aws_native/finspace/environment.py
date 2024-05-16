@@ -32,8 +32,10 @@ class EnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_bundles: ARNs of FinSpace Data Bundles to install
         :param pulumi.Input[str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
+        :param pulumi.Input['EnvironmentFederationParametersArgs'] federation_parameters: Configuration information when authentication mode is FEDERATED.
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
+        :param pulumi.Input['EnvironmentSuperuserParametersArgs'] superuser_parameters: Configuration information for the superuser.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if data_bundles is not None:
@@ -92,6 +94,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="federationParameters")
     def federation_parameters(self) -> Optional[pulumi.Input['EnvironmentFederationParametersArgs']]:
+        """
+        Configuration information when authentication mode is FEDERATED.
+        """
         return pulumi.get(self, "federation_parameters")
 
     @federation_parameters.setter
@@ -125,6 +130,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="superuserParameters")
     def superuser_parameters(self) -> Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']]:
+        """
+        Configuration information for the superuser.
+        """
         return pulumi.get(self, "superuser_parameters")
 
     @superuser_parameters.setter
@@ -192,8 +200,10 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_bundles: ARNs of FinSpace Data Bundles to install
         :param pulumi.Input[str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
+        :param pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']] federation_parameters: Configuration information when authentication mode is FEDERATED.
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
+        :param pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']] superuser_parameters: Configuration information for the superuser.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -386,6 +396,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="federationParameters")
     def federation_parameters(self) -> pulumi.Output[Optional['outputs.EnvironmentFederationParameters']]:
+        """
+        Configuration information when authentication mode is FEDERATED.
+        """
         return pulumi.get(self, "federation_parameters")
 
     @property
@@ -423,6 +436,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="superuserParameters")
     def superuser_parameters(self) -> pulumi.Output[Optional['outputs.EnvironmentSuperuserParameters']]:
+        """
+        Configuration information for the superuser.
+        """
         return pulumi.get(self, "superuser_parameters")
 
     @property

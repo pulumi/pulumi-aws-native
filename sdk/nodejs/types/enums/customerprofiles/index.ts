@@ -80,6 +80,9 @@ export const DomainRuleBasedMatchingStatus = {
     Active: "ACTIVE",
 } as const;
 
+/**
+ * The status of rule-based matching rule.
+ */
 export type DomainRuleBasedMatchingStatus = (typeof DomainRuleBasedMatchingStatus)[keyof typeof DomainRuleBasedMatchingStatus];
 
 export const EventStreamState = {
@@ -208,6 +211,9 @@ export const IntegrationScheduledTriggerPropertiesDataPullMode = {
     Complete: "Complete",
 } as const;
 
+/**
+ * Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+ */
 export type IntegrationScheduledTriggerPropertiesDataPullMode = (typeof IntegrationScheduledTriggerPropertiesDataPullMode)[keyof typeof IntegrationScheduledTriggerPropertiesDataPullMode];
 
 export const IntegrationServiceNowConnectorOperator = {

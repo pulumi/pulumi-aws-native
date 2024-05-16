@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotAdvancedRecognitionSetting
     {
+        /// <summary>
+        /// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lex.BotAudioRecognitionStrategy? AudioRecognitionStrategy;
 
         [OutputConstructor]

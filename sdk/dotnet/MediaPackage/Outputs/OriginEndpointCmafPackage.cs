@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class OriginEndpointCmafPackage
     {
+        /// <summary>
+        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// </summary>
         public readonly Outputs.OriginEndpointCmafEncryption? Encryption;
         /// <summary>
         /// A list of HLS manifest configurations
@@ -29,6 +32,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
         /// </summary>
         public readonly string? SegmentPrefix;
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         public readonly Outputs.OriginEndpointStreamSelection? StreamSelection;
 
         [OutputConstructor]

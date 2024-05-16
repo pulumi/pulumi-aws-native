@@ -14,15 +14,27 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
     {
         [Input("destinations")]
         private InputList<Inputs.StateMachineLogDestinationArgs>? _destinations;
+
+        /// <summary>
+        /// Defines a destination for `LoggingConfiguration` .
+        /// 
+        /// &gt; For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        /// </summary>
         public InputList<Inputs.StateMachineLogDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.StateMachineLogDestinationArgs>());
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        /// </summary>
         [Input("includeExecutionData")]
         public Input<bool>? IncludeExecutionData { get; set; }
 
+        /// <summary>
+        /// Defines which category of execution history events are logged.
+        /// </summary>
         [Input("level")]
         public Input<Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel>? Level { get; set; }
 

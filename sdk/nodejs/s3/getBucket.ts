@@ -37,6 +37,11 @@ export interface GetBucketResult {
      * Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
      */
     readonly analyticsConfigurations?: outputs.s3.BucketAnalyticsConfiguration[];
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified bucket.
+     *
+     * Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
+     */
     readonly arn?: string;
     /**
      * Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
@@ -46,7 +51,19 @@ export interface GetBucketResult {
      * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
      */
     readonly corsConfiguration?: outputs.s3.BucketCorsConfiguration;
+    /**
+     * Returns the IPv4 DNS name of the specified bucket.
+     *
+     * Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
+     */
     readonly domainName?: string;
+    /**
+     * Returns the IPv6 DNS name of the specified bucket.
+     *
+     * Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+     *
+     * For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
+     */
     readonly dualStackDomainName?: string;
     /**
      * Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -92,6 +109,11 @@ export interface GetBucketResult {
      * Configuration that defines how Amazon S3 handles public access.
      */
     readonly publicAccessBlockConfiguration?: outputs.s3.BucketPublicAccessBlockConfiguration;
+    /**
+     * Returns the regional domain name of the specified bucket.
+     *
+     * Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
+     */
     readonly regionalDomainName?: string;
     /**
      * Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
@@ -110,6 +132,13 @@ export interface GetBucketResult {
      * Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
      */
     readonly websiteConfiguration?: outputs.s3.BucketWebsiteConfiguration;
+    /**
+     * Returns the Amazon S3 website endpoint for the specified bucket.
+     *
+     * Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+     *
+     * Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+     */
     readonly websiteUrl?: string;
 }
 /**

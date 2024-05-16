@@ -23,19 +23,29 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 }
 
 type LookupThemeArgs struct {
-	AppId           string `pulumi:"appId"`
+	// The unique ID for the Amplify app associated with the theme.
+	AppId string `pulumi:"appId"`
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName string `pulumi:"environmentName"`
-	Id              string `pulumi:"id"`
+	// The ID for the theme.
+	Id string `pulumi:"id"`
 }
 
 type LookupThemeResult struct {
-	CreatedAt  *string           `pulumi:"createdAt"`
-	Id         *string           `pulumi:"id"`
-	ModifiedAt *string           `pulumi:"modifiedAt"`
-	Name       *string           `pulumi:"name"`
-	Overrides  []ThemeValues     `pulumi:"overrides"`
-	Tags       map[string]string `pulumi:"tags"`
-	Values     []ThemeValues     `pulumi:"values"`
+	// The time that the theme was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ID for the theme.
+	Id *string `pulumi:"id"`
+	// The time that the theme was modified.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The name of the theme.
+	Name *string `pulumi:"name"`
+	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	Overrides []ThemeValues `pulumi:"overrides"`
+	// One or more key-value pairs to use when tagging the theme.
+	Tags map[string]string `pulumi:"tags"`
+	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	Values []ThemeValues `pulumi:"values"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -52,9 +62,12 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 }
 
 type LookupThemeOutputArgs struct {
-	AppId           pulumi.StringInput `pulumi:"appId"`
+	// The unique ID for the Amplify app associated with the theme.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
-	Id              pulumi.StringInput `pulumi:"id"`
+	// The ID for the theme.
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupThemeOutputArgs) ElementType() reflect.Type {
@@ -75,30 +88,37 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx contex
 	return o
 }
 
+// The time that the theme was created.
 func (o LookupThemeResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the theme.
 func (o LookupThemeResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The time that the theme was modified.
 func (o LookupThemeResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The name of the theme.
 func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
 func (o LookupThemeResultOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeValues { return v.Overrides }).(ThemeValuesArrayOutput)
 }
 
+// One or more key-value pairs to use when tagging the theme.
 func (o LookupThemeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupThemeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
 func (o LookupThemeResultOutput) Values() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeValues { return v.Values }).(ThemeValuesArrayOutput)
 }

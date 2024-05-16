@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+        /// </summary>
         public readonly Outputs.LocationFSxOntapSmbMountOptions MountOptions;
         /// <summary>
         /// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.

@@ -19,17 +19,44 @@ export function getVariantStore(args: GetVariantStoreArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetVariantStoreArgs {
+    /**
+     * A name for the store.
+     */
     name: string;
 }
 
 export interface GetVariantStoreResult {
+    /**
+     * When the store was created.
+     */
     readonly creationTime?: string;
+    /**
+     * A description for the store.
+     */
     readonly description?: string;
+    /**
+     * The store's ID.
+     */
     readonly id?: string;
+    /**
+     * The store's status.
+     */
     readonly status?: enums.omics.VariantStoreStoreStatus;
+    /**
+     * The store's status message.
+     */
     readonly statusMessage?: string;
+    /**
+     * The store's ARN.
+     */
     readonly storeArn?: string;
+    /**
+     * The store's size in bytes.
+     */
     readonly storeSizeBytes?: number;
+    /**
+     * When the store was updated.
+     */
     readonly updateTime?: string;
 }
 /**
@@ -40,5 +67,8 @@ export function getVariantStoreOutput(args: GetVariantStoreOutputArgs, opts?: pu
 }
 
 export interface GetVariantStoreOutputArgs {
+    /**
+     * A name for the store.
+     */
     name: pulumi.Input<string>;
 }

@@ -19,13 +19,65 @@ export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi
 }
 
 export interface GetIdentityProviderArgs {
+    /**
+     * The ARN of the identity provider.
+     */
     identityProviderArn: string;
 }
 
 export interface GetIdentityProviderResult {
+    /**
+     * The ARN of the identity provider.
+     */
     readonly identityProviderArn?: string;
+    /**
+     * The identity provider details. The following list describes the provider detail keys for each identity provider type.
+     *
+     * - For Google and Login with Amazon:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `authorize_scopes`
+     * - For Facebook:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `authorize_scopes`
+     * - `api_version`
+     * - For Sign in with Apple:
+     *
+     * - `client_id`
+     * - `team_id`
+     * - `key_id`
+     * - `private_key`
+     * - `authorize_scopes`
+     * - For OIDC providers:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `attributes_request_method`
+     * - `oidc_issuer`
+     * - `authorize_scopes`
+     * - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+     * - For SAML providers:
+     *
+     * - `MetadataFile` OR `MetadataURL`
+     * - `IDPSignout` (boolean) *optional*
+     * - `IDPInit` (boolean) *optional*
+     * - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+     * - `EncryptedResponses` (boolean) *optional*
+     */
     readonly identityProviderDetails?: {[key: string]: string};
+    /**
+     * The identity provider name.
+     */
     readonly identityProviderName?: string;
+    /**
+     * The identity provider type.
+     */
     readonly identityProviderType?: enums.workspacesweb.IdentityProviderType;
 }
 /**
@@ -36,5 +88,8 @@ export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, o
 }
 
 export interface GetIdentityProviderOutputArgs {
+    /**
+     * The ARN of the identity provider.
+     */
     identityProviderArn: pulumi.Input<string>;
 }

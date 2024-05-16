@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetOutputFileUriValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
+        /// </summary>
         [Input("fileName", required: true)]
         public Input<string> FileName { get; set; } = null!;
 

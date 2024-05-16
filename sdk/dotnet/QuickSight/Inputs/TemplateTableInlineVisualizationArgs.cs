@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableInlineVisualizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options for data bars.
+        /// </summary>
         [Input("dataBars")]
         public Input<Inputs.TemplateDataBarsOptionsArgs>? DataBars { get; set; }
 

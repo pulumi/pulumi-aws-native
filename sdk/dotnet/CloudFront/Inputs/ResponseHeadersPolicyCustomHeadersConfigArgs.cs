@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("items", required: true)]
         private InputList<Inputs.ResponseHeadersPolicyCustomHeaderArgs>? _items;
+
+        /// <summary>
+        /// An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+        /// </summary>
         public InputList<Inputs.ResponseHeadersPolicyCustomHeaderArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.ResponseHeadersPolicyCustomHeaderArgs>());

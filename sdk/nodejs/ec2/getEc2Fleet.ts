@@ -19,13 +19,32 @@ export function getEc2Fleet(args: GetEc2FleetArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetEc2FleetArgs {
+    /**
+     * The ID of the EC2 Fleet.
+     */
     fleetId: string;
 }
 
 export interface GetEc2FleetResult {
+    /**
+     * Reserved.
+     */
     readonly context?: string;
+    /**
+     * Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+     *
+     * Supported only for fleets of type `maintain` .
+     */
     readonly excessCapacityTerminationPolicy?: enums.ec2.Ec2FleetExcessCapacityTerminationPolicy;
+    /**
+     * The ID of the EC2 Fleet.
+     */
     readonly fleetId?: string;
+    /**
+     * Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
+     *
+     * `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     */
     readonly targetCapacitySpecification?: outputs.ec2.Ec2FleetTargetCapacitySpecificationRequest;
 }
 /**
@@ -36,5 +55,8 @@ export function getEc2FleetOutput(args: GetEc2FleetOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetEc2FleetOutputArgs {
+    /**
+     * The ID of the EC2 Fleet.
+     */
     fleetId: pulumi.Input<string>;
 }

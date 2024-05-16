@@ -12,12 +12,23 @@ namespace Pulumi.AwsNative.InternetMonitor.Inputs
 
     public sealed class MonitorLocalHealthEventsConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The health event threshold percentage set for a local health score.
+        /// </summary>
         [Input("healthScoreThreshold")]
         public Input<double>? HealthScoreThreshold { get; set; }
 
+        /// <summary>
+        /// The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a threshold is crossed for a local health score.
+        /// 
+        /// If you don't set a minimum traffic impact threshold, the default value is 0.01%.
+        /// </summary>
         [Input("minTrafficImpact")]
         public Input<double>? MinTrafficImpact { get; set; }
 
+        /// <summary>
+        /// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.InternetMonitor.MonitorLocalHealthEventsConfigStatus>? Status { get; set; }
 

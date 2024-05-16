@@ -12,12 +12,25 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     public sealed class ScalingPolicyMetricStatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents a specific metric.
+        /// 
+        /// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+        /// </summary>
         [Input("metric", required: true)]
         public Input<Inputs.ScalingPolicyMetricArgs> Metric { get; set; } = null!;
 
+        /// <summary>
+        /// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+        /// 
+        /// The most commonly used metrics for predictive scaling are `Average` and `Sum` .
+        /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;
 
+        /// <summary>
+        /// The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

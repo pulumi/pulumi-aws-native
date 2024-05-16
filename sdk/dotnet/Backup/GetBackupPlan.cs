@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupPlanArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Uniquely identifies a backup plan.
+        /// </summary>
         [Input("backupPlanId", required: true)]
         public string BackupPlanId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Uniquely identifies a backup plan.
+        /// </summary>
         [Input("backupPlanId", required: true)]
         public Input<string> BackupPlanId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Backup
     [OutputType]
     public sealed class GetBackupPlanResult
     {
+        /// <summary>
+        /// Specifies an object containing properties used to create a backup plan.
+        /// </summary>
         public readonly Outputs.BackupPlanResourceType? BackupPlanValue;
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+        /// </summary>
         public readonly string? BackupPlanArn;
+        /// <summary>
+        /// Uniquely identifies a backup plan.
+        /// </summary>
         public readonly string? BackupPlanId;
+        /// <summary>
+        /// The tags to assign to the backup plan.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? BackupPlanTags;
+        /// <summary>
+        /// Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+        /// </summary>
         public readonly string? VersionId;
 
         [OutputConstructor]

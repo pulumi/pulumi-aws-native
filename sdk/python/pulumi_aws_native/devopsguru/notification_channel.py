@@ -20,12 +20,16 @@ class NotificationChannelArgs:
                  config: pulumi.Input['NotificationChannelConfigArgs']):
         """
         The set of arguments for constructing a NotificationChannel resource.
+        :param pulumi.Input['NotificationChannelConfigArgs'] config: Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
         """
         pulumi.set(__self__, "config", config)
 
     @property
     @pulumi.getter
     def config(self) -> pulumi.Input['NotificationChannelConfigArgs']:
+        """
+        Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+        """
         return pulumi.get(self, "config")
 
     @config.setter
@@ -107,6 +111,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['NotificationChannelConfigArgs']] config: Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
         """
         ...
     @overload
@@ -247,5 +252,8 @@ class NotificationChannel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def config(self) -> pulumi.Output['outputs.NotificationChannelConfig']:
+        """
+        Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+        """
         return pulumi.get(self, "config")
 

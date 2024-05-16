@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:ModelCard")]
     public partial class ModelCard : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        /// </summary>
         [Output("content")]
         public Output<Outputs.ModelCardContent> Content { get; private set; } = null!;
 
@@ -72,6 +75,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("modelCardVersion")]
         public Output<int> ModelCardVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The security configuration used to protect model card data.
+        /// </summary>
         [Output("securityConfig")]
         public Output<Outputs.ModelCardSecurityConfig?> SecurityConfig { get; private set; } = null!;
 
@@ -131,6 +137,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ModelCardArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.ModelCardContentArgs> Content { get; set; } = null!;
 
@@ -158,6 +167,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("modelCardStatus", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.ModelCardStatus> ModelCardStatus { get; set; } = null!;
 
+        /// <summary>
+        /// The security configuration used to protect model card data.
+        /// </summary>
         [Input("securityConfig")]
         public Input<Inputs.ModelCardSecurityConfigArgs>? SecurityConfig { get; set; }
 

@@ -12,15 +12,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardColumnTooltipItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An aggregation function aggregates values from a dimension or measure.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("aggregation")]
         public Input<Inputs.DashboardAggregationFunctionArgs>? Aggregation { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The label of the tooltip item.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The visibility of the tooltip item.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

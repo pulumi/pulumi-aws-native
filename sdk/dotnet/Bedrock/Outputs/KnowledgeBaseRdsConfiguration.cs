@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The name of your Amazon RDS database.
         /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseRdsFieldMapping FieldMapping;
         /// <summary>
         /// The ARN of the vector store.

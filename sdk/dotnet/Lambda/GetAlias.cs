@@ -51,10 +51,22 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetAliasResult
     {
+        /// <summary>
+        /// A description of the alias.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The function version that the alias invokes.
+        /// </summary>
         public readonly string? FunctionVersion;
         public readonly string? Id;
+        /// <summary>
+        /// A provisioned concurrency configuration for a function's alias.
+        /// </summary>
         public readonly Outputs.AliasProvisionedConcurrencyConfiguration? ProvisionedConcurrencyConfig;
+        /// <summary>
+        /// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        /// </summary>
         public readonly Outputs.AliasRoutingConfiguration? RoutingConfig;
 
         [OutputConstructor]

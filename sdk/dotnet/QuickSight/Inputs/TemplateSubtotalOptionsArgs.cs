@@ -12,37 +12,63 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSubtotalOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom label string for the subtotal cells.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// The field level (all, custom, last) for the subtotal cells.
+        /// </summary>
         [Input("fieldLevel")]
         public Input<Pulumi.AwsNative.QuickSight.TemplatePivotTableSubtotalLevel>? FieldLevel { get; set; }
 
         [Input("fieldLevelOptions")]
         private InputList<Inputs.TemplatePivotTableFieldSubtotalOptionsArgs>? _fieldLevelOptions;
+
+        /// <summary>
+        /// The optional configuration of subtotals cells.
+        /// </summary>
         public InputList<Inputs.TemplatePivotTableFieldSubtotalOptionsArgs> FieldLevelOptions
         {
             get => _fieldLevelOptions ?? (_fieldLevelOptions = new InputList<Inputs.TemplatePivotTableFieldSubtotalOptionsArgs>());
             set => _fieldLevelOptions = value;
         }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
 
         [Input("styleTargets")]
         private InputList<Inputs.TemplateTableStyleTargetArgs>? _styleTargets;
+
+        /// <summary>
+        /// The table style target.
+        /// </summary>
         public InputList<Inputs.TemplateTableStyleTargetArgs> StyleTargets
         {
             get => _styleTargets ?? (_styleTargets = new InputList<Inputs.TemplateTableStyleTargetArgs>());
             set => _styleTargets = value;
         }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? TotalCellStyle { get; set; }
 
+        /// <summary>
+        /// The visibility configuration for the subtotal cells.
+        /// </summary>
         [Input("totalsVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TotalsVisibility { get; set; }
 
+        /// <summary>
+        /// The table cell style for a cell in pivot table or table visual.
+        /// </summary>
         [Input("valueCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? ValueCellStyle { get; set; }
 

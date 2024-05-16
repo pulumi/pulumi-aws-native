@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleKinesisAction
     {
+        /// <summary>
+        /// The partition key.
+        /// </summary>
         public readonly string? PartitionKey;
+        /// <summary>
+        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The name of the Amazon Kinesis stream.
+        /// </summary>
         public readonly string StreamName;
 
         [OutputConstructor]

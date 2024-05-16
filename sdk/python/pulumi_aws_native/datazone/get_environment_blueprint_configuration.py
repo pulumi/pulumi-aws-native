@@ -48,41 +48,65 @@ class GetEnvironmentBlueprintConfigurationResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The timestamp of when an environment blueprint was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[str]:
+        """
+        The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        """
         return pulumi.get(self, "domain_id")
 
     @property
     @pulumi.getter(name="enabledRegions")
     def enabled_regions(self) -> Optional[Sequence[str]]:
+        """
+        The enabled AWS Regions specified in a blueprint configuration.
+        """
         return pulumi.get(self, "enabled_regions")
 
     @property
     @pulumi.getter(name="environmentBlueprintId")
     def environment_blueprint_id(self) -> Optional[str]:
+        """
+        The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+        """
         return pulumi.get(self, "environment_blueprint_id")
 
     @property
     @pulumi.getter(name="manageAccessRoleArn")
     def manage_access_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the manage access role.
+        """
         return pulumi.get(self, "manage_access_role_arn")
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the provisioning role.
+        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @property
     @pulumi.getter(name="regionalParameters")
     def regional_parameters(self) -> Optional[Sequence['outputs.EnvironmentBlueprintConfigurationRegionalParameter']]:
+        """
+        The regional parameters in the environment blueprint.
+        """
         return pulumi.get(self, "regional_parameters")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The timestamp of when the environment blueprint was updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -107,6 +131,10 @@ def get_environment_blueprint_configuration(domain_id: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentBlueprintConfigurationResult:
     """
     Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
+
+
+    :param str domain_id: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+    :param str environment_blueprint_id: The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
@@ -131,5 +159,9 @@ def get_environment_blueprint_configuration_output(domain_id: Optional[pulumi.In
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentBlueprintConfigurationResult]:
     """
     Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
+
+
+    :param str domain_id: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+    :param str environment_blueprint_id: The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
     """
     ...

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormButton
     {
+        /// <summary>
+        /// Describes the button's properties.
+        /// </summary>
         public readonly string? Children;
+        /// <summary>
+        /// Specifies whether the button is visible on the form.
+        /// </summary>
         public readonly bool? Excluded;
+        /// <summary>
+        /// The `FieldPosition` property specifies the field position.
+        /// </summary>
         public readonly object? Position;
 
         [OutputConstructor]

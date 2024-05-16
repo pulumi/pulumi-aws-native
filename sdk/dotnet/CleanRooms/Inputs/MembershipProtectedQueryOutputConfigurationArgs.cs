@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipProtectedQueryOutputConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the configuration to write the query results to S3.
+        /// </summary>
         [Input("s3", required: true)]
         public Input<Inputs.MembershipProtectedQueryS3OutputConfigurationArgs> S3 { get; set; } = null!;
 

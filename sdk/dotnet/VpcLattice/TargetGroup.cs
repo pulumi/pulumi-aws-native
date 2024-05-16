@@ -15,33 +15,67 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:TargetGroup")]
     public partial class TargetGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the target group.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the configuration of a target group.
+        /// 
+        /// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        /// </summary>
         [Output("config")]
         public Output<Outputs.TargetGroupConfig?> Config { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the target group was created, specified in ISO-8601 format.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the target group was last updated, specified in ISO-8601 format.
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.VpcLattice.TargetGroupStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the target group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a target.
+        /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.TargetGroupTarget>> Targets { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of target group.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.VpcLattice.TargetGroupType> Type { get; private set; } = null!;
 
@@ -70,12 +104,6 @@ namespace Pulumi.AwsNative.VpcLattice
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "config.ipAddressType",
-                    "config.lambdaEventStructureVersion",
-                    "config.port",
-                    "config.protocol",
-                    "config.protocolVersion",
-                    "config.vpcIdentifier",
                     "name",
                     "type",
                 },
@@ -101,14 +129,28 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class TargetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the configuration of a target group.
+        /// 
+        /// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        /// </summary>
         [Input("config")]
         public Input<Inputs.TargetGroupConfigArgs>? Config { get; set; }
 
+        /// <summary>
+        /// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the target group.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -117,12 +159,19 @@ namespace Pulumi.AwsNative.VpcLattice
 
         [Input("targets")]
         private InputList<Inputs.TargetGroupTargetArgs>? _targets;
+
+        /// <summary>
+        /// Describes a target.
+        /// </summary>
         public InputList<Inputs.TargetGroupTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.TargetGroupTargetArgs>());
             set => _targets = value;
         }
 
+        /// <summary>
+        /// The type of target group.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.VpcLattice.TargetGroupType> Type { get; set; } = null!;
 

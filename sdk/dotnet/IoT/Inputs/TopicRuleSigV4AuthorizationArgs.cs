@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleSigV4AuthorizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the signing role.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The service name to use while signing with Sig V4.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
+        /// <summary>
+        /// The signing region.
+        /// </summary>
         [Input("signingRegion", required: true)]
         public Input<string> SigningRegion { get; set; } = null!;
 

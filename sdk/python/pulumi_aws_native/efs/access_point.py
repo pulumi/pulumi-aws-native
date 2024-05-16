@@ -212,6 +212,9 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPointId")
     def access_point_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the EFS access point.
+        """
         return pulumi.get(self, "access_point_id")
 
     @property
@@ -226,6 +229,9 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the access point.
+        """
         return pulumi.get(self, "arn")
 
     @property

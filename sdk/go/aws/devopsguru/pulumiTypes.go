@@ -15,8 +15,14 @@ var _ = internal.GetEnvOrDefault
 
 // Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelConfig struct {
+	// The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. You can choose to specify which events or message types to receive notifications for. You can also choose to specify which severity levels to receive notifications for.
 	Filters *NotificationChannelNotificationFilterConfig `pulumi:"filters"`
-	Sns     *NotificationChannelSnsChannelConfig         `pulumi:"sns"`
+	// Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+	//
+	// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
+	//
+	// If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
+	Sns *NotificationChannelSnsChannelConfig `pulumi:"sns"`
 }
 
 // NotificationChannelConfigInput is an input type that accepts NotificationChannelConfigArgs and NotificationChannelConfigOutput values.
@@ -32,8 +38,14 @@ type NotificationChannelConfigInput interface {
 
 // Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelConfigArgs struct {
+	// The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. You can choose to specify which events or message types to receive notifications for. You can also choose to specify which severity levels to receive notifications for.
 	Filters NotificationChannelNotificationFilterConfigPtrInput `pulumi:"filters"`
-	Sns     NotificationChannelSnsChannelConfigPtrInput         `pulumi:"sns"`
+	// Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+	//
+	// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
+	//
+	// If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
+	Sns NotificationChannelSnsChannelConfigPtrInput `pulumi:"sns"`
 }
 
 func (NotificationChannelConfigArgs) ElementType() reflect.Type {
@@ -63,18 +75,26 @@ func (o NotificationChannelConfigOutput) ToNotificationChannelConfigOutputWithCo
 	return o
 }
 
+// The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. You can choose to specify which events or message types to receive notifications for. You can also choose to specify which severity levels to receive notifications for.
 func (o NotificationChannelConfigOutput) Filters() NotificationChannelNotificationFilterConfigPtrOutput {
 	return o.ApplyT(func(v NotificationChannelConfig) *NotificationChannelNotificationFilterConfig { return v.Filters }).(NotificationChannelNotificationFilterConfigPtrOutput)
 }
 
+// Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+//
+// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
+//
+// If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
 func (o NotificationChannelConfigOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
 	return o.ApplyT(func(v NotificationChannelConfig) *NotificationChannelSnsChannelConfig { return v.Sns }).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
 // Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
 type NotificationChannelNotificationFilterConfig struct {
+	// The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
 	MessageTypes []NotificationChannelNotificationMessageType `pulumi:"messageTypes"`
-	Severities   []NotificationChannelInsightSeverity         `pulumi:"severities"`
+	// The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
+	Severities []NotificationChannelInsightSeverity `pulumi:"severities"`
 }
 
 // NotificationChannelNotificationFilterConfigInput is an input type that accepts NotificationChannelNotificationFilterConfigArgs and NotificationChannelNotificationFilterConfigOutput values.
@@ -90,8 +110,10 @@ type NotificationChannelNotificationFilterConfigInput interface {
 
 // Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
 type NotificationChannelNotificationFilterConfigArgs struct {
+	// The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
 	MessageTypes NotificationChannelNotificationMessageTypeArrayInput `pulumi:"messageTypes"`
-	Severities   NotificationChannelInsightSeverityArrayInput         `pulumi:"severities"`
+	// The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
+	Severities NotificationChannelInsightSeverityArrayInput `pulumi:"severities"`
 }
 
 func (NotificationChannelNotificationFilterConfigArgs) ElementType() reflect.Type {
@@ -172,12 +194,14 @@ func (o NotificationChannelNotificationFilterConfigOutput) ToNotificationChannel
 	}).(NotificationChannelNotificationFilterConfigPtrOutput)
 }
 
+// The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
 func (o NotificationChannelNotificationFilterConfigOutput) MessageTypes() NotificationChannelNotificationMessageTypeArrayOutput {
 	return o.ApplyT(func(v NotificationChannelNotificationFilterConfig) []NotificationChannelNotificationMessageType {
 		return v.MessageTypes
 	}).(NotificationChannelNotificationMessageTypeArrayOutput)
 }
 
+// The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
 func (o NotificationChannelNotificationFilterConfigOutput) Severities() NotificationChannelInsightSeverityArrayOutput {
 	return o.ApplyT(func(v NotificationChannelNotificationFilterConfig) []NotificationChannelInsightSeverity {
 		return v.Severities
@@ -208,6 +232,7 @@ func (o NotificationChannelNotificationFilterConfigPtrOutput) Elem() Notificatio
 	}).(NotificationChannelNotificationFilterConfigOutput)
 }
 
+// The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
 func (o NotificationChannelNotificationFilterConfigPtrOutput) MessageTypes() NotificationChannelNotificationMessageTypeArrayOutput {
 	return o.ApplyT(func(v *NotificationChannelNotificationFilterConfig) []NotificationChannelNotificationMessageType {
 		if v == nil {
@@ -217,6 +242,7 @@ func (o NotificationChannelNotificationFilterConfigPtrOutput) MessageTypes() Not
 	}).(NotificationChannelNotificationMessageTypeArrayOutput)
 }
 
+// The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
 func (o NotificationChannelNotificationFilterConfigPtrOutput) Severities() NotificationChannelInsightSeverityArrayOutput {
 	return o.ApplyT(func(v *NotificationChannelNotificationFilterConfig) []NotificationChannelInsightSeverity {
 		if v == nil {
@@ -228,6 +254,7 @@ func (o NotificationChannelNotificationFilterConfigPtrOutput) Severities() Notif
 
 // Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 type NotificationChannelSnsChannelConfig struct {
+	// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	TopicArn *string `pulumi:"topicArn"`
 }
 
@@ -244,6 +271,7 @@ type NotificationChannelSnsChannelConfigInput interface {
 
 // Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 type NotificationChannelSnsChannelConfigArgs struct {
+	// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
@@ -325,6 +353,7 @@ func (o NotificationChannelSnsChannelConfigOutput) ToNotificationChannelSnsChann
 	}).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 func (o NotificationChannelSnsChannelConfigOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelSnsChannelConfig) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -353,6 +382,7 @@ func (o NotificationChannelSnsChannelConfigPtrOutput) Elem() NotificationChannel
 	}).(NotificationChannelSnsChannelConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 func (o NotificationChannelSnsChannelConfigPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationChannelSnsChannelConfig) *string {
 		if v == nil {
@@ -504,8 +534,21 @@ func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) StackNames() 
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionFilter struct {
+	// Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
 	CloudFormation *ResourceCollectionCloudFormationCollectionFilter `pulumi:"cloudFormation"`
-	Tags           []ResourceCollectionTagCollection                 `pulumi:"tags"`
+	// The AWS tags used to filter the resources in the resource collection.
+	//
+	// Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
+	//
+	// Each AWS tag has two parts.
+	//
+	// - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
+	// - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
+	//
+	// Together these are known as *key* - *value* pairs.
+	//
+	// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
+	Tags []ResourceCollectionTagCollection `pulumi:"tags"`
 }
 
 // ResourceCollectionFilterInput is an input type that accepts ResourceCollectionFilterArgs and ResourceCollectionFilterOutput values.
@@ -521,8 +564,21 @@ type ResourceCollectionFilterInput interface {
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionFilterArgs struct {
+	// Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
 	CloudFormation ResourceCollectionCloudFormationCollectionFilterPtrInput `pulumi:"cloudFormation"`
-	Tags           ResourceCollectionTagCollectionArrayInput                `pulumi:"tags"`
+	// The AWS tags used to filter the resources in the resource collection.
+	//
+	// Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
+	//
+	// Each AWS tag has two parts.
+	//
+	// - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
+	// - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
+	//
+	// Together these are known as *key* - *value* pairs.
+	//
+	// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
+	Tags ResourceCollectionTagCollectionArrayInput `pulumi:"tags"`
 }
 
 func (ResourceCollectionFilterArgs) ElementType() reflect.Type {
@@ -552,12 +608,25 @@ func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterOutputWithCont
 	return o
 }
 
+// Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
 func (o ResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
 	return o.ApplyT(func(v ResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
 		return v.CloudFormation
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+// The AWS tags used to filter the resources in the resource collection.
+//
+// Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
+//
+// Each AWS tag has two parts.
+//
+// - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
+// - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
+//
+// Together these are known as *key* - *value* pairs.
+//
+// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
 func (o ResourceCollectionFilterOutput) Tags() ResourceCollectionTagCollectionArrayOutput {
 	return o.ApplyT(func(v ResourceCollectionFilter) []ResourceCollectionTagCollection { return v.Tags }).(ResourceCollectionTagCollectionArrayOutput)
 }
@@ -586,6 +655,7 @@ func (o ResourceCollectionFilterPtrOutput) Elem() ResourceCollectionFilterOutput
 	}).(ResourceCollectionFilterOutput)
 }
 
+// Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
 func (o ResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
 	return o.ApplyT(func(v *ResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
 		if v == nil {
@@ -595,6 +665,18 @@ func (o ResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCl
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+// The AWS tags used to filter the resources in the resource collection.
+//
+// Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
+//
+// Each AWS tag has two parts.
+//
+// - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
+// - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
+//
+// Together these are known as *key* - *value* pairs.
+//
+// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
 func (o ResourceCollectionFilterPtrOutput) Tags() ResourceCollectionTagCollectionArrayOutput {
 	return o.ApplyT(func(v *ResourceCollectionFilter) []ResourceCollectionTagCollection {
 		if v == nil {

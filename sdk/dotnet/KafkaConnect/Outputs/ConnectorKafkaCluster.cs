@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class ConnectorKafkaCluster
     {
+        /// <summary>
+        /// The details of the Apache Kafka cluster to which the connector is connected.
+        /// </summary>
         public readonly Outputs.ConnectorApacheKafkaCluster ApacheKafkaCluster;
 
         [OutputConstructor]

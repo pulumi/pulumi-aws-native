@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardUnaggregatedField
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The formatting configuration for all types of field.
+        /// </summary>
         public readonly Outputs.DashboardFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

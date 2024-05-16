@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentMutationActionSetStateParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the component that is being modified.
+        /// </summary>
         [Input("componentName", required: true)]
         public Input<string> ComponentName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the component property to apply the state configuration to.
+        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("set", required: true)]
         public Input<Inputs.ComponentPropertyArgs> Set { get; set; } = null!;
 

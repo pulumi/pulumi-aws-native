@@ -124,6 +124,10 @@ class AccessPointObjectLambdaConfiguration(dict):
                  cloud_watch_metrics_enabled: Optional[bool] = None):
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
+        :param str supporting_access_point: Standard access point associated with the Object Lambda Access Point.
+        :param Sequence['AccessPointTransformationConfiguration'] transformation_configurations: A configuration used when creating an Object Lambda Access Point transformation.
+        :param Sequence[str] allowed_features: A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+        :param bool cloud_watch_metrics_enabled: A container for whether the CloudWatch metrics configuration is enabled.
         """
         pulumi.set(__self__, "supporting_access_point", supporting_access_point)
         pulumi.set(__self__, "transformation_configurations", transformation_configurations)
@@ -135,21 +139,33 @@ class AccessPointObjectLambdaConfiguration(dict):
     @property
     @pulumi.getter(name="supportingAccessPoint")
     def supporting_access_point(self) -> str:
+        """
+        Standard access point associated with the Object Lambda Access Point.
+        """
         return pulumi.get(self, "supporting_access_point")
 
     @property
     @pulumi.getter(name="transformationConfigurations")
     def transformation_configurations(self) -> Sequence['outputs.AccessPointTransformationConfiguration']:
+        """
+        A configuration used when creating an Object Lambda Access Point transformation.
+        """
         return pulumi.get(self, "transformation_configurations")
 
     @property
     @pulumi.getter(name="allowedFeatures")
     def allowed_features(self) -> Optional[Sequence[str]]:
+        """
+        A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+        """
         return pulumi.get(self, "allowed_features")
 
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> Optional[bool]:
+        """
+        A container for whether the CloudWatch metrics configuration is enabled.
+        """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
 
 
@@ -308,6 +324,8 @@ class AccessPointTransformationConfiguration(dict):
                  content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties'):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
+        :param Sequence[str] actions: A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        :param 'AccessPointTransformationConfigurationContentTransformationProperties' content_transformation: A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "content_transformation", content_transformation)
@@ -315,16 +333,25 @@ class AccessPointTransformationConfiguration(dict):
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="contentTransformation")
     def content_transformation(self) -> 'outputs.AccessPointTransformationConfigurationContentTransformationProperties':
+        """
+        A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+        """
         return pulumi.get(self, "content_transformation")
 
 
 @pulumi.output_type
 class AccessPointTransformationConfigurationContentTransformationProperties(dict):
+    """
+    A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -344,6 +371,9 @@ class AccessPointTransformationConfigurationContentTransformationProperties(dict
 
     def __init__(__self__, *,
                  aws_lambda: 'outputs.AccessPointAwsLambda'):
+        """
+        A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+        """
         pulumi.set(__self__, "aws_lambda", aws_lambda)
 
     @property

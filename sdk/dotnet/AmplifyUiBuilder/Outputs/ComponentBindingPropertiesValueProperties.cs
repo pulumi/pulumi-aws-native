@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentBindingPropertiesValueProperties
     {
+        /// <summary>
+        /// An Amazon S3 bucket.
+        /// </summary>
         public readonly string? Bucket;
+        /// <summary>
+        /// The default value to assign to the property.
+        /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// The field to bind the data to.
+        /// </summary>
         public readonly string? Field;
+        /// <summary>
+        /// The storage key for an Amazon S3 bucket.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// An Amplify DataStore model.
+        /// </summary>
         public readonly string? Model;
+        /// <summary>
+        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentPredicate> Predicates;
+        /// <summary>
+        /// The name of a component slot.
+        /// </summary>
         public readonly string? SlotName;
+        /// <summary>
+        /// An authenticated user attribute.
+        /// </summary>
         public readonly string? UserAttribute;
 
         [OutputConstructor]

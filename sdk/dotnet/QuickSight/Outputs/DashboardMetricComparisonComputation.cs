@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardMetricComparisonComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.DashboardMeasureField? FromValue;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.DashboardMeasureField? TargetValue;
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.DashboardDimensionField? Time;
 
         [OutputConstructor]

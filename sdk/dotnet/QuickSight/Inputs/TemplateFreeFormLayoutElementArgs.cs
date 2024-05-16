@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFreeFormLayoutElementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         [Input("backgroundStyle")]
         public Input<Inputs.TemplateFreeFormLayoutElementBackgroundStyleArgs>? BackgroundStyle { get; set; }
 
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         [Input("borderStyle")]
         public Input<Inputs.TemplateFreeFormLayoutElementBorderStyleArgs>? BorderStyle { get; set; }
 
+        /// <summary>
+        /// A unique identifier for an element within a free-form layout.
+        /// </summary>
         [Input("elementId", required: true)]
         public Input<string> ElementId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of element.
+        /// </summary>
         [Input("elementType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateLayoutElementType> ElementType { get; set; } = null!;
 
@@ -30,20 +42,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("height", required: true)]
         public Input<string> Height { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of loading animation in free-form layout.
+        /// </summary>
         [Input("loadingAnimation")]
         public Input<Inputs.TemplateLoadingAnimationArgs>? LoadingAnimation { get; set; }
 
         [Input("renderingRules")]
         private InputList<Inputs.TemplateSheetElementRenderingRuleArgs>? _renderingRules;
+
+        /// <summary>
+        /// The rendering rules of a sheet that uses a free-form layout.
+        /// </summary>
         public InputList<Inputs.TemplateSheetElementRenderingRuleArgs> RenderingRules
         {
             get => _renderingRules ?? (_renderingRules = new InputList<Inputs.TemplateSheetElementRenderingRuleArgs>());
             set => _renderingRules = value;
         }
 
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         [Input("selectedBorderStyle")]
         public Input<Inputs.TemplateFreeFormLayoutElementBorderStyleArgs>? SelectedBorderStyle { get; set; }
 
+        /// <summary>
+        /// The visibility of an element within a free-form layout.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

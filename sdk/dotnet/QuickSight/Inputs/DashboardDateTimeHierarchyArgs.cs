@@ -14,12 +14,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("drillDownFilters")]
         private InputList<Inputs.DashboardDrillDownFilterArgs>? _drillDownFilters;
+
+        /// <summary>
+        /// The drill down filter for the column hierarchies.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardDrillDownFilterArgs> DrillDownFilters
         {
             get => _drillDownFilters ?? (_drillDownFilters = new InputList<Inputs.DashboardDrillDownFilterArgs>());
             set => _drillDownFilters = value;
         }
 
+        /// <summary>
+        /// The hierarchy ID of the `DateTime` hierarchy.
+        /// </summary>
         [Input("hierarchyId", required: true)]
         public Input<string> HierarchyId { get; set; } = null!;
 

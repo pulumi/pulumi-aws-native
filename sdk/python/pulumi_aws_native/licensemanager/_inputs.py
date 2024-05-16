@@ -24,12 +24,19 @@ class LicenseBorrowConfigurationArgs:
     def __init__(__self__, *,
                  allow_early_check_in: pulumi.Input[bool],
                  max_time_to_live_in_minutes: pulumi.Input[int]):
+        """
+        :param pulumi.Input[bool] allow_early_check_in: Indicates whether early check-ins are allowed.
+        :param pulumi.Input[int] max_time_to_live_in_minutes: Maximum time for the borrow configuration, in minutes.
+        """
         pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
     def allow_early_check_in(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether early check-ins are allowed.
+        """
         return pulumi.get(self, "allow_early_check_in")
 
     @allow_early_check_in.setter
@@ -39,6 +46,9 @@ class LicenseBorrowConfigurationArgs:
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> pulumi.Input[int]:
+        """
+        Maximum time for the borrow configuration, in minutes.
+        """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
     @max_time_to_live_in_minutes.setter
@@ -52,6 +62,11 @@ class LicenseConsumptionConfigurationArgs:
                  borrow_configuration: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']] = None,
                  provisional_configuration: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']] = None,
                  renew_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['LicenseBorrowConfigurationArgs'] borrow_configuration: Details about a borrow configuration.
+        :param pulumi.Input['LicenseProvisionalConfigurationArgs'] provisional_configuration: Details about a provisional configuration.
+        :param pulumi.Input[str] renew_type: Renewal frequency.
+        """
         if borrow_configuration is not None:
             pulumi.set(__self__, "borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
@@ -62,6 +77,9 @@ class LicenseConsumptionConfigurationArgs:
     @property
     @pulumi.getter(name="borrowConfiguration")
     def borrow_configuration(self) -> Optional[pulumi.Input['LicenseBorrowConfigurationArgs']]:
+        """
+        Details about a borrow configuration.
+        """
         return pulumi.get(self, "borrow_configuration")
 
     @borrow_configuration.setter
@@ -71,6 +89,9 @@ class LicenseConsumptionConfigurationArgs:
     @property
     @pulumi.getter(name="provisionalConfiguration")
     def provisional_configuration(self) -> Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']]:
+        """
+        Details about a provisional configuration.
+        """
         return pulumi.get(self, "provisional_configuration")
 
     @provisional_configuration.setter
@@ -80,6 +101,9 @@ class LicenseConsumptionConfigurationArgs:
     @property
     @pulumi.getter(name="renewType")
     def renew_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Renewal frequency.
+        """
         return pulumi.get(self, "renew_type")
 
     @renew_type.setter
@@ -96,6 +120,14 @@ class LicenseEntitlementArgs:
                  max_count: Optional[pulumi.Input[int]] = None,
                  overage: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Entitlement name.
+        :param pulumi.Input[str] unit: Entitlement unit.
+        :param pulumi.Input[bool] allow_check_in: Indicates whether check-ins are allowed.
+        :param pulumi.Input[int] max_count: Maximum entitlement count. Use if the unit is not None.
+        :param pulumi.Input[bool] overage: Indicates whether overages are allowed.
+        :param pulumi.Input[str] value: Entitlement resource. Use only if the unit is None.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "unit", unit)
         if allow_check_in is not None:
@@ -110,6 +142,9 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Entitlement name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,6 +154,9 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        Entitlement unit.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -128,6 +166,9 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter(name="allowCheckIn")
     def allow_check_in(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether check-ins are allowed.
+        """
         return pulumi.get(self, "allow_check_in")
 
     @allow_check_in.setter
@@ -137,6 +178,9 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum entitlement count. Use if the unit is not None.
+        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -146,6 +190,9 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def overage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether overages are allowed.
+        """
         return pulumi.get(self, "overage")
 
     @overage.setter
@@ -155,6 +202,9 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entitlement resource. Use only if the unit is None.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -167,6 +217,10 @@ class LicenseIssuerDataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  sign_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Issuer name.
+        :param pulumi.Input[str] sign_key: Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        """
         pulumi.set(__self__, "name", name)
         if sign_key is not None:
             pulumi.set(__self__, "sign_key", sign_key)
@@ -174,6 +228,9 @@ class LicenseIssuerDataArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Issuer name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -183,6 +240,9 @@ class LicenseIssuerDataArgs:
     @property
     @pulumi.getter(name="signKey")
     def sign_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        """
         return pulumi.get(self, "sign_key")
 
     @sign_key.setter
@@ -195,12 +255,19 @@ class LicenseMetadataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The key name.
+        :param pulumi.Input[str] value: The value.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The key name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -210,6 +277,9 @@ class LicenseMetadataArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -221,11 +291,17 @@ class LicenseMetadataArgs:
 class LicenseProvisionalConfigurationArgs:
     def __init__(__self__, *,
                  max_time_to_live_in_minutes: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
+        """
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> pulumi.Input[int]:
+        """
+        Maximum time for the provisional configuration, in minutes.
+        """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
     @max_time_to_live_in_minutes.setter

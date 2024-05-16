@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetRuleResult
     {
+        /// <summary>
+        /// Describes the action for a rule.
+        /// </summary>
         public readonly Outputs.RuleAction? Action;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ID of the listener.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Describes a rule match.
+        /// </summary>
         public readonly Outputs.RuleMatch? Match;
+        /// <summary>
+        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// The tags for the rule.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

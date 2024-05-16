@@ -13,11 +13,32 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAnalysisSecurityGroupRule
     {
+        /// <summary>
+        /// The IPv4 address range, in CIDR notation.
+        /// </summary>
         public readonly string? Cidr;
+        /// <summary>
+        /// The direction. The following are the possible values:
+        /// 
+        /// - egress
+        /// - ingress
+        /// </summary>
         public readonly string? Direction;
+        /// <summary>
+        /// Describes a range of ports.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisPortRange? PortRange;
+        /// <summary>
+        /// The prefix list ID.
+        /// </summary>
         public readonly string? PrefixListId;
+        /// <summary>
+        /// The protocol name.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// The security group ID.
+        /// </summary>
         public readonly string? SecurityGroupId;
 
         [OutputConstructor]

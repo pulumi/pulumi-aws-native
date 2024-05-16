@@ -82,8 +82,13 @@ type AutoScalingGroup struct {
 	//  For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	MixedInstancesPolicy AutoScalingGroupMixedInstancesPolicyPtrOutput `pulumi:"mixedInstancesPolicy"`
 	// Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide*.
-	NewInstancesProtectedFromScaleIn pulumi.BoolPtrOutput                               `pulumi:"newInstancesProtectedFromScaleIn"`
-	NotificationConfiguration        AutoScalingGroupNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
+	NewInstancesProtectedFromScaleIn pulumi.BoolPtrOutput `pulumi:"newInstancesProtectedFromScaleIn"`
+	// A structure that specifies an Amazon SNS notification configuration for the `NotificationConfigurations` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+	//
+	// For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html) .
+	//
+	// For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	NotificationConfiguration AutoScalingGroupNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
 	// Configures an Auto Scaling group to send notifications when specified events take place.
 	NotificationConfigurations AutoScalingGroupNotificationConfigurationArrayOutput `pulumi:"notificationConfigurations"`
 	// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -219,8 +224,13 @@ type autoScalingGroupArgs struct {
 	//  For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	MixedInstancesPolicy *AutoScalingGroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
 	// Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide*.
-	NewInstancesProtectedFromScaleIn *bool                                      `pulumi:"newInstancesProtectedFromScaleIn"`
-	NotificationConfiguration        *AutoScalingGroupNotificationConfiguration `pulumi:"notificationConfiguration"`
+	NewInstancesProtectedFromScaleIn *bool `pulumi:"newInstancesProtectedFromScaleIn"`
+	// A structure that specifies an Amazon SNS notification configuration for the `NotificationConfigurations` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+	//
+	// For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html) .
+	//
+	// For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	NotificationConfiguration *AutoScalingGroupNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// Configures an Auto Scaling group to send notifications when specified events take place.
 	NotificationConfigurations []AutoScalingGroupNotificationConfiguration `pulumi:"notificationConfigurations"`
 	// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -308,7 +318,12 @@ type AutoScalingGroupArgs struct {
 	MixedInstancesPolicy AutoScalingGroupMixedInstancesPolicyPtrInput
 	// Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	NewInstancesProtectedFromScaleIn pulumi.BoolPtrInput
-	NotificationConfiguration        AutoScalingGroupNotificationConfigurationPtrInput
+	// A structure that specifies an Amazon SNS notification configuration for the `NotificationConfigurations` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+	//
+	// For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html) .
+	//
+	// For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	NotificationConfiguration AutoScalingGroupNotificationConfigurationPtrInput
 	// Configures an Auto Scaling group to send notifications when specified events take place.
 	NotificationConfigurations AutoScalingGroupNotificationConfigurationArrayInput
 	// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -515,6 +530,11 @@ func (o AutoScalingGroupOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolPt
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolPtrOutput)
 }
 
+// A structure that specifies an Amazon SNS notification configuration for the `NotificationConfigurations` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+//
+// For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html) .
+//
+// For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
 func (o AutoScalingGroupOutput) NotificationConfiguration() AutoScalingGroupNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupNotificationConfigurationPtrOutput {
 		return v.NotificationConfiguration

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.CloudTrail
         [Output("advancedEventSelectors")]
         public Output<ImmutableArray<Outputs.TrailAdvancedEventSelector>> AdvancedEventSelectors { get; private set; } = null!;
 
+        /// <summary>
+        /// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.CloudTrail
         [Output("s3KeyPrefix")]
         public Output<string?> S3KeyPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
@@ -105,9 +111,21 @@ namespace Pulumi.AwsNative.CloudTrail
         [Output("snsTopicName")]
         public Output<string?> SnsTopicName { get; private set; } = null!;
 
+        /// <summary>
+        /// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the trail. The name must meet the following requirements:
+        /// 
+        /// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+        /// - Start with a letter or number, and end with a letter or number
+        /// - Be between 3 and 128 characters
+        /// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+        /// - Not be in IP address format (for example, 192.168.5.4)
+        /// </summary>
         [Output("trailName")]
         public Output<string?> TrailName { get; private set; } = null!;
 
@@ -264,12 +282,25 @@ namespace Pulumi.AwsNative.CloudTrail
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the name of the trail. The name must meet the following requirements:
+        /// 
+        /// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+        /// - Start with a letter or number, and end with a letter or number
+        /// - Be between 3 and 128 characters
+        /// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+        /// - Not be in IP address format (for example, 192.168.5.4)
+        /// </summary>
         [Input("trailName")]
         public Input<string>? TrailName { get; set; }
 

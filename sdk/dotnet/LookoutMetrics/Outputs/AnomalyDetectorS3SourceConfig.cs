@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorS3SourceConfig
     {
+        /// <summary>
+        /// Contains information about a source file's formatting.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorFileFormatDescriptor FileFormatDescriptor;
+        /// <summary>
+        /// A list of paths to the historical data files.
+        /// </summary>
         public readonly ImmutableArray<string> HistoricalDataPathList;
+        /// <summary>
+        /// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// A list of templated paths to the source files.
+        /// </summary>
         public readonly ImmutableArray<string> TemplatedPathList;
 
         [OutputConstructor]

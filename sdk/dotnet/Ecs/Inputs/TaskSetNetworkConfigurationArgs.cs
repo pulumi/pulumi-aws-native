@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class TaskSetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An object representing the networking details for a task or service. For example `awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}`
+        /// </summary>
         [Input("awsVpcConfiguration")]
         public Input<Inputs.TaskSetAwsVpcConfigurationArgs>? AwsVpcConfiguration { get; set; }
 

@@ -179,6 +179,7 @@ func (in *monitorConfigStatePtr) ToMonitorConfigStatePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(MonitorConfigStatePtrOutput)
 }
 
+// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
 type MonitorLocalHealthEventsConfigStatus string
 
 const (
@@ -438,6 +439,7 @@ func (o MonitorProcessingStatusCodePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
 type MonitorS3ConfigLogDeliveryStatus string
 
 const (

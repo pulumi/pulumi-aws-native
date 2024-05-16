@@ -30,13 +30,15 @@ type LookupTaskTemplateArgs struct {
 
 type LookupTaskTemplateResult struct {
 	// The identifier (arn) of the task template.
-	Arn         *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 	ClientToken *string `pulumi:"clientToken"`
 	// The constraints for the task template
 	Constraints *ConstraintsProperties `pulumi:"constraints"`
 	// The identifier of the contact flow.
-	ContactFlowArn *string                         `pulumi:"contactFlowArn"`
-	Defaults       []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
+	ContactFlowArn *string `pulumi:"contactFlowArn"`
+	// Describes a default field and its corresponding value.
+	Defaults []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
 	// The description of the task template.
 	Description *string `pulumi:"description"`
 	// The list of task template's fields
@@ -44,7 +46,8 @@ type LookupTaskTemplateResult struct {
 	// The identifier (arn) of the instance.
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the task template.
-	Name   *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The status of the task template.
 	Status *TaskTemplateStatus `pulumi:"status"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -91,6 +94,7 @@ func (o LookupTaskTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTaskTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 func (o LookupTaskTemplateResultOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTaskTemplateResult) *string { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +109,7 @@ func (o LookupTaskTemplateResultOutput) ContactFlowArn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupTaskTemplateResult) *string { return v.ContactFlowArn }).(pulumi.StringPtrOutput)
 }
 
+// Describes a default field and its corresponding value.
 func (o LookupTaskTemplateResultOutput) Defaults() TaskTemplateDefaultFieldValueArrayOutput {
 	return o.ApplyT(func(v LookupTaskTemplateResult) []TaskTemplateDefaultFieldValue { return v.Defaults }).(TaskTemplateDefaultFieldValueArrayOutput)
 }
@@ -129,6 +134,7 @@ func (o LookupTaskTemplateResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTaskTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the task template.
 func (o LookupTaskTemplateResultOutput) Status() TaskTemplateStatusPtrOutput {
 	return o.ApplyT(func(v LookupTaskTemplateResult) *TaskTemplateStatus { return v.Status }).(TaskTemplateStatusPtrOutput)
 }

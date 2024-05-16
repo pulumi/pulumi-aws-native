@@ -12,6 +12,16 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipQueryComputePaymentConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+        /// 
+        /// If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+        /// 
+        /// An error message is returned for the following reasons:
+        /// 
+        /// - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+        /// - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
+        /// </summary>
         [Input("isResponsible", required: true)]
         public Input<bool> IsResponsible { get; set; } = null!;
 

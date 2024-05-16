@@ -18,9 +18,19 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("inputSourceArn", required: true)]
         public Input<string> InputSourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
+        /// </summary>
         [Input("schemaArn")]
         public Input<string>? SchemaArn { get; set; }
 
+        /// <summary>
+        /// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+        /// 
+        /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+        /// 
+        /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.EntityResolution.IdMappingWorkflowInputSourceType>? Type { get; set; }
 

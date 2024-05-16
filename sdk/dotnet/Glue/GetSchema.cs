@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Glue
         /// Amazon Resource Name for the Schema.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Specifies the version of a schema.
+        /// </summary>
         public readonly Outputs.SchemaVersion? CheckpointVersion;
         /// <summary>
         /// Compatibility setting for the schema.

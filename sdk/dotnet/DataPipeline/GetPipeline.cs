@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DataPipeline
 
     public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the pipeline.
+        /// </summary>
         [Input("pipelineId", required: true)]
         public string PipelineId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.DataPipeline
 
     public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the pipeline.
+        /// </summary>
         [Input("pipelineId", required: true)]
         public Input<string> PipelineId { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.DataPipeline
         /// The parameter values used with the pipeline.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineParameterValue> ParameterValues;
+        /// <summary>
+        /// The ID of the pipeline.
+        /// </summary>
         public readonly string? PipelineId;
         /// <summary>
         /// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.

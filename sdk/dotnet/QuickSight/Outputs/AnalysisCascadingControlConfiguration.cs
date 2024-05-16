@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCascadingControlConfiguration
     {
+        /// <summary>
+        /// The source controls that are used in a `CascadingControlConfiguration` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisCascadingControlSource> SourceControls;
 
         [OutputConstructor]

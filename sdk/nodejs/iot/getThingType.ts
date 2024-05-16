@@ -19,12 +19,26 @@ export function getThingType(args: GetThingTypeArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetThingTypeArgs {
+    /**
+     * The name of the thing type.
+     */
     thingTypeName: string;
 }
 
 export interface GetThingTypeResult {
+    /**
+     * The thing type arn.
+     */
     readonly arn?: string;
+    /**
+     * Deprecates a thing type. You can not associate new things with deprecated thing type.
+     *
+     * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+     */
     readonly deprecateThingType?: boolean;
+    /**
+     * The thing type id.
+     */
     readonly id?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -39,5 +53,8 @@ export function getThingTypeOutput(args: GetThingTypeOutputArgs, opts?: pulumi.I
 }
 
 export interface GetThingTypeOutputArgs {
+    /**
+     * The name of the thing type.
+     */
     thingTypeName: pulumi.Input<string>;
 }

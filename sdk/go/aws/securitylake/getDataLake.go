@@ -30,13 +30,25 @@ type LookupDataLakeArgs struct {
 
 type LookupDataLakeResult struct {
 	// The Amazon Resource Name (ARN) created by you to provide to the subscriber.
-	Arn                      *string                           `pulumi:"arn"`
-	EncryptionConfiguration  *DataLakeEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
-	LifecycleConfiguration   *DataLakeLifecycleConfiguration   `pulumi:"lifecycleConfiguration"`
+	Arn *string `pulumi:"arn"`
+	// Provides encryption details of the Amazon Security Lake object. The AWS shared responsibility model applies to data protection in Amazon Security Lake . As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. For more details, see [Data protection](https://docs.aws.amazon.com//security-lake/latest/userguide/data-protection.html) in the Amazon Security Lake User Guide.
+	EncryptionConfiguration *DataLakeEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// Provides lifecycle details of Amazon Security Lake object. To manage your data so that it is stored cost effectively, you can configure retention settings for the data. You can specify your preferred Amazon S3 storage class and the time period for Amazon S3 objects to stay in that storage class before they transition to a different storage class or expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+	//
+	// In Security Lake , you specify retention settings at the Region level. For example, you might choose to transition all S3 objects in a specific AWS Region to the `S3 Standard-IA` storage class 30 days after they're written to the data lake. The default Amazon S3 storage class is S3 Standard.
+	//
+	// > Security Lake doesn't support Amazon S3 Object Lock. When the data lake buckets are created, S3 Object Lock is disabled by default. Enabling S3 Object Lock with default retention mode interrupts the delivery of normalized log data to the data lake.
+	LifecycleConfiguration *DataLakeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
+	// Provides replication configuration details for objects stored in the Amazon Security Lake data lake.
 	ReplicationConfiguration *DataLakeReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
-	S3BucketArn *string   `pulumi:"s3BucketArn"`
-	Tags        []aws.Tag `pulumi:"tags"`
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+	// A *tag* is a label that you can define and associate with AWS resources, including certain types of Amazon Security Lake resources. Tags can help you identify, categorize, and manage resources in different ways, such as by owner, environment, or other criteria. You can associate tags with the following types of Security Lake resources: subscribers, and the data lake configuration for your AWS account in individual AWS Regions .
+	//
+	// A resource can have up to 50 tags. Each tag consists of a required *tag key* and an associated *tag value* . A *tag key* is a general label that acts as a category for a more specific tag value. Each tag key must be unique and it can have only one tag value. A *tag value* acts as a descriptor for a tag key. Tag keys and values are case sensitive. They can contain letters, numbers, spaces, or the following symbols: _ . : / = + @ -
+	//
+	// For more information, see [Tagging Amazon Security Lake resources](https://docs.aws.amazon.com//security-lake/latest/userguide/tagging-resources.html) in the *Amazon Security Lake User Guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataLakeOutput(ctx *pulumi.Context, args LookupDataLakeOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeResultOutput {
@@ -80,14 +92,21 @@ func (o LookupDataLakeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Provides encryption details of the Amazon Security Lake object. The AWS shared responsibility model applies to data protection in Amazon Security Lake . As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. For more details, see [Data protection](https://docs.aws.amazon.com//security-lake/latest/userguide/data-protection.html) in the Amazon Security Lake User Guide.
 func (o LookupDataLakeResultOutput) EncryptionConfiguration() DataLakeEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *DataLakeEncryptionConfiguration { return v.EncryptionConfiguration }).(DataLakeEncryptionConfigurationPtrOutput)
 }
 
+// Provides lifecycle details of Amazon Security Lake object. To manage your data so that it is stored cost effectively, you can configure retention settings for the data. You can specify your preferred Amazon S3 storage class and the time period for Amazon S3 objects to stay in that storage class before they transition to a different storage class or expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+//
+// In Security Lake , you specify retention settings at the Region level. For example, you might choose to transition all S3 objects in a specific AWS Region to the `S3 Standard-IA` storage class 30 days after they're written to the data lake. The default Amazon S3 storage class is S3 Standard.
+//
+// > Security Lake doesn't support Amazon S3 Object Lock. When the data lake buckets are created, S3 Object Lock is disabled by default. Enabling S3 Object Lock with default retention mode interrupts the delivery of normalized log data to the data lake.
 func (o LookupDataLakeResultOutput) LifecycleConfiguration() DataLakeLifecycleConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *DataLakeLifecycleConfiguration { return v.LifecycleConfiguration }).(DataLakeLifecycleConfigurationPtrOutput)
 }
 
+// Provides replication configuration details for objects stored in the Amazon Security Lake data lake.
 func (o LookupDataLakeResultOutput) ReplicationConfiguration() DataLakeReplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *DataLakeReplicationConfiguration { return v.ReplicationConfiguration }).(DataLakeReplicationConfigurationPtrOutput)
 }
@@ -97,6 +116,11 @@ func (o LookupDataLakeResultOutput) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
 
+// A *tag* is a label that you can define and associate with AWS resources, including certain types of Amazon Security Lake resources. Tags can help you identify, categorize, and manage resources in different ways, such as by owner, environment, or other criteria. You can associate tags with the following types of Security Lake resources: subscribers, and the data lake configuration for your AWS account in individual AWS Regions .
+//
+// A resource can have up to 50 tags. Each tag consists of a required *tag key* and an associated *tag value* . A *tag key* is a general label that acts as a category for a more specific tag value. Each tag key must be unique and it can have only one tag value. A *tag value* acts as a descriptor for a tag key. Tag keys and values are case sensitive. They can contain letters, numbers, spaces, or the following symbols: _ . : / = + @ -
+//
+// For more information, see [Tagging Amazon Security Lake resources](https://docs.aws.amazon.com//security-lake/latest/userguide/tagging-resources.html) in the *Amazon Security Lake User Guide* .
 func (o LookupDataLakeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

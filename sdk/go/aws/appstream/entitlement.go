@@ -16,13 +16,20 @@ import (
 type Entitlement struct {
 	pulumi.CustomResourceState
 
-	AppVisibility    pulumi.StringOutput             `pulumi:"appVisibility"`
-	Attributes       EntitlementAttributeArrayOutput `pulumi:"attributes"`
-	CreatedTime      pulumi.StringOutput             `pulumi:"createdTime"`
-	Description      pulumi.StringPtrOutput          `pulumi:"description"`
-	LastModifiedTime pulumi.StringOutput             `pulumi:"lastModifiedTime"`
-	Name             pulumi.StringOutput             `pulumi:"name"`
-	StackName        pulumi.StringOutput             `pulumi:"stackName"`
+	// Specifies whether to entitle all apps or only selected apps.
+	AppVisibility pulumi.StringOutput `pulumi:"appVisibility"`
+	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	Attributes EntitlementAttributeArrayOutput `pulumi:"attributes"`
+	// The time when the entitlement was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The description of the entitlement.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The time when the entitlement was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// The name of the entitlement.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The name of the stack.
+	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
 
 // NewEntitlement registers a new resource with the given unique name, arguments, and options.
@@ -79,20 +86,30 @@ func (EntitlementState) ElementType() reflect.Type {
 }
 
 type entitlementArgs struct {
-	AppVisibility string                 `pulumi:"appVisibility"`
-	Attributes    []EntitlementAttribute `pulumi:"attributes"`
-	Description   *string                `pulumi:"description"`
-	Name          *string                `pulumi:"name"`
-	StackName     string                 `pulumi:"stackName"`
+	// Specifies whether to entitle all apps or only selected apps.
+	AppVisibility string `pulumi:"appVisibility"`
+	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	Attributes []EntitlementAttribute `pulumi:"attributes"`
+	// The description of the entitlement.
+	Description *string `pulumi:"description"`
+	// The name of the entitlement.
+	Name *string `pulumi:"name"`
+	// The name of the stack.
+	StackName string `pulumi:"stackName"`
 }
 
 // The set of arguments for constructing a Entitlement resource.
 type EntitlementArgs struct {
+	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility pulumi.StringInput
-	Attributes    EntitlementAttributeArrayInput
-	Description   pulumi.StringPtrInput
-	Name          pulumi.StringPtrInput
-	StackName     pulumi.StringInput
+	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	Attributes EntitlementAttributeArrayInput
+	// The description of the entitlement.
+	Description pulumi.StringPtrInput
+	// The name of the entitlement.
+	Name pulumi.StringPtrInput
+	// The name of the stack.
+	StackName pulumi.StringInput
 }
 
 func (EntitlementArgs) ElementType() reflect.Type {
@@ -132,30 +149,37 @@ func (o EntitlementOutput) ToEntitlementOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// Specifies whether to entitle all apps or only selected apps.
 func (o EntitlementOutput) AppVisibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.AppVisibility }).(pulumi.StringOutput)
 }
 
+// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
 func (o EntitlementOutput) Attributes() EntitlementAttributeArrayOutput {
 	return o.ApplyT(func(v *Entitlement) EntitlementAttributeArrayOutput { return v.Attributes }).(EntitlementAttributeArrayOutput)
 }
 
+// The time when the entitlement was created.
 func (o EntitlementOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The description of the entitlement.
 func (o EntitlementOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The time when the entitlement was last modified.
 func (o EntitlementOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// The name of the entitlement.
 func (o EntitlementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name of the stack.
 func (o EntitlementOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }

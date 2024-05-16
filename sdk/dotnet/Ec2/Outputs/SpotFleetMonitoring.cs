@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetMonitoring
     {
+        /// <summary>
+        /// Enables monitoring for the instance.
+        /// 
+        /// Default: `false`
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

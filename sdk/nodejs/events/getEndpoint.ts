@@ -19,19 +19,54 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetEndpointArgs {
+    /**
+     * The name of the endpoint.
+     */
     name: string;
 }
 
 export interface GetEndpointResult {
+    /**
+     * The ARN of the endpoint.
+     */
     readonly arn?: string;
+    /**
+     * A description for the endpoint.
+     */
     readonly description?: string;
+    /**
+     * The ID of the endpoint.
+     */
     readonly endpointId?: string;
+    /**
+     * The URL of the endpoint.
+     */
     readonly endpointUrl?: string;
+    /**
+     * The event buses being used by the endpoint.
+     *
+     * *Exactly* : `2`
+     */
     readonly eventBuses?: outputs.events.EndpointEventBus[];
+    /**
+     * Endpoints can replicate all events to the secondary Region.
+     */
     readonly replicationConfig?: outputs.events.EndpointReplicationConfig;
+    /**
+     * The ARN of the role used by event replication for the endpoint.
+     */
     readonly roleArn?: string;
+    /**
+     * The routing configuration of the endpoint.
+     */
     readonly routingConfig?: outputs.events.EndpointRoutingConfig;
+    /**
+     * The main Region of the endpoint.
+     */
     readonly state?: enums.events.EndpointState;
+    /**
+     * The reason the endpoint is in its current state.
+     */
     readonly stateReason?: string;
 }
 /**
@@ -42,5 +77,8 @@ export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetEndpointOutputArgs {
+    /**
+     * The name of the endpoint.
+     */
     name: pulumi.Input<string>;
 }

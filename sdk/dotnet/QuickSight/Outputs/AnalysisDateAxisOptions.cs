@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDateAxisOptions
     {
+        /// <summary>
+        /// Determines whether or not missing dates are displayed.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? MissingDateVisibility;
 
         [OutputConstructor]

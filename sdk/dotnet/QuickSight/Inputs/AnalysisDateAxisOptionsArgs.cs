@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDateAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not missing dates are displayed.
+        /// </summary>
         [Input("missingDateVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? MissingDateVisibility { get; set; }
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolDomainArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolDomainResult
     {
+        /// <summary>
+        /// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        /// </summary>
         public readonly string? CloudFrontDistribution;
+        /// <summary>
+        /// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        /// </summary>
         public readonly Outputs.UserPoolDomainCustomDomainConfigType? CustomDomainConfig;
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

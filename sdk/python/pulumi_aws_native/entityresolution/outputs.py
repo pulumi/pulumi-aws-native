@@ -55,6 +55,10 @@ class IdMappingWorkflowIdMappingTechniques(dict):
     def __init__(__self__, *,
                  id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
                  provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None):
+        """
+        :param 'IdMappingWorkflowIdMappingTechniquesIdMappingType' id_mapping_type: The type of ID mapping.
+        :param 'IdMappingWorkflowProviderProperties' provider_properties: An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        """
         if id_mapping_type is not None:
             pulumi.set(__self__, "id_mapping_type", id_mapping_type)
         if provider_properties is not None:
@@ -63,11 +67,17 @@ class IdMappingWorkflowIdMappingTechniques(dict):
     @property
     @pulumi.getter(name="idMappingType")
     def id_mapping_type(self) -> Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType']:
+        """
+        The type of ID mapping.
+        """
         return pulumi.get(self, "id_mapping_type")
 
     @property
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.IdMappingWorkflowProviderProperties']:
+        """
+        An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        """
         return pulumi.get(self, "provider_properties")
 
 
@@ -98,6 +108,12 @@ class IdMappingWorkflowInputSource(dict):
                  type: Optional['IdMappingWorkflowInputSourceType'] = None):
         """
         :param str input_source_arn: An Glue table ARN for the input source table or IdNamespace ARN
+        :param str schema_arn: The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
+        :param 'IdMappingWorkflowInputSourceType' type: The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+               
+               The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+               
+               The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
         if schema_arn is not None:
@@ -116,11 +132,21 @@ class IdMappingWorkflowInputSource(dict):
     @property
     @pulumi.getter(name="schemaArn")
     def schema_arn(self) -> Optional[str]:
+        """
+        The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
+        """
         return pulumi.get(self, "schema_arn")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['IdMappingWorkflowInputSourceType']:
+        """
+        The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+
+        The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+
+        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        """
         return pulumi.get(self, "type")
 
 
@@ -185,6 +211,7 @@ class IdMappingWorkflowOutputSource(dict):
                  kms_arn: Optional[str] = None):
         """
         :param str output_s3_path: The S3 path to which Entity Resolution will write the output table
+        :param str kms_arn: Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         pulumi.set(__self__, "output_s3_path", output_s3_path)
         if kms_arn is not None:
@@ -201,6 +228,9 @@ class IdMappingWorkflowOutputSource(dict):
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> Optional[str]:
+        """
+        Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        """
         return pulumi.get(self, "kms_arn")
 
 
@@ -233,6 +263,7 @@ class IdMappingWorkflowProviderProperties(dict):
                  provider_configuration: Optional[Mapping[str, str]] = None):
         """
         :param str provider_service_arn: Arn of the Provider Service being used.
+        :param 'IdMappingWorkflowIntermediateSourceConfiguration' intermediate_source_configuration: The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
         :param Mapping[str, str] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         pulumi.set(__self__, "provider_service_arn", provider_service_arn)
@@ -252,6 +283,9 @@ class IdMappingWorkflowProviderProperties(dict):
     @property
     @pulumi.getter(name="intermediateSourceConfiguration")
     def intermediate_source_configuration(self) -> Optional['outputs.IdMappingWorkflowIntermediateSourceConfiguration']:
+        """
+        The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
+        """
         return pulumi.get(self, "intermediate_source_configuration")
 
     @property
@@ -287,6 +321,10 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
     def __init__(__self__, *,
                  id_mapping_type: 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType',
                  provider_properties: Optional['outputs.IdNamespaceNamespaceProviderProperties'] = None):
+        """
+        :param 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType' id_mapping_type: The type of ID mapping.
+        :param 'IdNamespaceNamespaceProviderProperties' provider_properties: An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+        """
         pulumi.set(__self__, "id_mapping_type", id_mapping_type)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
@@ -294,11 +332,17 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
     @property
     @pulumi.getter(name="idMappingType")
     def id_mapping_type(self) -> 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType':
+        """
+        The type of ID mapping.
+        """
         return pulumi.get(self, "id_mapping_type")
 
     @property
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.IdNamespaceNamespaceProviderProperties']:
+        """
+        An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+        """
         return pulumi.get(self, "provider_properties")
 
 
@@ -326,6 +370,10 @@ class IdNamespaceInputSource(dict):
     def __init__(__self__, *,
                  input_source_arn: str,
                  schema_name: Optional[str] = None):
+        """
+        :param str input_source_arn: An AWS Glue table ARN for the input source table.
+        :param str schema_name: The name of the schema.
+        """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
@@ -333,11 +381,17 @@ class IdNamespaceInputSource(dict):
     @property
     @pulumi.getter(name="inputSourceArn")
     def input_source_arn(self) -> str:
+        """
+        An AWS Glue table ARN for the input source table.
+        """
         return pulumi.get(self, "input_source_arn")
 
     @property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[str]:
+        """
+        The name of the schema.
+        """
         return pulumi.get(self, "schema_name")
 
 
@@ -366,6 +420,7 @@ class IdNamespaceNamespaceProviderProperties(dict):
                  provider_service_arn: str,
                  provider_configuration: Optional[Mapping[str, str]] = None):
         """
+        :param str provider_service_arn: The Amazon Resource Name (ARN) of the provider service.
         :param Mapping[str, str] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
         """
         pulumi.set(__self__, "provider_service_arn", provider_service_arn)
@@ -375,6 +430,9 @@ class IdNamespaceNamespaceProviderProperties(dict):
     @property
     @pulumi.getter(name="providerServiceArn")
     def provider_service_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the provider service.
+        """
         return pulumi.get(self, "provider_service_arn")
 
     @property
@@ -415,6 +473,8 @@ class MatchingWorkflowInputSource(dict):
                  apply_normalization: Optional[bool] = None):
         """
         :param str input_source_arn: An Glue table ARN for the input source table
+        :param str schema_arn: The name of the schema.
+        :param bool apply_normalization: Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
         pulumi.set(__self__, "schema_arn", schema_arn)
@@ -432,11 +492,17 @@ class MatchingWorkflowInputSource(dict):
     @property
     @pulumi.getter(name="schemaArn")
     def schema_arn(self) -> str:
+        """
+        The name of the schema.
+        """
         return pulumi.get(self, "schema_arn")
 
     @property
     @pulumi.getter(name="applyNormalization")
     def apply_normalization(self) -> Optional[bool]:
+        """
+        Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+        """
         return pulumi.get(self, "apply_normalization")
 
 
@@ -480,6 +546,10 @@ class MatchingWorkflowOutputAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  hashed: Optional[bool] = None):
+        """
+        :param str name: A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
+        :param bool hashed: Enables the ability to hash the column values in the output.
+        """
         pulumi.set(__self__, "name", name)
         if hashed is not None:
             pulumi.set(__self__, "hashed", hashed)
@@ -487,11 +557,17 @@ class MatchingWorkflowOutputAttribute(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def hashed(self) -> Optional[bool]:
+        """
+        Enables the ability to hash the column values in the output.
+        """
         return pulumi.get(self, "hashed")
 
 
@@ -524,7 +600,10 @@ class MatchingWorkflowOutputSource(dict):
                  apply_normalization: Optional[bool] = None,
                  kms_arn: Optional[str] = None):
         """
+        :param Sequence['MatchingWorkflowOutputAttribute'] output: A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
         :param str output_s3_path: The S3 path to which Entity Resolution will write the output table
+        :param bool apply_normalization: Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+        :param str kms_arn: Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         pulumi.set(__self__, "output", output)
         pulumi.set(__self__, "output_s3_path", output_s3_path)
@@ -536,6 +615,9 @@ class MatchingWorkflowOutputSource(dict):
     @property
     @pulumi.getter
     def output(self) -> Sequence['outputs.MatchingWorkflowOutputAttribute']:
+        """
+        A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        """
         return pulumi.get(self, "output")
 
     @property
@@ -549,11 +631,17 @@ class MatchingWorkflowOutputSource(dict):
     @property
     @pulumi.getter(name="applyNormalization")
     def apply_normalization(self) -> Optional[bool]:
+        """
+        Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+        """
         return pulumi.get(self, "apply_normalization")
 
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> Optional[str]:
+        """
+        Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        """
         return pulumi.get(self, "kms_arn")
 
 
@@ -586,6 +674,7 @@ class MatchingWorkflowProviderProperties(dict):
                  provider_configuration: Optional[Mapping[str, str]] = None):
         """
         :param str provider_service_arn: Arn of the Provider service being used.
+        :param 'MatchingWorkflowIntermediateSourceConfiguration' intermediate_source_configuration: The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
         :param Mapping[str, str] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         pulumi.set(__self__, "provider_service_arn", provider_service_arn)
@@ -605,6 +694,9 @@ class MatchingWorkflowProviderProperties(dict):
     @property
     @pulumi.getter(name="intermediateSourceConfiguration")
     def intermediate_source_configuration(self) -> Optional['outputs.MatchingWorkflowIntermediateSourceConfiguration']:
+        """
+        The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
+        """
         return pulumi.get(self, "intermediate_source_configuration")
 
     @property
@@ -643,6 +735,11 @@ class MatchingWorkflowResolutionTechniques(dict):
                  provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
                  resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
                  rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None):
+        """
+        :param 'MatchingWorkflowProviderProperties' provider_properties: An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        :param 'MatchingWorkflowResolutionTechniquesResolutionType' resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        :param 'MatchingWorkflowRuleBasedProperties' rule_based_properties: An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        """
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
         if resolution_type is not None:
@@ -653,16 +750,25 @@ class MatchingWorkflowResolutionTechniques(dict):
     @property
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.MatchingWorkflowProviderProperties']:
+        """
+        An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        """
         return pulumi.get(self, "provider_properties")
 
     @property
     @pulumi.getter(name="resolutionType")
     def resolution_type(self) -> Optional['MatchingWorkflowResolutionTechniquesResolutionType']:
+        """
+        The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        """
         return pulumi.get(self, "resolution_type")
 
     @property
     @pulumi.getter(name="ruleBasedProperties")
     def rule_based_properties(self) -> Optional['outputs.MatchingWorkflowRuleBasedProperties']:
+        """
+        An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        """
         return pulumi.get(self, "rule_based_properties")
 
 
@@ -690,17 +796,27 @@ class MatchingWorkflowRule(dict):
     def __init__(__self__, *,
                  matching_keys: Sequence[str],
                  rule_name: str):
+        """
+        :param Sequence[str] matching_keys: A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        :param str rule_name: A name for the matching rule.
+        """
         pulumi.set(__self__, "matching_keys", matching_keys)
         pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="matchingKeys")
     def matching_keys(self) -> Sequence[str]:
+        """
+        A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        """
         return pulumi.get(self, "matching_keys")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
+        """
+        A name for the matching rule.
+        """
         return pulumi.get(self, "rule_name")
 
 
@@ -726,17 +842,27 @@ class MatchingWorkflowRuleBasedProperties(dict):
     def __init__(__self__, *,
                  attribute_matching_model: 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
                  rules: Sequence['outputs.MatchingWorkflowRule']):
+        """
+        :param 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+        :param Sequence['MatchingWorkflowRule'] rules: An object containing `RuleName` , and `MatchingKeys` .
+        """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel':
+        """
+        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+        """
         return pulumi.get(self, "attribute_matching_model")
 
     @property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.MatchingWorkflowRule']:
+        """
+        An object containing `RuleName` , and `MatchingKeys` .
+        """
         return pulumi.get(self, "rules")
 
 

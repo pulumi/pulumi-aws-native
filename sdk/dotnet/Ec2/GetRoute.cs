@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The IPv4 CIDR block.
+        /// </summary>
         [Input("cidrBlock", required: true)]
         public string CidrBlock { get; set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The IPv4 CIDR block.
+        /// </summary>
         [Input("cidrBlock", required: true)]
         public Input<string> CidrBlock { get; set; } = null!;
 
@@ -72,6 +78,9 @@ namespace Pulumi.AwsNative.Ec2
         ///  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
         /// </summary>
         public readonly string? CarrierGatewayId;
+        /// <summary>
+        /// The IPv4 CIDR block.
+        /// </summary>
         public readonly string? CidrBlock;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the core network.

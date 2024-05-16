@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,20 +57,95 @@ namespace Pulumi.AwsNative.Fms
     [OutputType]
     public sealed class GetPolicyResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the policy.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// 
+        /// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+        /// 
+        /// You can specify account IDs, OUs, or a combination:
+        /// 
+        /// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        /// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// </summary>
         public readonly Outputs.PolicyIeMap? ExcludeMap;
+        /// <summary>
+        /// Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
+        /// </summary>
         public readonly bool? ExcludeResourceTags;
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// 
+        /// This is used for the policy's `IncludeMap` and `ExcludeMap` .
+        /// 
+        /// You can specify account IDs, OUs, or a combination:
+        /// 
+        /// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"]}` .
+        /// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
+        /// </summary>
         public readonly Outputs.PolicyIeMap? IncludeMap;
+        /// <summary>
+        /// Your description of the AWS Firewall Manager policy.
+        /// </summary>
         public readonly string? PolicyDescription;
+        /// <summary>
+        /// The name of the AWS Firewall Manager policy.
+        /// </summary>
         public readonly string? PolicyName;
+        /// <summary>
+        /// Indicates if the policy should be automatically applied to new resources.
+        /// </summary>
         public readonly bool? RemediationEnabled;
+        /// <summary>
+        /// The unique identifiers of the resource sets used by the policy.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceSetIds;
+        /// <summary>
+        /// The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyResourceTag> ResourceTags;
+        /// <summary>
+        /// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+        /// 
+        /// The following are valid resource types for each Firewall Manager policy type:
+        /// 
+        /// - AWS WAF Classic - `AWS::ApiGateway::Stage` , `AWS::CloudFront::Distribution` , and `AWS::ElasticLoadBalancingV2::LoadBalancer` .
+        /// - AWS WAF - `AWS::ApiGateway::Stage` , `AWS::ElasticLoadBalancingV2::LoadBalancer` , and `AWS::CloudFront::Distribution` .
+        /// - Shield Advanced - `AWS::ElasticLoadBalancingV2::LoadBalancer` , `AWS::ElasticLoadBalancing::LoadBalancer` , `AWS::EC2::EIP` , and `AWS::CloudFront::Distribution` .
+        /// - Network ACL - `AWS::EC2::Subnet` .
+        /// - Security group usage audit - `AWS::EC2::SecurityGroup` .
+        /// - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
+        /// - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
+        /// </summary>
         public readonly string? ResourceType;
+        /// <summary>
+        /// An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
+        /// </summary>
         public readonly ImmutableArray<string> ResourceTypeList;
+        /// <summary>
+        /// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
+        /// 
+        /// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
+        /// 
+        /// This option is not available for Shield Advanced or AWS WAF Classic policies.
+        /// </summary>
         public readonly bool? ResourcesCleanUp;
+        /// <summary>
+        /// Details about the security service that is being used to protect the resources.
+        /// </summary>
         public readonly Outputs.PolicySecurityServicePolicyData? SecurityServicePolicyData;
+        /// <summary>
+        /// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

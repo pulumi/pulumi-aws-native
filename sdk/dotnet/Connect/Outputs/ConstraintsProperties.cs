@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class ConstraintsProperties
     {
+        /// <summary>
+        /// Lists the fields that are invisible to agents.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TaskTemplateInvisibleFieldInfo> InvisibleFields;
+        /// <summary>
+        /// Lists the fields that are read-only to agents, and cannot be edited.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TaskTemplateReadOnlyFieldInfo> ReadOnlyFields;
+        /// <summary>
+        /// Lists the fields that are required to be filled by agents.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TaskTemplateRequiredFieldInfo> RequiredFields;
 
         [OutputConstructor]

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateMeasureFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The table calculation measure field for pivot tables.
+        /// </summary>
         [Input("calculatedMeasureField")]
         public Input<Inputs.TemplateCalculatedMeasureFieldArgs>? CalculatedMeasureField { get; set; }
 
+        /// <summary>
+        /// The measure type field with categorical type columns.
+        /// </summary>
         [Input("categoricalMeasureField")]
         public Input<Inputs.TemplateCategoricalMeasureFieldArgs>? CategoricalMeasureField { get; set; }
 
+        /// <summary>
+        /// The measure type field with date type columns.
+        /// </summary>
         [Input("dateMeasureField")]
         public Input<Inputs.TemplateDateMeasureFieldArgs>? DateMeasureField { get; set; }
 
+        /// <summary>
+        /// The measure type field with numerical type columns.
+        /// </summary>
         [Input("numericalMeasureField")]
         public Input<Inputs.TemplateNumericalMeasureFieldArgs>? NumericalMeasureField { get; set; }
 

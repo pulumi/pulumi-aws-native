@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class JobTemplateRetryCriteriaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of job execution failures that can initiate a job retry.
+        /// </summary>
         [Input("failureType")]
         public Input<Pulumi.AwsNative.IoT.JobTemplateJobRetryFailureType>? FailureType { get; set; }
 
+        /// <summary>
+        /// The number of retries allowed for a failure type for the job.
+        /// </summary>
         [Input("numberOfRetries")]
         public Input<int>? NumberOfRetries { get; set; }
 

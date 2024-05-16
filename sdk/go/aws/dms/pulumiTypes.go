@@ -31,11 +31,15 @@ type InstanceProfileTag struct {
 
 // It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
 type MigrationProjectDataProviderDescriptor struct {
-	DataProviderArn             *string `pulumi:"dataProviderArn"`
-	DataProviderIdentifier      *string `pulumi:"dataProviderIdentifier"`
-	DataProviderName            *string `pulumi:"dataProviderName"`
+	// The Amazon Resource Name (ARN) of the data provider.
+	DataProviderArn        *string `pulumi:"dataProviderArn"`
+	DataProviderIdentifier *string `pulumi:"dataProviderIdentifier"`
+	// The user-friendly name of the data provider.
+	DataProviderName *string `pulumi:"dataProviderName"`
+	// The ARN of the role used to access AWS Secrets Manager.
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	// The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
+	SecretsManagerSecretId *string `pulumi:"secretsManagerSecretId"`
 }
 
 // MigrationProjectDataProviderDescriptorInput is an input type that accepts MigrationProjectDataProviderDescriptorArgs and MigrationProjectDataProviderDescriptorOutput values.
@@ -51,11 +55,15 @@ type MigrationProjectDataProviderDescriptorInput interface {
 
 // It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
 type MigrationProjectDataProviderDescriptorArgs struct {
-	DataProviderArn             pulumi.StringPtrInput `pulumi:"dataProviderArn"`
-	DataProviderIdentifier      pulumi.StringPtrInput `pulumi:"dataProviderIdentifier"`
-	DataProviderName            pulumi.StringPtrInput `pulumi:"dataProviderName"`
+	// The Amazon Resource Name (ARN) of the data provider.
+	DataProviderArn        pulumi.StringPtrInput `pulumi:"dataProviderArn"`
+	DataProviderIdentifier pulumi.StringPtrInput `pulumi:"dataProviderIdentifier"`
+	// The user-friendly name of the data provider.
+	DataProviderName pulumi.StringPtrInput `pulumi:"dataProviderName"`
+	// The ARN of the role used to access AWS Secrets Manager.
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	// The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
+	SecretsManagerSecretId pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
 }
 
 func (MigrationProjectDataProviderDescriptorArgs) ElementType() reflect.Type {
@@ -110,6 +118,7 @@ func (o MigrationProjectDataProviderDescriptorOutput) ToMigrationProjectDataProv
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the data provider.
 func (o MigrationProjectDataProviderDescriptorOutput) DataProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.DataProviderArn }).(pulumi.StringPtrOutput)
 }
@@ -118,14 +127,17 @@ func (o MigrationProjectDataProviderDescriptorOutput) DataProviderIdentifier() p
 	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.DataProviderIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The user-friendly name of the data provider.
 func (o MigrationProjectDataProviderDescriptorOutput) DataProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.DataProviderName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role used to access AWS Secrets Manager.
 func (o MigrationProjectDataProviderDescriptorOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
 func (o MigrationProjectDataProviderDescriptorOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
 }
@@ -160,15 +172,32 @@ type MigrationProjectTag struct {
 
 // Configuration parameters for provisioning a AWS DMS Serverless replication
 type ReplicationConfigComputeConfig struct {
-	AvailabilityZone           *string  `pulumi:"availabilityZone"`
-	DnsNameServers             *string  `pulumi:"dnsNameServers"`
-	KmsKeyId                   *string  `pulumi:"kmsKeyId"`
-	MaxCapacityUnits           int      `pulumi:"maxCapacityUnits"`
-	MinCapacityUnits           *int     `pulumi:"minCapacityUnits"`
-	MultiAz                    *bool    `pulumi:"multiAz"`
-	PreferredMaintenanceWindow *string  `pulumi:"preferredMaintenanceWindow"`
-	ReplicationSubnetGroupId   *string  `pulumi:"replicationSubnetGroupId"`
-	VpcSecurityGroupIds        []string `pulumi:"vpcSecurityGroupIds"`
+	// The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
+	DnsNameServers *string `pulumi:"dnsNameServers"`
+	// An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+	//
+	// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+	//
+	// AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
+	MaxCapacityUnits int `pulumi:"maxCapacityUnits"`
+	// Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
+	MinCapacityUnits *int `pulumi:"minCapacityUnits"`
+	// Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
+	MultiAz *bool `pulumi:"multiAz"`
+	// The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+	//
+	// The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+	//
+	// Constraints include a minimum 30-minute window.
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
+	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
+	// Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 // ReplicationConfigComputeConfigInput is an input type that accepts ReplicationConfigComputeConfigArgs and ReplicationConfigComputeConfigOutput values.
@@ -184,15 +213,32 @@ type ReplicationConfigComputeConfigInput interface {
 
 // Configuration parameters for provisioning a AWS DMS Serverless replication
 type ReplicationConfigComputeConfigArgs struct {
-	AvailabilityZone           pulumi.StringPtrInput   `pulumi:"availabilityZone"`
-	DnsNameServers             pulumi.StringPtrInput   `pulumi:"dnsNameServers"`
-	KmsKeyId                   pulumi.StringPtrInput   `pulumi:"kmsKeyId"`
-	MaxCapacityUnits           pulumi.IntInput         `pulumi:"maxCapacityUnits"`
-	MinCapacityUnits           pulumi.IntPtrInput      `pulumi:"minCapacityUnits"`
-	MultiAz                    pulumi.BoolPtrInput     `pulumi:"multiAz"`
-	PreferredMaintenanceWindow pulumi.StringPtrInput   `pulumi:"preferredMaintenanceWindow"`
-	ReplicationSubnetGroupId   pulumi.StringPtrInput   `pulumi:"replicationSubnetGroupId"`
-	VpcSecurityGroupIds        pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
+	// The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
+	DnsNameServers pulumi.StringPtrInput `pulumi:"dnsNameServers"`
+	// An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+	//
+	// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+	//
+	// AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
+	MaxCapacityUnits pulumi.IntInput `pulumi:"maxCapacityUnits"`
+	// Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
+	MinCapacityUnits pulumi.IntPtrInput `pulumi:"minCapacityUnits"`
+	// Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
+	MultiAz pulumi.BoolPtrInput `pulumi:"multiAz"`
+	// The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+	//
+	// The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+	//
+	// Constraints include a minimum 30-minute window.
+	PreferredMaintenanceWindow pulumi.StringPtrInput `pulumi:"preferredMaintenanceWindow"`
+	// Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
+	ReplicationSubnetGroupId pulumi.StringPtrInput `pulumi:"replicationSubnetGroupId"`
+	// Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }
 
 func (ReplicationConfigComputeConfigArgs) ElementType() reflect.Type {
@@ -273,38 +319,55 @@ func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPt
 	}).(ReplicationConfigComputeConfigPtrOutput)
 }
 
+// The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
 func (o ReplicationConfigComputeConfigOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
 func (o ReplicationConfigComputeConfigOutput) DnsNameServers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.DnsNameServers }).(pulumi.StringPtrOutput)
 }
 
+// An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+//
+// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+//
+// AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
 func (o ReplicationConfigComputeConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
 func (o ReplicationConfigComputeConfigOutput) MaxCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) int { return v.MaxCapacityUnits }).(pulumi.IntOutput)
 }
 
+// Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
 func (o ReplicationConfigComputeConfigOutput) MinCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MinCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
+// Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
 func (o ReplicationConfigComputeConfigOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
+// The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+//
+// The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+//
+// Constraints include a minimum 30-minute window.
 func (o ReplicationConfigComputeConfigOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
 func (o ReplicationConfigComputeConfigOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.ReplicationSubnetGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 func (o ReplicationConfigComputeConfigOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -333,6 +396,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) Elem() ReplicationConfigCompute
 	}).(ReplicationConfigComputeConfigOutput)
 }
 
+// The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
 func (o ReplicationConfigComputeConfigPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -342,6 +406,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) AvailabilityZone() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
 func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -351,6 +416,11 @@ func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+//
+// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+//
+// AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
 func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -360,6 +430,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
 func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
 		if v == nil {
@@ -369,6 +440,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
 func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
 		if v == nil {
@@ -378,6 +450,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
 func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *bool {
 		if v == nil {
@@ -387,6 +460,11 @@ func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+//
+// The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+//
+// Constraints include a minimum 30-minute window.
 func (o ReplicationConfigComputeConfigPtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -396,6 +474,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) PreferredMaintenanceWindow() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
 func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -405,6 +484,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) []string {
 		if v == nil {

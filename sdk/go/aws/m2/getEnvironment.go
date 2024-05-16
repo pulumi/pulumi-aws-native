@@ -33,7 +33,8 @@ type LookupEnvironmentResult struct {
 	// The Amazon Resource Name (ARN) of the runtime environment.
 	EnvironmentArn *string `pulumi:"environmentArn"`
 	// The unique identifier of the environment.
-	EnvironmentId          *string                            `pulumi:"environmentId"`
+	EnvironmentId *string `pulumi:"environmentId"`
+	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
 	InstanceType *string `pulumi:"instanceType"`
@@ -94,6 +95,7 @@ func (o LookupEnvironmentResultOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
+// Defines the details of a high availability configuration.
 func (o LookupEnvironmentResultOutput) HighAvailabilityConfig() EnvironmentHighAvailabilityConfigPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentHighAvailabilityConfig { return v.HighAvailabilityConfig }).(EnvironmentHighAvailabilityConfigPtrOutput)
 }

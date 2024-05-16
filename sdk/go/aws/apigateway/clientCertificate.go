@@ -16,6 +16,7 @@ import (
 type ClientCertificate struct {
 	pulumi.CustomResourceState
 
+	// The ID for the client certificate. For example: `abc123` .
 	ClientCertificateId pulumi.StringOutput `pulumi:"clientCertificateId"`
 	// The description of the client certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -114,6 +115,7 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 	return o
 }
 
+// The ID for the client certificate. For example: `abc123` .
 func (o ClientCertificateOutput) ClientCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.ClientCertificateId }).(pulumi.StringOutput)
 }

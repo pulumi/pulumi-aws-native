@@ -51,9 +51,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("featureGroupStatus")]
         public Output<string> FeatureGroupStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of an `OfflineStore` .
+        /// </summary>
         [Output("offlineStoreConfig")]
         public Output<Outputs.OfflineStoreConfigProperties?> OfflineStoreConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of an `OnlineStore` .
+        /// </summary>
         [Output("onlineStoreConfig")]
         public Output<Outputs.OnlineStoreConfigProperties?> OnlineStoreConfig { get; private set; } = null!;
 
@@ -75,6 +81,11 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+        /// 
+        /// Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
+        /// </summary>
         [Output("throughputConfig")]
         public Output<Outputs.FeatureGroupThroughputConfig?> ThroughputConfig { get; private set; } = null!;
 
@@ -163,9 +174,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("featureGroupName")]
         public Input<string>? FeatureGroupName { get; set; }
 
+        /// <summary>
+        /// The configuration of an `OfflineStore` .
+        /// </summary>
         [Input("offlineStoreConfig")]
         public Input<Inputs.OfflineStoreConfigPropertiesArgs>? OfflineStoreConfig { get; set; }
 
+        /// <summary>
+        /// The configuration of an `OnlineStore` .
+        /// </summary>
         [Input("onlineStoreConfig")]
         public Input<Inputs.OnlineStoreConfigPropertiesArgs>? OnlineStoreConfig { get; set; }
 
@@ -193,6 +210,11 @@ namespace Pulumi.AwsNative.SageMaker
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+        /// 
+        /// Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
+        /// </summary>
         [Input("throughputConfig")]
         public Input<Inputs.FeatureGroupThroughputConfigArgs>? ThroughputConfig { get; set; }
 

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentRuntimeConfig
     {
+        /// <summary>
+        /// The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
+        /// </summary>
         public readonly int? CopyCount;
         public readonly int? CurrentCopyCount;
         public readonly int? DesiredCopyCount;

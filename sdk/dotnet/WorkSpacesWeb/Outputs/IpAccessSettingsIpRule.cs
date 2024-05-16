@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class IpAccessSettingsIpRule
     {
+        /// <summary>
+        /// The description of the IP rule.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// A single IP address or an IP address range in CIDR notation

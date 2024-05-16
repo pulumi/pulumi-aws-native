@@ -78,6 +78,9 @@ export class Template extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The content of the email, composed of a subject line and either an HTML part or a text-only part.
+     */
     public readonly template!: pulumi.Output<outputs.ses.Template | undefined>;
 
     /**
@@ -108,5 +111,8 @@ export class Template extends pulumi.CustomResource {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
+    /**
+     * The content of the email, composed of a subject line and either an HTML part or a text-only part.
+     */
     template?: pulumi.Input<inputs.ses.TemplateArgs>;
 }

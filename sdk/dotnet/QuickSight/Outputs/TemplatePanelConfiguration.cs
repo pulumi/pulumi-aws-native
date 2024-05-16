@@ -13,20 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePanelConfiguration
     {
+        /// <summary>
+        /// Sets the background color for each panel.
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// Determines whether or not a background for each small multiples panel is rendered.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? BackgroundVisibility;
+        /// <summary>
+        /// Sets the line color of panel borders.
+        /// </summary>
         public readonly string? BorderColor;
+        /// <summary>
+        /// Sets the line style of panel borders.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplatePanelBorderStyle? BorderStyle;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? BorderThickness;
+        /// <summary>
+        /// Determines whether or not each panel displays a border.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? BorderVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? GutterSpacing;
+        /// <summary>
+        /// Determines whether or not negative space between sibling panels is rendered.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? GutterVisibility;
+        /// <summary>
+        /// The options that determine the title styles for each small multiples panel.
+        /// </summary>
         public readonly Outputs.TemplatePanelTitleOptions? Title;
 
         [OutputConstructor]

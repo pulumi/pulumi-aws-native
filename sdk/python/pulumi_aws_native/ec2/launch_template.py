@@ -202,11 +202,19 @@ class LaunchTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultVersionNumber")
     def default_version_number(self) -> pulumi.Output[str]:
+        """
+        The default version of the launch template, such as 2.
+
+        The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
+        """
         return pulumi.get(self, "default_version_number")
 
     @property
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> pulumi.Output[str]:
+        """
+        The latest version of the launch template, such as `5` .
+        """
         return pulumi.get(self, "latest_version_number")
 
     @property
@@ -220,6 +228,9 @@ class LaunchTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the launch template.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @property

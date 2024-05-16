@@ -24,17 +24,27 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs,
 }
 
 type LookupInstanceProfileArgs struct {
+	// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupInstanceProfileResult struct {
-	Arn                           *string   `pulumi:"arn"`
-	Description                   *string   `pulumi:"description"`
-	ExcludeAppPackagesFromCleanup []string  `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          *string   `pulumi:"name"`
-	PackageCleanup                *bool     `pulumi:"packageCleanup"`
-	RebootAfterUse                *bool     `pulumi:"rebootAfterUse"`
-	Tags                          []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn *string `pulumi:"arn"`
+	// The description of the instance profile.
+	Description *string `pulumi:"description"`
+	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+	//
+	// The list of packages is considered only if you set `packageCleanup` to `true` .
+	ExcludeAppPackagesFromCleanup []string `pulumi:"excludeAppPackagesFromCleanup"`
+	// The name of the instance profile.
+	Name *string `pulumi:"name"`
+	// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+	PackageCleanup *bool `pulumi:"packageCleanup"`
+	// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+	RebootAfterUse *bool `pulumi:"rebootAfterUse"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceProfileResultOutput {
@@ -51,6 +61,7 @@ func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfile
 }
 
 type LookupInstanceProfileOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -72,30 +83,39 @@ func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o LookupInstanceProfileResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The description of the instance profile.
 func (o LookupInstanceProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+//
+// The list of packages is considered only if you set `packageCleanup` to `true` .
 func (o LookupInstanceProfileResultOutput) ExcludeAppPackagesFromCleanup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) []string { return v.ExcludeAppPackagesFromCleanup }).(pulumi.StringArrayOutput)
 }
 
+// The name of the instance profile.
 func (o LookupInstanceProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
 func (o LookupInstanceProfileResultOutput) PackageCleanup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *bool { return v.PackageCleanup }).(pulumi.BoolPtrOutput)
 }
 
+// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
 func (o LookupInstanceProfileResultOutput) RebootAfterUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *bool { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o LookupInstanceProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -44,6 +44,9 @@ class AnalyzerArchiveRule(dict):
                  rule_name: str):
         """
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
+        :param Sequence['AnalyzerFilter'] filter: The criteria that defines the archive rule.
+               
+               To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
         :param str rule_name: The archive rule name
         """
         pulumi.set(__self__, "filter", filter)
@@ -52,6 +55,11 @@ class AnalyzerArchiveRule(dict):
     @property
     @pulumi.getter
     def filter(self) -> Sequence['outputs.AnalyzerFilter']:
+        """
+        The criteria that defines the archive rule.
+
+        To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+        """
         return pulumi.get(self, "filter")
 
     @property
@@ -89,6 +97,7 @@ class AnalyzerConfigurationProperties(dict):
                  unused_access_configuration: Optional['outputs.AnalyzerUnusedAccessConfiguration'] = None):
         """
         The configuration for the analyzer
+        :param 'AnalyzerUnusedAccessConfiguration' unused_access_configuration: Contains information about an unused access analyzer.
         """
         if unused_access_configuration is not None:
             pulumi.set(__self__, "unused_access_configuration", unused_access_configuration)
@@ -96,6 +105,9 @@ class AnalyzerConfigurationProperties(dict):
     @property
     @pulumi.getter(name="unusedAccessConfiguration")
     def unused_access_configuration(self) -> Optional['outputs.AnalyzerUnusedAccessConfiguration']:
+        """
+        Contains information about an unused access analyzer.
+        """
         return pulumi.get(self, "unused_access_configuration")
 
 
@@ -107,6 +119,13 @@ class AnalyzerFilter(dict):
                  eq: Optional[Sequence[str]] = None,
                  exists: Optional[bool] = None,
                  neq: Optional[Sequence[str]] = None):
+        """
+        :param str property: The property used to define the criteria in the filter for the rule.
+        :param Sequence[str] contains: A "contains" condition to match for the rule.
+        :param Sequence[str] eq: An "equals" condition to match for the rule.
+        :param bool exists: An "exists" condition to match for the rule.
+        :param Sequence[str] neq: A "not equal" condition to match for the rule.
+        """
         pulumi.set(__self__, "property", property)
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
@@ -120,26 +139,41 @@ class AnalyzerFilter(dict):
     @property
     @pulumi.getter
     def contains(self) -> Optional[Sequence[str]]:
+        """
+        A "contains" condition to match for the rule.
+        """
         return pulumi.get(self, "contains")
 
     @property
     @pulumi.getter
     def eq(self) -> Optional[Sequence[str]]:
+        """
+        An "equals" condition to match for the rule.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def exists(self) -> Optional[bool]:
+        """
+        An "exists" condition to match for the rule.
+        """
         return pulumi.get(self, "exists")
 
     @property
     @pulumi.getter
     def neq(self) -> Optional[Sequence[str]]:
+        """
+        A "not equal" condition to match for the rule.
+        """
         return pulumi.get(self, "neq")
 
     @property
     @pulumi.getter
     def property(self) -> str:
+        """
+        The property used to define the criteria in the filter for the rule.
+        """
         return pulumi.get(self, "property")
 
 

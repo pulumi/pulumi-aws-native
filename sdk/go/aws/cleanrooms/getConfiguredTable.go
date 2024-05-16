@@ -24,15 +24,27 @@ func LookupConfiguredTable(ctx *pulumi.Context, args *LookupConfiguredTableArgs,
 }
 
 type LookupConfiguredTableArgs struct {
+	// Returns the unique identifier of the specified configured table.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	ConfiguredTableIdentifier string `pulumi:"configuredTableIdentifier"`
 }
 
 type LookupConfiguredTableResult struct {
-	AnalysisRules             []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
-	Arn                       *string                       `pulumi:"arn"`
-	ConfiguredTableIdentifier *string                       `pulumi:"configuredTableIdentifier"`
-	Description               *string                       `pulumi:"description"`
-	Name                      *string                       `pulumi:"name"`
+	// A specification about how data from the configured table can be used in a query.
+	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
+	// Returns the Amazon Resource Name (ARN) of the specified configured table.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	Arn *string `pulumi:"arn"`
+	// Returns the unique identifier of the specified configured table.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+	ConfiguredTableIdentifier *string `pulumi:"configuredTableIdentifier"`
+	// A description for the configured table.
+	Description *string `pulumi:"description"`
+	// A name for the configured table.
+	Name *string `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -51,6 +63,9 @@ func LookupConfiguredTableOutput(ctx *pulumi.Context, args LookupConfiguredTable
 }
 
 type LookupConfiguredTableOutputArgs struct {
+	// Returns the unique identifier of the specified configured table.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	ConfiguredTableIdentifier pulumi.StringInput `pulumi:"configuredTableIdentifier"`
 }
 
@@ -72,22 +87,31 @@ func (o LookupConfiguredTableResultOutput) ToLookupConfiguredTableResultOutputWi
 	return o
 }
 
+// A specification about how data from the configured table can be used in a query.
 func (o LookupConfiguredTableResultOutput) AnalysisRules() ConfiguredTableAnalysisRuleArrayOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) []ConfiguredTableAnalysisRule { return v.AnalysisRules }).(ConfiguredTableAnalysisRuleArrayOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified configured table.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o LookupConfiguredTableResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Returns the unique identifier of the specified configured table.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o LookupConfiguredTableResultOutput) ConfiguredTableIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) *string { return v.ConfiguredTableIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A description for the configured table.
 func (o LookupConfiguredTableResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the configured table.
 func (o LookupConfiguredTableResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

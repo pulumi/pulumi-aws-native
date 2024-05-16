@@ -23,12 +23,15 @@ func LookupSimulationApplicationVersion(ctx *pulumi.Context, args *LookupSimulat
 }
 
 type LookupSimulationApplicationVersionArgs struct {
+	// The Amazon Resource Name (ARN) of the simulation application version.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupSimulationApplicationVersionResult struct {
+	// The simulation application version.
 	ApplicationVersion *string `pulumi:"applicationVersion"`
-	Arn                *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the simulation application version.
+	Arn *string `pulumi:"arn"`
 }
 
 func LookupSimulationApplicationVersionOutput(ctx *pulumi.Context, args LookupSimulationApplicationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationApplicationVersionResultOutput {
@@ -45,6 +48,7 @@ func LookupSimulationApplicationVersionOutput(ctx *pulumi.Context, args LookupSi
 }
 
 type LookupSimulationApplicationVersionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the simulation application version.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupSimulationApplicationVersionResultOutput) ToLookupSimulationApplic
 	return o
 }
 
+// The simulation application version.
 func (o LookupSimulationApplicationVersionResultOutput) ApplicationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSimulationApplicationVersionResult) *string { return v.ApplicationVersion }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the simulation application version.
 func (o LookupSimulationApplicationVersionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSimulationApplicationVersionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

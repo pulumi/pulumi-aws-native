@@ -31,11 +31,14 @@ type LookupAlarmModelArgs struct {
 }
 
 type LookupAlarmModelResult struct {
+	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities *AlarmModelAlarmCapabilities `pulumi:"alarmCapabilities"`
+	// Contains information about one or more alarm actions.
 	AlarmEventActions *AlarmModelAlarmEventActions `pulumi:"alarmEventActions"`
 	// A brief description of the alarm model.
-	AlarmModelDescription *string              `pulumi:"alarmModelDescription"`
-	AlarmRule             *AlarmModelAlarmRule `pulumi:"alarmRule"`
+	AlarmModelDescription *string `pulumi:"alarmModelDescription"`
+	// Defines when your alarm is invoked.
+	AlarmRule *AlarmModelAlarmRule `pulumi:"alarmRule"`
 	// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// A non-negative integer that reflects the severity level of the alarm.
@@ -82,10 +85,12 @@ func (o LookupAlarmModelResultOutput) ToLookupAlarmModelResultOutputWithContext(
 	return o
 }
 
+// Contains the configuration information of alarm state changes.
 func (o LookupAlarmModelResultOutput) AlarmCapabilities() AlarmModelAlarmCapabilitiesPtrOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) *AlarmModelAlarmCapabilities { return v.AlarmCapabilities }).(AlarmModelAlarmCapabilitiesPtrOutput)
 }
 
+// Contains information about one or more alarm actions.
 func (o LookupAlarmModelResultOutput) AlarmEventActions() AlarmModelAlarmEventActionsPtrOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) *AlarmModelAlarmEventActions { return v.AlarmEventActions }).(AlarmModelAlarmEventActionsPtrOutput)
 }
@@ -95,6 +100,7 @@ func (o LookupAlarmModelResultOutput) AlarmModelDescription() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupAlarmModelResult) *string { return v.AlarmModelDescription }).(pulumi.StringPtrOutput)
 }
 
+// Defines when your alarm is invoked.
 func (o LookupAlarmModelResultOutput) AlarmRule() AlarmModelAlarmRulePtrOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) *AlarmModelAlarmRule { return v.AlarmRule }).(AlarmModelAlarmRulePtrOutput)
 }

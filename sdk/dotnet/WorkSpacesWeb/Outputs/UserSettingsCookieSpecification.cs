@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class UserSettingsCookieSpecification
     {
+        /// <summary>
+        /// The domain of the cookie.
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// The name of the cookie.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The path of the cookie.
+        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

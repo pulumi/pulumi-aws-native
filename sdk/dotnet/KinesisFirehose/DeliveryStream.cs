@@ -15,51 +15,102 @@ namespace Pulumi.AwsNative.KinesisFirehose
     [AwsNativeResourceType("aws-native:kinesisfirehose:DeliveryStream")]
     public partial class DeliveryStream : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+        /// </summary>
         [Output("amazonOpenSearchServerlessDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration?> AmazonOpenSearchServerlessDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the configuration of a destination in Amazon OpenSearch Service.
+        /// </summary>
         [Output("amazonopensearchserviceDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration?> AmazonopensearchserviceDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+        /// </summary>
         [Output("deliveryStreamEncryptionConfigurationInput")]
         public Output<Outputs.DeliveryStreamEncryptionConfigurationInput?> DeliveryStreamEncryptionConfigurationInput { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the delivery stream.
+        /// </summary>
         [Output("deliveryStreamName")]
         public Output<string?> DeliveryStreamName { get; private set; } = null!;
 
+        /// <summary>
+        /// The delivery stream type. This can be one of the following values:
+        /// 
+        /// - `DirectPut` : Provider applications access the delivery stream directly.
+        /// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+        /// </summary>
         [Output("deliveryStreamType")]
         public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
 
+        /// <summary>
+        /// The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+        /// </summary>
         [Output("elasticsearchDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamElasticsearchDestinationConfiguration?> ElasticsearchDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Output("extendedS3DestinationConfiguration")]
         public Output<Outputs.DeliveryStreamExtendedS3DestinationConfiguration?> ExtendedS3DestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// </summary>
         [Output("httpEndpointDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamHttpEndpointDestinationConfiguration?> HttpEndpointDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
+        /// </summary>
         [Output("kinesisStreamSourceConfiguration")]
         public Output<Outputs.DeliveryStreamKinesisStreamSourceConfiguration?> KinesisStreamSourceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
+        /// </summary>
         [Output("mskSourceConfiguration")]
         public Output<Outputs.DeliveryStreamMskSourceConfiguration?> MskSourceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         [Output("redshiftDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamRedshiftDestinationConfiguration?> RedshiftDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         [Output("s3DestinationConfiguration")]
         public Output<Outputs.DeliveryStreamS3DestinationConfiguration?> S3DestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Configure Snowflake destination
+        /// </summary>
         [Output("snowflakeDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamSnowflakeDestinationConfiguration?> SnowflakeDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Output("splunkDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamSplunkDestinationConfiguration?> SplunkDestinationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -88,14 +139,10 @@ namespace Pulumi.AwsNative.KinesisFirehose
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration",
-                    "amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
                     "deliveryStreamName",
                     "deliveryStreamType",
-                    "elasticsearchDestinationConfiguration.vpcConfiguration",
                     "kinesisStreamSourceConfiguration",
                     "mskSourceConfiguration",
-                    "snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,50 +166,99 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
     public sealed class DeliveryStreamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+        /// </summary>
         [Input("amazonOpenSearchServerlessDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs>? AmazonOpenSearchServerlessDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// Describes the configuration of a destination in Amazon OpenSearch Service.
+        /// </summary>
         [Input("amazonopensearchserviceDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>? AmazonopensearchserviceDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+        /// </summary>
         [Input("deliveryStreamEncryptionConfigurationInput")]
         public Input<Inputs.DeliveryStreamEncryptionConfigurationInputArgs>? DeliveryStreamEncryptionConfigurationInput { get; set; }
 
+        /// <summary>
+        /// The name of the delivery stream.
+        /// </summary>
         [Input("deliveryStreamName")]
         public Input<string>? DeliveryStreamName { get; set; }
 
+        /// <summary>
+        /// The delivery stream type. This can be one of the following values:
+        /// 
+        /// - `DirectPut` : Provider applications access the delivery stream directly.
+        /// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+        /// </summary>
         [Input("deliveryStreamType")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType>? DeliveryStreamType { get; set; }
 
+        /// <summary>
+        /// The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+        /// </summary>
         [Input("elasticsearchDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamElasticsearchDestinationConfigurationArgs>? ElasticsearchDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Input("extendedS3DestinationConfiguration")]
         public Input<Inputs.DeliveryStreamExtendedS3DestinationConfigurationArgs>? ExtendedS3DestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// </summary>
         [Input("httpEndpointDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamHttpEndpointDestinationConfigurationArgs>? HttpEndpointDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
+        /// </summary>
         [Input("kinesisStreamSourceConfiguration")]
         public Input<Inputs.DeliveryStreamKinesisStreamSourceConfigurationArgs>? KinesisStreamSourceConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
+        /// </summary>
         [Input("mskSourceConfiguration")]
         public Input<Inputs.DeliveryStreamMskSourceConfigurationArgs>? MskSourceConfiguration { get; set; }
 
+        /// <summary>
+        /// The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         [Input("redshiftDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamRedshiftDestinationConfigurationArgs>? RedshiftDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         [Input("s3DestinationConfiguration")]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3DestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// Configure Snowflake destination
+        /// </summary>
         [Input("snowflakeDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamSnowflakeDestinationConfigurationArgs>? SnowflakeDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Input("splunkDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamSplunkDestinationConfigurationArgs>? SplunkDestinationConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

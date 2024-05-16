@@ -32,9 +32,14 @@ class BotArgs:
         The set of arguments for constructing a Bot resource.
         :param pulumi.Input['DataPrivacyPropertiesArgs'] data_privacy: Data privacy setting of the Bot.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: IdleSessionTTLInSeconds of the resource
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
         :param pulumi.Input[bool] auto_build_bot_locales: Specifies whether to build the bot locales after bot creation completes.
+        :param pulumi.Input['BotS3LocationArgs'] bot_file_s3_location: Defines an Amazon S3 bucket location.
         :param pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]] bot_locales: List of bot locales
         :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
+        :param pulumi.Input[str] description: The description of the version.
+        :param pulumi.Input[str] name: The name of the bot locale.
+        :param pulumi.Input['BotTestBotAliasSettingsArgs'] test_bot_alias_settings: Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
         :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] test_bot_alias_tags: A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
         """
         pulumi.set(__self__, "data_privacy", data_privacy)
@@ -84,6 +89,9 @@ class BotArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -105,6 +113,9 @@ class BotArgs:
     @property
     @pulumi.getter(name="botFileS3Location")
     def bot_file_s3_location(self) -> Optional[pulumi.Input['BotS3LocationArgs']]:
+        """
+        Defines an Amazon S3 bucket location.
+        """
         return pulumi.get(self, "bot_file_s3_location")
 
     @bot_file_s3_location.setter
@@ -138,6 +149,9 @@ class BotArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -147,6 +161,9 @@ class BotArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bot locale.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -156,6 +173,9 @@ class BotArgs:
     @property
     @pulumi.getter(name="testBotAliasSettings")
     def test_bot_alias_settings(self) -> Optional[pulumi.Input['BotTestBotAliasSettingsArgs']]:
+        """
+        Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+        """
         return pulumi.get(self, "test_bot_alias_settings")
 
     @test_bot_alias_settings.setter
@@ -198,10 +218,15 @@ class Bot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_build_bot_locales: Specifies whether to build the bot locales after bot creation completes.
+        :param pulumi.Input[pulumi.InputType['BotS3LocationArgs']] bot_file_s3_location: Defines an Amazon S3 bucket location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotLocaleArgs']]]] bot_locales: List of bot locales
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotTagArgs']]]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
         :param pulumi.Input[pulumi.InputType['DataPrivacyPropertiesArgs']] data_privacy: Data privacy setting of the Bot.
+        :param pulumi.Input[str] description: The description of the version.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: IdleSessionTTLInSeconds of the resource
+        :param pulumi.Input[str] name: The name of the bot locale.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        :param pulumi.Input[pulumi.InputType['BotTestBotAliasSettingsArgs']] test_bot_alias_settings: Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotTagArgs']]]] test_bot_alias_tags: A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
         """
         ...
@@ -307,6 +332,9 @@ class Bot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -320,11 +348,17 @@ class Bot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the bot.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="botFileS3Location")
     def bot_file_s3_location(self) -> pulumi.Output[Optional['outputs.BotS3Location']]:
+        """
+        Defines an Amazon S3 bucket location.
+        """
         return pulumi.get(self, "bot_file_s3_location")
 
     @property
@@ -354,6 +388,9 @@ class Bot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -367,16 +404,25 @@ class Bot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the bot locale.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="testBotAliasSettings")
     def test_bot_alias_settings(self) -> pulumi.Output[Optional['outputs.BotTestBotAliasSettings']]:
+        """
+        Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+        """
         return pulumi.get(self, "test_bot_alias_settings")
 
     @property

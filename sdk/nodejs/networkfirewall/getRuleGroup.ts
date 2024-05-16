@@ -19,14 +19,36 @@ export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetRuleGroupArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     ruleGroupArn: string;
 }
 
 export interface GetRuleGroupResult {
+    /**
+     * A description of the rule group.
+     */
     readonly description?: string;
+    /**
+     * The object that defines the rules in a rule group.
+     *
+     * AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
+     *
+     * To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+     */
     readonly ruleGroup?: outputs.networkfirewall.RuleGroup;
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     readonly ruleGroupArn?: string;
+    /**
+     * The unique ID of the `RuleGroup` resource.
+     */
     readonly ruleGroupId?: string;
+    /**
+     * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +59,8 @@ export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.I
 }
 
 export interface GetRuleGroupOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     ruleGroupArn: pulumi.Input<string>;
 }

@@ -71,6 +71,9 @@ class GetRotationResult:
     @property
     @pulumi.getter
     def recurrence(self) -> Optional['outputs.RotationRecurrenceSettings']:
+        """
+        Information about when an on-call rotation is in effect and how long the rotation period lasts.
+        """
         return pulumi.get(self, "recurrence")
 
     @property
@@ -84,6 +87,9 @@ class GetRotationResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A container of a key-value name pair.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot application.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot application.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.RoboMaker
     [OutputType]
     public sealed class GetRobotApplicationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot application.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The revision ID of robot application.
@@ -60,7 +69,13 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The URI of the Docker image for the robot application.
         /// </summary>
         public readonly string? Environment;
+        /// <summary>
+        /// Information about a robot software suite.
+        /// </summary>
         public readonly Outputs.RobotApplicationRobotSoftwareSuite? RobotSoftwareSuite;
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the robot application.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

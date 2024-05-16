@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class GameSessionQueueFilterConfiguration
     {
+        /// <summary>
+        /// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
+        /// </summary>
         public readonly ImmutableArray<string> AllowedLocations;
 
         [OutputConstructor]

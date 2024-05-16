@@ -23,7 +23,12 @@ class VpcConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
+        :param pulumi.Input['VpcConnectionAuthentication'] authentication: The type of private link authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_subnets: The list of subnets in the client VPC to connect to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
         :param pulumi.Input[str] target_cluster_arn: The Amazon Resource Name (ARN) of the target cluster
+        :param pulumi.Input[str] vpc_id: The VPC id of the remote client.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Create tags when creating the VPC connection.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "client_subnets", client_subnets)
@@ -36,6 +41,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter
     def authentication(self) -> pulumi.Input['VpcConnectionAuthentication']:
+        """
+        The type of private link authentication.
+        """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
@@ -45,6 +53,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of subnets in the client VPC to connect to.
+        """
         return pulumi.get(self, "client_subnets")
 
     @client_subnets.setter
@@ -54,6 +65,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The security groups to attach to the ENIs for the broker nodes.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -75,6 +89,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The VPC id of the remote client.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -84,6 +101,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Create tags when creating the VPC connection.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -108,7 +128,12 @@ class VpcConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['VpcConnectionAuthentication'] authentication: The type of private link authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_subnets: The list of subnets in the client VPC to connect to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Create tags when creating the VPC connection.
         :param pulumi.Input[str] target_cluster_arn: The Amazon Resource Name (ARN) of the target cluster
+        :param pulumi.Input[str] vpc_id: The VPC id of the remote client.
         """
         ...
     @overload
@@ -202,26 +227,41 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the VPC connection.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def authentication(self) -> pulumi.Output['VpcConnectionAuthentication']:
+        """
+        The type of private link authentication.
+        """
         return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of subnets in the client VPC to connect to.
+        """
         return pulumi.get(self, "client_subnets")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The security groups to attach to the ENIs for the broker nodes.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Create tags when creating the VPC connection.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -235,5 +275,8 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The VPC id of the remote client.
+        """
         return pulumi.get(self, "vpc_id")
 

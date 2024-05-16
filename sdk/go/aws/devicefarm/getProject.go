@@ -24,15 +24,21 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 }
 
 type LookupProjectArgs struct {
+	// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupProjectResult struct {
-	Arn                      *string           `pulumi:"arn"`
-	DefaultJobTimeoutMinutes *int              `pulumi:"defaultJobTimeoutMinutes"`
-	Name                     *string           `pulumi:"name"`
-	Tags                     []aws.Tag         `pulumi:"tags"`
-	VpcConfig                *ProjectVpcConfig `pulumi:"vpcConfig"`
+	// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn *string `pulumi:"arn"`
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
+	// The project's name.
+	Name *string `pulumi:"name"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -49,6 +55,7 @@ func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts
 }
 
 type LookupProjectOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -70,22 +77,27 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o LookupProjectResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 func (o LookupProjectResultOutput) DefaultJobTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *int { return v.DefaultJobTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The project's name.
 func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC security groups and subnets that are attached to a project.
 func (o LookupProjectResultOutput) VpcConfig() ProjectVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectVpcConfig { return v.VpcConfig }).(ProjectVpcConfigPtrOutput)
 }

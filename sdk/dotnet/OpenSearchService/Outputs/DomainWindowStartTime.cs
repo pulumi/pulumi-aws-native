@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainWindowStartTime
     {
+        /// <summary>
+        /// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+        /// </summary>
         public readonly int Hours;
+        /// <summary>
+        /// The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
+        /// </summary>
         public readonly int Minutes;
 
         [OutputConstructor]

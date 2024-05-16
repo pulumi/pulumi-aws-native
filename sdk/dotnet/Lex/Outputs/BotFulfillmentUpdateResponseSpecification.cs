@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
         /// </summary>
         public readonly int FrequencyInSeconds;
+        /// <summary>
+        /// 1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroups;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotAdvancedRecognitionSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        /// </summary>
         [Input("audioRecognitionStrategy")]
         public Input<Pulumi.AwsNative.Lex.BotAudioRecognitionStrategy>? AudioRecognitionStrategy { get; set; }
 

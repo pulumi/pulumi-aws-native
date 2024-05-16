@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The model ID.
+        /// </summary>
         [Output("modelId")]
         public Output<string> ModelId { get; private set; } = null!;
 

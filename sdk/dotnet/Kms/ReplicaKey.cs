@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.Kms
     [AwsNativeResourceType("aws-native:kms:ReplicaKey")]
     public partial class ReplicaKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+        /// 
+        /// The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -30,6 +35,11 @@ namespace Pulumi.AwsNative.Kms
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+        /// 
+        /// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 

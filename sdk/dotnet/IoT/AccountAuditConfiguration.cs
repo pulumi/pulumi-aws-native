@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.IoT
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The types of audit checks that can be performed.
+        /// </summary>
         [Output("auditCheckConfigurations")]
         public Output<Outputs.AccountAuditConfigurationAuditCheckConfigurations> AuditCheckConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of the audit notification target.
+        /// </summary>
         [Output("auditNotificationTargetConfigurations")]
         public Output<Outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations?> AuditNotificationTargetConfigurations { get; private set; } = null!;
 
@@ -88,9 +94,15 @@ namespace Pulumi.AwsNative.IoT
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The types of audit checks that can be performed.
+        /// </summary>
         [Input("auditCheckConfigurations", required: true)]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationsArgs> AuditCheckConfigurations { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of the audit notification target.
+        /// </summary>
         [Input("auditNotificationTargetConfigurations")]
         public Input<Inputs.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs>? AuditNotificationTargetConfigurations { get; set; }
 

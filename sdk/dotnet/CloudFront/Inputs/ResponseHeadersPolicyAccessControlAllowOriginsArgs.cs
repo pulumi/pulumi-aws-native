@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("items", required: true)]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// The list of origins (domain names). You can specify `*` to allow all origins.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());

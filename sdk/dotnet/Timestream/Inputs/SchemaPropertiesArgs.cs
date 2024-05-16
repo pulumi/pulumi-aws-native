@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     {
         [Input("compositePartitionKey")]
         private InputList<Inputs.TablePartitionKeyArgs>? _compositePartitionKey;
+
+        /// <summary>
+        /// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
+        /// </summary>
         public InputList<Inputs.TablePartitionKeyArgs> CompositePartitionKey
         {
             get => _compositePartitionKey ?? (_compositePartitionKey = new InputList<Inputs.TablePartitionKeyArgs>());

@@ -108,11 +108,17 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the fleet.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The list of all tags added to the fleet.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -149,5 +155,8 @@ export interface FleetArgs {
      * The name of the fleet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The list of all tags added to the fleet.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

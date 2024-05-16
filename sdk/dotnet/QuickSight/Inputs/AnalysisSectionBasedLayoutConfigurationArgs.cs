@@ -14,17 +14,28 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("bodySections", required: true)]
         private InputList<Inputs.AnalysisBodySectionConfigurationArgs>? _bodySections;
+
+        /// <summary>
+        /// The configuration of a body section.
+        /// </summary>
         public InputList<Inputs.AnalysisBodySectionConfigurationArgs> BodySections
         {
             get => _bodySections ?? (_bodySections = new InputList<Inputs.AnalysisBodySectionConfigurationArgs>());
             set => _bodySections = value;
         }
 
+        /// <summary>
+        /// The options for the canvas of a section-based layout.
+        /// </summary>
         [Input("canvasSizeOptions", required: true)]
         public Input<Inputs.AnalysisSectionBasedLayoutCanvasSizeOptionsArgs> CanvasSizeOptions { get; set; } = null!;
 
         [Input("footerSections", required: true)]
         private InputList<Inputs.AnalysisHeaderFooterSectionConfigurationArgs>? _footerSections;
+
+        /// <summary>
+        /// The configuration of a header or footer section.
+        /// </summary>
         public InputList<Inputs.AnalysisHeaderFooterSectionConfigurationArgs> FooterSections
         {
             get => _footerSections ?? (_footerSections = new InputList<Inputs.AnalysisHeaderFooterSectionConfigurationArgs>());
@@ -33,6 +44,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("headerSections", required: true)]
         private InputList<Inputs.AnalysisHeaderFooterSectionConfigurationArgs>? _headerSections;
+
+        /// <summary>
+        /// A list of header section configurations.
+        /// </summary>
         public InputList<Inputs.AnalysisHeaderFooterSectionConfigurationArgs> HeaderSections
         {
             get => _headerSections ?? (_headerSections = new InputList<Inputs.AnalysisHeaderFooterSectionConfigurationArgs>());

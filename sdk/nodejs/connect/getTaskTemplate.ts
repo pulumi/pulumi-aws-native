@@ -30,6 +30,9 @@ export interface GetTaskTemplateResult {
      * The identifier (arn) of the task template.
      */
     readonly arn?: string;
+    /**
+     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+     */
     readonly clientToken?: string;
     /**
      * The constraints for the task template
@@ -39,6 +42,9 @@ export interface GetTaskTemplateResult {
      * The identifier of the contact flow.
      */
     readonly contactFlowArn?: string;
+    /**
+     * Describes a default field and its corresponding value.
+     */
     readonly defaults?: outputs.connect.TaskTemplateDefaultFieldValue[];
     /**
      * The description of the task template.
@@ -56,6 +62,9 @@ export interface GetTaskTemplateResult {
      * The name of the task template.
      */
     readonly name?: string;
+    /**
+     * The status of the task template.
+     */
     readonly status?: enums.connect.TaskTemplateStatus;
     /**
      * One or more tags.

@@ -26,6 +26,8 @@ class LiveSourceArgs:
         """
         The set of arguments for constructing a LiveSource resource.
         :param pulumi.Input[Sequence[pulumi.Input['LiveSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
+        :param pulumi.Input[str] source_location_name: The name of the source location.
+        :param pulumi.Input[str] live_source_name: The name that's used to refer to a live source.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the live source.
         """
         pulumi.set(__self__, "http_package_configurations", http_package_configurations)
@@ -50,6 +52,9 @@ class LiveSourceArgs:
     @property
     @pulumi.getter(name="sourceLocationName")
     def source_location_name(self) -> pulumi.Input[str]:
+        """
+        The name of the source location.
+        """
         return pulumi.get(self, "source_location_name")
 
     @source_location_name.setter
@@ -59,6 +64,9 @@ class LiveSourceArgs:
     @property
     @pulumi.getter(name="liveSourceName")
     def live_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name that's used to refer to a live source.
+        """
         return pulumi.get(self, "live_source_name")
 
     @live_source_name.setter
@@ -94,6 +102,8 @@ class LiveSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveSourceHttpPackageConfigurationArgs']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
+        :param pulumi.Input[str] live_source_name: The name that's used to refer to a live source.
+        :param pulumi.Input[str] source_location_name: The name of the source location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the live source.
         """
         ...
@@ -192,11 +202,17 @@ class LiveSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="liveSourceName")
     def live_source_name(self) -> pulumi.Output[str]:
+        """
+        The name that's used to refer to a live source.
+        """
         return pulumi.get(self, "live_source_name")
 
     @property
     @pulumi.getter(name="sourceLocationName")
     def source_location_name(self) -> pulumi.Output[str]:
+        """
+        The name of the source location.
+        """
         return pulumi.get(self, "source_location_name")
 
     @property

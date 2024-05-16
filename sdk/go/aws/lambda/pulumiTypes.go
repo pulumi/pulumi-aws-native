@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AliasProvisionedConcurrencyConfiguration struct {
+	// The amount of provisioned concurrency to allocate for the alias.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 }
 
@@ -29,6 +30,7 @@ type AliasProvisionedConcurrencyConfigurationInput interface {
 }
 
 type AliasProvisionedConcurrencyConfigurationArgs struct {
+	// The amount of provisioned concurrency to allocate for the alias.
 	ProvisionedConcurrentExecutions pulumi.IntInput `pulumi:"provisionedConcurrentExecutions"`
 }
 
@@ -109,6 +111,7 @@ func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcur
 	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the alias.
 func (o AliasProvisionedConcurrencyConfigurationOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v AliasProvisionedConcurrencyConfiguration) int { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
 }
@@ -137,6 +140,7 @@ func (o AliasProvisionedConcurrencyConfigurationPtrOutput) Elem() AliasProvision
 	}).(AliasProvisionedConcurrencyConfigurationOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the alias.
 func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AliasProvisionedConcurrencyConfiguration) *int {
 		if v == nil {
@@ -147,6 +151,7 @@ func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrent
 }
 
 type AliasRoutingConfiguration struct {
+	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
 	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
 }
 
@@ -162,6 +167,7 @@ type AliasRoutingConfigurationInput interface {
 }
 
 type AliasRoutingConfigurationArgs struct {
+	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
 	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
 }
 
@@ -242,6 +248,7 @@ func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutputWit
 	}).(AliasRoutingConfigurationPtrOutput)
 }
 
+// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
 func (o AliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
 }
@@ -270,6 +277,7 @@ func (o AliasRoutingConfigurationPtrOutput) Elem() AliasRoutingConfigurationOutp
 	}).(AliasRoutingConfigurationOutput)
 }
 
+// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
 func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
 	return o.ApplyT(func(v *AliasRoutingConfiguration) []AliasVersionWeight {
 		if v == nil {
@@ -280,8 +288,10 @@ func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVers
 }
 
 type AliasVersionWeight struct {
-	FunctionVersion string  `pulumi:"functionVersion"`
-	FunctionWeight  float64 `pulumi:"functionWeight"`
+	// The qualifier of the second version.
+	FunctionVersion string `pulumi:"functionVersion"`
+	// The percentage of traffic that the alias routes to the second version.
+	FunctionWeight float64 `pulumi:"functionWeight"`
 }
 
 // AliasVersionWeightInput is an input type that accepts AliasVersionWeightArgs and AliasVersionWeightOutput values.
@@ -296,8 +306,10 @@ type AliasVersionWeightInput interface {
 }
 
 type AliasVersionWeightArgs struct {
-	FunctionVersion pulumi.StringInput  `pulumi:"functionVersion"`
-	FunctionWeight  pulumi.Float64Input `pulumi:"functionWeight"`
+	// The qualifier of the second version.
+	FunctionVersion pulumi.StringInput `pulumi:"functionVersion"`
+	// The percentage of traffic that the alias routes to the second version.
+	FunctionWeight pulumi.Float64Input `pulumi:"functionWeight"`
 }
 
 func (AliasVersionWeightArgs) ElementType() reflect.Type {
@@ -351,10 +363,12 @@ func (o AliasVersionWeightOutput) ToAliasVersionWeightOutputWithContext(ctx cont
 	return o
 }
 
+// The qualifier of the second version.
 func (o AliasVersionWeightOutput) FunctionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasVersionWeight) string { return v.FunctionVersion }).(pulumi.StringOutput)
 }
 
+// The percentage of traffic that the alias routes to the second version.
 func (o AliasVersionWeightOutput) FunctionWeight() pulumi.Float64Output {
 	return o.ApplyT(func(v AliasVersionWeight) float64 { return v.FunctionWeight }).(pulumi.Float64Output)
 }
@@ -612,7 +626,9 @@ func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeploy
 
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfig struct {
+	// A destination for events that failed processing.
 	OnFailure *EventInvokeConfigOnFailure `pulumi:"onFailure"`
+	// A destination for events that were processed successfully.
 	OnSuccess *EventInvokeConfigOnSuccess `pulumi:"onSuccess"`
 }
 
@@ -629,7 +645,9 @@ type EventInvokeConfigDestinationConfigInput interface {
 
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfigArgs struct {
+	// A destination for events that failed processing.
 	OnFailure EventInvokeConfigOnFailurePtrInput `pulumi:"onFailure"`
+	// A destination for events that were processed successfully.
 	OnSuccess EventInvokeConfigOnSuccessPtrInput `pulumi:"onSuccess"`
 }
 
@@ -711,10 +729,12 @@ func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestination
 	}).(EventInvokeConfigDestinationConfigPtrOutput)
 }
 
+// A destination for events that failed processing.
 func (o EventInvokeConfigDestinationConfigOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure { return v.OnFailure }).(EventInvokeConfigOnFailurePtrOutput)
 }
 
+// A destination for events that were processed successfully.
 func (o EventInvokeConfigDestinationConfigOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess { return v.OnSuccess }).(EventInvokeConfigOnSuccessPtrOutput)
 }
@@ -743,6 +763,7 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) Elem() EventInvokeConfigDes
 	}).(EventInvokeConfigDestinationConfigOutput)
 }
 
+// A destination for events that failed processing.
 func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure {
 		if v == nil {
@@ -752,6 +773,7 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConf
 	}).(EventInvokeConfigOnFailurePtrOutput)
 }
 
+// A destination for events that were processed successfully.
 func (o EventInvokeConfigDestinationConfigPtrOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess {
 		if v == nil {
@@ -4426,7 +4448,8 @@ type UrlCors struct {
 	AllowOrigins []string `pulumi:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	ExposeHeaders []string `pulumi:"exposeHeaders"`
-	MaxAge        *int     `pulumi:"maxAge"`
+	// The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
+	MaxAge *int `pulumi:"maxAge"`
 }
 
 // UrlCorsInput is an input type that accepts UrlCorsArgs and UrlCorsOutput values.
@@ -4451,7 +4474,8 @@ type UrlCorsArgs struct {
 	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	MaxAge        pulumi.IntPtrInput      `pulumi:"maxAge"`
+	// The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
 }
 
 func (UrlCorsArgs) ElementType() reflect.Type {
@@ -4556,6 +4580,7 @@ func (o UrlCorsOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UrlCors) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
+// The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
 func (o UrlCorsOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UrlCors) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
@@ -4634,6 +4659,7 @@ func (o UrlCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
 func (o UrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCors) *int {
 		if v == nil {

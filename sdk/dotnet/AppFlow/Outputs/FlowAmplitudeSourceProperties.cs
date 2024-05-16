@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowAmplitudeSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Amplitude flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

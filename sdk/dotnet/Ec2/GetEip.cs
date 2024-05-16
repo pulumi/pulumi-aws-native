@@ -31,9 +31,15 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetEipArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+        /// </summary>
         [Input("allocationId", required: true)]
         public string AllocationId { get; set; } = null!;
 
+        /// <summary>
+        /// The Elastic IP address.
+        /// </summary>
         [Input("publicIp", required: true)]
         public string PublicIp { get; set; } = null!;
 
@@ -45,9 +51,15 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetEipInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+        /// </summary>
         [Input("allocationId", required: true)]
         public Input<string> AllocationId { get; set; } = null!;
 
+        /// <summary>
+        /// The Elastic IP address.
+        /// </summary>
         [Input("publicIp", required: true)]
         public Input<string> PublicIp { get; set; } = null!;
 
@@ -61,12 +73,18 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetEipResult
     {
+        /// <summary>
+        /// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+        /// </summary>
         public readonly string? AllocationId;
         /// <summary>
         /// The ID of the instance.
         ///   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
         /// </summary>
         public readonly string? InstanceId;
+        /// <summary>
+        /// The Elastic IP address.
+        /// </summary>
         public readonly string? PublicIp;
         /// <summary>
         /// The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.

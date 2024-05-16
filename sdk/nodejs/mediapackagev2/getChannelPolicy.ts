@@ -17,12 +17,20 @@ export function getChannelPolicy(args: GetChannelPolicyArgs, opts?: pulumi.Invok
 }
 
 export interface GetChannelPolicyArgs {
+    /**
+     * The name of the channel group associated with the channel policy.
+     */
     channelGroupName: string;
+    /**
+     * The name of the channel associated with the channel policy.
+     */
     channelName: string;
 }
 
 export interface GetChannelPolicyResult {
     /**
+     * The policy associated with the channel.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
      */
     readonly policy?: any;
@@ -35,6 +43,12 @@ export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: 
 }
 
 export interface GetChannelPolicyOutputArgs {
+    /**
+     * The name of the channel group associated with the channel policy.
+     */
     channelGroupName: pulumi.Input<string>;
+    /**
+     * The name of the channel associated with the channel policy.
+     */
     channelName: pulumi.Input<string>;
 }

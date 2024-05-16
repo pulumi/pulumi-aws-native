@@ -19,6 +19,9 @@ export function getListener(args: GetListenerArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetListenerArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     listenerArn: string;
 }
 
@@ -37,6 +40,9 @@ export interface GetListenerResult {
      *  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
      */
     readonly defaultActions?: outputs.elasticloadbalancingv2.ListenerAction[];
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     readonly listenerArn?: string;
     /**
      * The mutual authentication configuration information.
@@ -65,5 +71,8 @@ export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetListenerOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     listenerArn: pulumi.Input<string>;
 }

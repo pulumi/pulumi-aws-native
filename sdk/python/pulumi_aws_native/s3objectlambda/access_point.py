@@ -148,11 +148,17 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def alias(self) -> pulumi.Output['outputs.AccessPointAlias']:
+        """
+        The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
+        """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Specifies the ARN for the Object Lambda Access Point.
+        """
         return pulumi.get(self, "arn")
 
     @property

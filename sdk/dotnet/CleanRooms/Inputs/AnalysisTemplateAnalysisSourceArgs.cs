@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class AnalysisTemplateAnalysisSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query text.
+        /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;
 

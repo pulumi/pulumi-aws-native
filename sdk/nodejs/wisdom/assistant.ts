@@ -37,12 +37,33 @@ export class Assistant extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assistant.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The ID of the Wisdom assistant.
+     */
     public /*out*/ readonly assistantId!: pulumi.Output<string>;
+    /**
+     * The description of the assistant.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the assistant.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The configuration information for the customer managed key used for encryption.
+     */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.AssistantServerSideEncryptionConfiguration | undefined>;
+    /**
+     * Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * The type of assistant.
+     */
     public readonly type!: pulumi.Output<enums.wisdom.AssistantType>;
 
     /**
@@ -86,9 +107,24 @@ export class Assistant extends pulumi.CustomResource {
  * The set of arguments for constructing a Assistant resource.
  */
 export interface AssistantArgs {
+    /**
+     * The description of the assistant.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the assistant.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The configuration information for the customer managed key used for encryption.
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.AssistantServerSideEncryptionConfigurationArgs>;
+    /**
+     * Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    /**
+     * The type of assistant.
+     */
     type: pulumi.Input<enums.wisdom.AssistantType>;
 }

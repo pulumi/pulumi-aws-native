@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecs
     [AwsNativeResourceType("aws-native:ecs:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon ECS cluster, such as `arn:aws:ecs:us-east-2:123456789012:cluster/MyECSCluster` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

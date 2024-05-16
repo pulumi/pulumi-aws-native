@@ -14,78 +14,141 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("contributionAnalysisDefaults")]
         private InputList<Inputs.DashboardContributionAnalysisDefaultArgs>? _contributionAnalysisDefaults;
+
+        /// <summary>
+        /// The default configuration of a line chart's contribution analysis.
+        /// </summary>
         public InputList<Inputs.DashboardContributionAnalysisDefaultArgs> ContributionAnalysisDefaults
         {
             get => _contributionAnalysisDefaults ?? (_contributionAnalysisDefaults = new InputList<Inputs.DashboardContributionAnalysisDefaultArgs>());
             set => _contributionAnalysisDefaults = value;
         }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The options that determine the default presentation of all line series in `LineChartVisual` .
+        /// </summary>
         [Input("defaultSeriesSettings")]
         public Input<Inputs.DashboardLineChartDefaultSeriesSettingsArgs>? DefaultSeriesSettings { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.DashboardLineChartFieldWellsArgs>? FieldWells { get; set; }
 
         [Input("forecastConfigurations")]
         private InputList<Inputs.DashboardForecastConfigurationArgs>? _forecastConfigurations;
+
+        /// <summary>
+        /// The forecast configuration that is used in a line chart's display properties.
+        /// </summary>
         public InputList<Inputs.DashboardForecastConfigurationArgs> ForecastConfigurations
         {
             get => _forecastConfigurations ?? (_forecastConfigurations = new InputList<Inputs.DashboardForecastConfigurationArgs>());
             set => _forecastConfigurations = value;
         }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.DashboardLineSeriesAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
 
         [Input("referenceLines")]
         private InputList<Inputs.DashboardReferenceLineArgs>? _referenceLines;
+
+        /// <summary>
+        /// The reference lines configuration of a line chart.
+        /// </summary>
         public InputList<Inputs.DashboardReferenceLineArgs> ReferenceLines
         {
             get => _referenceLines ?? (_referenceLines = new InputList<Inputs.DashboardReferenceLineArgs>());
             set => _referenceLines = value;
         }
 
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         [Input("secondaryYAxisDisplayOptions")]
         public Input<Inputs.DashboardLineSeriesAxisDisplayOptionsArgs>? SecondaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
 
         [Input("series")]
         private InputList<Inputs.DashboardSeriesItemArgs>? _series;
+
+        /// <summary>
+        /// The series item configuration of a line chart.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardSeriesItemArgs> Series
         {
             get => _series ?? (_series = new InputList<Inputs.DashboardSeriesItemArgs>());
             set => _series = value;
         }
 
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         [Input("smallMultiplesOptions")]
         public Input<Inputs.DashboardSmallMultiplesOptionsArgs>? SmallMultiplesOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a line chart.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.DashboardLineChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.DashboardTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// Determines the type of the line chart.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardLineChartType>? Type { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.DashboardVisualPaletteArgs>? VisualPalette { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }
 

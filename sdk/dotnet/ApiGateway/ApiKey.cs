@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID for the API key. For example: `abc123` .
+        /// </summary>
         [Output("apiKeyId")]
         public Output<string> ApiKeyId { get; private set; } = null!;
 

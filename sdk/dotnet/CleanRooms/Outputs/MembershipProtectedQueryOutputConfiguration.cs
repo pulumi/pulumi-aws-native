@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipProtectedQueryOutputConfiguration
     {
+        /// <summary>
+        /// Contains the configuration to write the query results to S3.
+        /// </summary>
         public readonly Outputs.MembershipProtectedQueryS3OutputConfiguration S3;
 
         [OutputConstructor]

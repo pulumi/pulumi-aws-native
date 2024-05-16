@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         ///                 &lt;code&gt;UPLOAD&lt;/code&gt;.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode> Mode;
+        /// <summary>
+        /// The upload storage root location (folder) on streaming workstations where files are uploaded.
+        /// </summary>
         public readonly Outputs.LaunchProfileStreamingSessionStorageRoot? Root;
 
         [OutputConstructor]

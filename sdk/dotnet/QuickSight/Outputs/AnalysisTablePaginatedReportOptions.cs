@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTablePaginatedReportOptions
     {
+        /// <summary>
+        /// The visibility of repeating header rows on each page.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? OverflowColumnHeaderVisibility;
+        /// <summary>
+        /// The visibility of printing table overflow across pages.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? VerticalOverflowVisibility;
 
         [OutputConstructor]

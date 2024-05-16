@@ -13,14 +13,31 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAxisDisplayOptions
     {
+        /// <summary>
+        /// Determines whether or not the axis line is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AxisLineVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? AxisOffset;
+        /// <summary>
+        /// The data options for an axis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.TemplateAxisDataOptions? DataOptions;
+        /// <summary>
+        /// Determines whether or not the grid line is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? GridLineVisibility;
+        /// <summary>
+        /// The visual display options for a data zoom scroll bar.
+        /// </summary>
         public readonly Outputs.TemplateScrollBarOptions? ScrollbarOptions;
+        /// <summary>
+        /// The tick label options of an axis.
+        /// </summary>
         public readonly Outputs.TemplateAxisTickLabelOptions? TickLabelOptions;
 
         [OutputConstructor]

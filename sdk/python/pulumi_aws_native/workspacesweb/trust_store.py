@@ -20,6 +20,8 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_list: A list of CA certificates to be added to the trust store.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
         """
         pulumi.set(__self__, "certificate_list", certificate_list)
         if tags is not None:
@@ -28,6 +30,9 @@ class TrustStoreArgs:
     @property
     @pulumi.getter(name="certificateList")
     def certificate_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of CA certificates to be added to the trust store.
+        """
         return pulumi.get(self, "certificate_list")
 
     @certificate_list.setter
@@ -37,6 +42,9 @@ class TrustStoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -57,6 +65,8 @@ class TrustStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_list: A list of CA certificates to be added to the trust store.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
         """
         ...
     @overload
@@ -130,20 +140,32 @@ class TrustStore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of web portal ARNs that this trust store is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="certificateList")
     def certificate_list(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of CA certificates to be added to the trust store.
+        """
         return pulumi.get(self, "certificate_list")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the trust store.
+        """
         return pulumi.get(self, "trust_store_arn")
 

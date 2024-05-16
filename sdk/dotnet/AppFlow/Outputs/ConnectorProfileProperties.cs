@@ -16,19 +16,61 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileProperties
     {
+        /// <summary>
+        /// The profile properties required by the custom connector.
+        /// </summary>
         public readonly Outputs.ConnectorProfileCustomConnectorProfileProperties? CustomConnector;
+        /// <summary>
+        /// The connector-specific profile properties required by Datadog.
+        /// </summary>
         public readonly Outputs.ConnectorProfileDatadogConnectorProfileProperties? Datadog;
+        /// <summary>
+        /// The connector-specific profile properties required by Dynatrace.
+        /// </summary>
         public readonly Outputs.ConnectorProfileDynatraceConnectorProfileProperties? Dynatrace;
+        /// <summary>
+        /// The connector-specific profile properties required by Infor Nexus.
+        /// </summary>
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileProperties? InforNexus;
+        /// <summary>
+        /// The connector-specific profile properties required when using Marketo.
+        /// </summary>
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileProperties? Marketo;
+        /// <summary>
+        /// The connector-specific profile properties required when using Salesforce Pardot.
+        /// </summary>
         public readonly Outputs.ConnectorProfilePardotConnectorProfileProperties? Pardot;
+        /// <summary>
+        /// The connector-specific profile properties when using Amazon Redshift.
+        /// </summary>
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileProperties? Redshift;
+        /// <summary>
+        /// The connector-specific profile properties required when using Salesforce.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileProperties? Salesforce;
+        /// <summary>
+        /// The connector-specific profile properties required when using SAPOData.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSapoDataConnectorProfileProperties? SapoData;
+        /// <summary>
+        /// The connector-specific profile properties required when using ServiceNow.
+        /// </summary>
         public readonly Outputs.ConnectorProfileServiceNowConnectorProfileProperties? ServiceNow;
+        /// <summary>
+        /// The connector-specific profile properties required when using Slack.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSlackConnectorProfileProperties? Slack;
+        /// <summary>
+        /// The connector-specific profile properties required when using Snowflake.
+        /// </summary>
         public readonly Outputs.ConnectorProfileSnowflakeConnectorProfileProperties? Snowflake;
+        /// <summary>
+        /// The connector-specific profile properties required when using Veeva.
+        /// </summary>
         public readonly Outputs.ConnectorProfileVeevaConnectorProfileProperties? Veeva;
+        /// <summary>
+        /// The connector-specific profile properties required when using Zendesk.
+        /// </summary>
         public readonly Outputs.ConnectorProfileZendeskConnectorProfileProperties? Zendesk;
 
         [OutputConstructor]

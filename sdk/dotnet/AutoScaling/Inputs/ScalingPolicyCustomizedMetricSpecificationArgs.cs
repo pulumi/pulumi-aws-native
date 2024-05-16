@@ -14,21 +14,37 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     {
         [Input("dimensions")]
         private InputList<Inputs.ScalingPolicyMetricDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+        /// </summary>
         public InputList<Inputs.ScalingPolicyMetricDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.ScalingPolicyMetricDimensionArgs>());
             set => _dimensions = value;
         }
 
+        /// <summary>
+        /// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The namespace of the metric.
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// The statistic of the metric.
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 
+        /// <summary>
+        /// The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCustomActionSetParametersOperation
     {
+        /// <summary>
+        /// The configuration of adding parameters in action.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSetParameterValueConfiguration> ParameterValueConfigurations;
 
         [OutputConstructor]

@@ -23,14 +23,19 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 }
 
 type LookupResourcePolicyArgs struct {
+	// The identifier of the resource policy.
 	Id string `pulumi:"id"`
 }
 
 type LookupResourcePolicyResult struct {
-	Id          *string               `pulumi:"id"`
-	Policy      *ResourcePolicyPolicy `pulumi:"policy"`
-	ResourceArn *string               `pulumi:"resourceArn"`
-	RevisionId  *string               `pulumi:"revisionId"`
+	// The identifier of the resource policy.
+	Id *string `pulumi:"id"`
+	// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+	Policy *ResourcePolicyPolicy `pulumi:"policy"`
+	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// Specifies the current revision of a resource policy.
+	RevisionId *string `pulumi:"revisionId"`
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
@@ -47,6 +52,7 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 }
 
 type LookupResourcePolicyOutputArgs struct {
+	// The identifier of the resource policy.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -68,18 +74,22 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 	return o
 }
 
+// The identifier of the resource policy.
 func (o LookupResourcePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
 func (o LookupResourcePolicyResultOutput) Policy() ResourcePolicyPolicyPtrOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) *ResourcePolicyPolicy { return v.Policy }).(ResourcePolicyPolicyPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
 func (o LookupResourcePolicyResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the current revision of a resource policy.
 func (o LookupResourcePolicyResultOutput) RevisionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.RevisionId }).(pulumi.StringPtrOutput)
 }

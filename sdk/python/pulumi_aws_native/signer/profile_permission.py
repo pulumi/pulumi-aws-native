@@ -21,6 +21,11 @@ class ProfilePermissionArgs:
                  profile_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProfilePermission resource.
+        :param pulumi.Input[str] action: The AWS Signer action permitted as part of cross-account permissions.
+        :param pulumi.Input[str] principal: The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+        :param pulumi.Input[str] profile_name: The human-readable name of the signing profile.
+        :param pulumi.Input[str] statement_id: A unique identifier for the cross-account permission statement.
+        :param pulumi.Input[str] profile_version: The version of the signing profile.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "principal", principal)
@@ -32,6 +37,9 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        The AWS Signer action permitted as part of cross-account permissions.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -41,6 +49,9 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -50,6 +61,9 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
+        """
+        The human-readable name of the signing profile.
+        """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
@@ -59,6 +73,9 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the cross-account permission statement.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -68,6 +85,9 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the signing profile.
+        """
         return pulumi.get(self, "profile_version")
 
     @profile_version.setter
@@ -91,6 +111,11 @@ class ProfilePermission(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The AWS Signer action permitted as part of cross-account permissions.
+        :param pulumi.Input[str] principal: The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+        :param pulumi.Input[str] profile_name: The human-readable name of the signing profile.
+        :param pulumi.Input[str] profile_version: The version of the signing profile.
+        :param pulumi.Input[str] statement_id: A unique identifier for the cross-account permission statement.
         """
         ...
     @overload
@@ -177,25 +202,40 @@ class ProfilePermission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
+        """
+        The AWS Signer action permitted as part of cross-account permissions.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[str]:
+        """
+        The human-readable name of the signing profile.
+        """
         return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the signing profile.
+        """
         return pulumi.get(self, "profile_version")
 
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the cross-account permission statement.
+        """
         return pulumi.get(self, "statement_id")
 

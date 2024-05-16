@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     /// </summary>
     public sealed class IpamPoolSourceResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source resource ID.
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The source resource owner.
+        /// </summary>
         [Input("resourceOwner", required: true)]
         public Input<string> ResourceOwner { get; set; } = null!;
 
+        /// <summary>
+        /// The source resource Region.
+        /// </summary>
         [Input("resourceRegion", required: true)]
         public Input<string> ResourceRegion { get; set; } = null!;
 
+        /// <summary>
+        /// The source resource type.
+        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 

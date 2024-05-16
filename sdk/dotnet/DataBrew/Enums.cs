@@ -226,6 +226,9 @@ namespace Pulumi.AwsNative.DataBrew
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The compression algorithm used to compress the output text of the job.
+    /// </summary>
     [EnumType]
     public readonly struct JobOutputCompressionFormat : IEquatable<JobOutputCompressionFormat>
     {
@@ -261,6 +264,9 @@ namespace Pulumi.AwsNative.DataBrew
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The data format of the output of the job.
+    /// </summary>
     [EnumType]
     public readonly struct JobOutputFormat : IEquatable<JobOutputFormat>
     {

@@ -17,12 +17,17 @@ import (
 type Detector struct {
 	pulumi.CustomResourceState
 
-	AwsId                      pulumi.StringOutput                          `pulumi:"awsId"`
-	DataSources                DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
-	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
-	Features                   DetectorCfnFeatureConfigurationArrayOutput   `pulumi:"features"`
-	FindingPublishingFrequency pulumi.StringPtrOutput                       `pulumi:"findingPublishingFrequency"`
-	Tags                       aws.TagArrayOutput                           `pulumi:"tags"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	DataSources DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
+	// Specifies whether the detector is to be enabled on creation.
+	Enable pulumi.BoolOutput `pulumi:"enable"`
+	// Information about the configuration of a feature in your account.
+	Features DetectorCfnFeatureConfigurationArrayOutput `pulumi:"features"`
+	// Specifies how frequently updated findings are exported.
+	FindingPublishingFrequency pulumi.StringPtrOutput `pulumi:"findingPublishingFrequency"`
+	// Describes a tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +73,30 @@ func (DetectorState) ElementType() reflect.Type {
 }
 
 type detectorArgs struct {
-	DataSources                *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
-	Enable                     bool                                 `pulumi:"enable"`
-	Features                   []DetectorCfnFeatureConfiguration    `pulumi:"features"`
-	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
-	Tags                       []aws.Tag                            `pulumi:"tags"`
+	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	DataSources *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
+	// Specifies whether the detector is to be enabled on creation.
+	Enable bool `pulumi:"enable"`
+	// Information about the configuration of a feature in your account.
+	Features []DetectorCfnFeatureConfiguration `pulumi:"features"`
+	// Specifies how frequently updated findings are exported.
+	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
+	// Describes a tag.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
-	DataSources                DetectorCfnDataSourceConfigurationsPtrInput
-	Enable                     pulumi.BoolInput
-	Features                   DetectorCfnFeatureConfigurationArrayInput
+	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	DataSources DetectorCfnDataSourceConfigurationsPtrInput
+	// Specifies whether the detector is to be enabled on creation.
+	Enable pulumi.BoolInput
+	// Information about the configuration of a feature in your account.
+	Features DetectorCfnFeatureConfigurationArrayInput
+	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency pulumi.StringPtrInput
-	Tags                       aws.TagArrayInput
+	// Describes a tag.
+	Tags aws.TagArrayInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -125,22 +140,27 @@ func (o DetectorOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
 func (o DetectorOutput) DataSources() DetectorCfnDataSourceConfigurationsPtrOutput {
 	return o.ApplyT(func(v *Detector) DetectorCfnDataSourceConfigurationsPtrOutput { return v.DataSources }).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
 
+// Specifies whether the detector is to be enabled on creation.
 func (o DetectorOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Detector) pulumi.BoolOutput { return v.Enable }).(pulumi.BoolOutput)
 }
 
+// Information about the configuration of a feature in your account.
 func (o DetectorOutput) Features() DetectorCfnFeatureConfigurationArrayOutput {
 	return o.ApplyT(func(v *Detector) DetectorCfnFeatureConfigurationArrayOutput { return v.Features }).(DetectorCfnFeatureConfigurationArrayOutput)
 }
 
+// Specifies how frequently updated findings are exported.
 func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
+// Describes a tag.
 func (o DetectorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Detector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

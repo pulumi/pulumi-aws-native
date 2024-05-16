@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetPackageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The package's ID.
+        /// </summary>
         [Input("packageId", required: true)]
         public string PackageId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The package's ID.
+        /// </summary>
         [Input("packageId", required: true)]
         public Input<string> PackageId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Panorama
     [OutputType]
     public sealed class GetPackageResult
     {
+        /// <summary>
+        /// The package's ARN.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// When the package was created.
+        /// </summary>
         public readonly int? CreatedTime;
+        /// <summary>
+        /// The package's ID.
+        /// </summary>
         public readonly string? PackageId;
+        /// <summary>
+        /// A storage location.
+        /// </summary>
         public readonly Outputs.PackageStorageLocation? StorageLocation;
+        /// <summary>
+        /// Tags for the package.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

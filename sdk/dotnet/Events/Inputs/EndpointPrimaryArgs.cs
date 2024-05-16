@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class EndpointPrimaryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        /// </summary>
         [Input("healthCheck", required: true)]
         public Input<string> HealthCheck { get; set; } = null!;
 

@@ -28,17 +28,35 @@ type LookupEmailIdentityArgs struct {
 }
 
 type LookupEmailIdentityResult struct {
+	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes *EmailIdentityConfigurationSetAttributes `pulumi:"configurationSetAttributes"`
-	DkimAttributes             *EmailIdentityDkimAttributes             `pulumi:"dkimAttributes"`
-	DkimDnsTokenName1          *string                                  `pulumi:"dkimDnsTokenName1"`
-	DkimDnsTokenName2          *string                                  `pulumi:"dkimDnsTokenName2"`
-	DkimDnsTokenName3          *string                                  `pulumi:"dkimDnsTokenName3"`
-	DkimDnsTokenValue1         *string                                  `pulumi:"dkimDnsTokenValue1"`
-	DkimDnsTokenValue2         *string                                  `pulumi:"dkimDnsTokenValue2"`
-	DkimDnsTokenValue3         *string                                  `pulumi:"dkimDnsTokenValue3"`
-	DkimSigningAttributes      *EmailIdentityDkimSigningAttributes      `pulumi:"dkimSigningAttributes"`
-	FeedbackAttributes         *EmailIdentityFeedbackAttributes         `pulumi:"feedbackAttributes"`
-	MailFromAttributes         *EmailIdentityMailFromAttributes         `pulumi:"mailFromAttributes"`
+	// Used to enable or disable DKIM authentication for an email identity.
+	DkimAttributes *EmailIdentityDkimAttributes `pulumi:"dkimAttributes"`
+	// The host name for the first token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenName1 *string `pulumi:"dkimDnsTokenName1"`
+	// The host name for the second token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenName2 *string `pulumi:"dkimDnsTokenName2"`
+	// The host name for the third token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenName3 *string `pulumi:"dkimDnsTokenName3"`
+	// The record value for the first token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenValue1 *string `pulumi:"dkimDnsTokenValue1"`
+	// The record value for the second token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenValue2 *string `pulumi:"dkimDnsTokenValue2"`
+	// The record value for the third token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenValue3 *string `pulumi:"dkimDnsTokenValue3"`
+	// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+	//
+	// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+	// - Update the key length that should be used for Easy DKIM.
+	// - Change from using no DKIM authentication to using Easy DKIM.
+	// - Change from using no DKIM authentication to using BYODKIM.
+	// - Change from using Easy DKIM to using BYODKIM.
+	// - Change from using BYODKIM to using Easy DKIM.
+	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
+	// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+	FeedbackAttributes *EmailIdentityFeedbackAttributes `pulumi:"feedbackAttributes"`
+	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+	MailFromAttributes *EmailIdentityMailFromAttributes `pulumi:"mailFromAttributes"`
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
@@ -77,48 +95,66 @@ func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutputWithCo
 	return o
 }
 
+// Used to associate a configuration set with an email identity.
 func (o LookupEmailIdentityResultOutput) ConfigurationSetAttributes() EmailIdentityConfigurationSetAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityConfigurationSetAttributes {
 		return v.ConfigurationSetAttributes
 	}).(EmailIdentityConfigurationSetAttributesPtrOutput)
 }
 
+// Used to enable or disable DKIM authentication for an email identity.
 func (o LookupEmailIdentityResultOutput) DkimAttributes() EmailIdentityDkimAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityDkimAttributes { return v.DkimAttributes }).(EmailIdentityDkimAttributesPtrOutput)
 }
 
+// The host name for the first token that you have to add to the DNS configuration for your domain.
 func (o LookupEmailIdentityResultOutput) DkimDnsTokenName1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenName1 }).(pulumi.StringPtrOutput)
 }
 
+// The host name for the second token that you have to add to the DNS configuration for your domain.
 func (o LookupEmailIdentityResultOutput) DkimDnsTokenName2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenName2 }).(pulumi.StringPtrOutput)
 }
 
+// The host name for the third token that you have to add to the DNS configuration for your domain.
 func (o LookupEmailIdentityResultOutput) DkimDnsTokenName3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenName3 }).(pulumi.StringPtrOutput)
 }
 
+// The record value for the first token that you have to add to the DNS configuration for your domain.
 func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue1 }).(pulumi.StringPtrOutput)
 }
 
+// The record value for the second token that you have to add to the DNS configuration for your domain.
 func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue2 }).(pulumi.StringPtrOutput)
 }
 
+// The record value for the third token that you have to add to the DNS configuration for your domain.
 func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue3 }).(pulumi.StringPtrOutput)
 }
 
+// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+//
+// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+// - Update the key length that should be used for Easy DKIM.
+// - Change from using no DKIM authentication to using Easy DKIM.
+// - Change from using no DKIM authentication to using BYODKIM.
+// - Change from using Easy DKIM to using BYODKIM.
+// - Change from using BYODKIM to using Easy DKIM.
 func (o LookupEmailIdentityResultOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityDkimSigningAttributes { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesPtrOutput)
 }
 
+// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
 func (o LookupEmailIdentityResultOutput) FeedbackAttributes() EmailIdentityFeedbackAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityFeedbackAttributes { return v.FeedbackAttributes }).(EmailIdentityFeedbackAttributesPtrOutput)
 }
 
+// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 func (o LookupEmailIdentityResultOutput) MailFromAttributes() EmailIdentityMailFromAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityMailFromAttributes { return v.MailFromAttributes }).(EmailIdentityMailFromAttributesPtrOutput)
 }

@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+    /// </summary>
     public sealed class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
+        /// </summary>
         [Input("sessionStickinessConfig")]
         public Input<Inputs.ContinuousDeploymentPolicySessionStickinessConfigArgs>? SessionStickinessConfig { get; set; }
 

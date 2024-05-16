@@ -13,13 +13,27 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSapoDataDestinationProperties
     {
+        /// <summary>
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+        /// </summary>
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
         /// List of fields used as ID when performing a write operation.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
+        /// <summary>
+        /// The object path specified in the SAPOData flow destination.
+        /// </summary>
         public readonly string ObjectPath;
+        /// <summary>
+        /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
+        /// 
+        /// For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
+        /// </summary>
         public readonly Outputs.FlowSuccessResponseHandlingConfig? SuccessResponseHandlingConfig;
+        /// <summary>
+        /// The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowWriteOperationType? WriteOperationType;
 
         [OutputConstructor]

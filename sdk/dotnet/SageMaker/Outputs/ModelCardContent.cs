@@ -16,12 +16,30 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelCardContent
     {
+        /// <summary>
+        /// Additional information about the model.
+        /// </summary>
         public readonly Outputs.ModelCardAdditionalInformation? AdditionalInformation;
+        /// <summary>
+        /// Information about how the model supports business goals.
+        /// </summary>
         public readonly Outputs.ModelCardBusinessDetails? BusinessDetails;
+        /// <summary>
+        /// An overview about the model's evaluation.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ModelCardEvaluationDetail> EvaluationDetails;
+        /// <summary>
+        /// The intended uses of a model.
+        /// </summary>
         public readonly Outputs.ModelCardIntendedUses? IntendedUses;
+        /// <summary>
+        /// An overview about the model.
+        /// </summary>
         public readonly Outputs.ModelCardModelOverview? ModelOverview;
         public readonly Outputs.ModelCardModelPackageDetails? ModelPackageDetails;
+        /// <summary>
+        /// The training details of the model
+        /// </summary>
         public readonly Outputs.ModelCardTrainingDetails? TrainingDetails;
 
         [OutputConstructor]

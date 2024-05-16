@@ -24,16 +24,29 @@ func LookupNetworkSettings(ctx *pulumi.Context, args *LookupNetworkSettingsArgs,
 }
 
 type LookupNetworkSettingsArgs struct {
+	// The ARN of the network settings.
 	NetworkSettingsArn string `pulumi:"networkSettingsArn"`
 }
 
 type LookupNetworkSettingsResult struct {
-	AssociatedPortalArns []string  `pulumi:"associatedPortalArns"`
-	NetworkSettingsArn   *string   `pulumi:"networkSettingsArn"`
-	SecurityGroupIds     []string  `pulumi:"securityGroupIds"`
-	SubnetIds            []string  `pulumi:"subnetIds"`
-	Tags                 []aws.Tag `pulumi:"tags"`
-	VpcId                *string   `pulumi:"vpcId"`
+	// A list of web portal ARNs that this network settings is associated with.
+	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// The ARN of the network settings.
+	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
+	// One or more security groups used to control access from streaming instances to your VPC.
+	//
+	// *Pattern* : `^[\w+\-]+$`
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+	//
+	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The tag.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC that streaming instances will connect to.
+	//
+	// *Pattern* : `^vpc-[0-9a-z]*$`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupNetworkSettingsOutput(ctx *pulumi.Context, args LookupNetworkSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSettingsResultOutput {
@@ -50,6 +63,7 @@ func LookupNetworkSettingsOutput(ctx *pulumi.Context, args LookupNetworkSettings
 }
 
 type LookupNetworkSettingsOutputArgs struct {
+	// The ARN of the network settings.
 	NetworkSettingsArn pulumi.StringInput `pulumi:"networkSettingsArn"`
 }
 
@@ -71,26 +85,38 @@ func (o LookupNetworkSettingsResultOutput) ToLookupNetworkSettingsResultOutputWi
 	return o
 }
 
+// A list of web portal ARNs that this network settings is associated with.
 func (o LookupNetworkSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The ARN of the network settings.
 func (o LookupNetworkSettingsResultOutput) NetworkSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) *string { return v.NetworkSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// One or more security groups used to control access from streaming instances to your VPC.
+//
+// *Pattern* : `^[\w+\-]+$`
 func (o LookupNetworkSettingsResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+//
+// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
 func (o LookupNetworkSettingsResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The tag.
 func (o LookupNetworkSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC that streaming instances will connect to.
+//
+// *Pattern* : `^vpc-[0-9a-z]*$`
 func (o LookupNetworkSettingsResultOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

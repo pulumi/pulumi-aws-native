@@ -26,6 +26,9 @@ class GetProjectResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name of the project.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -42,6 +45,9 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
+
+
+    :param str project_name: The name of the project.
     """
     __args__ = dict()
     __args__['projectName'] = project_name
@@ -57,5 +63,8 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
+
+
+    :param str project_name: The name of the project.
     """
     ...

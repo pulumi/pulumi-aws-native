@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("specifedOrder")]
         private InputList<string>? _specifedOrder;
+
+        /// <summary>
+        /// The list of columns to be used in the ordering.
+        /// </summary>
         public InputList<string> SpecifedOrder
         {
             get => _specifedOrder ?? (_specifedOrder = new InputList<string>());
             set => _specifedOrder = value;
         }
 
+        /// <summary>
+        /// The treat of undefined specified values. Valid values for this structure are `LEAST` and `MOST` .
+        /// </summary>
         [Input("treatUndefinedSpecifiedValues")]
         public Input<Pulumi.AwsNative.QuickSight.TopicUndefinedSpecifiedValueType>? TreatUndefinedSpecifiedValues { get; set; }
 
+        /// <summary>
+        /// The ordering type for a column. Valid values for this structure are `GREATER_IS_BETTER` , `LESSER_IS_BETTER` and `SPECIFIED` .
+        /// </summary>
         [Input("useOrdering")]
         public Input<Pulumi.AwsNative.QuickSight.TopicColumnOrderingType>? UseOrdering { get; set; }
 

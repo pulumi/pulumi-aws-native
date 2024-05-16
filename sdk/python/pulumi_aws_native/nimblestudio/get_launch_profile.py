@@ -51,6 +51,9 @@ class GetLaunchProfileResult:
     @property
     @pulumi.getter(name="launchProfileId")
     def launch_profile_id(self) -> Optional[str]:
+        """
+        The unique identifier for the launch profile resource.
+        """
         return pulumi.get(self, "launch_profile_id")
 
     @property
@@ -73,6 +76,9 @@ class GetLaunchProfileResult:
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> Optional['outputs.LaunchProfileStreamConfiguration']:
+        """
+        A configuration for a streaming session.
+        """
         return pulumi.get(self, "stream_configuration")
 
     @property
@@ -106,6 +112,7 @@ def get_launch_profile(launch_profile_id: Optional[str] = None,
     Represents a launch profile which delegates access to a collection of studio components to studio users
 
 
+    :param str launch_profile_id: The unique identifier for the launch profile resource.
     :param str studio_id: <p>The studio ID. </p>
     """
     __args__ = dict()
@@ -131,6 +138,7 @@ def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[str]] = N
     Represents a launch profile which delegates access to a collection of studio components to studio users
 
 
+    :param str launch_profile_id: The unique identifier for the launch profile resource.
     :param str studio_id: <p>The studio ID. </p>
     """
     ...

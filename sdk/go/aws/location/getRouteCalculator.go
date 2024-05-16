@@ -24,18 +24,37 @@ func LookupRouteCalculator(ctx *pulumi.Context, args *LookupRouteCalculatorArgs,
 }
 
 type LookupRouteCalculatorArgs struct {
+	// The name of the route calculator resource.
+	//
+	// Requirements:
+	//
+	// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique Route calculator resource name.
+	// - No spaces allowed. For example, `ExampleRouteCalculator` .
 	CalculatorName string `pulumi:"calculatorName"`
 }
 
 type LookupRouteCalculatorResult struct {
-	Arn           *string                     `pulumi:"arn"`
-	CalculatorArn *string                     `pulumi:"calculatorArn"`
-	CreateTime    *string                     `pulumi:"createTime"`
-	Description   *string                     `pulumi:"description"`
-	PricingPlan   *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
+	// The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+	Arn *string `pulumi:"arn"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+	CalculatorArn *string `pulumi:"calculatorArn"`
+	// The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime *string `pulumi:"createTime"`
+	// The optional description for the route calculator resource.
+	Description *string `pulumi:"description"`
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag `pulumi:"tags"`
-	UpdateTime *string   `pulumi:"updateTime"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) LookupRouteCalculatorResultOutput {
@@ -52,6 +71,13 @@ func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculator
 }
 
 type LookupRouteCalculatorOutputArgs struct {
+	// The name of the route calculator resource.
+	//
+	// Requirements:
+	//
+	// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique Route calculator resource name.
+	// - No spaces allowed. For example, `ExampleRouteCalculator` .
 	CalculatorName pulumi.StringInput `pulumi:"calculatorName"`
 }
 
@@ -73,22 +99,33 @@ func (o LookupRouteCalculatorResultOutput) ToLookupRouteCalculatorResultOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
 func (o LookupRouteCalculatorResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
 func (o LookupRouteCalculatorResultOutput) CalculatorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.CalculatorArn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupRouteCalculatorResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+// The optional description for the route calculator resource.
 func (o LookupRouteCalculatorResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+//
+// *Allowed Values* : `RequestBasedUsage`
 func (o LookupRouteCalculatorResultOutput) PricingPlan() RouteCalculatorPricingPlanPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *RouteCalculatorPricingPlan { return v.PricingPlan }).(RouteCalculatorPricingPlanPtrOutput)
 }
@@ -98,6 +135,7 @@ func (o LookupRouteCalculatorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupRouteCalculatorResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

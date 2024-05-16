@@ -21,7 +21,11 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param Any policy_document: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+        :param Any policy_document: The JSON document that describes the policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] policy_name: The policy name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         if policy_name is not None:
@@ -33,6 +37,8 @@ class PolicyArgs:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
         """
+        The JSON document that describes the policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
@@ -44,6 +50,9 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy name.
+        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -53,6 +62,9 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -74,7 +86,11 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any policy_document: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+        :param Any policy_document: The JSON document that describes the policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] policy_name: The policy name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
         """
         ...
     @overload
@@ -153,17 +169,25 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The name of this policy.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Any]:
         """
+        The JSON document that describes the policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
@@ -171,10 +195,16 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy name.
+        """
         return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of key/value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 

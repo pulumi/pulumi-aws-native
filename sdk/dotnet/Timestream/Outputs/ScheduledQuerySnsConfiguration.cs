@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     [OutputType]
     public sealed class ScheduledQuerySnsConfiguration
     {
+        /// <summary>
+        /// SNS topic ARN that the scheduled query status notifications will be sent to.
+        /// </summary>
         public readonly string TopicArn;
 
         [OutputConstructor]

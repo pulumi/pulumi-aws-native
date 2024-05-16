@@ -23,13 +23,15 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
+	// The ID for the account. For example: `abc123` .
 	Id string `pulumi:"id"`
 }
 
 type LookupAccountResult struct {
 	// The ARN of an Amazon CloudWatch role for the current Account.
 	CloudWatchRoleArn *string `pulumi:"cloudWatchRoleArn"`
-	Id                *string `pulumi:"id"`
+	// The ID for the account. For example: `abc123` .
+	Id *string `pulumi:"id"`
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -46,6 +48,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 }
 
 type LookupAccountOutputArgs struct {
+	// The ID for the account. For example: `abc123` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -72,6 +75,7 @@ func (o LookupAccountResultOutput) CloudWatchRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.CloudWatchRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the account. For example: `abc123` .
 func (o LookupAccountResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

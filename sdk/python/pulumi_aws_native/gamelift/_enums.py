@@ -94,6 +94,14 @@ class FleetApplyCapacity(str, Enum):
 
 
 class FleetCertificateConfigurationCertificateType(str, Enum):
+    """
+    Indicates whether a TLS/SSL certificate is generated for a fleet.
+
+    Valid values include:
+
+    - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+    - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+    """
     DISABLED = "DISABLED"
     GENERATED = "GENERATED"
 

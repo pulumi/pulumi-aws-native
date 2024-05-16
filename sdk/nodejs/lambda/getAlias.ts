@@ -23,10 +23,22 @@ export interface GetAliasArgs {
 }
 
 export interface GetAliasResult {
+    /**
+     * A description of the alias.
+     */
     readonly description?: string;
+    /**
+     * The function version that the alias invokes.
+     */
     readonly functionVersion?: string;
     readonly id?: string;
+    /**
+     * A provisioned concurrency configuration for a function's alias.
+     */
     readonly provisionedConcurrencyConfig?: outputs.lambda.AliasProvisionedConcurrencyConfiguration;
+    /**
+     * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+     */
     readonly routingConfig?: outputs.lambda.AliasRoutingConfiguration;
 }
 /**

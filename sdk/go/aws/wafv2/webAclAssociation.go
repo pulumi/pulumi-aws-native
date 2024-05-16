@@ -16,8 +16,19 @@ import (
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+	//
+	// The ARN must be in one of the following formats:
+	//
+	// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+	// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+	// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+	// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+	// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+	// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	WebAclArn   pulumi.StringOutput `pulumi:"webAclArn"`
+	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
 }
 
 // NewWebAclAssociation registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +82,36 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 }
 
 type webAclAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+	//
+	// The ARN must be in one of the following formats:
+	//
+	// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+	// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+	// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+	// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+	// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+	// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
 	ResourceArn string `pulumi:"resourceArn"`
-	WebAclArn   string `pulumi:"webAclArn"`
+	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+	WebAclArn string `pulumi:"webAclArn"`
 }
 
 // The set of arguments for constructing a WebAclAssociation resource.
 type WebAclAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+	//
+	// The ARN must be in one of the following formats:
+	//
+	// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+	// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+	// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+	// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+	// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+	// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
 	ResourceArn pulumi.StringInput
-	WebAclArn   pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+	WebAclArn pulumi.StringInput
 }
 
 func (WebAclAssociationArgs) ElementType() reflect.Type {
@@ -118,10 +151,21 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+//
+// The ARN must be in one of the following formats:
+//
+// - For an Application Load Balancer: `arn: *partition* :elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+// - For an Amazon API Gateway REST API: `arn: *partition* :apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+// - For an AWS AppSync GraphQL API: `arn: *partition* :appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+// - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
+// - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
+// - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
 func (o WebAclAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
 func (o WebAclAssociationOutput) WebAclArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.WebAclArn }).(pulumi.StringOutput)
 }

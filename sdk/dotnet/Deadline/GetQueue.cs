@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,15 +57,45 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetQueueResult
     {
+        /// <summary>
+        /// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedStorageProfileIds;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The default action taken on a queue summary if a budget wasn't configured.
+        /// </summary>
         public readonly Pulumi.AwsNative.Deadline.QueueDefaultQueueBudgetAction? DefaultBudgetAction;
+        /// <summary>
+        /// A description of the queue that helps identify what the queue is used for.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the queue summary to update.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        /// </summary>
         public readonly Outputs.QueueJobAttachmentSettings? JobAttachmentSettings;
+        /// <summary>
+        /// Identifies the user for a job.
+        /// </summary>
         public readonly Outputs.QueueJobRunAsUser? JobRunAsUser;
+        /// <summary>
+        /// The queue ID.
+        /// </summary>
         public readonly string? QueueId;
+        /// <summary>
+        /// The file system location that the queue uses.
+        /// </summary>
         public readonly ImmutableArray<string> RequiredFileSystemLocationNames;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        /// </summary>
         public readonly string? RoleArn;
 
         [OutputConstructor]

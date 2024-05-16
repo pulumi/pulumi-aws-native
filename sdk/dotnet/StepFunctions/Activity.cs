@@ -79,12 +79,31 @@ namespace Pulumi.AwsNative.StepFunctions
     [AwsNativeResourceType("aws-native:stepfunctions:Activity")]
     public partial class Activity : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the activity.
+        /// 
+        /// A name must *not* contain:
+        /// 
+        /// - white space
+        /// - brackets `&lt; &gt; { } [ ]`
+        /// - wildcard characters `? *`
+        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - control characters ( `U+0000-001F` , `U+007F-009F` )
+        /// 
+        /// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The `TagsEntry` property specifies *tags* to identify an activity.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -137,11 +156,28 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class ActivityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the activity.
+        /// 
+        /// A name must *not* contain:
+        /// 
+        /// - white space
+        /// - brackets `&lt; &gt; { } [ ]`
+        /// - wildcard characters `? *`
+        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - control characters ( `U+0000-001F` , `U+007F-009F` )
+        /// 
+        /// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The `TagsEntry` property specifies *tags* to identify an activity.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

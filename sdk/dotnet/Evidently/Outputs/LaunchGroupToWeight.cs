@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class LaunchGroupToWeight
     {
+        /// <summary>
+        /// The name of the launch group. It can include up to 127 characters.
+        /// </summary>
         public readonly string GroupName;
+        /// <summary>
+        /// The portion of launch traffic to allocate to this launch group.
+        /// 
+        /// This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
+        /// </summary>
         public readonly int SplitWeight;
 
         [OutputConstructor]

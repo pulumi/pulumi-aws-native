@@ -109,6 +109,7 @@ class ServiceCodeConfigurationValuesArgs:
         :param pulumi.Input[str] build_command: Build Command
         :param pulumi.Input[str] port: Port
         :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_secrets: The secrets and parameters that get referenced by your service as environment variables
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_variables: The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
         :param pulumi.Input[str] start_command: Start Command
         """
         pulumi.set(__self__, "runtime", runtime)
@@ -174,6 +175,9 @@ class ServiceCodeConfigurationValuesArgs:
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")
     def runtime_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+        """
+        The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
+        """
         return pulumi.get(self, "runtime_environment_variables")
 
     @runtime_environment_variables.setter
@@ -201,6 +205,7 @@ class ServiceCodeConfigurationArgs:
         """
         Code Configuration
         :param pulumi.Input['ServiceCodeConfigurationConfigurationSource'] configuration_source: Configuration Source
+        :param pulumi.Input['ServiceCodeConfigurationValuesArgs'] code_configuration_values: Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -221,6 +226,9 @@ class ServiceCodeConfigurationArgs:
     @property
     @pulumi.getter(name="codeConfigurationValues")
     def code_configuration_values(self) -> Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']]:
+        """
+        Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
+        """
         return pulumi.get(self, "code_configuration_values")
 
     @code_configuration_values.setter
@@ -238,6 +246,8 @@ class ServiceCodeRepositoryArgs:
         """
         Source Code Repository
         :param pulumi.Input[str] repository_url: Repository Url
+        :param pulumi.Input['ServiceSourceCodeVersionArgs'] source_code_version: Identifies a version of code that AWS App Runner refers to within a source code repository.
+        :param pulumi.Input['ServiceCodeConfigurationArgs'] code_configuration: Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
         :param pulumi.Input[str] source_directory: Source Directory
         """
         pulumi.set(__self__, "repository_url", repository_url)
@@ -262,6 +272,9 @@ class ServiceCodeRepositoryArgs:
     @property
     @pulumi.getter(name="sourceCodeVersion")
     def source_code_version(self) -> pulumi.Input['ServiceSourceCodeVersionArgs']:
+        """
+        Identifies a version of code that AWS App Runner refers to within a source code repository.
+        """
         return pulumi.get(self, "source_code_version")
 
     @source_code_version.setter
@@ -271,6 +284,9 @@ class ServiceCodeRepositoryArgs:
     @property
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional[pulumi.Input['ServiceCodeConfigurationArgs']]:
+        """
+        Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
+        """
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
@@ -467,6 +483,7 @@ class ServiceImageConfigurationArgs:
         Image Configuration
         :param pulumi.Input[str] port: Port
         :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_secrets: The secrets and parameters that get referenced by your service as environment variables
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_variables: Environment variables that are available to your running App Runner service. An array of key-value pairs.
         :param pulumi.Input[str] start_command: Start Command
         """
         if port is not None:
@@ -505,6 +522,9 @@ class ServiceImageConfigurationArgs:
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")
     def runtime_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+        """
+        Environment variables that are available to your running App Runner service. An array of key-value pairs.
+        """
         return pulumi.get(self, "runtime_environment_variables")
 
     @runtime_environment_variables.setter
@@ -534,6 +554,7 @@ class ServiceImageRepositoryArgs:
         Image Repository
         :param pulumi.Input[str] image_identifier: Image Identifier
         :param pulumi.Input['ServiceImageRepositoryImageRepositoryType'] image_repository_type: Image Repository Type
+        :param pulumi.Input['ServiceImageConfigurationArgs'] image_configuration: Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -567,6 +588,9 @@ class ServiceImageRepositoryArgs:
     @property
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional[pulumi.Input['ServiceImageConfigurationArgs']]:
+        """
+        Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
+        """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
@@ -658,6 +682,10 @@ class ServiceKeyValuePairArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The key name string to map to a value.
+        :param pulumi.Input[str] value: The value string to which the key name is mapped.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -666,6 +694,9 @@ class ServiceKeyValuePairArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key name string to map to a value.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -675,6 +706,9 @@ class ServiceKeyValuePairArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value string to which the key name is mapped.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -690,6 +724,8 @@ class ServiceNetworkConfigurationArgs:
                  ip_address_type: Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']] = None):
         """
         Network configuration
+        :param pulumi.Input['ServiceEgressConfigurationArgs'] egress_configuration: Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+        :param pulumi.Input['ServiceIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound network traffic.
         :param pulumi.Input['ServiceNetworkConfigurationIpAddressType'] ip_address_type: App Runner service endpoint IP address type
         """
         if egress_configuration is not None:
@@ -702,6 +738,9 @@ class ServiceNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="egressConfiguration")
     def egress_configuration(self) -> Optional[pulumi.Input['ServiceEgressConfigurationArgs']]:
+        """
+        Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+        """
         return pulumi.get(self, "egress_configuration")
 
     @egress_configuration.setter
@@ -711,6 +750,9 @@ class ServiceNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="ingressConfiguration")
     def ingress_configuration(self) -> Optional[pulumi.Input['ServiceIngressConfigurationArgs']]:
+        """
+        Network configuration settings for inbound network traffic.
+        """
         return pulumi.get(self, "ingress_configuration")
 
     @ingress_configuration.setter
@@ -816,7 +858,10 @@ class ServiceSourceConfigurationArgs:
                  image_repository: Optional[pulumi.Input['ServiceImageRepositoryArgs']] = None):
         """
         Source Code configuration
+        :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
         :param pulumi.Input[bool] auto_deployments_enabled: Auto Deployment enabled
+        :param pulumi.Input['ServiceCodeRepositoryArgs'] code_repository: Describes a source code repository.
+        :param pulumi.Input['ServiceImageRepositoryArgs'] image_repository: Describes a source image repository.
         """
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -830,6 +875,9 @@ class ServiceSourceConfigurationArgs:
     @property
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]:
+        """
+        Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
+        """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
@@ -851,6 +899,9 @@ class ServiceSourceConfigurationArgs:
     @property
     @pulumi.getter(name="codeRepository")
     def code_repository(self) -> Optional[pulumi.Input['ServiceCodeRepositoryArgs']]:
+        """
+        Describes a source code repository.
+        """
         return pulumi.get(self, "code_repository")
 
     @code_repository.setter
@@ -860,6 +911,9 @@ class ServiceSourceConfigurationArgs:
     @property
     @pulumi.getter(name="imageRepository")
     def image_repository(self) -> Optional[pulumi.Input['ServiceImageRepositoryArgs']]:
+        """
+        Describes a source image repository.
+        """
         return pulumi.get(self, "image_repository")
 
     @image_repository.setter

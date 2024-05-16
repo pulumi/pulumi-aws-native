@@ -24,15 +24,22 @@ func LookupThingGroup(ctx *pulumi.Context, args *LookupThingGroupArgs, opts ...p
 }
 
 type LookupThingGroupArgs struct {
+	// The thing group name.
 	ThingGroupName string `pulumi:"thingGroupName"`
 }
 
 type LookupThingGroupResult struct {
-	Arn         *string `pulumi:"arn"`
-	Id          *string `pulumi:"id"`
+	// The thing group ARN.
+	Arn *string `pulumi:"arn"`
+	// The thing group ID.
+	Id *string `pulumi:"id"`
+	// The dynamic thing group search query string.
+	//
+	// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
 	QueryString *string `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                 []aws.Tag                       `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Thing group properties.
 	ThingGroupProperties *ThingGroupPropertiesProperties `pulumi:"thingGroupProperties"`
 }
 
@@ -50,6 +57,7 @@ func LookupThingGroupOutput(ctx *pulumi.Context, args LookupThingGroupOutputArgs
 }
 
 type LookupThingGroupOutputArgs struct {
+	// The thing group name.
 	ThingGroupName pulumi.StringInput `pulumi:"thingGroupName"`
 }
 
@@ -71,14 +79,19 @@ func (o LookupThingGroupResultOutput) ToLookupThingGroupResultOutputWithContext(
 	return o
 }
 
+// The thing group ARN.
 func (o LookupThingGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThingGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The thing group ID.
 func (o LookupThingGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThingGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The dynamic thing group search query string.
+//
+// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
 func (o LookupThingGroupResultOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThingGroupResult) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
@@ -88,6 +101,7 @@ func (o LookupThingGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupThingGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Thing group properties.
 func (o LookupThingGroupResultOutput) ThingGroupProperties() ThingGroupPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupThingGroupResult) *ThingGroupPropertiesProperties { return v.ThingGroupProperties }).(ThingGroupPropertiesPropertiesPtrOutput)
 }

@@ -42,6 +42,9 @@ class GetIntegrationResult:
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The time when the integration was created, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "create_time")
 
     @property

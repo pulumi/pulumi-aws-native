@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGrowthRateComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The period size setup of a growth rate computation.
+        /// </summary>
         public readonly double? PeriodSize;
+        /// <summary>
+        /// The dimension type field.
+        /// </summary>
         public readonly Outputs.AnalysisDimensionField? Time;
+        /// <summary>
+        /// The measure (metric) type field.
+        /// </summary>
         public readonly Outputs.AnalysisMeasureField? Value;
 
         [OutputConstructor]

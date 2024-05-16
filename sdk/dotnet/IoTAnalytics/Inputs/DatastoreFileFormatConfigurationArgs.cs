@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastoreFileFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the configuration information of the JSON format.
+        /// </summary>
         [Input("jsonConfiguration")]
         public Input<Inputs.DatastoreJsonConfigurationArgs>? JsonConfiguration { get; set; }
 
+        /// <summary>
+        /// Contains the configuration information of the Parquet format.
+        /// </summary>
         [Input("parquetConfiguration")]
         public Input<Inputs.DatastoreParquetConfigurationArgs>? ParquetConfiguration { get; set; }
 

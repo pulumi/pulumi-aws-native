@@ -12,15 +12,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisVisualCustomActionOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The filter operation that filters data included in a visual or in an entire sheet.
+        /// </summary>
         [Input("filterOperation")]
         public Input<Inputs.AnalysisCustomActionFilterOperationArgs>? FilterOperation { get; set; }
 
+        /// <summary>
+        /// The navigation operation that navigates between different sheets in the same analysis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("navigationOperation")]
         public Input<Inputs.AnalysisCustomActionNavigationOperationArgs>? NavigationOperation { get; set; }
 
+        /// <summary>
+        /// The set parameter operation that sets parameters in custom action.
+        /// </summary>
         [Input("setParametersOperation")]
         public Input<Inputs.AnalysisCustomActionSetParametersOperationArgs>? SetParametersOperation { get; set; }
 
+        /// <summary>
+        /// The URL operation that opens a link to another webpage.
+        /// </summary>
         [Input("urlOperation")]
         public Input<Inputs.AnalysisCustomActionUrlOperationArgs>? UrlOperation { get; set; }
 

@@ -80,6 +80,9 @@ import (
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 
+	// Returns the data repository association's system generated Association ID.
+	//
+	// Example: `dra-abcdef0123456789d`
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to ``true``.
 	BatchImportMetaDataOnCreate pulumi.BoolPtrOutput `pulumi:"batchImportMetaDataOnCreate"`
@@ -94,7 +97,10 @@ type DataRepositoryAssociation struct {
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
 	//  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	ImportedFileChunkSize pulumi.IntPtrOutput `pulumi:"importedFileChunkSize"`
-	ResourceArn           pulumi.StringOutput `pulumi:"resourceArn"`
+	// Returns the data repository association's Amazon Resource Name (ARN).
+	//
+	// Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrOutput `pulumi:"s3"`
 	// An array of key-value pairs to apply to this resource.
@@ -237,6 +243,9 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithCo
 	return o
 }
 
+// Returns the data repository association's system generated Association ID.
+//
+// Example: `dra-abcdef0123456789d`
 func (o DataRepositoryAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
@@ -271,6 +280,9 @@ func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntPtrOu
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.IntPtrOutput { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
+// Returns the data repository association's Amazon Resource Name (ARN).
+//
+// Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
 func (o DataRepositoryAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAnalysisLoadBalancerListener
     {
+        /// <summary>
+        /// [Classic Load Balancers] The back-end port for the listener.
+        /// </summary>
         public readonly int? InstancePort;
+        /// <summary>
+        /// The port on which the load balancer is listening.
+        /// </summary>
         public readonly int? LoadBalancerPort;
 
         [OutputConstructor]

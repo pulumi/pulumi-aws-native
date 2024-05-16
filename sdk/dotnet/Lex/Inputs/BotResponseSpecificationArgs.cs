@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("messageGroupsList", required: true)]
         private InputList<Inputs.BotMessageGroupArgs>? _messageGroupsList;
+
+        /// <summary>
+        /// A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
+        /// </summary>
         public InputList<Inputs.BotMessageGroupArgs> MessageGroupsList
         {
             get => _messageGroupsList ?? (_messageGroupsList = new InputList<Inputs.BotMessageGroupArgs>());

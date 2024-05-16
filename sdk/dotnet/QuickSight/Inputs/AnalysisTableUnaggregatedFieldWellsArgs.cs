@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("values")]
         private InputList<Inputs.AnalysisUnaggregatedFieldArgs>? _values;
+
+        /// <summary>
+        /// The unaggregated field for a table.
+        /// </summary>
         public InputList<Inputs.AnalysisUnaggregatedFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.AnalysisUnaggregatedFieldArgs>());

@@ -23,10 +23,12 @@ func LookupAssessmentTemplate(ctx *pulumi.Context, args *LookupAssessmentTemplat
 }
 
 type LookupAssessmentTemplateArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupAssessmentTemplateResult struct {
+	// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -44,6 +46,7 @@ func LookupAssessmentTemplateOutput(ctx *pulumi.Context, args LookupAssessmentTe
 }
 
 type LookupAssessmentTemplateOutputArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupAssessmentTemplateResultOutput) ToLookupAssessmentTemplateResultOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
 func (o LookupAssessmentTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

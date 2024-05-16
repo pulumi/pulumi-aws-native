@@ -22,6 +22,9 @@ class PolicyStoreArgs:
                  schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
+        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        :param pulumi.Input[str] description: Descriptive text that you can provide to help with identification of the current policy store.
+        :param pulumi.Input['PolicyStoreSchemaDefinitionArgs'] schema: Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
         """
         pulumi.set(__self__, "validation_settings", validation_settings)
         if description is not None:
@@ -32,6 +35,9 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Input['PolicyStoreValidationSettingsArgs']:
+        """
+        A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        """
         return pulumi.get(self, "validation_settings")
 
     @validation_settings.setter
@@ -41,6 +47,9 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Descriptive text that you can provide to help with identification of the current policy store.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -50,6 +59,9 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]:
+        """
+        Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -88,6 +100,9 @@ class PolicyStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Descriptive text that you can provide to help with identification of the current policy store.
+        :param pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']] schema: Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        :param pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']] validation_settings: A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
         """
         ...
     @overload
@@ -181,25 +196,40 @@ class PolicyStore(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Descriptive text that you can provide to help with identification of the current policy store.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the new or updated policy store.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional['outputs.PolicyStoreSchemaDefinition']]:
+        """
+        Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Output['outputs.PolicyStoreValidationSettings']:
+        """
+        A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+        """
         return pulumi.get(self, "validation_settings")
 

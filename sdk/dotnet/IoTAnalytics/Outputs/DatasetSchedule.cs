@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetSchedule
     {
+        /// <summary>
+        /// The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
+        /// </summary>
         public readonly string ScheduleExpression;
 
         [OutputConstructor]

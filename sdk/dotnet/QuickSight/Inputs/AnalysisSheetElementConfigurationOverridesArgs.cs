@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSheetElementConfigurationOverridesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not the overrides are visible. Choose one of the following options:
+        /// 
+        /// - `VISIBLE`
+        /// - `HIDDEN`
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

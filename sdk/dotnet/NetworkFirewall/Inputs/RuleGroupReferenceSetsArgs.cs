@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     {
         [Input("ipSetReferences")]
         private InputMap<Inputs.RuleGroupIpSetReferenceArgs>? _ipSetReferences;
+
+        /// <summary>
+        /// The IP set references to use in the stateful rule group.
+        /// </summary>
         public InputMap<Inputs.RuleGroupIpSetReferenceArgs> IpSetReferences
         {
             get => _ipSetReferences ?? (_ipSetReferences = new InputMap<Inputs.RuleGroupIpSetReferenceArgs>());

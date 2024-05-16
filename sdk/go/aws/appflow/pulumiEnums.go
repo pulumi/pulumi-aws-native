@@ -4010,6 +4010,7 @@ func (in *flowS3ConnectorOperatorPtr) ToFlowS3ConnectorOperatorPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FlowS3ConnectorOperatorPtrOutput)
 }
 
+// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
 type FlowS3InputFormatConfigS3InputFileType string
 
 const (
@@ -4581,6 +4582,7 @@ func (in *flowSapoDataConnectorOperatorPtr) ToFlowSapoDataConnectorOperatorPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSapoDataConnectorOperatorPtrOutput)
 }
 
+// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 type FlowScheduledTriggerPropertiesDataPullMode string
 
 const (

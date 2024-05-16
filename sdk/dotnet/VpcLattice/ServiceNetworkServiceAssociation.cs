@@ -15,45 +15,87 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:ServiceNetworkServiceAssociation")]
     public partial class ServiceNetworkServiceAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the service.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the of the association between the service network and the service.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the association was created, specified in ISO-8601 format.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS information.
+        /// </summary>
         [Output("dnsEntry")]
         public Output<Outputs.ServiceNetworkServiceAssociationDnsEntry?> DnsEntry { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Output("serviceIdentifier")]
         public Output<string?> ServiceIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network
+        /// </summary>
         [Output("serviceNetworkArn")]
         public Output<string> ServiceNetworkArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service network.
+        /// </summary>
         [Output("serviceNetworkId")]
         public Output<string> ServiceNetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// </summary>
         [Output("serviceNetworkIdentifier")]
         public Output<string?> ServiceNetworkIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service network.
+        /// </summary>
         [Output("serviceNetworkName")]
         public Output<string> ServiceNetworkName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the association between the service network and the service.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the association.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -107,17 +149,30 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ServiceNetworkServiceAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS information.
+        /// </summary>
         [Input("dnsEntry")]
         public Input<Inputs.ServiceNetworkServiceAssociationDnsEntryArgs>? DnsEntry { get; set; }
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// </summary>
         [Input("serviceNetworkIdentifier")]
         public Input<string>? ServiceNetworkIdentifier { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the association.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -52,7 +52,13 @@ namespace Pulumi.AwsNative.Msk
     public sealed class GetConfigurationResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Latest revision of the configuration.
+        /// </summary>
         public readonly Outputs.ConfigurationLatestRevision? LatestRevision;
 
         [OutputConstructor]

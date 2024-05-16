@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAxisTickLabelOptions
     {
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         public readonly Outputs.AnalysisLabelOptions? LabelOptions;
+        /// <summary>
+        /// The rotation angle of the axis tick labels.
+        /// </summary>
         public readonly double? RotationAngle;
 
         [OutputConstructor]

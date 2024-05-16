@@ -15,36 +15,60 @@ namespace Pulumi.AwsNative.B2bi
     [AwsNativeResourceType("aws-native:b2bi:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the name for the business associated with this profile.
+        /// </summary>
         [Output("businessName")]
         public Output<string> BusinessName { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the timestamp for creation date and time of the profile.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         [Output("email")]
         public Output<string?> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the name of the logging group.
+        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether or not logging is enabled for this profile.
+        /// </summary>
         [Output("logging")]
         public Output<Pulumi.AwsNative.B2bi.ProfileLogging> Logging { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the timestamp that identifies the most recent date and time that the profile was modified.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the display name for profile.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("phone")]
         public Output<string> Phone { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for the profile.
+        /// </summary>
         [Output("profileArn")]
         public Output<string> ProfileArn { get; private set; } = null!;
 
         [Output("profileId")]
         public Output<string> ProfileId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -97,15 +121,24 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Returns the name for the business associated with this profile.
+        /// </summary>
         [Input("businessName", required: true)]
         public Input<string> BusinessName { get; set; } = null!;
 
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// Specifies whether or not logging is enabled for this profile.
+        /// </summary>
         [Input("logging", required: true)]
         public Input<Pulumi.AwsNative.B2bi.ProfileLogging> Logging { get; set; } = null!;
 
+        /// <summary>
+        /// Returns the display name for profile.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -114,6 +147,10 @@ namespace Pulumi.AwsNative.B2bi
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

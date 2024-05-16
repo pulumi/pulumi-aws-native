@@ -16,8 +16,11 @@ import (
 type PublicKey struct {
 	pulumi.CustomResourceState
 
-	AwsId           pulumi.StringOutput   `pulumi:"awsId"`
-	CreatedTime     pulumi.StringOutput   `pulumi:"createdTime"`
+	// The identifier of the public key.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The date and time when the public key was uploaded.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 	PublicKeyConfig PublicKeyConfigOutput `pulumi:"publicKeyConfig"`
 }
 
@@ -64,11 +67,13 @@ func (PublicKeyState) ElementType() reflect.Type {
 }
 
 type publicKeyArgs struct {
+	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 	PublicKeyConfig PublicKeyConfig `pulumi:"publicKeyConfig"`
 }
 
 // The set of arguments for constructing a PublicKey resource.
 type PublicKeyArgs struct {
+	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 	PublicKeyConfig PublicKeyConfigInput
 }
 
@@ -109,14 +114,17 @@ func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) Publi
 	return o
 }
 
+// The identifier of the public key.
 func (o PublicKeyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicKey) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The date and time when the public key was uploaded.
 func (o PublicKeyOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicKey) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 func (o PublicKeyOutput) PublicKeyConfig() PublicKeyConfigOutput {
 	return o.ApplyT(func(v *PublicKey) PublicKeyConfigOutput { return v.PublicKeyConfig }).(PublicKeyConfigOutput)
 }

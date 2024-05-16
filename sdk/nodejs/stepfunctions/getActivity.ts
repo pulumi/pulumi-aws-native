@@ -19,11 +19,20 @@ export function getActivity(args: GetActivityArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetActivityArgs {
+    /**
+     * Returns the ARN of the resource.
+     */
     arn: string;
 }
 
 export interface GetActivityResult {
+    /**
+     * Returns the ARN of the resource.
+     */
     readonly arn?: string;
+    /**
+     * The `TagsEntry` property specifies *tags* to identify an activity.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -34,5 +43,8 @@ export function getActivityOutput(args: GetActivityOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetActivityOutputArgs {
+    /**
+     * Returns the ARN of the resource.
+     */
     arn: pulumi.Input<string>;
 }

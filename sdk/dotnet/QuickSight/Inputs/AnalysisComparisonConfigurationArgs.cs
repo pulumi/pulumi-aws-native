@@ -12,9 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisComparisonConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The format of the comparison.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("comparisonFormat")]
         public Input<Inputs.AnalysisComparisonFormatConfigurationArgs>? ComparisonFormat { get; set; }
 
+        /// <summary>
+        /// The method of the comparison. Choose from the following options:
+        /// 
+        /// - `DIFFERENCE`
+        /// - `PERCENT_DIFFERENCE`
+        /// - `PERCENT`
+        /// </summary>
         [Input("comparisonMethod")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisComparisonMethod>? ComparisonMethod { get; set; }
 

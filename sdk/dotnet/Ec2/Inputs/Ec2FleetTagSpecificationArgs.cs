@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class Ec2FleetTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of resource to tag.
+        /// </summary>
         [Input("resourceType")]
         public Input<Pulumi.AwsNative.Ec2.Ec2FleetTagSpecificationResourceType>? ResourceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.Ec2FleetTagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// </summary>
         public InputList<Inputs.Ec2FleetTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.Ec2FleetTagArgs>());

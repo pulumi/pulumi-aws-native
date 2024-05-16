@@ -29,12 +29,15 @@ class MissionProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: A dataflow edge defines from where and to where data will flow during a contact.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
+        :param pulumi.Input[str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
         :param pulumi.Input[str] name: A name used to identify a mission profile.
         :param pulumi.Input['MissionProfileStreamsKmsKeyArgs'] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         :param pulumi.Input[str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to the mission profile.
         """
         pulumi.set(__self__, "dataflow_edges", dataflow_edges)
         pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
@@ -55,6 +58,9 @@ class MissionProfileArgs:
     @property
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]]:
+        """
+        A dataflow edge defines from where and to where data will flow during a contact.
+        """
         return pulumi.get(self, "dataflow_edges")
 
     @dataflow_edges.setter
@@ -76,6 +82,9 @@ class MissionProfileArgs:
     @property
     @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+        """
         return pulumi.get(self, "tracking_config_arn")
 
     @tracking_config_arn.setter
@@ -145,6 +154,9 @@ class MissionProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags assigned to the mission profile.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,10 +236,13 @@ class MissionProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]] dataflow_edges: A dataflow edge defines from where and to where data will flow during a contact.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[str] name: A name used to identify a mission profile.
         :param pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         :param pulumi.Input[str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags assigned to the mission profile.
+        :param pulumi.Input[str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         """
         ...
     @overload
@@ -378,11 +393,17 @@ class MissionProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -404,6 +425,9 @@ class MissionProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Output[Sequence['outputs.MissionProfileDataflowEdge']]:
+        """
+        A dataflow edge defines from where and to where data will flow during a contact.
+        """
         return pulumi.get(self, "dataflow_edges")
 
     @property
@@ -425,6 +449,9 @@ class MissionProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
+        """
+        The region of the mission profile.
+        """
         return pulumi.get(self, "region")
 
     @property
@@ -446,10 +473,16 @@ class MissionProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags assigned to the mission profile.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+        """
         return pulumi.get(self, "tracking_config_arn")
 

@@ -19,19 +19,52 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetProfileArgs {
+    /**
+     * The unique primary identifier of the Profile
+     */
     profileId: string;
 }
 
 export interface GetProfileResult {
+    /**
+     * The number of seconds vended session credentials will be valid for
+     */
     readonly durationSeconds?: number;
+    /**
+     * The enabled status of the resource.
+     */
     readonly enabled?: boolean;
+    /**
+     * A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+     */
     readonly managedPolicyArns?: string[];
+    /**
+     * The customer specified name of the resource.
+     */
     readonly name?: string;
+    /**
+     * The ARN of the profile.
+     */
     readonly profileArn?: string;
+    /**
+     * The unique primary identifier of the Profile
+     */
     readonly profileId?: string;
+    /**
+     * Specifies whether instance properties are required in CreateSession requests with this profile.
+     */
     readonly requireInstanceProperties?: boolean;
+    /**
+     * A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+     */
     readonly roleArns?: string[];
+    /**
+     * A session policy that will applied to the trust boundary of the vended session credentials.
+     */
     readonly sessionPolicy?: string;
+    /**
+     * A label that consists of a key and value you define.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -42,5 +75,8 @@ export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetProfileOutputArgs {
+    /**
+     * The unique primary identifier of the Profile
+     */
     profileId: pulumi.Input<string>;
 }

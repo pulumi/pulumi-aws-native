@@ -12,24 +12,47 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `CategoryFilter` filters text values.
+        /// 
+        /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         [Input("categoryFilter")]
         public Input<Inputs.DashboardCategoryFilterArgs>? CategoryFilter { get; set; }
 
+        /// <summary>
+        /// A `NumericEqualityFilter` filters values that are equal to the specified value.
+        /// </summary>
         [Input("numericEqualityFilter")]
         public Input<Inputs.DashboardNumericEqualityFilterArgs>? NumericEqualityFilter { get; set; }
 
+        /// <summary>
+        /// A `NumericRangeFilter` filters values that are within the value range.
+        /// </summary>
         [Input("numericRangeFilter")]
         public Input<Inputs.DashboardNumericRangeFilterArgs>? NumericRangeFilter { get; set; }
 
+        /// <summary>
+        /// A `RelativeDatesFilter` filters relative dates values.
+        /// </summary>
         [Input("relativeDatesFilter")]
         public Input<Inputs.DashboardRelativeDatesFilterArgs>? RelativeDatesFilter { get; set; }
 
+        /// <summary>
+        /// A `TimeEqualityFilter` filters values that are equal to a given value.
+        /// </summary>
         [Input("timeEqualityFilter")]
         public Input<Inputs.DashboardTimeEqualityFilterArgs>? TimeEqualityFilter { get; set; }
 
+        /// <summary>
+        /// A `TimeRangeFilter` filters values that are between two specified values.
+        /// </summary>
         [Input("timeRangeFilter")]
         public Input<Inputs.DashboardTimeRangeFilterArgs>? TimeRangeFilter { get; set; }
 
+        /// <summary>
+        /// A `TopBottomFilter` filters values that are at the top or the bottom.
+        /// </summary>
         [Input("topBottomFilter")]
         public Input<Inputs.DashboardTopBottomFilterArgs>? TopBottomFilter { get; set; }
 

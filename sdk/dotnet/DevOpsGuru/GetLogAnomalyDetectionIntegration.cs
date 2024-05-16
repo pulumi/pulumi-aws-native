@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
 
     public sealed class GetLogAnomalyDetectionIntegrationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
 
     public sealed class GetLogAnomalyDetectionIntegrationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
     [OutputType]
     public sealed class GetLogAnomalyDetectionIntegrationResult
     {
+        /// <summary>
+        /// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+        /// </summary>
         public readonly string? AccountId;
 
         [OutputConstructor]

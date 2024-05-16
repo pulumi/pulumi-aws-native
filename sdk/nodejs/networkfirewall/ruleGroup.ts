@@ -37,13 +37,42 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
+    /**
+     * The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+     */
     public readonly capacity!: pulumi.Output<number>;
+    /**
+     * A description of the rule group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The object that defines the rules in a rule group.
+     *
+     * AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
+     *
+     * To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+     */
     public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroup | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
+    /**
+     * The unique ID of the `RuleGroup` resource.
+     */
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
+    /**
+     * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+     */
     public readonly ruleGroupName!: pulumi.Output<string>;
+    /**
+     * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+     * stateless rules. If it is stateful, it contains stateful rules.
+     */
     public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupTypeEnum>;
 
     /**
@@ -92,10 +121,33 @@ export class RuleGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
+    /**
+     * The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+     */
     capacity: pulumi.Input<number>;
+    /**
+     * A description of the rule group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The object that defines the rules in a rule group.
+     *
+     * AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
+     *
+     * To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+     */
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs>;
+    /**
+     * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+     */
     ruleGroupName?: pulumi.Input<string>;
+    /**
+     * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+     * stateless rules. If it is stateful, it contains stateful rules.
+     */
     type: pulumi.Input<enums.networkfirewall.RuleGroupTypeEnum>;
 }

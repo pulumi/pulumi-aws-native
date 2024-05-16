@@ -14,78 +14,141 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("contributionAnalysisDefaults")]
         private InputList<Inputs.TemplateContributionAnalysisDefaultArgs>? _contributionAnalysisDefaults;
+
+        /// <summary>
+        /// The default configuration of a line chart's contribution analysis.
+        /// </summary>
         public InputList<Inputs.TemplateContributionAnalysisDefaultArgs> ContributionAnalysisDefaults
         {
             get => _contributionAnalysisDefaults ?? (_contributionAnalysisDefaults = new InputList<Inputs.TemplateContributionAnalysisDefaultArgs>());
             set => _contributionAnalysisDefaults = value;
         }
 
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.TemplateDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The options that determine the default presentation of all line series in `LineChartVisual` .
+        /// </summary>
         [Input("defaultSeriesSettings")]
         public Input<Inputs.TemplateLineChartDefaultSeriesSettingsArgs>? DefaultSeriesSettings { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateLineChartFieldWellsArgs>? FieldWells { get; set; }
 
         [Input("forecastConfigurations")]
         private InputList<Inputs.TemplateForecastConfigurationArgs>? _forecastConfigurations;
+
+        /// <summary>
+        /// The forecast configuration that is used in a line chart's display properties.
+        /// </summary>
         public InputList<Inputs.TemplateForecastConfigurationArgs> ForecastConfigurations
         {
             get => _forecastConfigurations ?? (_forecastConfigurations = new InputList<Inputs.TemplateForecastConfigurationArgs>());
             set => _forecastConfigurations = value;
         }
 
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         [Input("legend")]
         public Input<Inputs.TemplateLegendOptionsArgs>? Legend { get; set; }
 
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.TemplateLineSeriesAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
 
         [Input("referenceLines")]
         private InputList<Inputs.TemplateReferenceLineArgs>? _referenceLines;
+
+        /// <summary>
+        /// The reference lines configuration of a line chart.
+        /// </summary>
         public InputList<Inputs.TemplateReferenceLineArgs> ReferenceLines
         {
             get => _referenceLines ?? (_referenceLines = new InputList<Inputs.TemplateReferenceLineArgs>());
             set => _referenceLines = value;
         }
 
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         [Input("secondaryYAxisDisplayOptions")]
         public Input<Inputs.TemplateLineSeriesAxisDisplayOptionsArgs>? SecondaryYAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
 
         [Input("series")]
         private InputList<Inputs.TemplateSeriesItemArgs>? _series;
+
+        /// <summary>
+        /// The series item configuration of a line chart.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.TemplateSeriesItemArgs> Series
         {
             get => _series ?? (_series = new InputList<Inputs.TemplateSeriesItemArgs>());
             set => _series = value;
         }
 
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         [Input("smallMultiplesOptions")]
         public Input<Inputs.TemplateSmallMultiplesOptionsArgs>? SmallMultiplesOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a line chart.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplateLineChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.TemplateTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// Determines the type of the line chart.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateLineChartType>? Type { get; set; }
 
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.TemplateVisualPaletteArgs>? VisualPalette { get; set; }
 
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }
 

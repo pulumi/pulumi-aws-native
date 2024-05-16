@@ -24,10 +24,12 @@ func LookupClientCertificate(ctx *pulumi.Context, args *LookupClientCertificateA
 }
 
 type LookupClientCertificateArgs struct {
+	// The ID for the client certificate. For example: `abc123` .
 	ClientCertificateId string `pulumi:"clientCertificateId"`
 }
 
 type LookupClientCertificateResult struct {
+	// The ID for the client certificate. For example: `abc123` .
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The description of the client certificate.
 	Description *string `pulumi:"description"`
@@ -49,6 +51,7 @@ func LookupClientCertificateOutput(ctx *pulumi.Context, args LookupClientCertifi
 }
 
 type LookupClientCertificateOutputArgs struct {
+	// The ID for the client certificate. For example: `abc123` .
 	ClientCertificateId pulumi.StringInput `pulumi:"clientCertificateId"`
 }
 
@@ -70,6 +73,7 @@ func (o LookupClientCertificateResultOutput) ToLookupClientCertificateResultOutp
 	return o
 }
 
+// The ID for the client certificate. For example: `abc123` .
 func (o LookupClientCertificateResultOutput) ClientCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClientCertificateResult) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
 }

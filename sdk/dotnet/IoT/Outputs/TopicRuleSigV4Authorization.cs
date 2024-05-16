@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleSigV4Authorization
     {
+        /// <summary>
+        /// The ARN of the signing role.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The service name to use while signing with Sig V4.
+        /// </summary>
         public readonly string ServiceName;
+        /// <summary>
+        /// The signing region.
+        /// </summary>
         public readonly string SigningRegion;
 
         [OutputConstructor]

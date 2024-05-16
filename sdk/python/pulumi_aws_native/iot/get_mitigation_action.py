@@ -41,21 +41,33 @@ class GetMitigationActionResult:
     @property
     @pulumi.getter(name="actionParams")
     def action_params(self) -> Optional['outputs.MitigationActionActionParams']:
+        """
+        Defines the type of action and the parameters for that action.
+        """
         return pulumi.get(self, "action_params")
 
     @property
     @pulumi.getter(name="mitigationActionArn")
     def mitigation_action_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the mitigation action.
+        """
         return pulumi.get(self, "mitigation_action_arn")
 
     @property
     @pulumi.getter(name="mitigationActionId")
     def mitigation_action_id(self) -> Optional[str]:
+        """
+        The ID of the mitigation action.
+        """
         return pulumi.get(self, "mitigation_action_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The IAM role ARN used to apply this mitigation action.
+        """
         return pulumi.get(self, "role_arn")
 
     @property

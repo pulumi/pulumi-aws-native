@@ -37,11 +37,33 @@ export class PolicyStatement extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyStatement.__pulumiType;
     }
 
+    /**
+     * The action that the principal can use on the resource.
+     *
+     * For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+     */
     public readonly action!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+     */
     public readonly arn!: pulumi.Output<string>;
+    /**
+     * A set of condition keys that you can use in key policies.
+     */
     public readonly condition!: pulumi.Output<string | undefined>;
+    /**
+     * Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+     *
+     * > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+     */
     public readonly effect!: pulumi.Output<enums.entityresolution.PolicyStatementStatementEffect | undefined>;
+    /**
+     * The AWS service or AWS account that can access the resource defined as ARN.
+     */
     public readonly principal!: pulumi.Output<string[] | undefined>;
+    /**
+     * A statement identifier that differentiates the statement from others in the same policy.
+     */
     public readonly statementId!: pulumi.Output<string>;
 
     /**
@@ -86,10 +108,32 @@ export class PolicyStatement extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyStatement resource.
  */
 export interface PolicyStatementArgs {
+    /**
+     * The action that the principal can use on the resource.
+     *
+     * For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+     */
     action?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+     */
     arn: pulumi.Input<string>;
+    /**
+     * A set of condition keys that you can use in key policies.
+     */
     condition?: pulumi.Input<string>;
+    /**
+     * Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+     *
+     * > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+     */
     effect?: pulumi.Input<enums.entityresolution.PolicyStatementStatementEffect>;
+    /**
+     * The AWS service or AWS account that can access the resource defined as ARN.
+     */
     principal?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A statement identifier that differentiates the statement from others in the same policy.
+     */
     statementId: pulumi.Input<string>;
 }

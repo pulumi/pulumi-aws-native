@@ -83,6 +83,9 @@ export class Input extends pulumi.CustomResource {
         return obj['__pulumiType'] === Input.__pulumiType;
     }
 
+    /**
+     * The definition of the input.
+     */
     public readonly inputDefinition!: pulumi.Output<outputs.iotevents.InputDefinition>;
     /**
      * A brief description of the input.
@@ -134,6 +137,9 @@ export class Input extends pulumi.CustomResource {
  * The set of arguments for constructing a Input resource.
  */
 export interface InputArgs {
+    /**
+     * The definition of the input.
+     */
     inputDefinition: pulumi.Input<inputs.iotevents.InputDefinitionArgs>;
     /**
      * A brief description of the input.

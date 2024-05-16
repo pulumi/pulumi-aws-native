@@ -57,56 +57,96 @@ class GetEmailIdentityResult:
     @property
     @pulumi.getter(name="configurationSetAttributes")
     def configuration_set_attributes(self) -> Optional['outputs.EmailIdentityConfigurationSetAttributes']:
+        """
+        Used to associate a configuration set with an email identity.
+        """
         return pulumi.get(self, "configuration_set_attributes")
 
     @property
     @pulumi.getter(name="dkimAttributes")
     def dkim_attributes(self) -> Optional['outputs.EmailIdentityDkimAttributes']:
+        """
+        Used to enable or disable DKIM authentication for an email identity.
+        """
         return pulumi.get(self, "dkim_attributes")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName1")
     def dkim_dns_token_name1(self) -> Optional[str]:
+        """
+        The host name for the first token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name1")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName2")
     def dkim_dns_token_name2(self) -> Optional[str]:
+        """
+        The host name for the second token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name2")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName3")
     def dkim_dns_token_name3(self) -> Optional[str]:
+        """
+        The host name for the third token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name3")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue1")
     def dkim_dns_token_value1(self) -> Optional[str]:
+        """
+        The record value for the first token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value1")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue2")
     def dkim_dns_token_value2(self) -> Optional[str]:
+        """
+        The record value for the second token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value2")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue3")
     def dkim_dns_token_value3(self) -> Optional[str]:
+        """
+        The record value for the third token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value3")
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional['outputs.EmailIdentityDkimSigningAttributes']:
+        """
+        Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+
+        - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+        - Update the key length that should be used for Easy DKIM.
+        - Change from using no DKIM authentication to using Easy DKIM.
+        - Change from using no DKIM authentication to using BYODKIM.
+        - Change from using Easy DKIM to using BYODKIM.
+        - Change from using BYODKIM to using Easy DKIM.
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @property
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> Optional['outputs.EmailIdentityFeedbackAttributes']:
+        """
+        Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        """
         return pulumi.get(self, "feedback_attributes")
 
     @property
     @pulumi.getter(name="mailFromAttributes")
     def mail_from_attributes(self) -> Optional['outputs.EmailIdentityMailFromAttributes']:
+        """
+        Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        """
         return pulumi.get(self, "mail_from_attributes")
 
 

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
 
     public sealed class LicenseBorrowConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether early check-ins are allowed.
+        /// </summary>
         [Input("allowEarlyCheckIn", required: true)]
         public Input<bool> AllowEarlyCheckIn { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum time for the borrow configuration, in minutes.
+        /// </summary>
         [Input("maxTimeToLiveInMinutes", required: true)]
         public Input<int> MaxTimeToLiveInMinutes { get; set; } = null!;
 

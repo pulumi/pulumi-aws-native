@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Status of the feature configuration.
 type DetectorCfnFeatureConfigurationStatus string
 
 const (

@@ -566,6 +566,9 @@ class Volume(pulumi.CustomResource):
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the volume.
+        """
         return pulumi.get(self, "volume_id")
 
     @property

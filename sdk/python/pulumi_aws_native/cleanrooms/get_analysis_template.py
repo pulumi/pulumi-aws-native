@@ -49,36 +49,67 @@ class GetAnalysisTemplateResult:
     @property
     @pulumi.getter(name="analysisTemplateIdentifier")
     def analysis_template_identifier(self) -> Optional[str]:
+        """
+        Returns the identifier for the analysis template.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        """
         return pulumi.get(self, "analysis_template_identifier")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the analysis template.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> Optional[str]:
+        """
+        Returns the unique ARN for the analysis template’s associated collaboration.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "collaboration_arn")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> Optional[str]:
+        """
+        Returns the unique ID for the associated collaboration of the analysis template.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the analysis template.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="membershipArn")
     def membership_arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "membership_arn")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional['outputs.AnalysisTemplateAnalysisSchema']:
+        """
+        A relation within an analysis.
+        """
         return pulumi.get(self, "schema")
 
     @property
@@ -111,6 +142,12 @@ def get_analysis_template(analysis_template_identifier: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalysisTemplateResult:
     """
     Represents a stored analysis within a collaboration
+
+
+    :param str analysis_template_identifier: Returns the identifier for the analysis template.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+    :param str membership_identifier: The identifier for a membership resource.
     """
     __args__ = dict()
     __args__['analysisTemplateIdentifier'] = analysis_template_identifier
@@ -135,5 +172,11 @@ def get_analysis_template_output(analysis_template_identifier: Optional[pulumi.I
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisTemplateResult]:
     """
     Represents a stored analysis within a collaboration
+
+
+    :param str analysis_template_identifier: Returns the identifier for the analysis template.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+    :param str membership_identifier: The identifier for a membership resource.
     """
     ...

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     {
         [Input("statistics", required: true)]
         private InputList<string>? _statistics;
+
+        /// <summary>
+        /// One or more column statistics to allow for columns that contain detected entities.
+        /// </summary>
         public InputList<string> Statistics
         {
             get => _statistics ?? (_statistics = new InputList<string>());

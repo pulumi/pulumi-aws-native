@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public string ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public string EnvironmentIdentifier { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
@@ -57,17 +69,41 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The resource ID of the API Gateway for the proxy.
+        /// </summary>
         public readonly string? ApiGatewayId;
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         public readonly string? ApplicationIdentifier;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the application.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Load Balancer .
+        /// </summary>
         public readonly string? NlbArn;
+        /// <summary>
+        /// The name of the Network Load Balancer configured by the API Gateway proxy.
+        /// </summary>
         public readonly string? NlbName;
+        /// <summary>
+        /// The endpoint URL of the Amazon API Gateway proxy.
+        /// </summary>
         public readonly string? ProxyUrl;
+        /// <summary>
+        /// The name of the API Gateway stage. The name defaults to `prod` .
+        /// </summary>
         public readonly string? StageName;
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The `VpcLink` ID of the API Gateway proxy.
+        /// </summary>
         public readonly string? VpcLinkId;
 
         [OutputConstructor]

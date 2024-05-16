@@ -24,18 +24,33 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        /// </summary>
         [Output("inputSourceConfig")]
         public Output<ImmutableArray<Outputs.MatchingWorkflowInputSource>> InputSourceConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// </summary>
         [Output("outputSourceConfig")]
         public Output<ImmutableArray<Outputs.MatchingWorkflowOutputSource>> OutputSourceConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        /// </summary>
         [Output("resolutionTechniques")]
         public Output<Outputs.MatchingWorkflowResolutionTechniques> ResolutionTechniques { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -108,6 +123,10 @@ namespace Pulumi.AwsNative.EntityResolution
 
         [Input("inputSourceConfig", required: true)]
         private InputList<Inputs.MatchingWorkflowInputSourceArgs>? _inputSourceConfig;
+
+        /// <summary>
+        /// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        /// </summary>
         public InputList<Inputs.MatchingWorkflowInputSourceArgs> InputSourceConfig
         {
             get => _inputSourceConfig ?? (_inputSourceConfig = new InputList<Inputs.MatchingWorkflowInputSourceArgs>());
@@ -116,20 +135,34 @@ namespace Pulumi.AwsNative.EntityResolution
 
         [Input("outputSourceConfig", required: true)]
         private InputList<Inputs.MatchingWorkflowOutputSourceArgs>? _outputSourceConfig;
+
+        /// <summary>
+        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// </summary>
         public InputList<Inputs.MatchingWorkflowOutputSourceArgs> OutputSourceConfig
         {
             get => _outputSourceConfig ?? (_outputSourceConfig = new InputList<Inputs.MatchingWorkflowOutputSourceArgs>());
             set => _outputSourceConfig = value;
         }
 
+        /// <summary>
+        /// An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        /// </summary>
         [Input("resolutionTechniques", required: true)]
         public Input<Inputs.MatchingWorkflowResolutionTechniquesArgs> ResolutionTechniques { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

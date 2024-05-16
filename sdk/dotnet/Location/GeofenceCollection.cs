@@ -15,21 +15,49 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:GeofenceCollection")]
     public partial class GeofenceCollection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        /// </summary>
         [Output("collectionArn")]
         public Output<string> CollectionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A custom name for the geofence collection.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique geofence collection name.
+        /// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        /// </summary>
         [Output("collectionName")]
         public Output<string> CollectionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description for the geofence collection.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
@@ -48,6 +76,9 @@ namespace Pulumi.AwsNative.Location
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -101,12 +132,27 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GeofenceCollectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A custom name for the geofence collection.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique geofence collection name.
+        /// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        /// </summary>
         [Input("collectionName")]
         public Input<string>? CollectionName { get; set; }
 
+        /// <summary>
+        /// An optional description for the geofence collection.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

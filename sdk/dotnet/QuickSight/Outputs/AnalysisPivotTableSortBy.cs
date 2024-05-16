@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPivotTableSortBy
     {
+        /// <summary>
+        /// The sort configuration for a column that is not used in a field well.
+        /// </summary>
         public readonly Outputs.AnalysisColumnSort? Column;
+        /// <summary>
+        /// Allows data paths to be sorted by a specific data value.
+        /// </summary>
         public readonly Outputs.AnalysisDataPathSort? DataPath;
+        /// <summary>
+        /// The sort configuration for a field in a field well.
+        /// </summary>
         public readonly Outputs.AnalysisFieldSort? Field;
 
         [OutputConstructor]

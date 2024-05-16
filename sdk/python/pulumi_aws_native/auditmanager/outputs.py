@@ -48,6 +48,9 @@ class AssessmentAwsAccount(dict):
                  name: Optional[str] = None):
         """
         The AWS account associated with the assessment.
+        :param str email_address: The email address that's associated with the AWS account .
+        :param str id: The identifier for the AWS account .
+        :param str name: The name of the AWS account .
         """
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -59,16 +62,25 @@ class AssessmentAwsAccount(dict):
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[str]:
+        """
+        The email address that's associated with the AWS account .
+        """
         return pulumi.get(self, "email_address")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier for the AWS account .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the AWS account .
+        """
         return pulumi.get(self, "name")
 
 
@@ -98,6 +110,7 @@ class AssessmentAwsService(dict):
                  service_name: Optional[str] = None):
         """
         An AWS service such as Amazon S3, AWS CloudTrail, and so on.
+        :param str service_name: The name of the AWS service .
         """
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
@@ -105,6 +118,9 @@ class AssessmentAwsService(dict):
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[str]:
+        """
+        The name of the AWS service .
+        """
         return pulumi.get(self, "service_name")
 
 
@@ -158,6 +174,29 @@ class AssessmentDelegation(dict):
                  status: Optional['AssessmentDelegationStatus'] = None):
         """
         The assignment of a control set to a delegate for review.
+        :param str assessment_id: The identifier for the assessment that's associated with the delegation.
+        :param str assessment_name: The name of the assessment that's associated with the delegation.
+        :param str comment: The comment that's related to the delegation.
+        :param str control_set_id: The identifier for the control set that's associated with the delegation.
+        :param str created_by: The user or role that created the delegation.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+               
+               *Pattern* : `^[a-zA-Z0-9-_()\\\\[\\\\]\\\\s]+$`
+        :param float creation_time: Specifies when the delegation was created.
+        :param str id: The unique identifier for the delegation.
+        :param float last_updated: Specifies when the delegation was last updated.
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role.
+        :param 'AssessmentRoleType' role_type: The type of customer persona.
+               
+               > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+               > 
+               > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+               > 
+               > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        :param 'AssessmentDelegationStatus' status: The status of the delegation.
         """
         if assessment_id is not None:
             pulumi.set(__self__, "assessment_id", assessment_id)
@@ -185,56 +224,101 @@ class AssessmentDelegation(dict):
     @property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> Optional[str]:
+        """
+        The identifier for the assessment that's associated with the delegation.
+        """
         return pulumi.get(self, "assessment_id")
 
     @property
     @pulumi.getter(name="assessmentName")
     def assessment_name(self) -> Optional[str]:
+        """
+        The name of the assessment that's associated with the delegation.
+        """
         return pulumi.get(self, "assessment_name")
 
     @property
     @pulumi.getter
     def comment(self) -> Optional[str]:
+        """
+        The comment that's related to the delegation.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="controlSetId")
     def control_set_id(self) -> Optional[str]:
+        """
+        The identifier for the control set that's associated with the delegation.
+        """
         return pulumi.get(self, "control_set_id")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
+        """
+        The user or role that created the delegation.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+
+        *Pattern* : `^[a-zA-Z0-9-_()\\\\[\\\\]\\\\s]+$`
+        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[float]:
+        """
+        Specifies when the delegation was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier for the delegation.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[float]:
+        """
+        Specifies when the delegation was last updated.
+        """
         return pulumi.get(self, "last_updated")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional['AssessmentRoleType']:
+        """
+        The type of customer persona.
+
+        > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        """
         return pulumi.get(self, "role_type")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['AssessmentDelegationStatus']:
+        """
+        The status of the delegation.
+        """
         return pulumi.get(self, "status")
 
 
@@ -265,6 +349,8 @@ class AssessmentReportsDestination(dict):
                  destination_type: Optional['AssessmentReportDestinationType'] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
+        :param str destination: The destination bucket where Audit Manager stores assessment reports.
+        :param 'AssessmentReportDestinationType' destination_type: The destination type, such as Amazon S3.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -274,11 +360,17 @@ class AssessmentReportsDestination(dict):
     @property
     @pulumi.getter
     def destination(self) -> Optional[str]:
+        """
+        The destination bucket where Audit Manager stores assessment reports.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional['AssessmentReportDestinationType']:
+        """
+        The destination type, such as Amazon S3.
+        """
         return pulumi.get(self, "destination_type")
 
 
@@ -311,6 +403,14 @@ class AssessmentRole(dict):
                  role_type: Optional['AssessmentRoleType'] = None):
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role.
+        :param 'AssessmentRoleType' role_type: The type of customer persona.
+               
+               > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+               > 
+               > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+               > 
+               > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
         """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -320,11 +420,23 @@ class AssessmentRole(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional['AssessmentRoleType']:
+        """
+        The type of customer persona.
+
+        > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        """
         return pulumi.get(self, "role_type")
 
 

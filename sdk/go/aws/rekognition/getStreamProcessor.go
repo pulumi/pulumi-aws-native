@@ -29,6 +29,7 @@ type LookupStreamProcessorArgs struct {
 }
 
 type LookupStreamProcessorResult struct {
+	// Amazon Resource Name for the newly created stream processor.
 	Arn *string `pulumi:"arn"`
 	// Current status of the stream processor.
 	Status *string `pulumi:"status"`
@@ -74,6 +75,7 @@ func (o LookupStreamProcessorResultOutput) ToLookupStreamProcessorResultOutputWi
 	return o
 }
 
+// Amazon Resource Name for the newly created stream processor.
 func (o LookupStreamProcessorResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamProcessorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

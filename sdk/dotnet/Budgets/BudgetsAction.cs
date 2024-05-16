@@ -15,33 +15,68 @@ namespace Pulumi.AwsNative.Budgets
     [AwsNativeResourceType("aws-native:budgets:BudgetsAction")]
     public partial class BudgetsAction : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A system-generated universally unique identifier (UUID) for the action.
+        /// </summary>
         [Output("actionId")]
         public Output<string> ActionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The trigger threshold of the action.
+        /// </summary>
         [Output("actionThreshold")]
         public Output<Outputs.BudgetsActionActionThreshold> ActionThreshold { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+        /// </summary>
         [Output("actionType")]
         public Output<Pulumi.AwsNative.Budgets.BudgetsActionActionType> ActionType { get; private set; } = null!;
 
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval.
+        /// </summary>
         [Output("approvalModel")]
         public Output<Pulumi.AwsNative.Budgets.BudgetsActionApprovalModel?> ApprovalModel { get; private set; } = null!;
 
+        /// <summary>
+        /// A string that represents the budget name. ":" and "\" characters aren't allowed.
+        /// </summary>
         [Output("budgetName")]
         public Output<string> BudgetName { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition is where you specify all of the type-specific parameters.
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.BudgetsActionDefinition> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of a notification.
+        /// </summary>
         [Output("notificationType")]
         public Output<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag structure that contains a tag key and value.
+        /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> ResourceTags { get; private set; } = null!;
 
+        /// <summary>
+        /// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+        /// 
+        /// For example, an email subscriber has the following parameters:
+        /// 
+        /// - A `subscriptionType` of `EMAIL`
+        /// - An `address` of `example@example.com`
+        /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.BudgetsActionSubscriber>> Subscribers { get; private set; } = null!;
 
@@ -95,29 +130,54 @@ namespace Pulumi.AwsNative.Budgets
 
     public sealed class BudgetsActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The trigger threshold of the action.
+        /// </summary>
         [Input("actionThreshold", required: true)]
         public Input<Inputs.BudgetsActionActionThresholdArgs> ActionThreshold { get; set; } = null!;
 
+        /// <summary>
+        /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+        /// </summary>
         [Input("actionType", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionActionType> ActionType { get; set; } = null!;
 
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval.
+        /// </summary>
         [Input("approvalModel")]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionApprovalModel>? ApprovalModel { get; set; }
 
+        /// <summary>
+        /// A string that represents the budget name. ":" and "\" characters aren't allowed.
+        /// </summary>
         [Input("budgetName", required: true)]
         public Input<string> BudgetName { get; set; } = null!;
 
+        /// <summary>
+        /// The definition is where you specify all of the type-specific parameters.
+        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.BudgetsActionDefinitionArgs> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The type of a notification.
+        /// </summary>
         [Input("notificationType", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; set; } = null!;
 
         [Input("resourceTags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _resourceTags;
+
+        /// <summary>
+        /// The tag structure that contains a tag key and value.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -126,6 +186,15 @@ namespace Pulumi.AwsNative.Budgets
 
         [Input("subscribers", required: true)]
         private InputList<Inputs.BudgetsActionSubscriberArgs>? _subscribers;
+
+        /// <summary>
+        /// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+        /// 
+        /// For example, an email subscriber has the following parameters:
+        /// 
+        /// - A `subscriptionType` of `EMAIL`
+        /// - An `address` of `example@example.com`
+        /// </summary>
         public InputList<Inputs.BudgetsActionSubscriberArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.BudgetsActionSubscriberArgs>());

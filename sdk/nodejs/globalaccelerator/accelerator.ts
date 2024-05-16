@@ -73,6 +73,9 @@ export class Accelerator extends pulumi.CustomResource {
      * Name of accelerator.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A complex type that contains a `Tag` key and `Tag` value.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -133,5 +136,8 @@ export interface AcceleratorArgs {
      * Name of accelerator.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A complex type that contains a `Tag` key and `Tag` value.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

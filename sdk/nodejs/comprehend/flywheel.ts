@@ -37,14 +37,41 @@ export class Flywheel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Flywheel.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Number (ARN) of the active model version.
+     */
     public readonly activeModelArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the flywheel.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+     */
     public readonly dataAccessRoleArn!: pulumi.Output<string>;
+    /**
+     * Amazon S3 URI of the data lake location.
+     */
     public readonly dataLakeS3Uri!: pulumi.Output<string>;
+    /**
+     * Data security configuration.
+     */
     public readonly dataSecurityConfig!: pulumi.Output<outputs.comprehend.FlywheelDataSecurityConfig | undefined>;
+    /**
+     * Name for the flywheel.
+     */
     public readonly flywheelName!: pulumi.Output<string>;
+    /**
+     * Model type of the flywheel's model.
+     */
     public readonly modelType!: pulumi.Output<enums.comprehend.FlywheelModelType | undefined>;
+    /**
+     * A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Configuration about the model associated with a flywheel.
+     */
     public readonly taskConfig!: pulumi.Output<outputs.comprehend.FlywheelTaskConfig | undefined>;
 
     /**
@@ -95,12 +122,36 @@ export class Flywheel extends pulumi.CustomResource {
  * The set of arguments for constructing a Flywheel resource.
  */
 export interface FlywheelArgs {
+    /**
+     * The Amazon Resource Number (ARN) of the active model version.
+     */
     activeModelArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+     */
     dataAccessRoleArn: pulumi.Input<string>;
+    /**
+     * Amazon S3 URI of the data lake location.
+     */
     dataLakeS3Uri: pulumi.Input<string>;
+    /**
+     * Data security configuration.
+     */
     dataSecurityConfig?: pulumi.Input<inputs.comprehend.FlywheelDataSecurityConfigArgs>;
+    /**
+     * Name for the flywheel.
+     */
     flywheelName?: pulumi.Input<string>;
+    /**
+     * Model type of the flywheel's model.
+     */
     modelType?: pulumi.Input<enums.comprehend.FlywheelModelType>;
+    /**
+     * A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Configuration about the model associated with a flywheel.
+     */
     taskConfig?: pulumi.Input<inputs.comprehend.FlywheelTaskConfigArgs>;
 }

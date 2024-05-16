@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainZoneAwarenessConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+        /// 
+        /// Valid values are `2` and `3` . Default is 2.
+        /// </summary>
         [Input("availabilityZoneCount")]
         public Input<int>? AvailabilityZoneCount { get; set; }
 

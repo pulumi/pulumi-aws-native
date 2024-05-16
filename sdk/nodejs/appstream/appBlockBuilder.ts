@@ -37,18 +37,61 @@ export class AppBlockBuilder extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppBlockBuilder.__pulumiType;
     }
 
+    /**
+     * Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+     */
     public readonly accessEndpoints!: pulumi.Output<outputs.appstream.AppBlockBuilderAccessEndpoint[] | undefined>;
+    /**
+     * The ARN of the app block.
+     *
+     * *Maximum* : `1`
+     */
     public readonly appBlockArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ARN of the app block builder.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The time when the app block builder was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The description of the app block builder.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the app block builder.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether default internet access is enabled for the app block builder.
+     */
     public readonly enableDefaultInternetAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ARN of the IAM role that is applied to the app block builder.
+     */
     public readonly iamRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The instance type of the app block builder.
+     */
     public readonly instanceType!: pulumi.Output<string>;
+    /**
+     * The name of the app block builder.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The platform of the app block builder.
+     *
+     * *Allowed values* : `WINDOWS_SERVER_2019`
+     */
     public readonly platform!: pulumi.Output<string>;
+    /**
+     * The tag of the app block builder.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Describes VPC configuration information for fleets and image builders.
+     */
     public readonly vpcConfig!: pulumi.Output<outputs.appstream.AppBlockBuilderVpcConfig>;
 
     /**
@@ -110,15 +153,52 @@ export class AppBlockBuilder extends pulumi.CustomResource {
  * The set of arguments for constructing a AppBlockBuilder resource.
  */
 export interface AppBlockBuilderArgs {
+    /**
+     * Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockBuilderAccessEndpointArgs>[]>;
+    /**
+     * The ARN of the app block.
+     *
+     * *Maximum* : `1`
+     */
     appBlockArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The description of the app block builder.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the app block builder.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * Indicates whether default internet access is enabled for the app block builder.
+     */
     enableDefaultInternetAccess?: pulumi.Input<boolean>;
+    /**
+     * The ARN of the IAM role that is applied to the app block builder.
+     */
     iamRoleArn?: pulumi.Input<string>;
+    /**
+     * The instance type of the app block builder.
+     */
     instanceType: pulumi.Input<string>;
+    /**
+     * The name of the app block builder.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The platform of the app block builder.
+     *
+     * *Allowed values* : `WINDOWS_SERVER_2019`
+     */
     platform: pulumi.Input<string>;
+    /**
+     * The tag of the app block builder.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Describes VPC configuration information for fleets and image builders.
+     */
     vpcConfig: pulumi.Input<inputs.appstream.AppBlockBuilderVpcConfigArgs>;
 }

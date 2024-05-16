@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.Eks.Inputs
 
         [Input("requiredClaims")]
         private InputList<Inputs.IdentityProviderConfigRequiredClaimArgs>? _requiredClaims;
+
+        /// <summary>
+        /// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        /// </summary>
         public InputList<Inputs.IdentityProviderConfigRequiredClaimArgs> RequiredClaims
         {
             get => _requiredClaims ?? (_requiredClaims = new InputList<Inputs.IdentityProviderConfigRequiredClaimArgs>());

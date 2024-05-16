@@ -41,9 +41,14 @@ type LookupKnowledgeBaseResult struct {
 	// The name of the knowledge base.
 	Name *string `pulumi:"name"`
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-	RoleArn *string              `pulumi:"roleArn"`
-	Status  *KnowledgeBaseStatus `pulumi:"status"`
-	Tags    map[string]string    `pulumi:"tags"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The status of the knowledge base.
+	Status *KnowledgeBaseStatus `pulumi:"status"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
 	// The time at which the knowledge base was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -119,10 +124,15 @@ func (o LookupKnowledgeBaseResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the knowledge base.
 func (o LookupKnowledgeBaseResultOutput) Status() KnowledgeBaseStatusPtrOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *KnowledgeBaseStatus { return v.Status }).(KnowledgeBaseStatusPtrOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o LookupKnowledgeBaseResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

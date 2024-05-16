@@ -211,6 +211,7 @@ class BucketRule(dict):
         :param int expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
         :param 'BucketRuleFilterProperties' filter: The container for the filter of the lifecycle rule.
         :param str id: Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
+        :param 'BucketRuleStatus' status: If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
         """
         if abort_incomplete_multipart_upload is not None:
             pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
@@ -268,6 +269,9 @@ class BucketRule(dict):
     @property
     @pulumi.getter
     def status(self) -> Optional['BucketRuleStatus']:
+        """
+        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        """
         return pulumi.get(self, "status")
 
 
@@ -409,12 +413,16 @@ class EndpointNetworkInterface(dict):
                  network_interface_id: str):
         """
         The container for the network interface.
+        :param str network_interface_id: The ID for the network interface.
         """
         pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
+        """
+        The ID for the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
 

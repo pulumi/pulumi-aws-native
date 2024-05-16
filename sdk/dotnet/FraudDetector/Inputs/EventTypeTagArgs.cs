@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
 
     public sealed class EventTypeTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A tag key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// A value assigned to a tag key.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

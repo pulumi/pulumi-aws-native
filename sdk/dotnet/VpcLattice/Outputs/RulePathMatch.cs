@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RulePathMatch
     {
+        /// <summary>
+        /// Indicates whether the match is case sensitive.
+        /// </summary>
         public readonly bool? CaseSensitive;
+        /// <summary>
+        /// Describes a path match type. Each rule can include only one of the following types of paths.
+        /// </summary>
         public readonly Outputs.RulePathMatchType Match;
 
         [OutputConstructor]

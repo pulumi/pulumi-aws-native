@@ -38,11 +38,35 @@ export class Alias extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A description of the alias.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name or ARN of the Lambda function.
+     *
+     * **Name formats** - *Function name* - `MyFunction` .
+     * - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+     * - *Partial ARN* - `123456789012:function:MyFunction` .
+     *
+     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+     */
     public readonly functionName!: pulumi.Output<string>;
+    /**
+     * The function version that the alias invokes.
+     */
     public readonly functionVersion!: pulumi.Output<string>;
+    /**
+     * The name of the alias.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A provisioned concurrency configuration for a function's alias.
+     */
     public readonly provisionedConcurrencyConfig!: pulumi.Output<outputs.lambda.AliasProvisionedConcurrencyConfiguration | undefined>;
+    /**
+     * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+     */
     public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfiguration | undefined>;
 
     /**
@@ -89,10 +113,34 @@ export class Alias extends pulumi.CustomResource {
  * The set of arguments for constructing a Alias resource.
  */
 export interface AliasArgs {
+    /**
+     * A description of the alias.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name or ARN of the Lambda function.
+     *
+     * **Name formats** - *Function name* - `MyFunction` .
+     * - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+     * - *Partial ARN* - `123456789012:function:MyFunction` .
+     *
+     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+     */
     functionName: pulumi.Input<string>;
+    /**
+     * The function version that the alias invokes.
+     */
     functionVersion: pulumi.Input<string>;
+    /**
+     * The name of the alias.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A provisioned concurrency configuration for a function's alias.
+     */
     provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.AliasProvisionedConcurrencyConfigurationArgs>;
+    /**
+     * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+     */
     routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfigurationArgs>;
 }

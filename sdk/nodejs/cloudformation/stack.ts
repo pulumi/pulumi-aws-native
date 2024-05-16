@@ -37,34 +37,158 @@ export class Stack extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stack.__pulumiType;
     }
 
+    /**
+     * In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for AWS CloudFormation to create the stack.
+     *
+     * - `CAPABILITY_IAM` and `CAPABILITY_NAMED_IAM`
+     *
+     * Some stack templates might include resources that can affect permissions in your AWS account ; for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge this by specifying one of these capabilities.
+     *
+     * The following IAM resources require you to specify either the `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM` capability.
+     *
+     * - If you have IAM resources, you can specify either capability.
+     * - If you have IAM resources with custom names, you *must* specify `CAPABILITY_NAMED_IAM` .
+     * - If you don't specify either of these capabilities, AWS CloudFormation returns an `InsufficientCapabilities` error.
+     *
+     * If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
+     *
+     * - [`AWS::IAM::AccessKey`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
+     * - [`AWS::IAM::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
+     * - [`AWS::IAM::InstanceProfile`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
+     * - [`AWS::IAM::Policy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
+     * - [`AWS::IAM::Role`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
+     * - [`AWS::IAM::User`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
+     * - [`AWS::IAM::UserToGroupAddition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
+     *
+     * For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
+     * - `CAPABILITY_AUTO_EXPAND`
+     *
+     * Some template contain macros. Macros perform custom processing on templates; this can include simple actions like find-and-replace operations, all the way to extensive transformations of entire templates. Because of this, users typically create a change set from the processed template, so that they can review the changes resulting from the macros before actually creating the stack. If your stack template contains one or more macros, and you choose to create a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. This includes the [AWS::Include](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html) and [AWS::Serverless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html) transforms, which are macros hosted by AWS CloudFormation .
+     *
+     * If you want to create a stack from a stack template that contains macros *and* nested stacks, you must create the stack directly from the template using this capability.
+     *
+     * > You should only create stacks directly from a stack template that contains macros if you know what processing the macro performs.
+     * > 
+     * > Each macro relies on an underlying Lambda service function for processing stack templates. Be aware that the Lambda function owner can update the function operation without AWS CloudFormation being notified. 
+     *
+     * For more information, see [Using AWS CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) .
+     */
     public readonly capabilities!: pulumi.Output<enums.cloudformation.StackCapabilitiesItem[] | undefined>;
+    /**
+     * The unique ID of the change set.
+     */
     public /*out*/ readonly changeSetId!: pulumi.Output<string>;
+    /**
+     * The time at which the stack was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * A user-defined description associated with the stack.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Set to `true` to disable rollback of the stack if stack creation failed. You can specify either `DisableRollback` or `OnFailure` , but not both.
+     *
+     * Default: `false`
+     */
     public readonly disableRollback!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to enable termination protection on the specified stack. If a user attempts to delete a stack with termination protection enabled, the operation fails and the stack remains unchanged. For more information, see [Protecting a Stack From Being Deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html) in the *AWS CloudFormation User Guide* . Termination protection is deactivated on stacks by default.
+     *
+     * For [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) , termination protection is set on the root stack and can't be changed directly on the nested stack.
+     */
     public readonly enableTerminationProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+     */
     public /*out*/ readonly lastUpdateTime!: pulumi.Output<string>;
+    /**
+     * The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+     */
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Output data type.
+     */
     public /*out*/ readonly outputs!: pulumi.Output<outputs.cloudformation.StackOutput[]>;
+    /**
+     * The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
+     *
+     * > If you use the `Ref` function to pass a parameter value to a nested stack, comma-delimited list parameters must be of type `String` . In other words, you can't pass values that are of type `CommaDelimitedList` to nested stacks. 
+     *
+     * Conditional. Required if the nested stack requires input parameters.
+     *
+     * Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
+     */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
+     *
+     * For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     */
     public /*out*/ readonly parentId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+     *
+     * If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that's generated from your user credentials.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
+     *
+     * For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     */
     public /*out*/ readonly rootId!: pulumi.Output<string>;
+    /**
+     * Unique identifier of the stack.
+     */
     public /*out*/ readonly stackId!: pulumi.Output<string>;
+    /**
+     * The name that's associated with the stack. The name must be unique in the Region in which you are creating the stack.
+     *
+     * > A stack name can contain only alphanumeric characters (case sensitive) and hyphens. It must start with an alphabetical character and can't be longer than 128 characters.
+     */
     public readonly stackName!: pulumi.Output<string>;
     /**
+     * Structure containing the stack policy body. For more information, go to [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html) in the *AWS CloudFormation User Guide* . You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
     public readonly stackPolicyBody!: pulumi.Output<any | undefined>;
+    /**
+     * Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
+     */
     public readonly stackPolicyUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Current status of the stack.
+     */
     public /*out*/ readonly stackStatus!: pulumi.Output<enums.cloudformation.StackStatus>;
+    /**
+     * Success/failure message associated with the stack status.
+     */
     public readonly stackStatusReason!: pulumi.Output<string | undefined>;
+    /**
+     * The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
+     *
+     * Conditional: You must specify either the `TemplateBody` or the `TemplateURL` parameter, but not both.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
     public readonly templateBody!: pulumi.Output<any | undefined>;
+    /**
+     * Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
+     *
+     * Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
+     */
     public readonly templateUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
+     *
+     * Updates aren't supported.
+     */
     public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
 
     /**
@@ -137,25 +261,121 @@ export class Stack extends pulumi.CustomResource {
  * The set of arguments for constructing a Stack resource.
  */
 export interface StackArgs {
+    /**
+     * In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for AWS CloudFormation to create the stack.
+     *
+     * - `CAPABILITY_IAM` and `CAPABILITY_NAMED_IAM`
+     *
+     * Some stack templates might include resources that can affect permissions in your AWS account ; for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge this by specifying one of these capabilities.
+     *
+     * The following IAM resources require you to specify either the `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM` capability.
+     *
+     * - If you have IAM resources, you can specify either capability.
+     * - If you have IAM resources with custom names, you *must* specify `CAPABILITY_NAMED_IAM` .
+     * - If you don't specify either of these capabilities, AWS CloudFormation returns an `InsufficientCapabilities` error.
+     *
+     * If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
+     *
+     * - [`AWS::IAM::AccessKey`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
+     * - [`AWS::IAM::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
+     * - [`AWS::IAM::InstanceProfile`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
+     * - [`AWS::IAM::Policy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
+     * - [`AWS::IAM::Role`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
+     * - [`AWS::IAM::User`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
+     * - [`AWS::IAM::UserToGroupAddition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
+     *
+     * For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
+     * - `CAPABILITY_AUTO_EXPAND`
+     *
+     * Some template contain macros. Macros perform custom processing on templates; this can include simple actions like find-and-replace operations, all the way to extensive transformations of entire templates. Because of this, users typically create a change set from the processed template, so that they can review the changes resulting from the macros before actually creating the stack. If your stack template contains one or more macros, and you choose to create a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. This includes the [AWS::Include](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html) and [AWS::Serverless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html) transforms, which are macros hosted by AWS CloudFormation .
+     *
+     * If you want to create a stack from a stack template that contains macros *and* nested stacks, you must create the stack directly from the template using this capability.
+     *
+     * > You should only create stacks directly from a stack template that contains macros if you know what processing the macro performs.
+     * > 
+     * > Each macro relies on an underlying Lambda service function for processing stack templates. Be aware that the Lambda function owner can update the function operation without AWS CloudFormation being notified. 
+     *
+     * For more information, see [Using AWS CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) .
+     */
     capabilities?: pulumi.Input<pulumi.Input<enums.cloudformation.StackCapabilitiesItem>[]>;
+    /**
+     * A user-defined description associated with the stack.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Set to `true` to disable rollback of the stack if stack creation failed. You can specify either `DisableRollback` or `OnFailure` , but not both.
+     *
+     * Default: `false`
+     */
     disableRollback?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable termination protection on the specified stack. If a user attempts to delete a stack with termination protection enabled, the operation fails and the stack remains unchanged. For more information, see [Protecting a Stack From Being Deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html) in the *AWS CloudFormation User Guide* . Termination protection is deactivated on stacks by default.
+     *
+     * For [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) , termination protection is set on the root stack and can't be changed directly on the nested stack.
+     */
     enableTerminationProtection?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+     */
     notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
+     *
+     * > If you use the `Ref` function to pass a parameter value to a nested stack, comma-delimited list parameters must be of type `String` . In other words, you can't pass values that are of type `CommaDelimitedList` to nested stacks. 
+     *
+     * Conditional. Required if the nested stack requires input parameters.
+     *
+     * Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
+     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+     *
+     * If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that's generated from your user credentials.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The name that's associated with the stack. The name must be unique in the Region in which you are creating the stack.
+     *
+     * > A stack name can contain only alphanumeric characters (case sensitive) and hyphens. It must start with an alphabetical character and can't be longer than 128 characters.
+     */
     stackName?: pulumi.Input<string>;
     /**
+     * Structure containing the stack policy body. For more information, go to [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html) in the *AWS CloudFormation User Guide* . You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
     stackPolicyBody?: any;
+    /**
+     * Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
+     */
     stackPolicyUrl?: pulumi.Input<string>;
+    /**
+     * Success/failure message associated with the stack status.
+     */
     stackStatusReason?: pulumi.Input<string>;
+    /**
+     * The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
+     * Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
+     *
+     * Conditional: You must specify either the `TemplateBody` or the `TemplateURL` parameter, but not both.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
     templateBody?: any;
+    /**
+     * Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
+     *
+     * Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
+     */
     templateUrl?: pulumi.Input<string>;
+    /**
+     * The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
+     *
+     * Updates aren't supported.
+     */
     timeoutInMinutes?: pulumi.Input<number>;
 }

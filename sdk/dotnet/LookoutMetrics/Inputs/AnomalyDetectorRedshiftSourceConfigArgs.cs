@@ -12,27 +12,51 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorRedshiftSourceConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string identifying the Redshift cluster.
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the database host.
+        /// </summary>
         [Input("databaseHost", required: true)]
         public Input<string> DatabaseHost { get; set; } = null!;
 
+        /// <summary>
+        /// The Redshift database name.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The port number where the database can be accessed.
+        /// </summary>
         [Input("databasePort", required: true)]
         public Input<int> DatabasePort { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role providing access to the database.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        /// </summary>
         [Input("secretManagerArn", required: true)]
         public Input<string> SecretManagerArn { get; set; } = null!;
 
+        /// <summary>
+        /// The table name of the Redshift database.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
+        /// <summary>
+        /// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        /// </summary>
         [Input("vpcConfiguration", required: true)]
         public Input<Inputs.AnomalyDetectorVpcConfigurationArgs> VpcConfiguration { get; set; } = null!;
 

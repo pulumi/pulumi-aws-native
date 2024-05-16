@@ -30,6 +30,9 @@ export interface GetVpcIngressConnectionResult {
      * The Domain name associated with the VPC Ingress Connection.
      */
     readonly domainName?: string;
+    /**
+     * Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+     */
     readonly ingressVpcConfiguration?: outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration;
     /**
      * The current status of the VpcIngressConnection.

@@ -53,16 +53,25 @@ class GetSoftwarePackageVersionResult:
     @property
     @pulumi.getter(name="errorReason")
     def error_reason(self) -> Optional[str]:
+        """
+        Error reason for a package version failure during creation or update.
+        """
         return pulumi.get(self, "error_reason")
 
     @property
     @pulumi.getter(name="packageVersionArn")
     def package_version_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the package.
+        """
         return pulumi.get(self, "package_version_arn")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['SoftwarePackageVersionPackageVersionStatus']:
+        """
+        The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+        """
         return pulumi.get(self, "status")
 
     @property

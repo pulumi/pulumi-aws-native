@@ -175,6 +175,7 @@ func (in *signingProfilePlatformIdPtr) ToSigningProfilePlatformIdPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(SigningProfilePlatformIdPtrOutput)
 }
 
+// The time unit for signature validity: DAYS | MONTHS | YEARS.
 type SigningProfileSignatureValidityPeriodType string
 
 const (

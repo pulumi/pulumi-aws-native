@@ -33,16 +33,25 @@ class GetUserPoolResourceServerResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A friendly name for the resource server.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence['outputs.UserPoolResourceServerResourceServerScopeType']]:
+        """
+        A resource server scope.
+        """
         return pulumi.get(self, "scopes")
 
 
@@ -61,6 +70,9 @@ def get_user_pool_resource_server(id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolResourceServerResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer
+
+
+    :param str id: The resource ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_user_pool_resource_server_output(id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer
+
+
+    :param str id: The resource ID.
     """
     ...

@@ -13,9 +13,27 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisReferenceLineDataConfiguration
     {
+        /// <summary>
+        /// The axis binding type of the reference line. Choose one of the following options:
+        /// 
+        /// - `PrimaryY`
+        /// - `SecondaryY`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisAxisBinding? AxisBinding;
+        /// <summary>
+        /// The dynamic configuration of the reference line data configuration.
+        /// </summary>
         public readonly Outputs.AnalysisReferenceLineDynamicDataConfiguration? DynamicConfiguration;
+        /// <summary>
+        /// The series type of the reference line data configuration. Choose one of the following options:
+        /// 
+        /// - `BAR`
+        /// - `LINE`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisReferenceLineSeriesType? SeriesType;
+        /// <summary>
+        /// The static data configuration of the reference line data configuration.
+        /// </summary>
         public readonly Outputs.AnalysisReferenceLineStaticDataConfiguration? StaticConfiguration;
 
         [OutputConstructor]

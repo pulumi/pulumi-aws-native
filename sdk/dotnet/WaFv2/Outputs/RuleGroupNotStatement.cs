@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupNotStatement
     {
+        /// <summary>
+        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// </summary>
         public readonly Outputs.RuleGroupStatement Statement;
 
         [OutputConstructor]

@@ -26,6 +26,7 @@ class RobotArgs:
         :param pulumi.Input[str] greengrass_group_id: The Greengrass group id.
         :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
         :param pulumi.Input[str] name: The name for the robot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the robot.
         """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "greengrass_group_id", greengrass_group_id)
@@ -87,6 +88,9 @@ class RobotArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map that contains tag keys and tag values that are attached to the robot.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,6 +118,7 @@ class Robot(pulumi.CustomResource):
         :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
         :param pulumi.Input[str] greengrass_group_id: The Greengrass group id.
         :param pulumi.Input[str] name: The name for the robot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the robot.
         """
         ...
     @overload
@@ -206,6 +211,9 @@ class Robot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the robot.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -235,5 +243,8 @@ class Robot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map that contains tag keys and tag values that are attached to the robot.
+        """
         return pulumi.get(self, "tags")
 

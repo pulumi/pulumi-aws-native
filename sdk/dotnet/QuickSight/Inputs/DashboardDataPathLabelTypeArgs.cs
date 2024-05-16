@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDataPathLabelTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID of the field that the data label needs to be applied to.
+        /// </summary>
         [Input("fieldId")]
         public Input<string>? FieldId { get; set; }
 
+        /// <summary>
+        /// The actual value of the field that is labeled.
+        /// </summary>
         [Input("fieldValue")]
         public Input<string>? FieldValue { get; set; }
 
+        /// <summary>
+        /// The visibility of the data label.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

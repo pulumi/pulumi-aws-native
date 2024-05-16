@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCascadingControlSource
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier? ColumnToMatch;
+        /// <summary>
+        /// The source sheet control ID of a `CascadingControlSource` .
+        /// </summary>
         public readonly string? SourceSheetControlId;
 
         [OutputConstructor]

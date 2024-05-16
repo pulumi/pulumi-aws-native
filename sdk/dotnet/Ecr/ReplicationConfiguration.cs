@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The replication configuration for a registry.
+        /// </summary>
         [Output("replicationConfiguration")]
         public Output<Outputs.ReplicationConfiguration> ReplicationConfigurationValue { get; private set; } = null!;
 
@@ -110,6 +113,9 @@ namespace Pulumi.AwsNative.Ecr
 
     public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The replication configuration for a registry.
+        /// </summary>
         [Input("replicationConfiguration", required: true)]
         public Input<Inputs.ReplicationConfigurationArgs> ReplicationConfigurationValue { get; set; } = null!;
 

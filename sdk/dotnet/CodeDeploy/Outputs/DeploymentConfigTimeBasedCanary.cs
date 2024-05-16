@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentConfigTimeBasedCanary
     {
+        /// <summary>
+        /// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        /// </summary>
         public readonly int CanaryInterval;
+        /// <summary>
+        /// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        /// </summary>
         public readonly int CanaryPercentage;
 
         [OutputConstructor]

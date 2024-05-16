@@ -19,18 +19,51 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetServiceArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     arn: string;
 }
 
 export interface GetServiceResult {
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     readonly arn?: string;
+    /**
+     * The type of IAM policy.
+     *
+     * - `NONE` : The resource does not use an IAM policy. This is the default.
+     * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+     */
     readonly authType?: enums.vpclattice.ServiceAuthType;
+    /**
+     * The Amazon Resource Name (ARN) of the certificate.
+     */
     readonly certificateArn?: string;
+    /**
+     * The date and time that the service was created, specified in ISO-8601 format.
+     */
     readonly createdAt?: string;
+    /**
+     * Describes the DNS information of a service.
+     */
     readonly dnsEntry?: outputs.vpclattice.ServiceDnsEntry;
+    /**
+     * The ID of the service.
+     */
     readonly id?: string;
+    /**
+     * The date and time that the service was last updated, specified in ISO-8601 format.
+     */
     readonly lastUpdatedAt?: string;
+    /**
+     * The status of the service.
+     */
     readonly status?: enums.vpclattice.ServiceStatus;
+    /**
+     * The tags for the service.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -41,5 +74,8 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetServiceOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     arn: pulumi.Input<string>;
 }

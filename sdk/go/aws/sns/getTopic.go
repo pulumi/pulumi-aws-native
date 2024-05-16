@@ -27,6 +27,7 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
+	// Returns the ARN of an Amazon SNS topic.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -46,7 +47,8 @@ type LookupTopicResult struct {
 	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy  interface{}          `pulumi:"dataProtectionPolicy"`
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
+	// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName *string `pulumi:"displayName"`
@@ -60,8 +62,9 @@ type LookupTopicResult struct {
 	Subscription []TopicSubscription `pulumi:"subscription"`
 	// The list of tags to add to a new topic.
 	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
-	Tags     []aws.Tag `pulumi:"tags"`
-	TopicArn *string   `pulumi:"topicArn"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Returns the ARN of an Amazon SNS topic.
+	TopicArn *string `pulumi:"topicArn"`
 	// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	TracingConfig *string `pulumi:"tracingConfig"`
 }
@@ -80,6 +83,7 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 }
 
 type LookupTopicOutputArgs struct {
+	// Returns the ARN of an Amazon SNS topic.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -127,6 +131,7 @@ func (o LookupTopicResultOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTopicResult) interface{} { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
+// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
 func (o LookupTopicResultOutput) DeliveryStatusLogging() TopicLoggingConfigArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []TopicLoggingConfig { return v.DeliveryStatusLogging }).(TopicLoggingConfigArrayOutput)
 }
@@ -162,6 +167,7 @@ func (o LookupTopicResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Returns the ARN of an Amazon SNS topic.
 func (o LookupTopicResultOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }

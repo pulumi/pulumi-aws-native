@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardForecastConfiguration
     {
+        /// <summary>
+        /// The forecast properties setup of a forecast in the line chart.
+        /// </summary>
         public readonly Outputs.DashboardTimeBasedForecastProperties? ForecastProperties;
+        /// <summary>
+        /// The forecast scenario of a forecast in the line chart.
+        /// </summary>
         public readonly Outputs.DashboardForecastScenario? Scenario;
 
         [OutputConstructor]

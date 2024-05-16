@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("columns")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _columns;
+
+        /// <summary>
+        /// The columns field well of a heat map.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("rows")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _rows;
+
+        /// <summary>
+        /// The rows field well of a heat map.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> Rows
         {
             get => _rows ?? (_rows = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.DashboardMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The values field well of a heat map.
+        /// </summary>
         public InputList<Inputs.DashboardMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.DashboardMeasureFieldArgs>());

@@ -13,12 +13,36 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisTransitGatewayRouteTableRoute
     {
+        /// <summary>
+        /// The ID of the route attachment.
+        /// </summary>
         public readonly string? AttachmentId;
+        /// <summary>
+        /// The CIDR block used for destination matches.
+        /// </summary>
         public readonly string? DestinationCidr;
+        /// <summary>
+        /// The ID of the prefix list.
+        /// </summary>
         public readonly string? PrefixListId;
+        /// <summary>
+        /// The ID of the resource for the route attachment.
+        /// </summary>
         public readonly string? ResourceId;
+        /// <summary>
+        /// The resource type for the route attachment.
+        /// </summary>
         public readonly string? ResourceType;
+        /// <summary>
+        /// The route origin. The following are the possible values:
+        /// 
+        /// - static
+        /// - propagated
+        /// </summary>
         public readonly string? RouteOrigin;
+        /// <summary>
+        /// The state of the route.
+        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

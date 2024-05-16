@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The precision for the time and date that the stream was created.
 type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
 
 const (

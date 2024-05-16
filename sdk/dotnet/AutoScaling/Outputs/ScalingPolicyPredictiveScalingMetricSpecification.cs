@@ -13,12 +13,41 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingMetricSpecification
     {
+        /// <summary>
+        /// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric? CustomizedCapacityMetricSpecification;
+        /// <summary>
+        /// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric? CustomizedLoadMetricSpecification;
+        /// <summary>
+        /// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric? CustomizedScalingMetricSpecification;
+        /// <summary>
+        /// Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// 
+        /// &gt; Does not apply to policies that use a *metric pair* for the metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric? PredefinedLoadMetricSpecification;
+        /// <summary>
+        /// Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// 
+        /// For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair? PredefinedMetricPairSpecification;
+        /// <summary>
+        /// Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// 
+        /// &gt; Does not apply to policies that use a *metric pair* for the metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric? PredefinedScalingMetricSpecification;
+        /// <summary>
+        /// Specifies the target utilization.
+        /// 
+        /// &gt; Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
+        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

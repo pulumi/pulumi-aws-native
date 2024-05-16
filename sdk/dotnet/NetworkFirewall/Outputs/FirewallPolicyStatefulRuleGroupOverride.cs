@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyStatefulRuleGroupOverride
     {
+        /// <summary>
+        /// The action that changes the rule group from `DROP` to `ALERT` . This only applies to managed rule groups.
+        /// </summary>
         public readonly Pulumi.AwsNative.NetworkFirewall.FirewallPolicyOverrideAction? Action;
 
         [OutputConstructor]

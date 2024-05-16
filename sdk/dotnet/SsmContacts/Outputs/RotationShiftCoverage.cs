@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SsmContacts.Outputs
         /// Information about when an on-call shift begins and ends.
         /// </summary>
         public readonly ImmutableArray<Outputs.RotationCoverageTime> CoverageTimes;
+        /// <summary>
+        /// A list of days on which the schedule is active.
+        /// </summary>
         public readonly Pulumi.AwsNative.SsmContacts.RotationDayOfWeek DayOfWeek;
 
         [OutputConstructor]

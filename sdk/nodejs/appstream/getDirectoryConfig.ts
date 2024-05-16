@@ -19,12 +19,24 @@ export function getDirectoryConfig(args: GetDirectoryConfigArgs, opts?: pulumi.I
 }
 
 export interface GetDirectoryConfigArgs {
+    /**
+     * The fully qualified name of the directory (for example, corp.example.com).
+     */
     directoryName: string;
 }
 
 export interface GetDirectoryConfigResult {
+    /**
+     * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+     */
     readonly certificateBasedAuthProperties?: outputs.appstream.DirectoryConfigCertificateBasedAuthProperties;
+    /**
+     * The distinguished names of the organizational units for computer accounts.
+     */
     readonly organizationalUnitDistinguishedNames?: string[];
+    /**
+     * The credentials for the service account used by the streaming instance to connect to the directory.
+     */
     readonly serviceAccountCredentials?: outputs.appstream.DirectoryConfigServiceAccountCredentials;
 }
 /**
@@ -35,5 +47,8 @@ export function getDirectoryConfigOutput(args: GetDirectoryConfigOutputArgs, opt
 }
 
 export interface GetDirectoryConfigOutputArgs {
+    /**
+     * The fully qualified name of the directory (for example, corp.example.com).
+     */
     directoryName: pulumi.Input<string>;
 }

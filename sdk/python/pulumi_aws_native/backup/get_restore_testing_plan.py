@@ -44,31 +44,61 @@ class GetRestoreTestingPlanResult:
     @property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> Optional['outputs.RestoreTestingPlanRestoreTestingRecoveryPointSelection']:
+        """
+        `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
+
+        `Algorithm` ( *required* ) Valid values: " `LATEST_WITHIN_WINDOW` " or " `RANDOM_WITHIN_WINDOW` ".
+
+        `Recovery point types` ( *required* ) Valid values: " `SNAPSHOT` " and/or " `CONTINUOUS` ". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+
+        `IncludeVaults` ( *required* ). You must include one or more backup vaults. Use the wildcard ["*"] or specific ARNs.
+
+        `SelectionWindowDays` ( *optional* ) Value must be an integer (in days) from 1 to 365. If not included, the value defaults to `30` .
+
+        `ExcludeVaults` ( *optional* ). You can choose to input one or more specific backup vault ARNs to exclude those vaults' contents from restore eligibility. Or, you can include a list of selectors. If this parameter and its value are not included, it defaults to empty list.
+        """
         return pulumi.get(self, "recovery_point_selection")
 
     @property
     @pulumi.getter(name="restoreTestingPlanArn")
     def restore_testing_plan_arn(self) -> Optional[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+        """
         return pulumi.get(self, "restore_testing_plan_arn")
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
+        """
+        A CRON expression in specified timezone when a restore testing plan is executed.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[str]:
+        """
+        Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[int]:
+        """
+        Defaults to 24 hours.
+
+        A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        """
         return pulumi.get(self, "start_window_hours")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to assign to the restore testing plan.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -90,6 +120,9 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestoreTestingPlanResult:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
+
+
+    :param str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name
@@ -110,5 +143,8 @@ def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
+
+
+    :param str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """
     ...

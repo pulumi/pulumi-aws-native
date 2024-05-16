@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetDistributionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetDistributionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -55,7 +61,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// The distribution's configuration.
         /// </summary>
         public readonly Outputs.DistributionConfig? DistributionConfig;
+        /// <summary>
+        /// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+        /// </summary>
         public readonly string? DomainName;
+        /// <summary>
+        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// A complex type that contains zero or more ``Tag`` elements.

@@ -34,9 +34,15 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("mutualTlsAuthentication")]
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+        /// </summary>
         [Output("regionalDomainName")]
         public Output<string> RegionalDomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+        /// </summary>
         [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
 

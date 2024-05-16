@@ -39,9 +39,21 @@ namespace Pulumi.AwsNative.Ecs
         [Output("launchType")]
         public Output<Pulumi.AwsNative.Ecs.TaskSetLaunchType?> LaunchType { get; private set; } = null!;
 
+        /// <summary>
+        /// The load balancer configuration to use with a service or task set.
+        /// 
+        /// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
+        /// 
+        /// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
+        /// 
+        /// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
+        /// <summary>
+        /// The network configuration for a task or service.
+        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
@@ -69,6 +81,19 @@ namespace Pulumi.AwsNative.Ecs
         [Output("serviceRegistries")]
         public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// 
+        /// The following basic restrictions apply to tags:
+        /// 
+        /// - Maximum number of tags per resource - 50
+        /// - For each resource, each tag key must be unique, and each tag key can have only one value.
+        /// - Maximum key length - 128 Unicode characters in UTF-8
+        /// - Maximum value length - 256 Unicode characters in UTF-8
+        /// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        /// - Tag keys and values are case-sensitive.
+        /// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -155,12 +180,25 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("loadBalancers")]
         private InputList<Inputs.TaskSetLoadBalancerArgs>? _loadBalancers;
+
+        /// <summary>
+        /// The load balancer configuration to use with a service or task set.
+        /// 
+        /// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
+        /// 
+        /// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
+        /// 
+        /// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         public InputList<Inputs.TaskSetLoadBalancerArgs> LoadBalancers
         {
             get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.TaskSetLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
 
+        /// <summary>
+        /// The network configuration for a task or service.
+        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
@@ -196,6 +234,20 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// 
+        /// The following basic restrictions apply to tags:
+        /// 
+        /// - Maximum number of tags per resource - 50
+        /// - For each resource, each tag key must be unique, and each tag key can have only one value.
+        /// - Maximum key length - 128 Unicode characters in UTF-8
+        /// - Maximum value length - 256 Unicode characters in UTF-8
+        /// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        /// - Tag keys and values are case-sensitive.
+        /// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

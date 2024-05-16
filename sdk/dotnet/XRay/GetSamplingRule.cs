@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class GetSamplingRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The sampling rule ARN that was created or updated.
+        /// </summary>
         [Input("ruleArn", required: true)]
         public string RuleArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class GetSamplingRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The sampling rule ARN that was created or updated.
+        /// </summary>
         [Input("ruleArn", required: true)]
         public Input<string> RuleArn { get; set; } = null!;
 
@@ -51,11 +57,20 @@ namespace Pulumi.AwsNative.XRay
     [OutputType]
     public sealed class GetSamplingRuleResult
     {
+        /// <summary>
+        /// The sampling rule ARN that was created or updated.
+        /// </summary>
         public readonly string? RuleArn;
         public readonly string? RuleName;
+        /// <summary>
+        /// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        /// </summary>
         public readonly Outputs.SamplingRule? SamplingRuleValue;
         public readonly Outputs.SamplingRuleRecord? SamplingRuleRecord;
         public readonly Outputs.SamplingRuleUpdate? SamplingRuleUpdate;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

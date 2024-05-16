@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorMetricSource
     {
+        /// <summary>
+        /// Details about an Amazon AppFlow flow datasource.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorAppFlowConfig? AppFlowConfig;
+        /// <summary>
+        /// Details about an Amazon CloudWatch datasource.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorCloudwatchConfig? CloudwatchConfig;
+        /// <summary>
+        /// Contains information about the Amazon Relational Database Service (RDS) configuration.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorRdsSourceConfig? RdsSourceConfig;
+        /// <summary>
+        /// Provides information about the Amazon Redshift database configuration.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorRedshiftSourceConfig? RedshiftSourceConfig;
+        /// <summary>
+        /// Contains information about the configuration of the S3 bucket that contains source files.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorS3SourceConfig? S3SourceConfig;
 
         [OutputConstructor]

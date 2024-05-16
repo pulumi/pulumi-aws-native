@@ -43,16 +43,29 @@ class GetDatastoreResult:
     @property
     @pulumi.getter(name="datastorePartitions")
     def datastore_partitions(self) -> Optional['outputs.DatastorePartitions']:
+        """
+        Information about the partition dimensions in a data store.
+        """
         return pulumi.get(self, "datastore_partitions")
 
     @property
     @pulumi.getter(name="datastoreStorage")
     def datastore_storage(self) -> Optional['outputs.DatastoreStorage']:
+        """
+        Where data store data is stored.
+        """
         return pulumi.get(self, "datastore_storage")
 
     @property
     @pulumi.getter(name="fileFormatConfiguration")
     def file_format_configuration(self) -> Optional['outputs.DatastoreFileFormatConfiguration']:
+        """
+        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+
+        The default file format is JSON. You can specify only one format.
+
+        You can't change the file format after you create the data store.
+        """
         return pulumi.get(self, "file_format_configuration")
 
     @property
@@ -63,11 +76,17 @@ class GetDatastoreResult:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional['outputs.DatastoreRetentionPeriod']:
+        """
+        How long, in days, message data is kept.
+        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of key-value pairs that are used to manage the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -89,6 +108,9 @@ def get_datastore(datastore_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     Resource Type definition for AWS::IoTAnalytics::Datastore
+
+
+    :param str datastore_name: The name of the data store.
     """
     __args__ = dict()
     __args__['datastoreName'] = datastore_name
@@ -109,5 +131,8 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Datastore
+
+
+    :param str datastore_name: The name of the data store.
     """
     ...

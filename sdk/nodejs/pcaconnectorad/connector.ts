@@ -37,10 +37,25 @@ export class Connector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connector.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the certificate authority being used.
+     */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+     */
     public /*out*/ readonly connectorArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Active Directory.
+     */
     public readonly directoryId!: pulumi.Output<string>;
+    /**
+     * Metadata assigned to a connector consisting of a key-value pair.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Information about your VPC and security groups used with the connector.
+     */
     public readonly vpcInformation!: pulumi.Output<outputs.pcaconnectorad.ConnectorVpcInformation>;
 
     /**
@@ -86,8 +101,20 @@ export class Connector extends pulumi.CustomResource {
  * The set of arguments for constructing a Connector resource.
  */
 export interface ConnectorArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the certificate authority being used.
+     */
     certificateAuthorityArn: pulumi.Input<string>;
+    /**
+     * The identifier of the Active Directory.
+     */
     directoryId: pulumi.Input<string>;
+    /**
+     * Metadata assigned to a connector consisting of a key-value pair.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Information about your VPC and security groups used with the connector.
+     */
     vpcInformation: pulumi.Input<inputs.pcaconnectorad.ConnectorVpcInformationArgs>;
 }

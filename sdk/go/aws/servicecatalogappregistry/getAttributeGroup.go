@@ -23,18 +23,24 @@ func LookupAttributeGroup(ctx *pulumi.Context, args *LookupAttributeGroupArgs, o
 }
 
 type LookupAttributeGroupArgs struct {
+	// The globally unique attribute group identifier of the attribute group.
 	Id string `pulumi:"id"`
 }
 
 type LookupAttributeGroupResult struct {
+	// The Amazon resource name (ARN) that specifies the attribute group across services.
 	Arn *string `pulumi:"arn"`
+	// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 	Attributes interface{} `pulumi:"attributes"`
 	// The description of the attribute group.
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
+	// The globally unique attribute group identifier of the attribute group.
+	Id *string `pulumi:"id"`
 	// The name of the attribute group.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value pairs you can use to associate with the attribute group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -52,6 +58,7 @@ func LookupAttributeGroupOutput(ctx *pulumi.Context, args LookupAttributeGroupOu
 }
 
 type LookupAttributeGroupOutputArgs struct {
+	// The globally unique attribute group identifier of the attribute group.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -73,10 +80,13 @@ func (o LookupAttributeGroupResultOutput) ToLookupAttributeGroupResultOutputWith
 	return o
 }
 
+// The Amazon resource name (ARN) that specifies the attribute group across services.
 func (o LookupAttributeGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 func (o LookupAttributeGroupResultOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
@@ -87,6 +97,7 @@ func (o LookupAttributeGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The globally unique attribute group identifier of the attribute group.
 func (o LookupAttributeGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -96,6 +107,7 @@ func (o LookupAttributeGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Key-value pairs you can use to associate with the attribute group.
 func (o LookupAttributeGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

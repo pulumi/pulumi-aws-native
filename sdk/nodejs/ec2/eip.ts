@@ -39,6 +39,9 @@ export class Eip extends pulumi.CustomResource {
         return obj['__pulumiType'] === Eip.__pulumiType;
     }
 
+    /**
+     * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
+     */
     public /*out*/ readonly allocationId!: pulumi.Output<string>;
     /**
      * The network (``vpc``).
@@ -55,6 +58,9 @@ export class Eip extends pulumi.CustomResource {
      *  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
      */
     public readonly networkBorderGroup!: pulumi.Output<string | undefined>;
+    /**
+     * The Elastic IP address.
+     */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
      * The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.

@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationConnectorOperatorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The operation to be performed on the provided Marketo source fields.
+        /// </summary>
         [Input("marketo")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationMarketoConnectorOperator>? Marketo { get; set; }
 
+        /// <summary>
+        /// The operation to be performed on the provided Amazon S3 source fields.
+        /// </summary>
         [Input("s3")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationS3ConnectorOperator>? S3 { get; set; }
 
+        /// <summary>
+        /// The operation to be performed on the provided Salesforce source fields.
+        /// </summary>
         [Input("salesforce")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationSalesforceConnectorOperator>? Salesforce { get; set; }
 
+        /// <summary>
+        /// The operation to be performed on the provided ServiceNow source fields.
+        /// </summary>
         [Input("serviceNow")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationServiceNowConnectorOperator>? ServiceNow { get; set; }
 
+        /// <summary>
+        /// The operation to be performed on the provided Zendesk source fields.
+        /// </summary>
         [Input("zendesk")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationZendeskConnectorOperator>? Zendesk { get; set; }
 

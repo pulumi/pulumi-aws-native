@@ -41,6 +41,9 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      * The Domain name associated with the VPC Ingress Connection.
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
+    /**
+     * Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+     */
     public readonly ingressVpcConfiguration!: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the service.
@@ -50,6 +53,9 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      * The current status of the VpcIngressConnection.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.apprunner.VpcIngressConnectionStatus>;
+    /**
+     * Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VpcIngressConnection.
@@ -104,11 +110,17 @@ export class VpcIngressConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcIngressConnection resource.
  */
 export interface VpcIngressConnectionArgs {
+    /**
+     * Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+     */
     ingressVpcConfiguration: pulumi.Input<inputs.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of the service.
      */
     serviceArn: pulumi.Input<string>;
+    /**
+     * Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The customer-provided Vpc Ingress Connection name.

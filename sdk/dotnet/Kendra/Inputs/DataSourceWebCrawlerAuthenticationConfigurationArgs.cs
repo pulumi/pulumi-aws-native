@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("basicAuthentication")]
         private InputList<Inputs.DataSourceWebCrawlerBasicAuthenticationArgs>? _basicAuthentication;
+
+        /// <summary>
+        /// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+        /// 
+        /// The list includes the name and port number of the website host.
+        /// </summary>
         public InputList<Inputs.DataSourceWebCrawlerBasicAuthenticationArgs> BasicAuthentication
         {
             get => _basicAuthentication ?? (_basicAuthentication = new InputList<Inputs.DataSourceWebCrawlerBasicAuthenticationArgs>());

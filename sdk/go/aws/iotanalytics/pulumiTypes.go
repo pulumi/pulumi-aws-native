@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ChannelCustomerManagedS3 struct {
-	Bucket    string  `pulumi:"bucket"`
+	// The name of the S3 bucket in which channel data is stored.
+	Bucket string `pulumi:"bucket"`
+	// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
 	KeyPrefix *string `pulumi:"keyPrefix"`
-	RoleArn   string  `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // ChannelCustomerManagedS3Input is an input type that accepts ChannelCustomerManagedS3Args and ChannelCustomerManagedS3Output values.
@@ -31,9 +34,12 @@ type ChannelCustomerManagedS3Input interface {
 }
 
 type ChannelCustomerManagedS3Args struct {
-	Bucket    pulumi.StringInput    `pulumi:"bucket"`
+	// The name of the S3 bucket in which channel data is stored.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ChannelCustomerManagedS3Args) ElementType() reflect.Type {
@@ -113,14 +119,17 @@ func (o ChannelCustomerManagedS3Output) ToChannelCustomerManagedS3PtrOutputWithC
 	}).(ChannelCustomerManagedS3PtrOutput)
 }
 
+// The name of the S3 bucket in which channel data is stored.
 func (o ChannelCustomerManagedS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelCustomerManagedS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
 func (o ChannelCustomerManagedS3Output) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelCustomerManagedS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 func (o ChannelCustomerManagedS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelCustomerManagedS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -149,6 +158,7 @@ func (o ChannelCustomerManagedS3PtrOutput) Elem() ChannelCustomerManagedS3Output
 	}).(ChannelCustomerManagedS3Output)
 }
 
+// The name of the S3 bucket in which channel data is stored.
 func (o ChannelCustomerManagedS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelCustomerManagedS3) *string {
 		if v == nil {
@@ -158,6 +168,7 @@ func (o ChannelCustomerManagedS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
 func (o ChannelCustomerManagedS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelCustomerManagedS3) *string {
 		if v == nil {
@@ -167,6 +178,7 @@ func (o ChannelCustomerManagedS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 func (o ChannelCustomerManagedS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelCustomerManagedS3) *string {
 		if v == nil {
@@ -177,8 +189,10 @@ func (o ChannelCustomerManagedS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type ChannelRetentionPeriod struct {
-	NumberOfDays *int  `pulumi:"numberOfDays"`
-	Unlimited    *bool `pulumi:"unlimited"`
+	// The number of days that message data is kept. The `unlimited` parameter must be false.
+	NumberOfDays *int `pulumi:"numberOfDays"`
+	// If true, message data is kept indefinitely.
+	Unlimited *bool `pulumi:"unlimited"`
 }
 
 // ChannelRetentionPeriodInput is an input type that accepts ChannelRetentionPeriodArgs and ChannelRetentionPeriodOutput values.
@@ -193,8 +207,10 @@ type ChannelRetentionPeriodInput interface {
 }
 
 type ChannelRetentionPeriodArgs struct {
-	NumberOfDays pulumi.IntPtrInput  `pulumi:"numberOfDays"`
-	Unlimited    pulumi.BoolPtrInput `pulumi:"unlimited"`
+	// The number of days that message data is kept. The `unlimited` parameter must be false.
+	NumberOfDays pulumi.IntPtrInput `pulumi:"numberOfDays"`
+	// If true, message data is kept indefinitely.
+	Unlimited pulumi.BoolPtrInput `pulumi:"unlimited"`
 }
 
 func (ChannelRetentionPeriodArgs) ElementType() reflect.Type {
@@ -274,10 +290,12 @@ func (o ChannelRetentionPeriodOutput) ToChannelRetentionPeriodPtrOutputWithConte
 	}).(ChannelRetentionPeriodPtrOutput)
 }
 
+// The number of days that message data is kept. The `unlimited` parameter must be false.
 func (o ChannelRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
 
+// If true, message data is kept indefinitely.
 func (o ChannelRetentionPeriodOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelRetentionPeriod) *bool { return v.Unlimited }).(pulumi.BoolPtrOutput)
 }
@@ -306,6 +324,7 @@ func (o ChannelRetentionPeriodPtrOutput) Elem() ChannelRetentionPeriodOutput {
 	}).(ChannelRetentionPeriodOutput)
 }
 
+// The number of days that message data is kept. The `unlimited` parameter must be false.
 func (o ChannelRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelRetentionPeriod) *int {
 		if v == nil {
@@ -315,6 +334,7 @@ func (o ChannelRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// If true, message data is kept indefinitely.
 func (o ChannelRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelRetentionPeriod) *bool {
 		if v == nil {
@@ -443,8 +463,10 @@ func (o ChannelServiceManagedS3PtrOutput) Elem() ChannelServiceManagedS3Output {
 }
 
 type ChannelStorage struct {
+	// Used to store channel data in an S3 bucket that you manage.
 	CustomerManagedS3 *ChannelCustomerManagedS3 `pulumi:"customerManagedS3"`
-	ServiceManagedS3  *ChannelServiceManagedS3  `pulumi:"serviceManagedS3"`
+	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+	ServiceManagedS3 *ChannelServiceManagedS3 `pulumi:"serviceManagedS3"`
 }
 
 // ChannelStorageInput is an input type that accepts ChannelStorageArgs and ChannelStorageOutput values.
@@ -459,8 +481,10 @@ type ChannelStorageInput interface {
 }
 
 type ChannelStorageArgs struct {
+	// Used to store channel data in an S3 bucket that you manage.
 	CustomerManagedS3 ChannelCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
-	ServiceManagedS3  ChannelServiceManagedS3PtrInput  `pulumi:"serviceManagedS3"`
+	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+	ServiceManagedS3 ChannelServiceManagedS3PtrInput `pulumi:"serviceManagedS3"`
 }
 
 func (ChannelStorageArgs) ElementType() reflect.Type {
@@ -540,10 +564,12 @@ func (o ChannelStorageOutput) ToChannelStoragePtrOutputWithContext(ctx context.C
 	}).(ChannelStoragePtrOutput)
 }
 
+// Used to store channel data in an S3 bucket that you manage.
 func (o ChannelStorageOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v ChannelStorage) *ChannelCustomerManagedS3 { return v.CustomerManagedS3 }).(ChannelCustomerManagedS3PtrOutput)
 }
 
+// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
 func (o ChannelStorageOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v ChannelStorage) *ChannelServiceManagedS3 { return v.ServiceManagedS3 }).(ChannelServiceManagedS3PtrOutput)
 }
@@ -572,6 +598,7 @@ func (o ChannelStoragePtrOutput) Elem() ChannelStorageOutput {
 	}).(ChannelStorageOutput)
 }
 
+// Used to store channel data in an S3 bucket that you manage.
 func (o ChannelStoragePtrOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v *ChannelStorage) *ChannelCustomerManagedS3 {
 		if v == nil {
@@ -581,6 +608,7 @@ func (o ChannelStoragePtrOutput) CustomerManagedS3() ChannelCustomerManagedS3Ptr
 	}).(ChannelCustomerManagedS3PtrOutput)
 }
 
+// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
 func (o ChannelStoragePtrOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v *ChannelStorage) *ChannelServiceManagedS3 {
 		if v == nil {
@@ -591,14 +619,19 @@ func (o ChannelStoragePtrOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOu
 }
 
 type ChannelTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 type DatasetAction struct {
-	ActionName      string                  `pulumi:"actionName"`
+	// The name of the data set action by which data set contents are automatically created.
+	ActionName string `pulumi:"actionName"`
+	// Information needed to run the "containerAction" to produce data set contents.
 	ContainerAction *DatasetContainerAction `pulumi:"containerAction"`
-	QueryAction     *DatasetQueryAction     `pulumi:"queryAction"`
+	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+	QueryAction *DatasetQueryAction `pulumi:"queryAction"`
 }
 
 // DatasetActionInput is an input type that accepts DatasetActionArgs and DatasetActionOutput values.
@@ -613,9 +646,12 @@ type DatasetActionInput interface {
 }
 
 type DatasetActionArgs struct {
-	ActionName      pulumi.StringInput             `pulumi:"actionName"`
+	// The name of the data set action by which data set contents are automatically created.
+	ActionName pulumi.StringInput `pulumi:"actionName"`
+	// Information needed to run the "containerAction" to produce data set contents.
 	ContainerAction DatasetContainerActionPtrInput `pulumi:"containerAction"`
-	QueryAction     DatasetQueryActionPtrInput     `pulumi:"queryAction"`
+	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+	QueryAction DatasetQueryActionPtrInput `pulumi:"queryAction"`
 }
 
 func (DatasetActionArgs) ElementType() reflect.Type {
@@ -669,14 +705,17 @@ func (o DatasetActionOutput) ToDatasetActionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the data set action by which data set contents are automatically created.
 func (o DatasetActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetAction) string { return v.ActionName }).(pulumi.StringOutput)
 }
 
+// Information needed to run the "containerAction" to produce data set contents.
 func (o DatasetActionOutput) ContainerAction() DatasetContainerActionPtrOutput {
 	return o.ApplyT(func(v DatasetAction) *DatasetContainerAction { return v.ContainerAction }).(DatasetContainerActionPtrOutput)
 }
 
+// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 func (o DatasetActionOutput) QueryAction() DatasetQueryActionPtrOutput {
 	return o.ApplyT(func(v DatasetAction) *DatasetQueryAction { return v.QueryAction }).(DatasetQueryActionPtrOutput)
 }
@@ -702,10 +741,14 @@ func (o DatasetActionArrayOutput) Index(i pulumi.IntInput) DatasetActionOutput {
 }
 
 type DatasetContainerAction struct {
-	ExecutionRoleArn      string                       `pulumi:"executionRoleArn"`
-	Image                 string                       `pulumi:"image"`
+	// The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
+	Image string `pulumi:"image"`
+	// The configuration of the resource used to execute the `containerAction` .
 	ResourceConfiguration DatasetResourceConfiguration `pulumi:"resourceConfiguration"`
-	Variables             []DatasetVariable            `pulumi:"variables"`
+	// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+	Variables []DatasetVariable `pulumi:"variables"`
 }
 
 // DatasetContainerActionInput is an input type that accepts DatasetContainerActionArgs and DatasetContainerActionOutput values.
@@ -720,10 +763,14 @@ type DatasetContainerActionInput interface {
 }
 
 type DatasetContainerActionArgs struct {
-	ExecutionRoleArn      pulumi.StringInput                `pulumi:"executionRoleArn"`
-	Image                 pulumi.StringInput                `pulumi:"image"`
+	// The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
+	// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The configuration of the resource used to execute the `containerAction` .
 	ResourceConfiguration DatasetResourceConfigurationInput `pulumi:"resourceConfiguration"`
-	Variables             DatasetVariableArrayInput         `pulumi:"variables"`
+	// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+	Variables DatasetVariableArrayInput `pulumi:"variables"`
 }
 
 func (DatasetContainerActionArgs) ElementType() reflect.Type {
@@ -803,18 +850,22 @@ func (o DatasetContainerActionOutput) ToDatasetContainerActionPtrOutputWithConte
 	}).(DatasetContainerActionPtrOutput)
 }
 
+// The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
 func (o DatasetContainerActionOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetContainerAction) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
 func (o DatasetContainerActionOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetContainerAction) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// The configuration of the resource used to execute the `containerAction` .
 func (o DatasetContainerActionOutput) ResourceConfiguration() DatasetResourceConfigurationOutput {
 	return o.ApplyT(func(v DatasetContainerAction) DatasetResourceConfiguration { return v.ResourceConfiguration }).(DatasetResourceConfigurationOutput)
 }
 
+// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
 func (o DatasetContainerActionOutput) Variables() DatasetVariableArrayOutput {
 	return o.ApplyT(func(v DatasetContainerAction) []DatasetVariable { return v.Variables }).(DatasetVariableArrayOutput)
 }
@@ -843,6 +894,7 @@ func (o DatasetContainerActionPtrOutput) Elem() DatasetContainerActionOutput {
 	}).(DatasetContainerActionOutput)
 }
 
+// The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
 func (o DatasetContainerActionPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetContainerAction) *string {
 		if v == nil {
@@ -852,6 +904,7 @@ func (o DatasetContainerActionPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
 func (o DatasetContainerActionPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetContainerAction) *string {
 		if v == nil {
@@ -861,6 +914,7 @@ func (o DatasetContainerActionPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration of the resource used to execute the `containerAction` .
 func (o DatasetContainerActionPtrOutput) ResourceConfiguration() DatasetResourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DatasetContainerAction) *DatasetResourceConfiguration {
 		if v == nil {
@@ -870,6 +924,7 @@ func (o DatasetContainerActionPtrOutput) ResourceConfiguration() DatasetResource
 	}).(DatasetResourceConfigurationPtrOutput)
 }
 
+// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
 func (o DatasetContainerActionPtrOutput) Variables() DatasetVariableArrayOutput {
 	return o.ApplyT(func(v *DatasetContainerAction) []DatasetVariable {
 		if v == nil {
@@ -880,8 +935,10 @@ func (o DatasetContainerActionPtrOutput) Variables() DatasetVariableArrayOutput 
 }
 
 type DatasetContentDeliveryRule struct {
+	// The destination to which dataset contents are delivered.
 	Destination DatasetContentDeliveryRuleDestination `pulumi:"destination"`
-	EntryName   *string                               `pulumi:"entryName"`
+	// The name of the dataset content delivery rules entry.
+	EntryName *string `pulumi:"entryName"`
 }
 
 // DatasetContentDeliveryRuleInput is an input type that accepts DatasetContentDeliveryRuleArgs and DatasetContentDeliveryRuleOutput values.
@@ -896,8 +953,10 @@ type DatasetContentDeliveryRuleInput interface {
 }
 
 type DatasetContentDeliveryRuleArgs struct {
+	// The destination to which dataset contents are delivered.
 	Destination DatasetContentDeliveryRuleDestinationInput `pulumi:"destination"`
-	EntryName   pulumi.StringPtrInput                      `pulumi:"entryName"`
+	// The name of the dataset content delivery rules entry.
+	EntryName pulumi.StringPtrInput `pulumi:"entryName"`
 }
 
 func (DatasetContentDeliveryRuleArgs) ElementType() reflect.Type {
@@ -951,10 +1010,12 @@ func (o DatasetContentDeliveryRuleOutput) ToDatasetContentDeliveryRuleOutputWith
 	return o
 }
 
+// The destination to which dataset contents are delivered.
 func (o DatasetContentDeliveryRuleOutput) Destination() DatasetContentDeliveryRuleDestinationOutput {
 	return o.ApplyT(func(v DatasetContentDeliveryRule) DatasetContentDeliveryRuleDestination { return v.Destination }).(DatasetContentDeliveryRuleDestinationOutput)
 }
 
+// The name of the dataset content delivery rules entry.
 func (o DatasetContentDeliveryRuleOutput) EntryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetContentDeliveryRule) *string { return v.EntryName }).(pulumi.StringPtrOutput)
 }
@@ -980,8 +1041,10 @@ func (o DatasetContentDeliveryRuleArrayOutput) Index(i pulumi.IntInput) DatasetC
 }
 
 type DatasetContentDeliveryRuleDestination struct {
+	// Configuration information for delivery of dataset contents to AWS IoT Events .
 	IotEventsDestinationConfiguration *DatasetIotEventsDestinationConfiguration `pulumi:"iotEventsDestinationConfiguration"`
-	S3DestinationConfiguration        *DatasetS3DestinationConfiguration        `pulumi:"s3DestinationConfiguration"`
+	// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+	S3DestinationConfiguration *DatasetS3DestinationConfiguration `pulumi:"s3DestinationConfiguration"`
 }
 
 // DatasetContentDeliveryRuleDestinationInput is an input type that accepts DatasetContentDeliveryRuleDestinationArgs and DatasetContentDeliveryRuleDestinationOutput values.
@@ -996,8 +1059,10 @@ type DatasetContentDeliveryRuleDestinationInput interface {
 }
 
 type DatasetContentDeliveryRuleDestinationArgs struct {
+	// Configuration information for delivery of dataset contents to AWS IoT Events .
 	IotEventsDestinationConfiguration DatasetIotEventsDestinationConfigurationPtrInput `pulumi:"iotEventsDestinationConfiguration"`
-	S3DestinationConfiguration        DatasetS3DestinationConfigurationPtrInput        `pulumi:"s3DestinationConfiguration"`
+	// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+	S3DestinationConfiguration DatasetS3DestinationConfigurationPtrInput `pulumi:"s3DestinationConfiguration"`
 }
 
 func (DatasetContentDeliveryRuleDestinationArgs) ElementType() reflect.Type {
@@ -1026,12 +1091,14 @@ func (o DatasetContentDeliveryRuleDestinationOutput) ToDatasetContentDeliveryRul
 	return o
 }
 
+// Configuration information for delivery of dataset contents to AWS IoT Events .
 func (o DatasetContentDeliveryRuleDestinationOutput) IotEventsDestinationConfiguration() DatasetIotEventsDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v DatasetContentDeliveryRuleDestination) *DatasetIotEventsDestinationConfiguration {
 		return v.IotEventsDestinationConfiguration
 	}).(DatasetIotEventsDestinationConfigurationPtrOutput)
 }
 
+// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
 func (o DatasetContentDeliveryRuleDestinationOutput) S3DestinationConfiguration() DatasetS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v DatasetContentDeliveryRuleDestination) *DatasetS3DestinationConfiguration {
 		return v.S3DestinationConfiguration
@@ -1039,6 +1106,7 @@ func (o DatasetContentDeliveryRuleDestinationOutput) S3DestinationConfiguration(
 }
 
 type DatasetContentVersionValue struct {
+	// The name of the dataset whose latest contents are used as input to the notebook or application.
 	DatasetName string `pulumi:"datasetName"`
 }
 
@@ -1054,6 +1122,7 @@ type DatasetContentVersionValueInput interface {
 }
 
 type DatasetContentVersionValueArgs struct {
+	// The name of the dataset whose latest contents are used as input to the notebook or application.
 	DatasetName pulumi.StringInput `pulumi:"datasetName"`
 }
 
@@ -1134,6 +1203,7 @@ func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValuePtrOutputW
 	}).(DatasetContentVersionValuePtrOutput)
 }
 
+// The name of the dataset whose latest contents are used as input to the notebook or application.
 func (o DatasetContentVersionValueOutput) DatasetName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetContentVersionValue) string { return v.DatasetName }).(pulumi.StringOutput)
 }
@@ -1162,6 +1232,7 @@ func (o DatasetContentVersionValuePtrOutput) Elem() DatasetContentVersionValueOu
 	}).(DatasetContentVersionValueOutput)
 }
 
+// The name of the dataset whose latest contents are used as input to the notebook or application.
 func (o DatasetContentVersionValuePtrOutput) DatasetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetContentVersionValue) *string {
 		if v == nil {
@@ -1172,7 +1243,9 @@ func (o DatasetContentVersionValuePtrOutput) DatasetName() pulumi.StringPtrOutpu
 }
 
 type DatasetDeltaTime struct {
-	OffsetSeconds  int    `pulumi:"offsetSeconds"`
+	// The number of seconds of estimated in-flight lag time of message data. When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
+	OffsetSeconds int `pulumi:"offsetSeconds"`
+	// An expression by which the time of the message data might be determined. This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
 	TimeExpression string `pulumi:"timeExpression"`
 }
 
@@ -1188,7 +1261,9 @@ type DatasetDeltaTimeInput interface {
 }
 
 type DatasetDeltaTimeArgs struct {
-	OffsetSeconds  pulumi.IntInput    `pulumi:"offsetSeconds"`
+	// The number of seconds of estimated in-flight lag time of message data. When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
+	OffsetSeconds pulumi.IntInput `pulumi:"offsetSeconds"`
+	// An expression by which the time of the message data might be determined. This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
 	TimeExpression pulumi.StringInput `pulumi:"timeExpression"`
 }
 
@@ -1269,10 +1344,12 @@ func (o DatasetDeltaTimeOutput) ToDatasetDeltaTimePtrOutputWithContext(ctx conte
 	}).(DatasetDeltaTimePtrOutput)
 }
 
+// The number of seconds of estimated in-flight lag time of message data. When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
 func (o DatasetDeltaTimeOutput) OffsetSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v DatasetDeltaTime) int { return v.OffsetSeconds }).(pulumi.IntOutput)
 }
 
+// An expression by which the time of the message data might be determined. This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
 func (o DatasetDeltaTimeOutput) TimeExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDeltaTime) string { return v.TimeExpression }).(pulumi.StringOutput)
 }
@@ -1301,6 +1378,7 @@ func (o DatasetDeltaTimePtrOutput) Elem() DatasetDeltaTimeOutput {
 	}).(DatasetDeltaTimeOutput)
 }
 
+// The number of seconds of estimated in-flight lag time of message data. When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
 func (o DatasetDeltaTimePtrOutput) OffsetSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetDeltaTime) *int {
 		if v == nil {
@@ -1310,6 +1388,7 @@ func (o DatasetDeltaTimePtrOutput) OffsetSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// An expression by which the time of the message data might be determined. This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
 func (o DatasetDeltaTimePtrOutput) TimeExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDeltaTime) *string {
 		if v == nil {
@@ -1320,6 +1399,9 @@ func (o DatasetDeltaTimePtrOutput) TimeExpression() pulumi.StringPtrOutput {
 }
 
 type DatasetDeltaTimeSessionWindowConfiguration struct {
+	// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+	//
+	// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 	TimeoutInMinutes int `pulumi:"timeoutInMinutes"`
 }
 
@@ -1335,6 +1417,9 @@ type DatasetDeltaTimeSessionWindowConfigurationInput interface {
 }
 
 type DatasetDeltaTimeSessionWindowConfigurationArgs struct {
+	// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+	//
+	// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 	TimeoutInMinutes pulumi.IntInput `pulumi:"timeoutInMinutes"`
 }
 
@@ -1415,6 +1500,9 @@ func (o DatasetDeltaTimeSessionWindowConfigurationOutput) ToDatasetDeltaTimeSess
 	}).(DatasetDeltaTimeSessionWindowConfigurationPtrOutput)
 }
 
+// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+//
+// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 func (o DatasetDeltaTimeSessionWindowConfigurationOutput) TimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v DatasetDeltaTimeSessionWindowConfiguration) int { return v.TimeoutInMinutes }).(pulumi.IntOutput)
 }
@@ -1443,6 +1531,9 @@ func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) Elem() DatasetDelta
 	}).(DatasetDeltaTimeSessionWindowConfigurationOutput)
 }
 
+// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+//
+// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetDeltaTimeSessionWindowConfiguration) *int {
 		if v == nil {
@@ -1453,6 +1544,7 @@ func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) TimeoutInMinutes() 
 }
 
 type DatasetFilter struct {
+	// Used to limit data to that which has arrived since the last execution of the action.
 	DeltaTime *DatasetDeltaTime `pulumi:"deltaTime"`
 }
 
@@ -1468,6 +1560,7 @@ type DatasetFilterInput interface {
 }
 
 type DatasetFilterArgs struct {
+	// Used to limit data to that which has arrived since the last execution of the action.
 	DeltaTime DatasetDeltaTimePtrInput `pulumi:"deltaTime"`
 }
 
@@ -1522,6 +1615,7 @@ func (o DatasetFilterOutput) ToDatasetFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Used to limit data to that which has arrived since the last execution of the action.
 func (o DatasetFilterOutput) DeltaTime() DatasetDeltaTimePtrOutput {
 	return o.ApplyT(func(v DatasetFilter) *DatasetDeltaTime { return v.DeltaTime }).(DatasetDeltaTimePtrOutput)
 }
@@ -1547,8 +1641,10 @@ func (o DatasetFilterArrayOutput) Index(i pulumi.IntInput) DatasetFilterOutput {
 }
 
 type DatasetGlueConfiguration struct {
+	// The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
 	DatabaseName string `pulumi:"databaseName"`
-	TableName    string `pulumi:"tableName"`
+	// The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+	TableName string `pulumi:"tableName"`
 }
 
 // DatasetGlueConfigurationInput is an input type that accepts DatasetGlueConfigurationArgs and DatasetGlueConfigurationOutput values.
@@ -1563,8 +1659,10 @@ type DatasetGlueConfigurationInput interface {
 }
 
 type DatasetGlueConfigurationArgs struct {
+	// The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	TableName    pulumi.StringInput `pulumi:"tableName"`
+	// The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (DatasetGlueConfigurationArgs) ElementType() reflect.Type {
@@ -1644,10 +1742,12 @@ func (o DatasetGlueConfigurationOutput) ToDatasetGlueConfigurationPtrOutputWithC
 	}).(DatasetGlueConfigurationPtrOutput)
 }
 
+// The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
 func (o DatasetGlueConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetGlueConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
 func (o DatasetGlueConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetGlueConfiguration) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -1676,6 +1776,7 @@ func (o DatasetGlueConfigurationPtrOutput) Elem() DatasetGlueConfigurationOutput
 	}).(DatasetGlueConfigurationOutput)
 }
 
+// The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
 func (o DatasetGlueConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetGlueConfiguration) *string {
 		if v == nil {
@@ -1685,6 +1786,7 @@ func (o DatasetGlueConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
 func (o DatasetGlueConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetGlueConfiguration) *string {
 		if v == nil {
@@ -1695,8 +1797,10 @@ func (o DatasetGlueConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 type DatasetIotEventsDestinationConfiguration struct {
+	// The name of the AWS IoT Events input to which dataset contents are delivered.
 	InputName string `pulumi:"inputName"`
-	RoleArn   string `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // DatasetIotEventsDestinationConfigurationInput is an input type that accepts DatasetIotEventsDestinationConfigurationArgs and DatasetIotEventsDestinationConfigurationOutput values.
@@ -1711,8 +1815,10 @@ type DatasetIotEventsDestinationConfigurationInput interface {
 }
 
 type DatasetIotEventsDestinationConfigurationArgs struct {
+	// The name of the AWS IoT Events input to which dataset contents are delivered.
 	InputName pulumi.StringInput `pulumi:"inputName"`
-	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (DatasetIotEventsDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -1792,10 +1898,12 @@ func (o DatasetIotEventsDestinationConfigurationOutput) ToDatasetIotEventsDestin
 	}).(DatasetIotEventsDestinationConfigurationPtrOutput)
 }
 
+// The name of the AWS IoT Events input to which dataset contents are delivered.
 func (o DatasetIotEventsDestinationConfigurationOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetIotEventsDestinationConfiguration) string { return v.InputName }).(pulumi.StringOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
 func (o DatasetIotEventsDestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetIotEventsDestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1824,6 +1932,7 @@ func (o DatasetIotEventsDestinationConfigurationPtrOutput) Elem() DatasetIotEven
 	}).(DatasetIotEventsDestinationConfigurationOutput)
 }
 
+// The name of the AWS IoT Events input to which dataset contents are delivered.
 func (o DatasetIotEventsDestinationConfigurationPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetIotEventsDestinationConfiguration) *string {
 		if v == nil {
@@ -1833,6 +1942,7 @@ func (o DatasetIotEventsDestinationConfigurationPtrOutput) InputName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
 func (o DatasetIotEventsDestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetIotEventsDestinationConfiguration) *string {
 		if v == nil {
@@ -1843,8 +1953,10 @@ func (o DatasetIotEventsDestinationConfigurationPtrOutput) RoleArn() pulumi.Stri
 }
 
 type DatasetLateDataRule struct {
+	// The information needed to configure a delta time session window.
 	RuleConfiguration DatasetLateDataRuleConfiguration `pulumi:"ruleConfiguration"`
-	RuleName          *string                          `pulumi:"ruleName"`
+	// The name of the late data rule.
+	RuleName *string `pulumi:"ruleName"`
 }
 
 // DatasetLateDataRuleInput is an input type that accepts DatasetLateDataRuleArgs and DatasetLateDataRuleOutput values.
@@ -1859,8 +1971,10 @@ type DatasetLateDataRuleInput interface {
 }
 
 type DatasetLateDataRuleArgs struct {
+	// The information needed to configure a delta time session window.
 	RuleConfiguration DatasetLateDataRuleConfigurationInput `pulumi:"ruleConfiguration"`
-	RuleName          pulumi.StringPtrInput                 `pulumi:"ruleName"`
+	// The name of the late data rule.
+	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
 }
 
 func (DatasetLateDataRuleArgs) ElementType() reflect.Type {
@@ -1914,10 +2028,12 @@ func (o DatasetLateDataRuleOutput) ToDatasetLateDataRuleOutputWithContext(ctx co
 	return o
 }
 
+// The information needed to configure a delta time session window.
 func (o DatasetLateDataRuleOutput) RuleConfiguration() DatasetLateDataRuleConfigurationOutput {
 	return o.ApplyT(func(v DatasetLateDataRule) DatasetLateDataRuleConfiguration { return v.RuleConfiguration }).(DatasetLateDataRuleConfigurationOutput)
 }
 
+// The name of the late data rule.
 func (o DatasetLateDataRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetLateDataRule) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
@@ -1943,6 +2059,9 @@ func (o DatasetLateDataRuleArrayOutput) Index(i pulumi.IntInput) DatasetLateData
 }
 
 type DatasetLateDataRuleConfiguration struct {
+	// A structure that contains the configuration information of a delta time session window.
+	//
+	// [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
 	DeltaTimeSessionWindowConfiguration *DatasetDeltaTimeSessionWindowConfiguration `pulumi:"deltaTimeSessionWindowConfiguration"`
 }
 
@@ -1958,6 +2077,9 @@ type DatasetLateDataRuleConfigurationInput interface {
 }
 
 type DatasetLateDataRuleConfigurationArgs struct {
+	// A structure that contains the configuration information of a delta time session window.
+	//
+	// [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
 	DeltaTimeSessionWindowConfiguration DatasetDeltaTimeSessionWindowConfigurationPtrInput `pulumi:"deltaTimeSessionWindowConfiguration"`
 }
 
@@ -1987,6 +2109,9 @@ func (o DatasetLateDataRuleConfigurationOutput) ToDatasetLateDataRuleConfigurati
 	return o
 }
 
+// A structure that contains the configuration information of a delta time session window.
+//
+// [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
 func (o DatasetLateDataRuleConfigurationOutput) DeltaTimeSessionWindowConfiguration() DatasetDeltaTimeSessionWindowConfigurationPtrOutput {
 	return o.ApplyT(func(v DatasetLateDataRuleConfiguration) *DatasetDeltaTimeSessionWindowConfiguration {
 		return v.DeltaTimeSessionWindowConfiguration
@@ -1994,6 +2119,7 @@ func (o DatasetLateDataRuleConfigurationOutput) DeltaTimeSessionWindowConfigurat
 }
 
 type DatasetOutputFileUriValue struct {
+	// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
 	FileName string `pulumi:"fileName"`
 }
 
@@ -2009,6 +2135,7 @@ type DatasetOutputFileUriValueInput interface {
 }
 
 type DatasetOutputFileUriValueArgs struct {
+	// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
 	FileName pulumi.StringInput `pulumi:"fileName"`
 }
 
@@ -2089,6 +2216,7 @@ func (o DatasetOutputFileUriValueOutput) ToDatasetOutputFileUriValuePtrOutputWit
 	}).(DatasetOutputFileUriValuePtrOutput)
 }
 
+// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
 func (o DatasetOutputFileUriValueOutput) FileName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetOutputFileUriValue) string { return v.FileName }).(pulumi.StringOutput)
 }
@@ -2117,6 +2245,7 @@ func (o DatasetOutputFileUriValuePtrOutput) Elem() DatasetOutputFileUriValueOutp
 	}).(DatasetOutputFileUriValueOutput)
 }
 
+// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
 func (o DatasetOutputFileUriValuePtrOutput) FileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetOutputFileUriValue) *string {
 		if v == nil {
@@ -2127,8 +2256,10 @@ func (o DatasetOutputFileUriValuePtrOutput) FileName() pulumi.StringPtrOutput {
 }
 
 type DatasetQueryAction struct {
-	Filters  []DatasetFilter `pulumi:"filters"`
-	SqlQuery string          `pulumi:"sqlQuery"`
+	// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+	Filters []DatasetFilter `pulumi:"filters"`
+	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+	SqlQuery string `pulumi:"sqlQuery"`
 }
 
 // DatasetQueryActionInput is an input type that accepts DatasetQueryActionArgs and DatasetQueryActionOutput values.
@@ -2143,8 +2274,10 @@ type DatasetQueryActionInput interface {
 }
 
 type DatasetQueryActionArgs struct {
-	Filters  DatasetFilterArrayInput `pulumi:"filters"`
-	SqlQuery pulumi.StringInput      `pulumi:"sqlQuery"`
+	// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+	Filters DatasetFilterArrayInput `pulumi:"filters"`
+	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
 }
 
 func (DatasetQueryActionArgs) ElementType() reflect.Type {
@@ -2224,10 +2357,12 @@ func (o DatasetQueryActionOutput) ToDatasetQueryActionPtrOutputWithContext(ctx c
 	}).(DatasetQueryActionPtrOutput)
 }
 
+// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
 func (o DatasetQueryActionOutput) Filters() DatasetFilterArrayOutput {
 	return o.ApplyT(func(v DatasetQueryAction) []DatasetFilter { return v.Filters }).(DatasetFilterArrayOutput)
 }
 
+// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 func (o DatasetQueryActionOutput) SqlQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetQueryAction) string { return v.SqlQuery }).(pulumi.StringOutput)
 }
@@ -2256,6 +2391,7 @@ func (o DatasetQueryActionPtrOutput) Elem() DatasetQueryActionOutput {
 	}).(DatasetQueryActionOutput)
 }
 
+// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
 func (o DatasetQueryActionPtrOutput) Filters() DatasetFilterArrayOutput {
 	return o.ApplyT(func(v *DatasetQueryAction) []DatasetFilter {
 		if v == nil {
@@ -2265,6 +2401,7 @@ func (o DatasetQueryActionPtrOutput) Filters() DatasetFilterArrayOutput {
 	}).(DatasetFilterArrayOutput)
 }
 
+// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 func (o DatasetQueryActionPtrOutput) SqlQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetQueryAction) *string {
 		if v == nil {
@@ -2275,8 +2412,10 @@ func (o DatasetQueryActionPtrOutput) SqlQuery() pulumi.StringPtrOutput {
 }
 
 type DatasetResourceConfiguration struct {
-	ComputeType    DatasetResourceConfigurationComputeType `pulumi:"computeType"`
-	VolumeSizeInGb int                                     `pulumi:"volumeSizeInGb"`
+	// The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
+	ComputeType DatasetResourceConfigurationComputeType `pulumi:"computeType"`
+	// The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
 }
 
 // DatasetResourceConfigurationInput is an input type that accepts DatasetResourceConfigurationArgs and DatasetResourceConfigurationOutput values.
@@ -2291,8 +2430,10 @@ type DatasetResourceConfigurationInput interface {
 }
 
 type DatasetResourceConfigurationArgs struct {
-	ComputeType    DatasetResourceConfigurationComputeTypeInput `pulumi:"computeType"`
-	VolumeSizeInGb pulumi.IntInput                              `pulumi:"volumeSizeInGb"`
+	// The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
+	ComputeType DatasetResourceConfigurationComputeTypeInput `pulumi:"computeType"`
+	// The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
 }
 
 func (DatasetResourceConfigurationArgs) ElementType() reflect.Type {
@@ -2372,10 +2513,12 @@ func (o DatasetResourceConfigurationOutput) ToDatasetResourceConfigurationPtrOut
 	}).(DatasetResourceConfigurationPtrOutput)
 }
 
+// The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
 func (o DatasetResourceConfigurationOutput) ComputeType() DatasetResourceConfigurationComputeTypeOutput {
 	return o.ApplyT(func(v DatasetResourceConfiguration) DatasetResourceConfigurationComputeType { return v.ComputeType }).(DatasetResourceConfigurationComputeTypeOutput)
 }
 
+// The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
 func (o DatasetResourceConfigurationOutput) VolumeSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v DatasetResourceConfiguration) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
@@ -2404,6 +2547,7 @@ func (o DatasetResourceConfigurationPtrOutput) Elem() DatasetResourceConfigurati
 	}).(DatasetResourceConfigurationOutput)
 }
 
+// The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
 func (o DatasetResourceConfigurationPtrOutput) ComputeType() DatasetResourceConfigurationComputeTypePtrOutput {
 	return o.ApplyT(func(v *DatasetResourceConfiguration) *DatasetResourceConfigurationComputeType {
 		if v == nil {
@@ -2413,6 +2557,7 @@ func (o DatasetResourceConfigurationPtrOutput) ComputeType() DatasetResourceConf
 	}).(DatasetResourceConfigurationComputeTypePtrOutput)
 }
 
+// The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
 func (o DatasetResourceConfigurationPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetResourceConfiguration) *int {
 		if v == nil {
@@ -2423,8 +2568,10 @@ func (o DatasetResourceConfigurationPtrOutput) VolumeSizeInGb() pulumi.IntPtrOut
 }
 
 type DatasetRetentionPeriod struct {
-	NumberOfDays *int  `pulumi:"numberOfDays"`
-	Unlimited    *bool `pulumi:"unlimited"`
+	// The number of days that message data is kept. The `unlimited` parameter must be false.
+	NumberOfDays *int `pulumi:"numberOfDays"`
+	// If true, message data is kept indefinitely.
+	Unlimited *bool `pulumi:"unlimited"`
 }
 
 // DatasetRetentionPeriodInput is an input type that accepts DatasetRetentionPeriodArgs and DatasetRetentionPeriodOutput values.
@@ -2439,8 +2586,10 @@ type DatasetRetentionPeriodInput interface {
 }
 
 type DatasetRetentionPeriodArgs struct {
-	NumberOfDays pulumi.IntPtrInput  `pulumi:"numberOfDays"`
-	Unlimited    pulumi.BoolPtrInput `pulumi:"unlimited"`
+	// The number of days that message data is kept. The `unlimited` parameter must be false.
+	NumberOfDays pulumi.IntPtrInput `pulumi:"numberOfDays"`
+	// If true, message data is kept indefinitely.
+	Unlimited pulumi.BoolPtrInput `pulumi:"unlimited"`
 }
 
 func (DatasetRetentionPeriodArgs) ElementType() reflect.Type {
@@ -2520,10 +2669,12 @@ func (o DatasetRetentionPeriodOutput) ToDatasetRetentionPeriodPtrOutputWithConte
 	}).(DatasetRetentionPeriodPtrOutput)
 }
 
+// The number of days that message data is kept. The `unlimited` parameter must be false.
 func (o DatasetRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatasetRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
 
+// If true, message data is kept indefinitely.
 func (o DatasetRetentionPeriodOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetRetentionPeriod) *bool { return v.Unlimited }).(pulumi.BoolPtrOutput)
 }
@@ -2552,6 +2703,7 @@ func (o DatasetRetentionPeriodPtrOutput) Elem() DatasetRetentionPeriodOutput {
 	}).(DatasetRetentionPeriodOutput)
 }
 
+// The number of days that message data is kept. The `unlimited` parameter must be false.
 func (o DatasetRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetRetentionPeriod) *int {
 		if v == nil {
@@ -2561,6 +2713,7 @@ func (o DatasetRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// If true, message data is kept indefinitely.
 func (o DatasetRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatasetRetentionPeriod) *bool {
 		if v == nil {
@@ -2571,10 +2724,24 @@ func (o DatasetRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 }
 
 type DatasetS3DestinationConfiguration struct {
-	Bucket            string                    `pulumi:"bucket"`
+	// The name of the S3 bucket to which dataset contents are delivered.
+	Bucket string `pulumi:"bucket"`
+	// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
 	GlueConfiguration *DatasetGlueConfiguration `pulumi:"glueConfiguration"`
-	Key               string                    `pulumi:"key"`
-	RoleArn           string                    `pulumi:"roleArn"`
+	// The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
+	//
+	// You can create a unique key with the following options:
+	//
+	// - Use `!{iotanalytics:scheduleTime}` to insert the time of a scheduled SQL query run.
+	// - Use `!{iotanalytics:versionId}` to insert a unique hash that identifies a dataset content.
+	// - Use `!{iotanalytics:creationTime}` to insert the creation time of a dataset content.
+	//
+	// The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
+	//
+	// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
+	Key string `pulumi:"key"`
+	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // DatasetS3DestinationConfigurationInput is an input type that accepts DatasetS3DestinationConfigurationArgs and DatasetS3DestinationConfigurationOutput values.
@@ -2589,10 +2756,24 @@ type DatasetS3DestinationConfigurationInput interface {
 }
 
 type DatasetS3DestinationConfigurationArgs struct {
-	Bucket            pulumi.StringInput               `pulumi:"bucket"`
+	// The name of the S3 bucket to which dataset contents are delivered.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
 	GlueConfiguration DatasetGlueConfigurationPtrInput `pulumi:"glueConfiguration"`
-	Key               pulumi.StringInput               `pulumi:"key"`
-	RoleArn           pulumi.StringInput               `pulumi:"roleArn"`
+	// The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
+	//
+	// You can create a unique key with the following options:
+	//
+	// - Use `!{iotanalytics:scheduleTime}` to insert the time of a scheduled SQL query run.
+	// - Use `!{iotanalytics:versionId}` to insert a unique hash that identifies a dataset content.
+	// - Use `!{iotanalytics:creationTime}` to insert the creation time of a dataset content.
+	//
+	// The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
+	//
+	// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (DatasetS3DestinationConfigurationArgs) ElementType() reflect.Type {
@@ -2672,18 +2853,32 @@ func (o DatasetS3DestinationConfigurationOutput) ToDatasetS3DestinationConfigura
 	}).(DatasetS3DestinationConfigurationPtrOutput)
 }
 
+// The name of the S3 bucket to which dataset contents are delivered.
 func (o DatasetS3DestinationConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3DestinationConfiguration) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
 func (o DatasetS3DestinationConfigurationOutput) GlueConfiguration() DatasetGlueConfigurationPtrOutput {
 	return o.ApplyT(func(v DatasetS3DestinationConfiguration) *DatasetGlueConfiguration { return v.GlueConfiguration }).(DatasetGlueConfigurationPtrOutput)
 }
 
+// The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
+//
+// You can create a unique key with the following options:
+//
+// - Use `!{iotanalytics:scheduleTime}` to insert the time of a scheduled SQL query run.
+// - Use `!{iotanalytics:versionId}` to insert a unique hash that identifies a dataset content.
+// - Use `!{iotanalytics:creationTime}` to insert the creation time of a dataset content.
+//
+// The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
+//
+// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
 func (o DatasetS3DestinationConfigurationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3DestinationConfiguration) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
 func (o DatasetS3DestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3DestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -2712,6 +2907,7 @@ func (o DatasetS3DestinationConfigurationPtrOutput) Elem() DatasetS3DestinationC
 	}).(DatasetS3DestinationConfigurationOutput)
 }
 
+// The name of the S3 bucket to which dataset contents are delivered.
 func (o DatasetS3DestinationConfigurationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3DestinationConfiguration) *string {
 		if v == nil {
@@ -2721,6 +2917,7 @@ func (o DatasetS3DestinationConfigurationPtrOutput) Bucket() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
 func (o DatasetS3DestinationConfigurationPtrOutput) GlueConfiguration() DatasetGlueConfigurationPtrOutput {
 	return o.ApplyT(func(v *DatasetS3DestinationConfiguration) *DatasetGlueConfiguration {
 		if v == nil {
@@ -2730,6 +2927,17 @@ func (o DatasetS3DestinationConfigurationPtrOutput) GlueConfiguration() DatasetG
 	}).(DatasetGlueConfigurationPtrOutput)
 }
 
+// The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
+//
+// You can create a unique key with the following options:
+//
+// - Use `!{iotanalytics:scheduleTime}` to insert the time of a scheduled SQL query run.
+// - Use `!{iotanalytics:versionId}` to insert a unique hash that identifies a dataset content.
+// - Use `!{iotanalytics:creationTime}` to insert the creation time of a dataset content.
+//
+// The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
+//
+// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
 func (o DatasetS3DestinationConfigurationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3DestinationConfiguration) *string {
 		if v == nil {
@@ -2739,6 +2947,7 @@ func (o DatasetS3DestinationConfigurationPtrOutput) Key() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
 func (o DatasetS3DestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3DestinationConfiguration) *string {
 		if v == nil {
@@ -2749,6 +2958,7 @@ func (o DatasetS3DestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOu
 }
 
 type DatasetSchedule struct {
+	// The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -2764,6 +2974,7 @@ type DatasetScheduleInput interface {
 }
 
 type DatasetScheduleArgs struct {
+	// The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -2844,6 +3055,7 @@ func (o DatasetScheduleOutput) ToDatasetSchedulePtrOutputWithContext(ctx context
 	}).(DatasetSchedulePtrOutput)
 }
 
+// The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
 func (o DatasetScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -2872,6 +3084,7 @@ func (o DatasetSchedulePtrOutput) Elem() DatasetScheduleOutput {
 	}).(DatasetScheduleOutput)
 }
 
+// The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
 func (o DatasetSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetSchedule) *string {
 		if v == nil {
@@ -2882,12 +3095,16 @@ func (o DatasetSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 }
 
 type DatasetTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 type DatasetTrigger struct {
-	Schedule          *DatasetSchedule          `pulumi:"schedule"`
+	// The schedule for when to trigger an update.
+	Schedule *DatasetSchedule `pulumi:"schedule"`
+	// Information about the dataset whose content generation triggers the new dataset content generation.
 	TriggeringDataset *DatasetTriggeringDataset `pulumi:"triggeringDataset"`
 }
 
@@ -2903,7 +3120,9 @@ type DatasetTriggerInput interface {
 }
 
 type DatasetTriggerArgs struct {
-	Schedule          DatasetSchedulePtrInput          `pulumi:"schedule"`
+	// The schedule for when to trigger an update.
+	Schedule DatasetSchedulePtrInput `pulumi:"schedule"`
+	// Information about the dataset whose content generation triggers the new dataset content generation.
 	TriggeringDataset DatasetTriggeringDatasetPtrInput `pulumi:"triggeringDataset"`
 }
 
@@ -2958,10 +3177,12 @@ func (o DatasetTriggerOutput) ToDatasetTriggerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The schedule for when to trigger an update.
 func (o DatasetTriggerOutput) Schedule() DatasetSchedulePtrOutput {
 	return o.ApplyT(func(v DatasetTrigger) *DatasetSchedule { return v.Schedule }).(DatasetSchedulePtrOutput)
 }
 
+// Information about the dataset whose content generation triggers the new dataset content generation.
 func (o DatasetTriggerOutput) TriggeringDataset() DatasetTriggeringDatasetPtrOutput {
 	return o.ApplyT(func(v DatasetTrigger) *DatasetTriggeringDataset { return v.TriggeringDataset }).(DatasetTriggeringDatasetPtrOutput)
 }
@@ -2987,6 +3208,7 @@ func (o DatasetTriggerArrayOutput) Index(i pulumi.IntInput) DatasetTriggerOutput
 }
 
 type DatasetTriggeringDataset struct {
+	// The name of the data set whose content generation triggers the new data set content generation.
 	DatasetName string `pulumi:"datasetName"`
 }
 
@@ -3002,6 +3224,7 @@ type DatasetTriggeringDatasetInput interface {
 }
 
 type DatasetTriggeringDatasetArgs struct {
+	// The name of the data set whose content generation triggers the new data set content generation.
 	DatasetName pulumi.StringInput `pulumi:"datasetName"`
 }
 
@@ -3082,6 +3305,7 @@ func (o DatasetTriggeringDatasetOutput) ToDatasetTriggeringDatasetPtrOutputWithC
 	}).(DatasetTriggeringDatasetPtrOutput)
 }
 
+// The name of the data set whose content generation triggers the new data set content generation.
 func (o DatasetTriggeringDatasetOutput) DatasetName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetTriggeringDataset) string { return v.DatasetName }).(pulumi.StringOutput)
 }
@@ -3110,6 +3334,7 @@ func (o DatasetTriggeringDatasetPtrOutput) Elem() DatasetTriggeringDatasetOutput
 	}).(DatasetTriggeringDatasetOutput)
 }
 
+// The name of the data set whose content generation triggers the new data set content generation.
 func (o DatasetTriggeringDatasetPtrOutput) DatasetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetTriggeringDataset) *string {
 		if v == nil {
@@ -3120,11 +3345,16 @@ func (o DatasetTriggeringDatasetPtrOutput) DatasetName() pulumi.StringPtrOutput 
 }
 
 type DatasetVariable struct {
+	// The dataset whose latest contents are used as input to the notebook or application.
 	DatasetContentVersionValue *DatasetContentVersionValue `pulumi:"datasetContentVersionValue"`
-	DoubleValue                *float64                    `pulumi:"doubleValue"`
-	OutputFileUriValue         *DatasetOutputFileUriValue  `pulumi:"outputFileUriValue"`
-	StringValue                *string                     `pulumi:"stringValue"`
-	VariableName               string                      `pulumi:"variableName"`
+	// The value of the variable as a double (numeric).
+	DoubleValue *float64 `pulumi:"doubleValue"`
+	// The value of the variable as a structure that specifies an output file URI.
+	OutputFileUriValue *DatasetOutputFileUriValue `pulumi:"outputFileUriValue"`
+	// The value of the variable as a string.
+	StringValue *string `pulumi:"stringValue"`
+	// The name of the variable.
+	VariableName string `pulumi:"variableName"`
 }
 
 // DatasetVariableInput is an input type that accepts DatasetVariableArgs and DatasetVariableOutput values.
@@ -3139,11 +3369,16 @@ type DatasetVariableInput interface {
 }
 
 type DatasetVariableArgs struct {
+	// The dataset whose latest contents are used as input to the notebook or application.
 	DatasetContentVersionValue DatasetContentVersionValuePtrInput `pulumi:"datasetContentVersionValue"`
-	DoubleValue                pulumi.Float64PtrInput             `pulumi:"doubleValue"`
-	OutputFileUriValue         DatasetOutputFileUriValuePtrInput  `pulumi:"outputFileUriValue"`
-	StringValue                pulumi.StringPtrInput              `pulumi:"stringValue"`
-	VariableName               pulumi.StringInput                 `pulumi:"variableName"`
+	// The value of the variable as a double (numeric).
+	DoubleValue pulumi.Float64PtrInput `pulumi:"doubleValue"`
+	// The value of the variable as a structure that specifies an output file URI.
+	OutputFileUriValue DatasetOutputFileUriValuePtrInput `pulumi:"outputFileUriValue"`
+	// The value of the variable as a string.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+	// The name of the variable.
+	VariableName pulumi.StringInput `pulumi:"variableName"`
 }
 
 func (DatasetVariableArgs) ElementType() reflect.Type {
@@ -3197,22 +3432,27 @@ func (o DatasetVariableOutput) ToDatasetVariableOutputWithContext(ctx context.Co
 	return o
 }
 
+// The dataset whose latest contents are used as input to the notebook or application.
 func (o DatasetVariableOutput) DatasetContentVersionValue() DatasetContentVersionValuePtrOutput {
 	return o.ApplyT(func(v DatasetVariable) *DatasetContentVersionValue { return v.DatasetContentVersionValue }).(DatasetContentVersionValuePtrOutput)
 }
 
+// The value of the variable as a double (numeric).
 func (o DatasetVariableOutput) DoubleValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DatasetVariable) *float64 { return v.DoubleValue }).(pulumi.Float64PtrOutput)
 }
 
+// The value of the variable as a structure that specifies an output file URI.
 func (o DatasetVariableOutput) OutputFileUriValue() DatasetOutputFileUriValuePtrOutput {
 	return o.ApplyT(func(v DatasetVariable) *DatasetOutputFileUriValue { return v.OutputFileUriValue }).(DatasetOutputFileUriValuePtrOutput)
 }
 
+// The value of the variable as a string.
 func (o DatasetVariableOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetVariable) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DatasetVariableOutput) VariableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetVariable) string { return v.VariableName }).(pulumi.StringOutput)
 }
@@ -3238,8 +3478,10 @@ func (o DatasetVariableArrayOutput) Index(i pulumi.IntInput) DatasetVariableOutp
 }
 
 type DatasetVersioningConfiguration struct {
-	MaxVersions *int  `pulumi:"maxVersions"`
-	Unlimited   *bool `pulumi:"unlimited"`
+	// How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
+	MaxVersions *int `pulumi:"maxVersions"`
+	// If true, unlimited versions of dataset contents are kept.
+	Unlimited *bool `pulumi:"unlimited"`
 }
 
 // DatasetVersioningConfigurationInput is an input type that accepts DatasetVersioningConfigurationArgs and DatasetVersioningConfigurationOutput values.
@@ -3254,8 +3496,10 @@ type DatasetVersioningConfigurationInput interface {
 }
 
 type DatasetVersioningConfigurationArgs struct {
-	MaxVersions pulumi.IntPtrInput  `pulumi:"maxVersions"`
-	Unlimited   pulumi.BoolPtrInput `pulumi:"unlimited"`
+	// How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
+	MaxVersions pulumi.IntPtrInput `pulumi:"maxVersions"`
+	// If true, unlimited versions of dataset contents are kept.
+	Unlimited pulumi.BoolPtrInput `pulumi:"unlimited"`
 }
 
 func (DatasetVersioningConfigurationArgs) ElementType() reflect.Type {
@@ -3335,10 +3579,12 @@ func (o DatasetVersioningConfigurationOutput) ToDatasetVersioningConfigurationPt
 	}).(DatasetVersioningConfigurationPtrOutput)
 }
 
+// How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
 func (o DatasetVersioningConfigurationOutput) MaxVersions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatasetVersioningConfiguration) *int { return v.MaxVersions }).(pulumi.IntPtrOutput)
 }
 
+// If true, unlimited versions of dataset contents are kept.
 func (o DatasetVersioningConfigurationOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetVersioningConfiguration) *bool { return v.Unlimited }).(pulumi.BoolPtrOutput)
 }
@@ -3367,6 +3613,7 @@ func (o DatasetVersioningConfigurationPtrOutput) Elem() DatasetVersioningConfigu
 	}).(DatasetVersioningConfigurationOutput)
 }
 
+// How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
 func (o DatasetVersioningConfigurationPtrOutput) MaxVersions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetVersioningConfiguration) *int {
 		if v == nil {
@@ -3376,6 +3623,7 @@ func (o DatasetVersioningConfigurationPtrOutput) MaxVersions() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// If true, unlimited versions of dataset contents are kept.
 func (o DatasetVersioningConfigurationPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatasetVersioningConfiguration) *bool {
 		if v == nil {
@@ -3386,7 +3634,9 @@ func (o DatasetVersioningConfigurationPtrOutput) Unlimited() pulumi.BoolPtrOutpu
 }
 
 type DatastoreColumn struct {
+	// The name of the column.
 	Name string `pulumi:"name"`
+	// The type of data. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
 	Type string `pulumi:"type"`
 }
 
@@ -3402,7 +3652,9 @@ type DatastoreColumnInput interface {
 }
 
 type DatastoreColumnArgs struct {
+	// The name of the column.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The type of data. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3457,10 +3709,12 @@ func (o DatastoreColumnOutput) ToDatastoreColumnOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the column.
 func (o DatastoreColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of data. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
 func (o DatastoreColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreColumn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3486,9 +3740,12 @@ func (o DatastoreColumnArrayOutput) Index(i pulumi.IntInput) DatastoreColumnOutp
 }
 
 type DatastoreCustomerManagedS3 struct {
-	Bucket    string  `pulumi:"bucket"`
+	// The name of the Amazon S3 bucket where your data is stored.
+	Bucket string `pulumi:"bucket"`
+	// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 	KeyPrefix *string `pulumi:"keyPrefix"`
-	RoleArn   string  `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // DatastoreCustomerManagedS3Input is an input type that accepts DatastoreCustomerManagedS3Args and DatastoreCustomerManagedS3Output values.
@@ -3503,9 +3760,12 @@ type DatastoreCustomerManagedS3Input interface {
 }
 
 type DatastoreCustomerManagedS3Args struct {
-	Bucket    pulumi.StringInput    `pulumi:"bucket"`
+	// The name of the Amazon S3 bucket where your data is stored.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (DatastoreCustomerManagedS3Args) ElementType() reflect.Type {
@@ -3585,14 +3845,17 @@ func (o DatastoreCustomerManagedS3Output) ToDatastoreCustomerManagedS3PtrOutputW
 	}).(DatastoreCustomerManagedS3PtrOutput)
 }
 
+// The name of the Amazon S3 bucket where your data is stored.
 func (o DatastoreCustomerManagedS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 func (o DatastoreCustomerManagedS3Output) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 func (o DatastoreCustomerManagedS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3621,6 +3884,7 @@ func (o DatastoreCustomerManagedS3PtrOutput) Elem() DatastoreCustomerManagedS3Ou
 	}).(DatastoreCustomerManagedS3Output)
 }
 
+// The name of the Amazon S3 bucket where your data is stored.
 func (o DatastoreCustomerManagedS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreCustomerManagedS3) *string {
 		if v == nil {
@@ -3630,6 +3894,7 @@ func (o DatastoreCustomerManagedS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 func (o DatastoreCustomerManagedS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreCustomerManagedS3) *string {
 		if v == nil {
@@ -3639,6 +3904,7 @@ func (o DatastoreCustomerManagedS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 func (o DatastoreCustomerManagedS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreCustomerManagedS3) *string {
 		if v == nil {
@@ -3649,7 +3915,9 @@ func (o DatastoreCustomerManagedS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type DatastoreCustomerManagedS3Storage struct {
-	Bucket    string  `pulumi:"bucket"`
+	// The name of the Amazon S3 bucket where your data is stored.
+	Bucket string `pulumi:"bucket"`
+	// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 	KeyPrefix *string `pulumi:"keyPrefix"`
 }
 
@@ -3665,7 +3933,9 @@ type DatastoreCustomerManagedS3StorageInput interface {
 }
 
 type DatastoreCustomerManagedS3StorageArgs struct {
-	Bucket    pulumi.StringInput    `pulumi:"bucket"`
+	// The name of the Amazon S3 bucket where your data is stored.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 }
 
@@ -3746,10 +4016,12 @@ func (o DatastoreCustomerManagedS3StorageOutput) ToDatastoreCustomerManagedS3Sto
 	}).(DatastoreCustomerManagedS3StoragePtrOutput)
 }
 
+// The name of the Amazon S3 bucket where your data is stored.
 func (o DatastoreCustomerManagedS3StorageOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3Storage) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 func (o DatastoreCustomerManagedS3StorageOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3Storage) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -3778,6 +4050,7 @@ func (o DatastoreCustomerManagedS3StoragePtrOutput) Elem() DatastoreCustomerMana
 	}).(DatastoreCustomerManagedS3StorageOutput)
 }
 
+// The name of the Amazon S3 bucket where your data is stored.
 func (o DatastoreCustomerManagedS3StoragePtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreCustomerManagedS3Storage) *string {
 		if v == nil {
@@ -3787,6 +4060,7 @@ func (o DatastoreCustomerManagedS3StoragePtrOutput) Bucket() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 func (o DatastoreCustomerManagedS3StoragePtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreCustomerManagedS3Storage) *string {
 		if v == nil {
@@ -3797,7 +4071,9 @@ func (o DatastoreCustomerManagedS3StoragePtrOutput) KeyPrefix() pulumi.StringPtr
 }
 
 type DatastoreFileFormatConfiguration struct {
-	JsonConfiguration    *DatastoreJsonConfiguration    `pulumi:"jsonConfiguration"`
+	// Contains the configuration information of the JSON format.
+	JsonConfiguration *DatastoreJsonConfiguration `pulumi:"jsonConfiguration"`
+	// Contains the configuration information of the Parquet format.
 	ParquetConfiguration *DatastoreParquetConfiguration `pulumi:"parquetConfiguration"`
 }
 
@@ -3813,7 +4089,9 @@ type DatastoreFileFormatConfigurationInput interface {
 }
 
 type DatastoreFileFormatConfigurationArgs struct {
-	JsonConfiguration    DatastoreJsonConfigurationPtrInput    `pulumi:"jsonConfiguration"`
+	// Contains the configuration information of the JSON format.
+	JsonConfiguration DatastoreJsonConfigurationPtrInput `pulumi:"jsonConfiguration"`
+	// Contains the configuration information of the Parquet format.
 	ParquetConfiguration DatastoreParquetConfigurationPtrInput `pulumi:"parquetConfiguration"`
 }
 
@@ -3894,10 +4172,12 @@ func (o DatastoreFileFormatConfigurationOutput) ToDatastoreFileFormatConfigurati
 	}).(DatastoreFileFormatConfigurationPtrOutput)
 }
 
+// Contains the configuration information of the JSON format.
 func (o DatastoreFileFormatConfigurationOutput) JsonConfiguration() DatastoreJsonConfigurationPtrOutput {
 	return o.ApplyT(func(v DatastoreFileFormatConfiguration) *DatastoreJsonConfiguration { return v.JsonConfiguration }).(DatastoreJsonConfigurationPtrOutput)
 }
 
+// Contains the configuration information of the Parquet format.
 func (o DatastoreFileFormatConfigurationOutput) ParquetConfiguration() DatastoreParquetConfigurationPtrOutput {
 	return o.ApplyT(func(v DatastoreFileFormatConfiguration) *DatastoreParquetConfiguration { return v.ParquetConfiguration }).(DatastoreParquetConfigurationPtrOutput)
 }
@@ -3926,6 +4206,7 @@ func (o DatastoreFileFormatConfigurationPtrOutput) Elem() DatastoreFileFormatCon
 	}).(DatastoreFileFormatConfigurationOutput)
 }
 
+// Contains the configuration information of the JSON format.
 func (o DatastoreFileFormatConfigurationPtrOutput) JsonConfiguration() DatastoreJsonConfigurationPtrOutput {
 	return o.ApplyT(func(v *DatastoreFileFormatConfiguration) *DatastoreJsonConfiguration {
 		if v == nil {
@@ -3935,6 +4216,7 @@ func (o DatastoreFileFormatConfigurationPtrOutput) JsonConfiguration() Datastore
 	}).(DatastoreJsonConfigurationPtrOutput)
 }
 
+// Contains the configuration information of the Parquet format.
 func (o DatastoreFileFormatConfigurationPtrOutput) ParquetConfiguration() DatastoreParquetConfigurationPtrOutput {
 	return o.ApplyT(func(v *DatastoreFileFormatConfiguration) *DatastoreParquetConfiguration {
 		if v == nil {
@@ -3945,6 +4227,7 @@ func (o DatastoreFileFormatConfigurationPtrOutput) ParquetConfiguration() Datast
 }
 
 type DatastoreIotSiteWiseMultiLayerStorage struct {
+	// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
 	CustomerManagedS3Storage *DatastoreCustomerManagedS3Storage `pulumi:"customerManagedS3Storage"`
 }
 
@@ -3960,6 +4243,7 @@ type DatastoreIotSiteWiseMultiLayerStorageInput interface {
 }
 
 type DatastoreIotSiteWiseMultiLayerStorageArgs struct {
+	// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
 	CustomerManagedS3Storage DatastoreCustomerManagedS3StoragePtrInput `pulumi:"customerManagedS3Storage"`
 }
 
@@ -4040,6 +4324,7 @@ func (o DatastoreIotSiteWiseMultiLayerStorageOutput) ToDatastoreIotSiteWiseMulti
 	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
+// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreIotSiteWiseMultiLayerStorageOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StoragePtrOutput {
 	return o.ApplyT(func(v DatastoreIotSiteWiseMultiLayerStorage) *DatastoreCustomerManagedS3Storage {
 		return v.CustomerManagedS3Storage
@@ -4070,6 +4355,7 @@ func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) Elem() DatastoreIotSiteW
 	}).(DatastoreIotSiteWiseMultiLayerStorageOutput)
 }
 
+// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StoragePtrOutput {
 	return o.ApplyT(func(v *DatastoreIotSiteWiseMultiLayerStorage) *DatastoreCustomerManagedS3Storage {
 		if v == nil {
@@ -4198,6 +4484,7 @@ func (o DatastoreJsonConfigurationPtrOutput) Elem() DatastoreJsonConfigurationOu
 }
 
 type DatastoreParquetConfiguration struct {
+	// Information needed to define a schema.
 	SchemaDefinition *DatastoreSchemaDefinition `pulumi:"schemaDefinition"`
 }
 
@@ -4213,6 +4500,7 @@ type DatastoreParquetConfigurationInput interface {
 }
 
 type DatastoreParquetConfigurationArgs struct {
+	// Information needed to define a schema.
 	SchemaDefinition DatastoreSchemaDefinitionPtrInput `pulumi:"schemaDefinition"`
 }
 
@@ -4293,6 +4581,7 @@ func (o DatastoreParquetConfigurationOutput) ToDatastoreParquetConfigurationPtrO
 	}).(DatastoreParquetConfigurationPtrOutput)
 }
 
+// Information needed to define a schema.
 func (o DatastoreParquetConfigurationOutput) SchemaDefinition() DatastoreSchemaDefinitionPtrOutput {
 	return o.ApplyT(func(v DatastoreParquetConfiguration) *DatastoreSchemaDefinition { return v.SchemaDefinition }).(DatastoreSchemaDefinitionPtrOutput)
 }
@@ -4321,6 +4610,7 @@ func (o DatastoreParquetConfigurationPtrOutput) Elem() DatastoreParquetConfigura
 	}).(DatastoreParquetConfigurationOutput)
 }
 
+// Information needed to define a schema.
 func (o DatastoreParquetConfigurationPtrOutput) SchemaDefinition() DatastoreSchemaDefinitionPtrOutput {
 	return o.ApplyT(func(v *DatastoreParquetConfiguration) *DatastoreSchemaDefinition {
 		if v == nil {
@@ -4331,7 +4621,9 @@ func (o DatastoreParquetConfigurationPtrOutput) SchemaDefinition() DatastoreSche
 }
 
 type DatastorePartition struct {
-	Partition          *Partition                   `pulumi:"partition"`
+	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+	Partition *Partition `pulumi:"partition"`
+	// A partition dimension defined by a timestamp attribute.
 	TimestampPartition *DatastoreTimestampPartition `pulumi:"timestampPartition"`
 }
 
@@ -4347,7 +4639,9 @@ type DatastorePartitionInput interface {
 }
 
 type DatastorePartitionArgs struct {
-	Partition          PartitionPtrInput                   `pulumi:"partition"`
+	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+	Partition PartitionPtrInput `pulumi:"partition"`
+	// A partition dimension defined by a timestamp attribute.
 	TimestampPartition DatastoreTimestampPartitionPtrInput `pulumi:"timestampPartition"`
 }
 
@@ -4402,10 +4696,12 @@ func (o DatastorePartitionOutput) ToDatastorePartitionOutputWithContext(ctx cont
 	return o
 }
 
+// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
 func (o DatastorePartitionOutput) Partition() PartitionPtrOutput {
 	return o.ApplyT(func(v DatastorePartition) *Partition { return v.Partition }).(PartitionPtrOutput)
 }
 
+// A partition dimension defined by a timestamp attribute.
 func (o DatastorePartitionOutput) TimestampPartition() DatastoreTimestampPartitionPtrOutput {
 	return o.ApplyT(func(v DatastorePartition) *DatastoreTimestampPartition { return v.TimestampPartition }).(DatastoreTimestampPartitionPtrOutput)
 }
@@ -4431,6 +4727,7 @@ func (o DatastorePartitionArrayOutput) Index(i pulumi.IntInput) DatastorePartiti
 }
 
 type DatastorePartitions struct {
+	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
 	Partitions []DatastorePartition `pulumi:"partitions"`
 }
 
@@ -4446,6 +4743,7 @@ type DatastorePartitionsInput interface {
 }
 
 type DatastorePartitionsArgs struct {
+	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
 	Partitions DatastorePartitionArrayInput `pulumi:"partitions"`
 }
 
@@ -4526,6 +4824,7 @@ func (o DatastorePartitionsOutput) ToDatastorePartitionsPtrOutputWithContext(ctx
 	}).(DatastorePartitionsPtrOutput)
 }
 
+// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
 func (o DatastorePartitionsOutput) Partitions() DatastorePartitionArrayOutput {
 	return o.ApplyT(func(v DatastorePartitions) []DatastorePartition { return v.Partitions }).(DatastorePartitionArrayOutput)
 }
@@ -4554,6 +4853,7 @@ func (o DatastorePartitionsPtrOutput) Elem() DatastorePartitionsOutput {
 	}).(DatastorePartitionsOutput)
 }
 
+// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
 func (o DatastorePartitionsPtrOutput) Partitions() DatastorePartitionArrayOutput {
 	return o.ApplyT(func(v *DatastorePartitions) []DatastorePartition {
 		if v == nil {
@@ -4564,8 +4864,10 @@ func (o DatastorePartitionsPtrOutput) Partitions() DatastorePartitionArrayOutput
 }
 
 type DatastoreRetentionPeriod struct {
-	NumberOfDays *int  `pulumi:"numberOfDays"`
-	Unlimited    *bool `pulumi:"unlimited"`
+	// The number of days that message data is kept. The `unlimited` parameter must be false.
+	NumberOfDays *int `pulumi:"numberOfDays"`
+	// If true, message data is kept indefinitely.
+	Unlimited *bool `pulumi:"unlimited"`
 }
 
 // DatastoreRetentionPeriodInput is an input type that accepts DatastoreRetentionPeriodArgs and DatastoreRetentionPeriodOutput values.
@@ -4580,8 +4882,10 @@ type DatastoreRetentionPeriodInput interface {
 }
 
 type DatastoreRetentionPeriodArgs struct {
-	NumberOfDays pulumi.IntPtrInput  `pulumi:"numberOfDays"`
-	Unlimited    pulumi.BoolPtrInput `pulumi:"unlimited"`
+	// The number of days that message data is kept. The `unlimited` parameter must be false.
+	NumberOfDays pulumi.IntPtrInput `pulumi:"numberOfDays"`
+	// If true, message data is kept indefinitely.
+	Unlimited pulumi.BoolPtrInput `pulumi:"unlimited"`
 }
 
 func (DatastoreRetentionPeriodArgs) ElementType() reflect.Type {
@@ -4661,10 +4965,12 @@ func (o DatastoreRetentionPeriodOutput) ToDatastoreRetentionPeriodPtrOutputWithC
 	}).(DatastoreRetentionPeriodPtrOutput)
 }
 
+// The number of days that message data is kept. The `unlimited` parameter must be false.
 func (o DatastoreRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatastoreRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
 
+// If true, message data is kept indefinitely.
 func (o DatastoreRetentionPeriodOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatastoreRetentionPeriod) *bool { return v.Unlimited }).(pulumi.BoolPtrOutput)
 }
@@ -4693,6 +4999,7 @@ func (o DatastoreRetentionPeriodPtrOutput) Elem() DatastoreRetentionPeriodOutput
 	}).(DatastoreRetentionPeriodOutput)
 }
 
+// The number of days that message data is kept. The `unlimited` parameter must be false.
 func (o DatastoreRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatastoreRetentionPeriod) *int {
 		if v == nil {
@@ -4702,6 +5009,7 @@ func (o DatastoreRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// If true, message data is kept indefinitely.
 func (o DatastoreRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatastoreRetentionPeriod) *bool {
 		if v == nil {
@@ -4712,6 +5020,7 @@ func (o DatastoreRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 }
 
 type DatastoreSchemaDefinition struct {
+	// Contains information about a column that stores your data.
 	Columns []DatastoreColumn `pulumi:"columns"`
 }
 
@@ -4727,6 +5036,7 @@ type DatastoreSchemaDefinitionInput interface {
 }
 
 type DatastoreSchemaDefinitionArgs struct {
+	// Contains information about a column that stores your data.
 	Columns DatastoreColumnArrayInput `pulumi:"columns"`
 }
 
@@ -4807,6 +5117,7 @@ func (o DatastoreSchemaDefinitionOutput) ToDatastoreSchemaDefinitionPtrOutputWit
 	}).(DatastoreSchemaDefinitionPtrOutput)
 }
 
+// Contains information about a column that stores your data.
 func (o DatastoreSchemaDefinitionOutput) Columns() DatastoreColumnArrayOutput {
 	return o.ApplyT(func(v DatastoreSchemaDefinition) []DatastoreColumn { return v.Columns }).(DatastoreColumnArrayOutput)
 }
@@ -4835,6 +5146,7 @@ func (o DatastoreSchemaDefinitionPtrOutput) Elem() DatastoreSchemaDefinitionOutp
 	}).(DatastoreSchemaDefinitionOutput)
 }
 
+// Contains information about a column that stores your data.
 func (o DatastoreSchemaDefinitionPtrOutput) Columns() DatastoreColumnArrayOutput {
 	return o.ApplyT(func(v *DatastoreSchemaDefinition) []DatastoreColumn {
 		if v == nil {
@@ -4963,9 +5275,12 @@ func (o DatastoreServiceManagedS3PtrOutput) Elem() DatastoreServiceManagedS3Outp
 }
 
 type DatastoreStorage struct {
-	CustomerManagedS3            *DatastoreCustomerManagedS3            `pulumi:"customerManagedS3"`
+	// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+	CustomerManagedS3 *DatastoreCustomerManagedS3 `pulumi:"customerManagedS3"`
+	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 	IotSiteWiseMultiLayerStorage *DatastoreIotSiteWiseMultiLayerStorage `pulumi:"iotSiteWiseMultiLayerStorage"`
-	ServiceManagedS3             *DatastoreServiceManagedS3             `pulumi:"serviceManagedS3"`
+	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+	ServiceManagedS3 *DatastoreServiceManagedS3 `pulumi:"serviceManagedS3"`
 }
 
 // DatastoreStorageInput is an input type that accepts DatastoreStorageArgs and DatastoreStorageOutput values.
@@ -4980,9 +5295,12 @@ type DatastoreStorageInput interface {
 }
 
 type DatastoreStorageArgs struct {
-	CustomerManagedS3            DatastoreCustomerManagedS3PtrInput            `pulumi:"customerManagedS3"`
+	// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+	CustomerManagedS3 DatastoreCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
+	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 	IotSiteWiseMultiLayerStorage DatastoreIotSiteWiseMultiLayerStoragePtrInput `pulumi:"iotSiteWiseMultiLayerStorage"`
-	ServiceManagedS3             DatastoreServiceManagedS3PtrInput             `pulumi:"serviceManagedS3"`
+	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+	ServiceManagedS3 DatastoreServiceManagedS3PtrInput `pulumi:"serviceManagedS3"`
 }
 
 func (DatastoreStorageArgs) ElementType() reflect.Type {
@@ -5062,14 +5380,17 @@ func (o DatastoreStorageOutput) ToDatastoreStoragePtrOutputWithContext(ctx conte
 	}).(DatastoreStoragePtrOutput)
 }
 
+// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreStorageOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreCustomerManagedS3 { return v.CustomerManagedS3 }).(DatastoreCustomerManagedS3PtrOutput)
 }
 
+// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreStorageOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage { return v.IotSiteWiseMultiLayerStorage }).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
+// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 func (o DatastoreStorageOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreServiceManagedS3 { return v.ServiceManagedS3 }).(DatastoreServiceManagedS3PtrOutput)
 }
@@ -5098,6 +5419,7 @@ func (o DatastoreStoragePtrOutput) Elem() DatastoreStorageOutput {
 	}).(DatastoreStorageOutput)
 }
 
+// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreStoragePtrOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v *DatastoreStorage) *DatastoreCustomerManagedS3 {
 		if v == nil {
@@ -5107,6 +5429,7 @@ func (o DatastoreStoragePtrOutput) CustomerManagedS3() DatastoreCustomerManagedS
 	}).(DatastoreCustomerManagedS3PtrOutput)
 }
 
+// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreStoragePtrOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
 	return o.ApplyT(func(v *DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage {
 		if v == nil {
@@ -5116,6 +5439,7 @@ func (o DatastoreStoragePtrOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSi
 	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
+// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 func (o DatastoreStoragePtrOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v *DatastoreStorage) *DatastoreServiceManagedS3 {
 		if v == nil {
@@ -5126,12 +5450,16 @@ func (o DatastoreStoragePtrOutput) ServiceManagedS3() DatastoreServiceManagedS3P
 }
 
 type DatastoreTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 type DatastoreTimestampPartition struct {
-	AttributeName   string  `pulumi:"attributeName"`
+	// The attribute name of the partition defined by a timestamp.
+	AttributeName string `pulumi:"attributeName"`
+	// The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
 	TimestampFormat *string `pulumi:"timestampFormat"`
 }
 
@@ -5147,7 +5475,9 @@ type DatastoreTimestampPartitionInput interface {
 }
 
 type DatastoreTimestampPartitionArgs struct {
-	AttributeName   pulumi.StringInput    `pulumi:"attributeName"`
+	// The attribute name of the partition defined by a timestamp.
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
 	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
 }
 
@@ -5228,10 +5558,12 @@ func (o DatastoreTimestampPartitionOutput) ToDatastoreTimestampPartitionPtrOutpu
 	}).(DatastoreTimestampPartitionPtrOutput)
 }
 
+// The attribute name of the partition defined by a timestamp.
 func (o DatastoreTimestampPartitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreTimestampPartition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
 func (o DatastoreTimestampPartitionOutput) TimestampFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatastoreTimestampPartition) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
 }
@@ -5260,6 +5592,7 @@ func (o DatastoreTimestampPartitionPtrOutput) Elem() DatastoreTimestampPartition
 	}).(DatastoreTimestampPartitionOutput)
 }
 
+// The attribute name of the partition defined by a timestamp.
 func (o DatastoreTimestampPartitionPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreTimestampPartition) *string {
 		if v == nil {
@@ -5269,6 +5602,7 @@ func (o DatastoreTimestampPartitionPtrOutput) AttributeName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
 func (o DatastoreTimestampPartitionPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreTimestampPartition) *string {
 		if v == nil {
@@ -5279,6 +5613,7 @@ func (o DatastoreTimestampPartitionPtrOutput) TimestampFormat() pulumi.StringPtr
 }
 
 type Partition struct {
+	// The name of the attribute that defines a partition dimension.
 	AttributeName string `pulumi:"attributeName"`
 }
 
@@ -5294,6 +5629,7 @@ type PartitionInput interface {
 }
 
 type PartitionArgs struct {
+	// The name of the attribute that defines a partition dimension.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
 }
 
@@ -5374,6 +5710,7 @@ func (o PartitionOutput) ToPartitionPtrOutputWithContext(ctx context.Context) Pa
 	}).(PartitionPtrOutput)
 }
 
+// The name of the attribute that defines a partition dimension.
 func (o PartitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v Partition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
@@ -5402,6 +5739,7 @@ func (o PartitionPtrOutput) Elem() PartitionOutput {
 	}).(PartitionOutput)
 }
 
+// The name of the attribute that defines a partition dimension.
 func (o PartitionPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Partition) *string {
 		if v == nil {
@@ -5412,16 +5750,26 @@ func (o PartitionPtrOutput) AttributeName() pulumi.StringPtrOutput {
 }
 
 type PipelineActivity struct {
-	AddAttributes        *PipelineAddAttributes        `pulumi:"addAttributes"`
-	Channel              *PipelineChannel              `pulumi:"channel"`
-	Datastore            *PipelineDatastore            `pulumi:"datastore"`
+	// An activity that adds other attributes based on existing attributes in the message.
+	AddAttributes *PipelineAddAttributes `pulumi:"addAttributes"`
+	// Determines the source of the messages to be processed.
+	Channel *PipelineChannel `pulumi:"channel"`
+	// The datastore activity that specifies where to store the processed data.
+	Datastore *PipelineDatastore `pulumi:"datastore"`
+	// An activity that adds data from the AWS IoT device registry to your message.
 	DeviceRegistryEnrich *PipelineDeviceRegistryEnrich `pulumi:"deviceRegistryEnrich"`
-	DeviceShadowEnrich   *PipelineDeviceShadowEnrich   `pulumi:"deviceShadowEnrich"`
-	Filter               *PipelineFilter               `pulumi:"filter"`
-	Lambda               *PipelineLambda               `pulumi:"lambda"`
-	Math                 *PipelineMath                 `pulumi:"math"`
-	RemoveAttributes     *PipelineRemoveAttributes     `pulumi:"removeAttributes"`
-	SelectAttributes     *PipelineSelectAttributes     `pulumi:"selectAttributes"`
+	// An activity that adds information from the AWS IoT Device Shadows service to a message.
+	DeviceShadowEnrich *PipelineDeviceShadowEnrich `pulumi:"deviceShadowEnrich"`
+	// An activity that filters a message based on its attributes.
+	Filter *PipelineFilter `pulumi:"filter"`
+	// An activity that runs a Lambda function to modify the message.
+	Lambda *PipelineLambda `pulumi:"lambda"`
+	// An activity that computes an arithmetic expression using the message's attributes.
+	Math *PipelineMath `pulumi:"math"`
+	// An activity that removes attributes from a message.
+	RemoveAttributes *PipelineRemoveAttributes `pulumi:"removeAttributes"`
+	// Creates a new message using only the specified attributes from the original message.
+	SelectAttributes *PipelineSelectAttributes `pulumi:"selectAttributes"`
 }
 
 // PipelineActivityInput is an input type that accepts PipelineActivityArgs and PipelineActivityOutput values.
@@ -5436,16 +5784,26 @@ type PipelineActivityInput interface {
 }
 
 type PipelineActivityArgs struct {
-	AddAttributes        PipelineAddAttributesPtrInput        `pulumi:"addAttributes"`
-	Channel              PipelineChannelPtrInput              `pulumi:"channel"`
-	Datastore            PipelineDatastorePtrInput            `pulumi:"datastore"`
+	// An activity that adds other attributes based on existing attributes in the message.
+	AddAttributes PipelineAddAttributesPtrInput `pulumi:"addAttributes"`
+	// Determines the source of the messages to be processed.
+	Channel PipelineChannelPtrInput `pulumi:"channel"`
+	// The datastore activity that specifies where to store the processed data.
+	Datastore PipelineDatastorePtrInput `pulumi:"datastore"`
+	// An activity that adds data from the AWS IoT device registry to your message.
 	DeviceRegistryEnrich PipelineDeviceRegistryEnrichPtrInput `pulumi:"deviceRegistryEnrich"`
-	DeviceShadowEnrich   PipelineDeviceShadowEnrichPtrInput   `pulumi:"deviceShadowEnrich"`
-	Filter               PipelineFilterPtrInput               `pulumi:"filter"`
-	Lambda               PipelineLambdaPtrInput               `pulumi:"lambda"`
-	Math                 PipelineMathPtrInput                 `pulumi:"math"`
-	RemoveAttributes     PipelineRemoveAttributesPtrInput     `pulumi:"removeAttributes"`
-	SelectAttributes     PipelineSelectAttributesPtrInput     `pulumi:"selectAttributes"`
+	// An activity that adds information from the AWS IoT Device Shadows service to a message.
+	DeviceShadowEnrich PipelineDeviceShadowEnrichPtrInput `pulumi:"deviceShadowEnrich"`
+	// An activity that filters a message based on its attributes.
+	Filter PipelineFilterPtrInput `pulumi:"filter"`
+	// An activity that runs a Lambda function to modify the message.
+	Lambda PipelineLambdaPtrInput `pulumi:"lambda"`
+	// An activity that computes an arithmetic expression using the message's attributes.
+	Math PipelineMathPtrInput `pulumi:"math"`
+	// An activity that removes attributes from a message.
+	RemoveAttributes PipelineRemoveAttributesPtrInput `pulumi:"removeAttributes"`
+	// Creates a new message using only the specified attributes from the original message.
+	SelectAttributes PipelineSelectAttributesPtrInput `pulumi:"selectAttributes"`
 }
 
 func (PipelineActivityArgs) ElementType() reflect.Type {
@@ -5499,42 +5857,52 @@ func (o PipelineActivityOutput) ToPipelineActivityOutputWithContext(ctx context.
 	return o
 }
 
+// An activity that adds other attributes based on existing attributes in the message.
 func (o PipelineActivityOutput) AddAttributes() PipelineAddAttributesPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineAddAttributes { return v.AddAttributes }).(PipelineAddAttributesPtrOutput)
 }
 
+// Determines the source of the messages to be processed.
 func (o PipelineActivityOutput) Channel() PipelineChannelPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineChannel { return v.Channel }).(PipelineChannelPtrOutput)
 }
 
+// The datastore activity that specifies where to store the processed data.
 func (o PipelineActivityOutput) Datastore() PipelineDatastorePtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineDatastore { return v.Datastore }).(PipelineDatastorePtrOutput)
 }
 
+// An activity that adds data from the AWS IoT device registry to your message.
 func (o PipelineActivityOutput) DeviceRegistryEnrich() PipelineDeviceRegistryEnrichPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineDeviceRegistryEnrich { return v.DeviceRegistryEnrich }).(PipelineDeviceRegistryEnrichPtrOutput)
 }
 
+// An activity that adds information from the AWS IoT Device Shadows service to a message.
 func (o PipelineActivityOutput) DeviceShadowEnrich() PipelineDeviceShadowEnrichPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineDeviceShadowEnrich { return v.DeviceShadowEnrich }).(PipelineDeviceShadowEnrichPtrOutput)
 }
 
+// An activity that filters a message based on its attributes.
 func (o PipelineActivityOutput) Filter() PipelineFilterPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineFilter { return v.Filter }).(PipelineFilterPtrOutput)
 }
 
+// An activity that runs a Lambda function to modify the message.
 func (o PipelineActivityOutput) Lambda() PipelineLambdaPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineLambda { return v.Lambda }).(PipelineLambdaPtrOutput)
 }
 
+// An activity that computes an arithmetic expression using the message's attributes.
 func (o PipelineActivityOutput) Math() PipelineMathPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineMath { return v.Math }).(PipelineMathPtrOutput)
 }
 
+// An activity that removes attributes from a message.
 func (o PipelineActivityOutput) RemoveAttributes() PipelineRemoveAttributesPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineRemoveAttributes { return v.RemoveAttributes }).(PipelineRemoveAttributesPtrOutput)
 }
 
+// Creates a new message using only the specified attributes from the original message.
 func (o PipelineActivityOutput) SelectAttributes() PipelineSelectAttributesPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineSelectAttributes { return v.SelectAttributes }).(PipelineSelectAttributesPtrOutput)
 }
@@ -5560,9 +5928,14 @@ func (o PipelineActivityArrayOutput) Index(i pulumi.IntInput) PipelineActivityOu
 }
 
 type PipelineAddAttributes struct {
+	// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+	//
+	// > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
 	Attributes map[string]string `pulumi:"attributes"`
-	Name       string            `pulumi:"name"`
-	Next       *string           `pulumi:"next"`
+	// The name of the 'addAttributes' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineAddAttributesInput is an input type that accepts PipelineAddAttributesArgs and PipelineAddAttributesOutput values.
@@ -5577,9 +5950,14 @@ type PipelineAddAttributesInput interface {
 }
 
 type PipelineAddAttributesArgs struct {
+	// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+	//
+	// > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
-	Name       pulumi.StringInput    `pulumi:"name"`
-	Next       pulumi.StringPtrInput `pulumi:"next"`
+	// The name of the 'addAttributes' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineAddAttributesArgs) ElementType() reflect.Type {
@@ -5659,14 +6037,19 @@ func (o PipelineAddAttributesOutput) ToPipelineAddAttributesPtrOutputWithContext
 	}).(PipelineAddAttributesPtrOutput)
 }
 
+// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+//
+// > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
 func (o PipelineAddAttributesOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineAddAttributes) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
+// The name of the 'addAttributes' activity.
 func (o PipelineAddAttributesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineAddAttributes) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineAddAttributesOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineAddAttributes) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -5695,6 +6078,9 @@ func (o PipelineAddAttributesPtrOutput) Elem() PipelineAddAttributesOutput {
 	}).(PipelineAddAttributesOutput)
 }
 
+// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+//
+// > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
 func (o PipelineAddAttributesPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipelineAddAttributes) map[string]string {
 		if v == nil {
@@ -5704,6 +6090,7 @@ func (o PipelineAddAttributesPtrOutput) Attributes() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// The name of the 'addAttributes' activity.
 func (o PipelineAddAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineAddAttributes) *string {
 		if v == nil {
@@ -5713,6 +6100,7 @@ func (o PipelineAddAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineAddAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineAddAttributes) *string {
 		if v == nil {
@@ -5723,9 +6111,12 @@ func (o PipelineAddAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineChannel struct {
-	ChannelName string  `pulumi:"channelName"`
-	Name        string  `pulumi:"name"`
-	Next        *string `pulumi:"next"`
+	// The name of the channel from which the messages are processed.
+	ChannelName string `pulumi:"channelName"`
+	// The name of the 'channel' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineChannelInput is an input type that accepts PipelineChannelArgs and PipelineChannelOutput values.
@@ -5740,9 +6131,12 @@ type PipelineChannelInput interface {
 }
 
 type PipelineChannelArgs struct {
-	ChannelName pulumi.StringInput    `pulumi:"channelName"`
-	Name        pulumi.StringInput    `pulumi:"name"`
-	Next        pulumi.StringPtrInput `pulumi:"next"`
+	// The name of the channel from which the messages are processed.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The name of the 'channel' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineChannelArgs) ElementType() reflect.Type {
@@ -5822,14 +6216,17 @@ func (o PipelineChannelOutput) ToPipelineChannelPtrOutputWithContext(ctx context
 	}).(PipelineChannelPtrOutput)
 }
 
+// The name of the channel from which the messages are processed.
 func (o PipelineChannelOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineChannel) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// The name of the 'channel' activity.
 func (o PipelineChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineChannel) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineChannelOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineChannel) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -5858,6 +6255,7 @@ func (o PipelineChannelPtrOutput) Elem() PipelineChannelOutput {
 	}).(PipelineChannelOutput)
 }
 
+// The name of the channel from which the messages are processed.
 func (o PipelineChannelPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineChannel) *string {
 		if v == nil {
@@ -5867,6 +6265,7 @@ func (o PipelineChannelPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the 'channel' activity.
 func (o PipelineChannelPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineChannel) *string {
 		if v == nil {
@@ -5876,6 +6275,7 @@ func (o PipelineChannelPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineChannelPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineChannel) *string {
 		if v == nil {
@@ -5886,8 +6286,10 @@ func (o PipelineChannelPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineDatastore struct {
+	// The name of the data store where processed messages are stored.
 	DatastoreName string `pulumi:"datastoreName"`
-	Name          string `pulumi:"name"`
+	// The name of the datastore activity.
+	Name string `pulumi:"name"`
 }
 
 // PipelineDatastoreInput is an input type that accepts PipelineDatastoreArgs and PipelineDatastoreOutput values.
@@ -5902,8 +6304,10 @@ type PipelineDatastoreInput interface {
 }
 
 type PipelineDatastoreArgs struct {
+	// The name of the data store where processed messages are stored.
 	DatastoreName pulumi.StringInput `pulumi:"datastoreName"`
-	Name          pulumi.StringInput `pulumi:"name"`
+	// The name of the datastore activity.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (PipelineDatastoreArgs) ElementType() reflect.Type {
@@ -5983,10 +6387,12 @@ func (o PipelineDatastoreOutput) ToPipelineDatastorePtrOutputWithContext(ctx con
 	}).(PipelineDatastorePtrOutput)
 }
 
+// The name of the data store where processed messages are stored.
 func (o PipelineDatastoreOutput) DatastoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDatastore) string { return v.DatastoreName }).(pulumi.StringOutput)
 }
 
+// The name of the datastore activity.
 func (o PipelineDatastoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDatastore) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6015,6 +6421,7 @@ func (o PipelineDatastorePtrOutput) Elem() PipelineDatastoreOutput {
 	}).(PipelineDatastoreOutput)
 }
 
+// The name of the data store where processed messages are stored.
 func (o PipelineDatastorePtrOutput) DatastoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDatastore) *string {
 		if v == nil {
@@ -6024,6 +6431,7 @@ func (o PipelineDatastorePtrOutput) DatastoreName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the datastore activity.
 func (o PipelineDatastorePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDatastore) *string {
 		if v == nil {
@@ -6034,11 +6442,16 @@ func (o PipelineDatastorePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type PipelineDeviceRegistryEnrich struct {
-	Attribute string  `pulumi:"attribute"`
-	Name      string  `pulumi:"name"`
-	Next      *string `pulumi:"next"`
-	RoleArn   string  `pulumi:"roleArn"`
-	ThingName string  `pulumi:"thingName"`
+	// The name of the attribute that is added to the message.
+	Attribute string `pulumi:"attribute"`
+	// The name of the 'deviceRegistryEnrich' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
+	// The ARN of the role that allows access to the device's registry information.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the IoT device whose registry information is added to the message.
+	ThingName string `pulumi:"thingName"`
 }
 
 // PipelineDeviceRegistryEnrichInput is an input type that accepts PipelineDeviceRegistryEnrichArgs and PipelineDeviceRegistryEnrichOutput values.
@@ -6053,11 +6466,16 @@ type PipelineDeviceRegistryEnrichInput interface {
 }
 
 type PipelineDeviceRegistryEnrichArgs struct {
-	Attribute pulumi.StringInput    `pulumi:"attribute"`
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Next      pulumi.StringPtrInput `pulumi:"next"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
-	ThingName pulumi.StringInput    `pulumi:"thingName"`
+	// The name of the attribute that is added to the message.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+	// The name of the 'deviceRegistryEnrich' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
+	// The ARN of the role that allows access to the device's registry information.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the IoT device whose registry information is added to the message.
+	ThingName pulumi.StringInput `pulumi:"thingName"`
 }
 
 func (PipelineDeviceRegistryEnrichArgs) ElementType() reflect.Type {
@@ -6137,22 +6555,27 @@ func (o PipelineDeviceRegistryEnrichOutput) ToPipelineDeviceRegistryEnrichPtrOut
 	}).(PipelineDeviceRegistryEnrichPtrOutput)
 }
 
+// The name of the attribute that is added to the message.
 func (o PipelineDeviceRegistryEnrichOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
+// The name of the 'deviceRegistryEnrich' activity.
 func (o PipelineDeviceRegistryEnrichOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineDeviceRegistryEnrichOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that allows access to the device's registry information.
 func (o PipelineDeviceRegistryEnrichOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the IoT device whose registry information is added to the message.
 func (o PipelineDeviceRegistryEnrichOutput) ThingName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.ThingName }).(pulumi.StringOutput)
 }
@@ -6181,6 +6604,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) Elem() PipelineDeviceRegistryEnri
 	}).(PipelineDeviceRegistryEnrichOutput)
 }
 
+// The name of the attribute that is added to the message.
 func (o PipelineDeviceRegistryEnrichPtrOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceRegistryEnrich) *string {
 		if v == nil {
@@ -6190,6 +6614,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) Attribute() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the 'deviceRegistryEnrich' activity.
 func (o PipelineDeviceRegistryEnrichPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceRegistryEnrich) *string {
 		if v == nil {
@@ -6199,6 +6624,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineDeviceRegistryEnrichPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceRegistryEnrich) *string {
 		if v == nil {
@@ -6208,6 +6634,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) Next() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that allows access to the device's registry information.
 func (o PipelineDeviceRegistryEnrichPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceRegistryEnrich) *string {
 		if v == nil {
@@ -6217,6 +6644,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the IoT device whose registry information is added to the message.
 func (o PipelineDeviceRegistryEnrichPtrOutput) ThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceRegistryEnrich) *string {
 		if v == nil {
@@ -6227,11 +6655,16 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) ThingName() pulumi.StringPtrOutpu
 }
 
 type PipelineDeviceShadowEnrich struct {
-	Attribute string  `pulumi:"attribute"`
-	Name      string  `pulumi:"name"`
-	Next      *string `pulumi:"next"`
-	RoleArn   string  `pulumi:"roleArn"`
-	ThingName string  `pulumi:"thingName"`
+	// The name of the attribute that is added to the message.
+	Attribute string `pulumi:"attribute"`
+	// The name of the 'deviceShadowEnrich' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
+	// The ARN of the role that allows access to the device's shadow.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the IoT device whose shadow information is added to the message.
+	ThingName string `pulumi:"thingName"`
 }
 
 // PipelineDeviceShadowEnrichInput is an input type that accepts PipelineDeviceShadowEnrichArgs and PipelineDeviceShadowEnrichOutput values.
@@ -6246,11 +6679,16 @@ type PipelineDeviceShadowEnrichInput interface {
 }
 
 type PipelineDeviceShadowEnrichArgs struct {
-	Attribute pulumi.StringInput    `pulumi:"attribute"`
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Next      pulumi.StringPtrInput `pulumi:"next"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
-	ThingName pulumi.StringInput    `pulumi:"thingName"`
+	// The name of the attribute that is added to the message.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+	// The name of the 'deviceShadowEnrich' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
+	// The ARN of the role that allows access to the device's shadow.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the IoT device whose shadow information is added to the message.
+	ThingName pulumi.StringInput `pulumi:"thingName"`
 }
 
 func (PipelineDeviceShadowEnrichArgs) ElementType() reflect.Type {
@@ -6330,22 +6768,27 @@ func (o PipelineDeviceShadowEnrichOutput) ToPipelineDeviceShadowEnrichPtrOutputW
 	}).(PipelineDeviceShadowEnrichPtrOutput)
 }
 
+// The name of the attribute that is added to the message.
 func (o PipelineDeviceShadowEnrichOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
+// The name of the 'deviceShadowEnrich' activity.
 func (o PipelineDeviceShadowEnrichOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineDeviceShadowEnrichOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineDeviceShadowEnrich) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that allows access to the device's shadow.
 func (o PipelineDeviceShadowEnrichOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the IoT device whose shadow information is added to the message.
 func (o PipelineDeviceShadowEnrichOutput) ThingName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.ThingName }).(pulumi.StringOutput)
 }
@@ -6374,6 +6817,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) Elem() PipelineDeviceShadowEnrichOu
 	}).(PipelineDeviceShadowEnrichOutput)
 }
 
+// The name of the attribute that is added to the message.
 func (o PipelineDeviceShadowEnrichPtrOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceShadowEnrich) *string {
 		if v == nil {
@@ -6383,6 +6827,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) Attribute() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the 'deviceShadowEnrich' activity.
 func (o PipelineDeviceShadowEnrichPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceShadowEnrich) *string {
 		if v == nil {
@@ -6392,6 +6837,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineDeviceShadowEnrichPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceShadowEnrich) *string {
 		if v == nil {
@@ -6401,6 +6847,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) Next() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that allows access to the device's shadow.
 func (o PipelineDeviceShadowEnrichPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceShadowEnrich) *string {
 		if v == nil {
@@ -6410,6 +6857,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the IoT device whose shadow information is added to the message.
 func (o PipelineDeviceShadowEnrichPtrOutput) ThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineDeviceShadowEnrich) *string {
 		if v == nil {
@@ -6420,9 +6868,12 @@ func (o PipelineDeviceShadowEnrichPtrOutput) ThingName() pulumi.StringPtrOutput 
 }
 
 type PipelineFilter struct {
-	Filter string  `pulumi:"filter"`
-	Name   string  `pulumi:"name"`
-	Next   *string `pulumi:"next"`
+	// An expression that looks like an SQL WHERE clause that must return a Boolean value.
+	Filter string `pulumi:"filter"`
+	// The name of the 'filter' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineFilterInput is an input type that accepts PipelineFilterArgs and PipelineFilterOutput values.
@@ -6437,9 +6888,12 @@ type PipelineFilterInput interface {
 }
 
 type PipelineFilterArgs struct {
-	Filter pulumi.StringInput    `pulumi:"filter"`
-	Name   pulumi.StringInput    `pulumi:"name"`
-	Next   pulumi.StringPtrInput `pulumi:"next"`
+	// An expression that looks like an SQL WHERE clause that must return a Boolean value.
+	Filter pulumi.StringInput `pulumi:"filter"`
+	// The name of the 'filter' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineFilterArgs) ElementType() reflect.Type {
@@ -6519,14 +6973,17 @@ func (o PipelineFilterOutput) ToPipelineFilterPtrOutputWithContext(ctx context.C
 	}).(PipelineFilterPtrOutput)
 }
 
+// An expression that looks like an SQL WHERE clause that must return a Boolean value.
 func (o PipelineFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
+// The name of the 'filter' activity.
 func (o PipelineFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineFilterOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineFilter) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -6555,6 +7012,7 @@ func (o PipelineFilterPtrOutput) Elem() PipelineFilterOutput {
 	}).(PipelineFilterOutput)
 }
 
+// An expression that looks like an SQL WHERE clause that must return a Boolean value.
 func (o PipelineFilterPtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineFilter) *string {
 		if v == nil {
@@ -6564,6 +7022,7 @@ func (o PipelineFilterPtrOutput) Filter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the 'filter' activity.
 func (o PipelineFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineFilter) *string {
 		if v == nil {
@@ -6573,6 +7032,7 @@ func (o PipelineFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineFilterPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineFilter) *string {
 		if v == nil {
@@ -6583,10 +7043,16 @@ func (o PipelineFilterPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineLambda struct {
-	BatchSize  int     `pulumi:"batchSize"`
-	LambdaName string  `pulumi:"lambdaName"`
-	Name       string  `pulumi:"name"`
-	Next       *string `pulumi:"next"`
+	// The number of messages passed to the Lambda function for processing.
+	//
+	// The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
+	BatchSize int `pulumi:"batchSize"`
+	// The name of the Lambda function that is run on the message.
+	LambdaName string `pulumi:"lambdaName"`
+	// The name of the 'lambda' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineLambdaInput is an input type that accepts PipelineLambdaArgs and PipelineLambdaOutput values.
@@ -6601,10 +7067,16 @@ type PipelineLambdaInput interface {
 }
 
 type PipelineLambdaArgs struct {
-	BatchSize  pulumi.IntInput       `pulumi:"batchSize"`
-	LambdaName pulumi.StringInput    `pulumi:"lambdaName"`
-	Name       pulumi.StringInput    `pulumi:"name"`
-	Next       pulumi.StringPtrInput `pulumi:"next"`
+	// The number of messages passed to the Lambda function for processing.
+	//
+	// The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
+	BatchSize pulumi.IntInput `pulumi:"batchSize"`
+	// The name of the Lambda function that is run on the message.
+	LambdaName pulumi.StringInput `pulumi:"lambdaName"`
+	// The name of the 'lambda' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineLambdaArgs) ElementType() reflect.Type {
@@ -6684,18 +7156,24 @@ func (o PipelineLambdaOutput) ToPipelineLambdaPtrOutputWithContext(ctx context.C
 	}).(PipelineLambdaPtrOutput)
 }
 
+// The number of messages passed to the Lambda function for processing.
+//
+// The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
 func (o PipelineLambdaOutput) BatchSize() pulumi.IntOutput {
 	return o.ApplyT(func(v PipelineLambda) int { return v.BatchSize }).(pulumi.IntOutput)
 }
 
+// The name of the Lambda function that is run on the message.
 func (o PipelineLambdaOutput) LambdaName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineLambda) string { return v.LambdaName }).(pulumi.StringOutput)
 }
 
+// The name of the 'lambda' activity.
 func (o PipelineLambdaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineLambda) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineLambdaOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineLambda) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -6724,6 +7202,9 @@ func (o PipelineLambdaPtrOutput) Elem() PipelineLambdaOutput {
 	}).(PipelineLambdaOutput)
 }
 
+// The number of messages passed to the Lambda function for processing.
+//
+// The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
 func (o PipelineLambdaPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipelineLambda) *int {
 		if v == nil {
@@ -6733,6 +7214,7 @@ func (o PipelineLambdaPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The name of the Lambda function that is run on the message.
 func (o PipelineLambdaPtrOutput) LambdaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineLambda) *string {
 		if v == nil {
@@ -6742,6 +7224,7 @@ func (o PipelineLambdaPtrOutput) LambdaName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the 'lambda' activity.
 func (o PipelineLambdaPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineLambda) *string {
 		if v == nil {
@@ -6751,6 +7234,7 @@ func (o PipelineLambdaPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineLambdaPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineLambda) *string {
 		if v == nil {
@@ -6761,10 +7245,14 @@ func (o PipelineLambdaPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineMath struct {
-	Attribute string  `pulumi:"attribute"`
-	Math      string  `pulumi:"math"`
-	Name      string  `pulumi:"name"`
-	Next      *string `pulumi:"next"`
+	// The name of the attribute that contains the result of the math operation.
+	Attribute string `pulumi:"attribute"`
+	// An expression that uses one or more existing attributes and must return an integer value.
+	Math string `pulumi:"math"`
+	// The name of the 'math' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineMathInput is an input type that accepts PipelineMathArgs and PipelineMathOutput values.
@@ -6779,10 +7267,14 @@ type PipelineMathInput interface {
 }
 
 type PipelineMathArgs struct {
-	Attribute pulumi.StringInput    `pulumi:"attribute"`
-	Math      pulumi.StringInput    `pulumi:"math"`
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Next      pulumi.StringPtrInput `pulumi:"next"`
+	// The name of the attribute that contains the result of the math operation.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+	// An expression that uses one or more existing attributes and must return an integer value.
+	Math pulumi.StringInput `pulumi:"math"`
+	// The name of the 'math' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineMathArgs) ElementType() reflect.Type {
@@ -6862,18 +7354,22 @@ func (o PipelineMathOutput) ToPipelineMathPtrOutputWithContext(ctx context.Conte
 	}).(PipelineMathPtrOutput)
 }
 
+// The name of the attribute that contains the result of the math operation.
 func (o PipelineMathOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineMath) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
+// An expression that uses one or more existing attributes and must return an integer value.
 func (o PipelineMathOutput) Math() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineMath) string { return v.Math }).(pulumi.StringOutput)
 }
 
+// The name of the 'math' activity.
 func (o PipelineMathOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineMath) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineMathOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineMath) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -6902,6 +7398,7 @@ func (o PipelineMathPtrOutput) Elem() PipelineMathOutput {
 	}).(PipelineMathOutput)
 }
 
+// The name of the attribute that contains the result of the math operation.
 func (o PipelineMathPtrOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineMath) *string {
 		if v == nil {
@@ -6911,6 +7408,7 @@ func (o PipelineMathPtrOutput) Attribute() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An expression that uses one or more existing attributes and must return an integer value.
 func (o PipelineMathPtrOutput) Math() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineMath) *string {
 		if v == nil {
@@ -6920,6 +7418,7 @@ func (o PipelineMathPtrOutput) Math() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the 'math' activity.
 func (o PipelineMathPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineMath) *string {
 		if v == nil {
@@ -6929,6 +7428,7 @@ func (o PipelineMathPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineMathPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineMath) *string {
 		if v == nil {
@@ -6939,9 +7439,12 @@ func (o PipelineMathPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineRemoveAttributes struct {
+	// A list of 1-50 attributes to remove from the message.
 	Attributes []string `pulumi:"attributes"`
-	Name       string   `pulumi:"name"`
-	Next       *string  `pulumi:"next"`
+	// The name of the 'removeAttributes' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineRemoveAttributesInput is an input type that accepts PipelineRemoveAttributesArgs and PipelineRemoveAttributesOutput values.
@@ -6956,9 +7459,12 @@ type PipelineRemoveAttributesInput interface {
 }
 
 type PipelineRemoveAttributesArgs struct {
+	// A list of 1-50 attributes to remove from the message.
 	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
-	Name       pulumi.StringInput      `pulumi:"name"`
-	Next       pulumi.StringPtrInput   `pulumi:"next"`
+	// The name of the 'removeAttributes' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineRemoveAttributesArgs) ElementType() reflect.Type {
@@ -7038,14 +7544,17 @@ func (o PipelineRemoveAttributesOutput) ToPipelineRemoveAttributesPtrOutputWithC
 	}).(PipelineRemoveAttributesPtrOutput)
 }
 
+// A list of 1-50 attributes to remove from the message.
 func (o PipelineRemoveAttributesOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineRemoveAttributes) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
+// The name of the 'removeAttributes' activity.
 func (o PipelineRemoveAttributesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineRemoveAttributes) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineRemoveAttributesOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineRemoveAttributes) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -7074,6 +7583,7 @@ func (o PipelineRemoveAttributesPtrOutput) Elem() PipelineRemoveAttributesOutput
 	}).(PipelineRemoveAttributesOutput)
 }
 
+// A list of 1-50 attributes to remove from the message.
 func (o PipelineRemoveAttributesPtrOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineRemoveAttributes) []string {
 		if v == nil {
@@ -7083,6 +7593,7 @@ func (o PipelineRemoveAttributesPtrOutput) Attributes() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the 'removeAttributes' activity.
 func (o PipelineRemoveAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineRemoveAttributes) *string {
 		if v == nil {
@@ -7092,6 +7603,7 @@ func (o PipelineRemoveAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineRemoveAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineRemoveAttributes) *string {
 		if v == nil {
@@ -7102,9 +7614,12 @@ func (o PipelineRemoveAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineSelectAttributes struct {
+	// A list of the attributes to select from the message.
 	Attributes []string `pulumi:"attributes"`
-	Name       string   `pulumi:"name"`
-	Next       *string  `pulumi:"next"`
+	// The name of the 'selectAttributes' activity.
+	Name string `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next *string `pulumi:"next"`
 }
 
 // PipelineSelectAttributesInput is an input type that accepts PipelineSelectAttributesArgs and PipelineSelectAttributesOutput values.
@@ -7119,9 +7634,12 @@ type PipelineSelectAttributesInput interface {
 }
 
 type PipelineSelectAttributesArgs struct {
+	// A list of the attributes to select from the message.
 	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
-	Name       pulumi.StringInput      `pulumi:"name"`
-	Next       pulumi.StringPtrInput   `pulumi:"next"`
+	// The name of the 'selectAttributes' activity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next activity in the pipeline.
+	Next pulumi.StringPtrInput `pulumi:"next"`
 }
 
 func (PipelineSelectAttributesArgs) ElementType() reflect.Type {
@@ -7201,14 +7719,17 @@ func (o PipelineSelectAttributesOutput) ToPipelineSelectAttributesPtrOutputWithC
 	}).(PipelineSelectAttributesPtrOutput)
 }
 
+// A list of the attributes to select from the message.
 func (o PipelineSelectAttributesOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineSelectAttributes) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
+// The name of the 'selectAttributes' activity.
 func (o PipelineSelectAttributesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineSelectAttributes) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineSelectAttributesOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineSelectAttributes) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
@@ -7237,6 +7758,7 @@ func (o PipelineSelectAttributesPtrOutput) Elem() PipelineSelectAttributesOutput
 	}).(PipelineSelectAttributesOutput)
 }
 
+// A list of the attributes to select from the message.
 func (o PipelineSelectAttributesPtrOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineSelectAttributes) []string {
 		if v == nil {
@@ -7246,6 +7768,7 @@ func (o PipelineSelectAttributesPtrOutput) Attributes() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the 'selectAttributes' activity.
 func (o PipelineSelectAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineSelectAttributes) *string {
 		if v == nil {
@@ -7255,6 +7778,7 @@ func (o PipelineSelectAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The next activity in the pipeline.
 func (o PipelineSelectAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineSelectAttributes) *string {
 		if v == nil {
@@ -7265,7 +7789,9 @@ func (o PipelineSelectAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 

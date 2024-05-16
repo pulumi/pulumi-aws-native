@@ -26,6 +26,9 @@ class GetConnectorResult:
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        """
         return pulumi.get(self, "connector_arn")
 
 
@@ -42,6 +45,9 @@ def get_connector(connector_arn: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Definition of AWS::PCAConnectorAD::Connector Resource Type
+
+
+    :param str connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
     """
     __args__ = dict()
     __args__['connectorArn'] = connector_arn
@@ -57,5 +63,8 @@ def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Definition of AWS::PCAConnectorAD::Connector Resource Type
+
+
+    :param str connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
     """
     ...

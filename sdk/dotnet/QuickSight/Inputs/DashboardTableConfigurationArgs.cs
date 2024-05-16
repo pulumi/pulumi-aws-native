@@ -12,29 +12,53 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field options of a table visual.
+        /// </summary>
         [Input("fieldOptions")]
         public Input<Inputs.DashboardTableFieldOptionsArgs>? FieldOptions { get; set; }
 
+        /// <summary>
+        /// The field wells for a table visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.DashboardTableFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The paginated report options for a table visual.
+        /// </summary>
         [Input("paginatedReportOptions")]
         public Input<Inputs.DashboardTablePaginatedReportOptionsArgs>? PaginatedReportOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration for a `TableVisual` .
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.DashboardTableSortConfigurationArgs>? SortConfiguration { get; set; }
 
         [Input("tableInlineVisualizations")]
         private InputList<Inputs.DashboardTableInlineVisualizationArgs>? _tableInlineVisualizations;
+
+        /// <summary>
+        /// The inline visualization of a specific type to display within a chart.
+        /// </summary>
         public InputList<Inputs.DashboardTableInlineVisualizationArgs> TableInlineVisualizations
         {
             get => _tableInlineVisualizations ?? (_tableInlineVisualizations = new InputList<Inputs.DashboardTableInlineVisualizationArgs>());
             set => _tableInlineVisualizations = value;
         }
 
+        /// <summary>
+        /// The table options for a table visual.
+        /// </summary>
         [Input("tableOptions")]
         public Input<Inputs.DashboardTableOptionsArgs>? TableOptions { get; set; }
 
+        /// <summary>
+        /// The total options for a table visual.
+        /// </summary>
         [Input("totalOptions")]
         public Input<Inputs.DashboardTotalOptionsArgs>? TotalOptions { get; set; }
 

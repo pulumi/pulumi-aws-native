@@ -40,26 +40,41 @@ class GetTopicResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the topic.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> Optional[Sequence['outputs.TopicDatasetMetadata']]:
+        """
+        A structure that represents a dataset.
+        """
         return pulumi.get(self, "data_sets")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the topic.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the topic.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="userExperienceVersion")
     def user_experience_version(self) -> Optional['TopicUserExperienceVersion']:
+        """
+        The user experience version of the topic.
+        """
         return pulumi.get(self, "user_experience_version")
 
 
@@ -81,6 +96,10 @@ def get_topic(aws_account_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Definition of the AWS::QuickSight::Topic Resource Type.
+
+
+    :param str aws_account_id: The ID of the AWS account that you want to create a topic in.
+    :param str topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -102,5 +121,9 @@ def get_topic_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Definition of the AWS::QuickSight::Topic Resource Type.
+
+
+    :param str aws_account_id: The ID of the AWS account that you want to create a topic in.
+    :param str topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
     """
     ...

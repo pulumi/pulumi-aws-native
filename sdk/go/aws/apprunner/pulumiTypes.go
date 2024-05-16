@@ -14,12 +14,16 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AutoScalingConfigurationTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag assigned to the `AutoScalingConfiguration` resource of the App Runner service.
+	Key *string `pulumi:"key"`
+	// The value of the tag assigned to the `AutoScalingConfiguration` resource of the App Runner service.
 	Value *string `pulumi:"value"`
 }
 
 type ObservabilityConfigurationTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag.
+	Key *string `pulumi:"key"`
+	// The value of the tag.
 	Value *string `pulumi:"value"`
 }
 
@@ -326,6 +330,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) ConnectionArn() pulumi.Stri
 
 // Code Configuration
 type ServiceCodeConfiguration struct {
+	// Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
 	CodeConfigurationValues *ServiceCodeConfigurationValues `pulumi:"codeConfigurationValues"`
 	// Configuration Source
 	ConfigurationSource ServiceCodeConfigurationConfigurationSource `pulumi:"configurationSource"`
@@ -344,6 +349,7 @@ type ServiceCodeConfigurationInput interface {
 
 // Code Configuration
 type ServiceCodeConfigurationArgs struct {
+	// Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
 	CodeConfigurationValues ServiceCodeConfigurationValuesPtrInput `pulumi:"codeConfigurationValues"`
 	// Configuration Source
 	ConfigurationSource ServiceCodeConfigurationConfigurationSourceInput `pulumi:"configurationSource"`
@@ -427,6 +433,7 @@ func (o ServiceCodeConfigurationOutput) ToServiceCodeConfigurationPtrOutputWithC
 	}).(ServiceCodeConfigurationPtrOutput)
 }
 
+// Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
 func (o ServiceCodeConfigurationOutput) CodeConfigurationValues() ServiceCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v ServiceCodeConfiguration) *ServiceCodeConfigurationValues { return v.CodeConfigurationValues }).(ServiceCodeConfigurationValuesPtrOutput)
 }
@@ -462,6 +469,7 @@ func (o ServiceCodeConfigurationPtrOutput) Elem() ServiceCodeConfigurationOutput
 	}).(ServiceCodeConfigurationOutput)
 }
 
+// Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
 func (o ServiceCodeConfigurationPtrOutput) CodeConfigurationValues() ServiceCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfiguration) *ServiceCodeConfigurationValues {
 		if v == nil {
@@ -490,7 +498,8 @@ type ServiceCodeConfigurationValues struct {
 	// Runtime
 	Runtime ServiceCodeConfigurationValuesRuntime `pulumi:"runtime"`
 	// The secrets and parameters that get referenced by your service as environment variables
-	RuntimeEnvironmentSecrets   []ServiceKeyValuePair `pulumi:"runtimeEnvironmentSecrets"`
+	RuntimeEnvironmentSecrets []ServiceKeyValuePair `pulumi:"runtimeEnvironmentSecrets"`
+	// The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
 	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
@@ -516,7 +525,8 @@ type ServiceCodeConfigurationValuesArgs struct {
 	// Runtime
 	Runtime ServiceCodeConfigurationValuesRuntimeInput `pulumi:"runtime"`
 	// The secrets and parameters that get referenced by your service as environment variables
-	RuntimeEnvironmentSecrets   ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentSecrets"`
+	RuntimeEnvironmentSecrets ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentSecrets"`
+	// The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
 	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
@@ -620,6 +630,7 @@ func (o ServiceCodeConfigurationValuesOutput) RuntimeEnvironmentSecrets() Servic
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) []ServiceKeyValuePair { return v.RuntimeEnvironmentSecrets }).(ServiceKeyValuePairArrayOutput)
 }
 
+// The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
 func (o ServiceCodeConfigurationValuesOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) []ServiceKeyValuePair { return v.RuntimeEnvironmentVariables }).(ServiceKeyValuePairArrayOutput)
 }
@@ -693,6 +704,7 @@ func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentSecrets() Ser
 	}).(ServiceKeyValuePairArrayOutput)
 }
 
+// The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
 func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValues) []ServiceKeyValuePair {
 		if v == nil {
@@ -714,9 +726,11 @@ func (o ServiceCodeConfigurationValuesPtrOutput) StartCommand() pulumi.StringPtr
 
 // Source Code Repository
 type ServiceCodeRepository struct {
+	// Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
 	CodeConfiguration *ServiceCodeConfiguration `pulumi:"codeConfiguration"`
 	// Repository Url
-	RepositoryUrl     string                   `pulumi:"repositoryUrl"`
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// Identifies a version of code that AWS App Runner refers to within a source code repository.
 	SourceCodeVersion ServiceSourceCodeVersion `pulumi:"sourceCodeVersion"`
 	// Source Directory
 	SourceDirectory *string `pulumi:"sourceDirectory"`
@@ -735,9 +749,11 @@ type ServiceCodeRepositoryInput interface {
 
 // Source Code Repository
 type ServiceCodeRepositoryArgs struct {
+	// Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
 	CodeConfiguration ServiceCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
 	// Repository Url
-	RepositoryUrl     pulumi.StringInput            `pulumi:"repositoryUrl"`
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// Identifies a version of code that AWS App Runner refers to within a source code repository.
 	SourceCodeVersion ServiceSourceCodeVersionInput `pulumi:"sourceCodeVersion"`
 	// Source Directory
 	SourceDirectory pulumi.StringPtrInput `pulumi:"sourceDirectory"`
@@ -821,6 +837,7 @@ func (o ServiceCodeRepositoryOutput) ToServiceCodeRepositoryPtrOutputWithContext
 	}).(ServiceCodeRepositoryPtrOutput)
 }
 
+// Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
 func (o ServiceCodeRepositoryOutput) CodeConfiguration() ServiceCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceCodeRepository) *ServiceCodeConfiguration { return v.CodeConfiguration }).(ServiceCodeConfigurationPtrOutput)
 }
@@ -830,6 +847,7 @@ func (o ServiceCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
+// Identifies a version of code that AWS App Runner refers to within a source code repository.
 func (o ServiceCodeRepositoryOutput) SourceCodeVersion() ServiceSourceCodeVersionOutput {
 	return o.ApplyT(func(v ServiceCodeRepository) ServiceSourceCodeVersion { return v.SourceCodeVersion }).(ServiceSourceCodeVersionOutput)
 }
@@ -863,6 +881,7 @@ func (o ServiceCodeRepositoryPtrOutput) Elem() ServiceCodeRepositoryOutput {
 	}).(ServiceCodeRepositoryOutput)
 }
 
+// Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
 func (o ServiceCodeRepositoryPtrOutput) CodeConfiguration() ServiceCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeRepository) *ServiceCodeConfiguration {
 		if v == nil {
@@ -882,6 +901,7 @@ func (o ServiceCodeRepositoryPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifies a version of code that AWS App Runner refers to within a source code repository.
 func (o ServiceCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceCodeVersionPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeRepository) *ServiceSourceCodeVersion {
 		if v == nil {
@@ -1440,7 +1460,8 @@ type ServiceImageConfiguration struct {
 	// Port
 	Port *string `pulumi:"port"`
 	// The secrets and parameters that get referenced by your service as environment variables
-	RuntimeEnvironmentSecrets   []ServiceKeyValuePair `pulumi:"runtimeEnvironmentSecrets"`
+	RuntimeEnvironmentSecrets []ServiceKeyValuePair `pulumi:"runtimeEnvironmentSecrets"`
+	// Environment variables that are available to your running App Runner service. An array of key-value pairs.
 	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
@@ -1462,7 +1483,8 @@ type ServiceImageConfigurationArgs struct {
 	// Port
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// The secrets and parameters that get referenced by your service as environment variables
-	RuntimeEnvironmentSecrets   ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentSecrets"`
+	RuntimeEnvironmentSecrets ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentSecrets"`
+	// Environment variables that are available to your running App Runner service. An array of key-value pairs.
 	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
@@ -1556,6 +1578,7 @@ func (o ServiceImageConfigurationOutput) RuntimeEnvironmentSecrets() ServiceKeyV
 	return o.ApplyT(func(v ServiceImageConfiguration) []ServiceKeyValuePair { return v.RuntimeEnvironmentSecrets }).(ServiceKeyValuePairArrayOutput)
 }
 
+// Environment variables that are available to your running App Runner service. An array of key-value pairs.
 func (o ServiceImageConfigurationOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v ServiceImageConfiguration) []ServiceKeyValuePair { return v.RuntimeEnvironmentVariables }).(ServiceKeyValuePairArrayOutput)
 }
@@ -1609,6 +1632,7 @@ func (o ServiceImageConfigurationPtrOutput) RuntimeEnvironmentSecrets() ServiceK
 	}).(ServiceKeyValuePairArrayOutput)
 }
 
+// Environment variables that are available to your running App Runner service. An array of key-value pairs.
 func (o ServiceImageConfigurationPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *ServiceImageConfiguration) []ServiceKeyValuePair {
 		if v == nil {
@@ -1630,6 +1654,7 @@ func (o ServiceImageConfigurationPtrOutput) StartCommand() pulumi.StringPtrOutpu
 
 // Image Repository
 type ServiceImageRepository struct {
+	// Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
 	ImageConfiguration *ServiceImageConfiguration `pulumi:"imageConfiguration"`
 	// Image Identifier
 	ImageIdentifier string `pulumi:"imageIdentifier"`
@@ -1650,6 +1675,7 @@ type ServiceImageRepositoryInput interface {
 
 // Image Repository
 type ServiceImageRepositoryArgs struct {
+	// Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
 	ImageConfiguration ServiceImageConfigurationPtrInput `pulumi:"imageConfiguration"`
 	// Image Identifier
 	ImageIdentifier pulumi.StringInput `pulumi:"imageIdentifier"`
@@ -1735,6 +1761,7 @@ func (o ServiceImageRepositoryOutput) ToServiceImageRepositoryPtrOutputWithConte
 	}).(ServiceImageRepositoryPtrOutput)
 }
 
+// Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
 func (o ServiceImageRepositoryOutput) ImageConfiguration() ServiceImageConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceImageRepository) *ServiceImageConfiguration { return v.ImageConfiguration }).(ServiceImageConfigurationPtrOutput)
 }
@@ -1773,6 +1800,7 @@ func (o ServiceImageRepositoryPtrOutput) Elem() ServiceImageRepositoryOutput {
 	}).(ServiceImageRepositoryOutput)
 }
 
+// Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
 func (o ServiceImageRepositoryPtrOutput) ImageConfiguration() ServiceImageConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceImageRepository) *ServiceImageConfiguration {
 		if v == nil {
@@ -2121,7 +2149,9 @@ func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 }
 
 type ServiceKeyValuePair struct {
-	Name  *string `pulumi:"name"`
+	// The key name string to map to a value.
+	Name *string `pulumi:"name"`
+	// The value string to which the key name is mapped.
 	Value *string `pulumi:"value"`
 }
 
@@ -2137,7 +2167,9 @@ type ServiceKeyValuePairInput interface {
 }
 
 type ServiceKeyValuePairArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The key name string to map to a value.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value string to which the key name is mapped.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2192,10 +2224,12 @@ func (o ServiceKeyValuePairOutput) ToServiceKeyValuePairOutputWithContext(ctx co
 	return o
 }
 
+// The key name string to map to a value.
 func (o ServiceKeyValuePairOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceKeyValuePair) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value string to which the key name is mapped.
 func (o ServiceKeyValuePairOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceKeyValuePair) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2222,7 +2256,9 @@ func (o ServiceKeyValuePairArrayOutput) Index(i pulumi.IntInput) ServiceKeyValue
 
 // Network configuration
 type ServiceNetworkConfiguration struct {
-	EgressConfiguration  *ServiceEgressConfiguration  `pulumi:"egressConfiguration"`
+	// Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+	EgressConfiguration *ServiceEgressConfiguration `pulumi:"egressConfiguration"`
+	// Network configuration settings for inbound network traffic.
 	IngressConfiguration *ServiceIngressConfiguration `pulumi:"ingressConfiguration"`
 	// App Runner service endpoint IP address type
 	IpAddressType *ServiceNetworkConfigurationIpAddressType `pulumi:"ipAddressType"`
@@ -2241,7 +2277,9 @@ type ServiceNetworkConfigurationInput interface {
 
 // Network configuration
 type ServiceNetworkConfigurationArgs struct {
-	EgressConfiguration  ServiceEgressConfigurationPtrInput  `pulumi:"egressConfiguration"`
+	// Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+	EgressConfiguration ServiceEgressConfigurationPtrInput `pulumi:"egressConfiguration"`
+	// Network configuration settings for inbound network traffic.
 	IngressConfiguration ServiceIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
 	// App Runner service endpoint IP address type
 	IpAddressType ServiceNetworkConfigurationIpAddressTypePtrInput `pulumi:"ipAddressType"`
@@ -2325,10 +2363,12 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
 
+// Describes configuration settings related to outbound network traffic of an AWS App Runner service.
 func (o ServiceNetworkConfigurationOutput) EgressConfiguration() ServiceEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceEgressConfiguration { return v.EgressConfiguration }).(ServiceEgressConfigurationPtrOutput)
 }
 
+// Network configuration settings for inbound network traffic.
 func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceIngressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceIngressConfiguration { return v.IngressConfiguration }).(ServiceIngressConfigurationPtrOutput)
 }
@@ -2362,6 +2402,7 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	}).(ServiceNetworkConfigurationOutput)
 }
 
+// Describes configuration settings related to outbound network traffic of an AWS App Runner service.
 func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceEgressConfiguration {
 		if v == nil {
@@ -2371,6 +2412,7 @@ func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceEgres
 	}).(ServiceEgressConfigurationPtrOutput)
 }
 
+// Network configuration settings for inbound network traffic.
 func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceIngressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceIngressConfiguration {
 		if v == nil {
@@ -2710,11 +2752,14 @@ func (o ServiceSourceCodeVersionPtrOutput) Value() pulumi.StringPtrOutput {
 
 // Source Code configuration
 type ServiceSourceConfiguration struct {
+	// Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// Auto Deployment enabled
-	AutoDeploymentsEnabled *bool                   `pulumi:"autoDeploymentsEnabled"`
-	CodeRepository         *ServiceCodeRepository  `pulumi:"codeRepository"`
-	ImageRepository        *ServiceImageRepository `pulumi:"imageRepository"`
+	AutoDeploymentsEnabled *bool `pulumi:"autoDeploymentsEnabled"`
+	// Describes a source code repository.
+	CodeRepository *ServiceCodeRepository `pulumi:"codeRepository"`
+	// Describes a source image repository.
+	ImageRepository *ServiceImageRepository `pulumi:"imageRepository"`
 }
 
 // ServiceSourceConfigurationInput is an input type that accepts ServiceSourceConfigurationArgs and ServiceSourceConfigurationOutput values.
@@ -2730,11 +2775,14 @@ type ServiceSourceConfigurationInput interface {
 
 // Source Code configuration
 type ServiceSourceConfigurationArgs struct {
+	// Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
 	// Auto Deployment enabled
-	AutoDeploymentsEnabled pulumi.BoolPtrInput            `pulumi:"autoDeploymentsEnabled"`
-	CodeRepository         ServiceCodeRepositoryPtrInput  `pulumi:"codeRepository"`
-	ImageRepository        ServiceImageRepositoryPtrInput `pulumi:"imageRepository"`
+	AutoDeploymentsEnabled pulumi.BoolPtrInput `pulumi:"autoDeploymentsEnabled"`
+	// Describes a source code repository.
+	CodeRepository ServiceCodeRepositoryPtrInput `pulumi:"codeRepository"`
+	// Describes a source image repository.
+	ImageRepository ServiceImageRepositoryPtrInput `pulumi:"imageRepository"`
 }
 
 func (ServiceSourceConfigurationArgs) ElementType() reflect.Type {
@@ -2764,6 +2812,7 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationOutputWith
 	return o
 }
 
+// Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
 func (o ServiceSourceConfigurationOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
@@ -2775,10 +2824,12 @@ func (o ServiceSourceConfigurationOutput) AutoDeploymentsEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v ServiceSourceConfiguration) *bool { return v.AutoDeploymentsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Describes a source code repository.
 func (o ServiceSourceConfigurationOutput) CodeRepository() ServiceCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceCodeRepository { return v.CodeRepository }).(ServiceCodeRepositoryPtrOutput)
 }
 
+// Describes a source image repository.
 func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceImageRepository { return v.ImageRepository }).(ServiceImageRepositoryPtrOutput)
 }
@@ -2807,6 +2858,7 @@ func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOu
 	}).(ServiceSourceConfigurationOutput)
 }
 
+// Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
 func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceAuthenticationConfiguration {
 		if v == nil {
@@ -2826,6 +2878,7 @@ func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Describes a source code repository.
 func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceCodeRepository {
 		if v == nil {
@@ -2835,6 +2888,7 @@ func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceCodeReposit
 	}).(ServiceCodeRepositoryPtrOutput)
 }
 
+// Describes a source image repository.
 func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceImageRepository {
 		if v == nil {
@@ -2845,12 +2899,16 @@ func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceImageRepos
 }
 
 type ServiceTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag assigned to an App Runner service.
+	Key *string `pulumi:"key"`
+	// The value of the tag assigned to an App Runner service.
 	Value *string `pulumi:"value"`
 }
 
 type VpcConnectorTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag assigned to the `VpcConnector` resource of the App Runner service.
+	Key *string `pulumi:"key"`
+	// The value of the tag assigned to the `VpcConnector` resource of the App Runner service.
 	Value *string `pulumi:"value"`
 }
 
@@ -2963,7 +3021,9 @@ func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcId() pulumi.Str
 }
 
 type VpcIngressConnectionTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag.
+	Key *string `pulumi:"key"`
+	// The value of the tag assigned to `VpcIngressConnection` resource of the App Runner service.
 	Value *string `pulumi:"value"`
 }
 

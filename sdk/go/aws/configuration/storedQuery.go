@@ -17,11 +17,16 @@ import (
 type StoredQuery struct {
 	pulumi.CustomResourceState
 
-	QueryArn         pulumi.StringOutput    `pulumi:"queryArn"`
+	// Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+	QueryArn pulumi.StringOutput `pulumi:"queryArn"`
+	// A unique description for the query.
 	QueryDescription pulumi.StringPtrOutput `pulumi:"queryDescription"`
-	QueryExpression  pulumi.StringOutput    `pulumi:"queryExpression"`
-	QueryId          pulumi.StringOutput    `pulumi:"queryId"`
-	QueryName        pulumi.StringOutput    `pulumi:"queryName"`
+	// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+	QueryExpression pulumi.StringOutput `pulumi:"queryExpression"`
+	// The ID of the query.
+	QueryId pulumi.StringOutput `pulumi:"queryId"`
+	// The name of the query.
+	QueryName pulumi.StringOutput `pulumi:"queryName"`
 	// The tags for the stored query.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -73,18 +78,24 @@ func (StoredQueryState) ElementType() reflect.Type {
 }
 
 type storedQueryArgs struct {
+	// A unique description for the query.
 	QueryDescription *string `pulumi:"queryDescription"`
-	QueryExpression  string  `pulumi:"queryExpression"`
-	QueryName        *string `pulumi:"queryName"`
+	// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+	QueryExpression string `pulumi:"queryExpression"`
+	// The name of the query.
+	QueryName *string `pulumi:"queryName"`
 	// The tags for the stored query.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StoredQuery resource.
 type StoredQueryArgs struct {
+	// A unique description for the query.
 	QueryDescription pulumi.StringPtrInput
-	QueryExpression  pulumi.StringInput
-	QueryName        pulumi.StringPtrInput
+	// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+	QueryExpression pulumi.StringInput
+	// The name of the query.
+	QueryName pulumi.StringPtrInput
 	// The tags for the stored query.
 	Tags aws.TagArrayInput
 }
@@ -126,22 +137,27 @@ func (o StoredQueryOutput) ToStoredQueryOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
 func (o StoredQueryOutput) QueryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryArn }).(pulumi.StringOutput)
 }
 
+// A unique description for the query.
 func (o StoredQueryOutput) QueryDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StoredQuery) pulumi.StringPtrOutput { return v.QueryDescription }).(pulumi.StringPtrOutput)
 }
 
+// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
 func (o StoredQueryOutput) QueryExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryExpression }).(pulumi.StringOutput)
 }
 
+// The ID of the query.
 func (o StoredQueryOutput) QueryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryId }).(pulumi.StringOutput)
 }
 
+// The name of the query.
 func (o StoredQueryOutput) QueryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryName }).(pulumi.StringOutput)
 }

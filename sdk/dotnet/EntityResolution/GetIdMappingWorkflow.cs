@@ -62,10 +62,25 @@ namespace Pulumi.AwsNative.EntityResolution
         /// The description of the IdMappingWorkflow
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// An object which defines the ID mapping techniques and provider configurations.
+        /// </summary>
         public readonly Outputs.IdMappingWorkflowIdMappingTechniques? IdMappingTechniques;
+        /// <summary>
+        /// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.IdMappingWorkflowInputSource> InputSourceConfig;
+        /// <summary>
+        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.IdMappingWorkflowOutputSource> OutputSourceConfig;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
         public readonly string? WorkflowArn;

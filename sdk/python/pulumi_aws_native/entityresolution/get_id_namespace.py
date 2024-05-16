@@ -61,11 +61,17 @@ class GetIdNamespaceResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the ID namespace.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="idMappingWorkflowProperties")
     def id_mapping_workflow_properties(self) -> Optional[Sequence['outputs.IdNamespaceIdMappingWorkflowProperties']]:
+        """
+        An object containing `IdMappingType` and `ProviderProperties` .
+        """
         return pulumi.get(self, "id_mapping_workflow_properties")
 
     @property
@@ -79,21 +85,37 @@ class GetIdNamespaceResult:
     @property
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> Optional[Sequence['outputs.IdNamespaceInputSource']]:
+        """
+        An object containing `InputSourceARN` and `SchemaName` .
+        """
         return pulumi.get(self, "input_source_config")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['IdNamespaceType']:
+        """
+        The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+
+        The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+
+        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -126,6 +148,9 @@ def get_id_namespace(id_namespace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdNamespaceResult:
     """
     IdNamespace defined in AWS Entity Resolution service
+
+
+    :param str id_namespace_name: The name of the ID namespace.
     """
     __args__ = dict()
     __args__['idNamespaceName'] = id_namespace_name
@@ -149,5 +174,8 @@ def get_id_namespace_output(id_namespace_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdNamespaceResult]:
     """
     IdNamespace defined in AWS Entity Resolution service
+
+
+    :param str id_namespace_name: The name of the ID namespace.
     """
     ...

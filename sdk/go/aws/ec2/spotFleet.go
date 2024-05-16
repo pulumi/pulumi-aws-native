@@ -16,7 +16,11 @@ import (
 type SpotFleet struct {
 	pulumi.CustomResourceState
 
-	AwsId                      pulumi.StringOutput              `pulumi:"awsId"`
+	// The ID of the Spot Fleet.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+	//
+	// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
 }
 
@@ -85,11 +89,17 @@ func (SpotFleetState) ElementType() reflect.Type {
 }
 
 type spotFleetArgs struct {
+	// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+	//
+	// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
 	SpotFleetRequestConfigData SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
 }
 
 // The set of arguments for constructing a SpotFleet resource.
 type SpotFleetArgs struct {
+	// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+	//
+	// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataInput
 }
 
@@ -130,10 +140,14 @@ func (o SpotFleetOutput) ToSpotFleetOutputWithContext(ctx context.Context) SpotF
 	return o
 }
 
+// The ID of the Spot Fleet.
 func (o SpotFleetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotFleet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
+//
+// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
 func (o SpotFleetOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataOutput {
 	return o.ApplyT(func(v *SpotFleet) SpotFleetRequestConfigDataOutput { return v.SpotFleetRequestConfigData }).(SpotFleetRequestConfigDataOutput)
 }

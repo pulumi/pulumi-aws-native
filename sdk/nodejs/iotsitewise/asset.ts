@@ -49,6 +49,9 @@ export class Asset extends pulumi.CustomResource {
      * The External ID of the asset
      */
     public readonly assetExternalId!: pulumi.Output<string | undefined>;
+    /**
+     * Describes an asset hierarchy that contains a hierarchy's name and ID.
+     */
     public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
     /**
      * The ID of the asset
@@ -62,6 +65,9 @@ export class Asset extends pulumi.CustomResource {
      * A unique, friendly name for the asset.
      */
     public readonly assetName!: pulumi.Output<string>;
+    /**
+     * Contains asset property information.
+     */
     public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetProperty[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset.
@@ -119,6 +125,9 @@ export interface AssetArgs {
      * The External ID of the asset
      */
     assetExternalId?: pulumi.Input<string>;
+    /**
+     * Describes an asset hierarchy that contains a hierarchy's name and ID.
+     */
     assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[]>;
     /**
      * The ID of the asset model from which to create the asset.
@@ -128,6 +137,9 @@ export interface AssetArgs {
      * A unique, friendly name for the asset.
      */
     assetName?: pulumi.Input<string>;
+    /**
+     * Contains asset property information.
+     */
     assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[]>;
     /**
      * A list of key-value pairs that contain metadata for the asset.

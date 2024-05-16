@@ -238,8 +238,17 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * An activity that performs a transformation on a message.
+     */
     public readonly pipelineActivities!: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
+    /**
+     * The name of the pipeline.
+     */
     public readonly pipelineName!: pulumi.Output<string | undefined>;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -277,7 +286,16 @@ export class Pipeline extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * An activity that performs a transformation on a message.
+     */
     pipelineActivities: pulumi.Input<pulumi.Input<inputs.iotanalytics.PipelineActivityArgs>[]>;
+    /**
+     * The name of the pipeline.
+     */
     pipelineName?: pulumi.Input<string>;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -26,6 +26,8 @@ class SimulationArgs:
         :param pulumi.Input[str] role_arn: Role ARN.
         :param pulumi.Input[str] maximum_duration: The maximum running time of the simulation.
         :param pulumi.Input[str] name: The name of the simulation.
+        :param pulumi.Input['SimulationS3LocationArgs'] schema_s3_location: A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        :param pulumi.Input['SimulationS3LocationArgs'] snapshot_s3_location: A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if maximum_duration is not None:
@@ -76,6 +78,9 @@ class SimulationArgs:
     @property
     @pulumi.getter(name="schemaS3Location")
     def schema_s3_location(self) -> Optional[pulumi.Input['SimulationS3LocationArgs']]:
+        """
+        A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        """
         return pulumi.get(self, "schema_s3_location")
 
     @schema_s3_location.setter
@@ -85,6 +90,9 @@ class SimulationArgs:
     @property
     @pulumi.getter(name="snapshotS3Location")
     def snapshot_s3_location(self) -> Optional[pulumi.Input['SimulationS3LocationArgs']]:
+        """
+        A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        """
         return pulumi.get(self, "snapshot_s3_location")
 
     @snapshot_s3_location.setter
@@ -267,6 +275,8 @@ class Simulation(pulumi.CustomResource):
         :param pulumi.Input[str] maximum_duration: The maximum running time of the simulation.
         :param pulumi.Input[str] name: The name of the simulation.
         :param pulumi.Input[str] role_arn: Role ARN.
+        :param pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']] schema_s3_location: A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        :param pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']] snapshot_s3_location: A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
         """
         ...
     @overload
@@ -537,10 +547,16 @@ class Simulation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="schemaS3Location")
     def schema_s3_location(self) -> pulumi.Output[Optional['outputs.SimulationS3Location']]:
+        """
+        A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        """
         return pulumi.get(self, "schema_s3_location")
 
     @property
     @pulumi.getter(name="snapshotS3Location")
     def snapshot_s3_location(self) -> pulumi.Output[Optional['outputs.SimulationS3Location']]:
+        """
+        A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        """
         return pulumi.get(self, "snapshot_s3_location")
 

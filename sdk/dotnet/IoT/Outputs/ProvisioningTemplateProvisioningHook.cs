@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class ProvisioningTemplateProvisioningHook
     {
+        /// <summary>
+        /// The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
+        /// </summary>
         public readonly string? PayloadVersion;
+        /// <summary>
+        /// The ARN of the target function.
+        /// </summary>
         public readonly string? TargetArn;
 
         [OutputConstructor]

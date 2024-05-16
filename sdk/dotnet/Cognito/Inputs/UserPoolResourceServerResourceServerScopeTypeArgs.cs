@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolResourceServerResourceServerScopeTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the scope.
+        /// </summary>
         [Input("scopeDescription", required: true)]
         public Input<string> ScopeDescription { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the scope.
+        /// </summary>
         [Input("scopeName", required: true)]
         public Input<string> ScopeName { get; set; } = null!;
 

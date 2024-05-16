@@ -51,16 +51,52 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetIdentityPoolResult
     {
+        /// <summary>
+        /// Enables the Basic (Classic) authentication flow.
+        /// </summary>
         public readonly bool? AllowClassicFlow;
+        /// <summary>
+        /// Specifies whether the identity pool supports unauthenticated logins.
+        /// </summary>
         public readonly bool? AllowUnauthenticatedIdentities;
+        /// <summary>
+        /// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IdentityPoolCognitoIdentityProvider> CognitoIdentityProviders;
+        /// <summary>
+        /// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
+        /// 
+        /// *Minimum length* : 1
+        /// 
+        /// *Maximum length* : 100
+        /// </summary>
         public readonly string? DeveloperProviderName;
         public readonly string? Id;
+        /// <summary>
+        /// The name of your Amazon Cognito identity pool.
+        /// 
+        /// *Minimum length* : 1
+        /// 
+        /// *Maximum length* : 128
+        /// 
+        /// *Pattern* : `[\w\s+=,.@-]+`
+        /// </summary>
         public readonly string? IdentityPoolName;
+        /// <summary>
+        /// The name of the Amazon Cognito identity pool, returned as a string.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the OpenID connect providers.
+        /// </summary>
         public readonly ImmutableArray<string> OpenIdConnectProviderArns;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
+        /// </summary>
         public readonly ImmutableArray<string> SamlProviderArns;
         /// <summary>
+        /// Key-value pairs that map provider names to provider app IDs.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? SupportedLoginProviders;

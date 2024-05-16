@@ -27,13 +27,17 @@ func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupVpcArgs struct {
+	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
 
 type LookupVpcResult struct {
+	// The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
 	CidrBlockAssociations []string `pulumi:"cidrBlockAssociations"`
-	DefaultNetworkAcl     *string  `pulumi:"defaultNetworkAcl"`
-	DefaultSecurityGroup  *string  `pulumi:"defaultSecurityGroup"`
+	// The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+	DefaultNetworkAcl *string `pulumi:"defaultNetworkAcl"`
+	// The ID of the default security group for the VPC. For example, sg-b178e0d3.
+	DefaultSecurityGroup *string `pulumi:"defaultSecurityGroup"`
 	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
 	//  You can only enable DNS hostnames if you've enabled DNS support.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
@@ -44,11 +48,13 @@ type LookupVpcResult struct {
 	//   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
 	//
 	//  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
-	InstanceTenancy *string  `pulumi:"instanceTenancy"`
-	Ipv6CidrBlocks  []string `pulumi:"ipv6CidrBlocks"`
+	InstanceTenancy *string `pulumi:"instanceTenancy"`
+	// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
-	Tags  []aws.Tag `pulumi:"tags"`
-	VpcId *string   `pulumi:"vpcId"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
@@ -65,6 +71,7 @@ func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulu
 }
 
 type LookupVpcOutputArgs struct {
+	// The ID of the VPC.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
@@ -86,14 +93,17 @@ func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
 func (o LookupVpcResultOutput) CidrBlockAssociations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcResult) []string { return v.CidrBlockAssociations }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the default network ACL for the VPC. For example, acl-814dafe3.
 func (o LookupVpcResultOutput) DefaultNetworkAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcResult) *string { return v.DefaultNetworkAcl }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the default security group for the VPC. For example, sg-b178e0d3.
 func (o LookupVpcResultOutput) DefaultSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcResult) *string { return v.DefaultSecurityGroup }).(pulumi.StringPtrOutput)
 }
@@ -121,6 +131,7 @@ func (o LookupVpcResultOutput) InstanceTenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcResult) *string { return v.InstanceTenancy }).(pulumi.StringPtrOutput)
 }
 
+// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
 func (o LookupVpcResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcResult) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -130,6 +141,7 @@ func (o LookupVpcResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC.
 func (o LookupVpcResultOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

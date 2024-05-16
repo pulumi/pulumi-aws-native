@@ -17,20 +17,33 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApiGatewayId          pulumi.StringOutput                      `pulumi:"apiGatewayId"`
-	ApiGatewayProxy       ApplicationApiGatewayProxyInputPtrOutput `pulumi:"apiGatewayProxy"`
-	ApplicationIdentifier pulumi.StringOutput                      `pulumi:"applicationIdentifier"`
-	Arn                   pulumi.StringOutput                      `pulumi:"arn"`
-	EnvironmentIdentifier pulumi.StringOutput                      `pulumi:"environmentIdentifier"`
-	Name                  pulumi.StringOutput                      `pulumi:"name"`
-	NlbArn                pulumi.StringOutput                      `pulumi:"nlbArn"`
-	NlbName               pulumi.StringOutput                      `pulumi:"nlbName"`
-	ProxyType             ApplicationProxyTypeOutput               `pulumi:"proxyType"`
-	ProxyUrl              pulumi.StringOutput                      `pulumi:"proxyUrl"`
-	StageName             pulumi.StringOutput                      `pulumi:"stageName"`
+	// The resource ID of the API Gateway for the proxy.
+	ApiGatewayId pulumi.StringOutput `pulumi:"apiGatewayId"`
+	// A wrapper object holding the Amazon API Gateway endpoint input.
+	ApiGatewayProxy ApplicationApiGatewayProxyInputPtrOutput `pulumi:"apiGatewayProxy"`
+	// The unique identifier of the application.
+	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
+	// The Amazon Resource Name (ARN) of the application.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
+	// The name of the application.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the Network Load Balancer .
+	NlbArn pulumi.StringOutput `pulumi:"nlbArn"`
+	// The name of the Network Load Balancer configured by the API Gateway proxy.
+	NlbName pulumi.StringOutput `pulumi:"nlbName"`
+	// The proxy type of the proxy created within the application.
+	ProxyType ApplicationProxyTypeOutput `pulumi:"proxyType"`
+	// The endpoint URL of the Amazon API Gateway proxy.
+	ProxyUrl pulumi.StringOutput `pulumi:"proxyUrl"`
+	// The name of the API Gateway stage. The name defaults to `prod` .
+	StageName pulumi.StringOutput `pulumi:"stageName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags      aws.TagArrayOutput  `pulumi:"tags"`
-	VpcId     pulumi.StringOutput `pulumi:"vpcId"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the virtual private cloud (VPC).
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// The `VpcLink` ID of the API Gateway proxy.
 	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
 }
 
@@ -91,23 +104,33 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	ApiGatewayProxy       *ApplicationApiGatewayProxyInput `pulumi:"apiGatewayProxy"`
-	EnvironmentIdentifier string                           `pulumi:"environmentIdentifier"`
-	Name                  *string                          `pulumi:"name"`
-	ProxyType             ApplicationProxyType             `pulumi:"proxyType"`
+	// A wrapper object holding the Amazon API Gateway endpoint input.
+	ApiGatewayProxy *ApplicationApiGatewayProxyInput `pulumi:"apiGatewayProxy"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	// The name of the application.
+	Name *string `pulumi:"name"`
+	// The proxy type of the proxy created within the application.
+	ProxyType ApplicationProxyType `pulumi:"proxyType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags  []aws.Tag `pulumi:"tags"`
-	VpcId string    `pulumi:"vpcId"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the virtual private cloud (VPC).
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	ApiGatewayProxy       ApplicationApiGatewayProxyInputPtrInput
+	// A wrapper object holding the Amazon API Gateway endpoint input.
+	ApiGatewayProxy ApplicationApiGatewayProxyInputPtrInput
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput
-	Name                  pulumi.StringPtrInput
-	ProxyType             ApplicationProxyTypeInput
+	// The name of the application.
+	Name pulumi.StringPtrInput
+	// The proxy type of the proxy created within the application.
+	ProxyType ApplicationProxyTypeInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags  aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The ID of the virtual private cloud (VPC).
 	VpcId pulumi.StringInput
 }
 
@@ -148,46 +171,57 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The resource ID of the API Gateway for the proxy.
 func (o ApplicationOutput) ApiGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApiGatewayId }).(pulumi.StringOutput)
 }
 
+// A wrapper object holding the Amazon API Gateway endpoint input.
 func (o ApplicationOutput) ApiGatewayProxy() ApplicationApiGatewayProxyInputPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationApiGatewayProxyInputPtrOutput { return v.ApiGatewayProxy }).(ApplicationApiGatewayProxyInputPtrOutput)
 }
 
+// The unique identifier of the application.
 func (o ApplicationOutput) ApplicationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the environment.
 func (o ApplicationOutput) EnvironmentIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Network Load Balancer .
 func (o ApplicationOutput) NlbArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.NlbArn }).(pulumi.StringOutput)
 }
 
+// The name of the Network Load Balancer configured by the API Gateway proxy.
 func (o ApplicationOutput) NlbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.NlbName }).(pulumi.StringOutput)
 }
 
+// The proxy type of the proxy created within the application.
 func (o ApplicationOutput) ProxyType() ApplicationProxyTypeOutput {
 	return o.ApplyT(func(v *Application) ApplicationProxyTypeOutput { return v.ProxyType }).(ApplicationProxyTypeOutput)
 }
 
+// The endpoint URL of the Amazon API Gateway proxy.
 func (o ApplicationOutput) ProxyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProxyUrl }).(pulumi.StringOutput)
 }
 
+// The name of the API Gateway stage. The name defaults to `prod` .
 func (o ApplicationOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
 }
@@ -197,10 +231,12 @@ func (o ApplicationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the virtual private cloud (VPC).
 func (o ApplicationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// The `VpcLink` ID of the API Gateway proxy.
 func (o ApplicationOutput) VpcLinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.VpcLinkId }).(pulumi.StringOutput)
 }

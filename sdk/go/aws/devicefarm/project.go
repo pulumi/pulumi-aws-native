@@ -16,11 +16,16 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput       `pulumi:"arn"`
-	DefaultJobTimeoutMinutes pulumi.IntPtrOutput       `pulumi:"defaultJobTimeoutMinutes"`
-	Name                     pulumi.StringOutput       `pulumi:"name"`
-	Tags                     aws.TagArrayOutput        `pulumi:"tags"`
-	VpcConfig                ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
+	// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes pulumi.IntPtrOutput `pulumi:"defaultJobTimeoutMinutes"`
+	// The project's name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -63,18 +68,26 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	DefaultJobTimeoutMinutes *int              `pulumi:"defaultJobTimeoutMinutes"`
-	Name                     *string           `pulumi:"name"`
-	Tags                     []aws.Tag         `pulumi:"tags"`
-	VpcConfig                *ProjectVpcConfig `pulumi:"vpcConfig"`
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
+	// The project's name.
+	Name *string `pulumi:"name"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 	DefaultJobTimeoutMinutes pulumi.IntPtrInput
-	Name                     pulumi.StringPtrInput
-	Tags                     aws.TagArrayInput
-	VpcConfig                ProjectVpcConfigPtrInput
+	// The project's name.
+	Name pulumi.StringPtrInput
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags aws.TagArrayInput
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig ProjectVpcConfigPtrInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -114,22 +127,27 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 func (o ProjectOutput) DefaultJobTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.DefaultJobTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The project's name.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o ProjectOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Project) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC security groups and subnets that are attached to a project.
 func (o ProjectOutput) VpcConfig() ProjectVpcConfigPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectVpcConfigPtrOutput { return v.VpcConfig }).(ProjectVpcConfigPtrOutput)
 }

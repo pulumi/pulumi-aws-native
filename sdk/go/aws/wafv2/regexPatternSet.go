@@ -24,11 +24,15 @@ type RegexPatternSet struct {
 	// Description of the entity.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the RegexPatternSet.
-	Name                  pulumi.StringPtrOutput   `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The regular expression patterns in the set.
 	RegularExpressionList pulumi.StringArrayOutput `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScopeOutput `pulumi:"scope"`
-	Tags  aws.TagArrayOutput         `pulumi:"tags"`
+	// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+	//
+	// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRegexPatternSet registers a new resource with the given unique name, arguments, and options.
@@ -85,11 +89,15 @@ type regexPatternSetArgs struct {
 	// Description of the entity.
 	Description *string `pulumi:"description"`
 	// Name of the RegexPatternSet.
-	Name                  *string  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The regular expression patterns in the set.
 	RegularExpressionList []string `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScope `pulumi:"scope"`
-	Tags  []aws.Tag            `pulumi:"tags"`
+	// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+	//
+	// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
@@ -97,11 +105,15 @@ type RegexPatternSetArgs struct {
 	// Description of the entity.
 	Description pulumi.StringPtrInput
 	// Name of the RegexPatternSet.
-	Name                  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The regular expression patterns in the set.
 	RegularExpressionList pulumi.StringArrayInput
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScopeInput
-	Tags  aws.TagArrayInput
+	// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+	//
+	// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+	Tags aws.TagArrayInput
 }
 
 func (RegexPatternSetArgs) ElementType() reflect.Type {
@@ -161,6 +173,7 @@ func (o RegexPatternSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The regular expression patterns in the set.
 func (o RegexPatternSetOutput) RegularExpressionList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegularExpressionList }).(pulumi.StringArrayOutput)
 }
@@ -170,6 +183,9 @@ func (o RegexPatternSetOutput) Scope() RegexPatternSetScopeOutput {
 	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetScopeOutput { return v.Scope }).(RegexPatternSetScopeOutput)
 }
 
+// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+//
+// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
 func (o RegexPatternSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

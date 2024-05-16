@@ -37,12 +37,33 @@ export class TrustAnchor extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustAnchor.__pulumiType;
     }
 
+    /**
+     * Indicates whether the trust anchor is enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the trust anchor.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+     */
     public readonly notificationSettings!: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[] | undefined>;
+    /**
+     * Object representing the TrustAnchor type and its related certificate data.
+     */
     public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
+    /**
+     * A label that consists of a key and value you define.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ARN of the trust anchor.
+     */
     public /*out*/ readonly trustAnchorArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the trust anchor.
+     */
     public /*out*/ readonly trustAnchorId!: pulumi.Output<string>;
 
     /**
@@ -84,9 +105,24 @@ export class TrustAnchor extends pulumi.CustomResource {
  * The set of arguments for constructing a TrustAnchor resource.
  */
 export interface TrustAnchorArgs {
+    /**
+     * Indicates whether the trust anchor is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the trust anchor.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+     */
     notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSettingArgs>[]>;
+    /**
+     * Object representing the TrustAnchor type and its related certificate data.
+     */
     source: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceArgs>;
+    /**
+     * A label that consists of a key and value you define.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

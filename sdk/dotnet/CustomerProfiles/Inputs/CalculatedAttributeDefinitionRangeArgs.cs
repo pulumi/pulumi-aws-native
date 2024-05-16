@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class CalculatedAttributeDefinitionRangeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unit of time.
+        /// </summary>
         [Input("unit", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit> Unit { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time of the specified unit.
+        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

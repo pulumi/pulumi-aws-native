@@ -18,6 +18,14 @@ class StreamKinesisConfigurationArgs:
     def __init__(__self__, *,
                  aggregation_enabled: Optional[pulumi.Input[bool]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] aggregation_enabled: Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
+               
+               Default: `True`
+               
+               > Record aggregation has important implications for processing records and requires de-aggregation in your stream consumer. To learn more, see [KPL Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html) and [Consumer De-aggregation](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html) in the *Amazon Kinesis Data Streams Developer Guide* .
+        :param pulumi.Input[str] stream_arn: The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        """
         if aggregation_enabled is not None:
             pulumi.set(__self__, "aggregation_enabled", aggregation_enabled)
         if stream_arn is not None:
@@ -26,6 +34,13 @@ class StreamKinesisConfigurationArgs:
     @property
     @pulumi.getter(name="aggregationEnabled")
     def aggregation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
+
+        Default: `True`
+
+        > Record aggregation has important implications for processing records and requires de-aggregation in your stream consumer. To learn more, see [KPL Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html) and [Consumer De-aggregation](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html) in the *Amazon Kinesis Data Streams Developer Guide* .
+        """
         return pulumi.get(self, "aggregation_enabled")
 
     @aggregation_enabled.setter
@@ -35,6 +50,9 @@ class StreamKinesisConfigurationArgs:
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter

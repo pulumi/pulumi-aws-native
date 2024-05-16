@@ -19,6 +19,7 @@ class FleetArgs:
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[str] name: The name of the fleet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of all tags added to the fleet.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -40,6 +41,9 @@ class FleetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of all tags added to the fleet.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -131,6 +135,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the fleet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of all tags added to the fleet.
         """
         ...
     @overload
@@ -272,6 +277,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -285,5 +293,8 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The list of all tags added to the fleet.
+        """
         return pulumi.get(self, "tags")
 

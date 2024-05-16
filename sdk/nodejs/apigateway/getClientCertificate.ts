@@ -19,10 +19,16 @@ export function getClientCertificate(args: GetClientCertificateArgs, opts?: pulu
 }
 
 export interface GetClientCertificateArgs {
+    /**
+     * The ID for the client certificate. For example: `abc123` .
+     */
     clientCertificateId: string;
 }
 
 export interface GetClientCertificateResult {
+    /**
+     * The ID for the client certificate. For example: `abc123` .
+     */
     readonly clientCertificateId?: string;
     /**
      * The description of the client certificate.
@@ -41,5 +47,8 @@ export function getClientCertificateOutput(args: GetClientCertificateOutputArgs,
 }
 
 export interface GetClientCertificateOutputArgs {
+    /**
+     * The ID for the client certificate. For example: `abc123` .
+     */
     clientCertificateId: pulumi.Input<string>;
 }

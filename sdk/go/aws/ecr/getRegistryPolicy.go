@@ -25,6 +25,7 @@ func LookupRegistryPolicy(ctx *pulumi.Context, args *LookupRegistryPolicyArgs, o
 }
 
 type LookupRegistryPolicyArgs struct {
+	// The account ID of the private registry the policy is associated with.
 	RegistryId string `pulumi:"registryId"`
 }
 
@@ -33,7 +34,8 @@ type LookupRegistryPolicyResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
 	PolicyText interface{} `pulumi:"policyText"`
-	RegistryId *string     `pulumi:"registryId"`
+	// The account ID of the private registry the policy is associated with.
+	RegistryId *string `pulumi:"registryId"`
 }
 
 func LookupRegistryPolicyOutput(ctx *pulumi.Context, args LookupRegistryPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryPolicyResultOutput {
@@ -50,6 +52,7 @@ func LookupRegistryPolicyOutput(ctx *pulumi.Context, args LookupRegistryPolicyOu
 }
 
 type LookupRegistryPolicyOutputArgs struct {
+	// The account ID of the private registry the policy is associated with.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -78,6 +81,7 @@ func (o LookupRegistryPolicyResultOutput) PolicyText() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) interface{} { return v.PolicyText }).(pulumi.AnyOutput)
 }
 
+// The account ID of the private registry the policy is associated with.
 func (o LookupRegistryPolicyResultOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }

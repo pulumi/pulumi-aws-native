@@ -18,7 +18,8 @@ type HealthCheck struct {
 
 	// A complex type that contains information about the health check.
 	HealthCheckConfig HealthCheckConfigPropertiesOutput `pulumi:"healthCheckConfig"`
-	HealthCheckId     pulumi.StringOutput               `pulumi:"healthCheckId"`
+	// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+	HealthCheckId pulumi.StringOutput `pulumi:"healthCheckId"`
 	// An array of key-value pairs to apply to this resource.
 	HealthCheckTags HealthCheckTagArrayOutput `pulumi:"healthCheckTags"`
 }
@@ -122,6 +123,7 @@ func (o HealthCheckOutput) HealthCheckConfig() HealthCheckConfigPropertiesOutput
 	return o.ApplyT(func(v *HealthCheck) HealthCheckConfigPropertiesOutput { return v.HealthCheckConfig }).(HealthCheckConfigPropertiesOutput)
 }
 
+// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 func (o HealthCheckOutput) HealthCheckId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringOutput { return v.HealthCheckId }).(pulumi.StringOutput)
 }

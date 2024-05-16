@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableBorderOptions
     {
+        /// <summary>
+        /// The color of a table border.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The style (none, solid) of a table border.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableBorderStyle? Style;
+        /// <summary>
+        /// The thickness of a table border.
+        /// </summary>
         public readonly double? Thickness;
 
         [OutputConstructor]

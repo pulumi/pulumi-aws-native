@@ -19,6 +19,9 @@ export function getScheduleGroup(args: GetScheduleGroupArgs, opts?: pulumi.Invok
 }
 
 export interface GetScheduleGroupArgs {
+    /**
+     * The name of the schedule group.
+     */
     name: string;
 }
 
@@ -35,6 +38,11 @@ export interface GetScheduleGroupResult {
      * The time at which the schedule group was last modified.
      */
     readonly lastModificationDate?: string;
+    /**
+     * Specifies the state of the schedule group.
+     *
+     * *Allowed Values* : `ACTIVE` | `DELETING`
+     */
     readonly state?: enums.scheduler.ScheduleGroupState;
     /**
      * The list of tags to associate with the schedule group.
@@ -49,5 +57,8 @@ export function getScheduleGroupOutput(args: GetScheduleGroupOutputArgs, opts?: 
 }
 
 export interface GetScheduleGroupOutputArgs {
+    /**
+     * The name of the schedule group.
+     */
     name: pulumi.Input<string>;
 }

@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetPolicyTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the policy store that contains the template.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public string PolicyStoreId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the new or modified policy template.
+        /// </summary>
         [Input("policyTemplateId", required: true)]
         public string PolicyTemplateId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetPolicyTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the policy store that contains the template.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the new or modified policy template.
+        /// </summary>
         [Input("policyTemplateId", required: true)]
         public Input<string> PolicyTemplateId { get; set; } = null!;
 
@@ -57,8 +69,17 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [OutputType]
     public sealed class GetPolicyTemplateResult
     {
+        /// <summary>
+        /// The description to attach to the new or updated policy template.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique identifier of the new or modified policy template.
+        /// </summary>
         public readonly string? PolicyTemplateId;
+        /// <summary>
+        /// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        /// </summary>
         public readonly string? Statement;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("pinnedLeftFields")]
         private InputList<string>? _pinnedLeftFields;
+
+        /// <summary>
+        /// A list of columns to be pinned to the left of a table visual.
+        /// </summary>
         public InputList<string> PinnedLeftFields
         {
             get => _pinnedLeftFields ?? (_pinnedLeftFields = new InputList<string>());

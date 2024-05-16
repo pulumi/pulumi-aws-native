@@ -62,6 +62,7 @@ def get_security_policy(name: Optional[str] = None,
 
 
     :param str name: The name of the policy
+    :param 'SecurityPolicyType' type: The type of security policy. Can be either `encryption` or `network` .
     """
     __args__ = dict()
     __args__['name'] = name
@@ -83,5 +84,6 @@ def get_security_policy_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of the policy
+    :param 'SecurityPolicyType' type: The type of security policy. Can be either `encryption` or `network` .
     """
     ...

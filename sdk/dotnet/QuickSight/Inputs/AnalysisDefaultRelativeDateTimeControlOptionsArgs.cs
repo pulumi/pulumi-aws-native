@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDefaultRelativeDateTimeControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.AnalysisRelativeDateTimeControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 

@@ -23,10 +23,12 @@ func LookupResourceDataSync(ctx *pulumi.Context, args *LookupResourceDataSyncArg
 }
 
 type LookupResourceDataSyncArgs struct {
+	// The name of the resource data sync.
 	SyncName string `pulumi:"syncName"`
 }
 
 type LookupResourceDataSyncResult struct {
+	// Information about the source of the data included in the resource data sync.
 	SyncSource *ResourceDataSyncSyncSource `pulumi:"syncSource"`
 }
 
@@ -44,6 +46,7 @@ func LookupResourceDataSyncOutput(ctx *pulumi.Context, args LookupResourceDataSy
 }
 
 type LookupResourceDataSyncOutputArgs struct {
+	// The name of the resource data sync.
 	SyncName pulumi.StringInput `pulumi:"syncName"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupResourceDataSyncResultOutput) ToLookupResourceDataSyncResultOutput
 	return o
 }
 
+// Information about the source of the data included in the resource data sync.
 func (o LookupResourceDataSyncResultOutput) SyncSource() ResourceDataSyncSyncSourcePtrOutput {
 	return o.ApplyT(func(v LookupResourceDataSyncResult) *ResourceDataSyncSyncSource { return v.SyncSource }).(ResourceDataSyncSyncSourcePtrOutput)
 }

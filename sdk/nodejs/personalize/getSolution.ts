@@ -16,10 +16,16 @@ export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetSolutionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the solution.
+     */
     solutionArn: string;
 }
 
 export interface GetSolutionResult {
+    /**
+     * The Amazon Resource Name (ARN) of the solution.
+     */
     readonly solutionArn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetSolutionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the solution.
+     */
     solutionArn: pulumi.Input<string>;
 }

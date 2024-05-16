@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorPluginArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A plugin is an AWS resource that contains the code that defines a connector's logic.
+        /// </summary>
         [Input("customPlugin", required: true)]
         public Input<Inputs.ConnectorCustomPluginArgs> CustomPlugin { get; set; } = null!;
 

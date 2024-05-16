@@ -38,6 +38,9 @@ export interface GetIpamResult {
      * The Id of the default resource discovery, created with this IPAM.
      */
     readonly defaultResourceDiscoveryId?: string;
+    /**
+     * The description for the IPAM.
+     */
     readonly description?: string;
     /**
      * Id of the IPAM.

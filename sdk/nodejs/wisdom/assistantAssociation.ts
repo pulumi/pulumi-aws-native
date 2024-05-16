@@ -37,12 +37,33 @@ export class AssistantAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssistantAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Wisdom assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the assistant association.
+     */
     public /*out*/ readonly assistantAssociationArn!: pulumi.Output<string>;
+    /**
+     * The ID of the association.
+     */
     public /*out*/ readonly assistantAssociationId!: pulumi.Output<string>;
+    /**
+     * The identifier of the Wisdom assistant.
+     */
     public readonly assistantId!: pulumi.Output<string>;
+    /**
+     * A union type that currently has a single argument, which is the knowledge base ID.
+     */
     public readonly association!: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData>;
+    /**
+     * The type of association.
+     */
     public readonly associationType!: pulumi.Output<enums.wisdom.AssistantAssociationAssociationType>;
+    /**
+     * Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -92,8 +113,20 @@ export class AssistantAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a AssistantAssociation resource.
  */
 export interface AssistantAssociationArgs {
+    /**
+     * The identifier of the Wisdom assistant.
+     */
     assistantId: pulumi.Input<string>;
+    /**
+     * A union type that currently has a single argument, which is the knowledge base ID.
+     */
     association: pulumi.Input<inputs.wisdom.AssistantAssociationAssociationDataArgs>;
+    /**
+     * The type of association.
+     */
     associationType: pulumi.Input<enums.wisdom.AssistantAssociationAssociationType>;
+    /**
+     * Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

@@ -7,6 +7,9 @@ export const AuthPolicyState = {
     Inactive: "INACTIVE",
 } as const;
 
+/**
+ * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+ */
 export type AuthPolicyState = (typeof AuthPolicyState)[keyof typeof AuthPolicyState];
 
 export const ListenerProtocol = {
@@ -15,6 +18,9 @@ export const ListenerProtocol = {
     TlsPassthrough: "TLS_PASSTHROUGH",
 } as const;
 
+/**
+ * The listener protocol.
+ */
 export type ListenerProtocol = (typeof ListenerProtocol)[keyof typeof ListenerProtocol];
 
 export const RuleHttpMatchMethod = {
@@ -28,6 +34,9 @@ export const RuleHttpMatchMethod = {
     Trace: "TRACE",
 } as const;
 
+/**
+ * The HTTP method type.
+ */
 export type RuleHttpMatchMethod = (typeof RuleHttpMatchMethod)[keyof typeof RuleHttpMatchMethod];
 
 export const ServiceAuthType = {
@@ -35,6 +44,12 @@ export const ServiceAuthType = {
     AwsIam: "AWS_IAM",
 } as const;
 
+/**
+ * The type of IAM policy.
+ *
+ * - `NONE` : The resource does not use an IAM policy. This is the default.
+ * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+ */
 export type ServiceAuthType = (typeof ServiceAuthType)[keyof typeof ServiceAuthType];
 
 export const ServiceNetworkAuthType = {
@@ -42,6 +57,12 @@ export const ServiceNetworkAuthType = {
     AwsIam: "AWS_IAM",
 } as const;
 
+/**
+ * The type of IAM policy.
+ *
+ * - `NONE` : The resource does not use an IAM policy. This is the default.
+ * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+ */
 export type ServiceNetworkAuthType = (typeof ServiceNetworkAuthType)[keyof typeof ServiceNetworkAuthType];
 
 export const ServiceNetworkServiceAssociationStatus = {
@@ -52,6 +73,9 @@ export const ServiceNetworkServiceAssociationStatus = {
     DeleteFailed: "DELETE_FAILED",
 } as const;
 
+/**
+ * The status of the association between the service network and the service.
+ */
 export type ServiceNetworkServiceAssociationStatus = (typeof ServiceNetworkServiceAssociationStatus)[keyof typeof ServiceNetworkServiceAssociationStatus];
 
 export const ServiceNetworkVpcAssociationStatus = {
@@ -63,6 +87,9 @@ export const ServiceNetworkVpcAssociationStatus = {
     DeleteFailed: "DELETE_FAILED",
 } as const;
 
+/**
+ * The status of the association.
+ */
 export type ServiceNetworkVpcAssociationStatus = (typeof ServiceNetworkVpcAssociationStatus)[keyof typeof ServiceNetworkVpcAssociationStatus];
 
 export const ServiceStatus = {
@@ -73,6 +100,9 @@ export const ServiceStatus = {
     DeleteFailed: "DELETE_FAILED",
 } as const;
 
+/**
+ * The status of the service.
+ */
 export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
 
 export const TargetGroupConfigIpAddressType = {
@@ -80,6 +110,9 @@ export const TargetGroupConfigIpAddressType = {
     Ipv6: "IPV6",
 } as const;
 
+/**
+ * The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
+ */
 export type TargetGroupConfigIpAddressType = (typeof TargetGroupConfigIpAddressType)[keyof typeof TargetGroupConfigIpAddressType];
 
 export const TargetGroupConfigLambdaEventStructureVersion = {
@@ -87,6 +120,9 @@ export const TargetGroupConfigLambdaEventStructureVersion = {
     V2: "V2",
 } as const;
 
+/**
+ * The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
+ */
 export type TargetGroupConfigLambdaEventStructureVersion = (typeof TargetGroupConfigLambdaEventStructureVersion)[keyof typeof TargetGroupConfigLambdaEventStructureVersion];
 
 export const TargetGroupConfigProtocol = {
@@ -95,6 +131,9 @@ export const TargetGroupConfigProtocol = {
     Tcp: "TCP",
 } as const;
 
+/**
+ * The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
+ */
 export type TargetGroupConfigProtocol = (typeof TargetGroupConfigProtocol)[keyof typeof TargetGroupConfigProtocol];
 
 export const TargetGroupConfigProtocolVersion = {
@@ -103,6 +142,9 @@ export const TargetGroupConfigProtocolVersion = {
     Grpc: "GRPC",
 } as const;
 
+/**
+ * The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
+ */
 export type TargetGroupConfigProtocolVersion = (typeof TargetGroupConfigProtocolVersion)[keyof typeof TargetGroupConfigProtocolVersion];
 
 export const TargetGroupHealthCheckConfigProtocol = {
@@ -110,6 +152,9 @@ export const TargetGroupHealthCheckConfigProtocol = {
     Https: "HTTPS",
 } as const;
 
+/**
+ * The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
+ */
 export type TargetGroupHealthCheckConfigProtocol = (typeof TargetGroupHealthCheckConfigProtocol)[keyof typeof TargetGroupHealthCheckConfigProtocol];
 
 export const TargetGroupHealthCheckConfigProtocolVersion = {
@@ -117,6 +162,9 @@ export const TargetGroupHealthCheckConfigProtocolVersion = {
     Http2: "HTTP2",
 } as const;
 
+/**
+ * The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
+ */
 export type TargetGroupHealthCheckConfigProtocolVersion = (typeof TargetGroupHealthCheckConfigProtocolVersion)[keyof typeof TargetGroupHealthCheckConfigProtocolVersion];
 
 export const TargetGroupStatus = {
@@ -127,6 +175,9 @@ export const TargetGroupStatus = {
     DeleteFailed: "DELETE_FAILED",
 } as const;
 
+/**
+ * The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+ */
 export type TargetGroupStatus = (typeof TargetGroupStatus)[keyof typeof TargetGroupStatus];
 
 export const TargetGroupType = {
@@ -136,4 +187,7 @@ export const TargetGroupType = {
     Alb: "ALB",
 } as const;
 
+/**
+ * The type of target group.
+ */
 export type TargetGroupType = (typeof TargetGroupType)[keyof typeof TargetGroupType];

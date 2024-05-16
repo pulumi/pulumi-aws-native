@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentDeployedImage
     {
+        /// <summary>
+        /// The date and time when the image path for the model resolved to the `ResolvedImage`
+        /// </summary>
         public readonly string? ResolutionTime;
+        /// <summary>
+        /// The specific digest path of the image hosted in this `ProductionVariant` .
+        /// </summary>
         public readonly string? ResolvedImage;
+        /// <summary>
+        /// The image path you specified when you created the model.
+        /// </summary>
         public readonly string? SpecifiedImage;
 
         [OutputConstructor]

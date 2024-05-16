@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         [Input("subnetId", required: true)]
         public string SubnetId { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -78,6 +84,9 @@ namespace Pulumi.AwsNative.Ec2
         ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         public readonly bool? MapPublicIpOnLaunch;
+        /// <summary>
+        /// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
+        /// </summary>
         public readonly string? NetworkAclAssociationId;
         /// <summary>
         /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -87,6 +96,9 @@ namespace Pulumi.AwsNative.Ec2
         ///   +  HostnameType (ip-name | resource-name)
         /// </summary>
         public readonly Outputs.PrivateDnsNameOptionsOnLaunchProperties? PrivateDnsNameOptionsOnLaunch;
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         public readonly string? SubnetId;
         /// <summary>
         /// Any tags assigned to the subnet.

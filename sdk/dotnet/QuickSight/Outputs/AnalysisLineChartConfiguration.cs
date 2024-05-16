@@ -13,24 +13,83 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisLineChartConfiguration
     {
+        /// <summary>
+        /// The default configuration of a line chart's contribution analysis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The options that determine the default presentation of all line series in `LineChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisLineChartDefaultSeriesSettings? DefaultSeriesSettings;
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         public readonly Outputs.AnalysisLineChartFieldWells? FieldWells;
+        /// <summary>
+        /// The forecast configuration that is used in a line chart's display properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisForecastConfiguration> ForecastConfigurations;
+        /// <summary>
+        /// The options for the legend setup of a visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.AnalysisLineSeriesAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference lines configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.AnalysisLineSeriesAxisDisplayOptions? SecondaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        /// <summary>
+        /// The series item configuration of a line chart.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSeriesItem> Series;
+        /// <summary>
+        /// Options that determine the layout and display options of a chart's small multiples.
+        /// </summary>
         public readonly Outputs.AnalysisSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// The sort configuration of a line chart.
+        /// </summary>
         public readonly Outputs.AnalysisLineChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The display options for the visual tooltip.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// Determines the type of the line chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisLineChartType? Type;
+        /// <summary>
+        /// The visual display options for the visual palette.
+        /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
+        /// <summary>
+        /// The display options for the axis label.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The label options for an axis on a chart.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? XAxisLabelOptions;
 
         [OutputConstructor]

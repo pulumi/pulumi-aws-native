@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotFulfillmentCodeHookSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Provides information for updating the user on the progress of fulfilling an intent.
+        /// </summary>
         [Input("fulfillmentUpdatesSpecification")]
         public Input<Inputs.BotFulfillmentUpdatesSpecificationArgs>? FulfillmentUpdatesSpecification { get; set; }
 
@@ -27,6 +33,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
 
+        /// <summary>
+        /// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+        /// </summary>
         [Input("postFulfillmentStatusSpecification")]
         public Input<Inputs.BotPostFulfillmentStatusSpecificationArgs>? PostFulfillmentStatusSpecification { get; set; }
 

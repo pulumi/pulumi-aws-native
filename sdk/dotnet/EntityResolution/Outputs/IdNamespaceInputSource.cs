@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class IdNamespaceInputSource
     {
+        /// <summary>
+        /// An AWS Glue table ARN for the input source table.
+        /// </summary>
         public readonly string InputSourceArn;
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
         public readonly string? SchemaName;
 
         [OutputConstructor]

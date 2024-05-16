@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetTriggeringDataset
     {
+        /// <summary>
+        /// The name of the data set whose content generation triggers the new data set content generation.
+        /// </summary>
         public readonly string DatasetName;
 
         [OutputConstructor]

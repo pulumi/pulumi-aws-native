@@ -20,22 +20,52 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetApplicationArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: string;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: string;
 }
 
 export interface GetApplicationResult {
+    /**
+     * The resource ID of the API Gateway for the proxy.
+     */
     readonly apiGatewayId?: string;
+    /**
+     * The unique identifier of the application.
+     */
     readonly applicationIdentifier?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the application.
+     */
     readonly arn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Network Load Balancer .
+     */
     readonly nlbArn?: string;
+    /**
+     * The name of the Network Load Balancer configured by the API Gateway proxy.
+     */
     readonly nlbName?: string;
+    /**
+     * The endpoint URL of the Amazon API Gateway proxy.
+     */
     readonly proxyUrl?: string;
+    /**
+     * The name of the API Gateway stage. The name defaults to `prod` .
+     */
     readonly stageName?: string;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The `VpcLink` ID of the API Gateway proxy.
+     */
     readonly vpcLinkId?: string;
 }
 /**
@@ -46,6 +76,12 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: pulumi.Input<string>;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
 }

@@ -429,7 +429,9 @@ func (o CustomActionTypeSettingsPtrOutput) ThirdPartyConfigurationUrl() pulumi.S
 }
 
 type CustomActionTypeTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 

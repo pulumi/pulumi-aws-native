@@ -12,18 +12,43 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDateDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The date granularity of the `DateDimensionField` . Choose one of the following options:
+        /// 
+        /// - `YEAR`
+        /// - `QUARTER`
+        /// - `MONTH`
+        /// - `WEEK`
+        /// - `DAY`
+        /// - `HOUR`
+        /// - `MINUTE`
+        /// - `SECOND`
+        /// - `MILLISECOND`
+        /// </summary>
         [Input("dateGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTimeGranularity>? DateGranularity { get; set; }
 
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.DashboardDateTimeFormatConfigurationArgs>? FormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         [Input("hierarchyId")]
         public Input<string>? HierarchyId { get; set; }
 

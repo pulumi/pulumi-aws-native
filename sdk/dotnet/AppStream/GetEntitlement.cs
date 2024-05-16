@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetEntitlementArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the entitlement.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
         [Input("stackName", required: true)]
         public string StackName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetEntitlementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the entitlement.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;
 
@@ -57,10 +69,25 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetEntitlementResult
     {
+        /// <summary>
+        /// Specifies whether to entitle all apps or only selected apps.
+        /// </summary>
         public readonly string? AppVisibility;
+        /// <summary>
+        /// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EntitlementAttribute> Attributes;
+        /// <summary>
+        /// The time when the entitlement was created.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The description of the entitlement.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The time when the entitlement was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
 
         [OutputConstructor]

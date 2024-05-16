@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventSourceMappingArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The event source mapping's ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventSourceMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The event source mapping's ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -115,6 +121,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  Valid Values: ``ReportBatchItemFailures``
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem> FunctionResponseTypes;
+        /// <summary>
+        /// The event source mapping's ID.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

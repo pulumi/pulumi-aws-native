@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class GetCalculatedAttributeDefinitionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of an attribute defined in a profile object type.
+        /// </summary>
         [Input("calculatedAttributeName", required: true)]
         public string CalculatedAttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class GetCalculatedAttributeDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of an attribute defined in a profile object type.
+        /// </summary>
         [Input("calculatedAttributeName", required: true)]
         public Input<string> CalculatedAttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -57,19 +69,37 @@ namespace Pulumi.AwsNative.CustomerProfiles
     [OutputType]
     public sealed class GetCalculatedAttributeDefinitionResult
     {
+        /// <summary>
+        /// Mathematical expression and a list of attribute items specified in that expression.
+        /// </summary>
         public readonly Outputs.CalculatedAttributeDefinitionAttributeDetails? AttributeDetails;
+        /// <summary>
+        /// The conditions including range, object count, and threshold for the calculated attribute.
+        /// </summary>
         public readonly Outputs.CalculatedAttributeDefinitionConditions? Conditions;
         /// <summary>
         /// The timestamp of when the calculated attribute definition was created.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The description of the calculated attribute.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the calculated attribute.
+        /// </summary>
         public readonly string? DisplayName;
         /// <summary>
         /// The timestamp of when the calculated attribute definition was most recently edited.
         /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// The aggregation operation to perform for the calculated attribute.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? Statistic;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

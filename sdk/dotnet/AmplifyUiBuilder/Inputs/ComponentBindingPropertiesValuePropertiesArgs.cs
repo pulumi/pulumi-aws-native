@@ -12,32 +12,57 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentBindingPropertiesValuePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An Amazon S3 bucket.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// The default value to assign to the property.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
+        /// <summary>
+        /// The field to bind the data to.
+        /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
+        /// <summary>
+        /// The storage key for an Amazon S3 bucket.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// An Amplify DataStore model.
+        /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 
         [Input("predicates")]
         private InputList<Inputs.ComponentPredicateArgs>? _predicates;
+
+        /// <summary>
+        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// </summary>
         public InputList<Inputs.ComponentPredicateArgs> Predicates
         {
             get => _predicates ?? (_predicates = new InputList<Inputs.ComponentPredicateArgs>());
             set => _predicates = value;
         }
 
+        /// <summary>
+        /// The name of a component slot.
+        /// </summary>
         [Input("slotName")]
         public Input<string>? SlotName { get; set; }
 
+        /// <summary>
+        /// An authenticated user attribute.
+        /// </summary>
         [Input("userAttribute")]
         public Input<string>? UserAttribute { get; set; }
 

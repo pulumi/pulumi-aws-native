@@ -39,9 +39,15 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("ssoClientId")]
         public Output<string> SsoClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration of the encryption method that is used for the studio.
+        /// </summary>
         [Output("studioEncryptionConfiguration")]
         public Output<Outputs.StudioEncryptionConfiguration?> StudioEncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the studio resource.
+        /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
@@ -57,6 +63,11 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("studioUrl")]
         public Output<string> StudioUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -128,6 +139,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration of the encryption method that is used for the studio.
+        /// </summary>
         [Input("studioEncryptionConfiguration")]
         public Input<Inputs.StudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
 
@@ -139,6 +153,12 @@ namespace Pulumi.AwsNative.NimbleStudio
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

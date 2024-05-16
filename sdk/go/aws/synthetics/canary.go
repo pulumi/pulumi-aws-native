@@ -172,7 +172,8 @@ type Canary struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod pulumi.IntPtrOutput `pulumi:"successRetentionPeriod"`
-	Tags                   aws.TagArrayOutput  `pulumi:"tags"`
+	// The list of key-value pairs that are associated with the canary.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrOutput `pulumi:"visualReference"`
 	// Provide VPC Configuration if enabled.
@@ -261,8 +262,9 @@ type canaryArgs struct {
 	// Runs canary if set to True. Default is False
 	StartCanaryAfterCreation *bool `pulumi:"startCanaryAfterCreation"`
 	// Retention period of successful canary runs represented in number of days
-	SuccessRetentionPeriod *int      `pulumi:"successRetentionPeriod"`
-	Tags                   []aws.Tag `pulumi:"tags"`
+	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
+	// The list of key-value pairs that are associated with the canary.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Visual reference configuration for visual testing
 	VisualReference *CanaryVisualReference `pulumi:"visualReference"`
 	// Provide VPC Configuration if enabled.
@@ -295,7 +297,8 @@ type CanaryArgs struct {
 	StartCanaryAfterCreation pulumi.BoolPtrInput
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod pulumi.IntPtrInput
-	Tags                   aws.TagArrayInput
+	// The list of key-value pairs that are associated with the canary.
+	Tags aws.TagArrayInput
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrInput
 	// Provide VPC Configuration if enabled.
@@ -409,6 +412,7 @@ func (o CanaryOutput) SuccessRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Canary) pulumi.IntPtrOutput { return v.SuccessRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The list of key-value pairs that are associated with the canary.
 func (o CanaryOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Canary) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

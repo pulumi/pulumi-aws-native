@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.DataPipeline
         [Output("parameterValues")]
         public Output<ImmutableArray<Outputs.PipelineParameterValue>> ParameterValues { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the pipeline.
+        /// </summary>
         [Output("pipelineId")]
         public Output<string> PipelineId { get; private set; } = null!;
 

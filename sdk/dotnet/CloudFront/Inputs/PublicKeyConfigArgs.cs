@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class PublicKeyConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string included in the request to help make sure that the request can't be replayed.
+        /// </summary>
         [Input("callerReference", required: true)]
         public Input<string> CallerReference { get; set; } = null!;
 
+        /// <summary>
+        /// A comment to describe the public key. The comment cannot be longer than 128 characters.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        /// </summary>
         [Input("encodedKey", required: true)]
         public Input<string> EncodedKey { get; set; } = null!;
 
+        /// <summary>
+        /// A name to help identify the public key.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

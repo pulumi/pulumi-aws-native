@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Timestream
     [OutputType]
     public sealed class GetTableResult
     {
+        /// <summary>
+        /// The `arn` of the table.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The properties that determine whether magnetic store writes are enabled.

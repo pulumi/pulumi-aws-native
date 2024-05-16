@@ -24,22 +24,35 @@ func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, o
 }
 
 type LookupNetworkProfileArgs struct {
+	// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupNetworkProfileResult struct {
-	Arn                   *string   `pulumi:"arn"`
-	Description           *string   `pulumi:"description"`
-	DownlinkBandwidthBits *int      `pulumi:"downlinkBandwidthBits"`
-	DownlinkDelayMs       *int      `pulumi:"downlinkDelayMs"`
-	DownlinkJitterMs      *int      `pulumi:"downlinkJitterMs"`
-	DownlinkLossPercent   *int      `pulumi:"downlinkLossPercent"`
-	Name                  *string   `pulumi:"name"`
-	Tags                  []aws.Tag `pulumi:"tags"`
-	UplinkBandwidthBits   *int      `pulumi:"uplinkBandwidthBits"`
-	UplinkDelayMs         *int      `pulumi:"uplinkDelayMs"`
-	UplinkJitterMs        *int      `pulumi:"uplinkJitterMs"`
-	UplinkLossPercent     *int      `pulumi:"uplinkLossPercent"`
+	// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn *string `pulumi:"arn"`
+	// The description of the network profile.
+	Description *string `pulumi:"description"`
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	DownlinkBandwidthBits *int `pulumi:"downlinkBandwidthBits"`
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	DownlinkDelayMs *int `pulumi:"downlinkDelayMs"`
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	DownlinkJitterMs *int `pulumi:"downlinkJitterMs"`
+	// Proportion of received packets that fail to arrive from 0 to 100 percent.
+	DownlinkLossPercent *int `pulumi:"downlinkLossPercent"`
+	// The name of the network profile.
+	Name *string `pulumi:"name"`
+	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	UplinkBandwidthBits *int `pulumi:"uplinkBandwidthBits"`
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	UplinkDelayMs *int `pulumi:"uplinkDelayMs"`
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	UplinkJitterMs *int `pulumi:"uplinkJitterMs"`
+	// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+	UplinkLossPercent *int `pulumi:"uplinkLossPercent"`
 }
 
 func LookupNetworkProfileOutput(ctx *pulumi.Context, args LookupNetworkProfileOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkProfileResultOutput {
@@ -56,6 +69,7 @@ func LookupNetworkProfileOutput(ctx *pulumi.Context, args LookupNetworkProfileOu
 }
 
 type LookupNetworkProfileOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -77,50 +91,62 @@ func (o LookupNetworkProfileResultOutput) ToLookupNetworkProfileResultOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o LookupNetworkProfileResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The description of the network profile.
 func (o LookupNetworkProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 func (o LookupNetworkProfileResultOutput) DownlinkBandwidthBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.DownlinkBandwidthBits }).(pulumi.IntPtrOutput)
 }
 
+// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 func (o LookupNetworkProfileResultOutput) DownlinkDelayMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.DownlinkDelayMs }).(pulumi.IntPtrOutput)
 }
 
+// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 func (o LookupNetworkProfileResultOutput) DownlinkJitterMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.DownlinkJitterMs }).(pulumi.IntPtrOutput)
 }
 
+// Proportion of received packets that fail to arrive from 0 to 100 percent.
 func (o LookupNetworkProfileResultOutput) DownlinkLossPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.DownlinkLossPercent }).(pulumi.IntPtrOutput)
 }
 
+// The name of the network profile.
 func (o LookupNetworkProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o LookupNetworkProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 func (o LookupNetworkProfileResultOutput) UplinkBandwidthBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.UplinkBandwidthBits }).(pulumi.IntPtrOutput)
 }
 
+// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 func (o LookupNetworkProfileResultOutput) UplinkDelayMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.UplinkDelayMs }).(pulumi.IntPtrOutput)
 }
 
+// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 func (o LookupNetworkProfileResultOutput) UplinkJitterMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.UplinkJitterMs }).(pulumi.IntPtrOutput)
 }
 
+// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
 func (o LookupNetworkProfileResultOutput) UplinkLossPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *int { return v.UplinkLossPercent }).(pulumi.IntPtrOutput)
 }

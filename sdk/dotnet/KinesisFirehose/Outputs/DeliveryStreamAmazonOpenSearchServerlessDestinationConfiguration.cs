@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration
     {
+        /// <summary>
+        /// Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
+        /// </summary>
         public readonly Outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints? BufferingHints;
+        /// <summary>
+        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
+        /// <summary>
+        /// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+        /// </summary>
         public readonly string? CollectionEndpoint;
+        /// <summary>
+        /// The Serverless offering for Amazon OpenSearch Service index name.
+        /// </summary>
         public readonly string IndexName;
+        /// <summary>
+        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+        /// </summary>
         public readonly Outputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptions? RetryOptions;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode? S3BackupMode;
+        /// <summary>
+        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The details of the VPC of the Amazon ES destination.
+        /// </summary>
         public readonly Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

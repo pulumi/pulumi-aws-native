@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class NetworkInterfaceAttachmentEnaSrdSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether ENA Express is enabled for the network interface.
+        /// </summary>
         [Input("enaSrdEnabled")]
         public Input<bool>? EnaSrdEnabled { get; set; }
 
+        /// <summary>
+        /// Configures ENA Express for UDP network traffic.
+        /// </summary>
         [Input("enaSrdUdpSpecification")]
         public Input<Inputs.NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs>? EnaSrdUdpSpecification { get; set; }
 

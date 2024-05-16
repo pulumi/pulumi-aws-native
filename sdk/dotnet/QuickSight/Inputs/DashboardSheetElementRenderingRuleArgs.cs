@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSheetElementRenderingRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The override configuration of the rendering rules of a sheet.
+        /// </summary>
         [Input("configurationOverrides", required: true)]
         public Input<Inputs.DashboardSheetElementConfigurationOverridesArgs> ConfigurationOverrides { get; set; } = null!;
 
+        /// <summary>
+        /// The expression of the rendering rules of a sheet.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

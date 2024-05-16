@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigDataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+        /// </summary>
         [Input("antennaDownlinkConfig")]
         public Input<Inputs.ConfigAntennaDownlinkConfigArgs>? AntennaDownlinkConfig { get; set; }
 
+        /// <summary>
+        /// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+        /// </summary>
         [Input("antennaDownlinkDemodDecodeConfig")]
         public Input<Inputs.ConfigAntennaDownlinkDemodDecodeConfigArgs>? AntennaDownlinkDemodDecodeConfig { get; set; }
 
+        /// <summary>
+        /// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+        /// </summary>
         [Input("antennaUplinkConfig")]
         public Input<Inputs.ConfigAntennaUplinkConfigArgs>? AntennaUplinkConfig { get; set; }
 
+        /// <summary>
+        /// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+        /// </summary>
         [Input("dataflowEndpointConfig")]
         public Input<Inputs.ConfigDataflowEndpointConfigArgs>? DataflowEndpointConfig { get; set; }
 
+        /// <summary>
+        /// Provides information about how AWS Ground Station should save downlink data to S3.
+        /// </summary>
         [Input("s3RecordingConfig")]
         public Input<Inputs.ConfigS3RecordingConfigArgs>? S3RecordingConfig { get; set; }
 
+        /// <summary>
+        /// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+        /// </summary>
         [Input("trackingConfig")]
         public Input<Inputs.ConfigTrackingConfigArgs>? TrackingConfig { get; set; }
 
+        /// <summary>
+        /// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+        /// </summary>
         [Input("uplinkEchoConfig")]
         public Input<Inputs.ConfigUplinkEchoConfigArgs>? UplinkEchoConfig { get; set; }
 

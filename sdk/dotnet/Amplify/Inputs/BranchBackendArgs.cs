@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Amplify.Inputs
 
     public sealed class BranchBackendArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+        /// </summary>
         [Input("stackArn")]
         public Input<string>? StackArn { get; set; }
 

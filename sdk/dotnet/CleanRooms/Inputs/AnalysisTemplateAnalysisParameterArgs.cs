@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class AnalysisTemplateAnalysisParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
+        /// <summary>
+        /// The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of parameter.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.AnalysisTemplateAnalysisParameterType> Type { get; set; } = null!;
 

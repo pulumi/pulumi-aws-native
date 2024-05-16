@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleKinesisParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The JSON path to be extracted from the event and used as the partition key. For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
+        /// </summary>
         [Input("partitionKeyPath", required: true)]
         public Input<string> PartitionKeyPath { get; set; } = null!;
 

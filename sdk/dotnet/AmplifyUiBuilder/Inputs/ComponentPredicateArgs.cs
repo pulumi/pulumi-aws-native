@@ -14,26 +14,46 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     {
         [Input("and")]
         private InputList<Inputs.ComponentPredicateArgs>? _and;
+
+        /// <summary>
+        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// </summary>
         public InputList<Inputs.ComponentPredicateArgs> And
         {
             get => _and ?? (_and = new InputList<Inputs.ComponentPredicateArgs>());
             set => _and = value;
         }
 
+        /// <summary>
+        /// The field to query.
+        /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
+        /// <summary>
+        /// The value to use when performing the evaluation.
+        /// </summary>
         [Input("operand")]
         public Input<string>? Operand { get; set; }
 
+        /// <summary>
+        /// The type of value to use when performing the evaluation.
+        /// </summary>
         [Input("operandType")]
         public Input<string>? OperandType { get; set; }
 
+        /// <summary>
+        /// The operator to use to perform the evaluation.
+        /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }
 
         [Input("or")]
         private InputList<Inputs.ComponentPredicateArgs>? _or;
+
+        /// <summary>
+        /// A list of predicates to combine logically.
+        /// </summary>
         public InputList<Inputs.ComponentPredicateArgs> Or
         {
             get => _or ?? (_or = new InputList<Inputs.ComponentPredicateArgs>());

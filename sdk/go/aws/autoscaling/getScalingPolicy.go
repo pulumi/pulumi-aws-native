@@ -39,8 +39,9 @@ type LookupScalingPolicyResult struct {
 	// The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
 	MetricAggregationType *string `pulumi:"metricAggregationType"`
 	// The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
-	MinAdjustmentMagnitude *int    `pulumi:"minAdjustmentMagnitude"`
-	PolicyName             *string `pulumi:"policyName"`
+	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
+	// Returns the name of a scaling policy.
+	PolicyName *string `pulumi:"policyName"`
 	// One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
 	PolicyType *string `pulumi:"policyType"`
 	// A predictive scaling policy. Includes support for predefined metrics only.
@@ -119,6 +120,7 @@ func (o LookupScalingPolicyResultOutput) MinAdjustmentMagnitude() pulumi.IntPtrO
 	return o.ApplyT(func(v LookupScalingPolicyResult) *int { return v.MinAdjustmentMagnitude }).(pulumi.IntPtrOutput)
 }
 
+// Returns the name of a scaling policy.
 func (o LookupScalingPolicyResultOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScalingPolicyResult) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }

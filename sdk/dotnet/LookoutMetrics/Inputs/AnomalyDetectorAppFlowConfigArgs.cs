@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorAppFlowConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// name of the flow.
+        /// </summary>
         [Input("flowName", required: true)]
         public Input<string> FlowName { get; set; } = null!;
 
+        /// <summary>
+        /// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

@@ -21,6 +21,11 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         [Input("maximumWindowInMinutes")]
         public Input<double>? MaximumWindowInMinutes { get; set; }
 
+        /// <summary>
+        /// Determines whether the schedule is invoked within a flexible time window. You must use quotation marks when you specify this value in your JSON or YAML template.
+        /// 
+        /// *Allowed Values* : `"OFF"` | `"FLEXIBLE"`
+        /// </summary>
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Scheduler.ScheduleFlexibleTimeWindowMode> Mode { get; set; } = null!;
 

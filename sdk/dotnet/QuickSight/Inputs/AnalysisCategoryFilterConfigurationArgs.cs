@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCategoryFilterConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A custom filter that filters based on a single value. This filter can be partially matched.
+        /// </summary>
         [Input("customFilterConfiguration")]
         public Input<Inputs.AnalysisCustomFilterConfigurationArgs>? CustomFilterConfiguration { get; set; }
 
+        /// <summary>
+        /// A list of custom filter values.
+        /// </summary>
         [Input("customFilterListConfiguration")]
         public Input<Inputs.AnalysisCustomFilterListConfigurationArgs>? CustomFilterListConfiguration { get; set; }
 
+        /// <summary>
+        /// A list of filter configurations.
+        /// </summary>
         [Input("filterListConfiguration")]
         public Input<Inputs.AnalysisFilterListConfigurationArgs>? FilterListConfiguration { get; set; }
 

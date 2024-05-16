@@ -15,9 +15,21 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// </summary>
     public sealed class AssessmentRoleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The type of customer persona.
+        /// 
+        /// &gt; In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+        /// &gt; 
+        /// &gt; In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+        /// &gt; 
+        /// &gt; In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        /// </summary>
         [Input("roleType")]
         public Input<Pulumi.AwsNative.AuditManager.AssessmentRoleType>? RoleType { get; set; }
 

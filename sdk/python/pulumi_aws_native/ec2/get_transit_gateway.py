@@ -60,46 +60,73 @@ class GetTransitGatewayResult:
     @property
     @pulumi.getter(name="associationDefaultRouteTableId")
     def association_default_route_table_id(self) -> Optional[str]:
+        """
+        The ID of the default association route table.
+        """
         return pulumi.get(self, "association_default_route_table_id")
 
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
     def auto_accept_shared_attachments(self) -> Optional[str]:
+        """
+        Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        """
         return pulumi.get(self, "auto_accept_shared_attachments")
 
     @property
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> Optional[str]:
+        """
+        Enable or disable automatic association with the default association route table. Enabled by default.
+        """
         return pulumi.get(self, "default_route_table_association")
 
     @property
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> Optional[str]:
+        """
+        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        """
         return pulumi.get(self, "default_route_table_propagation")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the transit gateway.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> Optional[str]:
+        """
+        Enable or disable DNS support. Enabled by default.
+        """
         return pulumi.get(self, "dns_support")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="propagationDefaultRouteTableId")
     def propagation_default_route_table_id(self) -> Optional[str]:
+        """
+        The ID of the default propagation route table.
+        """
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -110,11 +137,17 @@ class GetTransitGatewayResult:
     @property
     @pulumi.getter(name="transitGatewayCidrBlocks")
     def transit_gateway_cidr_blocks(self) -> Optional[Sequence[str]]:
+        """
+        The transit gateway CIDR blocks.
+        """
         return pulumi.get(self, "transit_gateway_cidr_blocks")
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
     def vpn_ecmp_support(self) -> Optional[str]:
+        """
+        Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+        """
         return pulumi.get(self, "vpn_ecmp_support")
 
 
@@ -142,6 +175,9 @@ def get_transit_gateway(id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayResult:
     """
     Resource Type definition for AWS::EC2::TransitGateway
+
+
+    :param str id: The ID of the transit gateway.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -168,5 +204,8 @@ def get_transit_gateway_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayResult]:
     """
     Resource Type definition for AWS::EC2::TransitGateway
+
+
+    :param str id: The ID of the transit gateway.
     """
     ...

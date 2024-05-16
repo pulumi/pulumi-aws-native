@@ -12,35 +12,63 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentActionParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("anchor")]
         public Input<Inputs.ComponentPropertyArgs>? Anchor { get; set; }
 
         [Input("fields")]
         private InputMap<Inputs.ComponentPropertyArgs>? _fields;
+
+        /// <summary>
+        /// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+        /// </summary>
         public InputMap<Inputs.ComponentPropertyArgs> Fields
         {
             get => _fields ?? (_fields = new InputMap<Inputs.ComponentPropertyArgs>());
             set => _fields = value;
         }
 
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("global")]
         public Input<Inputs.ComponentPropertyArgs>? Global { get; set; }
 
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("id")]
         public Input<Inputs.ComponentPropertyArgs>? Id { get; set; }
 
+        /// <summary>
+        /// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+        /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 
+        /// <summary>
+        /// Represents the state configuration when an action modifies a property of another element within the same component.
+        /// </summary>
         [Input("state")]
         public Input<Inputs.ComponentMutationActionSetStateParameterArgs>? State { get; set; }
 
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("target")]
         public Input<Inputs.ComponentPropertyArgs>? Target { get; set; }
 
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("type")]
         public Input<Inputs.ComponentPropertyArgs>? Type { get; set; }
 
+        /// <summary>
+        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// </summary>
         [Input("url")]
         public Input<Inputs.ComponentPropertyArgs>? Url { get; set; }
 

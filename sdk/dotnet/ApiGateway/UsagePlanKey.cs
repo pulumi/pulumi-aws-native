@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:UsagePlanKey")]
     public partial class UsagePlanKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID for the usage plan key. For example: `abc123` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

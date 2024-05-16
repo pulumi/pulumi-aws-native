@@ -19,15 +19,24 @@ export function getTransitGatewayVpcAttachment(args: GetTransitGatewayVpcAttachm
 }
 
 export interface GetTransitGatewayVpcAttachmentArgs {
+    /**
+     * The ID of the attachment.
+     */
     id: string;
 }
 
 export interface GetTransitGatewayVpcAttachmentResult {
+    /**
+     * The ID of the attachment.
+     */
     readonly id?: string;
     /**
      * The options for the transit gateway vpc attachment.
      */
     readonly options?: outputs.ec2.OptionsProperties;
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +47,8 @@ export function getTransitGatewayVpcAttachmentOutput(args: GetTransitGatewayVpcA
 }
 
 export interface GetTransitGatewayVpcAttachmentOutputArgs {
+    /**
+     * The ID of the attachment.
+     */
     id: pulumi.Input<string>;
 }

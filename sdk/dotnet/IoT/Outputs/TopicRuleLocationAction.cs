@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleLocationAction
     {
+        /// <summary>
+        /// The unique ID of the device providing the location data.
+        /// </summary>
         public readonly string DeviceId;
+        /// <summary>
+        /// A string that evaluates to a double value that represents the latitude of the device's location.
+        /// </summary>
         public readonly string Latitude;
+        /// <summary>
+        /// A string that evaluates to a double value that represents the longitude of the device's location.
+        /// </summary>
         public readonly string Longitude;
+        /// <summary>
+        /// The IAM role that grants permission to write to the Amazon Location resource.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+        /// </summary>
         public readonly Outputs.TopicRuleTimestamp? Timestamp;
+        /// <summary>
+        /// The name of the tracker resource in Amazon Location in which the location is updated.
+        /// </summary>
         public readonly string TrackerName;
 
         [OutputConstructor]

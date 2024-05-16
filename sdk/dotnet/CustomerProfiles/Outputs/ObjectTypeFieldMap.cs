@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class ObjectTypeFieldMap
     {
+        /// <summary>
+        /// Name of the field.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Represents a field in a ProfileObjectType.
+        /// </summary>
         public readonly Outputs.ObjectTypeField? ObjectTypeField;
 
         [OutputConstructor]

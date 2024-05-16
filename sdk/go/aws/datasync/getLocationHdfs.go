@@ -44,7 +44,8 @@ type LookupLocationHdfsResult struct {
 	// The URL of the HDFS location that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of Name Node(s) of the HDFS location.
-	NameNodes        []LocationHdfsNameNode        `pulumi:"nameNodes"`
+	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
 	// Number of copies of each block that exists inside the HDFS cluster.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -130,6 +131,7 @@ func (o LookupLocationHdfsResultOutput) NameNodes() LocationHdfsNameNodeArrayOut
 	return o.ApplyT(func(v LookupLocationHdfsResult) []LocationHdfsNameNode { return v.NameNodes }).(LocationHdfsNameNodeArrayOutput)
 }
 
+// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 func (o LookupLocationHdfsResultOutput) QopConfiguration() LocationHdfsQopConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLocationHdfsResult) *LocationHdfsQopConfiguration { return v.QopConfiguration }).(LocationHdfsQopConfigurationPtrOutput)
 }

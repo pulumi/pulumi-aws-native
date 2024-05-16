@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Output("healthCheckIntervalSeconds")]
         public Output<int?> HealthCheckIntervalSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        /// </summary>
         [Output("healthCheckPath")]
         public Output<string?> HealthCheckPath { get; private set; } = null!;
 
@@ -60,6 +63,11 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
+        /// 
+        /// For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        /// </summary>
         [Output("portOverrides")]
         public Output<ImmutableArray<Outputs.EndpointGroupPortOverride>> PortOverrides { get; private set; } = null!;
 
@@ -149,6 +157,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Input("healthCheckIntervalSeconds")]
         public Input<int>? HealthCheckIntervalSeconds { get; set; }
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
@@ -172,6 +183,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
         [Input("portOverrides")]
         private InputList<Inputs.EndpointGroupPortOverrideArgs>? _portOverrides;
+
+        /// <summary>
+        /// Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
+        /// 
+        /// For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        /// </summary>
         public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
         {
             get => _portOverrides ?? (_portOverrides = new InputList<Inputs.EndpointGroupPortOverrideArgs>());

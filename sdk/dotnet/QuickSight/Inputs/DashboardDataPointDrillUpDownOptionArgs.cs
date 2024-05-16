@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardDataPointDrillUpDownOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of the drill down options of data points.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 

@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Outputs
 {
 
+    /// <summary>
+    /// Allows you to create the criteria to retry a job.
+    /// </summary>
     [OutputType]
     public sealed class JobExecutionsRetryConfigProperties
     {
+        /// <summary>
+        /// The criteria that determines how many retries are allowed for each failure type for a job.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateRetryCriteria> RetryCriteriaList;
 
         [OutputConstructor]

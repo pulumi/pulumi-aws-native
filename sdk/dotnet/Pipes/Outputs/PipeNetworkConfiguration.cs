@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeNetworkConfiguration
     {
+        /// <summary>
+        /// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+        /// </summary>
         public readonly Outputs.PipeAwsVpcConfiguration? AwsvpcConfiguration;
 
         [OutputConstructor]

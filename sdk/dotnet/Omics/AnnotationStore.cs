@@ -15,45 +15,87 @@ namespace Pulumi.AwsNative.Omics
     [AwsNativeResourceType("aws-native:omics:AnnotationStore")]
     public partial class AnnotationStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// When the store was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the store.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Annotation Store.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A genome reference.
+        /// </summary>
         [Output("reference")]
         public Output<Outputs.AnnotationStoreReferenceItem?> Reference { get; private set; } = null!;
 
+        /// <summary>
+        /// Server-side encryption (SSE) settings for a store.
+        /// </summary>
         [Output("sseConfig")]
         public Output<Outputs.AnnotationStoreSseConfig?> SseConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Omics.AnnotationStoreStoreStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's status message.
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's ARN.
+        /// </summary>
         [Output("storeArn")]
         public Output<string> StoreArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The annotation file format of the store.
+        /// </summary>
         [Output("storeFormat")]
         public Output<Pulumi.AwsNative.Omics.AnnotationStoreStoreFormat> StoreFormat { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's file parsing options.
+        /// </summary>
         [Output("storeOptions")]
         public Output<Outputs.AnnotationStoreStoreOptionsProperties?> StoreOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's size in bytes.
+        /// </summary>
         [Output("storeSizeBytes")]
         public Output<double> StoreSizeBytes { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the store.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// When the store was updated.
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -111,26 +153,48 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class AnnotationStoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the store.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the Annotation Store.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A genome reference.
+        /// </summary>
         [Input("reference")]
         public Input<Inputs.AnnotationStoreReferenceItemArgs>? Reference { get; set; }
 
+        /// <summary>
+        /// Server-side encryption (SSE) settings for a store.
+        /// </summary>
         [Input("sseConfig")]
         public Input<Inputs.AnnotationStoreSseConfigArgs>? SseConfig { get; set; }
 
+        /// <summary>
+        /// The annotation file format of the store.
+        /// </summary>
         [Input("storeFormat", required: true)]
         public Input<Pulumi.AwsNative.Omics.AnnotationStoreStoreFormat> StoreFormat { get; set; } = null!;
 
+        /// <summary>
+        /// The store's file parsing options.
+        /// </summary>
         [Input("storeOptions")]
         public Input<Inputs.AnnotationStoreStoreOptionsPropertiesArgs>? StoreOptions { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags for the store.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

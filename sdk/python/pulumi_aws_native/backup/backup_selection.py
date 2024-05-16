@@ -20,6 +20,8 @@ class BackupSelectionArgs:
                  backup_selection: pulumi.Input['BackupSelectionResourceTypeArgs']):
         """
         The set of arguments for constructing a BackupSelection resource.
+        :param pulumi.Input[str] backup_plan_id: Uniquely identifies a backup plan.
+        :param pulumi.Input['BackupSelectionResourceTypeArgs'] backup_selection: Specifies an object containing properties used to assign a set of resources to a backup plan.
         """
         pulumi.set(__self__, "backup_plan_id", backup_plan_id)
         pulumi.set(__self__, "backup_selection", backup_selection)
@@ -27,6 +29,9 @@ class BackupSelectionArgs:
     @property
     @pulumi.getter(name="backupPlanId")
     def backup_plan_id(self) -> pulumi.Input[str]:
+        """
+        Uniquely identifies a backup plan.
+        """
         return pulumi.get(self, "backup_plan_id")
 
     @backup_plan_id.setter
@@ -36,6 +41,9 @@ class BackupSelectionArgs:
     @property
     @pulumi.getter(name="backupSelection")
     def backup_selection(self) -> pulumi.Input['BackupSelectionResourceTypeArgs']:
+        """
+        Specifies an object containing properties used to assign a set of resources to a backup plan.
+        """
         return pulumi.get(self, "backup_selection")
 
     @backup_selection.setter
@@ -56,6 +64,8 @@ class BackupSelection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backup_plan_id: Uniquely identifies a backup plan.
+        :param pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']] backup_selection: Specifies an object containing properties used to assign a set of resources to a backup plan.
         """
         ...
     @overload
@@ -133,20 +143,32 @@ class BackupSelection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        Uniquely identifies the backup selection.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="backupPlanId")
     def backup_plan_id(self) -> pulumi.Output[str]:
+        """
+        Uniquely identifies a backup plan.
+        """
         return pulumi.get(self, "backup_plan_id")
 
     @property
     @pulumi.getter(name="backupSelection")
     def backup_selection(self) -> pulumi.Output['outputs.BackupSelectionResourceType']:
+        """
+        Specifies an object containing properties used to assign a set of resources to a backup plan.
+        """
         return pulumi.get(self, "backup_selection")
 
     @property
     @pulumi.getter(name="selectionId")
     def selection_id(self) -> pulumi.Output[str]:
+        """
+        Uniquely identifies a request to assign a set of resources to a backup plan.
+        """
         return pulumi.get(self, "selection_id")
 

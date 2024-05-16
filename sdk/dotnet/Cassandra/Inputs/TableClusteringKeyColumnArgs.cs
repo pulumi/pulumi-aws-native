@@ -12,9 +12,21 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
 
     public sealed class TableClusteringKeyColumnArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
+        /// 
+        /// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
+        /// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TableColumnArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The order in which this column's data is stored:
+        /// 
+        /// - `ASC` (default) - The column's data is stored in ascending order.
+        /// - `DESC` - The column's data is stored in descending order.
+        /// </summary>
         [Input("orderBy")]
         public Input<Pulumi.AwsNative.Cassandra.TableClusteringKeyColumnOrderBy>? OrderBy { get; set; }
 

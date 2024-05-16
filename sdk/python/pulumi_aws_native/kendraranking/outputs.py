@@ -34,11 +34,21 @@ class ExecutionPlanCapacityUnitsConfiguration(dict):
 
     def __init__(__self__, *,
                  rescore_capacity_units: int):
+        """
+        :param int rescore_capacity_units: The amount of extra capacity for your rescore execution plan.
+               
+               A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
+        """
         pulumi.set(__self__, "rescore_capacity_units", rescore_capacity_units)
 
     @property
     @pulumi.getter(name="rescoreCapacityUnits")
     def rescore_capacity_units(self) -> int:
+        """
+        The amount of extra capacity for your rescore execution plan.
+
+        A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
+        """
         return pulumi.get(self, "rescore_capacity_units")
 
 

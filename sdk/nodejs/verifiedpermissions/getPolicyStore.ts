@@ -19,14 +19,32 @@ export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetPolicyStoreArgs {
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     policyStoreId: string;
 }
 
 export interface GetPolicyStoreResult {
+    /**
+     * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+     */
     readonly arn?: string;
+    /**
+     * Descriptive text that you can provide to help with identification of the current policy store.
+     */
     readonly description?: string;
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     readonly policyStoreId?: string;
+    /**
+     * Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+     */
     readonly schema?: outputs.verifiedpermissions.PolicyStoreSchemaDefinition;
+    /**
+     * A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+     */
     readonly validationSettings?: outputs.verifiedpermissions.PolicyStoreValidationSettings;
 }
 /**
@@ -37,5 +55,8 @@ export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulu
 }
 
 export interface GetPolicyStoreOutputArgs {
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     policyStoreId: pulumi.Input<string>;
 }

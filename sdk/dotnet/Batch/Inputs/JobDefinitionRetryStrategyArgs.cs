@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionRetryStrategyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to move a job to the `RUNNABLE` status. You can specify between 1 and 10 attempts. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
+        /// </summary>
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
 
         [Input("evaluateOnExit")]
         private InputList<Inputs.JobDefinitionEvaluateOnExitArgs>? _evaluateOnExit;
+
+        /// <summary>
+        /// Specifies an array of up to 5 conditions to be met, and an action to take ( `RETRY` or `EXIT` ) if all conditions are met. If none of the `EvaluateOnExit` conditions in a `RetryStrategy` match, then the job is retried.
+        /// </summary>
         public InputList<Inputs.JobDefinitionEvaluateOnExitArgs> EvaluateOnExit
         {
             get => _evaluateOnExit ?? (_evaluateOnExit = new InputList<Inputs.JobDefinitionEvaluateOnExitArgs>());

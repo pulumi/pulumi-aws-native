@@ -35,8 +35,9 @@ type Endpoint struct {
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
 	// The ID of the security group to use with the endpoint.
-	SecurityGroupId pulumi.StringOutput  `pulumi:"securityGroupId"`
-	Status          EndpointStatusOutput `pulumi:"status"`
+	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+	// The status of the endpoint.
+	Status EndpointStatusOutput `pulumi:"status"`
 	// The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
@@ -215,6 +216,7 @@ func (o EndpointOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
+// The status of the endpoint.
 func (o EndpointOutput) Status() EndpointStatusOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointStatusOutput { return v.Status }).(EndpointStatusOutput)
 }

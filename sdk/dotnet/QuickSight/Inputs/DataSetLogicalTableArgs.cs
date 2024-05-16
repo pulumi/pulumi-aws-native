@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _dataTransforms = value;
         }
 
+        /// <summary>
+        /// Information about the source of a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetLogicalTableSourceArgs> Source { get; set; } = null!;
 

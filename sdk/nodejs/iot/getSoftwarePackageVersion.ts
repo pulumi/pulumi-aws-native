@@ -27,8 +27,17 @@ export interface GetSoftwarePackageVersionArgs {
 export interface GetSoftwarePackageVersionResult {
     readonly attributes?: {[key: string]: string};
     readonly description?: string;
+    /**
+     * Error reason for a package version failure during creation or update.
+     */
     readonly errorReason?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the package.
+     */
     readonly packageVersionArn?: string;
+    /**
+     * The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+     */
     readonly status?: enums.iot.SoftwarePackageVersionPackageVersionStatus;
     /**
      * An array of key-value pairs to apply to this resource.

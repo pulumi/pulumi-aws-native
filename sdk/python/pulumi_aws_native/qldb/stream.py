@@ -27,6 +27,22 @@ class StreamArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
+        :param pulumi.Input[str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+               
+               The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
+               
+               If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
+        :param pulumi.Input['StreamKinesisConfigurationArgs'] kinesis_configuration: The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        :param pulumi.Input[str] ledger_name: The name of the ledger.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+               
+               To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
+        :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+               
+               The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+               
+               Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "inclusive_start_time", inclusive_start_time)
@@ -43,6 +59,13 @@ class StreamArgs:
     @property
     @pulumi.getter(name="inclusiveStartTime")
     def inclusive_start_time(self) -> pulumi.Input[str]:
+        """
+        The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+
+        The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
+
+        If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
+        """
         return pulumi.get(self, "inclusive_start_time")
 
     @inclusive_start_time.setter
@@ -52,6 +75,9 @@ class StreamArgs:
     @property
     @pulumi.getter(name="kinesisConfiguration")
     def kinesis_configuration(self) -> pulumi.Input['StreamKinesisConfigurationArgs']:
+        """
+        The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        """
         return pulumi.get(self, "kinesis_configuration")
 
     @kinesis_configuration.setter
@@ -61,6 +87,9 @@ class StreamArgs:
     @property
     @pulumi.getter(name="ledgerName")
     def ledger_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ledger.
+        """
         return pulumi.get(self, "ledger_name")
 
     @ledger_name.setter
@@ -70,6 +99,11 @@ class StreamArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+
+        To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -79,6 +113,11 @@ class StreamArgs:
     @property
     @pulumi.getter(name="exclusiveEndTime")
     def exclusive_end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+
+        The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        """
         return pulumi.get(self, "exclusive_end_time")
 
     @exclusive_end_time.setter
@@ -88,6 +127,11 @@ class StreamArgs:
     @property
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+
+        Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
+        """
         return pulumi.get(self, "stream_name")
 
     @stream_name.setter
@@ -171,6 +215,22 @@ class Stream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+               
+               The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        :param pulumi.Input[str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+               
+               The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
+               
+               If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
+        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        :param pulumi.Input[str] ledger_name: The name of the ledger.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+               
+               To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
+        :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+               
+               Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -314,41 +374,75 @@ class Stream(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="exclusiveEndTime")
     def exclusive_end_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+
+        The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        """
         return pulumi.get(self, "exclusive_end_time")
 
     @property
     @pulumi.getter(name="inclusiveStartTime")
     def inclusive_start_time(self) -> pulumi.Output[str]:
+        """
+        The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+
+        The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
+
+        If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
+        """
         return pulumi.get(self, "inclusive_start_time")
 
     @property
     @pulumi.getter(name="kinesisConfiguration")
     def kinesis_configuration(self) -> pulumi.Output['outputs.StreamKinesisConfiguration']:
+        """
+        The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        """
         return pulumi.get(self, "kinesis_configuration")
 
     @property
     @pulumi.getter(name="ledgerName")
     def ledger_name(self) -> pulumi.Output[str]:
+        """
+        The name of the ledger.
+        """
         return pulumi.get(self, "ledger_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+
+        To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Output[str]:
+        """
+        The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+
+        Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
+        """
         return pulumi.get(self, "stream_name")
 
     @property

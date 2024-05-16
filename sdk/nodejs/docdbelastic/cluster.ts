@@ -37,21 +37,98 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The name of the Amazon DocumentDB elastic clusters administrator.
+     *
+     * *Constraints* :
+     *
+     * - Must be from 1 to 63 letters or numbers.
+     * - The first character must be a letter.
+     * - Cannot be a reserved word.
+     */
     public readonly adminUserName!: pulumi.Output<string>;
+    /**
+     * The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+     *
+     * *Constraints* :
+     *
+     * - Must contain from 8 to 100 characters.
+     * - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+     * - A valid `AdminUserName` entry is also required.
+     */
     public readonly adminUserPassword!: pulumi.Output<string | undefined>;
+    /**
+     * The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+     */
     public readonly authType!: pulumi.Output<string>;
+    /**
+     * The number of days for which automatic snapshots are retained.
+     */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     public /*out*/ readonly clusterArn!: pulumi.Output<string>;
+    /**
+     * The URL used to connect to the elastic cluster.
+     */
     public /*out*/ readonly clusterEndpoint!: pulumi.Output<string>;
+    /**
+     * The name of the new elastic cluster. This parameter is stored as a lowercase string.
+     *
+     * *Constraints* :
+     *
+     * - Must contain from 1 to 63 letters, numbers, or hyphens.
+     * - The first character must be a letter.
+     * - Cannot end with a hyphen or contain two consecutive hyphens.
+     *
+     * *Example* : `my-cluster`
+     */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * The KMS key identifier to use to encrypt the new elastic cluster.
+     *
+     * The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+     *
+     * If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+     */
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
+    /**
+     * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     *
+     * *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+     *
+     * *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+     *
+     * *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+     *
+     * *Constraints* : Minimum 30-minute window.
+     */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    /**
+     * The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+     */
     public readonly shardCapacity!: pulumi.Output<number>;
+    /**
+     * The number of shards assigned to the elastic cluster. Maximum is 32.
+     */
     public readonly shardCount!: pulumi.Output<number>;
+    /**
+     * The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+     */
     public readonly shardInstanceCount!: pulumi.Output<number | undefined>;
+    /**
+     * The Amazon EC2 subnet IDs for the new elastic cluster.
+     */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The tags to be assigned to the new elastic cluster.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * A list of EC2 VPC security groups to associate with the new elastic cluster.
+     */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -122,18 +199,92 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * The name of the Amazon DocumentDB elastic clusters administrator.
+     *
+     * *Constraints* :
+     *
+     * - Must be from 1 to 63 letters or numbers.
+     * - The first character must be a letter.
+     * - Cannot be a reserved word.
+     */
     adminUserName: pulumi.Input<string>;
+    /**
+     * The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+     *
+     * *Constraints* :
+     *
+     * - Must contain from 8 to 100 characters.
+     * - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+     * - A valid `AdminUserName` entry is also required.
+     */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+     */
     authType: pulumi.Input<string>;
+    /**
+     * The number of days for which automatic snapshots are retained.
+     */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The name of the new elastic cluster. This parameter is stored as a lowercase string.
+     *
+     * *Constraints* :
+     *
+     * - Must contain from 1 to 63 letters, numbers, or hyphens.
+     * - The first character must be a letter.
+     * - Cannot end with a hyphen or contain two consecutive hyphens.
+     *
+     * *Example* : `my-cluster`
+     */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The KMS key identifier to use to encrypt the new elastic cluster.
+     *
+     * The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+     *
+     * If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+     */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+     */
     preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     *
+     * *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+     *
+     * *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+     *
+     * *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+     *
+     * *Constraints* : Minimum 30-minute window.
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+     */
     shardCapacity: pulumi.Input<number>;
+    /**
+     * The number of shards assigned to the elastic cluster. Maximum is 32.
+     */
     shardCount: pulumi.Input<number>;
+    /**
+     * The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+     */
     shardInstanceCount?: pulumi.Input<number>;
+    /**
+     * The Amazon EC2 subnet IDs for the new elastic cluster.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to be assigned to the new elastic cluster.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * A list of EC2 VPC security groups to associate with the new elastic cluster.
+     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

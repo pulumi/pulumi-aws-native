@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class ImagePipelineWorkflowParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the workflow parameter to set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("value")]
         private InputList<string>? _value;
+
+        /// <summary>
+        /// Sets the value for the named workflow parameter.
+        /// </summary>
         public InputList<string> Value
         {
             get => _value ?? (_value = new InputList<string>());

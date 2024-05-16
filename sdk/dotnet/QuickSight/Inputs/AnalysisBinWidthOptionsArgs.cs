@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisBinWidthOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the bin count limit.
+        /// </summary>
         [Input("binCountLimit")]
         public Input<double>? BinCountLimit { get; set; }
 
+        /// <summary>
+        /// The options that determine the bin width value.
+        /// </summary>
         [Input("value")]
         public Input<double>? Value { get; set; }
 

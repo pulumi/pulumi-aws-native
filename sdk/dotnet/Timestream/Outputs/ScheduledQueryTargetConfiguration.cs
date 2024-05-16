@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     [OutputType]
     public sealed class ScheduledQueryTargetConfiguration
     {
+        /// <summary>
+        /// Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+        /// </summary>
         public readonly Outputs.ScheduledQueryTimestreamConfiguration TimestreamConfiguration;
 
         [OutputConstructor]

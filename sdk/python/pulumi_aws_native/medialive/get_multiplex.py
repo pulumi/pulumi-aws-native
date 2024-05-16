@@ -109,6 +109,9 @@ class GetMultiplexResult:
     @property
     @pulumi.getter
     def state(self) -> Optional['MultiplexState']:
+        """
+        The current state of the multiplex.
+        """
         return pulumi.get(self, "state")
 
     @property

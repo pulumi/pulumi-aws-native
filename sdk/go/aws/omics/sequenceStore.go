@@ -24,10 +24,13 @@ type SequenceStore struct {
 	// An S3 URI representing the bucket and folder to store failed read set uploads.
 	FallbackLocation pulumi.StringPtrOutput `pulumi:"fallbackLocation"`
 	// A name for the store.
-	Name            pulumi.StringOutput             `pulumi:"name"`
-	SequenceStoreId pulumi.StringOutput             `pulumi:"sequenceStoreId"`
-	SseConfig       SequenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
-	Tags            pulumi.StringMapOutput          `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The store's ID.
+	SequenceStoreId pulumi.StringOutput `pulumi:"sequenceStoreId"`
+	// Server-side encryption (SSE) settings for a store.
+	SseConfig SequenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
+	// Tags for the store.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSequenceStore registers a new resource with the given unique name, arguments, and options.
@@ -83,9 +86,11 @@ type sequenceStoreArgs struct {
 	// An S3 URI representing the bucket and folder to store failed read set uploads.
 	FallbackLocation *string `pulumi:"fallbackLocation"`
 	// A name for the store.
-	Name      *string                 `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Server-side encryption (SSE) settings for a store.
 	SseConfig *SequenceStoreSseConfig `pulumi:"sseConfig"`
-	Tags      map[string]string       `pulumi:"tags"`
+	// Tags for the store.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SequenceStore resource.
@@ -95,9 +100,11 @@ type SequenceStoreArgs struct {
 	// An S3 URI representing the bucket and folder to store failed read set uploads.
 	FallbackLocation pulumi.StringPtrInput
 	// A name for the store.
-	Name      pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Server-side encryption (SSE) settings for a store.
 	SseConfig SequenceStoreSseConfigPtrInput
-	Tags      pulumi.StringMapInput
+	// Tags for the store.
+	Tags pulumi.StringMapInput
 }
 
 func (SequenceStoreArgs) ElementType() reflect.Type {
@@ -162,14 +169,17 @@ func (o SequenceStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The store's ID.
 func (o SequenceStoreOutput) SequenceStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.SequenceStoreId }).(pulumi.StringOutput)
 }
 
+// Server-side encryption (SSE) settings for a store.
 func (o SequenceStoreOutput) SseConfig() SequenceStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) SequenceStoreSseConfigPtrOutput { return v.SseConfig }).(SequenceStoreSseConfigPtrOutput)
 }
 
+// Tags for the store.
 func (o SequenceStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -31,6 +31,9 @@ export interface GetEventInvokeConfigArgs {
 }
 
 export interface GetEventInvokeConfigResult {
+    /**
+     * A configuration object that specifies the destination of an event after Lambda processes it.
+     */
     readonly destinationConfig?: outputs.lambda.EventInvokeConfigDestinationConfig;
     /**
      * The maximum age of a request that Lambda sends to a function for processing.

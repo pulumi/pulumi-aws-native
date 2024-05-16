@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Ec2
         /// The Amazon Resource Name (ARN) of the IPAM scope.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The description of the scope.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IPAM this scope is a part of.

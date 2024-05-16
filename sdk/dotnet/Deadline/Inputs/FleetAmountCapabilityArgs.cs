@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class FleetAmountCapabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of the fleet worker capability.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum amount of fleet worker capability.
+        /// </summary>
         [Input("min", required: true)]
         public Input<double> Min { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the fleet capability.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -37,16 +37,49 @@ export class Retriever extends pulumi.CustomResource {
         return obj['__pulumiType'] === Retriever.__pulumiType;
     }
 
+    /**
+     * The identifier of the Amazon Q Business application using the retriever.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * Provides information on how the retriever used for your Amazon Q Business application is configured.
+     */
     public readonly configuration!: pulumi.Output<outputs.qbusiness.RetrieverConfiguration0Properties | outputs.qbusiness.RetrieverConfiguration1Properties>;
+    /**
+     * The Unix timestamp when the retriever was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The name of your retriever.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
+     */
     public /*out*/ readonly retrieverArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the retriever used by your Amazon Q Business application.
+     */
     public /*out*/ readonly retrieverId!: pulumi.Output<string>;
+    /**
+     * The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The status of your retriever.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.RetrieverStatus>;
+    /**
+     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of your retriever.
+     */
     public readonly type!: pulumi.Output<enums.qbusiness.RetrieverType>;
+    /**
+     * The Unix timestamp when the retriever was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -107,10 +140,28 @@ export class Retriever extends pulumi.CustomResource {
  * The set of arguments for constructing a Retriever resource.
  */
 export interface RetrieverArgs {
+    /**
+     * The identifier of the Amazon Q Business application using the retriever.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * Provides information on how the retriever used for your Amazon Q Business application is configured.
+     */
     configuration: pulumi.Input<inputs.qbusiness.RetrieverConfiguration0PropertiesArgs | inputs.qbusiness.RetrieverConfiguration1PropertiesArgs>;
+    /**
+     * The name of your retriever.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The type of your retriever.
+     */
     type: pulumi.Input<enums.qbusiness.RetrieverType>;
 }

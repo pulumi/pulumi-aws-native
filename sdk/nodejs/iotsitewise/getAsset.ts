@@ -38,6 +38,9 @@ export interface GetAssetResult {
      * The External ID of the asset
      */
     readonly assetExternalId?: string;
+    /**
+     * Describes an asset hierarchy that contains a hierarchy's name and ID.
+     */
     readonly assetHierarchies?: outputs.iotsitewise.AssetHierarchy[];
     /**
      * The ID of the asset
@@ -51,6 +54,9 @@ export interface GetAssetResult {
      * A unique, friendly name for the asset.
      */
     readonly assetName?: string;
+    /**
+     * Contains asset property information.
+     */
     readonly assetProperties?: outputs.iotsitewise.AssetProperty[];
     /**
      * A list of key-value pairs that contain metadata for the asset.

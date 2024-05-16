@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPivotTableFieldCollapseStateOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The state of the field target of a pivot table. Choose one of the following options:
+        /// 
+        /// - `COLLAPSED`
+        /// - `EXPANDED`
+        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardPivotTableFieldCollapseState>? State { get; set; }
 
+        /// <summary>
+        /// The target of a pivot table field collapse state.
+        /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.DashboardPivotTableFieldCollapseStateTargetArgs> Target { get; set; } = null!;
 

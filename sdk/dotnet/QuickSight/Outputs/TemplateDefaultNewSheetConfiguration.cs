@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDefaultNewSheetConfiguration
     {
+        /// <summary>
+        /// The options that determine the default settings for interactive layout configuration.
+        /// </summary>
         public readonly Outputs.TemplateDefaultInteractiveLayoutConfiguration? InteractiveLayoutConfiguration;
+        /// <summary>
+        /// The options that determine the default settings for a paginated layout configuration.
+        /// </summary>
         public readonly Outputs.TemplateDefaultPaginatedLayoutConfiguration? PaginatedLayoutConfiguration;
+        /// <summary>
+        /// The option that determines the sheet content type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSheetContentType? SheetContentType;
 
         [OutputConstructor]

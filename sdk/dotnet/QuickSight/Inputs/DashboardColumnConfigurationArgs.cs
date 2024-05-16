@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardColumnConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color configurations for a column.
+        /// </summary>
         [Input("colorsConfiguration")]
         public Input<Inputs.DashboardColorsConfigurationArgs>? ColorsConfiguration { get; set; }
 
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The formatting configuration for all types of field.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.DashboardFormatConfigurationArgs>? FormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The role of the column.
+        /// </summary>
         [Input("role")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardColumnRole>? Role { get; set; }
 

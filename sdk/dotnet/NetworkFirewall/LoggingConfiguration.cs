@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [AwsNativeResourceType("aws-native:networkfirewall:LoggingConfiguration")]
     public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        /// </summary>
         [Output("firewallName")]
         public Output<string?> FirewallName { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines how AWS Network Firewall performs logging for a `Firewall` .
+        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.LoggingConfiguration> LoggingConfigurationValue { get; private set; } = null!;
 
@@ -74,12 +83,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        /// </summary>
         [Input("firewallName")]
         public Input<string>? FirewallName { get; set; }
 
+        /// <summary>
+        /// Defines how AWS Network Firewall performs logging for a `Firewall` .
+        /// </summary>
         [Input("loggingConfiguration", required: true)]
         public Input<Inputs.LoggingConfigurationArgs> LoggingConfigurationValue { get; set; } = null!;
 

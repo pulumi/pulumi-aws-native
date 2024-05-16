@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
+    /// <summary>
+    /// The parallelism configuration applied to the pipeline.
+    /// </summary>
     public sealed class ParallelismConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

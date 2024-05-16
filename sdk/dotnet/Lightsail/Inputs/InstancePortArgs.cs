@@ -35,6 +35,12 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
 
         [Input("cidrListAliases")]
         private InputList<string>? _cidrListAliases;
+
+        /// <summary>
+        /// An alias that defines access for a preconfigured range of IP addresses.
+        /// 
+        /// The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
+        /// </summary>
         public InputList<string> CidrListAliases
         {
             get => _cidrListAliases ?? (_cidrListAliases = new InputList<string>());
@@ -43,6 +49,17 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
 
         [Input("cidrs")]
         private InputList<string>? _cidrs;
+
+        /// <summary>
+        /// The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+        /// 
+        /// &gt; The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+        /// 
+        /// Examples:
+        /// 
+        /// - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+        /// - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
+        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());
@@ -63,6 +80,12 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
 
         [Input("ipv6Cidrs")]
         private InputList<string>? _ipv6Cidrs;
+
+        /// <summary>
+        /// The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+        /// 
+        /// &gt; The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
+        /// </summary>
         public InputList<string> Ipv6Cidrs
         {
             get => _ipv6Cidrs ?? (_ipv6Cidrs = new InputList<string>());

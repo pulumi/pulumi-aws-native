@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.EmrServerless
         /// The ID of the EMR Serverless Application.
         /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// The CPU architecture of an application.
+        /// </summary>
         public readonly Pulumi.AwsNative.EmrServerless.ApplicationArchitecture? Architecture;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the EMR Serverless Application.
@@ -74,6 +77,9 @@ namespace Pulumi.AwsNative.EmrServerless
         /// Configuration for Auto Stop of Application.
         /// </summary>
         public readonly Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration;
+        /// <summary>
+        /// The image configuration.
+        /// </summary>
         public readonly Outputs.ApplicationImageConfigurationInput? ImageConfiguration;
         /// <summary>
         /// Initial capacity initialized when an Application is started.
@@ -83,6 +89,9 @@ namespace Pulumi.AwsNative.EmrServerless
         /// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
         /// </summary>
         public readonly Outputs.ApplicationMaximumAllowedResources? MaximumCapacity;
+        /// <summary>
+        /// The configuration setting for monitoring.
+        /// </summary>
         public readonly Outputs.ApplicationMonitoringConfiguration? MonitoringConfiguration;
         /// <summary>
         /// Network Configuration for customer VPC connectivity.
@@ -92,6 +101,9 @@ namespace Pulumi.AwsNative.EmrServerless
         /// EMR release label.
         /// </summary>
         public readonly string? ReleaseLabel;
+        /// <summary>
+        /// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationConfigurationObject> RuntimeConfiguration;
         /// <summary>
         /// Tag map with key and value

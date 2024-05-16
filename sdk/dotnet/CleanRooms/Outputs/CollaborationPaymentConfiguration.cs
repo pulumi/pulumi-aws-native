@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class CollaborationPaymentConfiguration
     {
+        /// <summary>
+        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        /// </summary>
         public readonly Outputs.CollaborationQueryComputePaymentConfig QueryCompute;
 
         [OutputConstructor]

@@ -73,6 +73,9 @@ export class AccessGrant extends pulumi.CustomResource {
      * The type of S3SubPrefix.
      */
     public readonly s3PrefixType!: pulumi.Output<enums.s3.AccessGrantS3PrefixType | undefined>;
+    /**
+     * A container of a key value name pair.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -152,5 +155,8 @@ export interface AccessGrantArgs {
      * The type of S3SubPrefix.
      */
     s3PrefixType?: pulumi.Input<enums.s3.AccessGrantS3PrefixType>;
+    /**
+     * A container of a key value name pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

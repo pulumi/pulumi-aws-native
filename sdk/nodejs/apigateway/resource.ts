@@ -42,6 +42,9 @@ export class Resource extends pulumi.CustomResource {
      * The last path segment for this resource.
      */
     public readonly pathPart!: pulumi.Output<string>;
+    /**
+     * The ID for the resource. For example: `abc123` .
+     */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.

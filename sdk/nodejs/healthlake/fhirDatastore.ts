@@ -38,15 +38,45 @@ export class FhirDatastore extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly createdAt!: pulumi.Output<outputs.healthlake.FhirDatastoreCreatedAt>;
+    /**
+     * The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+     */
     public /*out*/ readonly datastoreArn!: pulumi.Output<string>;
+    /**
+     * The endpoint for the created Data Store.
+     */
     public /*out*/ readonly datastoreEndpoint!: pulumi.Output<string>;
+    /**
+     * The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+     */
     public /*out*/ readonly datastoreId!: pulumi.Output<string>;
+    /**
+     * The user generated name for the data store.
+     */
     public readonly datastoreName!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+     */
     public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreStatus>;
+    /**
+     * The FHIR version of the data store. The only supported version is R4.
+     */
     public readonly datastoreTypeVersion!: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreTypeVersion>;
+    /**
+     * The identity provider configuration that you gave when the data store was created.
+     */
     public readonly identityProviderConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
+    /**
+     * Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+     */
     public readonly preloadDataConfig!: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
+    /**
+     * The server-side encryption key configuration for a customer provided encryption key.
+     */
     public readonly sseConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreSseConfiguration | undefined>;
+    /**
+     * A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -98,10 +128,28 @@ export class FhirDatastore extends pulumi.CustomResource {
  * The set of arguments for constructing a FhirDatastore resource.
  */
 export interface FhirDatastoreArgs {
+    /**
+     * The user generated name for the data store.
+     */
     datastoreName?: pulumi.Input<string>;
+    /**
+     * The FHIR version of the data store. The only supported version is R4.
+     */
     datastoreTypeVersion: pulumi.Input<enums.healthlake.FhirDatastoreDatastoreTypeVersion>;
+    /**
+     * The identity provider configuration that you gave when the data store was created.
+     */
     identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs>;
+    /**
+     * Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+     */
     preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs>;
+    /**
+     * The server-side encryption key configuration for a customer provided encryption key.
+     */
     sseConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreSseConfigurationArgs>;
+    /**
+     * A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

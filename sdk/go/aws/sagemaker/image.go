@@ -17,11 +17,34 @@ import (
 type Image struct {
 	pulumi.CustomResourceState
 
-	ImageArn         pulumi.StringOutput    `pulumi:"imageArn"`
+	// The Amazon Resource Name (ARN) of the image.
+	//
+	// *Type* : String
+	//
+	// *Length Constraints* : Maximum length of 256.
+	//
+	// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
+	// The description of the image.
 	ImageDescription pulumi.StringPtrOutput `pulumi:"imageDescription"`
+	// The display name of the image.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+	//
+	// *Pattern* : `^\S(.*\S)?$`
 	ImageDisplayName pulumi.StringPtrOutput `pulumi:"imageDisplayName"`
-	ImageName        pulumi.StringOutput    `pulumi:"imageName"`
-	ImageRoleArn     pulumi.StringOutput    `pulumi:"imageRoleArn"`
+	// The name of the Image. Must be unique by region in your account.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+	//
+	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+	ImageName pulumi.StringOutput `pulumi:"imageName"`
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	//
+	// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+	//
+	// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+	ImageRoleArn pulumi.StringOutput `pulumi:"imageRoleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -73,20 +96,52 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
+	// The description of the image.
 	ImageDescription *string `pulumi:"imageDescription"`
+	// The display name of the image.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+	//
+	// *Pattern* : `^\S(.*\S)?$`
 	ImageDisplayName *string `pulumi:"imageDisplayName"`
-	ImageName        *string `pulumi:"imageName"`
-	ImageRoleArn     string  `pulumi:"imageRoleArn"`
+	// The name of the Image. Must be unique by region in your account.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+	//
+	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+	ImageName *string `pulumi:"imageName"`
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	//
+	// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+	//
+	// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+	ImageRoleArn string `pulumi:"imageRoleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
+	// The description of the image.
 	ImageDescription pulumi.StringPtrInput
+	// The display name of the image.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+	//
+	// *Pattern* : `^\S(.*\S)?$`
 	ImageDisplayName pulumi.StringPtrInput
-	ImageName        pulumi.StringPtrInput
-	ImageRoleArn     pulumi.StringInput
+	// The name of the Image. Must be unique by region in your account.
+	//
+	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+	//
+	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+	ImageName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	//
+	// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+	//
+	// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+	ImageRoleArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -128,22 +183,45 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the image.
+//
+// *Type* : String
+//
+// *Length Constraints* : Maximum length of 256.
+//
+// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
 func (o ImageOutput) ImageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
 }
 
+// The description of the image.
 func (o ImageOutput) ImageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageDescription }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the image.
+//
+// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+//
+// *Pattern* : `^\S(.*\S)?$`
 func (o ImageOutput) ImageDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageDisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Image. Must be unique by region in your account.
+//
+// *Length Constraints* : Minimum length of 1. Maximum length of 63.
+//
+// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
 func (o ImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+//
+// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+//
+// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
 func (o ImageOutput) ImageRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageRoleArn }).(pulumi.StringOutput)
 }

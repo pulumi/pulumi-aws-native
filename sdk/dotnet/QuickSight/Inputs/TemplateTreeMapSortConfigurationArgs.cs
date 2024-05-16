@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTreeMapSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit configuration of the visual display for an axis.
+        /// </summary>
         [Input("treeMapGroupItemsLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? TreeMapGroupItemsLimitConfiguration { get; set; }
 
         [Input("treeMapSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _treeMapSort;
+
+        /// <summary>
+        /// The sort configuration of group by fields.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> TreeMapSort
         {
             get => _treeMapSort ?? (_treeMapSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());

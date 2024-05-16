@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageStatusDetails
     {
+        /// <summary>
+        /// Represents the overall status of a model package.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ModelPackageStatusItem> ValidationStatuses;
 
         [OutputConstructor]

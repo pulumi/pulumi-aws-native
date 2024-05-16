@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyThirdPartyFirewallPolicy
     {
+        /// <summary>
+        /// Defines the deployment model to use for the third-party firewall policy.
+        /// </summary>
         public readonly Pulumi.AwsNative.Fms.PolicyFirewallDeploymentModel FirewallDeploymentModel;
 
         [OutputConstructor]

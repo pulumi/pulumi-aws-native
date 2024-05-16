@@ -32,8 +32,10 @@ type LookupLocationNfsResult struct {
 	// The Amazon Resource Name (ARN) of the NFS location.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the NFS location that was described.
-	LocationUri  *string                  `pulumi:"locationUri"`
+	LocationUri *string `pulumi:"locationUri"`
+	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions *LocationNfsMountOptions `pulumi:"mountOptions"`
+	// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
 	OnPremConfig *LocationNfsOnPremConfig `pulumi:"onPremConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -85,10 +87,12 @@ func (o LookupLocationNfsResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationNfsResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the options that DataSync can use to mount your NFS file server.
 func (o LookupLocationNfsResultOutput) MountOptions() LocationNfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v LookupLocationNfsResult) *LocationNfsMountOptions { return v.MountOptions }).(LocationNfsMountOptionsPtrOutput)
 }
 
+// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
 func (o LookupLocationNfsResultOutput) OnPremConfig() LocationNfsOnPremConfigPtrOutput {
 	return o.ApplyT(func(v LookupLocationNfsResult) *LocationNfsOnPremConfig { return v.OnPremConfig }).(LocationNfsOnPremConfigPtrOutput)
 }

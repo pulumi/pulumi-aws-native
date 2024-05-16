@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the resource. For example: `abc123` .
+        /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the resource. For example: `abc123` .
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetResourceResult
     {
+        /// <summary>
+        /// The ID for the resource. For example: `abc123` .
+        /// </summary>
         public readonly string? ResourceId;
 
         [OutputConstructor]

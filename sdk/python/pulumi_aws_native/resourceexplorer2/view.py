@@ -23,6 +23,11 @@ class ViewArgs:
                  view_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a View resource.
+        :param pulumi.Input['ViewSearchFilterArgs'] filters: A search filter defines which resources can be part of a search query result set.
+        :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Information about an additional property that describes a resource, that you can optionally include in a view.
+        :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag key and value pairs that are attached to the view.
+        :param pulumi.Input[str] view_name: The name of the new view.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -38,6 +43,9 @@ class ViewArgs:
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['ViewSearchFilterArgs']]:
+        """
+        A search filter defines which resources can be part of a search query result set.
+        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -47,6 +55,9 @@ class ViewArgs:
     @property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]:
+        """
+        Information about an additional property that describes a resource, that you can optionally include in a view.
+        """
         return pulumi.get(self, "included_properties")
 
     @included_properties.setter
@@ -56,6 +67,9 @@ class ViewArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -65,6 +79,9 @@ class ViewArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag key and value pairs that are attached to the view.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -74,6 +91,9 @@ class ViewArgs:
     @property
     @pulumi.getter(name="viewName")
     def view_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new view.
+        """
         return pulumi.get(self, "view_name")
 
     @view_name.setter
@@ -97,6 +117,11 @@ class View(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']] filters: A search filter defines which resources can be part of a search query result set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]] included_properties: Information about an additional property that describes a resource, that you can optionally include in a view.
+        :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag key and value pairs that are attached to the view.
+        :param pulumi.Input[str] view_name: The name of the new view.
         """
         ...
     @overload
@@ -177,30 +202,50 @@ class View(pulumi.CustomResource):
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional['outputs.ViewSearchFilter']]:
+        """
+        A search filter defines which resources can be part of a search query result set.
+        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> pulumi.Output[Optional[Sequence['outputs.ViewIncludedProperty']]]:
+        """
+        Information about an additional property that describes a resource, that you can optionally include in a view.
+        """
         return pulumi.get(self, "included_properties")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tag key and value pairs that are attached to the view.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="viewArn")
     def view_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the new view. For example:
+
+        `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        """
         return pulumi.get(self, "view_arn")
 
     @property
     @pulumi.getter(name="viewName")
     def view_name(self) -> pulumi.Output[str]:
+        """
+        The name of the new view.
+        """
         return pulumi.get(self, "view_name")
 

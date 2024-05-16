@@ -41,7 +41,15 @@ namespace Pulumi.AwsNative.XRay.Outputs
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+        /// 
+        /// &gt; Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+        /// </summary>
         public readonly string? RuleArn;
+        /// <summary>
+        /// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+        /// </summary>
         public readonly string? RuleName;
         /// <summary>
         /// Matches the name that the service uses to identify itself in segments.

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentConfigMinimumHealthyHostsPerZone
     {
+        /// <summary>
+        /// The `type` associated with the `MinimumHealthyHostsPerZone` option.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The `value` associated with the `MinimumHealthyHostsPerZone` option.
+        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class ObjectTypeKeyMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("objectTypeKeyList")]
         private InputList<Inputs.ObjectTypeKeyArgs>? _objectTypeKeyList;
+
+        /// <summary>
+        /// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+        /// </summary>
         public InputList<Inputs.ObjectTypeKeyArgs> ObjectTypeKeyList
         {
             get => _objectTypeKeyList ?? (_objectTypeKeyList = new InputList<Inputs.ObjectTypeKeyArgs>());

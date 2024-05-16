@@ -13,12 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableConfiguration
     {
+        /// <summary>
+        /// The field options of a table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableFieldOptions? FieldOptions;
+        /// <summary>
+        /// The field wells for a table visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisTableFieldWells? FieldWells;
+        /// <summary>
+        /// The paginated report options for a table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTablePaginatedReportOptions? PaginatedReportOptions;
+        /// <summary>
+        /// The sort configuration for a `TableVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisTableSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The inline visualization of a specific type to display within a chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisTableInlineVisualization> TableInlineVisualizations;
+        /// <summary>
+        /// The table options for a table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTableOptions? TableOptions;
+        /// <summary>
+        /// The total options for a table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTotalOptions? TotalOptions;
 
         [OutputConstructor]

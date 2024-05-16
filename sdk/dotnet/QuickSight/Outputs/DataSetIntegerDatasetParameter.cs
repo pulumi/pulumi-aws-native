@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetIntegerDatasetParameter
     {
+        /// <summary>
+        /// A list of default values for a given integer parameter. This structure only accepts static values.
+        /// </summary>
         public readonly Outputs.DataSetIntegerDatasetParameterDefaultValues? DefaultValues;
         /// <summary>
         /// &lt;p&gt;An identifier for the integer parameter created in the dataset.&lt;/p&gt;
@@ -25,6 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The name of the integer parameter that is created in the dataset.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type of the dataset parameter. Valid values are `single value` or `multi value` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType ValueType;
 
         [OutputConstructor]

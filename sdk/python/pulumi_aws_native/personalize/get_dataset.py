@@ -38,6 +38,15 @@ class GetDatasetResult:
     @property
     @pulumi.getter(name="datasetImportJob")
     def dataset_import_job(self) -> Optional['outputs.DatasetImportJob']:
+        """
+        Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+
+        A dataset import job can be in one of the following states:
+
+        - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+
+        If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        """
         return pulumi.get(self, "dataset_import_job")
 
 

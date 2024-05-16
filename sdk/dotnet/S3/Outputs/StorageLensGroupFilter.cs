@@ -16,12 +16,33 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensGroupFilter
     {
+        /// <summary>
+        /// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        /// </summary>
         public readonly Outputs.StorageLensGroupAnd? And;
+        /// <summary>
+        /// This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        /// </summary>
         public readonly ImmutableArray<string> MatchAnyPrefix;
+        /// <summary>
+        /// This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        /// </summary>
         public readonly ImmutableArray<string> MatchAnySuffix;
+        /// <summary>
+        /// This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        /// </summary>
         public readonly ImmutableArray<Outputs.StorageLensGroupTag> MatchAnyTag;
+        /// <summary>
+        /// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        /// </summary>
         public readonly Outputs.StorageLensGroupMatchObjectAge? MatchObjectAge;
+        /// <summary>
+        /// This resource filters objects that match the specified object size range.
+        /// </summary>
         public readonly Outputs.StorageLensGroupMatchObjectSize? MatchObjectSize;
+        /// <summary>
+        /// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+        /// </summary>
         public readonly Outputs.StorageLensGroupOr? Or;
 
         [OutputConstructor]

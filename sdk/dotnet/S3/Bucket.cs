@@ -879,6 +879,11 @@ namespace Pulumi.AwsNative.S3
         [Output("analyticsConfigurations")]
         public Output<ImmutableArray<Outputs.BucketAnalyticsConfiguration>> AnalyticsConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified bucket.
+        /// 
+        /// Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -901,9 +906,21 @@ namespace Pulumi.AwsNative.S3
         [Output("corsConfiguration")]
         public Output<Outputs.BucketCorsConfiguration?> CorsConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the IPv4 DNS name of the specified bucket.
+        /// 
+        /// Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the IPv6 DNS name of the specified bucket.
+        /// 
+        /// Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+        /// 
+        /// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
+        /// </summary>
         [Output("dualStackDomainName")]
         public Output<string> DualStackDomainName { get; private set; } = null!;
 
@@ -971,6 +988,11 @@ namespace Pulumi.AwsNative.S3
         [Output("publicAccessBlockConfiguration")]
         public Output<Outputs.BucketPublicAccessBlockConfiguration?> PublicAccessBlockConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the regional domain name of the specified bucket.
+        /// 
+        /// Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
+        /// </summary>
         [Output("regionalDomainName")]
         public Output<string> RegionalDomainName { get; private set; } = null!;
 
@@ -999,6 +1021,13 @@ namespace Pulumi.AwsNative.S3
         [Output("websiteConfiguration")]
         public Output<Outputs.BucketWebsiteConfiguration?> WebsiteConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon S3 website endpoint for the specified bucket.
+        /// 
+        /// Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+        /// 
+        /// Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+        /// </summary>
         [Output("websiteUrl")]
         public Output<string> WebsiteUrl { get; private set; } = null!;
 

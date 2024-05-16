@@ -13,22 +13,75 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleTarget
     {
+        /// <summary>
+        /// Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
+        /// </summary>
         public readonly Outputs.RuleAppSyncParameters? AppSyncParameters;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The custom parameters to be used when the target is an AWS Batch job.
+        /// </summary>
         public readonly Outputs.RuleBatchParameters? BatchParameters;
+        /// <summary>
+        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
+        /// 
+        /// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+        /// </summary>
         public readonly Outputs.RuleDeadLetterConfig? DeadLetterConfig;
+        /// <summary>
+        /// The custom parameters to be used when the target is an Amazon ECS task.
+        /// </summary>
         public readonly Outputs.RuleEcsParameters? EcsParameters;
+        /// <summary>
+        /// These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        /// </summary>
         public readonly Outputs.RuleHttpParameters? HttpParameters;
+        /// <summary>
+        /// The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+        /// </summary>
         public readonly string? Input;
+        /// <summary>
+        /// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+        /// </summary>
         public readonly string? InputPath;
+        /// <summary>
+        /// Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+        /// </summary>
         public readonly Outputs.RuleInputTransformer? InputTransformer;
+        /// <summary>
+        /// This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        /// </summary>
         public readonly Outputs.RuleKinesisParameters? KinesisParameters;
+        /// <summary>
+        /// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        /// </summary>
         public readonly Outputs.RuleRedshiftDataParameters? RedshiftDataParameters;
+        /// <summary>
+        /// A `RetryPolicy` object that includes information about the retry policy settings.
+        /// </summary>
         public readonly Outputs.RuleRetryPolicy? RetryPolicy;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+        /// </summary>
         public readonly Outputs.RuleRunCommandParameters? RunCommandParameters;
+        /// <summary>
+        /// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+        /// </summary>
         public readonly Outputs.RuleSageMakerPipelineParameters? SageMakerPipelineParameters;
+        /// <summary>
+        /// This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        /// </summary>
         public readonly Outputs.RuleSqsParameters? SqsParameters;
 
         [OutputConstructor]

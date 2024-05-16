@@ -41,6 +41,9 @@ export class Application extends pulumi.CustomResource {
      * The ID of the EMR Serverless Application.
      */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The CPU architecture of an application.
+     */
     public readonly architecture!: pulumi.Output<enums.emrserverless.ApplicationArchitecture | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the EMR Serverless Application.
@@ -54,6 +57,9 @@ export class Application extends pulumi.CustomResource {
      * Configuration for Auto Stop of Application.
      */
     public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
+    /**
+     * The image configuration.
+     */
     public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfigurationInput | undefined>;
     /**
      * Initial capacity initialized when an Application is started.
@@ -63,6 +69,9 @@ export class Application extends pulumi.CustomResource {
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumAllowedResources | undefined>;
+    /**
+     * The configuration setting for monitoring.
+     */
     public readonly monitoringConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
     /**
      * User friendly Application name.
@@ -76,6 +85,9 @@ export class Application extends pulumi.CustomResource {
      * EMR release label.
      */
     public readonly releaseLabel!: pulumi.Output<string>;
+    /**
+     * The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+     */
     public readonly runtimeConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationConfigurationObject[] | undefined>;
     /**
      * Tag map with key and value
@@ -152,6 +164,9 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The CPU architecture of an application.
+     */
     architecture?: pulumi.Input<enums.emrserverless.ApplicationArchitecture>;
     /**
      * Configuration for Auto Start of Application.
@@ -161,6 +176,9 @@ export interface ApplicationArgs {
      * Configuration for Auto Stop of Application.
      */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfigurationArgs>;
+    /**
+     * The image configuration.
+     */
     imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfigurationInputArgs>;
     /**
      * Initial capacity initialized when an Application is started.
@@ -170,6 +188,9 @@ export interface ApplicationArgs {
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumAllowedResourcesArgs>;
+    /**
+     * The configuration setting for monitoring.
+     */
     monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfigurationArgs>;
     /**
      * User friendly Application name.
@@ -183,6 +204,9 @@ export interface ApplicationArgs {
      * EMR release label.
      */
     releaseLabel: pulumi.Input<string>;
+    /**
+     * The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+     */
     runtimeConfiguration?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[]>;
     /**
      * Tag map with key and value

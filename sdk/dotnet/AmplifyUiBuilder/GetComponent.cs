@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class GetComponentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the Amplify app associated with the component.
+        /// </summary>
         [Input("appId", required: true)]
         public string AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName", required: true)]
         public string EnvironmentName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the component.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class GetComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the Amplify app associated with the component.
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the component.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -63,20 +81,65 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [OutputType]
     public sealed class GetComponentResult
     {
+        /// <summary>
+        /// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>? BindingProperties;
+        /// <summary>
+        /// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
+        /// <summary>
+        /// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentDataConfiguration>? CollectionProperties;
+        /// <summary>
+        /// The type of the component. This can be an Amplify custom UI component or another custom component.
+        /// </summary>
         public readonly string? ComponentType;
+        /// <summary>
+        /// The time that the component was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentEvent>? Events;
+        /// <summary>
+        /// The unique ID of the component.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The time that the component was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The name of the component.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Overrides;
+        /// <summary>
+        /// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentProperty>? Properties;
+        /// <summary>
+        /// The schema version of the component when it was imported.
+        /// </summary>
         public readonly string? SchemaVersion;
+        /// <summary>
+        /// The unique ID of the component in its original source system, such as Figma.
+        /// </summary>
         public readonly string? SourceId;
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the component.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVariant> Variants;
 
         [OutputConstructor]

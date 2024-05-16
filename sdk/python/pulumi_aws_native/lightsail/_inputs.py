@@ -81,6 +81,10 @@ class ContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None,
                  variable: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: The environment variable value.
+        :param pulumi.Input[str] variable: The environment variable key.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
         if variable is not None:
@@ -89,6 +93,9 @@ class ContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The environment variable value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -98,6 +105,9 @@ class ContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def variable(self) -> Optional[pulumi.Input[str]]:
+        """
+        The environment variable key.
+        """
         return pulumi.get(self, "variable")
 
     @variable.setter
@@ -214,6 +224,12 @@ class ContainerPortInfoArgs:
     def __init__(__self__, *,
                  port: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] port: The open firewall ports of the container.
+        :param pulumi.Input[str] protocol: The protocol name for the open ports.
+               
+               *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+        """
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -222,6 +238,9 @@ class ContainerPortInfoArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The open firewall ports of the container.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -231,6 +250,11 @@ class ContainerPortInfoArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol name for the open ports.
+
+        *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -309,6 +333,7 @@ class ContainerPublicDomainNameArgs:
                  domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The public domain name to use with the container service, such as example.com and www.example.com.
+        :param pulumi.Input[str] certificate_name: The name of the certificate for the public domains.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_names: An object that describes the configuration for the containers of the deployment.
         """
         if certificate_name is not None:
@@ -319,6 +344,9 @@ class ContainerPublicDomainNameArgs:
     @property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the certificate for the public domains.
+        """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
@@ -667,6 +695,7 @@ class DiskAddOnArgs:
         """
         A addon associate with a resource.
         :param pulumi.Input[str] add_on_type: The add-on type
+        :param pulumi.Input['DiskAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
         :param pulumi.Input['DiskAddOnStatus'] status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -690,6 +719,9 @@ class DiskAddOnArgs:
     @property
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional[pulumi.Input['DiskAutoSnapshotAddOnArgs']]:
+        """
+        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
     @auto_snapshot_add_on_request.setter
@@ -782,6 +814,7 @@ class InstanceAddOnArgs:
         """
         A addon associate with a resource.
         :param pulumi.Input[str] add_on_type: The add-on type
+        :param pulumi.Input['InstanceAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
         :param pulumi.Input['InstanceAddOnStatus'] status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -805,6 +838,9 @@ class InstanceAddOnArgs:
     @property
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional[pulumi.Input['InstanceAutoSnapshotAddOnArgs']]:
+        """
+        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
     @auto_snapshot_add_on_request.setter
@@ -1094,6 +1130,7 @@ class InstanceNetworkingArgs:
         """
         Networking of the Instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstancePortArgs']]] ports: Ports to the Instance.
+        :param pulumi.Input['InstanceMonthlyTransferArgs'] monthly_transfer: `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
         """
         pulumi.set(__self__, "ports", ports)
         if monthly_transfer is not None:
@@ -1114,6 +1151,9 @@ class InstanceNetworkingArgs:
     @property
     @pulumi.getter(name="monthlyTransfer")
     def monthly_transfer(self) -> Optional[pulumi.Input['InstanceMonthlyTransferArgs']]:
+        """
+        `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        """
         return pulumi.get(self, "monthly_transfer")
 
     @monthly_transfer.setter
@@ -1139,8 +1179,22 @@ class InstancePortArgs:
         :param pulumi.Input[str] access_direction: Access Direction for Protocol of the Instance(inbound/outbound).
         :param pulumi.Input[str] access_from: Access From Protocol of the Instance.
         :param pulumi.Input[str] access_type: Access Type Protocol of the Instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_list_aliases: An alias that defines access for a preconfigured range of IP addresses.
+               
+               The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+               
+               > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+               
+               Examples:
+               
+               - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+               - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
         :param pulumi.Input[str] common_name: CommonName for Protocol of the Instance.
         :param pulumi.Input[int] from_port: From Port of the Instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidrs: The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+               
+               > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
         :param pulumi.Input[str] protocol: Port Protocol of the Instance.
         :param pulumi.Input[int] to_port: To Port of the Instance.
         """
@@ -1204,6 +1258,11 @@ class InstancePortArgs:
     @property
     @pulumi.getter(name="cidrListAliases")
     def cidr_list_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An alias that defines access for a preconfigured range of IP addresses.
+
+        The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
+        """
         return pulumi.get(self, "cidr_list_aliases")
 
     @cidr_list_aliases.setter
@@ -1213,6 +1272,16 @@ class InstancePortArgs:
     @property
     @pulumi.getter
     def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+
+        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+
+        Examples:
+
+        - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+        - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
+        """
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
@@ -1246,6 +1315,11 @@ class InstancePortArgs:
     @property
     @pulumi.getter(name="ipv6Cidrs")
     def ipv6_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+
+        > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
+        """
         return pulumi.get(self, "ipv6_cidrs")
 
     @ipv6_cidrs.setter

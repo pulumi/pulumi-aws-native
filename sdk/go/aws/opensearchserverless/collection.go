@@ -111,11 +111,13 @@ type Collection struct {
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
 	// Contains between 3 and 32 characters
-	Name            pulumi.StringOutput                `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas CollectionStandbyReplicasPtrOutput `pulumi:"standbyReplicas"`
 	// List of tags to be added to the resource
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
-	Type CollectionTypePtrOutput      `pulumi:"type"`
+	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+	Type CollectionTypePtrOutput `pulumi:"type"`
 }
 
 // NewCollection registers a new resource with the given unique name, arguments, and options.
@@ -173,11 +175,13 @@ type collectionArgs struct {
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
 	// Contains between 3 and 32 characters
-	Name            *string                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
 	// List of tags to be added to the resource
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
-	Type *CollectionType     `pulumi:"type"`
+	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+	Type *CollectionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Collection resource.
@@ -191,10 +195,12 @@ type CollectionArgs struct {
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
 	// Contains between 3 and 32 characters
-	Name            pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas CollectionStandbyReplicasPtrInput
 	// List of tags to be added to the resource
 	Tags aws.CreateOnlyTagArrayInput
+	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type CollectionTypePtrInput
 }
 
@@ -271,6 +277,7 @@ func (o CollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 func (o CollectionOutput) StandbyReplicas() CollectionStandbyReplicasPtrOutput {
 	return o.ApplyT(func(v *Collection) CollectionStandbyReplicasPtrOutput { return v.StandbyReplicas }).(CollectionStandbyReplicasPtrOutput)
 }
@@ -280,6 +287,7 @@ func (o CollectionOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Collection) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 func (o CollectionOutput) Type() CollectionTypePtrOutput {
 	return o.ApplyT(func(v *Collection) CollectionTypePtrOutput { return v.Type }).(CollectionTypePtrOutput)
 }

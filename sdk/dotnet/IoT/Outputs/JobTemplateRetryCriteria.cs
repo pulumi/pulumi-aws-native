@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class JobTemplateRetryCriteria
     {
+        /// <summary>
+        /// The type of job execution failures that can initiate a job retry.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.JobTemplateJobRetryFailureType? FailureType;
+        /// <summary>
+        /// The number of retries allowed for a failure type for the job.
+        /// </summary>
         public readonly int? NumberOfRetries;
 
         [OutputConstructor]

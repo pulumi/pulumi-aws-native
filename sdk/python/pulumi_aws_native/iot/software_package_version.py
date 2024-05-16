@@ -198,6 +198,9 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="errorReason")
     def error_reason(self) -> pulumi.Output[str]:
+        """
+        Error reason for a package version failure during creation or update.
+        """
         return pulumi.get(self, "error_reason")
 
     @property
@@ -208,11 +211,17 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="packageVersionArn")
     def package_version_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the package.
+        """
         return pulumi.get(self, "package_version_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['SoftwarePackageVersionPackageVersionStatus']:
+        """
+        The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+        """
         return pulumi.get(self, "status")
 
     @property

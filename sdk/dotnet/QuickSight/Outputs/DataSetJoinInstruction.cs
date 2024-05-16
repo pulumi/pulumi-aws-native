@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetJoinInstruction
     {
+        /// <summary>
+        /// Properties associated with the columns participating in a join.
+        /// </summary>
         public readonly Outputs.DataSetJoinKeyProperties? LeftJoinKeyProperties;
         /// <summary>
         /// &lt;p&gt;The operand on the left side of a join.&lt;/p&gt;
@@ -25,11 +28,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The join instructions provided in the &lt;code&gt;ON&lt;/code&gt; clause of a join.&lt;/p&gt;
         /// </summary>
         public readonly string OnClause;
+        /// <summary>
+        /// Properties associated with the columns participating in a join.
+        /// </summary>
         public readonly Outputs.DataSetJoinKeyProperties? RightJoinKeyProperties;
         /// <summary>
         /// &lt;p&gt;The operand on the right side of a join.&lt;/p&gt;
         /// </summary>
         public readonly string RightOperand;
+        /// <summary>
+        /// The type of join that it is.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetJoinType Type;
 
         [OutputConstructor]

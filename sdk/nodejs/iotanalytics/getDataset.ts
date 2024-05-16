@@ -19,17 +19,41 @@ export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetDatasetArgs {
+    /**
+     * The name of the dataset.
+     */
     datasetName: string;
 }
 
 export interface GetDatasetResult {
+    /**
+     * Information needed to run the "containerAction" to produce data set contents.
+     */
     readonly actions?: outputs.iotanalytics.DatasetAction[];
+    /**
+     * When dataset contents are created, they are delivered to destination specified here.
+     */
     readonly contentDeliveryRules?: outputs.iotanalytics.DatasetContentDeliveryRule[];
     readonly id?: string;
+    /**
+     * A structure that contains the name and configuration information of a late data rule.
+     */
     readonly lateDataRules?: outputs.iotanalytics.DatasetLateDataRule[];
+    /**
+     * How long, in days, message data is kept.
+     */
     readonly retentionPeriod?: outputs.iotanalytics.DatasetRetentionPeriod;
+    /**
+     * A set of key-value pairs that are used to manage the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The "DatasetTrigger" that specifies when the data set is automatically updated.
+     */
     readonly triggers?: outputs.iotanalytics.DatasetTrigger[];
+    /**
+     * Information about the versioning of dataset contents.
+     */
     readonly versioningConfiguration?: outputs.iotanalytics.DatasetVersioningConfiguration;
 }
 /**
@@ -40,5 +64,8 @@ export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetDatasetOutputArgs {
+    /**
+     * The name of the dataset.
+     */
     datasetName: pulumi.Input<string>;
 }

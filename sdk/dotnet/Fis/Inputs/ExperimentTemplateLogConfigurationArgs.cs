@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
     public sealed class ExperimentTemplateLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for experiment logging to CloudWatch Logs .
+        /// </summary>
         [Input("cloudWatchLogsConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs>? CloudWatchLogsConfiguration { get; set; }
 
+        /// <summary>
+        /// The schema version.
+        /// </summary>
         [Input("logSchemaVersion", required: true)]
         public Input<int> LogSchemaVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration for experiment logging to Amazon S3 .
+        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs>? S3Configuration { get; set; }
 

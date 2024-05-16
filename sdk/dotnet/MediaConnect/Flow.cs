@@ -102,7 +102,6 @@ namespace Pulumi.AwsNative.MediaConnect
                 {
                     "availabilityZone",
                     "name",
-                    "source.name",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

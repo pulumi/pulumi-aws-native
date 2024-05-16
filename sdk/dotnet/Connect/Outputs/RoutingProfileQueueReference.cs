@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RoutingProfileQueueReference
     {
+        /// <summary>
+        /// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.RoutingProfileChannel Channel;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         public readonly string QueueArn;
 
         [OutputConstructor]

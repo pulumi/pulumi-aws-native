@@ -19,11 +19,26 @@ export function getZonalAutoshiftConfiguration(args: GetZonalAutoshiftConfigurat
 }
 
 export interface GetZonalAutoshiftConfigurationArgs {
+    /**
+     * The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+     *
+     * At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+     */
     resourceIdentifier: string;
 }
 
 export interface GetZonalAutoshiftConfigurationResult {
+    /**
+     * A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+     *
+     * When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+     *
+     * You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+     */
     readonly practiceRunConfiguration?: outputs.arczonalshift.ZonalAutoshiftConfigurationPracticeRunConfiguration;
+    /**
+     * When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+     */
     readonly zonalAutoshiftStatus?: enums.arczonalshift.ZonalAutoshiftConfigurationZonalAutoshiftStatus;
 }
 /**
@@ -34,5 +49,10 @@ export function getZonalAutoshiftConfigurationOutput(args: GetZonalAutoshiftConf
 }
 
 export interface GetZonalAutoshiftConfigurationOutputArgs {
+    /**
+     * The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+     *
+     * At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+     */
     resourceIdentifier: pulumi.Input<string>;
 }

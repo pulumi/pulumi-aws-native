@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class InferenceComponentRuntimeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
+        /// </summary>
         [Input("copyCount")]
         public Input<int>? CopyCount { get; set; }
 

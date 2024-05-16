@@ -199,6 +199,9 @@ class GetEventDataStoreResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        """
         return pulumi.get(self, "tags")
 
     @property

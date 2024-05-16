@@ -17,13 +17,19 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                `pulumi:"arn"`
-	Description           pulumi.StringPtrOutput             `pulumi:"description"`
-	EnvironmentIdentifier pulumi.StringOutput                `pulumi:"environmentIdentifier"`
-	Name                  pulumi.StringOutput                `pulumi:"name"`
-	NetworkFabricType     EnvironmentNetworkFabricTypeOutput `pulumi:"networkFabricType"`
+	// The Amazon Resource Name (ARN) of the environment.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A description of the environment.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
+	// The name of the environment.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The network fabric type of the environment.
+	NetworkFabricType EnvironmentNetworkFabricTypeOutput `pulumi:"networkFabricType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags             aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the AWS Transit Gateway set up by the environment.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
 
@@ -76,8 +82,11 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	Description       *string                      `pulumi:"description"`
-	Name              *string                      `pulumi:"name"`
+	// A description of the environment.
+	Description *string `pulumi:"description"`
+	// The name of the environment.
+	Name *string `pulumi:"name"`
+	// The network fabric type of the environment.
 	NetworkFabricType EnvironmentNetworkFabricType `pulumi:"networkFabricType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -85,8 +94,11 @@ type environmentArgs struct {
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	Description       pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
+	// A description of the environment.
+	Description pulumi.StringPtrInput
+	// The name of the environment.
+	Name pulumi.StringPtrInput
+	// The network fabric type of the environment.
 	NetworkFabricType EnvironmentNetworkFabricTypeInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags aws.TagArrayInput
@@ -129,22 +141,27 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the environment.
 func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A description of the environment.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the environment.
 func (o EnvironmentOutput) EnvironmentIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the environment.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The network fabric type of the environment.
 func (o EnvironmentOutput) NetworkFabricType() EnvironmentNetworkFabricTypeOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentNetworkFabricTypeOutput { return v.NetworkFabricType }).(EnvironmentNetworkFabricTypeOutput)
 }
@@ -154,6 +171,7 @@ func (o EnvironmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Environment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the AWS Transit Gateway set up by the environment.
 func (o EnvironmentOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

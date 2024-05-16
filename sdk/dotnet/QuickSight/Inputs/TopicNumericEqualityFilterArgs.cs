@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicNumericEqualityFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An aggregation function that specifies how to calculate the value of a numeric field for a topic. Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+        /// </summary>
         [Input("aggregation")]
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedFilterAggType>? Aggregation { get; set; }
 
+        /// <summary>
+        /// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+        /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicSingularFilterConstantArgs>? Constant { get; set; }
 

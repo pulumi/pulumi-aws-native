@@ -59,56 +59,89 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
+        """
+        The identifier for the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="attachmentsConfiguration")
     def attachments_configuration(self) -> Optional['outputs.ApplicationAttachmentsConfiguration']:
+        """
+        Configuration information for the file upload during chat feature.
+        """
         return pulumi.get(self, "attachments_configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the Amazon Q Business application was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the Amazon Q Business application.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the Amazon Q Business application.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['ApplicationStatus']:
+        """
+        The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the Amazon Q Business application was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -135,6 +168,9 @@ def get_application(application_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Definition of AWS::QBusiness::Application Resource Type
+
+
+    :param str application_id: The identifier for the Amazon Q Business application.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -160,5 +196,8 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Definition of AWS::QBusiness::Application Resource Type
+
+
+    :param str application_id: The identifier for the Amazon Q Business application.
     """
     ...

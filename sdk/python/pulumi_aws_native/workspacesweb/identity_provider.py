@@ -21,6 +21,47 @@ class IdentityProviderArgs:
                  portal_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] identity_provider_details: The identity provider details. The following list describes the provider detail keys for each identity provider type.
+               
+               - For Google and Login with Amazon:
+               
+               - `client_id`
+               - `client_secret`
+               - `authorize_scopes`
+               - For Facebook:
+               
+               - `client_id`
+               - `client_secret`
+               - `authorize_scopes`
+               - `api_version`
+               - For Sign in with Apple:
+               
+               - `client_id`
+               - `team_id`
+               - `key_id`
+               - `private_key`
+               - `authorize_scopes`
+               - For OIDC providers:
+               
+               - `client_id`
+               - `client_secret`
+               - `attributes_request_method`
+               - `oidc_issuer`
+               - `authorize_scopes`
+               - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+               - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+               - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+               - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+               - For SAML providers:
+               
+               - `MetadataFile` OR `MetadataURL`
+               - `IDPSignout` (boolean) *optional*
+               - `IDPInit` (boolean) *optional*
+               - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+               - `EncryptedResponses` (boolean) *optional*
+        :param pulumi.Input['IdentityProviderType'] identity_provider_type: The identity provider type.
+        :param pulumi.Input[str] identity_provider_name: The identity provider name.
+        :param pulumi.Input[str] portal_arn: The ARN of the identity provider.
         """
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         pulumi.set(__self__, "identity_provider_type", identity_provider_type)
@@ -32,6 +73,46 @@ class IdentityProviderArgs:
     @property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        The identity provider details. The following list describes the provider detail keys for each identity provider type.
+
+        - For Google and Login with Amazon:
+
+        - `client_id`
+        - `client_secret`
+        - `authorize_scopes`
+        - For Facebook:
+
+        - `client_id`
+        - `client_secret`
+        - `authorize_scopes`
+        - `api_version`
+        - For Sign in with Apple:
+
+        - `client_id`
+        - `team_id`
+        - `key_id`
+        - `private_key`
+        - `authorize_scopes`
+        - For OIDC providers:
+
+        - `client_id`
+        - `client_secret`
+        - `attributes_request_method`
+        - `oidc_issuer`
+        - `authorize_scopes`
+        - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+        - For SAML providers:
+
+        - `MetadataFile` OR `MetadataURL`
+        - `IDPSignout` (boolean) *optional*
+        - `IDPInit` (boolean) *optional*
+        - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+        - `EncryptedResponses` (boolean) *optional*
+        """
         return pulumi.get(self, "identity_provider_details")
 
     @identity_provider_details.setter
@@ -41,6 +122,9 @@ class IdentityProviderArgs:
     @property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> pulumi.Input['IdentityProviderType']:
+        """
+        The identity provider type.
+        """
         return pulumi.get(self, "identity_provider_type")
 
     @identity_provider_type.setter
@@ -50,6 +134,9 @@ class IdentityProviderArgs:
     @property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity provider name.
+        """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
@@ -59,6 +146,9 @@ class IdentityProviderArgs:
     @property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the identity provider.
+        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -81,6 +171,47 @@ class IdentityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] identity_provider_details: The identity provider details. The following list describes the provider detail keys for each identity provider type.
+               
+               - For Google and Login with Amazon:
+               
+               - `client_id`
+               - `client_secret`
+               - `authorize_scopes`
+               - For Facebook:
+               
+               - `client_id`
+               - `client_secret`
+               - `authorize_scopes`
+               - `api_version`
+               - For Sign in with Apple:
+               
+               - `client_id`
+               - `team_id`
+               - `key_id`
+               - `private_key`
+               - `authorize_scopes`
+               - For OIDC providers:
+               
+               - `client_id`
+               - `client_secret`
+               - `attributes_request_method`
+               - `oidc_issuer`
+               - `authorize_scopes`
+               - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+               - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+               - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+               - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+               - For SAML providers:
+               
+               - `MetadataFile` OR `MetadataURL`
+               - `IDPSignout` (boolean) *optional*
+               - `IDPInit` (boolean) *optional*
+               - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+               - `EncryptedResponses` (boolean) *optional*
+        :param pulumi.Input[str] identity_provider_name: The identity provider name.
+        :param pulumi.Input['IdentityProviderType'] identity_provider_type: The identity provider type.
+        :param pulumi.Input[str] portal_arn: The ARN of the identity provider.
         """
         ...
     @overload
@@ -162,25 +293,77 @@ class IdentityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="identityProviderArn")
     def identity_provider_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the identity provider.
+        """
         return pulumi.get(self, "identity_provider_arn")
 
     @property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        The identity provider details. The following list describes the provider detail keys for each identity provider type.
+
+        - For Google and Login with Amazon:
+
+        - `client_id`
+        - `client_secret`
+        - `authorize_scopes`
+        - For Facebook:
+
+        - `client_id`
+        - `client_secret`
+        - `authorize_scopes`
+        - `api_version`
+        - For Sign in with Apple:
+
+        - `client_id`
+        - `team_id`
+        - `key_id`
+        - `private_key`
+        - `authorize_scopes`
+        - For OIDC providers:
+
+        - `client_id`
+        - `client_secret`
+        - `attributes_request_method`
+        - `oidc_issuer`
+        - `authorize_scopes`
+        - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+        - For SAML providers:
+
+        - `MetadataFile` OR `MetadataURL`
+        - `IDPSignout` (boolean) *optional*
+        - `IDPInit` (boolean) *optional*
+        - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+        - `EncryptedResponses` (boolean) *optional*
+        """
         return pulumi.get(self, "identity_provider_details")
 
     @property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Output[str]:
+        """
+        The identity provider name.
+        """
         return pulumi.get(self, "identity_provider_name")
 
     @property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> pulumi.Output['IdentityProviderType']:
+        """
+        The identity provider type.
+        """
         return pulumi.get(self, "identity_provider_type")
 
     @property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the identity provider.
+        """
         return pulumi.get(self, "portal_arn")
 

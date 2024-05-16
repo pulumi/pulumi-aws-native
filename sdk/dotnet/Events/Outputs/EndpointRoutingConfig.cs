@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class EndpointRoutingConfig
     {
+        /// <summary>
+        /// The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.
+        /// </summary>
         public readonly Outputs.EndpointFailoverConfig FailoverConfig;
 
         [OutputConstructor]

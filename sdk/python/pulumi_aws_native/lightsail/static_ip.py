@@ -165,6 +165,9 @@ class StaticIp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="staticIpArn")
     def static_ip_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the static IP (for example, `arn:aws:lightsail:us-east-2:123456789101:StaticIp/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        """
         return pulumi.get(self, "static_ip_arn")
 
     @property

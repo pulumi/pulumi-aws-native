@@ -16,16 +16,39 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupRule
     {
+        /// <summary>
+        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleAction? Action;
+        /// <summary>
+        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations. This is available at the web ACL level and in each rule.
+        /// </summary>
         public readonly Outputs.RuleGroupCaptchaConfig? CaptchaConfig;
+        /// <summary>
+        /// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+        /// </summary>
         public readonly Outputs.RuleGroupChallengeConfig? ChallengeConfig;
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+        /// </summary>
         public readonly int Priority;
         /// <summary>
         /// Collection of Rule Labels.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupLabel> RuleLabels;
+        /// <summary>
+        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// </summary>
         public readonly Outputs.RuleGroupStatement Statement;
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        /// </summary>
         public readonly Outputs.RuleGroupVisibilityConfig VisibilityConfig;
 
         [OutputConstructor]

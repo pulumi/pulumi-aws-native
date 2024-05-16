@@ -24,18 +24,43 @@ func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts 
 }
 
 type LookupStateMachineArgs struct {
+	// Returns the ARN of the resource.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupStateMachineResult struct {
-	Arn                    *string                           `pulumi:"arn"`
-	DefinitionString       *string                           `pulumi:"definitionString"`
-	LoggingConfiguration   *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
-	Name                   *string                           `pulumi:"name"`
-	RoleArn                *string                           `pulumi:"roleArn"`
-	StateMachineRevisionId *string                           `pulumi:"stateMachineRevisionId"`
-	Tags                   []aws.Tag                         `pulumi:"tags"`
-	TracingConfiguration   *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
+	// Returns the ARN of the resource.
+	Arn *string `pulumi:"arn"`
+	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+	DefinitionString *string `pulumi:"definitionString"`
+	// Defines what execution history events are logged and where they are logged.
+	//
+	// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
+	//
+	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
+	// Returns the name of the state machine. For example:
+	//
+	// `{ "Fn::GetAtt": ["MyStateMachine", "Name"] }`
+	//
+	// Returns the name of your state machine:
+	//
+	// `HelloWorld-StateMachine`
+	//
+	// If you did not specify the name it will be similar to the following:
+	//
+	// `MyStateMachine-1234abcdefgh`
+	//
+	// For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	RoleArn *string `pulumi:"roleArn"`
+	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+	StateMachineRevisionId *string `pulumi:"stateMachineRevisionId"`
+	// The `TagsEntry` property specifies *tags* to identify a state machine.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
@@ -52,6 +77,7 @@ func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutput
 }
 
 type LookupStateMachineOutputArgs struct {
+	// Returns the ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -73,34 +99,58 @@ func (o LookupStateMachineResultOutput) ToLookupStateMachineResultOutputWithCont
 	return o
 }
 
+// Returns the ARN of the resource.
 func (o LookupStateMachineResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 func (o LookupStateMachineResultOutput) DefinitionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.DefinitionString }).(pulumi.StringPtrOutput)
 }
 
+// Defines what execution history events are logged and where they are logged.
+//
+// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
+//
+// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 func (o LookupStateMachineResultOutput) LoggingConfiguration() StateMachineLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *StateMachineLoggingConfiguration { return v.LoggingConfiguration }).(StateMachineLoggingConfigurationPtrOutput)
 }
 
+// Returns the name of the state machine. For example:
+//
+// `{ "Fn::GetAtt": ["MyStateMachine", "Name"] }`
+//
+// Returns the name of your state machine:
+//
+// `HelloWorld-StateMachine`
+//
+// If you did not specify the name it will be similar to the following:
+//
+// `MyStateMachine-1234abcdefgh`
+//
+// For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
 func (o LookupStateMachineResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 func (o LookupStateMachineResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
 func (o LookupStateMachineResultOutput) StateMachineRevisionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.StateMachineRevisionId }).(pulumi.StringPtrOutput)
 }
 
+// The `TagsEntry` property specifies *tags* to identify a state machine.
 func (o LookupStateMachineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
 func (o LookupStateMachineResultOutput) TracingConfiguration() StateMachineTracingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *StateMachineTracingConfiguration { return v.TracingConfiguration }).(StateMachineTracingConfigurationPtrOutput)
 }

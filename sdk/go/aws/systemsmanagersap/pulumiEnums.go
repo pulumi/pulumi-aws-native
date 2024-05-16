@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of the application credentials.
 type ApplicationCredentialCredentialType string
 
 const (
@@ -173,6 +174,7 @@ func (in *applicationCredentialCredentialTypePtr) ToApplicationCredentialCredent
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCredentialCredentialTypePtrOutput)
 }
 
+// The type of the application.
 type ApplicationType string
 
 const (

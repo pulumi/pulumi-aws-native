@@ -12,9 +12,25 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class EntitlementAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+        /// 
+        /// The following are supported values:
+        /// 
+        /// - roles
+        /// - department
+        /// - organization
+        /// - groups
+        /// - title
+        /// - costCenter
+        /// - userType
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

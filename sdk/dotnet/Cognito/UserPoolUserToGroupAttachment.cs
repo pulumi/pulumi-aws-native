@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolUserToGroupAttachment")]
     public partial class UserPoolUserToGroupAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the group that you want to add your user to.
+        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -75,9 +81,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolUserToGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the group that you want to add your user to.
+        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

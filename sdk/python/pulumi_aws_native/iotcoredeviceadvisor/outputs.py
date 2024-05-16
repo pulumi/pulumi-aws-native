@@ -17,6 +17,35 @@ __all__ = [
 
 @pulumi.output_type
 class SuiteDefinitionConfigurationProperties(dict):
+    """
+    The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+
+    - ***devicePermissionRoleArn*** - The device permission arn.
+
+    This is a required element.
+
+    *Type:* String
+    - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
+
+    Not a required element.
+
+    *Type:* List of devices under test
+    - ***intendedForQualification*** - The tests intended for qualification in a suite.
+
+    Not a required element.
+
+    *Type:* Boolean
+    - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
+
+    This is a required element.
+
+    *Type:* String
+    - ***suiteDefinitionName*** - The Suite Definition Configuration name.
+
+    This is a required element.
+
+    *Type:* String
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -46,6 +75,42 @@ class SuiteDefinitionConfigurationProperties(dict):
                  devices: Optional[Sequence['outputs.SuiteDefinitionDeviceUnderTest']] = None,
                  intended_for_qualification: Optional[bool] = None,
                  suite_definition_name: Optional[str] = None):
+        """
+        The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+
+        - ***devicePermissionRoleArn*** - The device permission arn.
+
+        This is a required element.
+
+        *Type:* String
+        - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
+
+        Not a required element.
+
+        *Type:* List of devices under test
+        - ***intendedForQualification*** - The tests intended for qualification in a suite.
+
+        Not a required element.
+
+        *Type:* Boolean
+        - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
+
+        This is a required element.
+
+        *Type:* String
+        - ***suiteDefinitionName*** - The Suite Definition Configuration name.
+
+        This is a required element.
+
+        *Type:* String
+        :param str device_permission_role_arn: Gets the device permission ARN. This is a required parameter.
+        :param str root_group: Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
+               
+               For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
+        :param Sequence['SuiteDefinitionDeviceUnderTest'] devices: Gets the devices configured.
+        :param bool intended_for_qualification: Gets the tests intended for qualification in a suite.
+        :param str suite_definition_name: Gets the suite definition name. This is a required parameter.
+        """
         pulumi.set(__self__, "device_permission_role_arn", device_permission_role_arn)
         pulumi.set(__self__, "root_group", root_group)
         if devices is not None:
@@ -58,26 +123,43 @@ class SuiteDefinitionConfigurationProperties(dict):
     @property
     @pulumi.getter(name="devicePermissionRoleArn")
     def device_permission_role_arn(self) -> str:
+        """
+        Gets the device permission ARN. This is a required parameter.
+        """
         return pulumi.get(self, "device_permission_role_arn")
 
     @property
     @pulumi.getter(name="rootGroup")
     def root_group(self) -> str:
+        """
+        Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
+
+        For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
+        """
         return pulumi.get(self, "root_group")
 
     @property
     @pulumi.getter
     def devices(self) -> Optional[Sequence['outputs.SuiteDefinitionDeviceUnderTest']]:
+        """
+        Gets the devices configured.
+        """
         return pulumi.get(self, "devices")
 
     @property
     @pulumi.getter(name="intendedForQualification")
     def intended_for_qualification(self) -> Optional[bool]:
+        """
+        Gets the tests intended for qualification in a suite.
+        """
         return pulumi.get(self, "intended_for_qualification")
 
     @property
     @pulumi.getter(name="suiteDefinitionName")
     def suite_definition_name(self) -> Optional[str]:
+        """
+        Gets the suite definition name. This is a required parameter.
+        """
         return pulumi.get(self, "suite_definition_name")
 
 

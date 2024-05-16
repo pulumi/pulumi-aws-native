@@ -14,12 +14,20 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DomainAdvancedSecurityOptionsInput struct {
-	AnonymousAuthDisableDate    *string                  `pulumi:"anonymousAuthDisableDate"`
-	AnonymousAuthEnabled        *bool                    `pulumi:"anonymousAuthEnabled"`
-	Enabled                     *bool                    `pulumi:"enabled"`
-	InternalUserDatabaseEnabled *bool                    `pulumi:"internalUserDatabaseEnabled"`
-	MasterUserOptions           *DomainMasterUserOptions `pulumi:"masterUserOptions"`
-	SamlOptions                 *DomainSamlOptions       `pulumi:"samlOptions"`
+	// Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+	AnonymousAuthDisableDate *string `pulumi:"anonymousAuthDisableDate"`
+	// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
+	// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+	Enabled *bool `pulumi:"enabled"`
+	// True to enable the internal user database.
+	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
+	// Specifies information about the master user.
+	//
+	// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	MasterUserOptions *DomainMasterUserOptions `pulumi:"masterUserOptions"`
+	// Container for information about the SAML configuration for OpenSearch Dashboards.
+	SamlOptions *DomainSamlOptions `pulumi:"samlOptions"`
 }
 
 // DomainAdvancedSecurityOptionsInputInput is an input type that accepts DomainAdvancedSecurityOptionsInputArgs and DomainAdvancedSecurityOptionsInputOutput values.
@@ -34,12 +42,20 @@ type DomainAdvancedSecurityOptionsInputInput interface {
 }
 
 type DomainAdvancedSecurityOptionsInputArgs struct {
-	AnonymousAuthDisableDate    pulumi.StringPtrInput           `pulumi:"anonymousAuthDisableDate"`
-	AnonymousAuthEnabled        pulumi.BoolPtrInput             `pulumi:"anonymousAuthEnabled"`
-	Enabled                     pulumi.BoolPtrInput             `pulumi:"enabled"`
-	InternalUserDatabaseEnabled pulumi.BoolPtrInput             `pulumi:"internalUserDatabaseEnabled"`
-	MasterUserOptions           DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
-	SamlOptions                 DomainSamlOptionsPtrInput       `pulumi:"samlOptions"`
+	// Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+	AnonymousAuthDisableDate pulumi.StringPtrInput `pulumi:"anonymousAuthDisableDate"`
+	// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+	AnonymousAuthEnabled pulumi.BoolPtrInput `pulumi:"anonymousAuthEnabled"`
+	// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// True to enable the internal user database.
+	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
+	// Specifies information about the master user.
+	//
+	// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	MasterUserOptions DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
+	// Container for information about the SAML configuration for OpenSearch Dashboards.
+	SamlOptions DomainSamlOptionsPtrInput `pulumi:"samlOptions"`
 }
 
 func (DomainAdvancedSecurityOptionsInputArgs) ElementType() reflect.Type {
@@ -119,26 +135,34 @@ func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOption
 	}).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
+// Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 func (o DomainAdvancedSecurityOptionsInputOutput) AnonymousAuthDisableDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *string { return v.AnonymousAuthDisableDate }).(pulumi.StringPtrOutput)
 }
 
+// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 func (o DomainAdvancedSecurityOptionsInputOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.AnonymousAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
 func (o DomainAdvancedSecurityOptionsInputOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// True to enable the internal user database.
 func (o DomainAdvancedSecurityOptionsInputOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies information about the master user.
+//
+// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainAdvancedSecurityOptionsInputOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions { return v.MasterUserOptions }).(DomainMasterUserOptionsPtrOutput)
 }
 
+// Container for information about the SAML configuration for OpenSearch Dashboards.
 func (o DomainAdvancedSecurityOptionsInputOutput) SamlOptions() DomainSamlOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainSamlOptions { return v.SamlOptions }).(DomainSamlOptionsPtrOutput)
 }
@@ -167,6 +191,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) Elem() DomainAdvancedSecuri
 	}).(DomainAdvancedSecurityOptionsInputOutput)
 }
 
+// Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthDisableDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *string {
 		if v == nil {
@@ -176,6 +201,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthDisableDate() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
 		if v == nil {
@@ -185,6 +211,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
 		if v == nil {
@@ -194,6 +221,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// True to enable the internal user database.
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
 		if v == nil {
@@ -203,6 +231,9 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) InternalUserDatabaseEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies information about the master user.
+//
+// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions {
 		if v == nil {
@@ -212,6 +243,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) MasterUserOptions() DomainM
 	}).(DomainMasterUserOptionsPtrOutput)
 }
 
+// Container for information about the SAML configuration for OpenSearch Dashboards.
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSamlOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainSamlOptions {
 		if v == nil {
@@ -222,18 +254,30 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSamlOpt
 }
 
 type DomainClusterConfig struct {
-	ColdStorageOptions        *DomainColdStorageOptions  `pulumi:"coldStorageOptions"`
-	DedicatedMasterCount      *int                       `pulumi:"dedicatedMasterCount"`
-	DedicatedMasterEnabled    *bool                      `pulumi:"dedicatedMasterEnabled"`
-	DedicatedMasterType       *string                    `pulumi:"dedicatedMasterType"`
-	InstanceCount             *int                       `pulumi:"instanceCount"`
-	InstanceType              *string                    `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled *bool                      `pulumi:"multiAzWithStandbyEnabled"`
-	WarmCount                 *int                       `pulumi:"warmCount"`
-	WarmEnabled               *bool                      `pulumi:"warmEnabled"`
-	WarmType                  *string                    `pulumi:"warmType"`
-	ZoneAwarenessConfig       *DomainZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
-	ZoneAwarenessEnabled      *bool                      `pulumi:"zoneAwarenessEnabled"`
+	// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+	ColdStorageOptions *DomainColdStorageOptions `pulumi:"coldStorageOptions"`
+	// The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
+	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
+	// Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
+	DedicatedMasterEnabled *bool `pulumi:"dedicatedMasterEnabled"`
+	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+	DedicatedMasterType *string `pulumi:"dedicatedMasterType"`
+	// The number of data nodes (instances) to use in the OpenSearch Service domain.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+	InstanceType *string `pulumi:"instanceType"`
+	// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
+	MultiAzWithStandbyEnabled *bool `pulumi:"multiAzWithStandbyEnabled"`
+	// The number of warm nodes in the cluster.
+	WarmCount *int `pulumi:"warmCount"`
+	// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
+	WarmEnabled *bool `pulumi:"warmEnabled"`
+	// The instance type for the cluster's warm nodes.
+	WarmType *string `pulumi:"warmType"`
+	// Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
+	ZoneAwarenessConfig *DomainZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
+	// Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
+	ZoneAwarenessEnabled *bool `pulumi:"zoneAwarenessEnabled"`
 }
 
 // DomainClusterConfigInput is an input type that accepts DomainClusterConfigArgs and DomainClusterConfigOutput values.
@@ -248,18 +292,30 @@ type DomainClusterConfigInput interface {
 }
 
 type DomainClusterConfigArgs struct {
-	ColdStorageOptions        DomainColdStorageOptionsPtrInput  `pulumi:"coldStorageOptions"`
-	DedicatedMasterCount      pulumi.IntPtrInput                `pulumi:"dedicatedMasterCount"`
-	DedicatedMasterEnabled    pulumi.BoolPtrInput               `pulumi:"dedicatedMasterEnabled"`
-	DedicatedMasterType       pulumi.StringPtrInput             `pulumi:"dedicatedMasterType"`
-	InstanceCount             pulumi.IntPtrInput                `pulumi:"instanceCount"`
-	InstanceType              pulumi.StringPtrInput             `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled pulumi.BoolPtrInput               `pulumi:"multiAzWithStandbyEnabled"`
-	WarmCount                 pulumi.IntPtrInput                `pulumi:"warmCount"`
-	WarmEnabled               pulumi.BoolPtrInput               `pulumi:"warmEnabled"`
-	WarmType                  pulumi.StringPtrInput             `pulumi:"warmType"`
-	ZoneAwarenessConfig       DomainZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
-	ZoneAwarenessEnabled      pulumi.BoolPtrInput               `pulumi:"zoneAwarenessEnabled"`
+	// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+	ColdStorageOptions DomainColdStorageOptionsPtrInput `pulumi:"coldStorageOptions"`
+	// The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
+	DedicatedMasterCount pulumi.IntPtrInput `pulumi:"dedicatedMasterCount"`
+	// Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
+	DedicatedMasterEnabled pulumi.BoolPtrInput `pulumi:"dedicatedMasterEnabled"`
+	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+	DedicatedMasterType pulumi.StringPtrInput `pulumi:"dedicatedMasterType"`
+	// The number of data nodes (instances) to use in the OpenSearch Service domain.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput `pulumi:"multiAzWithStandbyEnabled"`
+	// The number of warm nodes in the cluster.
+	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
+	// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
+	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
+	// The instance type for the cluster's warm nodes.
+	WarmType pulumi.StringPtrInput `pulumi:"warmType"`
+	// Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
+	ZoneAwarenessConfig DomainZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
+	// Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
+	ZoneAwarenessEnabled pulumi.BoolPtrInput `pulumi:"zoneAwarenessEnabled"`
 }
 
 func (DomainClusterConfigArgs) ElementType() reflect.Type {
@@ -339,50 +395,62 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx
 	}).(DomainClusterConfigPtrOutput)
 }
 
+// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
 func (o DomainClusterConfigOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *DomainColdStorageOptions { return v.ColdStorageOptions }).(DomainColdStorageOptionsPtrOutput)
 }
 
+// The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
 func (o DomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
 func (o DomainClusterConfigOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 func (o DomainClusterConfigOutput) DedicatedMasterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
 }
 
+// The number of data nodes (instances) to use in the OpenSearch Service domain.
 func (o DomainClusterConfigOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
 func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The number of warm nodes in the cluster.
 func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
 }
 
+// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
 func (o DomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The instance type for the cluster's warm nodes.
 func (o DomainClusterConfigOutput) WarmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.WarmType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
 func (o DomainClusterConfigOutput) ZoneAwarenessConfig() DomainZoneAwarenessConfigPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *DomainZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainZoneAwarenessConfigPtrOutput)
 }
 
+// Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
 func (o DomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -411,6 +479,7 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 	}).(DomainClusterConfigOutput)
 }
 
+// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
 func (o DomainClusterConfigPtrOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *DomainColdStorageOptions {
 		if v == nil {
@@ -420,6 +489,7 @@ func (o DomainClusterConfigPtrOutput) ColdStorageOptions() DomainColdStorageOpti
 	}).(DomainColdStorageOptionsPtrOutput)
 }
 
+// The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *int {
 		if v == nil {
@@ -429,6 +499,7 @@ func (o DomainClusterConfigPtrOutput) DedicatedMasterCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
 func (o DomainClusterConfigPtrOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
@@ -438,6 +509,7 @@ func (o DomainClusterConfigPtrOutput) DedicatedMasterEnabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 func (o DomainClusterConfigPtrOutput) DedicatedMasterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *string {
 		if v == nil {
@@ -447,6 +519,7 @@ func (o DomainClusterConfigPtrOutput) DedicatedMasterType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of data nodes (instances) to use in the OpenSearch Service domain.
 func (o DomainClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *int {
 		if v == nil {
@@ -456,6 +529,7 @@ func (o DomainClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *string {
 		if v == nil {
@@ -465,6 +539,7 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
 func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
@@ -474,6 +549,7 @@ func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of warm nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) WarmCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *int {
 		if v == nil {
@@ -483,6 +559,7 @@ func (o DomainClusterConfigPtrOutput) WarmCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
 func (o DomainClusterConfigPtrOutput) WarmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
@@ -492,6 +569,7 @@ func (o DomainClusterConfigPtrOutput) WarmEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The instance type for the cluster's warm nodes.
 func (o DomainClusterConfigPtrOutput) WarmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *string {
 		if v == nil {
@@ -501,6 +579,7 @@ func (o DomainClusterConfigPtrOutput) WarmType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessConfig() DomainZoneAwarenessConfigPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *DomainZoneAwarenessConfig {
 		if v == nil {
@@ -510,6 +589,7 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessConfig() DomainZoneAwarenessC
 	}).(DomainZoneAwarenessConfigPtrOutput)
 }
 
+// Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
@@ -520,10 +600,20 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutpu
 }
 
 type DomainCognitoOptions struct {
-	Enabled        *bool   `pulumi:"enabled"`
+	// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+	Enabled *bool `pulumi:"enabled"`
+	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+	//
+	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 	IdentityPoolId *string `pulumi:"identityPoolId"`
-	RoleArn        *string `pulumi:"roleArn"`
-	UserPoolId     *string `pulumi:"userPoolId"`
+	// The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+	//
+	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+	RoleArn *string `pulumi:"roleArn"`
+	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+	//
+	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+	UserPoolId *string `pulumi:"userPoolId"`
 }
 
 // DomainCognitoOptionsInput is an input type that accepts DomainCognitoOptionsArgs and DomainCognitoOptionsOutput values.
@@ -538,10 +628,20 @@ type DomainCognitoOptionsInput interface {
 }
 
 type DomainCognitoOptionsArgs struct {
-	Enabled        pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+	//
+	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 	IdentityPoolId pulumi.StringPtrInput `pulumi:"identityPoolId"`
-	RoleArn        pulumi.StringPtrInput `pulumi:"roleArn"`
-	UserPoolId     pulumi.StringPtrInput `pulumi:"userPoolId"`
+	// The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+	//
+	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+	//
+	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+	UserPoolId pulumi.StringPtrInput `pulumi:"userPoolId"`
 }
 
 func (DomainCognitoOptionsArgs) ElementType() reflect.Type {
@@ -621,18 +721,28 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	}).(DomainCognitoOptionsPtrOutput)
 }
 
+// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+//
+// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 func (o DomainCognitoOptionsOutput) IdentityPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *string { return v.IdentityPoolId }).(pulumi.StringPtrOutput)
 }
 
+// The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+//
+// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 func (o DomainCognitoOptionsOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+//
+// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 func (o DomainCognitoOptionsOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *string { return v.UserPoolId }).(pulumi.StringPtrOutput)
 }
@@ -661,6 +771,7 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 	}).(DomainCognitoOptionsOutput)
 }
 
+// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
 		if v == nil {
@@ -670,6 +781,9 @@ func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+//
+// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *string {
 		if v == nil {
@@ -679,6 +793,9 @@ func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+//
+// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *string {
 		if v == nil {
@@ -688,6 +805,9 @@ func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+//
+// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
 func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *string {
 		if v == nil {
@@ -698,6 +818,7 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type DomainColdStorageOptions struct {
+	// Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -713,6 +834,7 @@ type DomainColdStorageOptionsInput interface {
 }
 
 type DomainColdStorageOptionsArgs struct {
+	// Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -793,6 +915,7 @@ func (o DomainColdStorageOptionsOutput) ToDomainColdStorageOptionsPtrOutputWithC
 	}).(DomainColdStorageOptionsPtrOutput)
 }
 
+// Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
 func (o DomainColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -821,6 +944,7 @@ func (o DomainColdStorageOptionsPtrOutput) Elem() DomainColdStorageOptionsOutput
 	}).(DomainColdStorageOptionsOutput)
 }
 
+// Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
 func (o DomainColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainColdStorageOptions) *bool {
 		if v == nil {
@@ -831,10 +955,15 @@ func (o DomainColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type DomainEbsOptions struct {
-	EbsEnabled *bool   `pulumi:"ebsEnabled"`
-	Iops       *int    `pulumi:"iops"`
-	Throughput *int    `pulumi:"throughput"`
-	VolumeSize *int    `pulumi:"volumeSize"`
+	// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
+	EbsEnabled *bool `pulumi:"ebsEnabled"`
+	// The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
+	Iops *int `pulumi:"iops"`
+	// The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
+	Throughput *int `pulumi:"throughput"`
+	// The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -850,10 +979,15 @@ type DomainEbsOptionsInput interface {
 }
 
 type DomainEbsOptionsArgs struct {
-	EbsEnabled pulumi.BoolPtrInput   `pulumi:"ebsEnabled"`
-	Iops       pulumi.IntPtrInput    `pulumi:"iops"`
-	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeSize pulumi.IntPtrInput    `pulumi:"volumeSize"`
+	// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
+	EbsEnabled pulumi.BoolPtrInput `pulumi:"ebsEnabled"`
+	// The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -934,22 +1068,27 @@ func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx conte
 	}).(DomainEbsOptionsPtrOutput)
 }
 
+// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
 func (o DomainEbsOptionsOutput) EbsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *bool { return v.EbsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
 func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
 func (o DomainEbsOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 func (o DomainEbsOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
 func (o DomainEbsOptionsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -978,6 +1117,7 @@ func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
 	}).(DomainEbsOptionsOutput)
 }
 
+// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
 func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *bool {
 		if v == nil {
@@ -987,6 +1127,7 @@ func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
 func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
@@ -996,6 +1137,7 @@ func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
 func (o DomainEbsOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
@@ -1005,6 +1147,7 @@ func (o DomainEbsOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
@@ -1014,6 +1157,7 @@ func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
 func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *string {
 		if v == nil {
@@ -1024,7 +1168,15 @@ func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type DomainEncryptionAtRestOptions struct {
-	Enabled  *bool   `pulumi:"enabled"`
+	// Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+	Enabled *bool `pulumi:"enabled"`
+	// The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+	//
+	// You can also use `keyAlias` as a value.
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -1040,7 +1192,15 @@ type DomainEncryptionAtRestOptionsInput interface {
 }
 
 type DomainEncryptionAtRestOptionsArgs struct {
-	Enabled  pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+	//
+	// You can also use `keyAlias` as a value.
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -1121,10 +1281,18 @@ func (o DomainEncryptionAtRestOptionsOutput) ToDomainEncryptionAtRestOptionsPtrO
 	}).(DomainEncryptionAtRestOptionsPtrOutput)
 }
 
+// Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+//
+// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 func (o DomainEncryptionAtRestOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEncryptionAtRestOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+//
+// You can also use `keyAlias` as a value.
+//
+// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 func (o DomainEncryptionAtRestOptionsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEncryptionAtRestOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1153,6 +1321,9 @@ func (o DomainEncryptionAtRestOptionsPtrOutput) Elem() DomainEncryptionAtRestOpt
 	}).(DomainEncryptionAtRestOptionsOutput)
 }
 
+// Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+//
+// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 func (o DomainEncryptionAtRestOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptionAtRestOptions) *bool {
 		if v == nil {
@@ -1162,6 +1333,11 @@ func (o DomainEncryptionAtRestOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+//
+// You can also use `keyAlias` as a value.
+//
+// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 func (o DomainEncryptionAtRestOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptionAtRestOptions) *string {
 		if v == nil {
@@ -1172,11 +1348,19 @@ func (o DomainEncryptionAtRestOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutpu
 }
 
 type DomainEndpointOptions struct {
-	CustomEndpoint               *string `pulumi:"customEndpoint"`
+	// The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
+	CustomEndpoint *string `pulumi:"customEndpoint"`
+	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 	CustomEndpointCertificateArn *string `pulumi:"customEndpointCertificateArn"`
-	CustomEndpointEnabled        *bool   `pulumi:"customEndpointEnabled"`
-	EnforceHttps                 *bool   `pulumi:"enforceHttps"`
-	TlsSecurityPolicy            *string `pulumi:"tlsSecurityPolicy"`
+	// True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
+	CustomEndpointEnabled *bool `pulumi:"customEndpointEnabled"`
+	// True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	EnforceHttps *bool `pulumi:"enforceHttps"`
+	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+	//
+	// - `Policy-Min-TLS-1-0-2019-07`
+	// - `Policy-Min-TLS-1-2-2019-07`
+	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
 // DomainEndpointOptionsInput is an input type that accepts DomainEndpointOptionsArgs and DomainEndpointOptionsOutput values.
@@ -1191,11 +1375,19 @@ type DomainEndpointOptionsInput interface {
 }
 
 type DomainEndpointOptionsArgs struct {
-	CustomEndpoint               pulumi.StringPtrInput `pulumi:"customEndpoint"`
+	// The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
+	CustomEndpoint pulumi.StringPtrInput `pulumi:"customEndpoint"`
+	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"customEndpointCertificateArn"`
-	CustomEndpointEnabled        pulumi.BoolPtrInput   `pulumi:"customEndpointEnabled"`
-	EnforceHttps                 pulumi.BoolPtrInput   `pulumi:"enforceHttps"`
-	TlsSecurityPolicy            pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
+	// True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
+	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"customEndpointEnabled"`
+	// True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	EnforceHttps pulumi.BoolPtrInput `pulumi:"enforceHttps"`
+	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+	//
+	// - `Policy-Min-TLS-1-0-2019-07`
+	// - `Policy-Min-TLS-1-2-2019-07`
+	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
 func (DomainEndpointOptionsArgs) ElementType() reflect.Type {
@@ -1275,22 +1467,30 @@ func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsPtrOutputWithContext
 	}).(DomainEndpointOptionsPtrOutput)
 }
 
+// The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
 func (o DomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.CustomEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 func (o DomainEndpointOptionsOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.CustomEndpointCertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
 func (o DomainEndpointOptionsOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.CustomEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
+// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+//
+// - `Policy-Min-TLS-1-0-2019-07`
+// - `Policy-Min-TLS-1-2-2019-07`
 func (o DomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1319,6 +1519,7 @@ func (o DomainEndpointOptionsPtrOutput) Elem() DomainEndpointOptionsOutput {
 	}).(DomainEndpointOptionsOutput)
 }
 
+// The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
 func (o DomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {
@@ -1328,6 +1529,7 @@ func (o DomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 func (o DomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {
@@ -1337,6 +1539,7 @@ func (o DomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
 func (o DomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *bool {
 		if v == nil {
@@ -1346,6 +1549,7 @@ func (o DomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *bool {
 		if v == nil {
@@ -1355,6 +1559,10 @@ func (o DomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+//
+// - `Policy-Min-TLS-1-0-2019-07`
+// - `Policy-Min-TLS-1-2-2019-07`
 func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {
@@ -1365,7 +1573,9 @@ func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutp
 }
 
 type DomainIdp struct {
-	EntityId        string `pulumi:"entityId"`
+	// The unique entity ID of the application in the SAML identity provider.
+	EntityId string `pulumi:"entityId"`
+	// The metadata of the SAML application, in XML format.
 	MetadataContent string `pulumi:"metadataContent"`
 }
 
@@ -1381,7 +1591,9 @@ type DomainIdpInput interface {
 }
 
 type DomainIdpArgs struct {
-	EntityId        pulumi.StringInput `pulumi:"entityId"`
+	// The unique entity ID of the application in the SAML identity provider.
+	EntityId pulumi.StringInput `pulumi:"entityId"`
+	// The metadata of the SAML application, in XML format.
 	MetadataContent pulumi.StringInput `pulumi:"metadataContent"`
 }
 
@@ -1462,10 +1674,12 @@ func (o DomainIdpOutput) ToDomainIdpPtrOutputWithContext(ctx context.Context) Do
 	}).(DomainIdpPtrOutput)
 }
 
+// The unique entity ID of the application in the SAML identity provider.
 func (o DomainIdpOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIdp) string { return v.EntityId }).(pulumi.StringOutput)
 }
 
+// The metadata of the SAML application, in XML format.
 func (o DomainIdpOutput) MetadataContent() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIdp) string { return v.MetadataContent }).(pulumi.StringOutput)
 }
@@ -1494,6 +1708,7 @@ func (o DomainIdpPtrOutput) Elem() DomainIdpOutput {
 	}).(DomainIdpOutput)
 }
 
+// The unique entity ID of the application in the SAML identity provider.
 func (o DomainIdpPtrOutput) EntityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdp) *string {
 		if v == nil {
@@ -1503,6 +1718,7 @@ func (o DomainIdpPtrOutput) EntityId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metadata of the SAML application, in XML format.
 func (o DomainIdpPtrOutput) MetadataContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdp) *string {
 		if v == nil {
@@ -1613,8 +1829,15 @@ func (o DomainLogPublishingOptionMapOutput) MapIndex(k pulumi.StringInput) Domai
 }
 
 type DomainMasterUserOptions struct {
-	MasterUserArn      *string `pulumi:"masterUserArn"`
-	MasterUserName     *string `pulumi:"masterUserName"`
+	// Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	MasterUserArn *string `pulumi:"masterUserArn"`
+	// Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	//
+	// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+	MasterUserName *string `pulumi:"masterUserName"`
+	// Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	//
+	// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
 	MasterUserPassword *string `pulumi:"masterUserPassword"`
 }
 
@@ -1630,8 +1853,15 @@ type DomainMasterUserOptionsInput interface {
 }
 
 type DomainMasterUserOptionsArgs struct {
-	MasterUserArn      pulumi.StringPtrInput `pulumi:"masterUserArn"`
-	MasterUserName     pulumi.StringPtrInput `pulumi:"masterUserName"`
+	// Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	MasterUserArn pulumi.StringPtrInput `pulumi:"masterUserArn"`
+	// Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	//
+	// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+	MasterUserName pulumi.StringPtrInput `pulumi:"masterUserName"`
+	// Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+	//
+	// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
 	MasterUserPassword pulumi.StringPtrInput `pulumi:"masterUserPassword"`
 }
 
@@ -1712,14 +1942,21 @@ func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsPtrOutputWithCon
 	}).(DomainMasterUserOptionsPtrOutput)
 }
 
+// Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainMasterUserOptionsOutput) MasterUserArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserArn }).(pulumi.StringPtrOutput)
 }
 
+// Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+//
+// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
 func (o DomainMasterUserOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
 }
 
+// Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+//
+// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
 func (o DomainMasterUserOptionsOutput) MasterUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
 }
@@ -1748,6 +1985,7 @@ func (o DomainMasterUserOptionsPtrOutput) Elem() DomainMasterUserOptionsOutput {
 	}).(DomainMasterUserOptionsOutput)
 }
 
+// Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainMasterUserOptionsPtrOutput) MasterUserArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
 		if v == nil {
@@ -1757,6 +1995,9 @@ func (o DomainMasterUserOptionsPtrOutput) MasterUserArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+//
+// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
 func (o DomainMasterUserOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
 		if v == nil {
@@ -1766,6 +2007,9 @@ func (o DomainMasterUserOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+//
+// If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
 func (o DomainMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
 		if v == nil {
@@ -1776,6 +2020,7 @@ func (o DomainMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrO
 }
 
 type DomainNodeToNodeEncryptionOptions struct {
+	// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1791,6 +2036,7 @@ type DomainNodeToNodeEncryptionOptionsInput interface {
 }
 
 type DomainNodeToNodeEncryptionOptionsArgs struct {
+	// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1871,6 +2117,7 @@ func (o DomainNodeToNodeEncryptionOptionsOutput) ToDomainNodeToNodeEncryptionOpt
 	}).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
+// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainNodeToNodeEncryptionOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainNodeToNodeEncryptionOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1899,6 +2146,7 @@ func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Elem() DomainNodeToNodeEncry
 	}).(DomainNodeToNodeEncryptionOptionsOutput)
 }
 
+// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainNodeToNodeEncryptionOptions) *bool {
 		if v == nil {
@@ -1909,6 +2157,7 @@ func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Enabled() pulumi.BoolPtrOutp
 }
 
 type DomainOffPeakWindow struct {
+	// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
 	WindowStartTime *DomainWindowStartTime `pulumi:"windowStartTime"`
 }
 
@@ -1924,6 +2173,7 @@ type DomainOffPeakWindowInput interface {
 }
 
 type DomainOffPeakWindowArgs struct {
+	// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
 	WindowStartTime DomainWindowStartTimePtrInput `pulumi:"windowStartTime"`
 }
 
@@ -2004,6 +2254,7 @@ func (o DomainOffPeakWindowOutput) ToDomainOffPeakWindowPtrOutputWithContext(ctx
 	}).(DomainOffPeakWindowPtrOutput)
 }
 
+// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
 func (o DomainOffPeakWindowOutput) WindowStartTime() DomainWindowStartTimePtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindow) *DomainWindowStartTime { return v.WindowStartTime }).(DomainWindowStartTimePtrOutput)
 }
@@ -2032,6 +2283,7 @@ func (o DomainOffPeakWindowPtrOutput) Elem() DomainOffPeakWindowOutput {
 	}).(DomainOffPeakWindowOutput)
 }
 
+// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
 func (o DomainOffPeakWindowPtrOutput) WindowStartTime() DomainWindowStartTimePtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindow) *DomainWindowStartTime {
 		if v == nil {
@@ -2042,7 +2294,9 @@ func (o DomainOffPeakWindowPtrOutput) WindowStartTime() DomainWindowStartTimePtr
 }
 
 type DomainOffPeakWindowOptions struct {
-	Enabled       *bool                `pulumi:"enabled"`
+	// Specifies whether off-peak window settings are enabled for the domain.
+	Enabled *bool `pulumi:"enabled"`
+	// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
 	OffPeakWindow *DomainOffPeakWindow `pulumi:"offPeakWindow"`
 }
 
@@ -2058,7 +2312,9 @@ type DomainOffPeakWindowOptionsInput interface {
 }
 
 type DomainOffPeakWindowOptionsArgs struct {
-	Enabled       pulumi.BoolPtrInput         `pulumi:"enabled"`
+	// Specifies whether off-peak window settings are enabled for the domain.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
 	OffPeakWindow DomainOffPeakWindowPtrInput `pulumi:"offPeakWindow"`
 }
 
@@ -2139,10 +2395,12 @@ func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutputW
 	}).(DomainOffPeakWindowOptionsPtrOutput)
 }
 
+// Specifies whether off-peak window settings are enabled for the domain.
 func (o DomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindowOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
 func (o DomainOffPeakWindowOptionsOutput) OffPeakWindow() DomainOffPeakWindowPtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindowOptions) *DomainOffPeakWindow { return v.OffPeakWindow }).(DomainOffPeakWindowPtrOutput)
 }
@@ -2171,6 +2429,7 @@ func (o DomainOffPeakWindowOptionsPtrOutput) Elem() DomainOffPeakWindowOptionsOu
 	}).(DomainOffPeakWindowOptionsOutput)
 }
 
+// Specifies whether off-peak window settings are enabled for the domain.
 func (o DomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *bool {
 		if v == nil {
@@ -2180,6 +2439,7 @@ func (o DomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
 func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindowPtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *DomainOffPeakWindow {
 		if v == nil {
@@ -2190,13 +2450,20 @@ func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindow
 }
 
 type DomainSamlOptions struct {
-	Enabled               *bool      `pulumi:"enabled"`
-	Idp                   *DomainIdp `pulumi:"idp"`
-	MasterBackendRole     *string    `pulumi:"masterBackendRole"`
-	MasterUserName        *string    `pulumi:"masterUserName"`
-	RolesKey              *string    `pulumi:"rolesKey"`
-	SessionTimeoutMinutes *int       `pulumi:"sessionTimeoutMinutes"`
-	SubjectKey            *string    `pulumi:"subjectKey"`
+	// True to enable SAML authentication for a domain.
+	Enabled *bool `pulumi:"enabled"`
+	// The SAML Identity Provider's information.
+	Idp *DomainIdp `pulumi:"idp"`
+	// The backend role that the SAML master user is mapped to.
+	MasterBackendRole *string `pulumi:"masterBackendRole"`
+	// The SAML master user name, which is stored in the domain's internal user database.
+	MasterUserName *string `pulumi:"masterUserName"`
+	// Element of the SAML assertion to use for backend roles. Default is `roles` .
+	RolesKey *string `pulumi:"rolesKey"`
+	// The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
+	SessionTimeoutMinutes *int `pulumi:"sessionTimeoutMinutes"`
+	// Element of the SAML assertion to use for the user name. Default is `NameID` .
+	SubjectKey *string `pulumi:"subjectKey"`
 }
 
 // DomainSamlOptionsInput is an input type that accepts DomainSamlOptionsArgs and DomainSamlOptionsOutput values.
@@ -2211,13 +2478,20 @@ type DomainSamlOptionsInput interface {
 }
 
 type DomainSamlOptionsArgs struct {
-	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
-	Idp                   DomainIdpPtrInput     `pulumi:"idp"`
-	MasterBackendRole     pulumi.StringPtrInput `pulumi:"masterBackendRole"`
-	MasterUserName        pulumi.StringPtrInput `pulumi:"masterUserName"`
-	RolesKey              pulumi.StringPtrInput `pulumi:"rolesKey"`
-	SessionTimeoutMinutes pulumi.IntPtrInput    `pulumi:"sessionTimeoutMinutes"`
-	SubjectKey            pulumi.StringPtrInput `pulumi:"subjectKey"`
+	// True to enable SAML authentication for a domain.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The SAML Identity Provider's information.
+	Idp DomainIdpPtrInput `pulumi:"idp"`
+	// The backend role that the SAML master user is mapped to.
+	MasterBackendRole pulumi.StringPtrInput `pulumi:"masterBackendRole"`
+	// The SAML master user name, which is stored in the domain's internal user database.
+	MasterUserName pulumi.StringPtrInput `pulumi:"masterUserName"`
+	// Element of the SAML assertion to use for backend roles. Default is `roles` .
+	RolesKey pulumi.StringPtrInput `pulumi:"rolesKey"`
+	// The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
+	SessionTimeoutMinutes pulumi.IntPtrInput `pulumi:"sessionTimeoutMinutes"`
+	// Element of the SAML assertion to use for the user name. Default is `NameID` .
+	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
 }
 
 func (DomainSamlOptionsArgs) ElementType() reflect.Type {
@@ -2297,30 +2571,37 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsPtrOutputWithContext(ctx con
 	}).(DomainSamlOptionsPtrOutput)
 }
 
+// True to enable SAML authentication for a domain.
 func (o DomainSamlOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The SAML Identity Provider's information.
 func (o DomainSamlOptionsOutput) Idp() DomainIdpPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *DomainIdp { return v.Idp }).(DomainIdpPtrOutput)
 }
 
+// The backend role that the SAML master user is mapped to.
 func (o DomainSamlOptionsOutput) MasterBackendRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *string { return v.MasterBackendRole }).(pulumi.StringPtrOutput)
 }
 
+// The SAML master user name, which is stored in the domain's internal user database.
 func (o DomainSamlOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
 }
 
+// Element of the SAML assertion to use for backend roles. Default is `roles` .
 func (o DomainSamlOptionsOutput) RolesKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
 }
 
+// The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
 func (o DomainSamlOptionsOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *int { return v.SessionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Element of the SAML assertion to use for the user name. Default is `NameID` .
 func (o DomainSamlOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
 }
@@ -2349,6 +2630,7 @@ func (o DomainSamlOptionsPtrOutput) Elem() DomainSamlOptionsOutput {
 	}).(DomainSamlOptionsOutput)
 }
 
+// True to enable SAML authentication for a domain.
 func (o DomainSamlOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *bool {
 		if v == nil {
@@ -2358,6 +2640,7 @@ func (o DomainSamlOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The SAML Identity Provider's information.
 func (o DomainSamlOptionsPtrOutput) Idp() DomainIdpPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *DomainIdp {
 		if v == nil {
@@ -2367,6 +2650,7 @@ func (o DomainSamlOptionsPtrOutput) Idp() DomainIdpPtrOutput {
 	}).(DomainIdpPtrOutput)
 }
 
+// The backend role that the SAML master user is mapped to.
 func (o DomainSamlOptionsPtrOutput) MasterBackendRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *string {
 		if v == nil {
@@ -2376,6 +2660,7 @@ func (o DomainSamlOptionsPtrOutput) MasterBackendRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SAML master user name, which is stored in the domain's internal user database.
 func (o DomainSamlOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *string {
 		if v == nil {
@@ -2385,6 +2670,7 @@ func (o DomainSamlOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Element of the SAML assertion to use for backend roles. Default is `roles` .
 func (o DomainSamlOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *string {
 		if v == nil {
@@ -2394,6 +2680,7 @@ func (o DomainSamlOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
 func (o DomainSamlOptionsPtrOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *int {
 		if v == nil {
@@ -2403,6 +2690,7 @@ func (o DomainSamlOptionsPtrOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Element of the SAML assertion to use for the user name. Default is `NameID` .
 func (o DomainSamlOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) *string {
 		if v == nil {
@@ -2413,14 +2701,22 @@ func (o DomainSamlOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
 }
 
 type DomainServiceSoftwareOptions struct {
+	// The timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
 	AutomatedUpdateDate *string `pulumi:"automatedUpdateDate"`
-	Cancellable         *bool   `pulumi:"cancellable"`
-	CurrentVersion      *string `pulumi:"currentVersion"`
-	Description         *string `pulumi:"description"`
-	NewVersion          *string `pulumi:"newVersion"`
-	OptionalDeployment  *bool   `pulumi:"optionalDeployment"`
-	UpdateAvailable     *bool   `pulumi:"updateAvailable"`
-	UpdateStatus        *string `pulumi:"updateStatus"`
+	// True if you're able to cancel your service software version update. False if you can't cancel your service software update.
+	Cancellable *bool `pulumi:"cancellable"`
+	// The current service software version present on the domain.
+	CurrentVersion *string `pulumi:"currentVersion"`
+	// A description of the service software update status.
+	Description *string `pulumi:"description"`
+	// The new service software version, if one is available.
+	NewVersion *string `pulumi:"newVersion"`
+	// True if a service software is never automatically updated. False if a service software is automatically updated after the automated update date.
+	OptionalDeployment *bool `pulumi:"optionalDeployment"`
+	// True if you're able to update your service software version. False if you can't update your service software version.
+	UpdateAvailable *bool `pulumi:"updateAvailable"`
+	// The status of your service software update.
+	UpdateStatus *string `pulumi:"updateStatus"`
 }
 
 type DomainServiceSoftwareOptionsOutput struct{ *pulumi.OutputState }
@@ -2437,34 +2733,42 @@ func (o DomainServiceSoftwareOptionsOutput) ToDomainServiceSoftwareOptionsOutput
 	return o
 }
 
+// The timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
 func (o DomainServiceSoftwareOptionsOutput) AutomatedUpdateDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.AutomatedUpdateDate }).(pulumi.StringPtrOutput)
 }
 
+// True if you're able to cancel your service software version update. False if you can't cancel your service software update.
 func (o DomainServiceSoftwareOptionsOutput) Cancellable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *bool { return v.Cancellable }).(pulumi.BoolPtrOutput)
 }
 
+// The current service software version present on the domain.
 func (o DomainServiceSoftwareOptionsOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
+// A description of the service software update status.
 func (o DomainServiceSoftwareOptionsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The new service software version, if one is available.
 func (o DomainServiceSoftwareOptionsOutput) NewVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.NewVersion }).(pulumi.StringPtrOutput)
 }
 
+// True if a service software is never automatically updated. False if a service software is automatically updated after the automated update date.
 func (o DomainServiceSoftwareOptionsOutput) OptionalDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *bool { return v.OptionalDeployment }).(pulumi.BoolPtrOutput)
 }
 
+// True if you're able to update your service software version. False if you can't update your service software version.
 func (o DomainServiceSoftwareOptionsOutput) UpdateAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *bool { return v.UpdateAvailable }).(pulumi.BoolPtrOutput)
 }
 
+// The status of your service software update.
 func (o DomainServiceSoftwareOptionsOutput) UpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.UpdateStatus }).(pulumi.StringPtrOutput)
 }
@@ -2493,6 +2797,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) Elem() DomainServiceSoftwareOptio
 	}).(DomainServiceSoftwareOptionsOutput)
 }
 
+// The timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
 func (o DomainServiceSoftwareOptionsPtrOutput) AutomatedUpdateDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
 		if v == nil {
@@ -2502,6 +2807,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) AutomatedUpdateDate() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// True if you're able to cancel your service software version update. False if you can't cancel your service software update.
 func (o DomainServiceSoftwareOptionsPtrOutput) Cancellable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
 		if v == nil {
@@ -2511,6 +2817,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) Cancellable() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The current service software version present on the domain.
 func (o DomainServiceSoftwareOptionsPtrOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
 		if v == nil {
@@ -2520,6 +2827,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) CurrentVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A description of the service software update status.
 func (o DomainServiceSoftwareOptionsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
 		if v == nil {
@@ -2529,6 +2837,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The new service software version, if one is available.
 func (o DomainServiceSoftwareOptionsPtrOutput) NewVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
 		if v == nil {
@@ -2538,6 +2847,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) NewVersion() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// True if a service software is never automatically updated. False if a service software is automatically updated after the automated update date.
 func (o DomainServiceSoftwareOptionsPtrOutput) OptionalDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
 		if v == nil {
@@ -2547,6 +2857,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) OptionalDeployment() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// True if you're able to update your service software version. False if you can't update your service software version.
 func (o DomainServiceSoftwareOptionsPtrOutput) UpdateAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
 		if v == nil {
@@ -2556,6 +2867,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) UpdateAvailable() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The status of your service software update.
 func (o DomainServiceSoftwareOptionsPtrOutput) UpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
 		if v == nil {
@@ -2566,6 +2878,7 @@ func (o DomainServiceSoftwareOptionsPtrOutput) UpdateStatus() pulumi.StringPtrOu
 }
 
 type DomainSnapshotOptions struct {
+	// The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
 	AutomatedSnapshotStartHour *int `pulumi:"automatedSnapshotStartHour"`
 }
 
@@ -2581,6 +2894,7 @@ type DomainSnapshotOptionsInput interface {
 }
 
 type DomainSnapshotOptionsArgs struct {
+	// The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
 	AutomatedSnapshotStartHour pulumi.IntPtrInput `pulumi:"automatedSnapshotStartHour"`
 }
 
@@ -2661,6 +2975,7 @@ func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutputWithContext
 	}).(DomainSnapshotOptionsPtrOutput)
 }
 
+// The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
 func (o DomainSnapshotOptionsOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainSnapshotOptions) *int { return v.AutomatedSnapshotStartHour }).(pulumi.IntPtrOutput)
 }
@@ -2689,6 +3004,7 @@ func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
 	}).(DomainSnapshotOptionsOutput)
 }
 
+// The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
 func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainSnapshotOptions) *int {
 		if v == nil {
@@ -2699,6 +3015,7 @@ func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntP
 }
 
 type DomainSoftwareUpdateOptions struct {
+	// Specifies whether automatic service software updates are enabled for the domain.
 	AutoSoftwareUpdateEnabled *bool `pulumi:"autoSoftwareUpdateEnabled"`
 }
 
@@ -2714,6 +3031,7 @@ type DomainSoftwareUpdateOptionsInput interface {
 }
 
 type DomainSoftwareUpdateOptionsArgs struct {
+	// Specifies whether automatic service software updates are enabled for the domain.
 	AutoSoftwareUpdateEnabled pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
 }
 
@@ -2794,6 +3112,7 @@ func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutpu
 	}).(DomainSoftwareUpdateOptionsPtrOutput)
 }
 
+// Specifies whether automatic service software updates are enabled for the domain.
 func (o DomainSoftwareUpdateOptionsOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainSoftwareUpdateOptions) *bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2822,6 +3141,7 @@ func (o DomainSoftwareUpdateOptionsPtrOutput) Elem() DomainSoftwareUpdateOptions
 	}).(DomainSoftwareUpdateOptionsOutput)
 }
 
+// Specifies whether automatic service software updates are enabled for the domain.
 func (o DomainSoftwareUpdateOptionsPtrOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) *bool {
 		if v == nil {
@@ -2839,8 +3159,12 @@ type DomainTag struct {
 }
 
 type DomainVpcOptions struct {
+	// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+	//
+	// If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // DomainVpcOptionsInput is an input type that accepts DomainVpcOptionsArgs and DomainVpcOptionsOutput values.
@@ -2855,8 +3179,12 @@ type DomainVpcOptionsInput interface {
 }
 
 type DomainVpcOptionsArgs struct {
+	// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+	//
+	// If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (DomainVpcOptionsArgs) ElementType() reflect.Type {
@@ -2936,10 +3264,14 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx conte
 	}).(DomainVpcOptionsPtrOutput)
 }
 
+// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 func (o DomainVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+//
+// If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
 func (o DomainVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -2968,6 +3300,7 @@ func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
 	}).(DomainVpcOptionsOutput)
 }
 
+// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 func (o DomainVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainVpcOptions) []string {
 		if v == nil {
@@ -2977,6 +3310,9 @@ func (o DomainVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+//
+// If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
 func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainVpcOptions) []string {
 		if v == nil {
@@ -2987,7 +3323,9 @@ func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type DomainWindowStartTime struct {
-	Hours   int `pulumi:"hours"`
+	// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+	Hours int `pulumi:"hours"`
+	// The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
 	Minutes int `pulumi:"minutes"`
 }
 
@@ -3003,7 +3341,9 @@ type DomainWindowStartTimeInput interface {
 }
 
 type DomainWindowStartTimeArgs struct {
-	Hours   pulumi.IntInput `pulumi:"hours"`
+	// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
 }
 
@@ -3084,10 +3424,12 @@ func (o DomainWindowStartTimeOutput) ToDomainWindowStartTimePtrOutputWithContext
 	}).(DomainWindowStartTimePtrOutput)
 }
 
+// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
 func (o DomainWindowStartTimeOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v DomainWindowStartTime) int { return v.Hours }).(pulumi.IntOutput)
 }
 
+// The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
 func (o DomainWindowStartTimeOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v DomainWindowStartTime) int { return v.Minutes }).(pulumi.IntOutput)
 }
@@ -3116,6 +3458,7 @@ func (o DomainWindowStartTimePtrOutput) Elem() DomainWindowStartTimeOutput {
 	}).(DomainWindowStartTimeOutput)
 }
 
+// The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
 func (o DomainWindowStartTimePtrOutput) Hours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainWindowStartTime) *int {
 		if v == nil {
@@ -3125,6 +3468,7 @@ func (o DomainWindowStartTimePtrOutput) Hours() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
 func (o DomainWindowStartTimePtrOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainWindowStartTime) *int {
 		if v == nil {
@@ -3135,6 +3479,9 @@ func (o DomainWindowStartTimePtrOutput) Minutes() pulumi.IntPtrOutput {
 }
 
 type DomainZoneAwarenessConfig struct {
+	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+	//
+	// Valid values are `2` and `3` . Default is 2.
 	AvailabilityZoneCount *int `pulumi:"availabilityZoneCount"`
 }
 
@@ -3150,6 +3497,9 @@ type DomainZoneAwarenessConfigInput interface {
 }
 
 type DomainZoneAwarenessConfigArgs struct {
+	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+	//
+	// Valid values are `2` and `3` . Default is 2.
 	AvailabilityZoneCount pulumi.IntPtrInput `pulumi:"availabilityZoneCount"`
 }
 
@@ -3230,6 +3580,9 @@ func (o DomainZoneAwarenessConfigOutput) ToDomainZoneAwarenessConfigPtrOutputWit
 	}).(DomainZoneAwarenessConfigPtrOutput)
 }
 
+// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+//
+// Valid values are `2` and `3` . Default is 2.
 func (o DomainZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
 }
@@ -3258,6 +3611,9 @@ func (o DomainZoneAwarenessConfigPtrOutput) Elem() DomainZoneAwarenessConfigOutp
 	}).(DomainZoneAwarenessConfigOutput)
 }
 
+// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+//
+// Valid values are `2` and `3` . Default is 2.
 func (o DomainZoneAwarenessConfigPtrOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainZoneAwarenessConfig) *int {
 		if v == nil {

@@ -57,9 +57,21 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetMitigationActionResult
     {
+        /// <summary>
+        /// Defines the type of action and the parameters for that action.
+        /// </summary>
         public readonly Outputs.MitigationActionActionParams? ActionParams;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the mitigation action.
+        /// </summary>
         public readonly string? MitigationActionArn;
+        /// <summary>
+        /// The ID of the mitigation action.
+        /// </summary>
         public readonly string? MitigationActionId;
+        /// <summary>
+        /// The IAM role ARN used to apply this mitigation action.
+        /// </summary>
         public readonly string? RoleArn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

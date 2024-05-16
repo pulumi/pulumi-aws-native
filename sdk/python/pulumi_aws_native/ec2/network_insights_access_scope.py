@@ -24,6 +24,9 @@ class NetworkInsightsAccessScopeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAccessScope resource.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] exclude_paths: Describes a path.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] match_paths: Describes a path.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
         """
         if exclude_paths is not None:
             pulumi.set(__self__, "exclude_paths", exclude_paths)
@@ -35,6 +38,9 @@ class NetworkInsightsAccessScopeArgs:
     @property
     @pulumi.getter(name="excludePaths")
     def exclude_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]]:
+        """
+        Describes a path.
+        """
         return pulumi.get(self, "exclude_paths")
 
     @exclude_paths.setter
@@ -44,6 +50,9 @@ class NetworkInsightsAccessScopeArgs:
     @property
     @pulumi.getter(name="matchPaths")
     def match_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]]:
+        """
+        Describes a path.
+        """
         return pulumi.get(self, "match_paths")
 
     @match_paths.setter
@@ -53,6 +62,9 @@ class NetworkInsightsAccessScopeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -74,6 +86,9 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] exclude_paths: Describes a path.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] match_paths: Describes a path.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
         """
         ...
     @overload
@@ -154,35 +169,56 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
+        """
+        The creation date.
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter(name="excludePaths")
     def exclude_paths(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]:
+        """
+        Describes a path.
+        """
         return pulumi.get(self, "exclude_paths")
 
     @property
     @pulumi.getter(name="matchPaths")
     def match_paths(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]:
+        """
+        Describes a path.
+        """
         return pulumi.get(self, "match_paths")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeArn")
     def network_insights_access_scope_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Network Access Scope.
+        """
         return pulumi.get(self, "network_insights_access_scope_arn")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeId")
     def network_insights_access_scope_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Network Access Scope.
+        """
         return pulumi.get(self, "network_insights_access_scope_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedDate")
     def updated_date(self) -> pulumi.Output[str]:
+        """
+        The last updated date.
+        """
         return pulumi.get(self, "updated_date")
 

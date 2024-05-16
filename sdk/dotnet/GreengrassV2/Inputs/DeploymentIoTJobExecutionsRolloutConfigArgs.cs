@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
 
     public sealed class DeploymentIoTJobExecutionsRolloutConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about an exponential rollout rate for a configuration deployment job.
+        /// </summary>
         [Input("exponentialRate")]
         public Input<Inputs.DeploymentIoTJobExponentialRolloutRateArgs>? ExponentialRate { get; set; }
 
+        /// <summary>
+        /// The maximum number of devices that receive a pending job notification, per minute.
+        /// </summary>
         [Input("maximumPerMinute")]
         public Input<int>? MaximumPerMinute { get; set; }
 

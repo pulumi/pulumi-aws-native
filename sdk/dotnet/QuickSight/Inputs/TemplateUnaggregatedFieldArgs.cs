@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateUnaggregatedFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The formatting configuration for all types of field.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.TemplateFormatConfigurationArgs>? FormatConfiguration { get; set; }
 

@@ -57,6 +57,13 @@ export class Fleet extends pulumi.CustomResource {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     public readonly computeType!: pulumi.Output<enums.gamelift.FleetComputeType | undefined>;
+    /**
+     * *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+     *
+     * *Used with:* `CreateFleet`
+     */
     public readonly containerGroupsConfiguration!: pulumi.Output<outputs.gamelift.FleetContainerGroupsConfiguration | undefined>;
     /**
      * A human-readable description of a fleet.
@@ -90,6 +97,11 @@ export class Fleet extends pulumi.CustomResource {
      * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
      */
     public readonly instanceRoleCredentialsProvider!: pulumi.Output<enums.gamelift.FleetInstanceRoleCredentialsProvider | undefined>;
+    /**
+     * *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * A remote location where a multi-location fleet can deploy game servers for game hosting.
+     */
     public readonly locations!: pulumi.Output<outputs.gamelift.FleetLocationConfiguration[] | undefined>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
@@ -254,6 +266,13 @@ export interface FleetArgs {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     computeType?: pulumi.Input<enums.gamelift.FleetComputeType>;
+    /**
+     * *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+     *
+     * *Used with:* `CreateFleet`
+     */
     containerGroupsConfiguration?: pulumi.Input<inputs.gamelift.FleetContainerGroupsConfigurationArgs>;
     /**
      * A human-readable description of a fleet.
@@ -283,6 +302,11 @@ export interface FleetArgs {
      * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
      */
     instanceRoleCredentialsProvider?: pulumi.Input<enums.gamelift.FleetInstanceRoleCredentialsProvider>;
+    /**
+     * *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * A remote location where a multi-location fleet can deploy game servers for game hosting.
+     */
     locations?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetLocationConfigurationArgs>[]>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()

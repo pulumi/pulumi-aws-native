@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolResourceServer")]
     public partial class UserPoolResourceServer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A friendly name for the resource server.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A resource server scope.
+        /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.UserPoolResourceServerResourceServerScopeType>> Scopes { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -80,20 +95,33 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolResourceServerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
+        /// <summary>
+        /// A friendly name for the resource server.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.UserPoolResourceServerResourceServerScopeTypeArgs>? _scopes;
+
+        /// <summary>
+        /// A resource server scope.
+        /// </summary>
         public InputList<Inputs.UserPoolResourceServerResourceServerScopeTypeArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.UserPoolResourceServerResourceServerScopeTypeArgs>());
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

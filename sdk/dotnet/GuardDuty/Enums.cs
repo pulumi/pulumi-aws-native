@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.GuardDuty
 {
+    /// <summary>
+    /// Status of the feature configuration.
+    /// </summary>
     [EnumType]
     public readonly struct DetectorCfnFeatureConfigurationStatus : IEquatable<DetectorCfnFeatureConfigurationStatus>
     {

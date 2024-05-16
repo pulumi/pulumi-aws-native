@@ -103,6 +103,7 @@ import (
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Id of the virtual cluster.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
@@ -217,6 +218,7 @@ func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
 func (o VirtualClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

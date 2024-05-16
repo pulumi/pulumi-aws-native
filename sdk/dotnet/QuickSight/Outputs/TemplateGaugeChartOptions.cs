@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGaugeChartOptions
     {
+        /// <summary>
+        /// The arc configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateArcConfiguration? Arc;
+        /// <summary>
+        /// The arc axis configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateArcAxisConfiguration? ArcAxis;
+        /// <summary>
+        /// The comparison display configuration of a KPI or gauge chart.
+        /// </summary>
         public readonly Outputs.TemplateComparisonConfiguration? Comparison;
+        /// <summary>
+        /// The options that determine the primary value display type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplatePrimaryValueDisplayType? PrimaryValueDisplayType;
+        /// <summary>
+        /// Configures the display properties of the given text.
+        /// </summary>
         public readonly Outputs.TemplateFontConfiguration? PrimaryValueFontConfiguration;
 
         [OutputConstructor]

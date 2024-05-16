@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.SystemsManagerSap.Inputs
 
     public sealed class ApplicationCredentialArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of the application credentials.
+        /// </summary>
         [Input("credentialType")]
         public Input<Pulumi.AwsNative.SystemsManagerSap.ApplicationCredentialCredentialType>? CredentialType { get; set; }
 
+        /// <summary>
+        /// The name of the SAP HANA database.
+        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        /// <summary>
+        /// The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+        /// </summary>
         [Input("secretId")]
         public Input<string>? SecretId { get; set; }
 

@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAxisScale
     {
+        /// <summary>
+        /// The liner axis scale setup.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisAxisLinearScale? Linear;
+        /// <summary>
+        /// The logarithmic axis scale setup.
+        /// </summary>
         public readonly Outputs.AnalysisAxisLogarithmicScale? Logarithmic;
 
         [OutputConstructor]

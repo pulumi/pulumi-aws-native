@@ -32,6 +32,12 @@ class UserArgs:
         :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
+        :param pulumi.Input['AuthenticationModePropertiesArgs'] authentication_mode: Specifies the authentication mode to use. Below is an example of the possible JSON values:
+               
+               ```
+               { Passwords: ["*****", "******"] // If Type is password.
+               }
+               ```
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this user.
@@ -91,6 +97,14 @@ class UserArgs:
     @property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input['AuthenticationModePropertiesArgs']]:
+        """
+        Specifies the authentication mode to use. Below is an example of the possible JSON values:
+
+        ```
+        { Passwords: ["*****", "******"] // If Type is password.
+        }
+        ```
+        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -166,6 +180,12 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
+        :param pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']] authentication_mode: Specifies the authentication mode to use. Below is an example of the possible JSON values:
+               
+               ```
+               { Passwords: ["*****", "******"] // If Type is password.
+               }
+               ```
         :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
@@ -283,6 +303,14 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output[Optional['outputs.AuthenticationModeProperties']]:
+        """
+        Specifies the authentication mode to use. Below is an example of the possible JSON values:
+
+        ```
+        { Passwords: ["*****", "******"] // If Type is password.
+        }
+        ```
+        """
         return pulumi.get(self, "authentication_mode")
 
     @property

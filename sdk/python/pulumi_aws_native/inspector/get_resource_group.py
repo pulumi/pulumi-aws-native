@@ -26,6 +26,9 @@ class GetResourceGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that specifies the resource group that is created.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -42,6 +45,9 @@ def get_resource_group(arn: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGroupResult:
     """
     Resource Type definition for AWS::Inspector::ResourceGroup
+
+
+    :param str arn: The Amazon Resource Name (ARN) that specifies the resource group that is created.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -57,5 +63,8 @@ def get_resource_group_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
     Resource Type definition for AWS::Inspector::ResourceGroup
+
+
+    :param str arn: The Amazon Resource Name (ARN) that specifies the resource group that is created.
     """
     ...

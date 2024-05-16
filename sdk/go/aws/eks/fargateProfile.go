@@ -17,15 +17,18 @@ import (
 type FargateProfile struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the Cluster
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Name of FargateProfile
 	FargateProfileName pulumi.StringPtrOutput `pulumi:"fargateProfileName"`
 	// The IAM policy arn for pods
-	PodExecutionRoleArn pulumi.StringOutput               `pulumi:"podExecutionRoleArn"`
-	Selectors           FargateProfileSelectorArrayOutput `pulumi:"selectors"`
-	Subnets             pulumi.StringArrayOutput          `pulumi:"subnets"`
+	PodExecutionRoleArn pulumi.StringOutput `pulumi:"podExecutionRoleArn"`
+	// An object representing an AWS Fargate profile selector.
+	Selectors FargateProfileSelectorArrayOutput `pulumi:"selectors"`
+	// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -92,9 +95,11 @@ type fargateProfileArgs struct {
 	// Name of FargateProfile
 	FargateProfileName *string `pulumi:"fargateProfileName"`
 	// The IAM policy arn for pods
-	PodExecutionRoleArn string                   `pulumi:"podExecutionRoleArn"`
-	Selectors           []FargateProfileSelector `pulumi:"selectors"`
-	Subnets             []string                 `pulumi:"subnets"`
+	PodExecutionRoleArn string `pulumi:"podExecutionRoleArn"`
+	// An object representing an AWS Fargate profile selector.
+	Selectors []FargateProfileSelector `pulumi:"selectors"`
+	// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+	Subnets []string `pulumi:"subnets"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -107,8 +112,10 @@ type FargateProfileArgs struct {
 	FargateProfileName pulumi.StringPtrInput
 	// The IAM policy arn for pods
 	PodExecutionRoleArn pulumi.StringInput
-	Selectors           FargateProfileSelectorArrayInput
-	Subnets             pulumi.StringArrayInput
+	// An object representing an AWS Fargate profile selector.
+	Selectors FargateProfileSelectorArrayInput
+	// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+	Subnets pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -150,6 +157,7 @@ func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
 func (o FargateProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -169,10 +177,12 @@ func (o FargateProfileOutput) PodExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
 }
 
+// An object representing an AWS Fargate profile selector.
 func (o FargateProfileOutput) Selectors() FargateProfileSelectorArrayOutput {
 	return o.ApplyT(func(v *FargateProfile) FargateProfileSelectorArrayOutput { return v.Selectors }).(FargateProfileSelectorArrayOutput)
 }
 
+// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
 func (o FargateProfileOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }

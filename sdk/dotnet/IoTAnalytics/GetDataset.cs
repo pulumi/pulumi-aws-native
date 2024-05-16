@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetDatasetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the dataset.
+        /// </summary>
         [Input("datasetName", required: true)]
         public string DatasetName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the dataset.
+        /// </summary>
         [Input("datasetName", required: true)]
         public Input<string> DatasetName { get; set; } = null!;
 
@@ -51,13 +57,34 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [OutputType]
     public sealed class GetDatasetResult
     {
+        /// <summary>
+        /// Information needed to run the "containerAction" to produce data set contents.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetAction> Actions;
+        /// <summary>
+        /// When dataset contents are created, they are delivered to destination specified here.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetContentDeliveryRule> ContentDeliveryRules;
         public readonly string? Id;
+        /// <summary>
+        /// A structure that contains the name and configuration information of a late data rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetLateDataRule> LateDataRules;
+        /// <summary>
+        /// How long, in days, message data is kept.
+        /// </summary>
         public readonly Outputs.DatasetRetentionPeriod? RetentionPeriod;
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The "DatasetTrigger" that specifies when the data set is automatically updated.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetTrigger> Triggers;
+        /// <summary>
+        /// Information about the versioning of dataset contents.
+        /// </summary>
         public readonly Outputs.DatasetVersioningConfiguration? VersioningConfiguration;
 
         [OutputConstructor]

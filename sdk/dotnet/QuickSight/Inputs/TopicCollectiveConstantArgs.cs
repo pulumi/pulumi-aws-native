@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("valueList")]
         private InputList<string>? _valueList;
+
+        /// <summary>
+        /// A list of values for the collective constant.
+        /// </summary>
         public InputList<string> ValueList
         {
             get => _valueList ?? (_valueList = new InputList<string>());

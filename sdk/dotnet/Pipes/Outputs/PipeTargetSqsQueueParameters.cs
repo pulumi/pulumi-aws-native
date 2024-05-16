@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetSqsQueueParameters
     {
+        /// <summary>
+        /// This parameter applies only to FIFO (first-in-first-out) queues.
+        /// 
+        /// The token used for deduplication of sent messages.
+        /// </summary>
         public readonly string? MessageDeduplicationId;
+        /// <summary>
+        /// The FIFO message group ID to use as the target.
+        /// </summary>
         public readonly string? MessageGroupId;
 
         [OutputConstructor]

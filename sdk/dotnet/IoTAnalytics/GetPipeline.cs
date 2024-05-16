@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("pipelineName", required: true)]
         public string PipelineName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("pipelineName", required: true)]
         public Input<string> PipelineName { get; set; } = null!;
 
@@ -52,7 +58,13 @@ namespace Pulumi.AwsNative.IoTAnalytics
     public sealed class GetPipelineResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// An activity that performs a transformation on a message.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineActivity> PipelineActivities;
+        /// <summary>
+        /// A set of key-value pairs that are used to manage the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

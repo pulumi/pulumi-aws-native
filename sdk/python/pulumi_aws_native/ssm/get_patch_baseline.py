@@ -68,6 +68,11 @@ class GetPatchBaselineResult:
     @property
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> Optional['outputs.PatchBaselineRuleGroup']:
+        """
+        The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
+
+        `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+        """
         return pulumi.get(self, "approval_rules")
 
     @property

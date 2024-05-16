@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAxisDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not the axis line is visible.
+        /// </summary>
         [Input("axisLineVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? AxisLineVisibility { get; set; }
 
@@ -21,15 +24,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("axisOffset")]
         public Input<string>? AxisOffset { get; set; }
 
+        /// <summary>
+        /// The data options for an axis.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("dataOptions")]
         public Input<Inputs.TemplateAxisDataOptionsArgs>? DataOptions { get; set; }
 
+        /// <summary>
+        /// Determines whether or not the grid line is visible.
+        /// </summary>
         [Input("gridLineVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? GridLineVisibility { get; set; }
 
+        /// <summary>
+        /// The visual display options for a data zoom scroll bar.
+        /// </summary>
         [Input("scrollbarOptions")]
         public Input<Inputs.TemplateScrollBarOptionsArgs>? ScrollbarOptions { get; set; }
 
+        /// <summary>
+        /// The tick label options of an axis.
+        /// </summary>
         [Input("tickLabelOptions")]
         public Input<Inputs.TemplateAxisTickLabelOptionsArgs>? TickLabelOptions { get; set; }
 

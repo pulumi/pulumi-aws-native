@@ -16,19 +16,38 @@ import (
 type DomainConfiguration struct {
 	pulumi.CustomResourceState
 
-	Arn                       pulumi.StringOutput                                    `pulumi:"arn"`
-	AuthorizerConfig          DomainConfigurationAuthorizerConfigPtrOutput           `pulumi:"authorizerConfig"`
-	DomainConfigurationName   pulumi.StringPtrOutput                                 `pulumi:"domainConfigurationName"`
-	DomainConfigurationStatus DomainConfigurationStatusPtrOutput                     `pulumi:"domainConfigurationStatus"`
-	DomainName                pulumi.StringPtrOutput                                 `pulumi:"domainName"`
-	DomainType                DomainConfigurationDomainTypeOutput                    `pulumi:"domainType"`
-	ServerCertificateArns     pulumi.StringArrayOutput                               `pulumi:"serverCertificateArns"`
-	ServerCertificateConfig   DomainConfigurationServerCertificateConfigPtrOutput    `pulumi:"serverCertificateConfig"`
-	ServerCertificates        DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
-	ServiceType               DomainConfigurationServiceTypePtrOutput                `pulumi:"serviceType"`
-	Tags                      aws.TagArrayOutput                                     `pulumi:"tags"`
-	TlsConfig                 DomainConfigurationTlsConfigPtrOutput                  `pulumi:"tlsConfig"`
-	ValidationCertificateArn  pulumi.StringPtrOutput                                 `pulumi:"validationCertificateArn"`
+	// The Amazon Resource Name (ARN) of the domain configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An object that specifies the authorization service for a domain.
+	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
+	// The name of the domain configuration. This value must be unique to a region.
+	DomainConfigurationName pulumi.StringPtrOutput `pulumi:"domainConfigurationName"`
+	// The status to which the domain configuration should be updated.
+	//
+	// Valid values: `ENABLED` | `DISABLED`
+	DomainConfigurationStatus DomainConfigurationStatusPtrOutput `pulumi:"domainConfigurationStatus"`
+	// The name of the domain.
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
+	// The type of service delivered by the domain.
+	DomainType DomainConfigurationDomainTypeOutput `pulumi:"domainType"`
+	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+	ServerCertificateArns pulumi.StringArrayOutput `pulumi:"serverCertificateArns"`
+	// The server certificate configuration.
+	//
+	// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+	ServerCertificateConfig DomainConfigurationServerCertificateConfigPtrOutput `pulumi:"serverCertificateConfig"`
+	// An object that contains information about a server certificate.
+	ServerCertificates DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
+	// The type of service delivered by the endpoint.
+	//
+	// > AWS IoT Core currently supports only the `DATA` service type.
+	ServiceType DomainConfigurationServiceTypePtrOutput `pulumi:"serviceType"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An object that specifies the TLS configuration for a domain.
+	TlsConfig DomainConfigurationTlsConfigPtrOutput `pulumi:"tlsConfig"`
+	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
+	ValidationCertificateArn pulumi.StringPtrOutput `pulumi:"validationCertificateArn"`
 }
 
 // NewDomainConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -79,30 +98,62 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
-	AuthorizerConfig          *DomainConfigurationAuthorizerConfig        `pulumi:"authorizerConfig"`
-	DomainConfigurationName   *string                                     `pulumi:"domainConfigurationName"`
-	DomainConfigurationStatus *DomainConfigurationStatus                  `pulumi:"domainConfigurationStatus"`
-	DomainName                *string                                     `pulumi:"domainName"`
-	ServerCertificateArns     []string                                    `pulumi:"serverCertificateArns"`
-	ServerCertificateConfig   *DomainConfigurationServerCertificateConfig `pulumi:"serverCertificateConfig"`
-	ServiceType               *DomainConfigurationServiceType             `pulumi:"serviceType"`
-	Tags                      []aws.Tag                                   `pulumi:"tags"`
-	TlsConfig                 *DomainConfigurationTlsConfig               `pulumi:"tlsConfig"`
-	ValidationCertificateArn  *string                                     `pulumi:"validationCertificateArn"`
+	// An object that specifies the authorization service for a domain.
+	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
+	// The name of the domain configuration. This value must be unique to a region.
+	DomainConfigurationName *string `pulumi:"domainConfigurationName"`
+	// The status to which the domain configuration should be updated.
+	//
+	// Valid values: `ENABLED` | `DISABLED`
+	DomainConfigurationStatus *DomainConfigurationStatus `pulumi:"domainConfigurationStatus"`
+	// The name of the domain.
+	DomainName *string `pulumi:"domainName"`
+	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
+	// The server certificate configuration.
+	//
+	// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+	ServerCertificateConfig *DomainConfigurationServerCertificateConfig `pulumi:"serverCertificateConfig"`
+	// The type of service delivered by the endpoint.
+	//
+	// > AWS IoT Core currently supports only the `DATA` service type.
+	ServiceType *DomainConfigurationServiceType `pulumi:"serviceType"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// An object that specifies the TLS configuration for a domain.
+	TlsConfig *DomainConfigurationTlsConfig `pulumi:"tlsConfig"`
+	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
+	ValidationCertificateArn *string `pulumi:"validationCertificateArn"`
 }
 
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
-	AuthorizerConfig          DomainConfigurationAuthorizerConfigPtrInput
-	DomainConfigurationName   pulumi.StringPtrInput
+	// An object that specifies the authorization service for a domain.
+	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
+	// The name of the domain configuration. This value must be unique to a region.
+	DomainConfigurationName pulumi.StringPtrInput
+	// The status to which the domain configuration should be updated.
+	//
+	// Valid values: `ENABLED` | `DISABLED`
 	DomainConfigurationStatus DomainConfigurationStatusPtrInput
-	DomainName                pulumi.StringPtrInput
-	ServerCertificateArns     pulumi.StringArrayInput
-	ServerCertificateConfig   DomainConfigurationServerCertificateConfigPtrInput
-	ServiceType               DomainConfigurationServiceTypePtrInput
-	Tags                      aws.TagArrayInput
-	TlsConfig                 DomainConfigurationTlsConfigPtrInput
-	ValidationCertificateArn  pulumi.StringPtrInput
+	// The name of the domain.
+	DomainName pulumi.StringPtrInput
+	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+	ServerCertificateArns pulumi.StringArrayInput
+	// The server certificate configuration.
+	//
+	// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+	ServerCertificateConfig DomainConfigurationServerCertificateConfigPtrInput
+	// The type of service delivered by the endpoint.
+	//
+	// > AWS IoT Core currently supports only the `DATA` service type.
+	ServiceType DomainConfigurationServiceTypePtrInput
+	// A set of key/value pairs that are used to manage the resource.
+	Tags aws.TagArrayInput
+	// An object that specifies the TLS configuration for a domain.
+	TlsConfig DomainConfigurationTlsConfigPtrInput
+	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
+	ValidationCertificateArn pulumi.StringPtrInput
 }
 
 func (DomainConfigurationArgs) ElementType() reflect.Type {
@@ -142,58 +193,77 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the domain configuration.
 func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An object that specifies the authorization service for a domain.
 func (o DomainConfigurationOutput) AuthorizerConfig() DomainConfigurationAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationAuthorizerConfigPtrOutput { return v.AuthorizerConfig }).(DomainConfigurationAuthorizerConfigPtrOutput)
 }
 
+// The name of the domain configuration. This value must be unique to a region.
 func (o DomainConfigurationOutput) DomainConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.DomainConfigurationName }).(pulumi.StringPtrOutput)
 }
 
+// The status to which the domain configuration should be updated.
+//
+// Valid values: `ENABLED` | `DISABLED`
 func (o DomainConfigurationOutput) DomainConfigurationStatus() DomainConfigurationStatusPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationStatusPtrOutput { return v.DomainConfigurationStatus }).(DomainConfigurationStatusPtrOutput)
 }
 
+// The name of the domain.
 func (o DomainConfigurationOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// The type of service delivered by the domain.
 func (o DomainConfigurationOutput) DomainType() DomainConfigurationDomainTypeOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationDomainTypeOutput { return v.DomainType }).(DomainConfigurationDomainTypeOutput)
 }
 
+// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 func (o DomainConfigurationOutput) ServerCertificateArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringArrayOutput { return v.ServerCertificateArns }).(pulumi.StringArrayOutput)
 }
 
+// The server certificate configuration.
+//
+// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 func (o DomainConfigurationOutput) ServerCertificateConfig() DomainConfigurationServerCertificateConfigPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServerCertificateConfigPtrOutput {
 		return v.ServerCertificateConfig
 	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
+// An object that contains information about a server certificate.
 func (o DomainConfigurationOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServerCertificateSummaryArrayOutput {
 		return v.ServerCertificates
 	}).(DomainConfigurationServerCertificateSummaryArrayOutput)
 }
 
+// The type of service delivered by the endpoint.
+//
+// > AWS IoT Core currently supports only the `DATA` service type.
 func (o DomainConfigurationOutput) ServiceType() DomainConfigurationServiceTypePtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServiceTypePtrOutput { return v.ServiceType }).(DomainConfigurationServiceTypePtrOutput)
 }
 
+// A set of key/value pairs that are used to manage the resource.
 func (o DomainConfigurationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An object that specifies the TLS configuration for a domain.
 func (o DomainConfigurationOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTlsConfigPtrOutput { return v.TlsConfig }).(DomainConfigurationTlsConfigPtrOutput)
 }
 
+// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
 func (o DomainConfigurationOutput) ValidationCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.ValidationCertificateArn }).(pulumi.StringPtrOutput)
 }

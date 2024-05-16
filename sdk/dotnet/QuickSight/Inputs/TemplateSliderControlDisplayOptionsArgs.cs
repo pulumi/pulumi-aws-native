@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSliderControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A control to display info icons for filters and parameters.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The share label options for the labels.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.TemplateLabelOptionsArgs>? TitleOptions { get; set; }
 

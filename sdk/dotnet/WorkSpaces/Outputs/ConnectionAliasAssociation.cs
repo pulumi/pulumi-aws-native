@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.WorkSpaces.Outputs
     [OutputType]
     public sealed class ConnectionAliasAssociation
     {
+        /// <summary>
+        /// The identifier of the AWS account that associated the connection alias with a directory.
+        /// </summary>
         public readonly string? AssociatedAccountId;
+        /// <summary>
+        /// The association status of the connection alias.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpaces.ConnectionAliasAssociationAssociationStatus? AssociationStatus;
+        /// <summary>
+        /// The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
+        /// </summary>
         public readonly string? ConnectionIdentifier;
+        /// <summary>
+        /// The identifier of the directory associated with a connection alias.
+        /// </summary>
         public readonly string? ResourceId;
 
         [OutputConstructor]

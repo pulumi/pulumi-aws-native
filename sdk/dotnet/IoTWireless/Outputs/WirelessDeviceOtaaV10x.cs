@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class WirelessDeviceOtaaV10x
     {
+        /// <summary>
+        /// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
+        /// </summary>
         public readonly string AppEui;
+        /// <summary>
+        /// The AppKey value.
+        /// </summary>
         public readonly string AppKey;
 
         [OutputConstructor]

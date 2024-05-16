@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetVariable
     {
+        /// <summary>
+        /// The dataset whose latest contents are used as input to the notebook or application.
+        /// </summary>
         public readonly Outputs.DatasetContentVersionValue? DatasetContentVersionValue;
+        /// <summary>
+        /// The value of the variable as a double (numeric).
+        /// </summary>
         public readonly double? DoubleValue;
+        /// <summary>
+        /// The value of the variable as a structure that specifies an output file URI.
+        /// </summary>
         public readonly Outputs.DatasetOutputFileUriValue? OutputFileUriValue;
+        /// <summary>
+        /// The value of the variable as a string.
+        /// </summary>
         public readonly string? StringValue;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string VariableName;
 
         [OutputConstructor]

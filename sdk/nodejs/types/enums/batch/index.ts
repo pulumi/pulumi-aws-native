@@ -6,12 +6,18 @@ export const JobQueueJobStateTimeLimitActionAction = {
     Cancel: "CANCEL",
 } as const;
 
+/**
+ * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
+ */
 export type JobQueueJobStateTimeLimitActionAction = (typeof JobQueueJobStateTimeLimitActionAction)[keyof typeof JobQueueJobStateTimeLimitActionAction];
 
 export const JobQueueJobStateTimeLimitActionState = {
     Runnable: "RUNNABLE",
 } as const;
 
+/**
+ * The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
+ */
 export type JobQueueJobStateTimeLimitActionState = (typeof JobQueueJobStateTimeLimitActionState)[keyof typeof JobQueueJobStateTimeLimitActionState];
 
 export const JobQueueState = {
@@ -19,4 +25,7 @@ export const JobQueueState = {
     Enabled: "ENABLED",
 } as const;
 
+/**
+ * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
+ */
 export type JobQueueState = (typeof JobQueueState)[keyof typeof JobQueueState];

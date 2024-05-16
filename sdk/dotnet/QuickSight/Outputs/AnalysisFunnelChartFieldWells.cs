@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFunnelChartFieldWells
     {
+        /// <summary>
+        /// The field well configuration of a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisFunnelChartAggregatedFieldWells? FunnelChartAggregatedFieldWells;
 
         [OutputConstructor]

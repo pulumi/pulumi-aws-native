@@ -18,8 +18,10 @@ type Certificate struct {
 
 	// Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
 	ApiPassthrough CertificateApiPassthroughPtrOutput `pulumi:"apiPassthrough"`
-	Arn            pulumi.StringOutput                `pulumi:"arn"`
-	Certificate    pulumi.StringOutput                `pulumi:"certificate"`
+	// The Amazon Resource Name (ARN) of the issued certificate.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The issued Base64 PEM-encoded certificate.
+	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
 	// The certificate signing request (CSR) for the certificate.
@@ -187,10 +189,12 @@ func (o CertificateOutput) ApiPassthrough() CertificateApiPassthroughPtrOutput {
 	return o.ApplyT(func(v *Certificate) CertificateApiPassthroughPtrOutput { return v.ApiPassthrough }).(CertificateApiPassthroughPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the issued certificate.
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The issued Base64 PEM-encoded certificate.
 func (o CertificateOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }

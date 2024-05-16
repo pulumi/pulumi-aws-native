@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardListControlSelectAllOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility configuration of the `Select all` options in a list control.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

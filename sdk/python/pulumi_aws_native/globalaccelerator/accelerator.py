@@ -28,6 +28,7 @@ class AcceleratorArgs:
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         :param pulumi.Input[str] name: Name of accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains a `Tag` key and `Tag` value.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -91,6 +92,9 @@ class AcceleratorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A complex type that contains a `Tag` key and `Tag` value.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -118,6 +122,7 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         :param pulumi.Input[str] name: Name of accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A complex type that contains a `Tag` key and `Tag` value.
         """
         ...
     @overload
@@ -276,5 +281,8 @@ class Accelerator(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A complex type that contains a `Tag` key and `Tag` value.
+        """
         return pulumi.get(self, "tags")
 

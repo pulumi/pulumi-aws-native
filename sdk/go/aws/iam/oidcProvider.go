@@ -18,11 +18,15 @@ type OidcProvider struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the OIDC provider
-	Arn            pulumi.StringOutput      `pulumi:"arn"`
-	ClientIdList   pulumi.StringArrayOutput `pulumi:"clientIdList"`
-	Tags           aws.TagArrayOutput       `pulumi:"tags"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	ClientIdList pulumi.StringArrayOutput `pulumi:"clientIdList"`
+	// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	ThumbprintList pulumi.StringArrayOutput `pulumi:"thumbprintList"`
-	Url            pulumi.StringPtrOutput   `pulumi:"url"`
+	// The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewOidcProvider registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +76,26 @@ func (OidcProviderState) ElementType() reflect.Type {
 }
 
 type oidcProviderArgs struct {
-	ClientIdList   []string  `pulumi:"clientIdList"`
-	Tags           []aws.Tag `pulumi:"tags"`
-	ThumbprintList []string  `pulumi:"thumbprintList"`
-	Url            *string   `pulumi:"url"`
+	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	ClientIdList []string `pulumi:"clientIdList"`
+	// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	Tags []aws.Tag `pulumi:"tags"`
+	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	ThumbprintList []string `pulumi:"thumbprintList"`
+	// The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	Url *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a OidcProvider resource.
 type OidcProviderArgs struct {
-	ClientIdList   pulumi.StringArrayInput
-	Tags           aws.TagArrayInput
+	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	ClientIdList pulumi.StringArrayInput
+	// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	Tags aws.TagArrayInput
+	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	ThumbprintList pulumi.StringArrayInput
-	Url            pulumi.StringPtrInput
+	// The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	Url pulumi.StringPtrInput
 }
 
 func (OidcProviderArgs) ElementType() reflect.Type {
@@ -128,18 +140,22 @@ func (o OidcProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OidcProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 func (o OidcProviderOutput) ClientIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OidcProvider) pulumi.StringArrayOutput { return v.ClientIdList }).(pulumi.StringArrayOutput)
 }
 
+// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 func (o OidcProviderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OidcProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 func (o OidcProviderOutput) ThumbprintList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OidcProvider) pulumi.StringArrayOutput { return v.ThumbprintList }).(pulumi.StringArrayOutput)
 }
 
+// The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 func (o OidcProviderOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OidcProvider) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }

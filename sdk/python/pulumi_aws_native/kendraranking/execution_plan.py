@@ -26,6 +26,7 @@ class ExecutionPlanArgs:
         The set of arguments for constructing a ExecutionPlan resource.
         :param pulumi.Input['ExecutionPlanCapacityUnitsConfigurationArgs'] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the execution plan
+        :param pulumi.Input[str] name: A name for the rescore execution plan.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for labeling the execution plan
         """
         if capacity_units is not None:
@@ -64,6 +65,9 @@ class ExecutionPlanArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the rescore execution plan.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -100,6 +104,7 @@ class ExecutionPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExecutionPlanCapacityUnitsConfigurationArgs']] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the execution plan
+        :param pulumi.Input[str] name: A name for the rescore execution plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for labeling the execution plan
         """
         ...
@@ -178,11 +183,17 @@ class ExecutionPlan(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the rescore execution plan.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the rescore execution plan.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -204,6 +215,9 @@ class ExecutionPlan(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the rescore execution plan.
+        """
         return pulumi.get(self, "name")
 
     @property

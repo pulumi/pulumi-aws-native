@@ -22,9 +22,15 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         [Input("launchProfileProtocolVersion")]
         public Input<string>? LaunchProfileProtocolVersion { get; set; }
 
+        /// <summary>
+        /// The platform of the initialization script, either Windows or Linux.
+        /// </summary>
         [Input("platform")]
         public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentLaunchProfilePlatform>? Platform { get; set; }
 
+        /// <summary>
+        /// The method to use when running the initialization script.
+        /// </summary>
         [Input("runContext")]
         public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentInitializationScriptRunContext>? RunContext { get; set; }
 

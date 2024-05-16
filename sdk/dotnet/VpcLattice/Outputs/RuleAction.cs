@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleAction
     {
+        /// <summary>
+        /// Describes an action that returns a custom HTTP response.
+        /// </summary>
         public readonly Outputs.RuleFixedResponse? FixedResponse;
+        /// <summary>
+        /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        /// </summary>
         public readonly Outputs.RuleForward? Forward;
 
         [OutputConstructor]

@@ -448,6 +448,32 @@ class TrailEventSelectorArgs:
                  read_write_type: Optional[pulumi.Input['TrailEventSelectorReadWriteType']] = None):
         """
         The type of email sending events to publish to the event destination.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgs']]] data_resources: Data events provide information about the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.
+               
+               Configure the `DataResource` to specify the resource type and resource ARNs for which you want to log data events.
+               
+               You can specify the following resource types in your event selectors for your trail:
+               
+               - `AWS::DynamoDB::Table`
+               - `AWS::Lambda::Function`
+               - `AWS::S3::Object`
+               
+               > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
+               > 
+               > If you are using advanced event selectors, the maximum total number of values for all conditions, across all advanced event selectors for the trail, is 500. 
+               
+               The following example demonstrates how logging works when you configure logging of all data events for an S3 bucket named `bucket-1` . In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
+               
+               - A user uploads an image file to `bucket-1` .
+               - The `PutObject` API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.
+               - A user uploads an object to an Amazon S3 bucket named `arn:aws:s3:::bucket-2` .
+               - The `PutObject` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event.
+               
+               The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named *MyLambdaFunction* , but not for all Lambda functions.
+               
+               - A user runs a script that includes a call to the *MyLambdaFunction* function and the *MyOtherLambdaFunction* function.
+               - The `Invoke` API operation on *MyLambdaFunction* is an Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for *MyLambdaFunction* , any invocations of that function are logged. The trail processes and logs the event.
+               - The `Invoke` API operation on *MyOtherLambdaFunction* is an Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the `Invoke` operation for *MyOtherLambdaFunction* does not match the function specified for the trail. The trail doesn’t log the event.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_management_event_sources: An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
         :param pulumi.Input[bool] include_management_events: Specify if you want your event selector to include management events for your trail.
         :param pulumi.Input['TrailEventSelectorReadWriteType'] read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
@@ -464,6 +490,34 @@ class TrailEventSelectorArgs:
     @property
     @pulumi.getter(name="dataResources")
     def data_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgs']]]]:
+        """
+        Data events provide information about the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.
+
+        Configure the `DataResource` to specify the resource type and resource ARNs for which you want to log data events.
+
+        You can specify the following resource types in your event selectors for your trail:
+
+        - `AWS::DynamoDB::Table`
+        - `AWS::Lambda::Function`
+        - `AWS::S3::Object`
+
+        > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
+        > 
+        > If you are using advanced event selectors, the maximum total number of values for all conditions, across all advanced event selectors for the trail, is 500. 
+
+        The following example demonstrates how logging works when you configure logging of all data events for an S3 bucket named `bucket-1` . In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
+
+        - A user uploads an image file to `bucket-1` .
+        - The `PutObject` API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.
+        - A user uploads an object to an Amazon S3 bucket named `arn:aws:s3:::bucket-2` .
+        - The `PutObject` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event.
+
+        The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named *MyLambdaFunction* , but not for all Lambda functions.
+
+        - A user runs a script that includes a call to the *MyLambdaFunction* function and the *MyOtherLambdaFunction* function.
+        - The `Invoke` API operation on *MyLambdaFunction* is an Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for *MyLambdaFunction* , any invocations of that function are logged. The trail processes and logs the event.
+        - The `Invoke` API operation on *MyOtherLambdaFunction* is an Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the `Invoke` operation for *MyOtherLambdaFunction* does not match the function specified for the trail. The trail doesn’t log the event.
+        """
         return pulumi.get(self, "data_resources")
 
     @data_resources.setter

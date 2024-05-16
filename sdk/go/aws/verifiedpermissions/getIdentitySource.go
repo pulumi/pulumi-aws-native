@@ -23,15 +23,24 @@ func LookupIdentitySource(ctx *pulumi.Context, args *LookupIdentitySourceArgs, o
 }
 
 type LookupIdentitySourceArgs struct {
+	// The unique ID of the new or updated identity store.
 	IdentitySourceId string `pulumi:"identitySourceId"`
-	PolicyStoreId    string `pulumi:"policyStoreId"`
+	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+	PolicyStoreId string `pulumi:"policyStoreId"`
 }
 
 type LookupIdentitySourceResult struct {
-	Configuration       *IdentitySourceConfiguration `pulumi:"configuration"`
-	Details             *IdentitySourceDetails       `pulumi:"details"`
-	IdentitySourceId    *string                      `pulumi:"identitySourceId"`
-	PrincipalEntityType *string                      `pulumi:"principalEntityType"`
+	// A structure that contains configuration information used when creating or updating a new identity source.
+	//
+	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
+	// >
+	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+	Configuration *IdentitySourceConfiguration `pulumi:"configuration"`
+	Details       *IdentitySourceDetails       `pulumi:"details"`
+	// The unique ID of the new or updated identity store.
+	IdentitySourceId *string `pulumi:"identitySourceId"`
+	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+	PrincipalEntityType *string `pulumi:"principalEntityType"`
 }
 
 func LookupIdentitySourceOutput(ctx *pulumi.Context, args LookupIdentitySourceOutputArgs, opts ...pulumi.InvokeOption) LookupIdentitySourceResultOutput {
@@ -48,8 +57,10 @@ func LookupIdentitySourceOutput(ctx *pulumi.Context, args LookupIdentitySourceOu
 }
 
 type LookupIdentitySourceOutputArgs struct {
+	// The unique ID of the new or updated identity store.
 	IdentitySourceId pulumi.StringInput `pulumi:"identitySourceId"`
-	PolicyStoreId    pulumi.StringInput `pulumi:"policyStoreId"`
+	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+	PolicyStoreId pulumi.StringInput `pulumi:"policyStoreId"`
 }
 
 func (LookupIdentitySourceOutputArgs) ElementType() reflect.Type {
@@ -70,6 +81,11 @@ func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutputWith
 	return o
 }
 
+// A structure that contains configuration information used when creating or updating a new identity source.
+//
+// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
+// >
+// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
 func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceConfiguration { return v.Configuration }).(IdentitySourceConfigurationPtrOutput)
 }
@@ -78,10 +94,12 @@ func (o LookupIdentitySourceResultOutput) Details() IdentitySourceDetailsPtrOutp
 	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceDetails { return v.Details }).(IdentitySourceDetailsPtrOutput)
 }
 
+// The unique ID of the new or updated identity store.
 func (o LookupIdentitySourceResultOutput) IdentitySourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentitySourceResult) *string { return v.IdentitySourceId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 func (o LookupIdentitySourceResultOutput) PrincipalEntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentitySourceResult) *string { return v.PrincipalEntityType }).(pulumi.StringPtrOutput)
 }

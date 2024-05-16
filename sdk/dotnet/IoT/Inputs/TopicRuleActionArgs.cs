@@ -12,69 +12,153 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes an action that updates a CloudWatch alarm.
+        /// </summary>
         [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleCloudwatchAlarmActionArgs>? CloudwatchAlarm { get; set; }
 
+        /// <summary>
+        /// Describes an action that updates a CloudWatch log.
+        /// </summary>
         [Input("cloudwatchLogs")]
         public Input<Inputs.TopicRuleCloudwatchLogsActionArgs>? CloudwatchLogs { get; set; }
 
+        /// <summary>
+        /// Describes an action that captures a CloudWatch metric.
+        /// </summary>
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricActionArgs>? CloudwatchMetric { get; set; }
 
+        /// <summary>
+        /// Describes an action to write to a DynamoDB table.
+        /// 
+        /// This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+        /// </summary>
         [Input("dynamoDBv2")]
         public Input<Inputs.TopicRuleDynamoDBv2ActionArgs>? DynamoDBv2 { get; set; }
 
+        /// <summary>
+        /// Describes an action to write to a DynamoDB table.
+        /// 
+        /// The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
+        /// 
+        /// The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
+        /// 
+        /// You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
+        /// 
+        /// `"hashKeyValue": "${topic(3)}"`
+        /// 
+        /// The following field uses the timestamp:
+        /// 
+        /// `"rangeKeyValue": "${timestamp()}"`
+        /// 
+        /// For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+        /// </summary>
         [Input("dynamoDb")]
         public Input<Inputs.TopicRuleDynamoDbActionArgs>? DynamoDb { get; set; }
 
+        /// <summary>
+        /// Describes an action that writes data to an Amazon OpenSearch Service domain.
+        /// 
+        /// &gt; The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
+        /// </summary>
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchActionArgs>? Elasticsearch { get; set; }
 
+        /// <summary>
+        /// Describes an action that writes data to an Amazon Kinesis Firehose stream.
+        /// </summary>
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseActionArgs>? Firehose { get; set; }
 
+        /// <summary>
+        /// Send data to an HTTPS endpoint.
+        /// </summary>
         [Input("http")]
         public Input<Inputs.TopicRuleHttpActionArgs>? Http { get; set; }
 
+        /// <summary>
+        /// Sends message data to an AWS IoT Analytics channel.
+        /// </summary>
         [Input("iotAnalytics")]
         public Input<Inputs.TopicRuleIotAnalyticsActionArgs>? IotAnalytics { get; set; }
 
+        /// <summary>
+        /// Sends an input to an AWS IoT Events detector.
+        /// </summary>
         [Input("iotEvents")]
         public Input<Inputs.TopicRuleIotEventsActionArgs>? IotEvents { get; set; }
 
+        /// <summary>
+        /// Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+        /// </summary>
         [Input("iotSiteWise")]
         public Input<Inputs.TopicRuleIotSiteWiseActionArgs>? IotSiteWise { get; set; }
 
+        /// <summary>
+        /// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+        /// </summary>
         [Input("kafka")]
         public Input<Inputs.TopicRuleKafkaActionArgs>? Kafka { get; set; }
 
+        /// <summary>
+        /// Describes an action to write data to an Amazon Kinesis stream.
+        /// </summary>
         [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisActionArgs>? Kinesis { get; set; }
 
+        /// <summary>
+        /// Describes an action to invoke a Lambda function.
+        /// </summary>
         [Input("lambda")]
         public Input<Inputs.TopicRuleLambdaActionArgs>? Lambda { get; set; }
 
+        /// <summary>
+        /// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+        /// </summary>
         [Input("location")]
         public Input<Inputs.TopicRuleLocationActionArgs>? Location { get; set; }
 
+        /// <summary>
+        /// Describes an action that writes data to an Amazon OpenSearch Service domain.
+        /// </summary>
         [Input("openSearch")]
         public Input<Inputs.TopicRuleOpenSearchActionArgs>? OpenSearch { get; set; }
 
+        /// <summary>
+        /// Describes an action to republish to another topic.
+        /// </summary>
         [Input("republish")]
         public Input<Inputs.TopicRuleRepublishActionArgs>? Republish { get; set; }
 
+        /// <summary>
+        /// Describes an action to write data to an Amazon S3 bucket.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.TopicRuleS3ActionArgs>? S3 { get; set; }
 
+        /// <summary>
+        /// Describes an action to publish to an Amazon SNS topic.
+        /// </summary>
         [Input("sns")]
         public Input<Inputs.TopicRuleSnsActionArgs>? Sns { get; set; }
 
+        /// <summary>
+        /// Describes an action to publish data to an Amazon SQS queue.
+        /// </summary>
         [Input("sqs")]
         public Input<Inputs.TopicRuleSqsActionArgs>? Sqs { get; set; }
 
+        /// <summary>
+        /// Starts execution of a Step Functions state machine.
+        /// </summary>
         [Input("stepFunctions")]
         public Input<Inputs.TopicRuleStepFunctionsActionArgs>? StepFunctions { get; set; }
 
+        /// <summary>
+        /// Describes an action that writes records into an Amazon Timestream table.
+        /// </summary>
         [Input("timestream")]
         public Input<Inputs.TopicRuleTimestreamActionArgs>? Timestream { get; set; }
 

@@ -159,6 +159,9 @@ class GetEventSourceMappingResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The event source mapping's ID.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -276,6 +279,9 @@ def get_event_source_mapping(id: Optional[str] = None,
       +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
       +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
       +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+
+
+    :param str id: The event source mapping's ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -316,5 +322,8 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
       +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
       +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
       +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+
+
+    :param str id: The event source mapping's ID.
     """
     ...

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetAnnotationStoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Annotation Store.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetAnnotationStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Annotation Store.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.Omics
     [OutputType]
     public sealed class GetAnnotationStoreResult
     {
+        /// <summary>
+        /// When the store was created.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// A description for the store.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The store's status.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.AnnotationStoreStoreStatus? Status;
+        /// <summary>
+        /// The store's status message.
+        /// </summary>
         public readonly string? StatusMessage;
+        /// <summary>
+        /// The store's ARN.
+        /// </summary>
         public readonly string? StoreArn;
+        /// <summary>
+        /// The store's size in bytes.
+        /// </summary>
         public readonly double? StoreSizeBytes;
+        /// <summary>
+        /// When the store was updated.
+        /// </summary>
         public readonly string? UpdateTime;
 
         [OutputConstructor]

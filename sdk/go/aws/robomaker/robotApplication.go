@@ -160,17 +160,20 @@ import (
 type RobotApplication struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the robot application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
 	// The URI of the Docker image for the robot application.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The name of the robot application.
-	Name               pulumi.StringPtrOutput                   `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Information about a robot software suite.
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
 	// The sources of the robot application.
 	Sources RobotApplicationSourceConfigArrayOutput `pulumi:"sources"`
-	Tags    pulumi.StringMapOutput                  `pulumi:"tags"`
+	// A map that contains tag keys and tag values that are attached to the robot application.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRobotApplication registers a new resource with the given unique name, arguments, and options.
@@ -225,11 +228,13 @@ type robotApplicationArgs struct {
 	// The URI of the Docker image for the robot application.
 	Environment *string `pulumi:"environment"`
 	// The name of the robot application.
-	Name               *string                            `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Information about a robot software suite.
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The sources of the robot application.
 	Sources []RobotApplicationSourceConfig `pulumi:"sources"`
-	Tags    map[string]string              `pulumi:"tags"`
+	// A map that contains tag keys and tag values that are attached to the robot application.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RobotApplication resource.
@@ -239,11 +244,13 @@ type RobotApplicationArgs struct {
 	// The URI of the Docker image for the robot application.
 	Environment pulumi.StringPtrInput
 	// The name of the robot application.
-	Name               pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Information about a robot software suite.
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteInput
 	// The sources of the robot application.
 	Sources RobotApplicationSourceConfigArrayInput
-	Tags    pulumi.StringMapInput
+	// A map that contains tag keys and tag values that are attached to the robot application.
+	Tags pulumi.StringMapInput
 }
 
 func (RobotApplicationArgs) ElementType() reflect.Type {
@@ -283,6 +290,7 @@ func (o RobotApplicationOutput) ToRobotApplicationOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the robot application.
 func (o RobotApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RobotApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -302,6 +310,7 @@ func (o RobotApplicationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RobotApplication) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Information about a robot software suite.
 func (o RobotApplicationOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuiteOutput {
 	return o.ApplyT(func(v *RobotApplication) RobotApplicationRobotSoftwareSuiteOutput { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuiteOutput)
 }
@@ -311,6 +320,7 @@ func (o RobotApplicationOutput) Sources() RobotApplicationSourceConfigArrayOutpu
 	return o.ApplyT(func(v *RobotApplication) RobotApplicationSourceConfigArrayOutput { return v.Sources }).(RobotApplicationSourceConfigArrayOutput)
 }
 
+// A map that contains tag keys and tag values that are attached to the robot application.
 func (o RobotApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RobotApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

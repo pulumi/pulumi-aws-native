@@ -37,10 +37,25 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
+    /**
+     * This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+     */
     public readonly appConfigResource!: pulumi.Output<outputs.evidently.ProjectAppConfigResourceObject | undefined>;
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+     */
     public readonly dataDelivery!: pulumi.Output<outputs.evidently.ProjectDataDeliveryObject | undefined>;
+    /**
+     * An optional description of the project.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name for the project. It can include up to 127 characters.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -83,9 +98,21 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
+    /**
+     * This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+     */
     appConfigResource?: pulumi.Input<inputs.evidently.ProjectAppConfigResourceObjectArgs>;
+    /**
+     * A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+     */
     dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDeliveryObjectArgs>;
+    /**
+     * An optional description of the project.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name for the project. It can include up to 127 characters.
+     */
     name?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -24,19 +24,29 @@ func LookupApplicationInstance(ctx *pulumi.Context, args *LookupApplicationInsta
 }
 
 type LookupApplicationInstanceArgs struct {
+	// The application instance's ID.
 	ApplicationInstanceId string `pulumi:"applicationInstanceId"`
 }
 
 type LookupApplicationInstanceResult struct {
-	ApplicationInstanceId           *string                          `pulumi:"applicationInstanceId"`
-	Arn                             *string                          `pulumi:"arn"`
-	CreatedTime                     *int                             `pulumi:"createdTime"`
-	DefaultRuntimeContextDeviceName *string                          `pulumi:"defaultRuntimeContextDeviceName"`
-	HealthStatus                    *ApplicationInstanceHealthStatus `pulumi:"healthStatus"`
-	LastUpdatedTime                 *int                             `pulumi:"lastUpdatedTime"`
-	Status                          *ApplicationInstanceStatus       `pulumi:"status"`
-	StatusDescription               *string                          `pulumi:"statusDescription"`
-	Tags                            []aws.Tag                        `pulumi:"tags"`
+	// The application instance's ID.
+	ApplicationInstanceId *string `pulumi:"applicationInstanceId"`
+	// The application instance's ARN.
+	Arn *string `pulumi:"arn"`
+	// The application instance's created time.
+	CreatedTime *int `pulumi:"createdTime"`
+	// The application instance's default runtime context device name.
+	DefaultRuntimeContextDeviceName *string `pulumi:"defaultRuntimeContextDeviceName"`
+	// The application instance's health status.
+	HealthStatus *ApplicationInstanceHealthStatus `pulumi:"healthStatus"`
+	// The application instance's last updated time.
+	LastUpdatedTime *int `pulumi:"lastUpdatedTime"`
+	// The application instance's status.
+	Status *ApplicationInstanceStatus `pulumi:"status"`
+	// The application instance's status description.
+	StatusDescription *string `pulumi:"statusDescription"`
+	// Tags for the application instance.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupApplicationInstanceOutput(ctx *pulumi.Context, args LookupApplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationInstanceResultOutput {
@@ -53,6 +63,7 @@ func LookupApplicationInstanceOutput(ctx *pulumi.Context, args LookupApplication
 }
 
 type LookupApplicationInstanceOutputArgs struct {
+	// The application instance's ID.
 	ApplicationInstanceId pulumi.StringInput `pulumi:"applicationInstanceId"`
 }
 
@@ -74,38 +85,47 @@ func (o LookupApplicationInstanceResultOutput) ToLookupApplicationInstanceResult
 	return o
 }
 
+// The application instance's ID.
 func (o LookupApplicationInstanceResultOutput) ApplicationInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.ApplicationInstanceId }).(pulumi.StringPtrOutput)
 }
 
+// The application instance's ARN.
 func (o LookupApplicationInstanceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The application instance's created time.
 func (o LookupApplicationInstanceResultOutput) CreatedTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *int { return v.CreatedTime }).(pulumi.IntPtrOutput)
 }
 
+// The application instance's default runtime context device name.
 func (o LookupApplicationInstanceResultOutput) DefaultRuntimeContextDeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.DefaultRuntimeContextDeviceName }).(pulumi.StringPtrOutput)
 }
 
+// The application instance's health status.
 func (o LookupApplicationInstanceResultOutput) HealthStatus() ApplicationInstanceHealthStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *ApplicationInstanceHealthStatus { return v.HealthStatus }).(ApplicationInstanceHealthStatusPtrOutput)
 }
 
+// The application instance's last updated time.
 func (o LookupApplicationInstanceResultOutput) LastUpdatedTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *int { return v.LastUpdatedTime }).(pulumi.IntPtrOutput)
 }
 
+// The application instance's status.
 func (o LookupApplicationInstanceResultOutput) Status() ApplicationInstanceStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *ApplicationInstanceStatus { return v.Status }).(ApplicationInstanceStatusPtrOutput)
 }
 
+// The application instance's status description.
 func (o LookupApplicationInstanceResultOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
 
+// Tags for the application instance.
 func (o LookupApplicationInstanceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

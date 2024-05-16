@@ -37,12 +37,35 @@ export class InstanceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceProfile.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the instance profile.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+     *
+     * The list of packages is considered only if you set `packageCleanup` to `true` .
+     */
     public readonly excludeAppPackagesFromCleanup!: pulumi.Output<string[] | undefined>;
+    /**
+     * The name of the instance profile.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+     */
     public readonly packageCleanup!: pulumi.Output<boolean | undefined>;
+    /**
+     * When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+     */
     public readonly rebootAfterUse!: pulumi.Output<boolean | undefined>;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -81,10 +104,30 @@ export class InstanceProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a InstanceProfile resource.
  */
 export interface InstanceProfileArgs {
+    /**
+     * The description of the instance profile.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+     *
+     * The list of packages is considered only if you set `packageCleanup` to `true` .
+     */
     excludeAppPackagesFromCleanup?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the instance profile.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+     */
     packageCleanup?: pulumi.Input<boolean>;
+    /**
+     * When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+     */
     rebootAfterUse?: pulumi.Input<boolean>;
+    /**
+     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

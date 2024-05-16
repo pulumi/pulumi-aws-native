@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
+    /// </summary>
     [EnumType]
     public readonly struct LoggingConfigurationLogDestinationConfigLogDestinationType : IEquatable<LoggingConfigurationLogDestinationConfigLogDestinationType>
     {
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+    /// </summary>
     [EnumType]
     public readonly struct LoggingConfigurationLogDestinationConfigLogType : IEquatable<LoggingConfigurationLogDestinationConfigLogType>
     {
@@ -176,6 +182,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The direction of traffic flow to inspect. If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupHeaderDirection : IEquatable<RuleGroupHeaderDirection>
     {
@@ -204,6 +213,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The protocol to inspect for. To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupHeaderProtocol : IEquatable<RuleGroupHeaderProtocol>
     {
@@ -277,6 +289,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.
+    /// 
+    /// The actions for a stateful rule are defined as follows:
+    /// 
+    /// - *PASS* - Permits the packets to go to the intended destination.
+    /// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+    /// - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
+    /// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+    /// 
+    /// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
+    /// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+    /// 
+    /// `REJECT` isn't currently available for use with IMAP and FTP protocols.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupStatefulRuleAction : IEquatable<RuleGroupStatefulRuleAction>
     {
@@ -369,6 +396,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+    /// stateless rules. If it is stateful, it contains stateful rules.
+    /// </summary>
     [EnumType]
     public readonly struct RuleGroupTypeEnum : IEquatable<RuleGroupTypeEnum>
     {

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardForecastScenario
     {
+        /// <summary>
+        /// Provides the forecast to meet the target for a particular date.
+        /// </summary>
         public readonly Outputs.DashboardWhatIfPointScenario? WhatIfPointScenario;
+        /// <summary>
+        /// Provides the forecast to meet the target for a particular date range.
+        /// </summary>
         public readonly Outputs.DashboardWhatIfRangeScenario? WhatIfRangeScenario;
 
         [OutputConstructor]

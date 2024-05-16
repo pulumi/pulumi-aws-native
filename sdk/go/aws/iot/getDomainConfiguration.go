@@ -24,18 +24,31 @@ func LookupDomainConfiguration(ctx *pulumi.Context, args *LookupDomainConfigurat
 }
 
 type LookupDomainConfigurationArgs struct {
+	// The name of the domain configuration. This value must be unique to a region.
 	DomainConfigurationName string `pulumi:"domainConfigurationName"`
 }
 
 type LookupDomainConfigurationResult struct {
-	Arn                       *string                                       `pulumi:"arn"`
-	AuthorizerConfig          *DomainConfigurationAuthorizerConfig          `pulumi:"authorizerConfig"`
-	DomainConfigurationStatus *DomainConfigurationStatus                    `pulumi:"domainConfigurationStatus"`
-	DomainType                *DomainConfigurationDomainType                `pulumi:"domainType"`
-	ServerCertificateConfig   *DomainConfigurationServerCertificateConfig   `pulumi:"serverCertificateConfig"`
-	ServerCertificates        []DomainConfigurationServerCertificateSummary `pulumi:"serverCertificates"`
-	Tags                      []aws.Tag                                     `pulumi:"tags"`
-	TlsConfig                 *DomainConfigurationTlsConfig                 `pulumi:"tlsConfig"`
+	// The Amazon Resource Name (ARN) of the domain configuration.
+	Arn *string `pulumi:"arn"`
+	// An object that specifies the authorization service for a domain.
+	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
+	// The status to which the domain configuration should be updated.
+	//
+	// Valid values: `ENABLED` | `DISABLED`
+	DomainConfigurationStatus *DomainConfigurationStatus `pulumi:"domainConfigurationStatus"`
+	// The type of service delivered by the domain.
+	DomainType *DomainConfigurationDomainType `pulumi:"domainType"`
+	// The server certificate configuration.
+	//
+	// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+	ServerCertificateConfig *DomainConfigurationServerCertificateConfig `pulumi:"serverCertificateConfig"`
+	// An object that contains information about a server certificate.
+	ServerCertificates []DomainConfigurationServerCertificateSummary `pulumi:"serverCertificates"`
+	// A set of key/value pairs that are used to manage the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// An object that specifies the TLS configuration for a domain.
+	TlsConfig *DomainConfigurationTlsConfig `pulumi:"tlsConfig"`
 }
 
 func LookupDomainConfigurationOutput(ctx *pulumi.Context, args LookupDomainConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainConfigurationResultOutput {
@@ -52,6 +65,7 @@ func LookupDomainConfigurationOutput(ctx *pulumi.Context, args LookupDomainConfi
 }
 
 type LookupDomainConfigurationOutputArgs struct {
+	// The name of the domain configuration. This value must be unique to a region.
 	DomainConfigurationName pulumi.StringInput `pulumi:"domainConfigurationName"`
 }
 
@@ -73,40 +87,52 @@ func (o LookupDomainConfigurationResultOutput) ToLookupDomainConfigurationResult
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the domain configuration.
 func (o LookupDomainConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An object that specifies the authorization service for a domain.
 func (o LookupDomainConfigurationResultOutput) AuthorizerConfig() DomainConfigurationAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationAuthorizerConfig {
 		return v.AuthorizerConfig
 	}).(DomainConfigurationAuthorizerConfigPtrOutput)
 }
 
+// The status to which the domain configuration should be updated.
+//
+// Valid values: `ENABLED` | `DISABLED`
 func (o LookupDomainConfigurationResultOutput) DomainConfigurationStatus() DomainConfigurationStatusPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationStatus { return v.DomainConfigurationStatus }).(DomainConfigurationStatusPtrOutput)
 }
 
+// The type of service delivered by the domain.
 func (o LookupDomainConfigurationResultOutput) DomainType() DomainConfigurationDomainTypePtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationDomainType { return v.DomainType }).(DomainConfigurationDomainTypePtrOutput)
 }
 
+// The server certificate configuration.
+//
+// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 func (o LookupDomainConfigurationResultOutput) ServerCertificateConfig() DomainConfigurationServerCertificateConfigPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationServerCertificateConfig {
 		return v.ServerCertificateConfig
 	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
+// An object that contains information about a server certificate.
 func (o LookupDomainConfigurationResultOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) []DomainConfigurationServerCertificateSummary {
 		return v.ServerCertificates
 	}).(DomainConfigurationServerCertificateSummaryArrayOutput)
 }
 
+// A set of key/value pairs that are used to manage the resource.
 func (o LookupDomainConfigurationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An object that specifies the TLS configuration for a domain.
 func (o LookupDomainConfigurationResultOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationTlsConfig { return v.TlsConfig }).(DomainConfigurationTlsConfigPtrOutput)
 }

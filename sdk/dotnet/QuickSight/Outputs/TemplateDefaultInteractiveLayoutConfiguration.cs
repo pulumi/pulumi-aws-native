@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDefaultInteractiveLayoutConfiguration
     {
+        /// <summary>
+        /// The options that determine the default settings of a free-form layout configuration.
+        /// </summary>
         public readonly Outputs.TemplateDefaultFreeFormLayoutConfiguration? FreeForm;
+        /// <summary>
+        /// The options that determine the default settings for a grid layout configuration.
+        /// </summary>
         public readonly Outputs.TemplateDefaultGridLayoutConfiguration? Grid;
 
         [OutputConstructor]

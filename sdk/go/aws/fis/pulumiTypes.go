@@ -15,11 +15,14 @@ var _ = internal.GetEnvOrDefault
 
 // Specifies an action for the experiment template.
 type ExperimentTemplateAction struct {
-	ActionId    string  `pulumi:"actionId"`
+	// The ID of the action.
+	ActionId string `pulumi:"actionId"`
+	// A description for the action.
 	Description *string `pulumi:"description"`
 	// The parameters for the action, if applicable.
 	Parameters map[string]string `pulumi:"parameters"`
-	StartAfter []string          `pulumi:"startAfter"`
+	// The name of the action that must be completed before the current action starts.
+	StartAfter []string `pulumi:"startAfter"`
 	// One or more targets for the action.
 	Targets map[string]string `pulumi:"targets"`
 }
@@ -37,10 +40,13 @@ type ExperimentTemplateActionInput interface {
 
 // Specifies an action for the experiment template.
 type ExperimentTemplateActionArgs struct {
-	ActionId    pulumi.StringInput    `pulumi:"actionId"`
+	// The ID of the action.
+	ActionId pulumi.StringInput `pulumi:"actionId"`
+	// A description for the action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The parameters for the action, if applicable.
-	Parameters pulumi.StringMapInput   `pulumi:"parameters"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// The name of the action that must be completed before the current action starts.
 	StartAfter pulumi.StringArrayInput `pulumi:"startAfter"`
 	// One or more targets for the action.
 	Targets pulumi.StringMapInput `pulumi:"targets"`
@@ -98,10 +104,12 @@ func (o ExperimentTemplateActionOutput) ToExperimentTemplateActionOutputWithCont
 	return o
 }
 
+// The ID of the action.
 func (o ExperimentTemplateActionOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) string { return v.ActionId }).(pulumi.StringOutput)
 }
 
+// A description for the action.
 func (o ExperimentTemplateActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -111,6 +119,7 @@ func (o ExperimentTemplateActionOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The name of the action that must be completed before the current action starts.
 func (o ExperimentTemplateActionOutput) StartAfter() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) []string { return v.StartAfter }).(pulumi.StringArrayOutput)
 }
@@ -301,9 +310,12 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode(
 }
 
 type ExperimentTemplateLogConfiguration struct {
+	// The configuration for experiment logging to CloudWatch Logs .
 	CloudWatchLogsConfiguration *ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties `pulumi:"cloudWatchLogsConfiguration"`
-	LogSchemaVersion            int                                                                      `pulumi:"logSchemaVersion"`
-	S3Configuration             *ExperimentTemplateLogConfigurationS3ConfigurationProperties             `pulumi:"s3Configuration"`
+	// The schema version.
+	LogSchemaVersion int `pulumi:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon S3 .
+	S3Configuration *ExperimentTemplateLogConfigurationS3ConfigurationProperties `pulumi:"s3Configuration"`
 }
 
 // ExperimentTemplateLogConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationArgs and ExperimentTemplateLogConfigurationOutput values.
@@ -318,9 +330,12 @@ type ExperimentTemplateLogConfigurationInput interface {
 }
 
 type ExperimentTemplateLogConfigurationArgs struct {
+	// The configuration for experiment logging to CloudWatch Logs .
 	CloudWatchLogsConfiguration ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrInput `pulumi:"cloudWatchLogsConfiguration"`
-	LogSchemaVersion            pulumi.IntInput                                                                 `pulumi:"logSchemaVersion"`
-	S3Configuration             ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrInput             `pulumi:"s3Configuration"`
+	// The schema version.
+	LogSchemaVersion pulumi.IntInput `pulumi:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon S3 .
+	S3Configuration ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrInput `pulumi:"s3Configuration"`
 }
 
 func (ExperimentTemplateLogConfigurationArgs) ElementType() reflect.Type {
@@ -400,16 +415,19 @@ func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigu
 	}).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
+// The configuration for experiment logging to CloudWatch Logs .
 func (o ExperimentTemplateLogConfigurationOutput) CloudWatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties {
 		return v.CloudWatchLogsConfiguration
 	}).(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput)
 }
 
+// The schema version.
 func (o ExperimentTemplateLogConfigurationOutput) LogSchemaVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) int { return v.LogSchemaVersion }).(pulumi.IntOutput)
 }
 
+// The configuration for experiment logging to Amazon S3 .
 func (o ExperimentTemplateLogConfigurationOutput) S3Configuration() ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationS3ConfigurationProperties {
 		return v.S3Configuration
@@ -440,6 +458,7 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) Elem() ExperimentTemplateLo
 	}).(ExperimentTemplateLogConfigurationOutput)
 }
 
+// The configuration for experiment logging to CloudWatch Logs .
 func (o ExperimentTemplateLogConfigurationPtrOutput) CloudWatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties {
 		if v == nil {
@@ -449,6 +468,7 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) CloudWatchLogsConfiguration
 	}).(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput)
 }
 
+// The schema version.
 func (o ExperimentTemplateLogConfigurationPtrOutput) LogSchemaVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *int {
 		if v == nil {
@@ -458,6 +478,7 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) LogSchemaVersion() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The configuration for experiment logging to Amazon S3 .
 func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationS3ConfigurationProperties {
 		if v == nil {
@@ -467,6 +488,7 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() Experimen
 	}).(ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput)
 }
 
+// The configuration for experiment logging to CloudWatch Logs .
 type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties struct {
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
@@ -482,6 +504,7 @@ type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesInpu
 	ToExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutputWithContext(context.Context) ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput
 }
 
+// The configuration for experiment logging to CloudWatch Logs .
 type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs struct {
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
@@ -539,6 +562,7 @@ func (i *experimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput)
 }
 
+// The configuration for experiment logging to CloudWatch Logs .
 type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -602,6 +626,7 @@ func (o ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for experiment logging to Amazon S3 .
 type ExperimentTemplateLogConfigurationS3ConfigurationProperties struct {
 	BucketName string  `pulumi:"bucketName"`
 	Prefix     *string `pulumi:"prefix"`
@@ -618,6 +643,7 @@ type ExperimentTemplateLogConfigurationS3ConfigurationPropertiesInput interface 
 	ToExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutputWithContext(context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput
 }
 
+// The configuration for experiment logging to Amazon S3 .
 type ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs struct {
 	BucketName pulumi.StringInput    `pulumi:"bucketName"`
 	Prefix     pulumi.StringPtrInput `pulumi:"prefix"`
@@ -676,6 +702,7 @@ func (i *experimentTemplateLogConfigurationS3ConfigurationPropertiesPtrType) ToE
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput)
 }
 
+// The configuration for experiment logging to Amazon S3 .
 type ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -852,12 +879,18 @@ func (o ExperimentTemplateStopConditionArrayOutput) Index(i pulumi.IntInput) Exp
 
 // Specifies a target for an experiment.
 type ExperimentTemplateTarget struct {
-	Filters       []ExperimentTemplateTargetFilter `pulumi:"filters"`
-	Parameters    map[string]string                `pulumi:"parameters"`
-	ResourceArns  []string                         `pulumi:"resourceArns"`
-	ResourceTags  map[string]string                `pulumi:"resourceTags"`
-	ResourceType  string                           `pulumi:"resourceType"`
-	SelectionMode string                           `pulumi:"selectionMode"`
+	// The filters to apply to identify target resources using specific attributes.
+	Filters []ExperimentTemplateTargetFilter `pulumi:"filters"`
+	// The parameters for the resource type.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The Amazon Resource Names (ARNs) of the targets.
+	ResourceArns []string `pulumi:"resourceArns"`
+	// The tags for the target resources.
+	ResourceTags map[string]string `pulumi:"resourceTags"`
+	// The resource type.
+	ResourceType string `pulumi:"resourceType"`
+	// Scopes the identified resources to a specific count or percentage.
+	SelectionMode string `pulumi:"selectionMode"`
 }
 
 // ExperimentTemplateTargetInput is an input type that accepts ExperimentTemplateTargetArgs and ExperimentTemplateTargetOutput values.
@@ -873,12 +906,18 @@ type ExperimentTemplateTargetInput interface {
 
 // Specifies a target for an experiment.
 type ExperimentTemplateTargetArgs struct {
-	Filters       ExperimentTemplateTargetFilterArrayInput `pulumi:"filters"`
-	Parameters    pulumi.StringMapInput                    `pulumi:"parameters"`
-	ResourceArns  pulumi.StringArrayInput                  `pulumi:"resourceArns"`
-	ResourceTags  pulumi.StringMapInput                    `pulumi:"resourceTags"`
-	ResourceType  pulumi.StringInput                       `pulumi:"resourceType"`
-	SelectionMode pulumi.StringInput                       `pulumi:"selectionMode"`
+	// The filters to apply to identify target resources using specific attributes.
+	Filters ExperimentTemplateTargetFilterArrayInput `pulumi:"filters"`
+	// The parameters for the resource type.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// The Amazon Resource Names (ARNs) of the targets.
+	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
+	// The tags for the target resources.
+	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
+	// The resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Scopes the identified resources to a specific count or percentage.
+	SelectionMode pulumi.StringInput `pulumi:"selectionMode"`
 }
 
 func (ExperimentTemplateTargetArgs) ElementType() reflect.Type {
@@ -933,26 +972,32 @@ func (o ExperimentTemplateTargetOutput) ToExperimentTemplateTargetOutputWithCont
 	return o
 }
 
+// The filters to apply to identify target resources using specific attributes.
 func (o ExperimentTemplateTargetOutput) Filters() ExperimentTemplateTargetFilterArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []ExperimentTemplateTargetFilter { return v.Filters }).(ExperimentTemplateTargetFilterArrayOutput)
 }
 
+// The parameters for the resource type.
 func (o ExperimentTemplateTargetOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the targets.
 func (o ExperimentTemplateTargetOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the target resources.
 func (o ExperimentTemplateTargetOutput) ResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
 }
 
+// The resource type.
 func (o ExperimentTemplateTargetOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
+// Scopes the identified resources to a specific count or percentage.
 func (o ExperimentTemplateTargetOutput) SelectionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.SelectionMode }).(pulumi.StringOutput)
 }

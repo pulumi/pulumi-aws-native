@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelBiasJobDefinitionModelBiasBaselineConfig
     {
+        /// <summary>
+        /// The name of the baseline model bias job.
+        /// </summary>
         public readonly string? BaseliningJobName;
+        /// <summary>
+        /// The constraints resource for a monitoring job.
+        /// </summary>
         public readonly Outputs.ModelBiasJobDefinitionConstraintsResource? ConstraintsResource;
 
         [OutputConstructor]

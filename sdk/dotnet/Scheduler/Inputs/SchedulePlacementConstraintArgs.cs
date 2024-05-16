@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
+        /// <summary>
+        /// The type of constraint. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Scheduler.SchedulePlacementConstraintType>? Type { get; set; }
 

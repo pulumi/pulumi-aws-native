@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class FunctionConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A comment to describe the function.
+        /// </summary>
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;
 
         [Input("keyValueStoreAssociations")]
         private InputList<Inputs.FunctionKeyValueStoreAssociationArgs>? _keyValueStoreAssociations;
+
+        /// <summary>
+        /// The key value store association.
+        /// </summary>
         public InputList<Inputs.FunctionKeyValueStoreAssociationArgs> KeyValueStoreAssociations
         {
             get => _keyValueStoreAssociations ?? (_keyValueStoreAssociations = new InputList<Inputs.FunctionKeyValueStoreAssociationArgs>());
             set => _keyValueStoreAssociations = value;
         }
 
+        /// <summary>
+        /// The function's runtime environment version.
+        /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
 

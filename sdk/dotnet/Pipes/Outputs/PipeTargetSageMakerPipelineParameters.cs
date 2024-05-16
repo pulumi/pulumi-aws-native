@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetSageMakerPipelineParameters
     {
+        /// <summary>
+        /// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeSageMakerPipelineParameter> PipelineParameterList;
 
         [OutputConstructor]

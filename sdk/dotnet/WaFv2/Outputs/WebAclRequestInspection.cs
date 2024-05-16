@@ -16,8 +16,21 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRequestInspection
     {
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier PasswordField;
+        /// <summary>
+        /// The payload type for your login endpoint, either JSON or form encoded.
+        /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.WebAclRequestInspectionPayloadType PayloadType;
+        /// <summary>
+        /// The identifier of a field in the web request payload that contains customer data.
+        /// 
+        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// </summary>
         public readonly Outputs.WebAclFieldIdentifier UsernameField;
 
         [OutputConstructor]

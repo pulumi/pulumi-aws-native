@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDecimalParameterDeclaration
     {
+        /// <summary>
+        /// The default values of the `DecimalParameterDeclaration` .
+        /// </summary>
         public readonly Outputs.DashboardDecimalDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.DashboardMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardParameterValueType ParameterValueType;
+        /// <summary>
+        /// The configuration that defines the default value of a `Decimal` parameter when a value has not been set.
+        /// </summary>
         public readonly Outputs.DashboardDecimalValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

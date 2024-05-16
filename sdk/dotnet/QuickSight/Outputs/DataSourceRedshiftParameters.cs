@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Host. This field can be blank if &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;
         /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// The parameters for an IAM Identity Center configuration.
+        /// </summary>
         public readonly Outputs.DataSourceIdentityCenterConfiguration? IdentityCenterConfiguration;
         /// <summary>
         /// &lt;p&gt;Port. This field can be blank if the &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;

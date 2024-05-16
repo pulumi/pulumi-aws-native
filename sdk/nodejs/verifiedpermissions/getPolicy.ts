@@ -20,13 +20,33 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPolicyArgs {
+    /**
+     * The unique ID of the new or updated policy.
+     */
     policyId: string;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     policyStoreId: string;
 }
 
 export interface GetPolicyResult {
+    /**
+     * A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
+     *
+     * This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+     */
     readonly definition?: outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties;
+    /**
+     * The unique ID of the new or updated policy.
+     */
     readonly policyId?: string;
+    /**
+     * The type of the policy. This is one of the following values:
+     *
+     * - Static
+     * - TemplateLinked
+     */
     readonly policyType?: enums.verifiedpermissions.PolicyType;
 }
 /**
@@ -37,6 +57,12 @@ export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetPolicyOutputArgs {
+    /**
+     * The unique ID of the new or updated policy.
+     */
     policyId: pulumi.Input<string>;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     policyStoreId: pulumi.Input<string>;
 }

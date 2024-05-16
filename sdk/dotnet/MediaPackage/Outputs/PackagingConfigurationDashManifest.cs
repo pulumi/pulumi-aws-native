@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestManifestLayout? ManifestLayout;
+        /// <summary>
+        /// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+        /// </summary>
         public readonly string? ManifestName;
         /// <summary>
         /// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -33,6 +36,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestScteMarkersSource? ScteMarkersSource;
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationStreamSelection? StreamSelection;
 
         [OutputConstructor]

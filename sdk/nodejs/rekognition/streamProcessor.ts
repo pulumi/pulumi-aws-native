@@ -37,15 +37,35 @@ export class StreamProcessor extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamProcessor.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name for the newly created stream processor.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
      */
     public readonly boundingBoxRegionsOfInterest!: pulumi.Output<outputs.rekognition.StreamProcessorBoundingBox[] | undefined>;
+    /**
+     * Connected home settings to use on a streaming video. Defining the settings is required in the request parameter for `CreateStreamProcessor` . Including this setting in the CreateStreamProcessor request lets you use the stream processor for connected home features. You can then select what you want the stream processor to detect, such as people or pets.
+     *
+     * When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected. An end-of-session summary is also published. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
+     */
     public readonly connectedHomeSettings!: pulumi.Output<outputs.rekognition.StreamProcessorConnectedHomeSettings | undefined>;
+    /**
+     * Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level, this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
+     */
     public readonly dataSharingPreference!: pulumi.Output<outputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
+    /**
+     * The input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor. `FaceSearchSettings` is a request parameter for [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) . For more information, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
+     */
     public readonly faceSearchSettings!: pulumi.Output<outputs.rekognition.StreamProcessorFaceSearchSettings | undefined>;
+    /**
+     * Amazon Rekognition Video Stream Processor take as input a Kinesis video stream (Input) and a Kinesis data stream (Output). This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
+     */
     public readonly kinesisDataStream!: pulumi.Output<outputs.rekognition.StreamProcessorKinesisDataStream | undefined>;
+    /**
+     * The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
+     */
     public readonly kinesisVideoStream!: pulumi.Output<outputs.rekognition.StreamProcessorKinesisVideoStream>;
     /**
      * The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
@@ -55,6 +75,9 @@ export class StreamProcessor extends pulumi.CustomResource {
      * Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
+     */
     public readonly notificationChannel!: pulumi.Output<outputs.rekognition.StreamProcessorNotificationChannel | undefined>;
     /**
      * The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
@@ -64,6 +87,9 @@ export class StreamProcessor extends pulumi.CustomResource {
      * ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. For more information, see [S3Destination](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_S3Destination) .
+     */
     public readonly s3Destination!: pulumi.Output<outputs.rekognition.StreamProcessorS3Destination | undefined>;
     /**
      * Current status of the stream processor.
@@ -144,10 +170,27 @@ export interface StreamProcessorArgs {
      * The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
      */
     boundingBoxRegionsOfInterest?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorBoundingBoxArgs>[]>;
+    /**
+     * Connected home settings to use on a streaming video. Defining the settings is required in the request parameter for `CreateStreamProcessor` . Including this setting in the CreateStreamProcessor request lets you use the stream processor for connected home features. You can then select what you want the stream processor to detect, such as people or pets.
+     *
+     * When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected. An end-of-session summary is also published. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
+     */
     connectedHomeSettings?: pulumi.Input<inputs.rekognition.StreamProcessorConnectedHomeSettingsArgs>;
+    /**
+     * Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level, this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
+     */
     dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreferenceArgs>;
+    /**
+     * The input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor. `FaceSearchSettings` is a request parameter for [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor) . For more information, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
+     */
     faceSearchSettings?: pulumi.Input<inputs.rekognition.StreamProcessorFaceSearchSettingsArgs>;
+    /**
+     * Amazon Rekognition Video Stream Processor take as input a Kinesis video stream (Input) and a Kinesis data stream (Output). This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
+     */
     kinesisDataStream?: pulumi.Input<inputs.rekognition.StreamProcessorKinesisDataStreamArgs>;
+    /**
+     * The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
+     */
     kinesisVideoStream: pulumi.Input<inputs.rekognition.StreamProcessorKinesisVideoStreamArgs>;
     /**
      * The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
@@ -157,6 +200,9 @@ export interface StreamProcessorArgs {
      * Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
+     */
     notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannelArgs>;
     /**
      * The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
@@ -166,6 +212,9 @@ export interface StreamProcessorArgs {
      * ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. For more information, see [S3Destination](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_S3Destination) .
+     */
     s3Destination?: pulumi.Input<inputs.rekognition.StreamProcessorS3DestinationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

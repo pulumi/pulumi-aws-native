@@ -29,6 +29,7 @@ type LookupModelCardArgs struct {
 }
 
 type LookupModelCardResult struct {
+	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content *ModelCardContent `pulumi:"content"`
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy *ModelCardUserContext `pulumi:"createdBy"`
@@ -86,6 +87,7 @@ func (o LookupModelCardResultOutput) ToLookupModelCardResultOutputWithContext(ct
 	return o
 }
 
+// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 func (o LookupModelCardResultOutput) Content() ModelCardContentPtrOutput {
 	return o.ApplyT(func(v LookupModelCardResult) *ModelCardContent { return v.Content }).(ModelCardContentPtrOutput)
 }

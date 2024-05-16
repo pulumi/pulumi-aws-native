@@ -24,13 +24,17 @@ func LookupModelPackageGroup(ctx *pulumi.Context, args *LookupModelPackageGroupA
 }
 
 type LookupModelPackageGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the model group.
 	ModelPackageGroupArn string `pulumi:"modelPackageGroupArn"`
 }
 
 type LookupModelPackageGroupResult struct {
 	// The time at which the model package group was created.
-	CreationTime         *string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
+	// The Amazon Resource Name (ARN) of the model group.
 	ModelPackageGroupArn *string `pulumi:"modelPackageGroupArn"`
+	// A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 	ModelPackageGroupPolicy interface{} `pulumi:"modelPackageGroupPolicy"`
 	// The status of a modelpackage group job.
@@ -53,6 +57,7 @@ func LookupModelPackageGroupOutput(ctx *pulumi.Context, args LookupModelPackageG
 }
 
 type LookupModelPackageGroupOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the model group.
 	ModelPackageGroupArn pulumi.StringInput `pulumi:"modelPackageGroupArn"`
 }
 
@@ -79,10 +84,13 @@ func (o LookupModelPackageGroupResultOutput) CreationTime() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupModelPackageGroupResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the model group.
 func (o LookupModelPackageGroupResultOutput) ModelPackageGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageGroupResult) *string { return v.ModelPackageGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 func (o LookupModelPackageGroupResultOutput) ModelPackageGroupPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupModelPackageGroupResult) interface{} { return v.ModelPackageGroupPolicy }).(pulumi.AnyOutput)

@@ -34,16 +34,25 @@ class GetContinuousDeploymentPolicyResult:
     @property
     @pulumi.getter(name="continuousDeploymentPolicyConfig")
     def continuous_deployment_policy_config(self) -> Optional['outputs.ContinuousDeploymentPolicyConfig']:
+        """
+        Contains the configuration for a continuous deployment policy.
+        """
         return pulumi.get(self, "continuous_deployment_policy_config")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier of the cotinuous deployment policy.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the continuous deployment policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
 
@@ -62,6 +71,9 @@ def get_continuous_deployment_policy(id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContinuousDeploymentPolicyResult:
     """
     Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
+
+
+    :param str id: The identifier of the cotinuous deployment policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -79,5 +91,8 @@ def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[str]] = No
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContinuousDeploymentPolicyResult]:
     """
     Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
+
+
+    :param str id: The identifier of the cotinuous deployment policy.
     """
     ...

@@ -21,7 +21,13 @@ export function getResourceAssociation(args: GetResourceAssociationArgs, opts?: 
 }
 
 export interface GetResourceAssociationArgs {
+    /**
+     * The Amazon resource name (ARN) that specifies the application.
+     */
     applicationArn: string;
+    /**
+     * The Amazon resource name (ARN) that specifies the resource.
+     */
     resourceArn: string;
     /**
      * The type of the CFN Resource for now it's enum CFN_STACK.
@@ -30,7 +36,13 @@ export interface GetResourceAssociationArgs {
 }
 
 export interface GetResourceAssociationResult {
+    /**
+     * The Amazon resource name (ARN) that specifies the application.
+     */
     readonly applicationArn?: string;
+    /**
+     * The Amazon resource name (ARN) that specifies the resource.
+     */
     readonly resourceArn?: string;
 }
 /**
@@ -41,7 +53,13 @@ export function getResourceAssociationOutput(args: GetResourceAssociationOutputA
 }
 
 export interface GetResourceAssociationOutputArgs {
+    /**
+     * The Amazon resource name (ARN) that specifies the application.
+     */
     applicationArn: pulumi.Input<string>;
+    /**
+     * The Amazon resource name (ARN) that specifies the resource.
+     */
     resourceArn: pulumi.Input<string>;
     /**
      * The type of the CFN Resource for now it's enum CFN_STACK.

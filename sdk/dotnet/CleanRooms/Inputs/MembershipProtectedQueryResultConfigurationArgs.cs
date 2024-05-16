@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipProtectedQueryResultConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains configurations for protected query results.
+        /// </summary>
         [Input("outputConfiguration", required: true)]
         public Input<Inputs.MembershipProtectedQueryOutputConfigurationArgs> OutputConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

@@ -53,7 +53,13 @@ export class ServiceTemplate extends pulumi.CustomResource {
      * <p>A customer provided encryption key that's used to encrypt data.</p>
      */
     public readonly encryptionKey!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the service template.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
+     */
     public readonly pipelineProvisioning!: pulumi.Output<enums.proton.ServiceTemplateProvisioning | undefined>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
@@ -112,7 +118,13 @@ export interface ServiceTemplateArgs {
      * <p>A customer provided encryption key that's used to encrypt data.</p>
      */
     encryptionKey?: pulumi.Input<string>;
+    /**
+     * The name of the service template.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
+     */
     pipelineProvisioning?: pulumi.Input<enums.proton.ServiceTemplateProvisioning>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>

@@ -119,6 +119,9 @@ export class RobotApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === RobotApplication.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the robot application.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The revision ID of robot application.
@@ -132,11 +135,17 @@ export class RobotApplication extends pulumi.CustomResource {
      * The name of the robot application.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Information about a robot software suite.
+     */
     public readonly robotSoftwareSuite!: pulumi.Output<outputs.robomaker.RobotApplicationRobotSoftwareSuite>;
     /**
      * The sources of the robot application.
      */
     public readonly sources!: pulumi.Output<outputs.robomaker.RobotApplicationSourceConfig[] | undefined>;
+    /**
+     * A map that contains tag keys and tag values that are attached to the robot application.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -192,10 +201,16 @@ export interface RobotApplicationArgs {
      * The name of the robot application.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Information about a robot software suite.
+     */
     robotSoftwareSuite: pulumi.Input<inputs.robomaker.RobotApplicationRobotSoftwareSuiteArgs>;
     /**
      * The sources of the robot application.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.robomaker.RobotApplicationSourceConfigArgs>[]>;
+    /**
+     * A map that contains tag keys and tag values that are attached to the robot application.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

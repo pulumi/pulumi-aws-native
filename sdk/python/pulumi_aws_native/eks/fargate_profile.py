@@ -28,7 +28,9 @@ class FargateProfileArgs:
         The set of arguments for constructing a FargateProfile resource.
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
+        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: An object representing an AWS Fargate profile selector.
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -68,6 +70,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter
     def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]:
+        """
+        An object representing an AWS Fargate profile selector.
+        """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
@@ -89,6 +94,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -128,6 +136,8 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: An object representing an AWS Fargate profile selector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -218,6 +228,9 @@ class FargateProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -247,11 +260,17 @@ class FargateProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def selectors(self) -> pulumi.Output[Sequence['outputs.FargateProfileSelector']]:
+        """
+        An object representing an AWS Fargate profile selector.
+        """
         return pulumi.get(self, "selectors")
 
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+        """
         return pulumi.get(self, "subnets")
 
     @property

@@ -73,11 +73,17 @@ namespace Pulumi.AwsNative.Configuration
     [OutputType]
     public sealed class GetConfigRuleResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
         /// </summary>
         public readonly Outputs.ComplianceProperties? Compliance;
+        /// <summary>
+        /// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
+        /// </summary>
         public readonly string? ConfigRuleId;
         /// <summary>
         /// The description that you provide for the CC rule.

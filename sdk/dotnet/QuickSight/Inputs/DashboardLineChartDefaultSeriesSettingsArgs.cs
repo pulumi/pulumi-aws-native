@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardLineChartDefaultSeriesSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The axis to which you are binding all line series to.
+        /// </summary>
         [Input("axisBinding")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardAxisBinding>? AxisBinding { get; set; }
 
+        /// <summary>
+        /// Line styles options for a line series in `LineChartVisual` .
+        /// </summary>
         [Input("lineStyleSettings")]
         public Input<Inputs.DashboardLineChartLineStyleSettingsArgs>? LineStyleSettings { get; set; }
 
+        /// <summary>
+        /// Marker styles options for a line series in `LineChartVisual` .
+        /// </summary>
         [Input("markerStyleSettings")]
         public Input<Inputs.DashboardLineChartMarkerStyleSettingsArgs>? MarkerStyleSettings { get; set; }
 

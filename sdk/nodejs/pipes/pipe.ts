@@ -69,22 +69,75 @@ export class Pipe extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipe.__pulumiType;
     }
 
+    /**
+     * The ARN of the pipe.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The time the pipe was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The state the pipe is in.
+     */
     public /*out*/ readonly currentState!: pulumi.Output<enums.pipes.PipeState>;
+    /**
+     * A description of the pipe.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The state the pipe should be in.
+     */
     public readonly desiredState!: pulumi.Output<enums.pipes.PipeRequestedPipeState | undefined>;
+    /**
+     * The ARN of the enrichment resource.
+     */
     public readonly enrichment!: pulumi.Output<string | undefined>;
+    /**
+     * The parameters required to set up enrichment on your pipe.
+     */
     public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
+    /**
+     * When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * Represents the configuration settings for the logs to which this pipe should report events.
+     */
     public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
+    /**
+     * The name of the pipe.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the role that allows the pipe to send data to the target.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The ARN of the source resource.
+     */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * The parameters required to set up a source for your pipe.
+     */
     public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters | undefined>;
+    /**
+     * The reason the pipe is in its current state.
+     */
     public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    /**
+     * The list of key-value pairs to associate with the pipe.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARN of the target resource.
+     */
     public readonly target!: pulumi.Output<string>;
+    /**
+     * The parameters required to set up a target for your pipe.
+     *
+     * For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+     */
     public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
 
     /**
@@ -154,16 +207,54 @@ export class Pipe extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipe resource.
  */
 export interface PipeArgs {
+    /**
+     * A description of the pipe.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The state the pipe should be in.
+     */
     desiredState?: pulumi.Input<enums.pipes.PipeRequestedPipeState>;
+    /**
+     * The ARN of the enrichment resource.
+     */
     enrichment?: pulumi.Input<string>;
+    /**
+     * The parameters required to set up enrichment on your pipe.
+     */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParametersArgs>;
+    /**
+     * Represents the configuration settings for the logs to which this pipe should report events.
+     */
     logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfigurationArgs>;
+    /**
+     * The name of the pipe.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the role that allows the pipe to send data to the target.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The ARN of the source resource.
+     */
     source: pulumi.Input<string>;
+    /**
+     * The parameters required to set up a source for your pipe.
+     */
     sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersArgs>;
+    /**
+     * The list of key-value pairs to associate with the pipe.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the target resource.
+     */
     target: pulumi.Input<string>;
+    /**
+     * The parameters required to set up a target for your pipe.
+     *
+     * For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
+     */
     targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersArgs>;
 }

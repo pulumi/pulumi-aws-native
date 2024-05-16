@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSelectedSheetsFilterScopeConfiguration
     {
+        /// <summary>
+        /// The filter that is applied to the options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSheetVisualScopingConfiguration> SheetVisualScopingConfigurations;
 
         [OutputConstructor]

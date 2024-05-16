@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableTargetTrackingScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
+        /// </summary>
         [Input("disableScaleIn")]
         public Input<bool>? DisableScaleIn { get; set; }
 
+        /// <summary>
+        /// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+        /// </summary>
         [Input("scaleInCooldown")]
         public Input<int>? ScaleInCooldown { get; set; }
 
+        /// <summary>
+        /// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+        /// </summary>
         [Input("scaleOutCooldown")]
         public Input<int>? ScaleOutCooldown { get; set; }
 
+        /// <summary>
+        /// Defines a target value for the scaling policy.
+        /// </summary>
         [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;
 

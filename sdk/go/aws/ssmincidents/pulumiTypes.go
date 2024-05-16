@@ -256,12 +256,15 @@ func (o ReplicationSetReplicationRegionArrayOutput) Index(i pulumi.IntInput) Rep
 
 // A key-value pair to tag a resource.
 type ReplicationSetTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 // The automation configuration to launch.
 type ResponsePlanAction struct {
+	// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
 	SsmAutomation *ResponsePlanSsmAutomation `pulumi:"ssmAutomation"`
 }
 
@@ -278,6 +281,7 @@ type ResponsePlanActionInput interface {
 
 // The automation configuration to launch.
 type ResponsePlanActionArgs struct {
+	// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
 	SsmAutomation ResponsePlanSsmAutomationPtrInput `pulumi:"ssmAutomation"`
 }
 
@@ -333,6 +337,7 @@ func (o ResponsePlanActionOutput) ToResponsePlanActionOutputWithContext(ctx cont
 	return o
 }
 
+// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
 func (o ResponsePlanActionOutput) SsmAutomation() ResponsePlanSsmAutomationPtrOutput {
 	return o.ApplyT(func(v ResponsePlanAction) *ResponsePlanSsmAutomation { return v.SsmAutomation }).(ResponsePlanSsmAutomationPtrOutput)
 }
@@ -359,6 +364,7 @@ func (o ResponsePlanActionArrayOutput) Index(i pulumi.IntInput) ResponsePlanActi
 
 // The chat channel configuration.
 type ResponsePlanChatChannel struct {
+	// The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
 	ChatbotSns []string `pulumi:"chatbotSns"`
 }
 
@@ -375,6 +381,7 @@ type ResponsePlanChatChannelInput interface {
 
 // The chat channel configuration.
 type ResponsePlanChatChannelArgs struct {
+	// The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
 	ChatbotSns pulumi.StringArrayInput `pulumi:"chatbotSns"`
 }
 
@@ -456,6 +463,7 @@ func (o ResponsePlanChatChannelOutput) ToResponsePlanChatChannelPtrOutputWithCon
 	}).(ResponsePlanChatChannelPtrOutput)
 }
 
+// The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
 func (o ResponsePlanChatChannelOutput) ChatbotSns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponsePlanChatChannel) []string { return v.ChatbotSns }).(pulumi.StringArrayOutput)
 }
@@ -484,6 +492,7 @@ func (o ResponsePlanChatChannelPtrOutput) Elem() ResponsePlanChatChannelOutput {
 	}).(ResponsePlanChatChannelOutput)
 }
 
+// The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
 func (o ResponsePlanChatChannelPtrOutput) ChatbotSns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanChatChannel) []string {
 		if v == nil {
@@ -495,7 +504,9 @@ func (o ResponsePlanChatChannelPtrOutput) ChatbotSns() pulumi.StringArrayOutput 
 
 // A parameter with a dynamic value to set when starting the SSM automation document.
 type ResponsePlanDynamicSsmParameter struct {
-	Key   string                               `pulumi:"key"`
+	// The key parameter to use when running the Systems Manager Automation runbook.
+	Key string `pulumi:"key"`
+	// The dynamic parameter value.
 	Value ResponsePlanDynamicSsmParameterValue `pulumi:"value"`
 }
 
@@ -512,7 +523,9 @@ type ResponsePlanDynamicSsmParameterInput interface {
 
 // A parameter with a dynamic value to set when starting the SSM automation document.
 type ResponsePlanDynamicSsmParameterArgs struct {
-	Key   pulumi.StringInput                        `pulumi:"key"`
+	// The key parameter to use when running the Systems Manager Automation runbook.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The dynamic parameter value.
 	Value ResponsePlanDynamicSsmParameterValueInput `pulumi:"value"`
 }
 
@@ -568,10 +581,12 @@ func (o ResponsePlanDynamicSsmParameterOutput) ToResponsePlanDynamicSsmParameter
 	return o
 }
 
+// The key parameter to use when running the Systems Manager Automation runbook.
 func (o ResponsePlanDynamicSsmParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanDynamicSsmParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The dynamic parameter value.
 func (o ResponsePlanDynamicSsmParameterOutput) Value() ResponsePlanDynamicSsmParameterValueOutput {
 	return o.ApplyT(func(v ResponsePlanDynamicSsmParameter) ResponsePlanDynamicSsmParameterValue { return v.Value }).(ResponsePlanDynamicSsmParameterValueOutput)
 }
@@ -598,6 +613,7 @@ func (o ResponsePlanDynamicSsmParameterArrayOutput) Index(i pulumi.IntInput) Res
 
 // Value of the dynamic parameter to set when starting the SSM automation document.
 type ResponsePlanDynamicSsmParameterValue struct {
+	// Variable dynamic parameters. A parameter value is determined when an incident is created.
 	Variable *ResponsePlanVariableType `pulumi:"variable"`
 }
 
@@ -614,6 +630,7 @@ type ResponsePlanDynamicSsmParameterValueInput interface {
 
 // Value of the dynamic parameter to set when starting the SSM automation document.
 type ResponsePlanDynamicSsmParameterValueArgs struct {
+	// Variable dynamic parameters. A parameter value is determined when an incident is created.
 	Variable ResponsePlanVariableTypePtrInput `pulumi:"variable"`
 }
 
@@ -644,6 +661,7 @@ func (o ResponsePlanDynamicSsmParameterValueOutput) ToResponsePlanDynamicSsmPara
 	return o
 }
 
+// Variable dynamic parameters. A parameter value is determined when an incident is created.
 func (o ResponsePlanDynamicSsmParameterValueOutput) Variable() ResponsePlanVariableTypePtrOutput {
 	return o.ApplyT(func(v ResponsePlanDynamicSsmParameterValue) *ResponsePlanVariableType { return v.Variable }).(ResponsePlanVariableTypePtrOutput)
 }
@@ -835,6 +853,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type ResponsePlanIntegration struct {
+	// Details about the PagerDuty configuration for a response plan.
 	PagerDutyConfiguration *ResponsePlanPagerDutyConfiguration `pulumi:"pagerDutyConfiguration"`
 }
 
@@ -850,6 +869,7 @@ type ResponsePlanIntegrationInput interface {
 }
 
 type ResponsePlanIntegrationArgs struct {
+	// Details about the PagerDuty configuration for a response plan.
 	PagerDutyConfiguration ResponsePlanPagerDutyConfigurationPtrInput `pulumi:"pagerDutyConfiguration"`
 }
 
@@ -904,6 +924,7 @@ func (o ResponsePlanIntegrationOutput) ToResponsePlanIntegrationOutputWithContex
 	return o
 }
 
+// Details about the PagerDuty configuration for a response plan.
 func (o ResponsePlanIntegrationOutput) PagerDutyConfiguration() ResponsePlanPagerDutyConfigurationPtrOutput {
 	return o.ApplyT(func(v ResponsePlanIntegration) *ResponsePlanPagerDutyConfiguration { return v.PagerDutyConfiguration }).(ResponsePlanPagerDutyConfigurationPtrOutput)
 }
@@ -930,6 +951,7 @@ func (o ResponsePlanIntegrationArrayOutput) Index(i pulumi.IntInput) ResponsePla
 
 // A notification target.
 type ResponsePlanNotificationTargetItem struct {
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -946,6 +968,7 @@ type ResponsePlanNotificationTargetItemInput interface {
 
 // A notification target.
 type ResponsePlanNotificationTargetItemArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
 	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
 }
 
@@ -1001,6 +1024,7 @@ func (o ResponsePlanNotificationTargetItemOutput) ToResponsePlanNotificationTarg
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Amazon SNS topic.
 func (o ResponsePlanNotificationTargetItemOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanNotificationTargetItem) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
@@ -1028,7 +1052,8 @@ func (o ResponsePlanNotificationTargetItemArrayOutput) Index(i pulumi.IntInput) 
 // The pagerDuty configuration to use when starting the incident.
 type ResponsePlanPagerDutyConfiguration struct {
 	// The name of the pagerDuty configuration.
-	Name                           string                                     `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Details about the PagerDuty service where the response plan creates an incident.
 	PagerDutyIncidentConfiguration ResponsePlanPagerDutyIncidentConfiguration `pulumi:"pagerDutyIncidentConfiguration"`
 	// The AWS secrets manager secretId storing the pagerDuty token.
 	SecretId string `pulumi:"secretId"`
@@ -1048,7 +1073,8 @@ type ResponsePlanPagerDutyConfigurationInput interface {
 // The pagerDuty configuration to use when starting the incident.
 type ResponsePlanPagerDutyConfigurationArgs struct {
 	// The name of the pagerDuty configuration.
-	Name                           pulumi.StringInput                              `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Details about the PagerDuty service where the response plan creates an incident.
 	PagerDutyIncidentConfiguration ResponsePlanPagerDutyIncidentConfigurationInput `pulumi:"pagerDutyIncidentConfiguration"`
 	// The AWS secrets manager secretId storing the pagerDuty token.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
@@ -1137,6 +1163,7 @@ func (o ResponsePlanPagerDutyConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Details about the PagerDuty service where the response plan creates an incident.
 func (o ResponsePlanPagerDutyConfigurationOutput) PagerDutyIncidentConfiguration() ResponsePlanPagerDutyIncidentConfigurationOutput {
 	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) ResponsePlanPagerDutyIncidentConfiguration {
 		return v.PagerDutyIncidentConfiguration
@@ -1182,6 +1209,7 @@ func (o ResponsePlanPagerDutyConfigurationPtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details about the PagerDuty service where the response plan creates an incident.
 func (o ResponsePlanPagerDutyConfigurationPtrOutput) PagerDutyIncidentConfiguration() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanPagerDutyConfiguration) *ResponsePlanPagerDutyIncidentConfiguration {
 		if v == nil {
@@ -1578,7 +1606,9 @@ func (o ResponsePlanSsmAutomationPtrOutput) TargetAccount() ResponsePlanSsmAutom
 
 // A parameter to set when starting the SSM automation document.
 type ResponsePlanSsmParameter struct {
-	Key    string   `pulumi:"key"`
+	// The key parameter to use when running the Automation runbook.
+	Key string `pulumi:"key"`
+	// The value parameter to use when running the Automation runbook.
 	Values []string `pulumi:"values"`
 }
 
@@ -1595,7 +1625,9 @@ type ResponsePlanSsmParameterInput interface {
 
 // A parameter to set when starting the SSM automation document.
 type ResponsePlanSsmParameterArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// The key parameter to use when running the Automation runbook.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value parameter to use when running the Automation runbook.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1651,10 +1683,12 @@ func (o ResponsePlanSsmParameterOutput) ToResponsePlanSsmParameterOutputWithCont
 	return o
 }
 
+// The key parameter to use when running the Automation runbook.
 func (o ResponsePlanSsmParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanSsmParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value parameter to use when running the Automation runbook.
 func (o ResponsePlanSsmParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponsePlanSsmParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1681,7 +1715,9 @@ func (o ResponsePlanSsmParameterArrayOutput) Index(i pulumi.IntInput) ResponsePl
 
 // A key-value pair to tag a resource.
 type ResponsePlanTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -1698,7 +1734,9 @@ type ResponsePlanTagInput interface {
 
 // A key-value pair to tag a resource.
 type ResponsePlanTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1754,10 +1792,12 @@ func (o ResponsePlanTagOutput) ToResponsePlanTagOutputWithContext(ctx context.Co
 	return o
 }
 
+// The tag key.
 func (o ResponsePlanTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o ResponsePlanTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanTag) string { return v.Value }).(pulumi.StringOutput)
 }

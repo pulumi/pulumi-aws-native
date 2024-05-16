@@ -23,6 +23,9 @@ export interface GetAlarmArgs {
 }
 
 export interface GetAlarmResult {
+    /**
+     * The Amazon Resource Name (ARN) of the alarm.
+     */
     readonly alarmArn?: string;
     /**
      * The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.

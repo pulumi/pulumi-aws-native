@@ -37,9 +37,21 @@ export class DirectoryConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === DirectoryConfig.__pulumiType;
     }
 
+    /**
+     * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+     */
     public readonly certificateBasedAuthProperties!: pulumi.Output<outputs.appstream.DirectoryConfigCertificateBasedAuthProperties | undefined>;
+    /**
+     * The fully qualified name of the directory (for example, corp.example.com).
+     */
     public readonly directoryName!: pulumi.Output<string>;
+    /**
+     * The distinguished names of the organizational units for computer accounts.
+     */
     public readonly organizationalUnitDistinguishedNames!: pulumi.Output<string[]>;
+    /**
+     * The credentials for the service account used by the streaming instance to connect to the directory.
+     */
     public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
 
     /**
@@ -83,8 +95,20 @@ export class DirectoryConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a DirectoryConfig resource.
  */
 export interface DirectoryConfigArgs {
+    /**
+     * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+     */
     certificateBasedAuthProperties?: pulumi.Input<inputs.appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs>;
+    /**
+     * The fully qualified name of the directory (for example, corp.example.com).
+     */
     directoryName: pulumi.Input<string>;
+    /**
+     * The distinguished names of the organizational units for computer accounts.
+     */
     organizationalUnitDistinguishedNames: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The credentials for the service account used by the streaming instance to connect to the directory.
+     */
     serviceAccountCredentials: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentialsArgs>;
 }

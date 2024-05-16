@@ -94,6 +94,9 @@ class GetEndpointResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['EndpointStatus']:
+        """
+        The status of the endpoint.
+        """
         return pulumi.get(self, "status")
 
 

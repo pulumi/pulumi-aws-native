@@ -23,6 +23,8 @@ class CrlArgs:
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Crl resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A label that consists of a key and value you define.
+        :param pulumi.Input[str] trust_anchor_arn: The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
         """
         pulumi.set(__self__, "crl_data", crl_data)
         if enabled is not None:
@@ -64,6 +66,9 @@ class CrlArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A label that consists of a key and value you define.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -73,6 +78,9 @@ class CrlArgs:
     @property
     @pulumi.getter(name="trustAnchorArn")
     def trust_anchor_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        """
         return pulumi.get(self, "trust_anchor_arn")
 
     @trust_anchor_arn.setter
@@ -96,6 +104,8 @@ class Crl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A label that consists of a key and value you define.
+        :param pulumi.Input[str] trust_anchor_arn: The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
         """
         ...
     @overload
@@ -196,10 +206,16 @@ class Crl(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A label that consists of a key and value you define.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustAnchorArn")
     def trust_anchor_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        """
         return pulumi.get(self, "trust_anchor_arn")
 

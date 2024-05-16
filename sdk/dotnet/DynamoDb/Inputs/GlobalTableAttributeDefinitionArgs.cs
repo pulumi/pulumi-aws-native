@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableAttributeDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A name for the attribute.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The data type for the attribute, where:
+        /// 
+        /// - `S` - the attribute is of type String
+        /// - `N` - the attribute is of type Number
+        /// - `B` - the attribute is of type Binary
+        /// </summary>
         [Input("attributeType", required: true)]
         public Input<string> AttributeType { get; set; } = null!;
 

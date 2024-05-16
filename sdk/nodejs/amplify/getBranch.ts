@@ -19,21 +19,74 @@ export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetBranchArgs {
+    /**
+     * ARN for a branch, part of an Amplify App.
+     */
     arn: string;
 }
 
 export interface GetBranchResult {
+    /**
+     * ARN for a branch, part of an Amplify App.
+     */
     readonly arn?: string;
+    /**
+     * Describes the backend associated with an Amplify `Branch` .
+     *
+     * This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+     */
     readonly backend?: outputs.amplify.BranchBackend;
+    /**
+     * The build specification (build spec) for the branch.
+     */
     readonly buildSpec?: string;
+    /**
+     * The description for the branch that is part of an Amplify app.
+     */
     readonly description?: string;
+    /**
+     * Enables auto building for the branch.
+     */
     readonly enableAutoBuild?: boolean;
+    /**
+     * Enables performance mode for the branch.
+     *
+     * Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+     */
     readonly enablePerformanceMode?: boolean;
+    /**
+     * Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+     *
+     * To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+     *
+     * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+     */
     readonly enablePullRequestPreview?: boolean;
+    /**
+     * The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+     */
     readonly environmentVariables?: outputs.amplify.BranchEnvironmentVariable[];
+    /**
+     * The framework for the branch.
+     */
     readonly framework?: string;
+    /**
+     * If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
+     *
+     * To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+     *
+     * If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
+     *
+     * For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+     */
     readonly pullRequestEnvironmentName?: string;
+    /**
+     * Describes the current stage for the branch.
+     */
     readonly stage?: enums.amplify.BranchStage;
+    /**
+     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -44,5 +97,8 @@ export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetBranchOutputArgs {
+    /**
+     * ARN for a branch, part of an Amplify App.
+     */
     arn: pulumi.Input<string>;
 }

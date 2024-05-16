@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleRunCommandParameters
     {
+        /// <summary>
+        /// Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleRunCommandTarget> RunCommandTargets;
 
         [OutputConstructor]

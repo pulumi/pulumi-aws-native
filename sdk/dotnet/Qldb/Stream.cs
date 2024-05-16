@@ -87,27 +87,61 @@ namespace Pulumi.AwsNative.Qldb
     [AwsNativeResourceType("aws-native:qldb:Stream")]
     public partial class Stream : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+        /// 
+        /// The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        /// </summary>
         [Output("exclusiveEndTime")]
         public Output<string?> ExclusiveEndTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        /// 
+        /// The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
+        /// 
+        /// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
+        /// </summary>
         [Output("inclusiveStartTime")]
         public Output<string> InclusiveStartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        /// </summary>
         [Output("kinesisConfiguration")]
         public Output<Outputs.StreamKinesisConfiguration> KinesisConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the ledger.
+        /// </summary>
         [Output("ledgerName")]
         public Output<string> LedgerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+        /// 
+        /// To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+        /// 
+        /// Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
+        /// </summary>
         [Output("streamName")]
         public Output<string> StreamName { get; private set; } = null!;
 
@@ -171,21 +205,49 @@ namespace Pulumi.AwsNative.Qldb
 
     public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
+        /// 
+        /// The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        /// </summary>
         [Input("exclusiveEndTime")]
         public Input<string>? ExclusiveEndTime { get; set; }
 
+        /// <summary>
+        /// The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
+        /// 
+        /// The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
+        /// 
+        /// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
+        /// </summary>
         [Input("inclusiveStartTime", required: true)]
         public Input<string> InclusiveStartTime { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        /// </summary>
         [Input("kinesisConfiguration", required: true)]
         public Input<Inputs.StreamKinesisConfigurationArgs> KinesisConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the ledger.
+        /// </summary>
         [Input("ledgerName", required: true)]
         public Input<string> LedgerName { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+        /// 
+        /// To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
+        /// 
+        /// Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
+        /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
 

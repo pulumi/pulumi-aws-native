@@ -17,15 +17,22 @@ import (
 type TransitGatewayVpcAttachment struct {
 	pulumi.CustomResourceState
 
+	// The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
 	AddSubnetIds pulumi.StringArrayOutput `pulumi:"addSubnetIds"`
-	AwsId        pulumi.StringOutput      `pulumi:"awsId"`
+	// The ID of the attachment.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The options for the transit gateway vpc attachment.
-	Options          OptionsPropertiesPtrOutput `pulumi:"options"`
-	RemoveSubnetIds  pulumi.StringArrayOutput   `pulumi:"removeSubnetIds"`
-	SubnetIds        pulumi.StringArrayOutput   `pulumi:"subnetIds"`
-	Tags             aws.TagArrayOutput         `pulumi:"tags"`
-	TransitGatewayId pulumi.StringOutput        `pulumi:"transitGatewayId"`
-	VpcId            pulumi.StringOutput        `pulumi:"vpcId"`
+	Options OptionsPropertiesPtrOutput `pulumi:"options"`
+	// The IDs of one or more subnets to remove.
+	RemoveSubnetIds pulumi.StringArrayOutput `pulumi:"removeSubnetIds"`
+	// The IDs of the subnets.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the transit gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewTransitGatewayVpcAttachment registers a new resource with the given unique name, arguments, and options.
@@ -83,26 +90,38 @@ func (TransitGatewayVpcAttachmentState) ElementType() reflect.Type {
 }
 
 type transitGatewayVpcAttachmentArgs struct {
+	// The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
 	AddSubnetIds []string `pulumi:"addSubnetIds"`
 	// The options for the transit gateway vpc attachment.
-	Options          *OptionsProperties `pulumi:"options"`
-	RemoveSubnetIds  []string           `pulumi:"removeSubnetIds"`
-	SubnetIds        []string           `pulumi:"subnetIds"`
-	Tags             []aws.Tag          `pulumi:"tags"`
-	TransitGatewayId string             `pulumi:"transitGatewayId"`
-	VpcId            string             `pulumi:"vpcId"`
+	Options *OptionsProperties `pulumi:"options"`
+	// The IDs of one or more subnets to remove.
+	RemoveSubnetIds []string `pulumi:"removeSubnetIds"`
+	// The IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the transit gateway.
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a TransitGatewayVpcAttachment resource.
 type TransitGatewayVpcAttachmentArgs struct {
+	// The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
 	AddSubnetIds pulumi.StringArrayInput
 	// The options for the transit gateway vpc attachment.
-	Options          OptionsPropertiesPtrInput
-	RemoveSubnetIds  pulumi.StringArrayInput
-	SubnetIds        pulumi.StringArrayInput
-	Tags             aws.TagArrayInput
+	Options OptionsPropertiesPtrInput
+	// The IDs of one or more subnets to remove.
+	RemoveSubnetIds pulumi.StringArrayInput
+	// The IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput
+	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	Tags aws.TagArrayInput
+	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
-	VpcId            pulumi.StringInput
+	// The ID of the VPC.
+	VpcId pulumi.StringInput
 }
 
 func (TransitGatewayVpcAttachmentArgs) ElementType() reflect.Type {
@@ -142,10 +161,12 @@ func (o TransitGatewayVpcAttachmentOutput) ToTransitGatewayVpcAttachmentOutputWi
 	return o
 }
 
+// The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
 func (o TransitGatewayVpcAttachmentOutput) AddSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.AddSubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the attachment.
 func (o TransitGatewayVpcAttachmentOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -155,22 +176,27 @@ func (o TransitGatewayVpcAttachmentOutput) Options() OptionsPropertiesPtrOutput 
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) OptionsPropertiesPtrOutput { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
+// The IDs of one or more subnets to remove.
 func (o TransitGatewayVpcAttachmentOutput) RemoveSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.RemoveSubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The IDs of the subnets.
 func (o TransitGatewayVpcAttachmentOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
 func (o TransitGatewayVpcAttachmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the transit gateway.
 func (o TransitGatewayVpcAttachmentOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC.
 func (o TransitGatewayVpcAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

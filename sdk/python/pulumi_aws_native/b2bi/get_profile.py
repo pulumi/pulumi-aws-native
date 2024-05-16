@@ -54,11 +54,17 @@ class GetProfileResult:
     @property
     @pulumi.getter(name="businessName")
     def business_name(self) -> Optional[str]:
+        """
+        Returns the name for the business associated with this profile.
+        """
         return pulumi.get(self, "business_name")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        Returns the timestamp for creation date and time of the profile.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -69,16 +75,25 @@ class GetProfileResult:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[str]:
+        """
+        Returns the name of the logging group.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        Returns the timestamp that identifies the most recent date and time that the profile was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Returns the display name for profile.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -89,6 +104,9 @@ class GetProfileResult:
     @property
     @pulumi.getter(name="profileArn")
     def profile_arn(self) -> Optional[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for the profile.
+        """
         return pulumi.get(self, "profile_arn")
 
     @property
@@ -99,6 +117,9 @@ class GetProfileResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        """
         return pulumi.get(self, "tags")
 
 

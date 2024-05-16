@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:VpcEndpointService")]
     public partial class VpcEndpointService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+        /// </summary>
         [Output("acceptanceRequired")]
         public Output<bool?> AcceptanceRequired { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
+        /// </summary>
         [Output("contributorInsightsEnabled")]
         public Output<bool?> ContributorInsightsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+        /// </summary>
         [Output("gatewayLoadBalancerArns")]
         public Output<ImmutableArray<string>> GatewayLoadBalancerArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Network Load Balancers.
+        /// </summary>
         [Output("networkLoadBalancerArns")]
         public Output<ImmutableArray<string>> NetworkLoadBalancerArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+        /// </summary>
         [Output("payerResponsibility")]
         public Output<string?> PayerResponsibility { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the endpoint service.
+        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
@@ -78,14 +96,24 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class VpcEndpointServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+        /// </summary>
         [Input("acceptanceRequired")]
         public Input<bool>? AcceptanceRequired { get; set; }
 
+        /// <summary>
+        /// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
+        /// </summary>
         [Input("contributorInsightsEnabled")]
         public Input<bool>? ContributorInsightsEnabled { get; set; }
 
         [Input("gatewayLoadBalancerArns")]
         private InputList<string>? _gatewayLoadBalancerArns;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+        /// </summary>
         public InputList<string> GatewayLoadBalancerArns
         {
             get => _gatewayLoadBalancerArns ?? (_gatewayLoadBalancerArns = new InputList<string>());
@@ -94,12 +122,19 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("networkLoadBalancerArns")]
         private InputList<string>? _networkLoadBalancerArns;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Network Load Balancers.
+        /// </summary>
         public InputList<string> NetworkLoadBalancerArns
         {
             get => _networkLoadBalancerArns ?? (_networkLoadBalancerArns = new InputList<string>());
             set => _networkLoadBalancerArns = value;
         }
 
+        /// <summary>
+        /// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+        /// </summary>
         [Input("payerResponsibility")]
         public Input<string>? PayerResponsibility { get; set; }
 

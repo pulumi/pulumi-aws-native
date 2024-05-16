@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Evidently.Inputs
     /// </summary>
     public sealed class ProjectDataDeliveryObjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
+        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 
+        /// <summary>
+        /// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.ProjectS3DestinationArgs>? S3 { get; set; }
 

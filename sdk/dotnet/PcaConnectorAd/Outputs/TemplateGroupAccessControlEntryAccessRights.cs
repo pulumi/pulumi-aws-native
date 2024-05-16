@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.PcaConnectorAd.Outputs
     [OutputType]
     public sealed class TemplateGroupAccessControlEntryAccessRights
     {
+        /// <summary>
+        /// Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
+        /// </summary>
         public readonly Pulumi.AwsNative.PcaConnectorAd.TemplateGroupAccessControlEntryAccessRight? AutoEnroll;
+        /// <summary>
+        /// Allow or deny an Active Directory group from enrolling certificates issued against a template.
+        /// </summary>
         public readonly Pulumi.AwsNative.PcaConnectorAd.TemplateGroupAccessControlEntryAccessRight? Enroll;
 
         [OutputConstructor]

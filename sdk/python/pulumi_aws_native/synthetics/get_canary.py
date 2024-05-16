@@ -152,6 +152,9 @@ class GetCanaryResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of key-value pairs that are associated with the canary.
+        """
         return pulumi.get(self, "tags")
 
     @property

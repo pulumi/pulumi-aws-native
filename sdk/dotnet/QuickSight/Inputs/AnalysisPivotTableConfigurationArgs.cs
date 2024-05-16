@@ -12,21 +12,41 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPivotTableConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field options for a pivot table visual.
+        /// </summary>
         [Input("fieldOptions")]
         public Input<Inputs.AnalysisPivotTableFieldOptionsArgs>? FieldOptions { get; set; }
 
+        /// <summary>
+        /// The field wells for a pivot table visual.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisPivotTableFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The paginated report options for a pivot table visual.
+        /// </summary>
         [Input("paginatedReportOptions")]
         public Input<Inputs.AnalysisPivotTablePaginatedReportOptionsArgs>? PaginatedReportOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration for a `PivotTableVisual` .
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisPivotTableSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The table options for a pivot table visual.
+        /// </summary>
         [Input("tableOptions")]
         public Input<Inputs.AnalysisPivotTableOptionsArgs>? TableOptions { get; set; }
 
+        /// <summary>
+        /// The total options for a pivot table visual.
+        /// </summary>
         [Input("totalOptions")]
         public Input<Inputs.AnalysisPivotTableTotalOptionsArgs>? TotalOptions { get; set; }
 

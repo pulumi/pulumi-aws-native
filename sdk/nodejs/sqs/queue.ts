@@ -149,6 +149,9 @@ export class Queue extends pulumi.CustomResource {
         return obj['__pulumiType'] === Queue.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
@@ -199,6 +202,9 @@ export class Queue extends pulumi.CustomResource {
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     public readonly queueName!: pulumi.Output<string | undefined>;
+    /**
+     * Returns the URLs of the queues from the policy.
+     */
     public /*out*/ readonly queueUrl!: pulumi.Output<string>;
     /**
      * Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.

@@ -13,15 +13,53 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTimeRangeFilter
     {
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The default configuration for all dependent controls of the filter.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// </summary>
         public readonly Outputs.AnalysisExcludePeriodConfiguration? ExcludePeriodConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// Determines whether the maximum value in the filter value range should be included in the filtered results.
+        /// </summary>
         public readonly bool? IncludeMaximum;
+        /// <summary>
+        /// Determines whether the minimum value in the filter value range should be included in the filtered results.
+        /// </summary>
         public readonly bool? IncludeMinimum;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisFilterNullOption NullOption;
+        /// <summary>
+        /// The value of a time range filter.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisTimeRangeFilterValue? RangeMaximumValue;
+        /// <summary>
+        /// The value of a time range filter.
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly Outputs.AnalysisTimeRangeFilterValue? RangeMinimumValue;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity? TimeGranularity;
 
         [OutputConstructor]
